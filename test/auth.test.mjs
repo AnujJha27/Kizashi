@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 
 import { isAdminEmail, isAdminUserId, isAllowedEmailValue } from "../lib/auth/allowlist-core.js";
 import { mergeSyncSnapshots, parseSyncPayload } from "../lib/supabase/sync-core.js";
@@ -24,6 +25,13 @@ test("admin email matching is case-insensitive and exact", () => {
   assert.equal(isAdminEmail(" AJ05767625@GMAIL.COM ", "aj05767625@gmail.com"), true);
   assert.equal(isAdminEmail("aniruddh302004@gmail.com", "aj05767625@gmail.com"), false);
   assert.equal(isAdminEmail("aj05767625@gmail.com", ""), false);
+});
+
+test("Google sign-in returns through the existing allowlist callback", async () => {
+  const login = await readFile(new URL("../components/auth/login-form.tsx", import.meta.url), "utf8");
+  assert.match(login, /signInWithOAuth/);
+  assert.match(login, /provider: "google"/);
+  assert.match(login, /\/auth\/callback/);
 });
 
 test("an empty allowlist denies access instead of opening the app", () => {

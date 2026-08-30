@@ -408,10 +408,14 @@ Next session order:
 - Supabase Auth user IDs are normally UUIDs, so use `ADMIN_USER_ID` only when
   UUID-based matching is preferred. The default admin email is the requested
   `aj05767625@gmail.com`.
+- Google OAuth sign-in now uses Supabase's provider flow and the existing
+  `/auth/callback`; the callback still enforces the allowlist and admin email,
+  so no Google credential is exposed to Vercel or the browser.
 - Fresh checks: `/usr/bin/node --test test/*.test.mjs` — 5 test files passed;
   direct TypeScript checking passed; `git diff --check` passed. The Next build
-  and browser smoke checks remain intentionally unrun because the owner's Next
-  server is active.
+  was started in a mistaken source-directory context and stopped before
+  compilation to avoid disturbing the owner's server; browser smoke checks
+  remain unrun because that server is active.
 - The mobile bottom navigation now uses five essential destinations with
   shrink-safe grid cells and clipped labels, keeping it inside narrow phone
   viewports; Practice and Profile are included directly.
