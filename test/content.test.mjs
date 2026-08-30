@@ -202,9 +202,13 @@ test("generated content carries draft-only review metadata", () => {
 
 test("Studio exposes review metadata and never trusts a client curriculum item", async () => {
   const route = await readFile(new URL("../app/api/content/generate/route.ts", import.meta.url), "utf8");
+  const reviewRoute = await readFile(new URL("../app/api/content/review-package/route.ts", import.meta.url), "utf8");
   const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
   assert.match(route, /isAdminUser/);
   assert.doesNotMatch(route, /requestedItem\(body\.item/);
+  assert.match(reviewRoute, /Content-Encoding/);
+  assert.match(reviewRoute, /isAdminUser/);
+  assert.match(studio, /\/api\/content\/review-package/);
   assert.match(studio, /Review notes/);
   assert.match(studio, /reviewedBy/);
 });

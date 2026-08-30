@@ -495,3 +495,13 @@ Next session order:
   comma-, semicolon-, or newline-separated accounts.
 - Fresh checks: `/usr/bin/node --test test/*.test.mjs`, direct TypeScript
   checking, `git diff --check`, and `next build` all pass.
+
+## Session notes — Studio review-package delivery repair
+
+- The Studio server page now renders the small authored module first and loads
+  the tracked compressed source-review package in the browser through the
+  admin-only `/api/content/review-package` route. This keeps the large staged
+  payload out of the initial React Server Components response.
+- The route returns the gzip snapshot with private no-store caching and refuses
+  both unauthenticated and non-admin requests. The current production build
+  includes `/api/content/review-package` and generates all 23 static pages.
