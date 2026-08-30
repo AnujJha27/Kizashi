@@ -413,7 +413,7 @@ Next session order:
   server is active.
 - The owner confirmed that the corrected full seed now succeeds against the
   hosted Supabase database. The verified code-only snapshot was pushed to
-  GitHub `main` as `cf8b9c8` (including the handoff update); it contains no private books, PDFs, videos,
+  GitHub `main` as `3c9ed8f`; it contains no private books, PDFs, videos,
   `node_modules`, or credentials. Vercel still needs the production
   `ALLOWED_EMAILS=aniruddh302004@gmail.com` and `ADMIN_USER_ID=aj05767625`
   environment values applied before a redeploy.
@@ -427,3 +427,7 @@ Next session order:
   extractor now fails clearly with an OCR/text-export instruction instead of
   silently reporting zero candidates. OCR was intentionally not added; any
   extracted book facts remain a manual, review-only and licensing-gated step.
+- Strict `scripts/qa_content_package.py` reports `status: ready` with zero
+  blockers for the staged package (7,391 vocabulary, 630 kanji, 413 grammar,
+  6 readings, and 6 listening records). The 8,396 imported records remain
+  pending until a human reviews and assigns them.
