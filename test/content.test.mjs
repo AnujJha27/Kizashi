@@ -363,3 +363,10 @@ test("Studio exposes review metadata and validates staged curriculum items", asy
   assert.match(studio, /Review notes/);
   assert.match(studio, /reviewedBy/);
 });
+
+test("offline worker caches recorded audio without caching arbitrary cross-origin requests", async () => {
+  const worker = await readFile(new URL("../public/sw.js", import.meta.url), "utf8");
+  assert.match(worker, /event\.request\.destination === "audio"/);
+  assert.match(worker, /response\.type === "opaque"/);
+  assert.match(worker, /new URL\(event\.request\.url\)\.origin !== self\.location\.origin/);
+});
