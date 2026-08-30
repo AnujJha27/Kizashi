@@ -4,7 +4,7 @@ import { useEffect, useState, type FormEvent } from "react";
 
 import Link from "next/link";
 
-import { importPersonalEntries } from "@/lib/personal-import.js";
+import { canonicalId, importPersonalEntries } from "@/lib/personal-import.js";
 import { readCustomEntries, writeCustomEntries, writeCustomEntry, type CustomEntry } from "@/lib/session";
 import type { VocabularyItem } from "@/lib/types";
 
@@ -26,7 +26,8 @@ export function QuickAdd({ canonicalItems }: Readonly<{ canonicalItems: Vocabula
   const update = (key: keyof typeof form, value: string) => setForm((current) => ({ ...current, [key]: value }));
   const save = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const next = writeCustomEntry(form);
+    const canonicalItemId = canonicalId(form.writtenForm, form.reading, canonicalItems);
+    const next = writeCustomEntry({ ...form, ...(canonicalItemId ? { canonicalItemId } : {}) });
     setEntries(next);
     setForm({ writtenForm: "", reading: "", meaning: "", sentence: "", sourceLabel: "", lesson: "", page: "" });
     setMessage("Saved to your local shelf.");

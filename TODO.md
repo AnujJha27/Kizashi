@@ -43,7 +43,7 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 - [x] Add optional SudachiDict cache metadata for lookup and morphology work.
 - [x] Rank review candidates using curriculum band, frequency, missing fields,
   prerequisite value, and learner weakness.
-- [ ] Build JLPT classifications from reviewed consensus evidence rather than
+- [x] Build JLPT classifications from reviewed consensus evidence rather than
   one unofficial level spine.
 - [x] Show licensed written-frequency signals in the learner entry and admin
   review surfaces.
@@ -117,7 +117,7 @@ Suggested routes: `/books` and `/books/[bookId]`.
 - [ ] Add Tatoeba as a reviewed example candidate pool with per-sentence attribution.
 - [ ] Evaluate I-JAS for aggregated learner-error patterns and beginner trap drills.
 - [ ] Add Sudachi/SudachiDict and/or UniDic for tokenization, lemmas, conjugation, and sentence linking.
-- [ ] Allow personal notes, textbook indexes, vocabulary lists, and screenshots to map onto canonical Kizashi items.
+- [x] Allow personal notes, textbook indexes, vocabulary lists, and screenshots to map onto canonical Kizashi items.
 - [ ] Use WaniKani only as an optional cross-reference for kanji/vocabulary relationships, never as the source of truth.
 
 ### Data intelligence
