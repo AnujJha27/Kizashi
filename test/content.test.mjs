@@ -159,6 +159,14 @@ test("content QA reports review blockers instead of silently publishing them", a
   );
 });
 
+test("content QA requires classification only for imported source-review records", async () => {
+  const { stdout } = await execFileAsync("python3", ["scripts/qa_content_package.py", "--package", "test/fixtures/unassigned-approved-package.json"]);
+  const report = JSON.parse(stdout);
+  const blockers = report.blockers.join("\n");
+  assert.match(blockers, /vocab-test: approved source-review item is not assigned to a real Journey lesson/);
+  assert.doesNotMatch(blockers, /vocab-curated: missing reviewed curriculum classification/);
+});
+
 test("book extraction keeps candidates review-only and records page provenance", async () => {
   const { stdout } = await execFileAsync("python3", ["scripts/extract_book_candidates.py", "--input", "test/fixtures/book-notes.txt", "--book-id", "test-book", "--dry-run"]);
   assert.match(stdout, /"vocabulary": 2/);

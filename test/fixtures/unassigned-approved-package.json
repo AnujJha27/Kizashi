@@ -13,7 +13,7 @@
         "description": "Real chapter",
         "region": "quiet-city",
         "lessons": [
-          { "id": "lesson-real", "slug": "real", "title": "Real", "subtitle": "本物", "description": "Real lesson", "estimatedMinutes": 10, "itemIds": [] }
+          { "id": "lesson-real", "slug": "real", "title": "Real", "subtitle": "本物", "description": "Real lesson", "estimatedMinutes": 10, "itemIds": ["vocab-curated"] }
         ]
       },
       {
@@ -57,6 +57,27 @@
       "partOfSpeech": "noun",
       "exampleSentences": [{ "japanese": "駅へ行きます。", "translation": "I go to the station." }],
       "collocations": ["駅へ行く"],
+      "relatedWords": [],
+      "antonyms": []
+    },
+    {
+      "id": "vocab-curated",
+      "slug": "curated",
+      "title": "本",
+      "category": "vocabulary",
+      "jlptLevel": "N5",
+      "subcategory": "study",
+      "difficulty": 1,
+      "prerequisiteIds": [],
+      "tags": ["michi-authored"],
+      "sourceIds": ["test-source"],
+      "reviewStatus": "approved",
+      "writtenForm": "本",
+      "reading": "ほん",
+      "meanings": ["book"],
+      "partOfSpeech": "noun",
+      "exampleSentences": [{ "japanese": "本を読みます。", "translation": "I read a book." }],
+      "collocations": ["本を読む"],
       "relatedWords": [],
       "antonyms": []
     }

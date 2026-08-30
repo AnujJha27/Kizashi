@@ -84,7 +84,7 @@ def report(package: dict[str, Any]) -> dict[str, Any]:
             if "source-review" in strings(item.get("tags")) and item_id not in real_assignments:
                 blockers.append(f"{item_id}: approved source-review item is not assigned to a real Journey lesson")
             classification = item.get("classification") if isinstance(item.get("classification"), dict) else {}
-            if category in {"vocabulary", "kanji", "grammar"} and not text(classification.get("band")):
+            if "source-review" in strings(item.get("tags")) and category in {"vocabulary", "kanji", "grammar"} and not text(classification.get("band")):
                 blockers.append(f"{item_id}: missing reviewed curriculum classification")
     return {"totals": totals, "blockers": blockers, "status": "blocked" if blockers else "ready"}
 
