@@ -141,6 +141,7 @@ test("seed creates the curated source before provenance references it", async ()
 
 test("AI content generation stays allowlisted, rate-limited, and draft-only", async () => {
   const route = await readFile(new URL("../app/api/content/generate/route.ts", import.meta.url), "utf8");
+  const validation = await readFile(new URL("../lib/content-validation.ts", import.meta.url), "utf8");
   assert.match(route, /const user = await getAllowedUser\(\);\s+if \(!user\).*status: 401/s);
   assert.match(route, /if \(!user\.isAdmin\).*status: 403/s);
   assert.match(route, /lastGeneratedAt/);
@@ -149,6 +150,8 @@ test("AI content generation stays allowlisted, rate-limited, and draft-only", as
   assert.match(route, /source-review/);
   assert.match(route, /validationStatus: "generated"/);
   assert.match(route, /generatedReview\(model, item\.id\)/);
+  assert.match(validation, /generatedBy.*openrouter/);
+  assert.match(validation, /review.*approved/);
 });
 
 test("ranks incomplete high-value source records before complete low-value records", () => {
@@ -202,6 +205,26 @@ test("SQL export refuses an approved source record without license terms", async
     await assert.rejects(
       execFileAsync("python3", ["scripts/render_supabase_content_sql.py", "--approved", "--package", packagePath, "--output", `${directory}/content.sql`]),
       /license terms/,
+    );
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("SQL export refuses validated AI questions without human approval", async () => {
+  const directory = await mkdtemp("/tmp/kizashi-unreviewed-question-");
+  const packagePath = `${directory}/package.json`;
+  const questionsPath = `${directory}/questions.json`;
+  try {
+    const packageData = JSON.parse(await readFile(new URL("../test/fixtures/unassigned-approved-package.json", import.meta.url), "utf8"));
+    packageData.course.chapters[0].lessons[0].itemIds.push("vocab-test");
+    packageData.sourceManifest[0].license = "Test-only license note";
+    const question = { id: "ai-vocab-test", itemId: "vocab-test", category: "vocabulary", questionType: "meaning", jlptLevel: "N5", prompt: "What does 駅 mean?", options: ["station", "school"], correctIndex: 0, explanation: "駅 means station.", validationStatus: "validated", generatedBy: "openrouter:test-model", review: { status: "draft" } };
+    await writeFile(packagePath, JSON.stringify(packageData), "utf8");
+    await writeFile(questionsPath, JSON.stringify([question]), "utf8");
+    await assert.rejects(
+      execFileAsync("python3", ["scripts/render_supabase_content_sql.py", "--approved", "--package", packagePath, "--questions", questionsPath, "--output", `${directory}/content.sql`]),
+      /human approval/,
     );
   } finally {
     await rm(directory, { recursive: true, force: true });

@@ -155,6 +155,10 @@ def question_sql(question: dict[str, Any], item_categories: dict[str, str]) -> s
         raise ValueError(f"Question {question_id} category must match {item_categories[item_id]}.")
     if text(question.get("validationStatus")) != "validated":
         raise ValueError(f"Question {question_id} is not approved; only validated questions can be exported.")
+    if text(question.get("generatedBy")).startswith("openrouter:"):
+        review = question.get("review")
+        if not isinstance(review, dict) or text(review.get("status")) != "approved" or not text(review.get("reviewedBy")) or not text(review.get("reviewedAt")):
+            raise ValueError(f"Question {question_id} needs human approval before export.")
     answer_mode = text(question.get("answerMode")) or "choice"
     if answer_mode not in ("choice", "text"):
         raise ValueError(f"Question {question_id} has an unknown answer mode: {answer_mode}.")

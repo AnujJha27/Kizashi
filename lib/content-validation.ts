@@ -20,8 +20,9 @@ const collectionKeys = { vocabulary: "vocabulary", kanji: "kanji", grammar: "gra
 export const CONTENT_DRAFT_STORAGE_KEY = "michi.content-draft";
 export const QUESTION_DRAFT_STORAGE_KEY = "michi.question-draft";
 
-export function isActivePracticeQuestion(question: Pick<PracticeQuestion, "validationStatus">) {
-  return question.validationStatus !== "generated" && question.validationStatus !== "rejected";
+export function isActivePracticeQuestion(question: Pick<PracticeQuestion, "validationStatus" | "generatedBy" | "review">) {
+  if (question.validationStatus === "generated" || question.validationStatus === "rejected") return false;
+  return !question.generatedBy?.startsWith("openrouter:") || question.review?.status === "approved";
 }
 
 export function getContentReviewStatus(item: { reviewStatus?: unknown; tags?: unknown }): ContentReviewStatus {
@@ -466,6 +467,10 @@ export function validatePracticeQuestions(questions: unknown, knownItemIds: Set<
     if (rawQuestion.validationStatus !== undefined && !["generated", "validated", "rejected"].includes(rawQuestion.validationStatus as string)) issues.push({ path: `${path}.validationStatus`, message: "Use generated, validated, or rejected.", severity: "error" });
     if (rawQuestion.generatedBy !== undefined) stringValue(rawQuestion.generatedBy, `${path}.generatedBy`, issues, false);
     if (rawQuestion.validationStatus === "validated" && typeof rawQuestion.generatedBy !== "string") issues.push({ path: `${path}.generatedBy`, message: "Validated questions need a provenance label.", severity: "error" });
+    if (rawQuestion.validationStatus === "validated" && typeof rawQuestion.generatedBy === "string" && rawQuestion.generatedBy.startsWith("openrouter:")) {
+      const review = rawQuestion.review;
+      if (!isRecord(review) || review.status !== "approved" || typeof review.reviewedBy !== "string" || !review.reviewedBy.trim() || typeof review.reviewedAt !== "string" || !review.reviewedAt.trim()) issues.push({ path: `${path}.review`, message: "AI questions need human approval, reviewer, and review timestamp before activation.", severity: "error" });
+    }
     const answerMode = rawQuestion.answerMode ?? "choice";
     if (answerMode !== "choice" && answerMode !== "text") issues.push({ path: `${path}.answerMode`, message: "Use choice or text.", severity: "error" });
     if (answerMode === "text") {
