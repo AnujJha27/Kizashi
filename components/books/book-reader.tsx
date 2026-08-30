@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import type { StudyBook } from "@/lib/books";
+import { readBookNote, writeBookNote } from "@/lib/session";
 
 export function BookReader({ book }: Readonly<{ book: StudyBook }>) {
   const [page, setPage] = useState(1);
@@ -54,7 +55,7 @@ export function BookReader({ book }: Readonly<{ book: StudyBook }>) {
   }, [book.id]);
 
   useEffect(() => {
-    if (typeof window !== "undefined") setNote(window.localStorage.getItem(`michi.book-review.${book.id}.1`) ?? "");
+    setNote(readBookNote(book.id, 1));
   }, [book.id]);
 
   const goToPage = () => {
@@ -62,7 +63,7 @@ export function BookReader({ book }: Readonly<{ book: StudyBook }>) {
     setPage(next);
     setPageInput(String(next));
     setChapterId(book.chapters?.find((chapter) => chapter.page === next)?.id ?? "");
-    setNote(typeof window === "undefined" ? "" : window.localStorage.getItem(`michi.book-review.${book.id}.${next}`) ?? "");
+    setNote(readBookNote(book.id, next));
     setSaved(false);
   };
 
@@ -71,7 +72,7 @@ export function BookReader({ book }: Readonly<{ book: StudyBook }>) {
     setPage(next);
     setPageInput(String(next));
     setChapterId(book.chapters?.find((chapter) => chapter.page === next)?.id ?? "");
-    setNote(typeof window === "undefined" ? "" : window.localStorage.getItem(`michi.book-review.${book.id}.${next}`) ?? "");
+    setNote(readBookNote(book.id, next));
     setSaved(false);
   };
 
@@ -81,12 +82,12 @@ export function BookReader({ book }: Readonly<{ book: StudyBook }>) {
     if (!chapter) return;
     setPage(chapter.page);
     setPageInput(String(chapter.page));
-    setNote(typeof window === "undefined" ? "" : window.localStorage.getItem(`michi.book-review.${book.id}.${chapter.page}`) ?? "");
+    setNote(readBookNote(book.id, chapter.page));
     setSaved(false);
   };
 
   const saveNote = () => {
-    window.localStorage.setItem(`michi.book-review.${book.id}.${page}`, note.trim());
+    writeBookNote(book.id, page, note);
     setSaved(true);
   };
 

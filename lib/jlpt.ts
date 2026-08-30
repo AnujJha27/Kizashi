@@ -1,6 +1,6 @@
 import type { ContentSource, CurriculumBand, CurriculumClassification, ExamSkillMastery, ExamReadinessStatus, JLPTSpecification, LearningCategory, LearningItem } from "@/lib/types";
 import type { ExamAttempt, ReviewRecord } from "@/lib/session";
-import { chooseReadinessPriority } from "@/lib/jlpt-core.js";
+import { aggregateExamEvidence, chooseReadinessPriority } from "@/lib/jlpt-core.js";
 
 export const n5ExamRequirements = {
   overallMinimum: 80,
@@ -73,16 +73,13 @@ function statusFor(coverage: number, accuracy: number, retention: number, sample
 }
 
 function timedAccuracyFor(attempts: ExamAttempt[], skillType: LearningCategory) {
-  const score = attempts.find((attempt) => attempt.categoryBreakdown[skillType]?.total)?.categoryBreakdown[skillType];
-  return score ? score.correct / Math.max(score.total, 1) : null;
+  return aggregateExamEvidence(attempts, [skillType]).ratio;
 }
 
 function sectionEvidence(attempts: ExamAttempt[], categories: LearningCategory[], minimumRatio: number) {
-  const attempt = attempts.find((entry) => categories.some((category) => entry.categoryBreakdown[category]?.total));
-  if (!attempt) return { correct: 0, total: 0, ratio: null, minimumRatio, status: "untested" as const };
-  const score = categories.reduce((result, category) => ({ correct: result.correct + (attempt.categoryBreakdown[category]?.correct ?? 0), total: result.total + (attempt.categoryBreakdown[category]?.total ?? 0) }), { correct: 0, total: 0 });
-  const ratio = score.correct / Math.max(score.total, 1);
-  return { ...score, ratio, minimumRatio, status: ratio >= minimumRatio ? "above-minimum" as const : "below-minimum" as const };
+  const score = aggregateExamEvidence(attempts, categories);
+  if (!score.total) return { correct: 0, total: 0, ratio: null, minimumRatio, status: "untested" as const };
+  return { ...score, ratio: score.ratio ?? 0, minimumRatio, status: (score.ratio ?? 0) >= minimumRatio ? "above-minimum" as const : "below-minimum" as const };
 }
 
 export function getSkillMastery(items: LearningItem[], records: Record<string, ReviewRecord>, skillType: LearningCategory, examAttempts: ExamAttempt[] = []): ExamSkillMastery {

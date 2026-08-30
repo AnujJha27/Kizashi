@@ -30,9 +30,16 @@ export function AccountSync() {
 
   useEffect(() => {
     if (!enabled) return;
-    const retry = () => { if (navigator.onLine) void sync(); };
+    let timer = 0;
+    const schedule = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => { if (navigator.onLine) void sync(); }, 500);
+    };
+    const retry = () => { if (navigator.onLine) schedule(); };
+    const events = ["michi-review-updated", "michi-mistakes-updated", "michi-notes-updated", "michi-question-stats-updated", "michi-study-stats-updated", "michi-saved-sentences-updated", "michi-study-later-updated", "michi-practice-session-updated", "michi-lesson-updated", "michi-diagnostic-updated", "michi-exam-attempt-updated", "michi-custom-entries-updated", "michi-book-notes-updated"];
     window.addEventListener("online", retry);
-    return () => window.removeEventListener("online", retry);
+    events.forEach((eventName) => window.addEventListener(eventName, schedule));
+    return () => { window.clearTimeout(timer); window.removeEventListener("online", retry); events.forEach((eventName) => window.removeEventListener(eventName, schedule)); };
   }, [enabled]);
 
   useEffect(() => setEnabled(readSyncEnabled()), []);

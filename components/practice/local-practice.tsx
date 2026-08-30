@@ -8,6 +8,7 @@ import { PracticePlayer } from "@/components/practice/practice-player";
 import { WeakPractice } from "@/components/practice/weak-practice";
 import { getModuleItems, readValidatedQuestionDraft } from "@/lib/content-validation";
 import { getTopicItemIds } from "@/lib/curriculum";
+import { filterExamLevelQuestions } from "@/lib/jlpt-core.js";
 import { getValidatedPracticeQuestions, migrateLegacyQuestionPrompts, selectPracticeQuestions } from "@/lib/questions";
 import { writeDiagnosticResult } from "@/lib/session";
 import type { PracticeMode, PracticeQuestion } from "@/lib/types";
@@ -49,7 +50,7 @@ export function LocalPractice({ allQuestions, mode, duration, focus, section, to
   const questions = mode === "quick" ? selected.slice(0, quickCount) : selected;
 
   if (mode === "weak") return <WeakPractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} />;
-  if (mode === "pass") return <AdaptivePractice questions={focusQuestions} vocabulary={module.vocabulary} kanji={module.kanji} limit={13} passMode />;
+  if (mode === "pass") return <AdaptivePractice questions={filterExamLevelQuestions(focusQuestions)} vocabulary={module.vocabulary} kanji={module.kanji} limit={13} passMode />;
   if (mode === "quick") return <AdaptivePractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} />;
   const examMode = ["mock", "mini", "section", "full"].includes(mode);
   return <PracticePlayer questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} examMode={examMode} examLabel={mode === "full" ? "N5 full mock" : mode === "section" ? "N5 section test" : mode === "mini" ? "N5 mini test" : "N5 sampler"} sessionId={examMode ? `${mode}-test` : undefined} timeLimitSeconds={examMode ? Math.max(300, questions.length * 45) : undefined} />;

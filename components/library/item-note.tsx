@@ -12,7 +12,6 @@ export function ItemNote({ itemId }: Readonly<{ itemId: string }>) {
 
   const save = () => {
     writeNote(itemId, body);
-    window.dispatchEvent(new Event("michi-notes-updated"));
     setSaved(true);
     window.setTimeout(() => setSaved(false), 1600);
   };

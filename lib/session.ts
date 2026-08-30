@@ -16,12 +16,13 @@ export const PRACTICE_SESSION_STORAGE_KEY = "michi.practice-session";
 export const PROFILE_PREFERENCES_STORAGE_KEY = "michi.profile-preferences";
 export const EXAM_ATTEMPTS_STORAGE_KEY = "michi.exam-attempts";
 export const CUSTOM_ENTRIES_STORAGE_KEY = "michi.custom-entries";
+export const BOOK_NOTES_STORAGE_KEY = "michi.book-notes";
 export const SYNC_ENABLED_STORAGE_KEY = "michi.sync-enabled";
 
-const BACKUP_KEYS = [CURRENT_LESSON_STORAGE_KEY, REVIEW_STORAGE_KEY, NOTES_STORAGE_KEY, MISTAKES_STORAGE_KEY, DIAGNOSTIC_STORAGE_KEY, QUESTION_STATS_STORAGE_KEY, STUDY_STATS_STORAGE_KEY, SAVED_SENTENCES_STORAGE_KEY, STUDY_LATER_STORAGE_KEY, PROFILE_PREFERENCES_STORAGE_KEY, EXAM_ATTEMPTS_STORAGE_KEY, CUSTOM_ENTRIES_STORAGE_KEY, "michi.content-draft", "michi.question-draft"] as const;
+const BACKUP_KEYS = [CURRENT_LESSON_STORAGE_KEY, REVIEW_STORAGE_KEY, NOTES_STORAGE_KEY, MISTAKES_STORAGE_KEY, DIAGNOSTIC_STORAGE_KEY, QUESTION_STATS_STORAGE_KEY, STUDY_STATS_STORAGE_KEY, SAVED_SENTENCES_STORAGE_KEY, STUDY_LATER_STORAGE_KEY, PROFILE_PREFERENCES_STORAGE_KEY, EXAM_ATTEMPTS_STORAGE_KEY, CUSTOM_ENTRIES_STORAGE_KEY, BOOK_NOTES_STORAGE_KEY, "michi.content-draft", "michi.question-draft"] as const;
 
 function isBackupKey(key: string) {
-  return BACKUP_KEYS.includes(key as (typeof BACKUP_KEYS)[number]) || key.startsWith(`${PRACTICE_SESSION_STORAGE_KEY}.`);
+  return BACKUP_KEYS.includes(key as (typeof BACKUP_KEYS)[number]) || key.startsWith(`${PRACTICE_SESSION_STORAGE_KEY}.`) || key.startsWith("michi.book-review.");
 }
 
 export function createLocalBackup() {
@@ -61,6 +62,8 @@ export function createLocalSyncSnapshot() {
     [SAVED_SENTENCES_STORAGE_KEY]: "savedSentences",
     [STUDY_LATER_STORAGE_KEY]: "studyLaterIds",
     [EXAM_ATTEMPTS_STORAGE_KEY]: "examAttempts",
+    [CUSTOM_ENTRIES_STORAGE_KEY]: "customEntries",
+    [BOOK_NOTES_STORAGE_KEY]: "bookNotes",
   };
   Object.entries(directKeys).forEach(([storageKey, syncKey]) => {
     const value = storedJson(storageKey);
@@ -95,6 +98,8 @@ export function applyLocalSyncSnapshot(snapshot: unknown) {
     savedSentences: SAVED_SENTENCES_STORAGE_KEY,
     studyLaterIds: STUDY_LATER_STORAGE_KEY,
     examAttempts: EXAM_ATTEMPTS_STORAGE_KEY,
+    customEntries: CUSTOM_ENTRIES_STORAGE_KEY,
+    bookNotes: BOOK_NOTES_STORAGE_KEY,
   };
   let restored = 0;
   Object.entries(storageKeys).forEach(([syncKey, storageKey]) => {
@@ -104,7 +109,7 @@ export function applyLocalSyncSnapshot(snapshot: unknown) {
   });
   if (typeof values.practiceSessions === "object" && values.practiceSessions !== null && !Array.isArray(values.practiceSessions)) Object.entries(values.practiceSessions as Record<string, unknown>).forEach(([id, value]) => { window.localStorage.setItem(`${PRACTICE_SESSION_STORAGE_KEY}.${id}`, JSON.stringify(value)); restored += 1; });
   if (typeof values.lessonStates === "object" && values.lessonStates !== null && !Array.isArray(values.lessonStates)) Object.entries(values.lessonStates as Record<string, unknown>).forEach(([id, value]) => { window.localStorage.setItem(`${CURRENT_LESSON_STORAGE_KEY}.${id}`, JSON.stringify(value)); restored += 1; });
-  ["michi-profile-updated", "michi-review-updated", "michi-study-stats-updated", "michi-question-stats-updated", "michi-lesson-updated"].forEach((eventName) => window.dispatchEvent(new Event(eventName)));
+  ["michi-profile-updated", "michi-review-updated", "michi-study-stats-updated", "michi-question-stats-updated", "michi-lesson-updated", "michi-custom-entries-updated", "michi-book-notes-updated"].forEach((eventName) => window.dispatchEvent(new Event(eventName)));
   return restored;
 }
 
@@ -336,6 +341,7 @@ export function writeNote(itemId: string, body: string) {
   if (body.trim()) notes[itemId] = { itemId, body: body.trim(), updatedAt: Date.now() };
   else delete notes[itemId];
   window.localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(notes));
+  window.dispatchEvent(new Event("michi-notes-updated"));
 }
 
 export function readMistakes(): Record<string, MistakeRecord> {
@@ -355,6 +361,7 @@ export function recordMistake(itemId: string, questionType?: string) {
   if (questionType) questionTypes[questionType] = (questionTypes[questionType] ?? 0) + 1;
   mistakes[itemId] = { itemId, count: (previous?.count ?? 0) + 1, lastSeenAt: Date.now(), lastQuestionType: questionType ?? previous?.lastQuestionType, questionTypes };
   window.localStorage.setItem(MISTAKES_STORAGE_KEY, JSON.stringify(mistakes));
+  window.dispatchEvent(new Event("michi-mistakes-updated"));
 }
 
 export function readDiagnosticResult() {
@@ -368,7 +375,10 @@ export function readDiagnosticResult() {
 }
 
 export function writeDiagnosticResult(result: DiagnosticResult) {
-  if (typeof window !== "undefined") window.localStorage.setItem(DIAGNOSTIC_STORAGE_KEY, JSON.stringify(result));
+  if (typeof window !== "undefined") {
+    window.localStorage.setItem(DIAGNOSTIC_STORAGE_KEY, JSON.stringify(result));
+    window.dispatchEvent(new Event("michi-diagnostic-updated"));
+  }
 }
 
 export function readExamAttempts(): ExamAttempt[] {
@@ -511,6 +521,7 @@ export function toggleSavedSentence(sentence: Omit<SavedSentence, "savedAt">) {
   const exists = saved.some((entry) => entry.id === sentence.id);
   const next = exists ? saved.filter((entry) => entry.id !== sentence.id) : [{ ...sentence, savedAt: Date.now() }, ...saved];
   window.localStorage.setItem(SAVED_SENTENCES_STORAGE_KEY, JSON.stringify(next));
+  window.dispatchEvent(new Event("michi-saved-sentences-updated"));
   return !exists;
 }
 
@@ -530,6 +541,7 @@ export function toggleStudyLater(itemId: string) {
   const exists = saved.includes(itemId);
   const next = exists ? saved.filter((id) => id !== itemId) : [itemId, ...saved];
   window.localStorage.setItem(STUDY_LATER_STORAGE_KEY, JSON.stringify(next));
+  window.dispatchEvent(new Event("michi-study-later-updated"));
   return !exists;
 }
 
@@ -548,7 +560,10 @@ export function readPracticeSession(sessionId: string, questionIds: string[]): P
 }
 
 export function writePracticeSession(state: PracticeSessionState) {
-  if (typeof window !== "undefined") window.localStorage.setItem(practiceSessionKey(state.sessionId), JSON.stringify(state));
+  if (typeof window !== "undefined") {
+    window.localStorage.setItem(practiceSessionKey(state.sessionId), JSON.stringify(state));
+    window.dispatchEvent(new Event("michi-practice-session-updated"));
+  }
 }
 
 export function clearPracticeSession(sessionId: string) {
@@ -577,4 +592,34 @@ export function writeCustomEntries(entries: CustomEntry[]) {
   window.localStorage.setItem(CUSTOM_ENTRIES_STORAGE_KEY, JSON.stringify(next));
   window.dispatchEvent(new Event("michi-custom-entries-updated"));
   return next;
+}
+
+export function readBookNotes(): Record<string, string> {
+  if (typeof window === "undefined") return {};
+  try {
+    const value = JSON.parse(window.localStorage.getItem(BOOK_NOTES_STORAGE_KEY) ?? "{}");
+    const notes = typeof value === "object" && value !== null && !Array.isArray(value) ? Object.fromEntries(Object.entries(value).filter((entry): entry is [string, string] => typeof entry[0] === "string" && typeof entry[1] === "string")) : {};
+    for (let index = 0; index < window.localStorage.length; index += 1) {
+      const storageKey = window.localStorage.key(index);
+      const match = storageKey?.match(/^michi\.book-review\.(.+)\.(\d+)$/u);
+      if (match && storageKey) notes[`${match[1]}:${match[2]}`] ??= window.localStorage.getItem(storageKey) ?? "";
+    }
+    return notes;
+  } catch {
+    return {};
+  }
+}
+
+export function readBookNote(bookId: string, page: number) {
+  return readBookNotes()[`${bookId}:${page}`] ?? "";
+}
+
+export function writeBookNote(bookId: string, page: number, body: string) {
+  if (typeof window === "undefined") return;
+  const notes = readBookNotes();
+  const key = `${bookId}:${page}`;
+  if (body.trim()) notes[key] = body.trim();
+  else delete notes[key];
+  window.localStorage.setItem(BOOK_NOTES_STORAGE_KEY, JSON.stringify(notes));
+  window.dispatchEvent(new Event("michi-book-notes-updated"));
 }
