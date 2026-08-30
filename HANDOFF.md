@@ -413,7 +413,7 @@ Next session order:
   server is active.
 - The owner confirmed that the corrected full seed now succeeds against the
   hosted Supabase database. The verified code-only snapshot was pushed to
-  GitHub `main` as `821af07`; it contains no private books, PDFs, videos,
+  GitHub `main` as `a1cddcc`; it contains no private books, PDFs, videos,
   `node_modules`, or credentials. Vercel still needs the production
   `ALLOWED_EMAILS=aniruddh302004@gmail.com` and `ADMIN_USER_ID=aj05767625`
   environment values applied before a redeploy.
