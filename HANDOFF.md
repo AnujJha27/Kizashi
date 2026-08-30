@@ -443,3 +443,18 @@ Next session order:
   blockers for the staged package (7,391 vocabulary, 630 kanji, 413 grammar,
   6 readings, and 6 listening records). The 8,396 imported records remain
   pending until a human reviews and assigns them.
+
+## Session notes — Studio production render fix
+
+- The hosted Studio error was traced to the server page reading and passing the
+  full 20 MB staged review package through the React Server Components payload.
+  The page now renders with the small authored N5 module first.
+- Added the admin-only `/api/content/review-package` endpoint. It serves the
+  tracked 1.4 MB gzip snapshot with `Content-Encoding: gzip`; the browser loads
+  and validates it after the Studio shell renders, preserving the full review
+  queue without oversized server-render props. Existing local drafts remain
+  preferred.
+- The latest code-only public GitHub snapshot is commit `1248e4d` on `main`.
+  Tests, direct TypeScript checking, and diff checks pass. No Next server was
+  started, stopped, or restarted.
+- Vercel must redeploy `main` before the fix can appear in the hosted Studio.
