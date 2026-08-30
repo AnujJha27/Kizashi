@@ -1,0 +1,6 @@
+CHAPTER	1	New Friends
+PAGE	12
+vocabulary	学生	がくせい	student
+kanji	学	study
+PAGE	13
+grammar	です	polite copula

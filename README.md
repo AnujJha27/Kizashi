@@ -89,7 +89,9 @@ Optional lookup and book tools remain review-only:
 ```sh
 python scripts/fetch_dictionary_sources.py --source lookup --level N5
 python scripts/ingest_jmnedict.py --input data/source-cache/JMnedict.xml.gz
+python scripts/ingest_sudachi.py --input data/source-cache/sudachi-dictionary-latest.zip
 python scripts/extract_book_candidates.py --input "N5-books/Study Material N5/<book>.pdf" --book-id <book-id>
+python scripts/extract_book_content.py --input "<reviewed text export>" --book-id <book-id>
 ```
 
-JMnedict is proper-name lookup data, not JLPT vocabulary. Book extraction preserves page/checksum provenance and emits pending candidates. Neither tool publishes to Supabase; SudachiDict, CEJC, and CSJ remain optional inputs pending license review.
+JMnedict is proper-name lookup data, not JLPT vocabulary. Sudachi staging is morphology lookup data, not curriculum truth. Book extraction preserves page/checksum provenance and emits pending candidates; structured book facts require explicit `CHAPTER`, `PAGE`, and fact-type lines. Neither tool publishes to Supabase; CEJC and CSJ remain optional inputs pending license review.

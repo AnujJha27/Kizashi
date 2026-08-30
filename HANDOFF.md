@@ -505,3 +505,14 @@ Next session order:
 - The route returns the gzip snapshot with private no-store caching and refuses
   both unauthenticated and non-admin requests. The current production build
   includes `/api/content/review-package` and generates all 23 static pages.
+
+## Session notes — source roadmap tooling completion
+
+- Added `scripts/ingest_sudachi.py` for TSV/CSV or archive metadata staging;
+  morphology records retain source checksums and remain pending lookup data.
+- Added `scripts/extract_book_content.py` for explicit structured fact exports
+  with chapter/page/raw-text provenance across vocabulary, kanji, grammar,
+  reading, and listening categories. It emits pending records only and never
+  connects to Supabase.
+- Fixture coverage now includes both tools; the remaining book work is still
+  manual/OCR review of the supplied scanned PDFs and licensing approval.
