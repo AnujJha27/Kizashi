@@ -362,6 +362,7 @@ test("Studio exposes review metadata and validates staged curriculum items", asy
   assert.match(studio, /\/api\/content\/review-package/);
   assert.match(studio, /Review notes/);
   assert.match(studio, /reviewedBy/);
+  assert.match(studio, /question\.review\?\.status !== "approved"/);
 });
 
 test("offline worker caches recorded audio without caching arbitrary cross-origin requests", async () => {
