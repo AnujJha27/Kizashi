@@ -6,8 +6,18 @@ import {
   buildReviewQueue,
   normalizeAnswer,
   recordMistake,
+  reviewRatingForConfidence,
   resumeSession,
 } from "../lib/mastery.js";
+import { dailyGoalProgress } from "../lib/study-core.js";
+
+test("maps answer confidence to a review rating", () => {
+  assert.equal(reviewRatingForConfidence(false, "confident"), "again");
+  assert.equal(reviewRatingForConfidence(true, "guess"), "hard");
+  assert.equal(reviewRatingForConfidence(true, "unsure"), "good");
+  assert.equal(reviewRatingForConfidence(true, "confident"), "easy");
+  assert.equal(reviewRatingForConfidence(true, null), "good");
+});
 
 test("normalizes equivalent kana and answer whitespace", () => {
   assert.equal(normalizeAnswer("  たべる  "), "たべる");
@@ -52,4 +62,9 @@ test("restores the saved position without restarting the session", () => {
     resumeSession({ sessionId: "s1", itemIds: ["a", "b"], position: 1, status: "active" }),
     { sessionId: "s1", itemIds: ["a", "b"], position: 1, status: "active" },
   );
+});
+
+test("calculates bounded daily-goal progress", () => {
+  assert.deepEqual(dailyGoalProgress(7, 5), { minutes: 7, goal: 5, percent: 100, complete: true });
+  assert.deepEqual(dailyGoalProgress(-2, 99), { minutes: 0, goal: 10, percent: 0, complete: false });
 });

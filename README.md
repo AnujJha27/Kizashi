@@ -24,7 +24,29 @@ python scripts/split_books_for_storage.py --input "N5-books/Study Material N5/Go
 python scripts/split_books_for_storage.py --input "N5-books/Study Material N5/Nihongo_Challenge_Kanji_N4-N5.pdf" --book-id nihongo-challenge-kanji
 ```
 
-Apply `0015_private_book_storage.sql`, upload `.book-storage/books/<book-id>/part-*.pdf` to the matching paths in the private bucket, and set `SUPABASE_SERVICE_ROLE_KEY` (or the existing `SUPABASE_SERVICE_KEY`) only in the server deployment environment. The app checks the existing allowlist, signs each private part, and streams the parts in order. Free Supabase storage includes 1 GB, so these three PDFs fit by size; videos are not part of the deployed Books surface.
+Apply `0015_private_book_storage.sql`, upload `.book-storage/books/<book-id>/part-*.pdf` to the matching paths in the private bucket, and set `SUPABASE_SERVICE_ROLE_KEY` (or the existing `SUPABASE_SERVICE_KEY`) only in the server deployment environment. The app checks the existing allowlist, returns short-lived signed URLs for each private part, and assembles the PDF in the browser so large books do not pass through a Vercel Function response. Free Supabase storage includes 1 GB, so these three PDFs fit by size; videos are not part of the deployed Books surface.
+
+### Vercel deployment
+
+1. Import this repository into Vercel with the project root set to this directory and the Next.js framework preset. Use the current production branch configured in Vercel; pushes to that branch create production deployments, while other branches create previews.
+2. Add these environment variables in Vercel Project Settings → Environment Variables:
+
+   ```text
+   NEXT_PUBLIC_SUPABASE_URL
+   NEXT_PUBLIC_SUPABASE_ANON_KEY
+   ALLOWED_EMAIL
+   SUPABASE_SERVICE_KEY
+   SUPABASE_BOOKS_BUCKET=books
+   OPENROUTER_API_KEY                 # optional, Studio AI only
+   OPENROUTER_MODELS                  # optional
+   OPENROUTER_MODEL                   # optional fallback
+   ```
+
+   Apply the public variables to Preview and Production. Apply the service key, allowlisted email, and optional AI key only where needed. Never use `NEXT_PUBLIC_` for a service key.
+3. In Supabase Dashboard → Authentication → URL Configuration, set Site URL to the production domain and add `<production-domain>/auth/callback`. Add the matching Vercel preview callback pattern if preview sign-in is needed.
+4. In Supabase SQL Editor, run every migration in `supabase/migrations/` in filename order, including `0014_sync_metadata.sql`, `0015_private_book_storage.sql`, and the idempotent `0016_repair_schema.sql` when the remote migration history says it is current but a seed reports missing tables. Then run `supabase/seed.sql`. Do not enable account sync until the tables exist.
+5. Confirm the `books` bucket is private, PDF-only, and contains every uploaded part. The deployed Books reader should load through `/api/books/<book-id>/parts`; the old whole-file endpoint remains only as a local fallback.
+6. Deploy, then smoke-test: magic-link login, `/journey`, `/practice`, `/profile` sync, `/studio`, and every `/books/<book-id>` reader. Change Vercel environment variables only before a new deployment; existing deployments keep their previous values.
 
 ## Checks
 

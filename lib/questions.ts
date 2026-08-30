@@ -238,6 +238,17 @@ export function getValidatedPracticeQuestions(module: N5Module = n5Module) {
   });
 }
 
+export function migrateLegacyQuestionPrompts(questions: PracticeQuestion[], module: N5Module) {
+  const kanjiByCharacter = new Map(module.kanji.map((item) => [item.character, item]));
+  return questions.map((question) => {
+    if (question.category !== "kanji" || question.questionType !== "orthography") return question;
+    const match = /^Which written word uses (.+)\?$/u.exec(question.prompt.trim());
+    const item = match ? kanjiByCharacter.get(match[1].trim()) : undefined;
+    const answer = item?.usefulWords.find((word) => word.word === question.options[question.correctIndex]);
+    return answer ? { ...question, prompt: `Which word is read ${answer.reading}?` } : question;
+  });
+}
+
 export function selectPracticeQuestions(mode: PracticeMode, questions = getValidatedPracticeQuestions()) {
   const calibrated = questions.filter((question) => question.jlptLevel === "N5");
   if (mode === "quick") return takeQuick(questions);

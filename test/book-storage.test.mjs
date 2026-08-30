@@ -5,7 +5,7 @@ import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { promisify } from "node:util";
 
-import { getBookStoragePartPath, getBookStoragePath } from "../lib/supabase/book-storage-core.js";
+import { getBookStoragePartPath, getBookStoragePartPaths, getBookStoragePath } from "../lib/supabase/book-storage-core.js";
 
 const execFileAsync = promisify(execFile);
 
@@ -15,6 +15,14 @@ test("book storage paths stay inside the private books prefix", () => {
   assert.equal(getBookStoragePath({ id: "../secrets", storagePath: "../secrets.pdf" }), null);
   assert.equal(getBookStoragePartPath({ id: "genki-i" }, 2), "books/genki-i/part-002.pdf");
   assert.equal(getBookStoragePartPath({ id: "genki-i" }, -1), null);
+});
+
+test("lists ordered private parts for browser-side assembly", () => {
+  assert.deepEqual(
+    getBookStoragePartPaths({ id: "genki-i", storagePartCount: 3 }),
+    ["books/genki-i/part-000.pdf", "books/genki-i/part-001.pdf", "books/genki-i/part-002.pdf"],
+  );
+  assert.deepEqual(getBookStoragePartPaths({ id: "single-book" }), ["books/single-book.pdf"]);
 });
 
 test("book splitter emits ordered chunks and a manifest", async () => {

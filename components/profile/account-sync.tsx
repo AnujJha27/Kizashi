@@ -29,13 +29,13 @@ export function AccountSync() {
   };
 
   useEffect(() => {
-    const active = readSyncEnabled();
-    setEnabled(active);
-    if (!active) return;
+    if (!enabled) return;
     const retry = () => { if (navigator.onLine) void sync(); };
     window.addEventListener("online", retry);
     return () => window.removeEventListener("online", retry);
-  }, []);
+  }, [enabled]);
+
+  useEffect(() => setEnabled(readSyncEnabled()), []);
 
   const toggle = (value: boolean) => {
     writeSyncEnabled(value);

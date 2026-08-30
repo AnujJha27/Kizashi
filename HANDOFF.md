@@ -280,10 +280,12 @@ Next session order:
   asking learners to visually spot the target kanji. The Studio/package tests
   cover this regression and the staged snapshot.
 - Added free-plan private book chunking at 45 MiB per part, the private bucket
-  migration, and server-side ordered streaming. All three local PDFs were split
-  and reassembled byte-for-byte successfully. The existing `books` bucket was
-  configured private/PDF-only with a 45 MiB limit, and all 13 parts were uploaded
-  and verified through signed access using the existing local service key.
+  migration, and browser-side PDF assembly from short-lived signed part URLs.
+  This avoids sending the reassembled file through a Vercel Function response.
+  All three local PDFs were split and reassembled byte-for-byte successfully.
+  The existing `books` bucket was configured private/PDF-only with a 45 MiB
+  limit, and all 13 parts were uploaded and verified through signed access using
+  the existing local service key.
 - Current checks: `/usr/bin/node --test test/*.test.mjs` — 4 files passed;
   direct TypeScript check passes; `git diff --check` passes. The owner's Next
   server was not started, stopped, or restarted.
@@ -302,3 +304,37 @@ Next session order:
   no SQL/database connector is available here; `0015_private_book_storage.sql`
   remains the reproducible migration for another project. The Supabase objects
   are uploaded and verified through signed access.
+- Read-only PostgREST checks returned HTTP 404 for both `learning_items` and
+  `sync_snapshots`, so the configured project still needs the SQL migrations and
+  seed applied before remote curriculum or account sync can work. A service key
+  can manage Storage but cannot execute arbitrary SQL here; no database password
+  or Supabase management token is present.
+- Practice review no longer double-counts daily minutes: per-question review
+  updates keep XP but the completed practice session records elapsed minutes once.
+  The fix is local commit `679b37f`; all four direct test files and the direct
+  TypeScript check pass afterward.
+- The Vercel-safe Books reader and deployment instructions are local commit
+  `ebc79f1`. It adds `/api/books/<book-id>/parts` for authenticated signed URLs;
+  the browser assembles the parts and the old whole-file route remains a local
+  fallback. The latest local commits are not yet on public GitHub `main`.
+
+## Session notes — Supabase repair
+
+- The owner ran `supabase db push` and the CLI reported the remote database was
+  up to date, but running `seed.sql` failed because `public.courses` did not
+  exist. This indicates stale migration history or a schema that was cleared;
+  it is not fixed by rerunning the seed.
+- Added idempotent migration `0016_repair_schema.sql`. It recreates missing
+  curriculum, content, user-progress, question, and sync tables, restores the
+  additive columns and RLS policies, and does not reset or delete rows. Run
+  `npx supabase db push` from `D:\fun stuff\michi`, then run the seed from the
+  same directory. The 13 private book parts remain uploaded separately.
+- After the repair migration and seed, verify `public.courses` and
+  `public.learning_items` in the Supabase Table Editor before deploying.
+- The owner then linked the local project with `jjusevtyzousoykpjgzq` and
+  confirmed that migrations `0001` through `0016` applied successfully. The
+  seed was copied to the clipboard; its SQL Editor run and table verification
+  are the remaining hosted-database checks.
+- Verification after the repair change: all 4 direct Node test files pass,
+  direct TypeScript checking passes, and `git diff --check` passes. The owner’s
+  running Next server was not started, stopped, or restarted.

@@ -21,6 +21,7 @@ import type { LessonContentItem } from "@/lib/curriculum";
 import { contentSources, getCurriculumBand } from "@/lib/jlpt";
 import { readMistakes, readReviewRecords } from "@/lib/session";
 import { rankContentCandidates } from "@/lib/content-priority.js";
+import { migrateLegacyQuestionPrompts } from "@/lib/questions";
 import type { ContentReviewStatus, ContentSource, ExerciseValidationStatus, LearningCategory, N5Module, PracticeQuestion } from "@/lib/types";
 
 type DraftKind = LearningCategory | "grammarContrast" | "lesson";
@@ -192,9 +193,10 @@ export function ContentStudio({ seed, seedHealth, questionHealth, questions, kno
       const draftItems = getModuleItems(activeDraft);
       const ids = new Set([...knownItemIds, ...draftItems.map((item) => item.id)]);
       const categories = new Map([...getModuleItems(seed), ...draftItems].map((item) => [item.id, item.category]));
-      const savedQuestionResult = validatePracticeQuestions(JSON.parse(savedQuestions), ids, categories);
+      const migratedQuestions = migrateLegacyQuestionPrompts(JSON.parse(savedQuestions), activeDraft);
+      const savedQuestionResult = validatePracticeQuestions(migratedQuestions, ids, categories);
       if (savedQuestionResult.valid) {
-        setQuestionRaw(savedQuestions);
+        setQuestionRaw(JSON.stringify(migratedQuestions, null, 2));
         setQuestionResult(savedQuestionResult);
       } else {
         setQuestionRaw(JSON.stringify(questions, null, 2));

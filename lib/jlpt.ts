@@ -1,5 +1,6 @@
 import type { ContentSource, CurriculumBand, CurriculumClassification, ExamSkillMastery, ExamReadinessStatus, JLPTSpecification, LearningCategory, LearningItem } from "@/lib/types";
 import type { ExamAttempt, ReviewRecord } from "@/lib/session";
+import { chooseReadinessPriority } from "@/lib/jlpt-core.js";
 
 export const n5ExamRequirements = {
   overallMinimum: 80,
@@ -111,11 +112,11 @@ export function getN5Readiness(items: LearningItem[], records: Record<string, Re
   const skillTypes: LearningCategory[] = ["vocabulary", "kanji", "grammar", "reading", "listening"];
   const attempts = [...examAttempts].sort((left, right) => right.completedAt - left.completedAt);
   const skills = skillTypes.map((skillType) => getSkillMastery(items, records, skillType, attempts));
-  const priority = [...skills].sort((left, right) => (left.coverage + left.recentAccuracy + left.retention) - (right.coverage + right.recentAccuracy + right.retention))[0];
   const sections = [
     { id: "language-knowledge-reading", label: "Language Knowledge + Reading", ...sectionEvidence(attempts, ["vocabulary", "kanji", "grammar", "reading"], n5ExamRequirements.languageReadingMinimum / n5ExamRequirements.languageReadingMaximum) },
     { id: "listening", label: "Listening", ...sectionEvidence(attempts, ["listening"], n5ExamRequirements.listeningMinimum / n5ExamRequirements.listeningMaximum) },
   ];
+  const priority = chooseReadinessPriority(skills, sections) as ExamSkillMastery;
   const ready = skills.every((skill) => skill.status === "exam-ready") && sections.every((section) => section.status === "above-minimum");
 
   return {

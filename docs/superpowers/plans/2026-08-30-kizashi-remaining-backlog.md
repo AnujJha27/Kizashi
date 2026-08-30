@@ -59,7 +59,7 @@
 - [x] **Step 1: Add failing tests** for stable candidate ordering, missing-field priority, and learner weakness priority.
 - [x] **Step 2: Run the focused Node test** and confirm it fails because the helper is absent.
 - [x] **Step 3: Implement the pure helper** with standard-library data operations and wire the Studio queue to search, filter, paginate, and show the reason.
-- [ ] **Step 4: Add explicit topic/band coverage gaps** and a weak-concept route without inventing content.
+- [x] **Step 4: Add explicit topic/band coverage gaps** and a weak-concept route without inventing content.
 - [x] **Step 5: Run focused checks** and confirm pending/rejected records remain out of learner counts.
 
 ### Task 3: Expand the original N5 content route
@@ -77,11 +77,11 @@
 - Keep existing `VocabularyItem`, `KanjiItem`, `GrammarItem`, `ReadingItem`, `ListeningItem`, and `PracticeQuestion` shapes.
 - Represent the four listening families with `task-based response`, `key point`, `verbal expression`, and `quick response` question types.
 
-- [ ] **Step 1: Add failing content-shape assertions** for topic coverage, contextual links, original reading lengths, listening-family coverage, and linked question targets.
-- [ ] **Step 2: Run the content checks** and confirm the current package fails the missing coverage assertions.
-- [ ] **Step 3: Add only authored, original records** with readings, useful kanji words, prerequisites, contrasts, examples, and plausible distractors.
-- [ ] **Step 4: Make practice selection preserve skill and listening-family coverage** in quick, section, pass, and full modes.
-- [ ] **Step 5: Run the focused checks** and verify every active question targets an existing item.
+- [x] **Step 1: Add failing content-shape assertions** for topic coverage, contextual links, original reading lengths, listening-family coverage, and linked question targets.
+- [x] **Step 2: Run the content checks** and confirm the current package fails the missing coverage assertions.
+- [x] **Step 3: Add only authored, original records** with readings, useful kanji words, prerequisites, contrasts, examples, and plausible distractors.
+- [x] **Step 4: Make practice selection preserve skill and listening-family coverage** in quick, section, pass, and full modes.
+- [x] **Step 5: Run the focused checks** and verify every active question targets an existing item.
 
 ### Task 4: Restore allowlisted auth and per-user Supabase sync safely
 
@@ -103,12 +103,12 @@
 - `GET /api/sync` returns the authenticated user’s progress, review history, mistakes, notes, study sessions, and preferences.
 - Missing Supabase configuration continues to use local demo mode.
 
-- [ ] **Step 1: Add failing allowlist and sync payload tests** for case-insensitive email matching, missing allowlist denial, bounded payloads, and user ownership.
-- [ ] **Step 2: Run direct checks** and confirm the tests fail before the route/helper exists.
-- [ ] **Step 3: Protect the main route group and callback with the existing server guard**, preserving the no-auth branch when Supabase is absent.
-- [ ] **Step 4: Add server-side sync with table allowlisting and conflict-safe upserts**; never accept a user ID from the client.
-- [ ] **Step 5: Add a local-first sync hook** that retries on reconnect and keeps unsynced local state intact on failure.
-- [ ] **Step 6: Run auth/payload checks** without requiring real credentials.
+- [x] **Step 1: Add failing allowlist and sync payload tests** for case-insensitive email matching, missing allowlist denial, bounded payloads, and user ownership.
+- [x] **Step 2: Run direct checks** and confirm the tests fail before the route/helper exists.
+- [x] **Step 3: Protect the main route group and callback with the existing server guard**, preserving the no-auth branch when Supabase is absent.
+- [x] **Step 4: Add server-side sync with table allowlisting and conflict-safe upserts**; never accept a user ID from the client.
+- [x] **Step 5: Add a local-first sync hook** that retries on reconnect and keeps unsynced local state intact on failure.
+- [x] **Step 6: Run auth/payload checks** without requiring real credentials.
 
 ### Task 5: Complete study modes, daily goals, and mistake remediation
 
@@ -155,8 +155,8 @@
 - [x] **Step 1: Add failing parser checks** for JMnedict names and book provenance records.
 - [x] **Step 2: Run the checks** and confirm the new parsers are absent.
 - [x] **Step 3: Implement standard-library parsers and cache-first CLI options** with explicit license/source metadata.
-- [ ] **Step 4: Add book chapter/page selection and a side-by-side review panel** without exposing private PDFs publicly.
-- [ ] **Step 5: Run parser checks** against small fixtures only; do not ingest or publish the supplied books automatically.
+- [x] **Step 4: Add book chapter/page selection and a side-by-side review panel** without exposing private PDFs publicly.
+- [x] **Step 5: Run parser checks** against small fixtures only; do not ingest or publish the supplied books automatically.
 
 ### Task 7: Harden AI/admin boundaries and documentation
 
@@ -185,8 +185,8 @@
 **Files:**
 - No new source files; inspect all changed files.
 
-- [ ] **Step 1: Run `node --test test/*.test.mjs` directly** and record every test result.
-- [ ] **Step 2: Run TypeScript directly through the installed compiler** if the npm wrapper remains blocked.
+- [x] **Step 1: Run `node --test test/*.test.mjs` directly** and record every test result.
+- [x] **Step 2: Run TypeScript directly through the installed compiler** if the npm wrapper remains blocked.
 - [ ] **Step 3: Run the Next build directly through the installed Next binary** if possible.
-- [ ] **Step 4: Run `git diff --check`, inspect `git status`, and exclude `scripts/__pycache__/` and unrelated changes.**
-- [ ] **Step 5: Push the scoped branch to `origin` (`git@github.com:AnujJha27/Kizashi.git`) using the current branch only after the checks and an explicit review of the staged file list.**
+- [x] **Step 4: Run `git diff --check`, inspect `git status`, and exclude `scripts/__pycache__/` and unrelated changes.**
+- [x] **Step 5: Push the clean approved tree to `origin/main` (`git@github.com:AnujJha27/Kizashi.git`) after the checks and explicit public-disclosure approval.**

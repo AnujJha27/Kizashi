@@ -87,6 +87,30 @@ test("database seed includes RLS and all user-owned foundations", async () => {
   assert.match(schema, /auth\.uid\(\)\) = user_id/);
 });
 
+test("schema repair migration covers a stale migration history", async () => {
+  const repair = await readFile(new URL("../supabase/migrations/0016_repair_schema.sql", import.meta.url), "utf8");
+  for (const table of ["courses", "learning_items", "practice_questions", "sync_snapshots"]) {
+    assert.match(repair, new RegExp(`create table if not exists public\\.${table}`));
+  }
+  assert.match(repair, /add column if not exists review_status/);
+  assert.match(repair, /drop policy if exists "public read courses"/);
+});
+
+test("seed grammar contrast exercises close their PostgreSQL array literals", async () => {
+  const seed = await readFile(new URL("../supabase/seed.sql", import.meta.url), "utf8");
+  const firstContrastBlock = seed.slice(seed.indexOf("insert into public.grammar_contrasts"), seed.indexOf("on conflict (id) do nothing;", seed.indexOf("insert into public.grammar_contrasts")));
+  const rows = firstContrastBlock.split("\n").filter((line) => /^\s+\('contrast-/.test(line));
+  assert.equal(rows.length, 8);
+  assert.ok(rows.every((line) => /}'\),?$/.test(line)));
+});
+
+test("seed staged payloads insert parent learning items before child rows", async () => {
+  const seed = await readFile(new URL("../supabase/seed.sql", import.meta.url), "utf8");
+  const parentImports = seed.split("\n").filter((line) => line.includes("from jsonb_to_recordset((payload->'vocabulary'"));
+  assert.equal(parentImports.length, 2);
+  assert.ok(parentImports.every((line) => line.includes("(payload->'vocabulary') || (payload->'kanji')")));
+});
+
 test("ranks incomplete high-value source records before complete low-value records", () => {
   const items = [
     { id: "complete", category: "vocabulary", reviewStatus: "pending", jlptLevel: "N5", difficulty: 2, tags: ["source-review"], sourceIds: ["jmdict"], exampleSentences: [{ japanese: "駅です。", translation: "It is a station." }], collocations: ["駅に行く"] },

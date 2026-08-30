@@ -273,7 +273,7 @@ function masteryState(exposureCount: number, recognition: number, recall: number
   return "learning";
 }
 
-export function recordReview(itemId: string, rating: ReviewRating, signal: MasterySignal = "recall", questionType?: string) {
+export function recordReview(itemId: string, rating: ReviewRating, signal: MasterySignal = "recall", questionType?: string, activityMinutes = 1) {
   if (typeof window === "undefined") return;
   if (rating === "again") recordMistake(itemId, questionType);
   const records = readReviewRecords();
@@ -305,7 +305,7 @@ export function recordReview(itemId: string, rating: ReviewRating, signal: Maste
     masteryState: masteryState(exposureCount, recognition, recall, context, streak),
   };
   window.localStorage.setItem(REVIEW_STORAGE_KEY, JSON.stringify(records));
-  recordStudyActivity(success ? 2 : 1);
+  recordStudyActivity(success ? 2 : 1, activityMinutes);
   window.dispatchEvent(new Event("michi-review-updated"));
 }
 

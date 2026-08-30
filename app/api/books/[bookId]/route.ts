@@ -3,7 +3,7 @@ import path from "node:path";
 
 import { getAllowedUser } from "@/lib/auth/guard";
 import { getStudyBook } from "@/lib/books";
-import { getBookStoragePartPath, getBookStoragePath } from "@/lib/supabase/book-storage-core";
+import { getBookStoragePartPaths } from "@/lib/supabase/book-storage-core";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 
@@ -14,10 +14,8 @@ async function remoteBookResponse(book: NonNullable<ReturnType<typeof getStudyBo
   const supabase = createSupabaseAdminClient();
   if (!supabase) return new Response("Book storage is not configured.", { status: 503 });
 
-  const paths = book.storagePartCount
-    ? Array.from({ length: book.storagePartCount }, (_, index) => getBookStoragePartPath(book, index))
-    : [getBookStoragePath(book)];
-  if (paths.some((storagePath) => !storagePath)) return new Response("Book storage path is invalid.", { status: 500 });
+  const paths = getBookStoragePartPaths(book);
+  if (!paths.length) return new Response("Book storage path is invalid.", { status: 500 });
 
   const signedUrls: string[] = [];
   for (const storagePath of paths) {

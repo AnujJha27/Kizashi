@@ -8,7 +8,7 @@ import { PracticePlayer } from "@/components/practice/practice-player";
 import { WeakPractice } from "@/components/practice/weak-practice";
 import { getModuleItems, readValidatedQuestionDraft } from "@/lib/content-validation";
 import { getTopicItemIds } from "@/lib/curriculum";
-import { getValidatedPracticeQuestions, selectPracticeQuestions } from "@/lib/questions";
+import { getValidatedPracticeQuestions, migrateLegacyQuestionPrompts, selectPracticeQuestions } from "@/lib/questions";
 import { writeDiagnosticResult } from "@/lib/session";
 import type { PracticeMode, PracticeQuestion } from "@/lib/types";
 
@@ -23,7 +23,8 @@ function useActiveQuestions(fallback: PracticeQuestion[]) {
       const moduleItems = getModuleItems(module);
       const knownItemIds = new Set(moduleItems.map((item) => item.id));
       const knownItemCategories = new Map(moduleItems.map((item) => [item.id, item.category]));
-      setQuestions(readValidatedQuestionDraft(knownItemIds, knownItemCategories) ?? active);
+      const saved = readValidatedQuestionDraft(knownItemIds, knownItemCategories);
+      setQuestions(saved ? migrateLegacyQuestionPrompts(saved, module) : active);
     };
     refresh();
     window.addEventListener("michi-content-draft-updated", refresh);

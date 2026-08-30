@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, type TouchEvent } from "react";
 
 import { JapaneseText } from "@/components/learning/japanese-text";
 import { clearPracticeSession, readAutoPlayAudio, readPracticeSession, recordExamAttempt, recordQuestionAmbiguity, recordQuestionAnswer, recordReview, recordStudyActivity, writePracticeSession, type MasterySignal, type ReviewRating } from "@/lib/session";
-import { normalizeAnswer } from "@/lib/mastery";
+import { normalizeAnswer, reviewRatingForConfidence } from "@/lib/mastery";
 import type { AnswerConfidence, KanjiItem, PracticeQuestion, VocabularyItem } from "@/lib/types";
 
 type CompletionResult = { correct: number; total: number; categoryBreakdown: Record<string, { correct: number; total: number }> };
@@ -188,7 +188,7 @@ export function PracticePlayer({ questions, vocabulary = [], kanji = [], examMod
   const isCorrect = isOrdering ? orderComplete && order.every((token, index) => token === question.correctOrder?.[index]) : isTextAnswer ? (question.acceptedAnswers ?? []).some((answer) => normalizeAnswer(answer) === normalizeAnswer(typedAnswer)) : selected === question.correctIndex;
   const hasAnswer = isOrdering ? orderComplete : isTextAnswer ? Boolean(typedAnswer.trim()) : selected !== null;
   const showFeedback = submitted && !examMode;
-  const suggestedRating: ReviewRating = !isCorrect ? "again" : confidence === "guess" ? "hard" : confidence === "confident" ? "easy" : "good";
+  const suggestedRating: ReviewRating = reviewRatingForConfidence(isCorrect, confidence);
 
   const submit = () => {
     if (!hasAnswer || submitted) return;
@@ -202,7 +202,7 @@ export function PracticePlayer({ questions, vocabulary = [], kanji = [], examMod
 
   const next = (rating = suggestedRating) => {
     if (!submitted) return;
-    if (!examMode) recordReview(question.itemId, rating, masterySignal(question), question.questionType);
+    if (!examMode) recordReview(question.itemId, rating, masterySignal(question), question.questionType, 0);
     if (position === questions.length - 1) {
       const finalAnswers = { ...answerResults, [question.id]: isCorrect };
       const result = completionResult(questions, finalAnswers);
