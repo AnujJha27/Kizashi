@@ -174,11 +174,11 @@
 - Generated content remains draft-only until explicit review.
 - Generated records carry model, target IDs, validation issues, reviewer, timestamp, and notes.
 
-- [ ] **Step 1: Add failing checks** for unauthenticated generation, target-item mismatch, rate-limit behavior, and draft-only output.
-- [ ] **Step 2: Run direct checks** and confirm the missing boundary behavior.
-- [ ] **Step 3: Enforce the existing server-side validation and auth boundary** and make review metadata editable in Studio.
-- [ ] **Step 4: Update backlog/handoff entries only for work actually implemented**, keeping human review and licensing gates visible.
-- [ ] **Step 5: Run focused checks** and inspect the final diff for unrelated files.
+- [x] **Step 1: Add failing checks** for unauthenticated generation, target-item mismatch, rate-limit behavior, and draft-only output.
+- [x] **Step 2: Run direct checks** and confirm the missing boundary behavior.
+- [x] **Step 3: Enforce the existing server-side validation and auth boundary** and make review metadata editable in Studio.
+- [x] **Step 4: Update backlog/handoff entries only for work actually implemented**, keeping human review and licensing gates visible.
+- [x] **Step 5: Run focused checks** and inspect the final diff for unrelated files.
 
 ### Task 8: Full verification and GitHub push
 
@@ -187,6 +187,6 @@
 
 - [x] **Step 1: Run `node --test test/*.test.mjs` directly** and record every test result.
 - [x] **Step 2: Run TypeScript directly through the installed compiler** if the npm wrapper remains blocked.
-- [ ] **Step 3: Run the Next build directly through the installed Next binary** if possible.
+- [x] **Step 3: Run the Next build directly through the installed Next binary** if possible.
 - [x] **Step 4: Run `git diff --check`, inspect `git status`, and exclude `scripts/__pycache__/` and unrelated changes.**
 - [x] **Step 5: Push the clean approved tree to `origin/main` (`git@github.com:AnujJha27/Kizashi.git`) after the checks and explicit public-disclosure approval.**
