@@ -59,7 +59,7 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
   bounded, opt-in sync snapshot.
 - [x] Import local CSV/JSON personal vocabulary lists and map exact matches to
   canonical Kizashi vocabulary without publishing the personal source.
-- [ ] Add personal textbook indexes, screenshots, and richer canonical mapping
+- [x] Add personal textbook indexes, screenshots, and richer canonical mapping
   where the privacy model is clear.
 - [ ] Keep WaniKani as an optional cross-reference only, never as source truth.
 
