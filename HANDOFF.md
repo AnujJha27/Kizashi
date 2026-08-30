@@ -398,15 +398,16 @@ Next session order:
   Regression checks cover both cases. Re-copy the complete UTF-8
   `supabase/seed.sql` and rerun the whole file after the migrations; seed edits
   do not require another `supabase db push`.
-- Admin access is exact-ID based through `ADMIN_USER_ID`, defaulting to the
-  requested `aj05767625`. `ALLOWED_EMAILS` accepts additional comma-,
+- Admin access now matches the exact email
+  `aj05767625@gmail.com` through `ADMIN_EMAIL`; `ADMIN_USER_ID` remains an
+  optional UUID override. `ALLOWED_EMAILS` accepts additional comma-,
   semicolon-, or newline-separated accounts, so add
   `aniruddh302004@gmail.com` in Vercel while preserving the existing
   `ALLOWED_EMAIL` value. Content Studio and AI generation are admin-only;
   ordinary allowlisted accounts retain the learner app.
-- Supabase Auth user IDs are normally UUIDs. If `aj05767625` is a username or
-  dashboard label rather than the actual Auth user ID, set `ADMIN_USER_ID` to
-  that account's real Auth UUID in Vercel instead.
+- Supabase Auth user IDs are normally UUIDs, so use `ADMIN_USER_ID` only when
+  UUID-based matching is preferred. The default admin email is the requested
+  `aj05767625@gmail.com`.
 - Fresh checks: `/usr/bin/node --test test/*.test.mjs` — 5 test files passed;
   direct TypeScript checking passed; `git diff --check` passed. The Next build
   and browser smoke checks remain intentionally unrun because the owner's Next
@@ -415,8 +416,9 @@ Next session order:
   hosted Supabase database. The verified code-only snapshot was pushed to
   GitHub `main`; it contains no private books, PDFs, videos,
   `node_modules`, or credentials. Vercel still needs the production
-  `ALLOWED_EMAILS=aniruddh302004@gmail.com` and `ADMIN_USER_ID=aj05767625`
-  environment values applied before a redeploy.
+  `ALLOWED_EMAILS=aniruddh302004@gmail.com` and
+  `ADMIN_EMAIL=aj05767625@gmail.com` environment values applied before a
+  redeploy. `ADMIN_USER_ID` is optional.
 - A fresh read-only Supabase REST check returned HTTP 200 for the seeded
   `courses`, `learning_items`, `content_sources`, and
   `learning_item_sources` records, and HTTP 200 for the `sync_snapshots`

@@ -10,7 +10,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Without Supabase variables the app runs in local demo mode. With Supabase configured, magic-link auth, the `ALLOWED_EMAIL`/`ALLOWED_EMAILS` allowlist, protected app routes, and RLS-backed account sync are active. Set `ADMIN_USER_ID` to the admin's Supabase Auth user ID to protect Content Studio and AI generation. Apply the migrations in `supabase/migrations/`, including `0014_sync_metadata.sql`, before enabling account sync in Profile.
+Without Supabase variables the app runs in local demo mode. With Supabase configured, magic-link auth, the `ALLOWED_EMAIL`/`ALLOWED_EMAILS` allowlist, protected app routes, and RLS-backed account sync are active. Set `ADMIN_EMAIL` to the admin email (`aj05767625@gmail.com`) to protect Content Studio and AI generation; `ADMIN_USER_ID` is an optional UUID override. Apply the migrations in `supabase/migrations/`, including `0014_sync_metadata.sql`, before enabling account sync in Profile.
 
 Apply the migrations in `supabase/migrations/`, then run `supabase/seed.sql` in the Supabase SQL Editor. Curriculum reads require an authenticated user when Supabase is configured; user-owned tables remain protected by RLS. Profile sync is explicit opt-in and keeps browser state intact if the network fails.
 
@@ -36,7 +36,8 @@ Apply `0015_private_book_storage.sql`, upload `.book-storage/books/<book-id>/par
    NEXT_PUBLIC_SUPABASE_ANON_KEY
    ALLOWED_EMAIL
    ALLOWED_EMAILS                 # optional comma-separated additional accounts
-   ADMIN_USER_ID                  # aj05767625 for the requested admin identity
+   ADMIN_EMAIL                    # aj05767625@gmail.com for the requested admin
+   ADMIN_USER_ID                  # optional Supabase Auth UUID override
    SUPABASE_SERVICE_KEY
    SUPABASE_BOOKS_BUCKET=books
    OPENROUTER_API_KEY                 # optional, Studio AI only

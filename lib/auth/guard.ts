@@ -20,7 +20,7 @@ export async function getAllowedUser(): Promise<AuthenticatedUser | null> {
   const { data } = await supabase!.auth.getUser();
   if (!data.user?.email || !isAllowedEmail(data.user.email)) return null;
 
-  return { id: data.user.id, email: data.user.email, isDemo: false, isAdmin: isAdminUser(data.user.id) };
+  return { id: data.user.id, email: data.user.email, isDemo: false, isAdmin: isAdminUser(data.user.id, data.user.email) };
 }
 
 export async function requireAllowedUser(): Promise<AuthenticatedUser> {
