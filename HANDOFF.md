@@ -369,3 +369,116 @@ Next session order:
   blockers. The current staged package reports 7,391 vocabulary, 630 kanji,
   413 grammar, 6 reading, and 6 listening records with zero QA blockers while
   imported records remain pending.
+
+## Session notes — source and AI boundary follow-up
+
+- Confirmed the source-roadmap implementation uses `scripts/ingest_jmnedict.py`
+  for lookup-only names, `scripts/extract_book_candidates.py` for review-only
+  book facts, and `scripts/fetch_dictionary_sources.py` for optional SudachiDict
+  cache metadata. No duplicate wrapper tools were added.
+- Added a regression check for the existing AI generation boundary: allowlisted
+  authentication, target-ID validation, in-memory cooldown, generated/draft
+  status, and target provenance metadata. The plan now names the actual source
+  tools instead of obsolete filenames.
+- The current seed file contains the corrected UTF-8 contrast array and the
+  parenthesized staged `learning_items` imports. If Supabase still reports the
+  old foreign-key failure, recopy the entire current `supabase/seed.sql` as
+  UTF-8 and run the complete file; do not run only a child-table insert or an
+  older clipboard copy.
+- The seed now creates `michi-curated-n5-seed` before its first
+  `learning_item_sources` reference, fixing the final source foreign-key error.
+
+## Session notes — seed collision repair and admin access
+
+- The hosted seed's duplicate-key failure had two root causes: staged payload
+  imports used `item.slug` as the parent `learning_items.id`, and the database
+  requires globally unique `learning_items.slug` values across vocabulary and
+  kanji. The seed now uses each stable item ID for both columns in those
+  imports and gives the later duplicate vocabulary/kanji pairs distinct slugs.
+  Regression checks cover both cases. Re-copy the complete UTF-8
+  `supabase/seed.sql` and rerun the whole file after the migrations; seed edits
+  do not require another `supabase db push`.
+- Admin access now matches the exact email
+  `aj05767625@gmail.com` through `ADMIN_EMAIL`; `ADMIN_USER_ID` remains an
+  optional UUID override. `ALLOWED_EMAILS` accepts additional comma-,
+  semicolon-, or newline-separated accounts, so add
+  `aniruddh302004@gmail.com` in Vercel while preserving the existing
+  `ALLOWED_EMAIL` value. Content Studio and AI generation are admin-only;
+  ordinary allowlisted accounts retain the learner app.
+- Supabase Auth user IDs are normally UUIDs, so use `ADMIN_USER_ID` only when
+  UUID-based matching is preferred. The default admin email is the requested
+  `aj05767625@gmail.com`.
+- Google OAuth sign-in now uses Supabase's provider flow and the existing
+  `/auth/callback`; the callback still enforces the allowlist and admin email,
+  so no Google credential is exposed to Vercel or the browser.
+- Fresh checks: `/usr/bin/node --test test/*.test.mjs` — 5 test files passed;
+  direct TypeScript checking passed; `git diff --check` passed. The Next build
+  was started in a mistaken source-directory context and stopped before
+  compilation to avoid disturbing the owner's server; browser smoke checks
+  remain unrun because that server is active.
+- The mobile bottom navigation now uses five essential destinations with
+  shrink-safe grid cells and clipped labels, keeping it inside narrow phone
+  viewports; Practice and Profile are included directly.
+- The owner confirmed that the corrected full seed now succeeds against the
+  hosted Supabase database. The verified code-only snapshot was pushed to
+  GitHub `main`; it contains no private books, PDFs, videos,
+  `node_modules`, or credentials. Vercel still needs the production
+  `ALLOWED_EMAILS=aniruddh302004@gmail.com` and
+  `ADMIN_EMAIL=aj05767625@gmail.com` environment values applied before a
+  redeploy. `ADMIN_USER_ID` is optional.
+- A fresh read-only Supabase REST check returned HTTP 200 for the seeded
+  `courses`, `learning_items`, `content_sources`, and
+  `learning_item_sources` records, and HTTP 200 for the `sync_snapshots`
+  table using its actual `user_id` key. No credentials or row contents were
+  printed.
+- A fresh read-only Supabase Storage check returned HTTP 200 for the private
+  `books` bucket and found all 13 uploaded PDF parts: 3 under `genki-i`, 5
+  under `goukaku-dekiru`, and 5 under `nihongo-challenge-kanji`.
+- A dry-run of `scripts/extract_book_candidates.py` against all three supplied
+  PDFs found no text layer because they are scanned/image-only files. The
+  extractor now fails clearly with an OCR/text-export instruction instead of
+  silently reporting zero candidates. OCR was intentionally not added; any
+  extracted book facts remain a manual, review-only and licensing-gated step.
+- Strict `scripts/qa_content_package.py` reports `status: ready` with zero
+  blockers for the staged package (7,391 vocabulary, 630 kanji, 413 grammar,
+  6 readings, and 6 listening records). The 8,396 imported records remain
+  pending until a human reviews and assigns them.
+
+## Session notes — Studio production render fix
+
+- The hosted Studio error was traced to the server page reading and passing the
+  full 20 MB staged review package through the React Server Components payload.
+  The page now renders with the small authored N5 module first.
+- Added the admin-only `/api/content/review-package` endpoint. It serves the
+  tracked 1.4 MB gzip snapshot with `Content-Encoding: gzip`; the browser loads
+  and validates it after the Studio shell renders, preserving the full review
+  queue without oversized server-render props. Existing local drafts remain
+  preferred.
+- The latest code-only public GitHub snapshot is commit `1248e4d` on `main`.
+  Tests, direct TypeScript checking, and diff checks pass. No Next server was
+  started, stopped, or restarted.
+- Vercel must redeploy `main` before the fix can appear in the hosted Studio.
+
+## Session notes — sync and provenance follow-up
+
+- Opt-in local sync now includes custom entries and private per-page book notes,
+  watches the local review, practice, diagnostic, custom-entry, and book-note
+  events while online, and retries after reconnect with a short debounce.
+- `scripts/merge_openjlpt_staging.py` now promotes an existing singular
+  `sourceRecord` into `sourceRecords` before adding a duplicate source, so the
+  first source snapshot remains visible. `test/source-tools.test.mjs` covers it.
+- Fresh checks: `/usr/bin/node --test test/*.test.mjs` — 6 test files passed;
+  direct TypeScript checking passed; `git diff --check` passed; and the Next
+  production build generated all 23 static pages and completed successfully.
+- Authenticated private-reader smoke checks, Vercel environment changes,
+  Supabase migration/application, and human source review remain gated.
+
+## Session notes — personal list import
+
+- Library Quick Add now accepts local CSV/JSON vocabulary lists, preserves
+  source/lesson/page metadata, maps exact written-form/reading matches to the
+  canonical vocabulary, and keeps unmatched entries on the local personal
+  shelf. No raw textbook or screenshot data is uploaded.
+- `test/personal-import.test.mjs` covers CSV normalization and canonical
+  matching. The remaining personal-content work is textbook indexes,
+  screenshots, and richer mapping.

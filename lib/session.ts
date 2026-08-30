@@ -207,6 +207,10 @@ export interface CustomEntry {
   reading: string;
   meaning: string;
   sentence: string;
+  sourceLabel?: string;
+  lesson?: string;
+  page?: string;
+  canonicalItemId?: string;
 }
 
 export interface PracticeSessionState {
@@ -563,7 +567,14 @@ export function readCustomEntries(): CustomEntry[] {
 
 export function writeCustomEntry(entry: Omit<CustomEntry, "id">) {
   if (typeof window === "undefined") return [] as CustomEntry[];
-  const next = [{ id: `${entry.writtenForm}-${Date.now()}`, ...entry }, ...readCustomEntries()];
+  return writeCustomEntries([{ id: `${entry.writtenForm}-${Date.now()}`, ...entry }]);
+}
+
+export function writeCustomEntries(entries: CustomEntry[]) {
+  if (typeof window === "undefined") return [] as CustomEntry[];
+  const merged = new Map([...entries, ...readCustomEntries()].map((entry) => [entry.id, entry]));
+  const next = [...merged.values()];
   window.localStorage.setItem(CUSTOM_ENTRIES_STORAGE_KEY, JSON.stringify(next));
+  window.dispatchEvent(new Event("michi-custom-entries-updated"));
   return next;
 }

@@ -33,6 +33,35 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 - [ ] Add spoken-language enrichment only after the beginner audio workflow is stable.
 
 ## Learning-content quality
+- [x] Use official JLPT material for blueprint/calibration only.
+- [x] Stage JMdict, KANJIDIC2, OpenJLPT, BCCWJ, Irodori, Marugoto, JMdict
+  examples, and Tatoeba candidates with source and checksum metadata.
+- [x] Keep imported records out of learner routes until explicit approval;
+  preserve record-level and field-level provenance.
+- [x] Add JMnedict staging for proper-name lookup without treating names as
+  ordinary JLPT vocabulary.
+- [x] Add optional SudachiDict cache metadata for lookup and morphology work.
+- [x] Rank review candidates using curriculum band, frequency, missing fields,
+  prerequisite value, and learner weakness.
+- [ ] Build JLPT classifications from reviewed consensus evidence rather than
+  one unofficial level spine.
+- [x] Show licensed written-frequency signals in the learner entry and admin
+  review surfaces.
+- [ ] Add licensed spoken-frequency signals after source and field semantics
+  are settled.
+- [ ] Evaluate CEJC and CSJ for licensed spoken-language enrichment after the
+  beginner audio workflow is stable.
+- [ ] Evaluate I-JAS for aggregated learner-error patterns and beginner trap
+  drills; do not import learner data casually.
+- [x] Add a Learner Trap Engine for recurring confusions such as に vs で,
+  with contrast-focused weak practice.
+- [x] Keep local custom entries and private book notes portable through the
+  bounded, opt-in sync snapshot.
+- [x] Import local CSV/JSON personal vocabulary lists and map exact matches to
+  canonical Kizashi vocabulary without publishing the personal source.
+- [ ] Add personal textbook indexes, screenshots, and richer canonical mapping
+  where the privacy model is clear.
+- [ ] Keep WaniKani as an optional cross-reference only, never as source truth.
 
 - [ ] Grow the N5 syllabus by topic bands with Core, Extended, and Bridge classifications.
 - [ ] Expand grammar coverage to a textbook-level beginner sequence with contrasts, prerequisites, mistakes, and contextual examples.
