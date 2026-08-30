@@ -408,5 +408,10 @@ Next session order:
 - Fresh checks: `/usr/bin/node --test test/*.test.mjs` — 5 test files passed;
   direct TypeScript checking passed; `git diff --check` passed. The Next build
   and browser smoke checks remain intentionally unrun because the owner's Next
-  server is active. Vercel environment updates and this session's final
-  GitHub publication are the remaining handoff actions.
+  server is active.
+- The owner confirmed that the corrected full seed now succeeds against the
+  hosted Supabase database. The verified code-only snapshot was pushed to
+  GitHub `main` as `a597bf3`; it contains no private books, PDFs, videos,
+  `node_modules`, or credentials. Vercel still needs the production
+  `ALLOWED_EMAILS=aniruddh302004@gmail.com` and `ADMIN_USER_ID=aj05767625`
+  environment values applied before a redeploy.
