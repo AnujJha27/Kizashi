@@ -1,0 +1,71 @@
+{
+  "course": {
+    "id": "course-n5",
+    "slug": "n5",
+    "title": "N5",
+    "description": "Test course",
+    "jlptLevel": "N5",
+    "chapters": [
+      {
+        "id": "chapter-real",
+        "slug": "real",
+        "title": "Real",
+        "description": "Real chapter",
+        "region": "quiet-city",
+        "lessons": [
+          { "id": "lesson-real", "slug": "real", "title": "Real", "subtitle": "本物", "description": "Real lesson", "estimatedMinutes": 10, "itemIds": [] }
+        ]
+      },
+      {
+        "id": "chapter-openjlpt-review",
+        "slug": "source-review",
+        "title": "Source review",
+        "description": "Review holding area",
+        "region": "quiet-city",
+        "lessons": [
+          { "id": "lesson-openjlpt-review", "slug": "source-review", "title": "Source review", "subtitle": "確認", "description": "Review records", "estimatedMinutes": 10, "itemIds": ["vocab-test"] }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "id": "vocab-test",
+      "slug": "test",
+      "title": "駅",
+      "category": "vocabulary",
+      "jlptLevel": "N5",
+      "subcategory": "places",
+      "difficulty": 1,
+      "prerequisiteIds": [],
+      "tags": ["source-review"],
+      "sourceIds": ["test-source"],
+      "reviewStatus": "approved",
+      "classification": {
+        "itemType": "vocabulary",
+        "itemId": "vocab-test",
+        "level": "N5",
+        "band": "core",
+        "confidence": "high",
+        "evidenceSources": ["test-source"],
+        "inclusionReason": "Core beginner word.",
+        "reviewedAt": "2026-08-30"
+      },
+      "writtenForm": "駅",
+      "reading": "えき",
+      "meanings": ["station"],
+      "partOfSpeech": "noun",
+      "exampleSentences": [{ "japanese": "駅へ行きます。", "translation": "I go to the station." }],
+      "collocations": ["駅へ行く"],
+      "relatedWords": [],
+      "antonyms": []
+    }
+  ],
+  "kanji": [],
+  "grammar": [],
+  "readings": [],
+  "listening": [],
+  "sourceManifest": [
+    { "id": "test-source", "name": "Test source", "type": "curriculum" }
+  ]
+}

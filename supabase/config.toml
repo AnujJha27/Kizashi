@@ -1,0 +1,4 @@
+project_id = "kizashi"
+
+[db]
+seed = "./seed.sql"

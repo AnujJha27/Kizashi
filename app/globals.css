@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #f5f5f2;
+  --muted: #9297a1;
+  --dim: #676c75;
+  --background: #0b0b0d;
+  --surface: #111216;
+  --surface-raised: #17181d;
+  --surface-border: #292b31;
+  --vermilion: #e34a3f;
+  --gold: #e5b85c;
+  --success: #6fb98f;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--background); }
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--background);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-shell {
+  isolation: isolate;
+  min-height: 100vh;
+  position: relative;
+  background:
+    linear-gradient(90deg, rgba(8, 10, 16, .54) 0%, rgba(8, 10, 16, .34) 48%, rgba(8, 10, 16, .14) 100%),
+    linear-gradient(180deg, rgba(10, 12, 20, .08), rgba(7, 8, 12, .56)),
+    url("/site-atmosphere.png") center 42% / cover fixed no-repeat;
+  background-attachment: fixed;
+}
+
+.app-shell aside,
+.app-header {
+  background:
+    linear-gradient(180deg, rgba(20, 39, 57, .72), rgba(18, 24, 34, .68)),
+    url("/site-atmosphere.png") left 42% / cover fixed no-repeat;
+  backdrop-filter: blur(20px) saturate(120%);
+}
+
+.app-shell aside { box-shadow: 18px 0 50px rgba(0, 0, 0, .12); }
+
+.app-mobile-nav {
+  background: rgba(14, 15, 21, .7);
+  backdrop-filter: blur(20px) saturate(120%);
+}
+
+.sidebar-station {
+  position: absolute;
+  left: -.25rem;
+  top: 50%;
+  width: .4rem;
+  height: .4rem;
+  border: 1px solid rgba(241, 207, 124, .7);
+  border-radius: 999px;
+  background: #182b3b;
+  transform: translateY(-50%);
+}
+
+a { color: inherit; text-decoration: none; }
+
+button, input, select, textarea { font: inherit; }
+
+select {
+  appearance: none;
+  padding-inline-end: 2.5rem !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none' stroke='%239297a1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m3 5 4 4 4-4'/%3E%3C/svg%3E");
+  background-position: right .75rem center;
+  background-repeat: no-repeat;
+  background-size: .9rem;
+}
+
+button, a, input { outline-color: var(--gold); outline-offset: 3px; }
+
+.jp-serif { font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif; }
+
+.surface-panel {
+  border: 1px solid var(--surface-border);
+  border-radius: 18px;
+  background: rgba(17, 18, 22, .7);
+  backdrop-filter: blur(18px) saturate(115%);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, .14);
+}
+
+.surface-panel-raised {
+  border: 1px solid var(--surface-border);
+  border-radius: 14px;
+  background: rgba(23, 24, 29, .62);
+  backdrop-filter: blur(18px) saturate(115%);
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.quiet-grid {
+  background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+
+.journey-map {
+  background: radial-gradient(circle at 82% 22%, rgba(227, 74, 63, .14), transparent 24%), rgba(13, 14, 17, .48);
+  backdrop-filter: blur(9px) saturate(120%);
+}
+
+.journey-hero {
+  min-height: 330px;
+  background:
+    linear-gradient(90deg, rgba(11, 11, 13, .62) 0%, rgba(11, 11, 13, .38) 53%, rgba(11, 11, 13, .1) 100%),
+    linear-gradient(180deg, rgba(12, 14, 23, .08), rgba(6, 8, 12, .38)),
+    url("/journey-hero.png") center 44% / cover no-repeat;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .25);
+}
+
+.journey-hero-ink { opacity: .2; }
+
+.journey-page .surface-panel {
+  background: linear-gradient(135deg, rgba(24, 37, 51, .75), rgba(46, 27, 39, .62));
+}
+
+.journey-page .surface-panel-raised {
+  background: linear-gradient(135deg, rgba(22, 43, 58, .78), rgba(39, 30, 55, .64));
+}
+
+.progress-page .surface-panel {
+  background: linear-gradient(135deg, rgba(18, 48, 63, .82), rgba(42, 31, 61, .68));
+}
+
+.ink-field {
+  opacity: .9;
+  mix-blend-mode: screen;
+}
+
+.seal {
+  display: grid;
+  width: 3.25rem;
+  height: 3.25rem;
+  place-items: center;
+  border: 1px solid rgba(227, 74, 63, .75);
+  border-radius: .35rem;
+  color: var(--vermilion);
+  transform: rotate(-7deg);
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  line-height: 1;
+}
+
+.seal span { font-size: 1rem; font-weight: 700; }
+.seal small { margin-top: -.7rem; font-size: .6rem; letter-spacing: .18em; }
+
+.journey-line { background: linear-gradient(var(--vermilion), rgba(227, 74, 63, .15)); }
+
+.journey-marker { box-shadow: 0 0 0 5px rgba(227, 74, 63, .12), 0 8px 24px rgba(227, 74, 63, .2); }
+
+.safe-bottom { padding-bottom: max(5.5rem, env(safe-area-inset-bottom)); }
+
+[aria-label="Study activity over the last 28 days"] {
+  max-width: 11.5rem;
+  gap: .25rem;
+}
+
+[aria-label="Study activity over the last 28 days"] > span {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a, button { transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease; }
+  a:hover, button:hover { transform: translateY(-1px); }
+}

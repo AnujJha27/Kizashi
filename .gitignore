@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+# Private reference books stay local or in private deployment storage; never commit them.
+N5-books/
+.book-storage/
+.env
+.env.local
+.env.*.local
+!.env.example
+*.tsbuildinfo
+coverage/
+data/staging/*
+!data/staging/kizashi-n5-source-review.json.gz
+data/source-cache/
+supabase/generated/

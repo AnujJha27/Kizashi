@@ -1,0 +1,29 @@
+import { redirect } from "next/navigation";
+
+import { getSupabaseConfig } from "@/lib/supabase/env";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { isAllowedEmail } from "@/lib/auth/allowlist";
+
+export interface AuthenticatedUser {
+  id: string;
+  email: string;
+  isDemo: boolean;
+}
+
+export async function getAllowedUser(): Promise<AuthenticatedUser | null> {
+  if (!getSupabaseConfig()) {
+    return { id: "demo-user", email: "demo@kizashi.local", isDemo: true };
+  }
+
+  const supabase = await createSupabaseServerClient();
+  const { data } = await supabase!.auth.getUser();
+  if (!data.user?.email || !isAllowedEmail(data.user.email)) return null;
+
+  return { id: data.user.id, email: data.user.email, isDemo: false };
+}
+
+export async function requireAllowedUser(): Promise<AuthenticatedUser> {
+  const user = await getAllowedUser();
+  if (!user) redirect("/login");
+  return user;
+}

@@ -1,0 +1,130 @@
+import type { ContentSource, CurriculumBand, CurriculumClassification, ExamSkillMastery, ExamReadinessStatus, JLPTSpecification, LearningCategory, LearningItem } from "@/lib/types";
+import type { ExamAttempt, ReviewRecord } from "@/lib/session";
+
+export const n5ExamRequirements = {
+  overallMinimum: 80,
+  overallMaximum: 180,
+  languageReadingMinimum: 38,
+  languageReadingMaximum: 120,
+  listeningMinimum: 19,
+  listeningMaximum: 60,
+} as const;
+
+export const n5ExamBlueprint: JLPTSpecification[] = [
+  { level: "N5", section: "Vocabulary", questionType: "kanji reading", testedSkill: "vocabulary", approximateFormat: "Read familiar kanji in context", source: "JLPT N5 purposes of test items" },
+  { level: "N5", section: "Vocabulary", questionType: "orthography", testedSkill: "vocabulary", approximateFormat: "Choose the written form that matches a familiar word", source: "JLPT N5 purposes of test items" },
+  { level: "N5", section: "Vocabulary", questionType: "contextual vocabulary", testedSkill: "vocabulary", approximateFormat: "Choose the word that completes a sentence", source: "JLPT N5 purposes of test items" },
+  { level: "N5", section: "Vocabulary", questionType: "paraphrase", testedSkill: "vocabulary", approximateFormat: "Choose an expression with a similar meaning", source: "JLPT N5 purposes of test items" },
+  { level: "N5", section: "Grammar", questionType: "sentence composition", testedSkill: "grammar", approximateFormat: "Choose the form that makes the sentence natural", source: "JLPT N5 purposes of test items" },
+  { level: "N5", section: "Grammar", questionType: "sentence ordering", testedSkill: "grammar", approximateFormat: "Arrange familiar words into a natural sentence", source: "JLPT N5 purposes of test items" },
+  { level: "N5", section: "Grammar", questionType: "text grammar", testedSkill: "grammar", approximateFormat: "Choose the connective or form that fits a short text", source: "JLPT N5 purposes of test items" },
+  { level: "N5", section: "Reading", questionType: "short passage", testedSkill: "reading", approximateFormat: "Understand a short everyday text", source: "JLPT N5 purposes of test items" },
+  { level: "N5", section: "Reading", questionType: "mid-length passage", testedSkill: "reading", approximateFormat: "Follow the main point of a longer beginner text", source: "JLPT N5 purposes of test items" },
+  { level: "N5", section: "Reading", questionType: "information retrieval", testedSkill: "reading", approximateFormat: "Find a specific detail in practical material", source: "JLPT N5 purposes of test items" },
+  { level: "N5", section: "Listening", questionType: "task-based response", testedSkill: "listening", approximateFormat: "Choose the action that completes a situation", source: "JLPT N5 purposes of test items" },
+  { level: "N5", section: "Listening", questionType: "key point", testedSkill: "listening", approximateFormat: "Understand the main point of a short exchange", source: "JLPT N5 purposes of test items" },
+  { level: "N5", section: "Listening", questionType: "verbal expression", testedSkill: "listening", approximateFormat: "Choose a natural expression for the situation", source: "JLPT N5 purposes of test items" },
+  { level: "N5", section: "Listening", questionType: "quick response", testedSkill: "listening", approximateFormat: "Choose a natural response immediately", source: "JLPT N5 purposes of test items" },
+];
+
+export const contentSources: ContentSource[] = [
+  { id: "jlpt-official-blueprint", name: "Official JLPT N5 item purposes", type: "official", url: "https://www.jlpt.jp/e/guideline/pdf/n5_e_revised.pdf", notes: "Exam-format calibration, not a content dump." },
+  { id: "jmdict", name: "JMdict", type: "dictionary", url: "https://www.edrdg.org/jmdict/j_jmdict.html", license: "EDRDG licence" },
+  { id: "jmdict-examples", name: "JMdict linked examples", type: "examples", url: "https://ftp.edrdg.org/pub/Nihongo/00INDEX.html", license: "EDRDG licence", notes: "Example enrichment source; review examples before publishing." },
+  { id: "kanjidic2", name: "KANJIDIC2", type: "dictionary", url: "https://www.edrdg.org/wiki/KANJIDIC_Project.html", license: "CC BY-SA 4.0" },
+  { id: "openjlpt", name: "OpenJLPT", type: "curriculum", url: "https://github.com/evanclan/OpenJLPT", license: "CC BY-SA 4.0", notes: "Staging level spine; community classification requires review." },
+  { id: "bccwj", name: "NINJAL BCCWJ frequency list", type: "frequency", url: "https://clrd.ninjal.ac.jp/bccwj/freq-list.html", license: "CC BY-NC-ND 3.0", notes: "Frequency enrichment; not a curriculum replacement." },
+  { id: "irodori", name: "Japan Foundation Irodori", type: "curriculum", url: "https://www.irodori.jpf.go.jp/en/resources.html", notes: "Lesson vocabulary, sentence patterns, and kanji progression; review terms before publishing derived content." },
+  { id: "marugoto", name: "Japan Foundation Marugoto", type: "curriculum", url: "https://marugoto.jpf.go.jp/en/download/", notes: "Vocabulary and phrase progression reference; review terms before publishing derived content." },
+  { id: "tatoeba", name: "Tatoeba", type: "examples", url: "https://tatoeba.org/en/downloads", license: "CC BY 2.0 FR and per-contributor licenses", notes: "Example sentences require attribution and per-sentence license handling." },
+  { id: "michi-curated-n5-seed", name: "Kizashi curated N5 seed", type: "curriculum", notes: "Original authored curriculum and examples." },
+  { id: "michi-question-factory", name: "Kizashi question factory", type: "generated", notes: "Generated drills tied to curated item facts and validated before use." },
+  { id: "user-draft", name: "Local user draft", type: "user", notes: "Unpublished content authored in Content Studio." },
+];
+
+export function getCurriculumBand(item: LearningItem): CurriculumBand {
+  if (item.classification?.band) return item.classification.band;
+  if (item.jlptLevel !== "N5") return "bridge";
+  return item.difficulty <= 2 ? "core" : "extended";
+}
+
+export function classifyItem(item: LearningItem): CurriculumClassification | null {
+  if (!item.jlptLevel) return null;
+  if (item.classification) return item.classification;
+  return {
+    itemType: item.category,
+    itemId: item.id,
+    level: item.jlptLevel,
+    band: getCurriculumBand(item),
+    confidence: "medium",
+    evidenceSources: item.sourceIds?.length ? item.sourceIds : ["michi-curated-n5-seed"],
+    inclusionReason: item.jlptLevel === "N5" ? "Included for conservative N5 coverage." : "Included as bridge material for comprehension.",
+    reviewedAt: "2026-08-29",
+  };
+}
+
+function statusFor(coverage: number, accuracy: number, retention: number, sampleSize: number, timedAccuracy: number | null): ExamReadinessStatus {
+  if (!sampleSize) return "untested";
+  if (accuracy < 0.6 || coverage < 0.25) return "weak";
+  if (coverage >= 0.7 && accuracy >= 0.85 && retention >= 0.7 && sampleSize >= 8 && timedAccuracy !== null && timedAccuracy >= 0.75) return "exam-ready";
+  if (accuracy >= 0.75 && sampleSize >= 3) return "strong";
+  return "developing";
+}
+
+function timedAccuracyFor(attempts: ExamAttempt[], skillType: LearningCategory) {
+  const score = attempts.find((attempt) => attempt.categoryBreakdown[skillType]?.total)?.categoryBreakdown[skillType];
+  return score ? score.correct / Math.max(score.total, 1) : null;
+}
+
+function sectionEvidence(attempts: ExamAttempt[], categories: LearningCategory[], minimumRatio: number) {
+  const attempt = attempts.find((entry) => categories.some((category) => entry.categoryBreakdown[category]?.total));
+  if (!attempt) return { correct: 0, total: 0, ratio: null, minimumRatio, status: "untested" as const };
+  const score = categories.reduce((result, category) => ({ correct: result.correct + (attempt.categoryBreakdown[category]?.correct ?? 0), total: result.total + (attempt.categoryBreakdown[category]?.total ?? 0) }), { correct: 0, total: 0 });
+  const ratio = score.correct / Math.max(score.total, 1);
+  return { ...score, ratio, minimumRatio, status: ratio >= minimumRatio ? "above-minimum" as const : "below-minimum" as const };
+}
+
+export function getSkillMastery(items: LearningItem[], records: Record<string, ReviewRecord>, skillType: LearningCategory, examAttempts: ExamAttempt[] = []): ExamSkillMastery {
+  const skillItems = items.filter((item) => item.category === skillType && item.jlptLevel === "N5");
+  const reviewed = skillItems.filter((item) => records[item.id]);
+  const reviewAttempts = reviewed.reduce((sum, item) => sum + records[item.id].attempts, 0);
+  const correct = reviewed.reduce((sum, item) => sum + records[item.id].correct, 0);
+  const retained = reviewed.filter((item) => records[item.id].masteryState === "stable" || records[item.id].masteryState === "strong" || records[item.id].streak >= 2).length;
+  const coverage = reviewed.length / Math.max(skillItems.length, 1);
+  const recentAccuracy = correct / Math.max(reviewAttempts, 1);
+  const retention = retained / Math.max(reviewed.length, 1);
+  const timedAccuracy = timedAccuracyFor(examAttempts, skillType);
+
+  return {
+    level: "N5",
+    skillType,
+    coverage,
+    recentAccuracy,
+    timedAccuracy,
+    retention,
+    sampleSize: reviewAttempts,
+    status: statusFor(coverage, recentAccuracy, retention, reviewAttempts, timedAccuracy),
+  };
+}
+
+export function getN5Readiness(items: LearningItem[], records: Record<string, ReviewRecord>, examAttempts: ExamAttempt[] = []) {
+  const skillTypes: LearningCategory[] = ["vocabulary", "kanji", "grammar", "reading", "listening"];
+  const attempts = [...examAttempts].sort((left, right) => right.completedAt - left.completedAt);
+  const skills = skillTypes.map((skillType) => getSkillMastery(items, records, skillType, attempts));
+  const priority = [...skills].sort((left, right) => (left.coverage + left.recentAccuracy + left.retention) - (right.coverage + right.recentAccuracy + right.retention))[0];
+  const sections = [
+    { id: "language-knowledge-reading", label: "Language Knowledge + Reading", ...sectionEvidence(attempts, ["vocabulary", "kanji", "grammar", "reading"], n5ExamRequirements.languageReadingMinimum / n5ExamRequirements.languageReadingMaximum) },
+    { id: "listening", label: "Listening", ...sectionEvidence(attempts, ["listening"], n5ExamRequirements.listeningMinimum / n5ExamRequirements.listeningMaximum) },
+  ];
+  const ready = skills.every((skill) => skill.status === "exam-ready") && sections.every((section) => section.status === "above-minimum");
+
+  return {
+    level: "N5" as const,
+    ready,
+    label: ready ? "Exam-ready" : "Not yet exam-ready",
+    summary: ready ? "Every required skill has a meaningful, recent safety margin." : `Build your safety margin in ${priority.skillType} before relying on this score.`,
+    priority,
+    skills,
+    sections,
+  };
+}
