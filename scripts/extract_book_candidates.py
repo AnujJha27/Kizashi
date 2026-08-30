@@ -82,7 +82,10 @@ def build(path: Path, book_id: str) -> dict[str, Any]:
     source = {"id": source_id, "name": f"Book extraction · {book_id}", "type": "curriculum", "retrievedAt": retrieved_at, "sha256": checksum(path), "localFilename": path.name, "notes": "Local book candidate; do not publish copied prose or exercises."}
     records: list[dict[str, Any]] = []
     seen: set[tuple[int, str]] = set()
-    for page, page_text in enumerate(extracted_text(path).split("\f"), 1):
+    text = extracted_text(path)
+    if not text.strip():
+        raise RuntimeError("No extractable text found; provide OCR or a text export for this book.")
+    for page, page_text in enumerate(text.split("\f"), 1):
         for line in page_text.splitlines():
             item = candidate(line, page, book_id, source_id)
             if not item or (page, item["writtenForm"]) in seen:
@@ -108,7 +111,10 @@ def main() -> int:
     parser.add_argument("--output", type=Path, default=Path("data/staging/book-candidates.json"))
     parser.add_argument("--dry-run", action="store_true", help="Print stats without writing the candidate package.")
     args = parser.parse_args()
-    package = build(args.input, args.book_id)
+    try:
+        package = build(args.input, args.book_id)
+    except RuntimeError as error:
+        parser.error(str(error))
     if args.dry_run:
         print(json.dumps(package["stats"] | {"page": package["records"]["vocabulary"][0]["sourceRecord"]["page"] if package["records"]["vocabulary"] else None}, ensure_ascii=False))
         return 0

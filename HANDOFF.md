@@ -422,3 +422,8 @@ Next session order:
   `learning_item_sources` records, and HTTP 200 for the `sync_snapshots`
   table using its actual `user_id` key. No credentials or row contents were
   printed.
+- A dry-run of `scripts/extract_book_candidates.py` against all three supplied
+  PDFs found no text layer because they are scanned/image-only files. The
+  extractor now fails clearly with an OCR/text-export instruction instead of
+  silently reporting zero candidates. OCR was intentionally not added; any
+  extracted book facts remain a manual, review-only and licensing-gated step.

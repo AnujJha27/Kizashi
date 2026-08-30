@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { execFile } from "node:child_process";
-import { readFile } from "node:fs/promises";
+import { mkdtemp, readFile, writeFile } from "node:fs/promises";
 import { promisify } from "node:util";
 import { gunzipSync } from "node:zlib";
 
@@ -198,6 +198,16 @@ test("book extraction keeps candidates review-only and records page provenance",
   const { stdout } = await execFileAsync("python3", ["scripts/extract_book_candidates.py", "--input", "test/fixtures/book-notes.txt", "--book-id", "test-book", "--dry-run"]);
   assert.match(stdout, /"vocabulary": 2/);
   assert.match(stdout, /"page": 1/);
+});
+
+test("book extraction fails clearly when a scanned book has no text layer", async () => {
+  const directory = await mkdtemp("/tmp/kizashi-empty-book-");
+  const input = `${directory}/empty.txt`;
+  await writeFile(input, "", "utf8");
+  await assert.rejects(
+    execFileAsync("python3", ["scripts/extract_book_candidates.py", "--input", input, "--book-id", "empty-book", "--dry-run"]),
+    /No extractable text/,
+  );
 });
 
 test("JMnedict ingestion keeps names outside the learner vocabulary", async () => {
