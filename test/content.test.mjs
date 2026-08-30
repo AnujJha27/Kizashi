@@ -59,6 +59,15 @@ test("the deployable Studio review package keeps the staged records", async () =
   assert.ok(staged.grammar.length > 400);
 });
 
+test("Studio loads the large review package through an admin-only compressed endpoint", async () => {
+  const page = await readFile(new URL("../app/(main)/studio/page.tsx", import.meta.url), "utf8");
+  const route = await readFile(new URL("../app/api/content/review-package/route.ts", import.meta.url), "utf8");
+  assert.match(page, /const module = n5Module/);
+  assert.match(route, /getAllowedUser/);
+  assert.match(route, /user\.isAdmin/);
+  assert.match(route, /Content-Encoding.*gzip/s);
+});
+
 test("kanji orthography prompts test the reading instead of visual matching", async () => {
   const questions = await readFile(new URL("../lib/questions.ts", import.meta.url), "utf8");
   assert.match(questions, /Which word is read \$\{word\.reading\}\?/);

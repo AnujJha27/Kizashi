@@ -1,11 +1,7 @@
-import { readFile } from "node:fs/promises";
-import path from "node:path";
-import { gunzipSync } from "node:zlib";
-
 import { ContentStudio } from "@/components/content/content-studio";
 import { requireAdminUser } from "@/lib/auth/guard";
 import { n5Module } from "@/lib/curriculum";
-import { getModuleItems, parseModuleForReview, validateModule, validatePracticeQuestions } from "@/lib/content-validation";
+import { getModuleItems, validateModule, validatePracticeQuestions } from "@/lib/content-validation";
 import { getPracticeQuestions } from "@/lib/questions";
 import { contentSources } from "@/lib/jlpt";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
@@ -13,17 +9,6 @@ import type { ContentSource } from "@/lib/types";
 
 export const metadata = { title: "Content Studio" };
 export const dynamic = "force-dynamic";
-
-const STAGING_FILE = path.join(process.cwd(), "data", "staging", "kizashi-n5-source-review.json.gz");
-
-async function loadStagedModule() {
-  try {
-    const value = parseModuleForReview(gunzipSync(await readFile(STAGING_FILE)).toString("utf8"));
-    return value ?? n5Module;
-  } catch {
-    return n5Module;
-  }
-}
 
 async function loadSourceRegister(fallback: ContentSource[]): Promise<ContentSource[]> {
   const supabase = await createSupabaseServerClient();
@@ -36,7 +21,7 @@ async function loadSourceRegister(fallback: ContentSource[]): Promise<ContentSou
 
 export default async function ContentStudioPage() {
   await requireAdminUser();
-  const module = await loadStagedModule();
+  const module = n5Module;
   const sources = await loadSourceRegister(module.sourceManifest ?? []);
   const items = getModuleItems(module);
   const seedHealth = validateModule(module);
