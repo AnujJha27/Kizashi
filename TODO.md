@@ -88,6 +88,7 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 - [x] Ship the no-auth private preview with host-level deployment gating.
 - [x] Restore allowlisted auth and opt-in per-user Supabase progress sync (apply `0014_sync_metadata.sql` before use).
 - [x] Add deeper AI explain/conversation/writing features after the core learning loop and content bank are strong.
+- [x] Provide a bounded 2-minute adaptive micro-session alongside the longer quick-drill presets.
 - [ ] Run the full build, typecheck, tests, and phone/desktop preview before deployment.
 
 ## Books and source library

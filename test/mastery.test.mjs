@@ -9,7 +9,7 @@ import {
   reviewRatingForConfidence,
   resumeSession,
 } from "../lib/mastery.js";
-import { dailyGoalProgress } from "../lib/study-core.js";
+import { dailyGoalProgress, quickPracticeCount } from "../lib/study-core.js";
 
 test("maps answer confidence to a review rating", () => {
   assert.equal(reviewRatingForConfidence(false, "confident"), "again");
@@ -72,4 +72,9 @@ test("restores the saved position without restarting the session", () => {
 test("calculates bounded daily-goal progress", () => {
   assert.deepEqual(dailyGoalProgress(7, 5), { minutes: 7, goal: 5, percent: 100, complete: true });
   assert.deepEqual(dailyGoalProgress(-2, 99), { minutes: 0, goal: 10, percent: 0, complete: false });
+});
+
+test("keeps a two-minute drill useful but bounded", () => {
+  assert.equal(quickPracticeCount(2), 4);
+  assert.equal(quickPracticeCount(5), 7);
 });

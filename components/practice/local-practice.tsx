@@ -11,6 +11,7 @@ import { getTopicItemIds } from "@/lib/curriculum";
 import { filterExamLevelQuestions } from "@/lib/jlpt-core.js";
 import { getValidatedPracticeQuestions, migrateLegacyQuestionPrompts, selectPracticeQuestions } from "@/lib/questions";
 import { writeDiagnosticResult } from "@/lib/session";
+import { quickPracticeCount } from "@/lib/study-core.js";
 import type { PracticeMode, PracticeQuestion } from "@/lib/types";
 
 function useActiveQuestions(fallback: PracticeQuestion[]) {
@@ -46,7 +47,7 @@ export function LocalPractice({ allQuestions, mode, duration, focus, section, to
   const focusedIds = focus ? new Set(module.grammarContrasts.find((contrast) => contrast.id === focus)?.grammarPointIds ?? []) : null;
   const focusQuestions = focusedIds?.size ? scopedQuestions.filter((question) => focusedIds.has(question.itemId)) : scopedQuestions;
   const selected = mode === "weak" ? focusQuestions : mode === "section" && section === "vocabulary" ? [...selectPracticeQuestions("vocabulary", focusQuestions).slice(0, 8), ...selectPracticeQuestions("kanji", focusQuestions).slice(0, 4)] : mode === "section" && section === "grammar-reading" ? [...selectPracticeQuestions("grammar", focusQuestions).slice(0, 8), ...selectPracticeQuestions("reading", focusQuestions).slice(0, 6)] : mode === "section" && section === "listening" ? selectPracticeQuestions("listening", focusQuestions).slice(0, 10) : selectPracticeQuestions(mode, focusQuestions);
-  const quickCount = duration >= 20 ? 13 : duration >= 10 ? 10 : duration >= 5 ? 7 : duration >= 3 ? 3 : 2;
+  const quickCount = quickPracticeCount(duration);
   const questions = mode === "quick" ? selected.slice(0, quickCount) : selected;
 
   if (mode === "weak") return <WeakPractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} />;

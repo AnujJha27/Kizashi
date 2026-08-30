@@ -550,6 +550,14 @@ Next session order:
   SQL application, and phone/desktop preview gates.
 - Verified on 2026-08-31: `/usr/bin/node --test test/*.test.mjs` (8/8), direct
   TypeScript checking, `next build` (24/24 pages), and `git diff --check`.
+
+## Session notes — two-minute micro-session
+
+- Added the addendum's 2-minute quick-drill preset to the Journey and Practice
+  surfaces. It selects a four-question adaptive pass; the existing 5/10/20/30
+  minute presets remain available.
+- The quick-session cap is centralized in `lib/study-core.js` and covered by a
+  focused test.
 - These closeout changes are local alongside commit `60bde34`; the four
   previously approved commits remain on GitHub `main`. New commits have not
   been pushed.
