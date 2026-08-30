@@ -553,3 +553,14 @@ Next session order:
 - These closeout changes are local alongside commit `60bde34`; the four
   previously approved commits remain on GitHub `main`. New commits have not
   been pushed.
+
+## Session notes — typed answer and furigana preferences
+
+- Added a local Profile setting for strict versus kana-friendly typed answers;
+  both practice questions and lesson recall use the selected policy.
+- The no-preference furigana fallback is now `unknown`, matching the addendum's
+  recommended gradual-fade behavior while preserving existing saved choices.
+- Verified on 2026-08-31: `/usr/bin/node --test test/*.test.mjs` (8/8), direct
+  TypeScript checking, `next build` (24/24 pages), and `git diff --check`.
+- These changes are uncommitted and local. Existing untracked `resumer`,
+  `scripts/__pycache__/`, and `supabase/.temp/` were not staged.

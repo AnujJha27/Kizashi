@@ -30,7 +30,7 @@ export function ReadingPanel({ item, vocabulary = n5Module.vocabulary, kanji = n
   const [activeWord, setActiveWord] = useState<VocabularyItem | null>(null);
   const [activePart, setActivePart] = useState<string | null>(null);
   const [records, setRecords] = useState<Record<string, ReviewRecord>>({});
-  const [furiganaMode, setFuriganaMode] = useState<FuriganaMode>("always");
+  const [furiganaMode, setFuriganaMode] = useState<FuriganaMode>("unknown");
   const parts = passageParts(item.passage, vocabulary, kanji);
   const linkedVocabulary = item.vocabularyIds.map((id) => vocabulary.find((entry) => entry.id === id)).filter((entry): entry is VocabularyItem => Boolean(entry));
   const knownWords = linkedVocabulary.filter((entry) => ["stable", "strong"].includes(records[entry.id]?.masteryState ?? "") || (records[entry.id]?.streak ?? 0) >= 2).length;

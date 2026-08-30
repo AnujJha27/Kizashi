@@ -25,6 +25,11 @@ test("normalizes equivalent kana and answer whitespace", () => {
   assert.equal(normalizeAnswer("食べる　"), "食べる");
 });
 
+test("supports strict answer matching when kana conversion is not wanted", () => {
+  assert.equal(normalizeAnswer("  タベル ", "strict"), "タベル");
+  assert.equal(normalizeAnswer("  タベル ", "kana"), "たべる");
+});
+
 test("moves an item through conservative mastery states", () => {
   const first = applyReview({ state: "unseen", score: 0, intervalDays: 0 }, "correct");
   const second = applyReview(first, "correct");

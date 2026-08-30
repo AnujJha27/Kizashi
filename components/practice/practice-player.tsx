@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState, type TouchEvent } from "react";
 
 import { JapaneseText } from "@/components/learning/japanese-text";
-import { clearPracticeSession, readAutoPlayAudio, readPracticeSession, recordExamAttempt, recordQuestionAmbiguity, recordQuestionAnswer, recordReview, recordStudyActivity, writePracticeSession, type MasterySignal, type ReviewRating } from "@/lib/session";
+import { clearPracticeSession, readAnswerLeniency, readAutoPlayAudio, readPracticeSession, recordExamAttempt, recordQuestionAmbiguity, recordQuestionAnswer, recordReview, recordStudyActivity, writePracticeSession, type AnswerLeniency, type MasterySignal, type ReviewRating } from "@/lib/session";
 import { normalizeAnswer, reviewRatingForConfidence } from "@/lib/mastery";
 import type { AnswerConfidence, KanjiItem, PracticeQuestion, VocabularyItem } from "@/lib/types";
 
@@ -90,6 +90,7 @@ export function PracticePlayer({ questions, vocabulary = [], kanji = [], examMod
   const [examStartedAt, setExamStartedAt] = useState<number | null>(null);
   const [remainingSeconds, setRemainingSeconds] = useState<number | null>(null);
   const [autoPlayAudio, setAutoPlayAudio] = useState(false);
+  const [answerLeniency, setAnswerLeniency] = useState<AnswerLeniency>("kana");
   const [ready, setReady] = useState(false);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
 
@@ -127,7 +128,7 @@ export function PracticePlayer({ questions, vocabulary = [], kanji = [], examMod
     // ponytail: the question key is the session identity; do not restore another drill.
   }, [activeSessionId, questionKey, timeLimitSeconds]);
 
-  useEffect(() => setAutoPlayAudio(readAutoPlayAudio()), []);
+  useEffect(() => { setAutoPlayAudio(readAutoPlayAudio()); setAnswerLeniency(readAnswerLeniency()); }, []);
 
   useEffect(() => {
     if (!ready || !questions.length || complete) return;
@@ -185,7 +186,7 @@ export function PracticePlayer({ questions, vocabulary = [], kanji = [], examMod
   const showPromptFurigana = !["kanji reading", "kana recall"].includes(question.questionType);
   const tokens = question.tokens ?? [];
   const orderComplete = !isOrdering || order.length === tokens.length;
-  const isCorrect = isOrdering ? orderComplete && order.every((token, index) => token === question.correctOrder?.[index]) : isTextAnswer ? (question.acceptedAnswers ?? []).some((answer) => normalizeAnswer(answer) === normalizeAnswer(typedAnswer)) : selected === question.correctIndex;
+  const isCorrect = isOrdering ? orderComplete && order.every((token, index) => token === question.correctOrder?.[index]) : isTextAnswer ? (question.acceptedAnswers ?? []).some((answer) => normalizeAnswer(answer, answerLeniency) === normalizeAnswer(typedAnswer, answerLeniency)) : selected === question.correctIndex;
   const hasAnswer = isOrdering ? orderComplete : isTextAnswer ? Boolean(typedAnswer.trim()) : selected !== null;
   const showFeedback = submitted && !examMode;
   const suggestedRating: ReviewRating = reviewRatingForConfidence(isCorrect, confidence);

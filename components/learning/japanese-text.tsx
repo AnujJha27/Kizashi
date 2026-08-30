@@ -95,7 +95,7 @@ export function getJapaneseReadingEntries(vocabulary: VocabularyItem[], kanji: K
 }
 
 export function JapaneseText({ text, vocabulary, kanji = [], className = "" }: Readonly<{ text: string; vocabulary: VocabularyItem[]; kanji?: KanjiItem[]; className?: string }>) {
-  const [mode, setMode] = useState<FuriganaMode>("always");
+  const [mode, setMode] = useState<FuriganaMode>("unknown");
   const [records, setRecords] = useState<Record<string, ReviewRecord>>({});
   const [tapped, setTapped] = useState(false);
   useEffect(() => {

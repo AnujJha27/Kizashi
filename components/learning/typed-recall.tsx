@@ -1,15 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { normalizeAnswer } from "@/lib/mastery";
+import { readAnswerLeniency, type AnswerLeniency } from "@/lib/session";
 import type { KanjiItem, VocabularyItem } from "@/lib/types";
 
 export function TypedRecall({ item, onReveal }: Readonly<{ item: VocabularyItem | KanjiItem; onReveal: () => void }>) {
   const [value, setValue] = useState("");
   const [checked, setChecked] = useState(false);
+  const [leniency, setLeniency] = useState<AnswerLeniency>("kana");
   const answers = item.category === "vocabulary" ? item.meanings : [...item.kunyomi, ...item.onyomi, ...item.meanings];
-  const correct = answers.some((answer) => normalizeAnswer(answer.toLowerCase()) === normalizeAnswer(value.toLowerCase()));
+  useEffect(() => setLeniency(readAnswerLeniency()), []);
+  const correct = answers.some((answer) => normalizeAnswer(answer, leniency) === normalizeAnswer(value, leniency));
 
   const submit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

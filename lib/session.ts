@@ -140,6 +140,7 @@ export type ReviewRating = "again" | "hard" | "good" | "easy";
 export type MasterySignal = "recognition" | "recall" | "context";
 export type MasteryState = "unseen" | "introduced" | "learning" | "stable" | "strong";
 export type FuriganaMode = "always" | "unknown" | "tap" | "hide";
+export type AnswerLeniency = "strict" | "kana";
 
 export interface ReviewRecord {
   itemId: string;
@@ -477,12 +478,12 @@ export function readDisplayName() {
 }
 
 export function readFuriganaMode(): FuriganaMode {
-  if (typeof window === "undefined") return "always";
+  if (typeof window === "undefined") return "unknown";
   try {
     const value = JSON.parse(window.localStorage.getItem(PROFILE_PREFERENCES_STORAGE_KEY) ?? "{}").furiganaMode;
-    return ["always", "unknown", "tap", "hide"].includes(value) ? value : "always";
+    return ["always", "unknown", "tap", "hide"].includes(value) ? value : "unknown";
   } catch {
-    return "always";
+    return "unknown";
   }
 }
 
@@ -492,6 +493,15 @@ export function readAutoPlayAudio() {
     return JSON.parse(window.localStorage.getItem(PROFILE_PREFERENCES_STORAGE_KEY) ?? "{}").autoPlayAudio === true;
   } catch {
     return false;
+  }
+}
+
+export function readAnswerLeniency(): AnswerLeniency {
+  if (typeof window === "undefined") return "kana";
+  try {
+    return JSON.parse(window.localStorage.getItem(PROFILE_PREFERENCES_STORAGE_KEY) ?? "{}").answerLeniency === "strict" ? "strict" : "kana";
+  } catch {
+    return "kana";
   }
 }
 

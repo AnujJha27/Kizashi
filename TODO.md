@@ -61,6 +61,8 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
   canonical Kizashi vocabulary without publishing the personal source.
 - [x] Add personal textbook indexes, screenshots, and richer canonical mapping
   where the privacy model is clear.
+- [x] Support configurable strict or kana-friendly typed-answer matching, with
+  unknown-kanji furigana as the recommended default.
 - [ ] Keep WaniKani as an optional cross-reference only, never as source truth.
 
 ## AI generation boundary
