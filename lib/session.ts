@@ -461,7 +461,7 @@ export function readDailyGoal() {
   if (typeof window === "undefined") return 10;
   try {
     const value = JSON.parse(window.localStorage.getItem(PROFILE_PREFERENCES_STORAGE_KEY) ?? "{}").dailyMinutes;
-    return [5, 10, 20, 30].includes(Number(value)) ? Number(value) : 10;
+    return [2, 5, 10, 20, 30].includes(Number(value)) ? Number(value) : 10;
   } catch {
     return 10;
   }

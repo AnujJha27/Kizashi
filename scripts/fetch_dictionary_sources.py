@@ -129,18 +129,26 @@ SOURCES = {
     },
     "cejc": {
         "filename": "cejc-metadata.txt",
-        "url": "https://www.ninjal.ac.jp/cejc/",
+        "url": "https://repository.ninjal.ac.jp/records/2000167",
         "type": "frequency",
-        "license": "NINJAL terms; evaluate access and redistribution before use.",
-        "notes": "Spoken-language frequency evaluation only; do not fetch as learner content until audio workflow is stable.",
+        "license": "CEJC-WSD-frequency 2024.03; research/education use free, no redistribution, commercial use by consultation.",
+        "notes": "Licensed spoken-frequency evaluation only; the corpus audio, transcripts, and annotations require separate access terms.",
         "optional": True,
     },
     "csj": {
         "filename": "csj-metadata.txt",
-        "url": "https://www.ninjal.ac.jp/database/type/kotonoha/",
+        "url": "https://clrd.ninjal.ac.jp/csj/en/",
         "type": "frequency",
-        "license": "NINJAL terms; evaluate access and redistribution before use.",
-        "notes": "Spoken-language frequency evaluation only; do not fetch as learner content until audio workflow is stable.",
+        "license": "NINJAL CSJ terms; commercial use requires individual review/license and source data is not redistributable.",
+        "notes": "Spoken-frequency and listening-realism evaluation only; do not import corpus data or audio without a matching license.",
+        "optional": True,
+    },
+    "i-jas": {
+        "filename": "ijas-terms.pdf",
+        "url": "https://chunagon.ninjal.ac.jp/static/I-JAS_TermsOfService.pdf",
+        "type": "learner-corpus",
+        "license": "I-JAS online terms; research-purpose use by application, no third-party redistribution, commercial use by separate consultation.",
+        "notes": "Aggregate learner-error evaluation only; never import learner records or publish derived personal data.",
         "optional": True,
     },
 }
@@ -160,6 +168,7 @@ GROUPS = {
     "frequency": ("bccwj-suw",),
     "examples": ("jmdict-examples", "tatoeba-jpn-indices", "tatoeba-sentences"),
     "spoken-evaluation": ("cejc", "csj"),
+    "learner-evaluation": ("i-jas",),
     "core": ("dictionaries", "jmdict-examples", "curriculum", "frequency", "tatoeba-jpn-indices", "tatoeba-sentences"),
 }
 

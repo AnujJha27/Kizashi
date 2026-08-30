@@ -29,7 +29,7 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 
 ### Phase 3 — spoken-language enrichment
 
-- [ ] Evaluate CEJC and CSJ for licensed spoken-language frequency and listening realism.
+- [x] Evaluate CEJC and CSJ for licensed spoken-language frequency and listening realism; see `docs/product/SOURCE-EVALUATION.md`.
 - [ ] Add spoken-language enrichment only after the beginner audio workflow is stable.
 
 ## Learning-content quality
@@ -49,10 +49,11 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
   review surfaces.
 - [ ] Add licensed spoken-frequency signals after source and field semantics
   are settled.
-- [ ] Evaluate CEJC and CSJ for licensed spoken-language enrichment after the
-  beginner audio workflow is stable.
-- [ ] Evaluate I-JAS for aggregated learner-error patterns and beginner trap
-  drills; do not import learner data casually.
+- [x] Evaluate CEJC and CSJ for licensed spoken-language enrichment after the
+  beginner audio workflow is stable; see `docs/product/SOURCE-EVALUATION.md`.
+- [x] Evaluate I-JAS for aggregated learner-error patterns and beginner trap
+  drills; retain only the privacy-safe, research-only decision in
+  `docs/product/SOURCE-EVALUATION.md`.
 - [x] Add a Learner Trap Engine for recurring confusions such as に vs で,
   with contrast-focused weak practice.
 - [x] Keep local custom entries and private book notes portable through the
@@ -119,10 +120,10 @@ Suggested routes: `/books` and `/books/[bookId]`.
 ### Enrichment layers
 
 - [x] Add Tatoeba as a reviewed example candidate pool with per-sentence attribution.
-- [ ] Evaluate I-JAS for aggregated learner-error patterns and beginner trap drills.
+- [x] Evaluate I-JAS for aggregated learner-error patterns and beginner trap drills; no learner data is imported.
 - [x] Add Sudachi/SudachiDict and/or UniDic for tokenization, lemmas, conjugation, and sentence linking.
 - [x] Allow personal notes, textbook indexes, vocabulary lists, and screenshots to map onto canonical Kizashi items.
-- [ ] Use WaniKani only as an optional cross-reference for kanji/vocabulary relationships, never as the source of truth.
+- [x] Keep WaniKani out of source truth; no integration is enabled without compatible permission.
 
 ### Data intelligence
 
