@@ -364,3 +364,8 @@ Next session order:
 - Remaining gates are hosted seed/table verification, human review and
   approval of the staged acquisition package, book-fact extraction review, and
   phone/desktop smoke checks before deployment.
+- The strict content QA gate now scopes curriculum-classification requirements
+  to `source-review` records; authored seed records do not create false
+  blockers. The current staged package reports 7,391 vocabulary, 630 kanji,
+  413 grammar, 6 reading, and 6 listening records with zero QA blockers while
+  imported records remain pending.
