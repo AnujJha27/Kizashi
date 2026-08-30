@@ -154,6 +154,16 @@ test("AI content generation stays allowlisted, rate-limited, and draft-only", as
   assert.match(validation, /review.*approved/);
 });
 
+test("practice coverage checks every item and normalizes JLPT family aliases", async () => {
+  const questions = await readFile(new URL("../lib/questions.ts", import.meta.url), "utf8");
+  const validation = await readFile(new URL("../lib/content-validation.ts", import.meta.url), "utf8");
+  const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
+  assert.match(questions, /getN5PracticeCoverage/);
+  assert.match(questions, /sentence completion.*sentence composition/);
+  assert.match(validation, /practiceQuestionTypes/);
+  assert.match(studio, /N5 practice coverage/);
+});
+
 test("ranks incomplete high-value source records before complete low-value records", () => {
   const items = [
     { id: "complete", category: "vocabulary", reviewStatus: "pending", jlptLevel: "N5", difficulty: 2, tags: ["source-review"], sourceIds: ["jmdict"], exampleSentences: [{ japanese: "駅です。", translation: "It is a station." }], collocations: ["駅に行く"] },
@@ -229,6 +239,37 @@ test("SQL export refuses validated AI questions without human approval", async (
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
+});
+
+test("SQL export refuses any non-validated question instead of dropping it", async () => {
+  const directory = await mkdtemp("/tmp/kizashi-unvalidated-question-");
+  const packagePath = `${directory}/package.json`;
+  const questionsPath = `${directory}/questions.json`;
+  try {
+    const packageData = JSON.parse(await readFile(new URL("../test/fixtures/unassigned-approved-package.json", import.meta.url), "utf8"));
+    packageData.course.chapters[0].lessons[0].itemIds.push("vocab-test");
+    packageData.sourceManifest[0].license = "Test-only license note";
+    const question = { id: "draft-vocab-test", itemId: "vocab-test", category: "vocabulary", questionType: "meaning", jlptLevel: "N5", prompt: "What does 駅 mean?", options: ["station", "school"], correctIndex: 0, explanation: "駅 means station.", validationStatus: "generated", generatedBy: "michi-question-factory" };
+    await writeFile(packagePath, JSON.stringify(packageData), "utf8");
+    await writeFile(questionsPath, JSON.stringify([question]), "utf8");
+    await assert.rejects(
+      execFileAsync("python3", ["scripts/render_supabase_content_sql.py", "--approved", "--package", packagePath, "--questions", questionsPath, "--output", `${directory}/content.sql`]),
+      /not approved/,
+    );
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("frequency fields are represented in the model, editor, database, and SQL export", async () => {
+  const types = await readFile(new URL("../lib/types.ts", import.meta.url), "utf8");
+  const editor = await readFile(new URL("../components/content/content-record-editor.tsx", import.meta.url), "utf8");
+  const migration = await readFile(new URL("../supabase/migrations/0017_spoken_frequency.sql", import.meta.url), "utf8");
+  const renderer = await readFile(new URL("../scripts/render_supabase_content_sql.py", import.meta.url), "utf8");
+  assert.match(types, /spokenFrequency\?: number/);
+  assert.match(editor, /Spoken frequency/);
+  assert.match(migration, /add column if not exists spoken_frequency integer/);
+  assert.match(renderer, /spoken_frequency/);
 });
 
 test("content QA reports review blockers instead of silently publishing them", async () => {

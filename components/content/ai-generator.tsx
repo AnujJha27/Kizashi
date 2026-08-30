@@ -8,8 +8,8 @@ import type { PracticeQuestion } from "@/lib/types";
 const questionTypes: Record<LessonContentItem["category"], string[]> = {
   vocabulary: ["meaning", "contextual vocabulary", "paraphrase", "orthography", "kana recall", "Japanese recall"],
   kanji: ["kanji reading", "kanji meaning", "reading in context", "word to kanji recall", "orthography", "kana recall"],
-  grammar: ["sentence completion", "grammar in context", "sentence ordering", "meaning"],
-  reading: ["short passage detail", "information retrieval", "reading in context"],
+  grammar: ["sentence composition", "sentence completion", "grammar in context", "sentence ordering", "meaning"],
+  reading: ["short passage", "short passage detail", "information retrieval", "reading in context"],
   listening: ["task-based response", "key point", "verbal expression", "quick response"],
 };
 

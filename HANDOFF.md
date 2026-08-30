@@ -532,3 +532,24 @@ Next session order:
   explicit approval to publish the learner-facing AI feature; `resumer`,
   `scripts/__pycache__/`, and `supabase/.temp/` remain untracked and were not
   staged.
+
+## Session notes — deterministic backlog closeout
+
+- Spoken frequency is now an optional first-class vocabulary signal across the
+  TypeScript model, Supabase schema (`0017_spoken_frequency.sql`), review form,
+  learner entry, priority scoring, and generated SQL. No spoken corpus values
+  were invented; CEJC/CSJ remain license- and evaluation-gated.
+- Practice validation now rejects unsupported category/question-type pairs,
+  duplicate or normalized duplicate answers, malformed ordering, and any
+  unreviewed question export. The Studio reports active-question coverage for
+  every learning item and each official N5 task family, with aliases for local
+  detail labels such as `short passage detail`.
+- The TODO now distinguishes implemented deterministic safeguards from the
+  remaining semantic human review, imported-record review/lesson assignment,
+  licensed CEJC/CSJ and I-JAS evaluation, optional WaniKani cross-reference,
+  SQL application, and phone/desktop preview gates.
+- Verified on 2026-08-31: `/usr/bin/node --test test/*.test.mjs` (8/8), direct
+  TypeScript checking, `next build` (24/24 pages), and `git diff --check`.
+- These closeout changes are local alongside commit `60bde34`; the four
+  previously approved commits remain on GitHub `main`. New commits have not
+  been pushed.

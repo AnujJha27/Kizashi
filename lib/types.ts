@@ -142,6 +142,8 @@ export interface VocabularyItem extends LearningItem {
   commonness?: number;
   frequency?: number;
   frequencyMetadata?: Record<string, unknown>;
+  spokenFrequency?: number;
+  spokenFrequencyMetadata?: Record<string, unknown>;
   exampleSentences: ExampleSentence[];
   collocations: string[];
   relatedWords: string[];
@@ -337,7 +339,7 @@ export interface Database {
         Relationships: [];
       };
       vocabulary: {
-        Row: { item_id: string; written_form: string; reading: string; meanings: string[]; part_of_speech: string; commonness: number | null; frequency: number | null; frequency_metadata: unknown; example_sentences: unknown; collocations: string[]; related_words: string[]; antonyms: string[]; notes: string | null; audio_url: string | null };
+        Row: { item_id: string; written_form: string; reading: string; meanings: string[]; part_of_speech: string; commonness: number | null; frequency: number | null; frequency_metadata: unknown; spoken_frequency: number | null; spoken_frequency_metadata: unknown; example_sentences: unknown; collocations: string[]; related_words: string[]; antonyms: string[]; notes: string | null; audio_url: string | null };
         Insert: Omit<Database["public"]["Tables"]["vocabulary"]["Row"], "item_id"> & { item_id: string };
         Update: Partial<Database["public"]["Tables"]["vocabulary"]["Row"]>;
         Relationships: [];

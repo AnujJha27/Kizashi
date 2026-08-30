@@ -12,7 +12,7 @@ npm run dev
 
 Without Supabase variables the app runs in local demo mode. With Supabase configured, magic-link auth, the `ALLOWED_EMAIL`/`ALLOWED_EMAILS` allowlist, protected app routes, and RLS-backed account sync are active. Set `ADMIN_EMAIL` to the admin email (`aj05767625@gmail.com`) to protect Content Studio and AI generation; `ADMIN_USER_ID` is an optional UUID override. Apply the migrations in `supabase/migrations/`, including `0014_sync_metadata.sql`, before enabling account sync in Profile.
 
-Apply the migrations in `supabase/migrations/`, then run `supabase/seed.sql` in the Supabase SQL Editor. Curriculum reads require an authenticated user when Supabase is configured; user-owned tables remain protected by RLS. Profile sync is explicit opt-in and keeps browser state intact if the network fails.
+Apply the migrations in `supabase/migrations/` (including `0017_spoken_frequency.sql`), then run `supabase/seed.sql` in the Supabase SQL Editor. Curriculum reads require an authenticated user when Supabase is configured; user-owned tables remain protected by RLS. Profile sync is explicit opt-in and keeps browser state intact if the network fails.
 
 ### Private books on the free plan
 

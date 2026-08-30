@@ -75,10 +75,11 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 - [x] Grow the N5 syllabus by topic bands with Core, Extended, and Bridge classifications.
 - [x] Expand grammar coverage to a textbook-level beginner sequence with contrasts, prerequisites, mistakes, and contextual examples.
 - [x] Expand kanji drills beyond single-reading recognition: readings, useful-word mapping, orthography, and contextual recall.
-- [ ] Expand the question bank across every JLPT N5 task family and every major content item.
+- [x] Expand the question bank across every JLPT N5 task family and every major content item.
 - [x] Add more original short readings, practical notices, and listening situations with all four N5 listening task types.
-- [ ] Keep Japanese facts grounded in structured sources; use AI only for derived explanations and original exercises.
-- [ ] Require structural, lexical, grammar, uniqueness, difficulty, and human review gates before publication.
+- [x] Keep Japanese facts grounded in structured sources; use AI only for derived explanations and original exercises.
+- [x] Enforce deterministic structural, category, uniqueness, and human-approval gates before publication.
+- [ ] Complete semantic lexical/grammar/difficulty review for every authored or imported question.
 
 ## Product phases
 
@@ -105,28 +106,28 @@ Suggested routes: `/books` and `/books/[bookId]`.
 
 ### Core content stack
 
-- [ ] Treat official JLPT materials as exam blueprint, format calibration, and timing reference only.
-- [ ] Use JMdict for canonical vocabulary spellings, readings, meanings, parts of speech, and senses.
-- [ ] Use KANJIDIC2 for canonical kanji readings, meanings, strokes, grades, and metadata.
-- [ ] Add BCCWJ written-frequency signals to vocabulary priority.
+- [x] Treat official JLPT materials as exam blueprint, format calibration, and timing reference only.
+- [x] Use JMdict for canonical vocabulary spellings, readings, meanings, parts of speech, and senses.
+- [x] Use KANJIDIC2 for canonical kanji readings, meanings, strokes, grades, and metadata.
+- [x] Add BCCWJ written-frequency signals to vocabulary priority.
 - [ ] Add CEJC spoken-frequency signals to conversation and listening priority.
-- [ ] Build JLPT classifications from reviewed consensus evidence rather than one unofficial list.
+- [x] Build JLPT classifications from reviewed consensus evidence rather than one unofficial list.
 
 ### Enrichment layers
 
-- [ ] Add Tatoeba as a reviewed example candidate pool with per-sentence attribution.
+- [x] Add Tatoeba as a reviewed example candidate pool with per-sentence attribution.
 - [ ] Evaluate I-JAS for aggregated learner-error patterns and beginner trap drills.
-- [ ] Add Sudachi/SudachiDict and/or UniDic for tokenization, lemmas, conjugation, and sentence linking.
+- [x] Add Sudachi/SudachiDict and/or UniDic for tokenization, lemmas, conjugation, and sentence linking.
 - [x] Allow personal notes, textbook indexes, vocabulary lists, and screenshots to map onto canonical Kizashi items.
 - [ ] Use WaniKani only as an optional cross-reference for kanji/vocabulary relationships, never as the source of truth.
 
 ### Data intelligence
 
-- [ ] Make written frequency and spoken frequency first-class fields in the content model and UI.
+- [x] Make written frequency and spoken frequency first-class fields in the content model and UI.
 - [x] Add field-level provenance so readings, meanings, classifications, and frequency values can be audited independently.
 - [x] Add a priority score combining JLPT band/confidence, frequency, prerequisite value, missing fields, and learner weakness.
-- [ ] Add a Learner Trap Engine for recurring confusions such as に vs で, with targeted original drills.
-- [ ] Keep facts, classifications, inferred signals, and generated teaching material visibly distinct.
+- [x] Add a Learner Trap Engine for recurring confusions such as に vs で, with targeted original drills.
+- [x] Keep facts, classifications, inferred signals, and generated teaching material visibly distinct.
 
 Validate access and licensing for every external source before importing or publishing derived content.
 

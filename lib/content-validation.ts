@@ -16,6 +16,13 @@ export type ContentValidationResult = {
 const categories = ["vocabulary", "kanji", "grammar", "reading", "listening"] as const;
 type Category = (typeof categories)[number];
 const collectionKeys = { vocabulary: "vocabulary", kanji: "kanji", grammar: "grammar", reading: "readings", listening: "listening" } as const;
+const practiceQuestionTypes: Record<Category, readonly string[]> = {
+  vocabulary: ["meaning", "contextual vocabulary", "paraphrase", "orthography", "kana recall", "Japanese recall", "audio recognition"],
+  kanji: ["kanji reading", "kanji meaning", "reading in context", "word to kanji recall", "orthography", "kana recall", "kanji in context"],
+  grammar: ["meaning", "sentence completion", "sentence composition", "sentence ordering", "text grammar", "grammar in context"],
+  reading: ["short passage", "short passage detail", "mid-length passage", "information retrieval", "reading in context", "main idea", "sequence", "condition detail", "task-based response"],
+  listening: ["task-based response", "key point", "verbal expression", "quick response", "information retrieval"],
+};
 
 export const CONTENT_DRAFT_STORAGE_KEY = "michi.content-draft";
 export const QUESTION_DRAFT_STORAGE_KEY = "michi.question-draft";
@@ -60,6 +67,10 @@ function uniqueNormalizedStrings(values: string[], path: string, issues: Content
 
 function qualityWarning(condition: boolean, path: string, message: string, issues: ContentIssue[]) {
   if (condition) issues.push({ path, message, severity: "warning" });
+}
+
+function optionalNonNegativeNumber(value: unknown, path: string, issues: ContentIssue[]) {
+  if (value !== undefined && (typeof value !== "number" || !Number.isInteger(value) || value < 0)) issues.push({ path, message: "Use a non-negative integer when this signal is available.", severity: "error" });
 }
 
 function validateClassification(item: Record<string, unknown>, path: string, issues: ContentIssue[]) {
@@ -140,6 +151,8 @@ function validateItem(item: unknown, path: string, category: (typeof categories)
     stringValue(item.reading, `${path}.reading`, issues);
     stringArray(item.meanings, `${path}.meanings`, issues);
     stringValue(item.partOfSpeech, `${path}.partOfSpeech`, issues);
+    optionalNonNegativeNumber(item.frequency, `${path}.frequency`, issues);
+    optionalNonNegativeNumber(item.spokenFrequency, `${path}.spokenFrequency`, issues);
     examples(item.exampleSentences, `${path}.exampleSentences`, issues);
     stringArray(item.collocations, `${path}.collocations`, issues, 0);
     stringArray(item.relatedWords, `${path}.relatedWords`, issues, 0);
@@ -460,6 +473,7 @@ export function validatePracticeQuestions(questions: unknown, knownItemIds: Set<
     const category = stringValue(rawQuestion.category, `${path}.category`, issues);
     if (category && !categories.includes(category as (typeof categories)[number])) issues.push({ path: `${path}.category`, message: "Unknown learning category.", severity: "error" });
     if (itemId && category && knownItemCategories?.get(itemId) && knownItemCategories.get(itemId) !== category) issues.push({ path: `${path}.category`, message: `Question category must match ${knownItemCategories.get(itemId)}.`, severity: "error" });
+    if (category && categories.includes(category as Category) && typeof rawQuestion.questionType === "string" && !practiceQuestionTypes[category as Category].includes(rawQuestion.questionType)) issues.push({ path: `${path}.questionType`, message: `Question type is not supported for ${category}.`, severity: "error" });
     if (!['N5', 'N4', 'N3', 'N2', 'N1', null].includes(rawQuestion.jlptLevel as string | null)) issues.push({ path: `${path}.jlptLevel`, message: "Use N5, N4, N3, N2, N1, or null.", severity: "error" });
     stringValue(rawQuestion.questionType, `${path}.questionType`, issues);
     stringValue(rawQuestion.prompt, `${path}.prompt`, issues);

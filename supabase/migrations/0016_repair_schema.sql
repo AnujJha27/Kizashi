@@ -69,6 +69,8 @@ create table if not exists public.vocabulary (
   commonness integer check (commonness between 1 and 5),
   frequency integer,
   frequency_metadata jsonb not null default '{}'::jsonb,
+  spoken_frequency integer,
+  spoken_frequency_metadata jsonb not null default '{}'::jsonb,
   example_sentences jsonb not null default '[]',
   collocations text[] not null default '{}',
   related_words text[] not null default '{}',
@@ -376,6 +378,8 @@ alter table public.learning_items add column if not exists review_status text no
 alter table public.learning_items add column if not exists field_source_ids jsonb not null default '{}'::jsonb;
 alter table public.vocabulary add column if not exists frequency integer;
 alter table public.vocabulary add column if not exists frequency_metadata jsonb not null default '{}'::jsonb;
+alter table public.vocabulary add column if not exists spoken_frequency integer;
+alter table public.vocabulary add column if not exists spoken_frequency_metadata jsonb not null default '{}'::jsonb;
 alter table public.kanji add column if not exists stroke_count integer;
 alter table public.kanji add column if not exists grade integer;
 alter table public.kanji add column if not exists radical text;
@@ -397,6 +401,8 @@ alter table public.learning_items drop constraint if exists learning_items_field
 alter table public.learning_items add constraint learning_items_field_source_ids_object_check check (jsonb_typeof(field_source_ids) = 'object');
 alter table public.vocabulary drop constraint if exists vocabulary_frequency_check;
 alter table public.vocabulary add constraint vocabulary_frequency_check check (frequency is null or frequency >= 0);
+alter table public.vocabulary drop constraint if exists vocabulary_spoken_frequency_check;
+alter table public.vocabulary add constraint vocabulary_spoken_frequency_check check (spoken_frequency is null or spoken_frequency >= 0);
 alter table public.practice_questions drop constraint if exists practice_questions_answer_mode_check;
 alter table public.practice_questions add constraint practice_questions_answer_mode_check check (answer_mode in ('choice', 'text'));
 alter table public.content_sources drop constraint if exists content_sources_source_type_check;

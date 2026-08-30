@@ -88,6 +88,37 @@ def required_examples(item: dict[str, Any], category: str, field: str, minimum: 
         raise ValueError(f"{category} item {text(item.get('id')) or '<unknown>'} needs at least {minimum} complete {field}.")
 
 
+def validate_question(question: dict[str, Any], item_categories: dict[str, str]) -> None:
+    question_id = text(question.get("id")) or "<unknown>"
+    item_id = text(question.get("itemId"))
+    if not item_id or item_id not in item_categories:
+        raise ValueError(f"Question {question_id} targets an unknown learning item.")
+    if text(question.get("category")) != item_categories[item_id]:
+        raise ValueError(f"Question {question_id} category must match {item_categories[item_id]}.")
+    if text(question.get("validationStatus")) != "validated":
+        raise ValueError(f"Question {question_id} is not approved; only validated questions can be exported.")
+    if not text(question.get("questionType")) or not text(question.get("prompt")) or not text(question.get("explanation")):
+        raise ValueError(f"Question {question_id} needs a question type, prompt, and explanation.")
+    answer_mode = text(question.get("answerMode")) or "choice"
+    if answer_mode not in ("choice", "text"):
+        raise ValueError(f"Question {question_id} has an unknown answer mode: {answer_mode}.")
+    if answer_mode == "text":
+        answers = strings(question.get("acceptedAnswers"))
+        if not answers or len({answer.casefold() for answer in answers}) != len(answers):
+            raise ValueError(f"Question {question_id} needs unique accepted answers.")
+    else:
+        options = strings(question.get("options"))
+        correct_index = question.get("correctIndex")
+        normalized = [" ".join(option.split()).casefold() for option in options]
+        if len(options) < 2 or len(set(normalized)) != len(normalized) or not isinstance(correct_index, int) or isinstance(correct_index, bool) or not 0 <= correct_index < len(options):
+            raise ValueError(f"Question {question_id} needs unique options and a valid correctIndex.")
+    if text(question.get("questionType")) == "sentence ordering":
+        tokens = strings(question.get("tokens"))
+        order = question.get("correctOrder")
+        if not isinstance(order, list) or len(tokens) < 2 or len(order) != len(tokens) or any(not isinstance(entry, int) or isinstance(entry, bool) for entry in order) or set(order) != set(range(len(tokens))):
+            raise ValueError(f"Question {question_id} needs a complete sentence ordering.")
+
+
 def validate_export_item(item: dict[str, Any], category: str) -> None:
     for field in ("id", "slug", "title"):
         required_text(item, category, field)
@@ -113,6 +144,9 @@ def validate_export_item(item: dict[str, Any], category: str) -> None:
     if category == "vocabulary":
         for field in ("writtenForm", "reading", "partOfSpeech"):
             required_text(item, category, field)
+        for field in ("frequency", "spokenFrequency"):
+            if field in item and item[field] is not None and (not isinstance(item[field], int) or isinstance(item[field], bool) or item[field] < 0):
+                raise ValueError(f"vocabulary item {text(item.get('id')) or '<unknown>'} needs a non-negative integer {field}.")
         required_strings(item, category, "meanings")
         required_examples(item, category, "exampleSentences")
     elif category == "kanji":
@@ -148,20 +182,13 @@ def question_sql(question: dict[str, Any], item_categories: dict[str, str]) -> s
     item_id = text(question.get("itemId"))
     if not question_id or not item_id:
         raise ValueError("An approved question is missing id or itemId.")
+    validate_question(question, item_categories)
     category = text(question.get("category"))
-    if item_id not in item_categories:
-        raise ValueError(f"Question {question_id} targets unknown learning item: {item_id}.")
-    if category != item_categories[item_id]:
-        raise ValueError(f"Question {question_id} category must match {item_categories[item_id]}.")
-    if text(question.get("validationStatus")) != "validated":
-        raise ValueError(f"Question {question_id} is not approved; only validated questions can be exported.")
     if text(question.get("generatedBy")).startswith("openrouter:"):
         review = question.get("review")
         if not isinstance(review, dict) or text(review.get("status")) != "approved" or not text(review.get("reviewedBy")) or not text(review.get("reviewedAt")):
             raise ValueError(f"Question {question_id} needs human approval before export.")
     answer_mode = text(question.get("answerMode")) or "choice"
-    if answer_mode not in ("choice", "text"):
-        raise ValueError(f"Question {question_id} has an unknown answer mode: {answer_mode}.")
     values = [
         sql_text(question_id), sql_text(item_id), sql_text(category), sql_text(question.get("questionType")),
         sql_nullable_text(question.get("jlptLevel")), sql_text(question.get("prompt")), sql_json(question.get("options")),
@@ -212,9 +239,9 @@ def item_sql(item: dict[str, Any], category: str) -> list[str]:
         sql_json_object(item.get("fieldSourceIds")),
     ]) + ") on conflict (id) do update set slug = excluded.slug, jlpt_level = excluded.jlpt_level, subcategory = excluded.subcategory, difficulty = excluded.difficulty, prerequisite_ids = excluded.prerequisite_ids, tags = excluded.tags, review_status = excluded.review_status, field_source_ids = excluded.field_source_ids;"
     specialized = {
-        "vocabulary": "insert into public.vocabulary (item_id, written_form, reading, meanings, part_of_speech, commonness, frequency, frequency_metadata, example_sentences, collocations, related_words, antonyms, notes, audio_url) values (" + ", ".join([
-            sql_text(item_id), sql_text(item.get("writtenForm")), sql_text(item.get("reading")), sql_array(item.get("meanings")), sql_text(item.get("partOfSpeech") or "source record"), sql_int(item.get("commonness")), sql_int(item.get("frequency")), sql_json_object(item.get("frequencyMetadata")), sql_json(item.get("exampleSentences")), sql_array(item.get("collocations")), sql_array(item.get("relatedWords")), sql_array(item.get("antonyms")), sql_nullable_text(item.get("notes")), sql_nullable_text(item.get("audioUrl")),
-        ]) + ") on conflict (item_id) do update set written_form = excluded.written_form, reading = excluded.reading, meanings = excluded.meanings, part_of_speech = excluded.part_of_speech, commonness = excluded.commonness, frequency = excluded.frequency, frequency_metadata = excluded.frequency_metadata, example_sentences = excluded.example_sentences, collocations = excluded.collocations, related_words = excluded.related_words, antonyms = excluded.antonyms, notes = excluded.notes, audio_url = excluded.audio_url;",
+        "vocabulary": "insert into public.vocabulary (item_id, written_form, reading, meanings, part_of_speech, commonness, frequency, frequency_metadata, spoken_frequency, spoken_frequency_metadata, example_sentences, collocations, related_words, antonyms, notes, audio_url) values (" + ", ".join([
+            sql_text(item_id), sql_text(item.get("writtenForm")), sql_text(item.get("reading")), sql_array(item.get("meanings")), sql_text(item.get("partOfSpeech") or "source record"), sql_int(item.get("commonness")), sql_int(item.get("frequency")), sql_json_object(item.get("frequencyMetadata")), sql_int(item.get("spokenFrequency")), sql_json_object(item.get("spokenFrequencyMetadata")), sql_json(item.get("exampleSentences")), sql_array(item.get("collocations")), sql_array(item.get("relatedWords")), sql_array(item.get("antonyms")), sql_nullable_text(item.get("notes")), sql_nullable_text(item.get("audioUrl")),
+        ]) + ") on conflict (item_id) do update set written_form = excluded.written_form, reading = excluded.reading, meanings = excluded.meanings, part_of_speech = excluded.part_of_speech, commonness = excluded.commonness, frequency = excluded.frequency, frequency_metadata = excluded.frequency_metadata, spoken_frequency = excluded.spoken_frequency, spoken_frequency_metadata = excluded.spoken_frequency_metadata, example_sentences = excluded.example_sentences, collocations = excluded.collocations, related_words = excluded.related_words, antonyms = excluded.antonyms, notes = excluded.notes, audio_url = excluded.audio_url;",
         "kanji": "insert into public.kanji (item_id, character, meanings, onyomi, kunyomi, stroke_count, grade, radical, nanori, components, mnemonic, stroke_order, useful_words) values (" + ", ".join([
             sql_text(item_id), sql_text(item.get("character")), sql_array(item.get("meanings")), sql_array(item.get("onyomi")), sql_array(item.get("kunyomi")), sql_int(item.get("strokeCount")), sql_int(item.get("grade")), sql_nullable_text(item.get("radical")), sql_array(item.get("nanori")), sql_array(item.get("components")), sql_nullable_text(item.get("mnemonic")), sql_nullable_text(item.get("strokeOrder")), sql_json(item.get("usefulWords")),
         ]) + ") on conflict (item_id) do update set character = excluded.character, meanings = excluded.meanings, onyomi = excluded.onyomi, kunyomi = excluded.kunyomi, stroke_count = excluded.stroke_count, grade = excluded.grade, radical = excluded.radical, nanori = excluded.nanori, components = excluded.components, mnemonic = excluded.mnemonic, stroke_order = excluded.stroke_order, useful_words = excluded.useful_words;",
@@ -322,7 +349,16 @@ def main() -> int:
         raw_questions = json.loads(args.questions.read_text(encoding="utf-8"))
         if not isinstance(raw_questions, list):
             raise ValueError("The question export must be a JSON array.")
-        questions = [question for question in raw_questions if isinstance(question, dict) and text(question.get("validationStatus")) == "validated"]
+        questions = [question for question in raw_questions if isinstance(question, dict)]
+        if len(questions) != len(raw_questions):
+            raise ValueError("The question export must contain only question objects.")
+        question_ids: set[str] = set()
+        for question in questions:
+            question_id = text(question.get("id"))
+            if question_id in question_ids:
+                raise ValueError(f"Question export contains duplicate id: {question_id or '<unknown>'}.")
+            question_ids.add(question_id)
+            validate_question(question, item_categories)
 
     approved_ids = {text(item["id"]) for item in items}
     assignments: dict[str, list[tuple[str, int]]] = {}
