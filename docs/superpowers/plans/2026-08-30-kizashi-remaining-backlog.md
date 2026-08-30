@@ -128,11 +128,11 @@
 - Learning mode shows feedback; exam mode defers feedback and records a timed attempt.
 - Weak practice prioritizes recurring mistakes and grammar contrasts.
 
-- [ ] **Step 1: Add failing mastery/session checks** for confidence-weighted ratings, section weakness precedence, daily goal progress, and exact resume position.
-- [ ] **Step 2: Run the direct mastery checks** and confirm the new cases fail.
-- [ ] **Step 3: Implement the smallest deterministic queue/session changes** using the existing local storage keys.
-- [ ] **Step 4: Wire the UI states and accessible button fallbacks** while preserving keyboard and reduced-motion behavior.
-- [ ] **Step 5: Run focused mastery checks** and inspect the resulting question mix.
+- [x] **Step 1: Add failing mastery/session checks** for confidence-weighted ratings, section weakness precedence, daily goal progress, and exact resume position.
+- [x] **Step 2: Run the direct mastery checks** and confirm the new cases fail.
+- [x] **Step 3: Implement the smallest deterministic queue/session changes** using the existing local storage keys.
+- [x] **Step 4: Wire the UI states and accessible button fallbacks** while preserving keyboard and reduced-motion behavior.
+- [x] **Step 5: Run focused mastery checks** and inspect the resulting question mix.
 
 ### Task 6: Finish books and source-roadmap tooling
 

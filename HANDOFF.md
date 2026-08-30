@@ -1,7 +1,7 @@
 # Kizashi implementation handoff
 
 Date: 2026-08-30
-Status: Active implementation; N5/N4 private preview, review tooling, source staging helpers, original N5 practice, allowlisted auth, and opt-in account sync are implemented. Human content approval, Supabase migration application, and approved-content publication remain gated.
+Status: Active implementation; N5/N4 private preview, review tooling, source staging helpers, original N5 practice, allowlisted auth, opt-in account sync, and the study-mode backlog are implemented. Human content approval, hosted seed execution, and approved-content publication remain gated.
 
 ## User objective
 
@@ -175,13 +175,14 @@ learning loop.
    are checked and assigned.
 6. Add the remaining acquisition roadmap in phases: JMnedict, UniDic/Sudachi,
    then evaluate CEJC/CSJ after beginner audio is stable.
-7. Apply the pending Supabase migrations, especially `0014_sync_metadata.sql`, and
-   verify the allowlisted account sync against the configured project.
+7. Verify the owner-applied Supabase migrations `0014_sync_metadata.sql` through
+   `0016_repair_schema.sql`, finish the hosted seed run, and verify allowlisted
+   account sync against the configured project.
 8. Add deeper AI explanation/conversation/writing features after the core content
    bank is strong.
 9. Run the focused tests, direct TypeScript check, Next build, and phone/desktop
-   route smoke checks before deployment. Commit and push only the scoped Kizashi
-   files after inspecting the final file list.
+   route smoke checks before deployment. Keep public GitHub publication limited
+   to the clean code-only tree; private book files stay in Supabase Storage.
 
 ## Guardrails
 
@@ -338,3 +339,24 @@ Next session order:
 - Verification after the repair change: all 4 direct Node test files pass,
   direct TypeScript checking passes, and `git diff --check` passes. The owner’s
   running Next server was not started, stopped, or restarted.
+
+## Session notes — seed repair and clean publication
+
+- Fixed the seed's missing closing brace in the `contrast-wa-ga` PostgreSQL
+  `text[]` literal and parenthesized each JSONB payload extraction in the two
+  staged import blocks. The latter prevents the parent `learning_items` query
+  from evaluating to an empty result before child vocabulary rows are inserted.
+- The owner successfully applied migrations `0001` through `0016`. The hosted
+  seed should be recopied as UTF-8 and rerun; no `db push` is needed for these
+  seed-only fixes.
+- `/usr/bin/node --test test/*.test.mjs` passes all 5 test files, direct
+  TypeScript checking passes after typing the readiness boundary, and
+  `git diff --check` passes. The Next build was intentionally not run while
+  the owner's local server is active.
+- `origin/main` was verified as the clean public snapshot. A 27-file code-only
+  publication commit `7dcdb50` was pushed to `origin/main`; it contains no
+  `N5-books` files, PDFs, videos, or `node_modules`. The local `master` branch
+  remains intact with the private source history.
+- Remaining gates are hosted seed/table verification, human review and
+  approval of the staged acquisition package, book-fact extraction review, and
+  phone/desktop smoke checks before deployment.
