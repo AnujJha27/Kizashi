@@ -349,6 +349,10 @@ Next session order:
 - The owner successfully applied migrations `0001` through `0016`. The hosted
   seed should be recopied as UTF-8 and rerun; no `db push` is needed for these
   seed-only fixes.
+- A read-only PostgREST check confirms `courses`, `learning_items`,
+  `vocabulary`, and `sync_snapshots` now exist (HTTP 200), but the expected
+  `n5-foundations`, `vocab-konnichiwa`, and `contrast-wa-ga` rows are absent;
+  the seed has not completed yet.
 - `/usr/bin/node --test test/*.test.mjs` passes all 5 test files, direct
   TypeScript checking passes after typing the readiness boundary, and
   `git diff --check` passes. The Next build was intentionally not run while
