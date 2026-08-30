@@ -106,14 +106,31 @@ test("seed grammar contrast exercises close their PostgreSQL array literals", as
 
 test("seed staged payloads insert parent learning items before child rows", async () => {
   const seed = await readFile(new URL("../supabase/seed.sql", import.meta.url), "utf8");
-  const parentImports = seed.split("\n").filter((line) => line.includes("from jsonb_to_recordset((payload->'vocabulary'"));
+  const parentImports = [...seed.matchAll(/select item\.id, item\.id, item\.category[\s\S]{0,800}?from jsonb_to_recordset\(\(payload->'vocabulary'/g)].map(([match]) => match);
   assert.equal(parentImports.length, 2);
-  assert.ok(parentImports.every((line) => line.includes("(payload->'vocabulary') || (payload->'kanji')")));
+  assert.ok(parentImports.every((line) => line.includes("select item.id, item.id, item.category")));
+  assert.equal((seed.match(/\(payload->'vocabulary'\) \|\| \(payload->'kanji'\) \|\| \(payload->'grammar'\) \|\| \(payload->'readings'\) \|\| \(payload->'listening'\)/g) ?? []).length, 2);
+});
+
+test("seed learning-item slugs are globally unique", async () => {
+  const seed = await readFile(new URL("../supabase/seed.sql", import.meta.url), "utf8");
+  const blocks = [...seed.matchAll(/insert into public\.learning_items[\s\S]*?on conflict \(id\) do nothing;/g)].map(([match]) => match);
+  const slugs = blocks.flatMap((block) => [...block.matchAll(/\(\s*'[^']+',\s*'([^']+)',\s*'(?:vocabulary|kanji|grammar|reading|listening)'/g)].map(([, slug]) => slug));
+  assert.equal(new Set(slugs).size, slugs.length);
+});
+
+test("seed creates the curated source before provenance references it", async () => {
+  const seed = await readFile(new URL("../supabase/seed.sql", import.meta.url), "utf8");
+  const sourceInsert = seed.indexOf("insert into public.content_sources");
+  const firstReference = seed.indexOf("insert into public.learning_item_sources");
+  assert.ok(sourceInsert >= 0 && sourceInsert < firstReference);
+  assert.match(seed.slice(sourceInsert, firstReference), /michi-curated-n5-seed/);
 });
 
 test("AI content generation stays allowlisted, rate-limited, and draft-only", async () => {
   const route = await readFile(new URL("../app/api/content/generate/route.ts", import.meta.url), "utf8");
   assert.match(route, /const user = await getAllowedUser\(\);\s+if \(!user\).*status: 401/s);
+  assert.match(route, /if \(!user\.isAdmin\).*status: 403/s);
   assert.match(route, /lastGeneratedAt/);
   assert.match(route, /stringValue\(value\.id\) !== itemId/);
   assert.match(route, /validationStatus: "generated"/);

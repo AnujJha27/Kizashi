@@ -24,10 +24,11 @@ function isActive(pathname: string, href: string) {
   return pathname === href || (href !== "/journey" && pathname.startsWith(`${href}/`));
 }
 
-export function AppShell({ children }: Readonly<{ children: React.ReactNode }>) {
+export function AppShell({ children, isAdmin }: Readonly<{ children: React.ReactNode; isAdmin: boolean }>) {
   const pathname = usePathname();
   const [displayName, setDisplayName] = useState("");
-  const mobileItems = navItems.filter((item) => ["/journey", "/learn", "/review", "/library", "/books", "/reference"].includes(item.href));
+  const visibleNavItems = isAdmin ? navItems : navItems.filter((item) => item.href !== "/studio");
+  const mobileItems = visibleNavItems.filter((item) => ["/journey", "/learn", "/review", "/library", "/books", "/reference"].includes(item.href));
 
   useEffect(() => {
     const refresh = () => setDisplayName(readDisplayName());
@@ -49,7 +50,7 @@ export function AppShell({ children }: Readonly<{ children: React.ReactNode }>) 
 
         <nav aria-label="Main navigation" className="relative space-y-1 pl-2">
           <span className="absolute bottom-3 left-0 top-3 w-px bg-gradient-to-b from-[#e34a3f] via-[#e5b85c] to-transparent" aria-hidden="true" />
-          {navItems.map((item) => (
+          {visibleNavItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -83,7 +84,7 @@ export function AppShell({ children }: Readonly<{ children: React.ReactNode }>) 
             <span className="text-xs font-semibold tracking-[.2em]">KIZASHI</span>
           </div>
           <div className="hidden text-xs text-[#676c75] lg:block"><span className="jp-serif text-[#e5b85c]">はじまり</span><span className="px-2 text-[#292b31]">/</span>N5 Foundations</div>
-          <div className="ml-auto flex items-center gap-3"><CommandPalette /><Link href="/profile" className="flex items-center gap-2 rounded-full text-xs text-[#9297a1] hover:text-[#f5f5f2]" aria-label="Open profile">
+          <div className="ml-auto flex items-center gap-3"><CommandPalette isAdmin={isAdmin} /><Link href="/profile" className="flex items-center gap-2 rounded-full text-xs text-[#9297a1] hover:text-[#f5f5f2]" aria-label="Open profile">
             <span className="grid size-8 place-items-center rounded-full border border-[#4b3a29] bg-[#211d18] text-[#e5b85c]">人</span>
             <span className="hidden max-w-36 truncate sm:block">{displayName || "Your path"}</span>
           </Link></div>

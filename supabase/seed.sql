@@ -307,7 +307,7 @@ begin
   from jsonb_array_elements(payload #> '{course,chapters}') as chapter(value)
   cross join lateral jsonb_to_recordset(chapter.value->'lessons') as lesson(id text, slug text, title text, subtitle text, description text, "estimatedMinutes" integer) on conflict (id) do nothing;
   insert into public.learning_items (id, slug, item_type, jlpt_level, subcategory, difficulty, prerequisite_ids, tags)
-  select item.id, item.slug, item.category, item."jlptLevel", item.subcategory, item.difficulty, item."prerequisiteIds", item.tags
+  select item.id, item.id, item.category, item."jlptLevel", item.subcategory, item.difficulty, item."prerequisiteIds", item.tags
   from jsonb_to_recordset((payload->'vocabulary') || (payload->'kanji') || (payload->'grammar') || (payload->'readings') || (payload->'listening')) as item(id text, slug text, category text, subcategory text, difficulty integer, "jlptLevel" text, "prerequisiteIds" text[], tags text[]) on conflict (id) do nothing;
   insert into public.vocabulary (item_id, written_form, reading, meanings, part_of_speech, commonness, example_sentences, collocations, related_words, antonyms, notes)
   select item.id, item."writtenForm", item.reading, item.meanings, item."partOfSpeech", item.commonness, item."exampleSentences", item.collocations, item."relatedWords", item.antonyms, item.notes
@@ -347,7 +347,7 @@ begin
   from jsonb_array_elements(payload #> '{course,chapters}') as chapter(value)
   cross join lateral jsonb_to_recordset(chapter.value->'lessons') as lesson(id text, slug text, title text, subtitle text, description text, "estimatedMinutes" integer) on conflict (id) do nothing;
   insert into public.learning_items (id, slug, item_type, jlpt_level, subcategory, difficulty, prerequisite_ids, tags)
-  select item.id, item.slug, item.category, item."jlptLevel", item.subcategory, item.difficulty, item."prerequisiteIds", item.tags
+  select item.id, item.id, item.category, item."jlptLevel", item.subcategory, item.difficulty, item."prerequisiteIds", item.tags
   from jsonb_to_recordset((payload->'vocabulary') || (payload->'kanji') || (payload->'grammar') || (payload->'readings') || (payload->'listening')) as item(id text, slug text, category text, subcategory text, difficulty integer, "jlptLevel" text, "prerequisiteIds" text[], tags text[]) on conflict (id) do nothing;
   insert into public.vocabulary (item_id, written_form, reading, meanings, part_of_speech, commonness, example_sentences, collocations, related_words, antonyms, notes)
   select item.id, item."writtenForm", item.reading, item.meanings, item."partOfSpeech", item.commonness, item."exampleSentences", item.collocations, item."relatedWords", item.antonyms, item.notes
@@ -436,6 +436,10 @@ insert into public.lesson_learning_items (lesson_id, item_id, sort_order)
 select 'lesson-practical-errands', item_id, 65 + row_number() over ()
 from unnest(array['vocab-maiasa','vocab-shichiji','vocab-nisatsu','vocab-sansatsu','vocab-gohyaku-en','vocab-nibansen','vocab-kaimono']) as item_id
 on conflict do nothing;
+
+insert into public.content_sources (id, name, source_type, notes)
+values ('michi-curated-n5-seed', 'Kizashi curated N5 seed', 'curriculum', 'Original authored curriculum and examples.')
+on conflict (id) do nothing;
 
 insert into public.learning_item_sources (item_id, source_id)
 select item_id, 'michi-curated-n5-seed'
@@ -609,25 +613,25 @@ insert into public.learning_items (id, slug, item_type, jlpt_level, subcategory,
 values
   ('vocab-byouin', 'byouin', 'vocabulary', 'N5', 'health', 2, array[]::text[], array['health','places']),
   ('vocab-isha', 'isha', 'vocabulary', 'N5', 'health', 2, array['vocab-byouin'], array['health','people']),
-  ('vocab-kusuri', 'kusuri', 'vocabulary', 'N5', 'health', 2, array['vocab-isha'], array['health','daily-life']),
-  ('vocab-atama', 'atama', 'vocabulary', 'N5', 'body', 2, array[]::text[], array['body','health']),
+  ('vocab-kusuri', 'vocab-kusuri', 'vocabulary', 'N5', 'health', 2, array['vocab-isha'], array['health','daily-life']),
+  ('vocab-atama', 'vocab-atama', 'vocabulary', 'N5', 'body', 2, array[]::text[], array['body','health']),
   ('vocab-karada', 'karada', 'vocabulary', 'N5', 'body', 2, array[]::text[], array['body','health']),
   ('vocab-itai', 'itai', 'vocabulary', 'N5', 'health', 2, array['vocab-atama'], array['health','adjective','body']),
   ('vocab-kyoushitsu', 'kyoushitsu', 'vocabulary', 'N5', 'school', 2, array['vocab-gakko'], array['school','places']),
   ('vocab-shukudai', 'shukudai', 'vocabulary', 'N5', 'school', 2, array['vocab-gakko'], array['school','study']),
-  ('vocab-shitsumon', 'shitsumon', 'vocabulary', 'N5', 'school', 3, array['vocab-sensei'], array['school','conversation','study']),
-  ('vocab-kotae', 'kotae', 'vocabulary', 'N5', 'school', 3, array['vocab-shitsumon'], array['school','study','conversation']),
+  ('vocab-shitsumon', 'vocab-shitsumon', 'vocabulary', 'N5', 'school', 3, array['vocab-sensei'], array['school','conversation','study']),
+  ('vocab-kotae', 'vocab-kotae', 'vocabulary', 'N5', 'school', 3, array['vocab-shitsumon'], array['school','study','conversation']),
   ('vocab-ongaku', 'ongaku', 'vocabulary', 'N5', 'hobbies', 2, array[]::text[], array['hobbies','media']),
   ('vocab-eiga', 'eiga', 'vocabulary', 'N5', 'hobbies', 2, array[]::text[], array['hobbies','media']),
   ('vocab-tanoshii', 'tanoshii', 'vocabulary', 'N5', 'hobbies', 2, array[]::text[], array['hobbies','adjective','feelings']),
-  ('vocab-hare', 'hare', 'vocabulary', 'N5', 'weather', 2, array[]::text[], array['weather','seasons']),
-  ('vocab-kumori', 'kumori', 'vocabulary', 'N5', 'weather', 2, array[]::text[], array['weather','seasons']),
-  ('vocab-kaze', 'kaze', 'vocabulary', 'N5', 'weather', 2, array[]::text[], array['weather','nature']),
-  ('vocab-yuki', 'yuki', 'vocabulary', 'N5', 'weather', 2, array[]::text[], array['weather','seasons','nature']),
-  ('vocab-haru', 'haru', 'vocabulary', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar']),
-  ('vocab-natsu', 'natsu', 'vocabulary', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar']),
-  ('vocab-aki', 'aki', 'vocabulary', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar']),
-  ('vocab-fuyu', 'fuyu', 'vocabulary', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar']),
+  ('vocab-hare', 'vocab-hare', 'vocabulary', 'N5', 'weather', 2, array[]::text[], array['weather','seasons']),
+  ('vocab-kumori', 'vocab-kumori', 'vocabulary', 'N5', 'weather', 2, array[]::text[], array['weather','seasons']),
+  ('vocab-kaze', 'vocab-kaze', 'vocabulary', 'N5', 'weather', 2, array[]::text[], array['weather','nature']),
+  ('vocab-yuki', 'vocab-yuki', 'vocabulary', 'N5', 'weather', 2, array[]::text[], array['weather','seasons','nature']),
+  ('vocab-haru', 'vocab-haru', 'vocabulary', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar']),
+  ('vocab-natsu', 'vocab-natsu', 'vocabulary', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar']),
+  ('vocab-aki', 'vocab-aki', 'vocabulary', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar']),
+  ('vocab-fuyu', 'vocab-fuyu', 'vocabulary', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar']),
   ('vocab-kotoshi', 'kotoshi', 'vocabulary', 'N5', 'calendar', 2, array[]::text[], array['calendar','time','plans']),
   ('vocab-kyonen', 'kyonen', 'vocabulary', 'N5', 'calendar', 2, array[]::text[], array['calendar','time','past']),
   ('vocab-raigetsu', 'raigetsu', 'vocabulary', 'N5', 'calendar', 2, array[]::text[], array['calendar','time','plans']),
@@ -635,27 +639,27 @@ values
   ('kanji-byou', 'byou', 'kanji', 'N5', 'health', 3, array[]::text[], array['health','vocabulary-driven']),
   ('kanji-byoin', 'byoin', 'kanji', 'N5', 'health', 3, array['kanji-byou'], array['health','places','vocabulary-driven']),
   ('kanji-i', 'i', 'kanji', 'N5', 'health', 3, array[]::text[], array['health','people','vocabulary-driven']),
-  ('kanji-kusuri', 'kusuri', 'kanji', 'N5', 'health', 3, array[]::text[], array['health','daily-life','vocabulary-driven']),
-  ('kanji-atama', 'atama', 'kanji', 'N5', 'body', 3, array[]::text[], array['body','health','vocabulary-driven']),
+  ('kanji-kusuri', 'kanji-kusuri', 'kanji', 'N5', 'health', 3, array[]::text[], array['health','daily-life','vocabulary-driven']),
+  ('kanji-atama', 'kanji-atama', 'kanji', 'N5', 'body', 3, array[]::text[], array['body','health','vocabulary-driven']),
   ('kanji-tai', 'tai', 'kanji', 'N5', 'body', 2, array[]::text[], array['body','health','vocabulary-driven']),
   ('kanji-kyou', 'kyou', 'kanji', 'N5', 'school', 2, array[]::text[], array['school','study','vocabulary-driven']),
   ('kanji-shitsu', 'shitsu', 'kanji', 'N5', 'school', 2, array[]::text[], array['school','places','vocabulary-driven']),
   ('kanji-shuku', 'shuku', 'kanji', 'N5', 'school', 2, array[]::text[], array['school','home','vocabulary-driven']),
-  ('kanji-shitsumon', 'shitsumon', 'kanji', 'N5', 'school', 3, array[]::text[], array['school','study','vocabulary-driven']),
+  ('kanji-shitsumon', 'kanji-shitsumon', 'kanji', 'N5', 'school', 3, array[]::text[], array['school','study','vocabulary-driven']),
   ('kanji-mon', 'mon', 'kanji', 'N5', 'school', 2, array[]::text[], array['school','conversation','vocabulary-driven']),
-  ('kanji-kotae', 'kotae', 'kanji', 'N5', 'school', 2, array[]::text[], array['school','study','vocabulary-driven']),
+  ('kanji-kotae', 'kanji-kotae', 'kanji', 'N5', 'school', 2, array[]::text[], array['school','study','vocabulary-driven']),
   ('kanji-on', 'on', 'kanji', 'N5', 'hobbies', 2, array[]::text[], array['hobbies','media','vocabulary-driven']),
   ('kanji-raku', 'raku', 'kanji', 'N5', 'hobbies', 2, array[]::text[], array['hobbies','feelings','vocabulary-driven']),
   ('kanji-ei', 'ei', 'kanji', 'N5', 'hobbies', 3, array[]::text[], array['hobbies','media','vocabulary-driven']),
   ('kanji-ga', 'ga', 'kanji', 'N5', 'hobbies', 3, array[]::text[], array['hobbies','media','vocabulary-driven']),
-  ('kanji-hare', 'hare', 'kanji', 'N5', 'weather', 2, array[]::text[], array['weather','seasons','vocabulary-driven']),
-  ('kanji-kumori', 'kumori', 'kanji', 'N5', 'weather', 3, array[]::text[], array['weather','seasons','vocabulary-driven']),
-  ('kanji-kaze', 'kaze', 'kanji', 'N5', 'weather', 2, array[]::text[], array['weather','nature','vocabulary-driven']),
-  ('kanji-yuki', 'yuki', 'kanji', 'N5', 'weather', 2, array[]::text[], array['weather','nature','vocabulary-driven']),
-  ('kanji-haru', 'haru', 'kanji', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar','vocabulary-driven']),
-  ('kanji-natsu', 'natsu', 'kanji', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar','vocabulary-driven']),
-  ('kanji-aki', 'aki', 'kanji', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar','vocabulary-driven']),
-  ('kanji-fuyu', 'fuyu', 'kanji', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar','vocabulary-driven']),
+  ('kanji-hare', 'kanji-hare', 'kanji', 'N5', 'weather', 2, array[]::text[], array['weather','seasons','vocabulary-driven']),
+  ('kanji-kumori', 'kanji-kumori', 'kanji', 'N5', 'weather', 3, array[]::text[], array['weather','seasons','vocabulary-driven']),
+  ('kanji-kaze', 'kanji-kaze', 'kanji', 'N5', 'weather', 2, array[]::text[], array['weather','nature','vocabulary-driven']),
+  ('kanji-yuki', 'kanji-yuki', 'kanji', 'N5', 'weather', 2, array[]::text[], array['weather','nature','vocabulary-driven']),
+  ('kanji-haru', 'kanji-haru', 'kanji', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar','vocabulary-driven']),
+  ('kanji-natsu', 'kanji-natsu', 'kanji', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar','vocabulary-driven']),
+  ('kanji-aki', 'kanji-aki', 'kanji', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar','vocabulary-driven']),
+  ('kanji-fuyu', 'kanji-fuyu', 'kanji', 'N5', 'seasons', 2, array[]::text[], array['seasons','calendar','vocabulary-driven']),
   ('grammar-ta-form', 'ta-form', 'grammar', 'N4', 'verb forms', 3, array['grammar-dictionary-form','grammar-te-form'], array['verb','past','plain-form']),
   ('grammar-mae-ni', 'mae-ni', 'grammar', 'N4', 'sequence', 3, array['grammar-dictionary-form'], array['sequence','time','routine']),
   ('grammar-ato-de', 'ato-de', 'grammar', 'N4', 'sequence', 3, array['grammar-ta-form'], array['sequence','time','routine']),

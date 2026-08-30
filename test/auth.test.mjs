@@ -1,12 +1,23 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { isAllowedEmailValue } from "../lib/auth/allowlist-core.js";
+import { isAdminUserId, isAllowedEmailValue } from "../lib/auth/allowlist-core.js";
 import { mergeSyncSnapshots, parseSyncPayload } from "../lib/supabase/sync-core.js";
 
 test("allowlist matching is case-insensitive and trims both addresses", () => {
   assert.equal(isAllowedEmailValue("  Owner@Example.com ", "owner@example.com"), true);
   assert.equal(isAllowedEmailValue("other@example.com", "owner@example.com"), false);
+});
+
+test("allowlist accepts a comma-separated set without changing single-email behavior", () => {
+  assert.equal(isAllowedEmailValue("ANIRUDDH302004@GMAIL.COM", "owner@example.com, aniruddh302004@gmail.com"), true);
+  assert.equal(isAllowedEmailValue("other@example.com", "owner@example.com, aniruddh302004@gmail.com"), false);
+});
+
+test("admin identity is an exact configured user-id match", () => {
+  assert.equal(isAdminUserId("aj05767625", "aj05767625"), true);
+  assert.equal(isAdminUserId("other-user", "aj05767625"), false);
+  assert.equal(isAdminUserId("aj05767625", ""), false);
 });
 
 test("an empty allowlist denies access instead of opening the app", () => {

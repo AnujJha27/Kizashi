@@ -20,10 +20,11 @@ const commands = [
   { label: "Open profile", detail: "Set pace and exam date", href: "/profile" },
 ];
 
-export function CommandPalette() {
+export function CommandPalette({ isAdmin }: Readonly<{ isAdmin: boolean }>) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const filtered = commands.filter((command) => `${command.label} ${command.detail}`.toLowerCase().includes(query.toLowerCase().trim()));
+  const visibleCommands = isAdmin ? commands : commands.filter((command) => command.href !== "/studio");
+  const filtered = visibleCommands.filter((command) => `${command.label} ${command.detail}`.toLowerCase().includes(query.toLowerCase().trim()));
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {

@@ -385,3 +385,28 @@ Next session order:
   old foreign-key failure, recopy the entire current `supabase/seed.sql` as
   UTF-8 and run the complete file; do not run only a child-table insert or an
   older clipboard copy.
+
+## Session notes — seed collision repair and admin access
+
+- The hosted seed's duplicate-key failure had two root causes: staged payload
+  imports used `item.slug` as the parent `learning_items.id`, and the database
+  requires globally unique `learning_items.slug` values across vocabulary and
+  kanji. The seed now uses each stable item ID for both columns in those
+  imports and gives the later duplicate vocabulary/kanji pairs distinct slugs.
+  Regression checks cover both cases. Re-copy the complete UTF-8
+  `supabase/seed.sql` and rerun the whole file after the migrations; seed edits
+  do not require another `supabase db push`.
+- Admin access is exact-ID based through `ADMIN_USER_ID`, defaulting to the
+  requested `aj05767625`. `ALLOWED_EMAILS` accepts additional comma-,
+  semicolon-, or newline-separated accounts, so add
+  `aniruddh302004@gmail.com` in Vercel while preserving the existing
+  `ALLOWED_EMAIL` value. Content Studio and AI generation are admin-only;
+  ordinary allowlisted accounts retain the learner app.
+- Supabase Auth user IDs are normally UUIDs. If `aj05767625` is a username or
+  dashboard label rather than the actual Auth user ID, set `ADMIN_USER_ID` to
+  that account's real Auth UUID in Vercel instead.
+- Fresh checks: `/usr/bin/node --test test/*.test.mjs` — 5 test files passed;
+  direct TypeScript checking passed; `git diff --check` passed. The Next build
+  and browser smoke checks remain intentionally unrun because the owner's Next
+  server is active. Vercel environment updates and this session's final
+  GitHub publication are the remaining handoff actions.

@@ -171,6 +171,7 @@ async function requestModel(apiKey: string, model: string, item: LessonContentIt
 export async function POST(request: Request) {
   const user = await getAllowedUser();
   if (!user) return NextResponse.json({ error: "Authentication required." }, { status: 401 });
+  if (!user.isAdmin) return NextResponse.json({ error: "Admin access required." }, { status: 403 });
   const apiKey = process.env.OPENROUTER_API_KEY?.trim();
   if (!apiKey) return NextResponse.json({ error: "OPENROUTER_API_KEY is not configured." }, { status: 503 });
   if (Date.now() - lastGeneratedAt < 3000) return NextResponse.json({ error: "Please wait a moment before generating another draft." }, { status: 429 });
