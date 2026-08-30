@@ -369,3 +369,19 @@ Next session order:
   blockers. The current staged package reports 7,391 vocabulary, 630 kanji,
   413 grammar, 6 reading, and 6 listening records with zero QA blockers while
   imported records remain pending.
+
+## Session notes — source and AI boundary follow-up
+
+- Confirmed the source-roadmap implementation uses `scripts/ingest_jmnedict.py`
+  for lookup-only names, `scripts/extract_book_candidates.py` for review-only
+  book facts, and `scripts/fetch_dictionary_sources.py` for optional SudachiDict
+  cache metadata. No duplicate wrapper tools were added.
+- Added a regression check for the existing AI generation boundary: allowlisted
+  authentication, target-ID validation, in-memory cooldown, generated/draft
+  status, and target provenance metadata. The plan now names the actual source
+  tools instead of obsolete filenames.
+- The current seed file contains the corrected UTF-8 contrast array and the
+  parenthesized staged `learning_items` imports. If Supabase still reports the
+  old foreign-key failure, recopy the entire current `supabase/seed.sql` as
+  UTF-8 and run the complete file; do not run only a child-table insert or an
+  older clipboard copy.

@@ -111,6 +111,16 @@ test("seed staged payloads insert parent learning items before child rows", asyn
   assert.ok(parentImports.every((line) => line.includes("(payload->'vocabulary') || (payload->'kanji')")));
 });
 
+test("AI content generation stays allowlisted, rate-limited, and draft-only", async () => {
+  const route = await readFile(new URL("../app/api/content/generate/route.ts", import.meta.url), "utf8");
+  assert.match(route, /const user = await getAllowedUser\(\);\s+if \(!user\).*status: 401/s);
+  assert.match(route, /lastGeneratedAt/);
+  assert.match(route, /stringValue\(value\.id\) !== itemId/);
+  assert.match(route, /validationStatus: "generated"/);
+  assert.match(route, /review: \{ status: "draft"/);
+  assert.match(route, /targetItemIds: \[item\.id\]/);
+});
+
 test("ranks incomplete high-value source records before complete low-value records", () => {
   const items = [
     { id: "complete", category: "vocabulary", reviewStatus: "pending", jlptLevel: "N5", difficulty: 2, tags: ["source-review"], sourceIds: ["jmdict"], exampleSentences: [{ japanese: "駅です。", translation: "It is a station." }], collocations: ["駅に行く"] },

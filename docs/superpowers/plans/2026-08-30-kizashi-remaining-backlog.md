@@ -137,9 +137,8 @@
 ### Task 6: Finish books and source-roadmap tooling
 
 **Files:**
-- Create: `scripts/ingest_jmnedict.py`
-- Create: `scripts/ingest_sudachi.py`
-- Create: `scripts/extract_book_content.py`
+- Existing: `scripts/ingest_jmnedict.py`, `scripts/extract_book_candidates.py`
+- Existing: `scripts/fetch_dictionary_sources.py` (SudachiDict cache metadata)
 - Modify: `scripts/build_phase1_staging.py`
 - Modify: `components/books/book-reader.tsx`
 - Modify: `app/(main)/books/[bookId]/page.tsx`
@@ -174,11 +173,11 @@
 - Generated content remains draft-only until explicit review.
 - Generated records carry model, target IDs, validation issues, reviewer, timestamp, and notes.
 
-- [ ] **Step 1: Add failing checks** for unauthenticated generation, target-item mismatch, rate-limit behavior, and draft-only output.
-- [ ] **Step 2: Run direct checks** and confirm the missing boundary behavior.
-- [ ] **Step 3: Enforce the existing server-side validation and auth boundary** and make review metadata editable in Studio.
-- [ ] **Step 4: Update backlog/handoff entries only for work actually implemented**, keeping human review and licensing gates visible.
-- [ ] **Step 5: Run focused checks** and inspect the final diff for unrelated files.
+- [x] **Step 1: Add checks** for unauthenticated generation, target-item mismatch, rate-limit behavior, and draft-only output.
+- [x] **Step 2: Run direct checks** and confirm the boundary behavior.
+- [x] **Step 3: Enforce the server-side validation and auth boundary** and keep review metadata editable in Studio.
+- [x] **Step 4: Update backlog/handoff entries only for work actually implemented**, keeping human review and licensing gates visible.
+- [x] **Step 5: Run focused checks** and inspect the final diff for unrelated files.
 
 ### Task 8: Full verification and GitHub push
 
