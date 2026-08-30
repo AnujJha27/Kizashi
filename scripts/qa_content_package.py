@@ -27,6 +27,13 @@ def strings(value: Any) -> list[str]:
     return [entry.strip() for entry in value if isinstance(entry, str) and entry.strip()] if isinstance(value, list) else []
 
 
+def field_source_ids(item: dict[str, Any]) -> list[str]:
+    value = item.get("fieldSourceIds")
+    if not isinstance(value, dict):
+        return []
+    return [source_id for sources in value.values() for source_id in strings(sources)]
+
+
 def has_value(value: Any) -> bool:
     if isinstance(value, str):
         return bool(value.strip())
@@ -53,6 +60,7 @@ def real_lesson_ids(package: dict[str, Any]) -> set[str]:
 
 def report(package: dict[str, Any]) -> dict[str, Any]:
     source_ids = {text(source.get("id")) for source in package.get("sourceManifest", []) if isinstance(source, dict) and text(source.get("id"))}
+    sources_by_id = {text(source.get("id")): source for source in package.get("sourceManifest", []) if isinstance(source, dict) and text(source.get("id"))}
     assignments = {
         text(item_id)
         for chapter in (package.get("course") or {}).get("chapters", [])
@@ -81,6 +89,11 @@ def report(package: dict[str, Any]) -> dict[str, Any]:
                 blockers.append(f"{item_id}: missing sourceIds")
             if any(source_id not in source_ids for source_id in strings(item.get("sourceIds"))):
                 blockers.append(f"{item_id}: sourceIds are absent from sourceManifest")
+            if "source-review" in strings(item.get("tags")):
+                for source_id in [*strings(item.get("sourceIds")), *field_source_ids(item)]:
+                    source = sources_by_id.get(source_id)
+                    if source and text(source.get("type")) != "user" and not source_id.startswith("michi-") and not text(source.get("license")):
+                        blockers.append(f"{item_id}: source {source_id} has no recorded license terms")
             if "source-review" in strings(item.get("tags")) and item_id not in real_assignments:
                 blockers.append(f"{item_id}: approved source-review item is not assigned to a real Journey lesson")
             classification = item.get("classification") if isinstance(item.get("classification"), dict) else {}

@@ -190,6 +190,22 @@ test("SQL export refuses an approved source record without a real Journey lesson
   );
 });
 
+test("SQL export refuses an approved source record without license terms", async () => {
+  const directory = await mkdtemp("/tmp/kizashi-unlicensed-package-");
+  const packagePath = `${directory}/package.json`;
+  try {
+    const packageData = JSON.parse(await readFile(new URL("../test/fixtures/unassigned-approved-package.json", import.meta.url), "utf8"));
+    packageData.course.chapters[0].lessons[0].itemIds.push("vocab-test");
+    await writeFile(packagePath, JSON.stringify(packageData), "utf8");
+    await assert.rejects(
+      execFileAsync("python3", ["scripts/render_supabase_content_sql.py", "--approved", "--package", packagePath, "--output", `${directory}/content.sql`]),
+      /license terms/,
+    );
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
 test("content QA reports review blockers instead of silently publishing them", async () => {
   await assert.rejects(
     execFileAsync("python3", ["scripts/qa_content_package.py", "--package", "test/fixtures/unassigned-approved-package.json", "--strict"]),
@@ -202,6 +218,7 @@ test("content QA requires classification only for imported source-review records
   const report = JSON.parse(stdout);
   const blockers = report.blockers.join("\n");
   assert.match(blockers, /vocab-test: approved source-review item is not assigned to a real Journey lesson/);
+  assert.match(blockers, /vocab-test: source test-source has no recorded license terms/);
   assert.doesNotMatch(blockers, /vocab-curated: missing reviewed curriculum classification/);
 });
 
@@ -212,6 +229,7 @@ test("content QA and SQL export reject unresolved classification conflicts", asy
   try {
     const packageData = JSON.parse(await readFile(new URL("../test/fixtures/unassigned-approved-package.json", import.meta.url), "utf8"));
     packageData.course.chapters[0].lessons[0].itemIds.push("vocab-test");
+    packageData.sourceManifest[0].license = "Test-only license note";
     packageData.vocabulary.find((item) => item.id === "vocab-test").classification.conflict = true;
     await writeFile(packagePath, JSON.stringify(packageData), "utf8");
     const { stdout } = await execFileAsync("python3", ["scripts/qa_content_package.py", "--package", packagePath]);

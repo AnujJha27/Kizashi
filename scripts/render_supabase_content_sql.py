@@ -336,6 +336,10 @@ def main() -> int:
     unassigned = [text(item["id"]) for item in items if not assignments.get(text(item["id"]), [])]
     if unassigned:
         raise ValueError("Approved source-review items must be assigned to a real Journey lesson before export: " + ", ".join(unassigned[:20]))
+    sources_by_id = {text(source.get("id")): source for source in source_manifest if text(source.get("id"))}
+    unlicensed = sorted({source_id for item in items for source_id in [*strings(item.get("sourceIds")), *field_source_ids(item)] if (source := sources_by_id.get(source_id)) and text(source.get("type")) != "user" and not source_id.startswith("michi-") and not text(source.get("license"))})
+    if unlicensed:
+        raise ValueError("Published source records need recorded license terms: " + ", ".join(unlicensed))
     review_items = []
     review_lesson_id = text(review_lesson.get("id"))
     review_lesson = {**review_lesson, "itemIds": [text(item["id"]) for item in review_items]}
