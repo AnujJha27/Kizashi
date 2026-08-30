@@ -29,6 +29,8 @@ export function AIGenerator({ items, onAdd }: Readonly<{ items: LessonContentIte
   const target = items.find((item) => item.id === targetId) ?? items[0];
   const types = target ? questionTypes[target.category] : questionTypes.vocabulary;
 
+  if (!items.length) return <section className="surface-panel-raised p-5 sm:p-6"><p className="eyebrow">Original draft generator</p><h2 className="mt-1 text-xl font-medium text-[#f5f5f2]">Approve source records before generating.</h2><p className="mt-2 text-sm text-[#9297a1]">AI drafts only use approved curriculum facts. Finish the source review queue, then return here.</p></section>;
+
   const generate = async () => {
     if (!target) return;
     setPending(true);

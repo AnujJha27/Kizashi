@@ -69,11 +69,11 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
   draft-only until review.
 - [x] Preserve model, target IDs, validation issues, reviewer, timestamps, and
   notes on generated drafts.
-- [ ] Add learner-facing sentence explanation, conversation, and writing
+- [x] Add learner-facing sentence explanation, conversation, and writing
   correction only after the deterministic content bank is strong.
 
-- [ ] Grow the N5 syllabus by topic bands with Core, Extended, and Bridge classifications.
-- [ ] Expand grammar coverage to a textbook-level beginner sequence with contrasts, prerequisites, mistakes, and contextual examples.
+- [x] Grow the N5 syllabus by topic bands with Core, Extended, and Bridge classifications.
+- [x] Expand grammar coverage to a textbook-level beginner sequence with contrasts, prerequisites, mistakes, and contextual examples.
 - [x] Expand kanji drills beyond single-reading recognition: readings, useful-word mapping, orthography, and contextual recall.
 - [ ] Expand the question bank across every JLPT N5 task family and every major content item.
 - [x] Add more original short readings, practical notices, and listening situations with all four N5 listening task types.
@@ -84,7 +84,7 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 
 - [x] Ship the no-auth private preview with host-level deployment gating.
 - [x] Restore allowlisted auth and opt-in per-user Supabase progress sync (apply `0014_sync_metadata.sql` before use).
-- [ ] Add deeper AI explain/conversation/writing features after the core learning loop and content bank are strong.
+- [x] Add deeper AI explain/conversation/writing features after the core learning loop and content bank are strong.
 - [ ] Run the full build, typecheck, tests, and phone/desktop preview before deployment.
 
 ## Books and source library
@@ -94,10 +94,10 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 - [x] Provide native mobile/desktop PDF viewing for each book.
 - [x] Add chapter and page navigation, with source links from extracted records.
 - [x] Add a review-only book extraction tool with page provenance.
-- [ ] Extract vocabulary, kanji, grammar, lesson order, and examples into review-only Kizashi records.
+- [x] Extract vocabulary, kanji, grammar, lesson order, and examples into review-only Kizashi records.
 - [x] Preserve book, page, checksum, retrieval, and license/provenance metadata on extracted candidates.
 - [x] Show extracted content beside the original PDF page for verification (review notes and page context are local-only).
-- [ ] Generate Kizashi-original explanations and drills from approved book facts.
+- [x] Generate Kizashi-original explanations and drills from approved book facts.
 
 Suggested routes: `/books` and `/books/[bookId]`.
 

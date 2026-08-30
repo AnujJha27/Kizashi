@@ -437,7 +437,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, q
   return <div className="space-y-7">
     <div className="grid gap-3 sm:grid-cols-2"><Health label="Last curriculum validation" result={result} /><Health label="Practice question bank" result={questionResult} /></div>
     <TopicCoverage module={coverageModule} />
-    <AIGenerator items={getModuleItems(coverageModule)} onAdd={addGeneratedQuestion} />
+    <AIGenerator items={getModuleItems(coverageModule).filter((item) => getContentReviewStatus(item) === "approved")} onAdd={addGeneratedQuestion} />
 
     <section className="rounded-xl border border-[#3f3427] bg-[#211d18]/65 p-5 sm:p-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Curriculum package</p><h2 className="mt-1 text-xl font-medium text-[#f5f5f2]">Review the path, then edit it.</h2><p className="mt-1 max-w-2xl text-sm text-[#9297a1]">Scan readable cards first. Edit fields directly, or use Advanced JSON only for imports and bulk changes.</p></div><div className="flex flex-wrap gap-2"><button type="button" onClick={resetDraft} className="rounded-xl border border-white/10 px-4 py-3 text-sm font-semibold text-[#c3c7ce] hover:border-[#e5b85c] hover:text-[#f1cf7c]">Reset draft</button><label className="w-fit cursor-pointer rounded-xl border border-[#5d3936] px-4 py-3 text-sm font-semibold text-[#f5f5f2] hover:border-[#e34a3f]">Import JSON<input type="file" accept="application/json,.json" className="sr-only" onChange={(event) => void loadFile(event.target.files?.[0])} /></label></div></div>

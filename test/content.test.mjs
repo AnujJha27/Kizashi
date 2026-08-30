@@ -145,6 +145,8 @@ test("AI content generation stays allowlisted, rate-limited, and draft-only", as
   assert.match(route, /if \(!user\.isAdmin\).*status: 403/s);
   assert.match(route, /lastGeneratedAt/);
   assert.match(route, /stringValue\(value\.id\) !== itemId/);
+  assert.match(route, /value\.reviewStatus !== undefined && value\.reviewStatus !== "approved"/);
+  assert.match(route, /source-review/);
   assert.match(route, /validationStatus: "generated"/);
   assert.match(route, /generatedReview\(model, item\.id\)/);
 });
