@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { execFile } from "node:child_process";
-import { readFile } from "node:fs/promises";
+import { mkdtemp, readFile, writeFile } from "node:fs/promises";
 import { promisify } from "node:util";
 import { gunzipSync } from "node:zlib";
 
@@ -60,6 +60,17 @@ test("the deployable Studio review package keeps the staged records", async () =
   assert.ok(staged.grammar.length > 400);
 });
 
+test("Studio loads the large review package through an admin-only compressed endpoint", async () => {
+  const page = await readFile(new URL("../app/(main)/studio/page.tsx", import.meta.url), "utf8");
+  const route = await readFile(new URL("../app/api/content/review-package/route.ts", import.meta.url), "utf8");
+  assert.match(page, /const module = n5Module/);
+  assert.match(route, /getAllowedUser/);
+  assert.match(route, /user\.isAdmin/);
+  assert.match(route, /Content-Encoding.*gzip/s);
+  const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
+  assert.match(studio, /setRaw\(JSON\.stringify\(next, null, 2\)\)/);
+});
+
 test("kanji orthography prompts test the reading instead of visual matching", async () => {
   const questions = await readFile(new URL("../lib/questions.ts", import.meta.url), "utf8");
   assert.match(questions, /Which word is read \$\{word\.reading\}\?/);
@@ -107,9 +118,35 @@ test("seed grammar contrast exercises close their PostgreSQL array literals", as
 
 test("seed staged payloads insert parent learning items before child rows", async () => {
   const seed = await readFile(new URL("../supabase/seed.sql", import.meta.url), "utf8");
-  const parentImports = seed.split("\n").filter((line) => line.includes("from jsonb_to_recordset((payload->'vocabulary'"));
+  const parentImports = [...seed.matchAll(/select item\.id, item\.id, item\.category[\s\S]{0,800}?from jsonb_to_recordset\(\(payload->'vocabulary'/g)].map(([match]) => match);
   assert.equal(parentImports.length, 2);
-  assert.ok(parentImports.every((line) => line.includes("(payload->'vocabulary') || (payload->'kanji')")));
+  assert.ok(parentImports.every((line) => line.includes("select item.id, item.id, item.category")));
+  assert.equal((seed.match(/\(payload->'vocabulary'\) \|\| \(payload->'kanji'\) \|\| \(payload->'grammar'\) \|\| \(payload->'readings'\) \|\| \(payload->'listening'\)/g) ?? []).length, 2);
+});
+
+test("seed learning-item slugs are globally unique", async () => {
+  const seed = await readFile(new URL("../supabase/seed.sql", import.meta.url), "utf8");
+  const blocks = [...seed.matchAll(/insert into public\.learning_items[\s\S]*?on conflict \(id\) do nothing;/g)].map(([match]) => match);
+  const slugs = blocks.flatMap((block) => [...block.matchAll(/\(\s*'[^']+',\s*'([^']+)',\s*'(?:vocabulary|kanji|grammar|reading|listening)'/g)].map(([, slug]) => slug));
+  assert.equal(new Set(slugs).size, slugs.length);
+});
+
+test("seed creates the curated source before provenance references it", async () => {
+  const seed = await readFile(new URL("../supabase/seed.sql", import.meta.url), "utf8");
+  const sourceInsert = seed.indexOf("insert into public.content_sources");
+  const firstReference = seed.indexOf("insert into public.learning_item_sources");
+  assert.ok(sourceInsert >= 0 && sourceInsert < firstReference);
+  assert.match(seed.slice(sourceInsert, firstReference), /michi-curated-n5-seed/);
+});
+
+test("AI content generation stays allowlisted, rate-limited, and draft-only", async () => {
+  const route = await readFile(new URL("../app/api/content/generate/route.ts", import.meta.url), "utf8");
+  assert.match(route, /const user = await getAllowedUser\(\);\s+if \(!user\).*status: 401/s);
+  assert.match(route, /if \(!user\.isAdmin\).*status: 403/s);
+  assert.match(route, /lastGeneratedAt/);
+  assert.match(route, /stringValue\(value\.id\) !== itemId/);
+  assert.match(route, /validationStatus: "generated"/);
+  assert.match(route, /generatedReview\(model, item\.id\)/);
 });
 
 test("ranks incomplete high-value source records before complete low-value records", () => {
@@ -174,6 +211,16 @@ test("book extraction keeps candidates review-only and records page provenance",
   assert.match(stdout, /"page": 1/);
 });
 
+test("book extraction fails clearly when a scanned book has no text layer", async () => {
+  const directory = await mkdtemp("/tmp/kizashi-empty-book-");
+  const input = `${directory}/empty.txt`;
+  await writeFile(input, "", "utf8");
+  await assert.rejects(
+    execFileAsync("python3", ["scripts/extract_book_candidates.py", "--input", input, "--book-id", "empty-book", "--dry-run"]),
+    /No extractable text/,
+  );
+});
+
 test("JMnedict ingestion keeps names outside the learner vocabulary", async () => {
   const { stdout } = await execFileAsync("python3", ["scripts/ingest_jmnedict.py", "--input", "test/fixtures/jmnedict.xml", "--dry-run"]);
   assert.match(stdout, /"properNames": 1/);
@@ -200,14 +247,14 @@ test("generated content carries draft-only review metadata", () => {
   });
 });
 
-test("Studio exposes review metadata and never trusts a client curriculum item", async () => {
+test("Studio exposes review metadata and validates staged curriculum items", async () => {
   const route = await readFile(new URL("../app/api/content/generate/route.ts", import.meta.url), "utf8");
   const reviewRoute = await readFile(new URL("../app/api/content/review-package/route.ts", import.meta.url), "utf8");
   const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
   assert.match(route, /isAdminUser/);
-  assert.doesNotMatch(route, /requestedItem\(body\.item/);
+  assert.match(route, /requestedItem\(body\.item/);
   assert.match(reviewRoute, /Content-Encoding/);
-  assert.match(reviewRoute, /isAdminUser/);
+  assert.match(reviewRoute, /user\.isAdmin/);
   assert.match(studio, /\/api\/content\/review-package/);
   assert.match(studio, /Review notes/);
   assert.match(studio, /reviewedBy/);

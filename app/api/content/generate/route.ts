@@ -27,6 +27,19 @@ function stringArray(value: unknown) {
   return Array.isArray(value) ? value.filter((entry): entry is string => typeof entry === "string" && entry.trim().length > 0).map((entry) => entry.trim()) : [];
 }
 
+function requestedItem(value: unknown, itemId: string): LessonContentItem | null {
+  if (!record(value) || stringValue(value.id) !== itemId) return null;
+  const category = stringValue(value.category) as LearningCategory;
+  if (!new Set<LearningCategory>(["vocabulary", "kanji", "grammar", "reading", "listening"]).has(category) || !stringValue(value.title) || !stringArray(value.tags).length) return null;
+  if (value.jlptLevel !== null && !["N5", "N4", "N3", "N2", "N1"].includes(value.jlptLevel as string)) return null;
+  if (category === "vocabulary" && stringValue(value.writtenForm) && stringValue(value.reading) && stringArray(value.meanings).length) return value as unknown as LessonContentItem;
+  if (category === "kanji" && stringValue(value.character) && stringArray(value.meanings).length) return value as unknown as LessonContentItem;
+  if (category === "grammar" && stringValue(value.pattern) && stringValue(value.meaning) && stringValue(value.formation)) return value as unknown as LessonContentItem;
+  if (category === "reading" && stringValue(value.passage)) return value as unknown as LessonContentItem;
+  if (category === "listening" && stringValue(value.situation) && stringValue(value.transcript)) return value as unknown as LessonContentItem;
+  return null;
+}
+
 function numberArray(value: unknown) {
   return Array.isArray(value) ? value.filter((entry): entry is number => typeof entry === "number" && Number.isInteger(entry)) : [];
 }
@@ -137,6 +150,7 @@ async function requestModel(apiKey: string, model: string, item: LessonContentIt
 export async function POST(request: Request) {
   const user = await getAllowedUser();
   if (!user) return NextResponse.json({ error: "Authentication required." }, { status: 401 });
+  if (!user.isAdmin) return NextResponse.json({ error: "Admin access required." }, { status: 403 });
 
   let body: unknown;
   try {
@@ -147,12 +161,14 @@ export async function POST(request: Request) {
   const now = Date.now();
   const apiKey = process.env.OPENROUTER_API_KEY?.trim();
   const items = allItems();
-  const gate = validateGenerationRequest({ authenticated: true, admin: isAdminUser(user), apiKey, now, lastGeneratedAt, body, knownItemIds: new Set(items.map((item) => item.id)) });
+  const requested = record(body) ? requestedItem(body.item, stringValue(body.itemId)) : null;
+  const knownItemIds = new Set([...items.map((item) => item.id), ...(requested ? [requested.id] : [])]);
+  const gate = validateGenerationRequest({ authenticated: true, admin: user.isAdmin && isAdminUser(user), apiKey, now, lastGeneratedAt, body, knownItemIds });
   if (gate.status !== 200) return NextResponse.json({ error: "error" in gate ? gate.error : "Invalid generation request." }, { status: gate.status });
   const itemId = "itemId" in gate ? gate.itemId : "";
   const questionType = "questionType" in gate ? gate.questionType : "";
 
-  const item = items.find((entry) => entry.id === itemId);
+  const item = items.find((entry) => entry.id === itemId) ?? requested;
   if (!item) return NextResponse.json({ error: "That curriculum item is not available." }, { status: 404 });
   const models = modelCandidates();
   lastGeneratedAt = now;

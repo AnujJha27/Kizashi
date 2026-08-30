@@ -14,8 +14,8 @@ import {
   QUESTION_DRAFT_STORAGE_KEY,
   readValidatedContentDraft,
   validateLearningItem,
-  validatePracticeQuestions,
   validateModule,
+  validatePracticeQuestions,
   type ContentValidationResult,
 } from "@/lib/content-validation";
 import type { LessonContentItem } from "@/lib/curriculum";

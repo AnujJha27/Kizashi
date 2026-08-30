@@ -1,7 +1,7 @@
 # Kizashi implementation handoff
 
 Date: 2026-08-30
-Status: Active implementation; N5/N4 private preview, review tooling, source staging helpers, original N5 practice, allowlisted auth, opt-in account sync, and the study-mode backlog are implemented. Human content approval, hosted seed execution, and approved-content publication remain gated.
+Status: Active implementation; N5/N4 private preview, review tooling, source staging helpers, original N5 practice, allowlisted/admin auth, opt-in account sync, and the study-mode backlog are implemented. The base hosted seed is complete; imported-content approval/publication, Vercel environment configuration, and final smoke checks remain gated.
 
 ## User objective
 
@@ -175,9 +175,9 @@ learning loop.
    are checked and assigned.
 6. Add the remaining acquisition roadmap in phases: JMnedict, UniDic/Sudachi,
    then evaluate CEJC/CSJ after beginner audio is stable.
-7. Verify the owner-applied Supabase migrations `0014_sync_metadata.sql` through
-   `0016_repair_schema.sql`, finish the hosted seed run, and verify allowlisted
-   account sync against the configured project.
+7. Verify allowlisted account sync against the configured project after the
+   owner applies the Vercel environment values; the base migrations and seed
+   run are complete.
 8. Add deeper AI explanation/conversation/writing features after the core content
    bank is strong.
 9. Run the focused tests, direct TypeScript check, Next build, and phone/desktop

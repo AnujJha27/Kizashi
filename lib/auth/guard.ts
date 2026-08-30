@@ -2,25 +2,25 @@ import { redirect } from "next/navigation";
 
 import { getSupabaseConfig } from "@/lib/supabase/env";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
-import { isAllowedEmail } from "@/lib/auth/allowlist";
-import { isAdminUserValue } from "@/lib/auth/allowlist-core";
+import { isAdminUser as isConfiguredAdmin, isAllowedEmail } from "@/lib/auth/allowlist";
 
 export interface AuthenticatedUser {
   id: string;
   email: string;
   isDemo: boolean;
+  isAdmin: boolean;
 }
 
 export async function getAllowedUser(): Promise<AuthenticatedUser | null> {
   if (!getSupabaseConfig()) {
-    return { id: "demo-user", email: "demo@kizashi.local", isDemo: true };
+    return { id: "demo-user", email: "demo@kizashi.local", isDemo: true, isAdmin: true };
   }
 
   const supabase = await createSupabaseServerClient();
   const { data } = await supabase!.auth.getUser();
   if (!data.user?.email || !isAllowedEmail(data.user.email)) return null;
 
-  return { id: data.user.id, email: data.user.email, isDemo: false };
+  return { id: data.user.id, email: data.user.email, isDemo: false, isAdmin: isConfiguredAdmin(data.user.id, data.user.email) };
 }
 
 export async function requireAllowedUser(): Promise<AuthenticatedUser> {
@@ -30,9 +30,7 @@ export async function requireAllowedUser(): Promise<AuthenticatedUser> {
 }
 
 export function isAdminUser(user: AuthenticatedUser | null) {
-  if (!user) return false;
-  if (user.isDemo) return true;
-  return isAdminUserValue(user, process.env.ADMIN_EMAIL, process.env.ADMIN_USER_ID);
+  return Boolean(user?.isAdmin);
 }
 
 export async function getAdminUser(): Promise<AuthenticatedUser | null> {
@@ -43,6 +41,6 @@ export async function getAdminUser(): Promise<AuthenticatedUser | null> {
 export async function requireAdminUser(): Promise<AuthenticatedUser> {
   const user = await getAllowedUser();
   if (!user) redirect("/login");
-  if (!isAdminUser(user)) redirect("/journey");
+  if (!user.isAdmin) redirect("/unauthorized");
   return user;
 }

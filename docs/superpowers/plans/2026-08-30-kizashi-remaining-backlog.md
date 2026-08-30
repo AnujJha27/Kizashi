@@ -137,9 +137,8 @@
 ### Task 6: Finish books and source-roadmap tooling
 
 **Files:**
-- Create: `scripts/ingest_jmnedict.py`
-- Create: `scripts/ingest_sudachi.py`
-- Create: `scripts/extract_book_content.py`
+- Existing: `scripts/ingest_jmnedict.py`, `scripts/extract_book_candidates.py`
+- Existing: `scripts/fetch_dictionary_sources.py` (SudachiDict cache metadata)
 - Modify: `scripts/build_phase1_staging.py`
 - Modify: `components/books/book-reader.tsx`
 - Modify: `app/(main)/books/[bookId]/page.tsx`

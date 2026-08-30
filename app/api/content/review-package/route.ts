@@ -3,7 +3,7 @@ import path from "node:path";
 
 import { NextResponse } from "next/server";
 
-import { getAllowedUser, isAdminUser } from "@/lib/auth/guard";
+import { getAllowedUser } from "@/lib/auth/guard";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -13,7 +13,7 @@ const STAGING_FILE = path.join(process.cwd(), "data", "staging", "kizashi-n5-sou
 export async function GET() {
   const user = await getAllowedUser();
   if (!user) return NextResponse.json({ error: "Authentication required." }, { status: 401 });
-  if (!isAdminUser(user)) return NextResponse.json({ error: "Administrator access required." }, { status: 403 });
+  if (!user.isAdmin) return NextResponse.json({ error: "Admin access required." }, { status: 403 });
 
   try {
     const payload = await readFile(STAGING_FILE);

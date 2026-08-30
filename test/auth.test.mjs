@@ -1,7 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 
-import { isAdminUserValue, isAllowedEmailValue } from "../lib/auth/allowlist-core.js";
+import { isAdminEmail, isAdminUserId, isAdminUserValue, isAllowedEmailValue } from "../lib/auth/allowlist-core.js";
 import { mergeSyncSnapshots, parseSyncPayload } from "../lib/supabase/sync-core.js";
 
 test("allowlist matching is case-insensitive and trims both addresses", () => {
@@ -13,6 +14,36 @@ test("allowlist accepts comma, semicolon, and newline separated addresses", () =
   const allowed = "first@example.com, second@example.com; third@example.com\nfourth@example.com";
   assert.equal(isAllowedEmailValue("SECOND@example.com", allowed), true);
   assert.equal(isAllowedEmailValue("other@example.com", allowed), false);
+});
+
+test("allowlist accepts a comma-separated set without changing single-email behavior", () => {
+  assert.equal(isAllowedEmailValue("ANIRUDDH302004@GMAIL.COM", "owner@example.com, aniruddh302004@gmail.com"), true);
+  assert.equal(isAllowedEmailValue("other@example.com", "owner@example.com, aniruddh302004@gmail.com"), false);
+});
+
+test("admin identity is an exact configured user-id match", () => {
+  assert.equal(isAdminUserId("aj05767625", "aj05767625"), true);
+  assert.equal(isAdminUserId("other-user", "aj05767625"), false);
+  assert.equal(isAdminUserId("aj05767625", ""), false);
+});
+
+test("admin email matching is case-insensitive and exact", () => {
+  assert.equal(isAdminEmail(" AJ05767625@GMAIL.COM ", "aj05767625@gmail.com"), true);
+  assert.equal(isAdminEmail("aniruddh302004@gmail.com", "aj05767625@gmail.com"), false);
+  assert.equal(isAdminEmail("aj05767625@gmail.com", ""), false);
+});
+
+test("the configured admin email is included in the effective allowlist", async () => {
+  const allowlist = await readFile(new URL("../lib/auth/allowlist.ts", import.meta.url), "utf8");
+  assert.match(allowlist, /process\.env\.ADMIN_EMAIL \|\| "aj05767625@gmail\.com"/);
+  assert.equal(isAllowedEmailValue("AJ05767625@GMAIL.COM", "aj05767625@gmail.com"), true);
+});
+
+test("Google sign-in returns through the existing allowlist callback", async () => {
+  const login = await readFile(new URL("../components/auth/login-form.tsx", import.meta.url), "utf8");
+  assert.match(login, /signInWithOAuth/);
+  assert.match(login, /provider: "google"/);
+  assert.match(login, /\/auth\/callback/);
 });
 
 test("an empty allowlist denies access instead of opening the app", () => {

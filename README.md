@@ -10,7 +10,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Without Supabase variables the app runs in local demo mode. With Supabase configured, magic-link auth, the `ALLOWED_EMAIL` allowlist, protected app routes, and RLS-backed account sync are active. Apply the migrations in `supabase/migrations/`, including `0014_sync_metadata.sql`, before enabling account sync in Profile.
+Without Supabase variables the app runs in local demo mode. With Supabase configured, magic-link auth, the `ALLOWED_EMAIL`/`ALLOWED_EMAILS` allowlist, protected app routes, and RLS-backed account sync are active. Set `ADMIN_EMAIL` to the admin email (`aj05767625@gmail.com`) to protect Content Studio and AI generation; `ADMIN_USER_ID` is an optional UUID override. Apply the migrations in `supabase/migrations/`, including `0014_sync_metadata.sql`, before enabling account sync in Profile.
 
 Apply the migrations in `supabase/migrations/`, then run `supabase/seed.sql` in the Supabase SQL Editor. Curriculum reads require an authenticated user when Supabase is configured; user-owned tables remain protected by RLS. Profile sync is explicit opt-in and keeps browser state intact if the network fails.
 
@@ -47,9 +47,10 @@ Apply `0015_private_book_storage.sql`, upload `.book-storage/books/<book-id>/par
 
    Apply the public variables to Preview and Production. Apply the service key, allowlisted email, and optional AI key only where needed. Never use `NEXT_PUBLIC_` for a service key.
 3. In Supabase Dashboard → Authentication → URL Configuration, set Site URL to the production domain and add `<production-domain>/auth/callback`. Add the matching Vercel preview callback pattern if preview sign-in is needed.
-4. In Supabase SQL Editor, run every migration in `supabase/migrations/` in filename order, including `0014_sync_metadata.sql`, `0015_private_book_storage.sql`, and the idempotent `0016_repair_schema.sql` when the remote migration history says it is current but a seed reports missing tables. Then run `supabase/seed.sql`. Do not enable account sync until the tables exist.
-5. Confirm the `books` bucket is private, PDF-only, and contains every uploaded part. The deployed Books reader should load through `/api/books/<book-id>/parts`; the old whole-file endpoint remains only as a local fallback.
-6. Deploy, then smoke-test: magic-link login, `/journey`, `/practice`, `/profile` sync, `/studio`, and every `/books/<book-id>` reader. Change Vercel environment variables only before a new deployment; existing deployments keep their previous values.
+4. For Google sign-in, open Supabase Dashboard → Authentication → Providers → Google, enable it, and paste the Google OAuth Client ID and Client Secret. In Google Cloud, create a Web application OAuth client and set its authorized redirect URI to the callback URL shown in the Supabase Google provider panel (`https://<project-ref>.supabase.co/auth/v1/callback`). In Supabase Authentication → URL Configuration, add `<production-domain>/auth/callback` to Redirect URLs. The app's Google button already uses that callback, and the callback still enforces the email allowlist and admin email.
+5. In Supabase SQL Editor, run every migration in `supabase/migrations/` in filename order, including `0014_sync_metadata.sql`, `0015_private_book_storage.sql`, and the idempotent `0016_repair_schema.sql` when the remote migration history says it is current but a seed reports missing tables. Then run `supabase/seed.sql`. Do not enable account sync until the tables exist.
+6. Confirm the `books` bucket is private, PDF-only, and contains every uploaded part. The deployed Books reader should load through `/api/books/<book-id>/parts`; the old whole-file endpoint remains only as a local fallback.
+7. Deploy, then smoke-test: magic-link login, Google login, `/journey`, `/practice`, `/profile` sync, `/studio` as admin, and every `/books/<book-id>` reader. Change Vercel environment variables only before a new deployment; existing deployments keep their previous values.
 
 ## Checks
 
