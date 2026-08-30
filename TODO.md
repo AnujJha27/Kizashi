@@ -64,7 +64,7 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
   where the privacy model is clear.
 - [x] Support configurable strict or kana-friendly typed-answer matching, with
   unknown-kanji furigana as the recommended default.
-- [ ] Keep WaniKani as an optional cross-reference only, never as source truth.
+- [x] Keep WaniKani as an optional cross-reference only, never as source truth; no integration is enabled without compatible permission.
 
 ## AI generation boundary
 
