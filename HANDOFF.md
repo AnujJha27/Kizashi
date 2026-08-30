@@ -417,3 +417,8 @@ Next session order:
   `node_modules`, or credentials. Vercel still needs the production
   `ALLOWED_EMAILS=aniruddh302004@gmail.com` and `ADMIN_USER_ID=aj05767625`
   environment values applied before a redeploy.
+- A fresh read-only Supabase REST check returned HTTP 200 for the seeded
+  `courses`, `learning_items`, `content_sources`, and
+  `learning_item_sources` records, and HTTP 200 for the `sync_snapshots`
+  table using its actual `user_id` key. No credentials or row contents were
+  printed.
