@@ -63,6 +63,15 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
   where the privacy model is clear.
 - [ ] Keep WaniKani as an optional cross-reference only, never as source truth.
 
+## AI generation boundary
+
+- [x] Keep generation server-side, admin-only, rate-limited, validated, and
+  draft-only until review.
+- [x] Preserve model, target IDs, validation issues, reviewer, timestamps, and
+  notes on generated drafts.
+- [ ] Add learner-facing sentence explanation, conversation, and writing
+  correction only after the deterministic content bank is strong.
+
 - [ ] Grow the N5 syllabus by topic bands with Core, Extended, and Bridge classifications.
 - [ ] Expand grammar coverage to a textbook-level beginner sequence with contrasts, prerequisites, mistakes, and contextual examples.
 - [x] Expand kanji drills beyond single-reading recognition: readings, useful-word mapping, orthography, and contextual recall.

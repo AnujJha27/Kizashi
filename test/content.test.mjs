@@ -6,6 +6,7 @@ import { promisify } from "node:util";
 import { gunzipSync } from "node:zlib";
 
 import { getItemPriority, rankContentCandidates } from "../lib/content-priority.js";
+import { generatedReview, validateGenerationRequest } from "../lib/content-generation-core.js";
 import { selectWeakPracticeQuestions } from "../lib/weak-practice.js";
 
 const execFileAsync = promisify(execFile);
@@ -176,4 +177,34 @@ test("book extraction keeps candidates review-only and records page provenance",
 test("JMnedict ingestion keeps names outside the learner vocabulary", async () => {
   const { stdout } = await execFileAsync("python3", ["scripts/ingest_jmnedict.py", "--input", "test/fixtures/jmnedict.xml", "--dry-run"]);
   assert.match(stdout, /"properNames": 1/);
+});
+
+test("AI generation requires an admin and a canonical target", () => {
+  const base = { apiKey: "test-key", now: 10_000, lastGeneratedAt: 0, body: { itemId: "vocab-eki", questionType: "meaning", item: { id: "vocab-eki", category: "grammar" } }, knownItemIds: new Set(["vocab-eki"]) };
+  assert.equal(validateGenerationRequest({ ...base, authenticated: false, admin: false }).status, 401);
+  assert.equal(validateGenerationRequest({ ...base, authenticated: true, admin: false }).status, 403);
+  assert.equal(validateGenerationRequest({ ...base, authenticated: true, admin: true, body: { ...base.body, itemId: "forged", item: { id: "forged", category: "vocabulary" } }, knownItemIds: new Set(["vocab-eki"]) }).status, 404);
+  assert.equal(validateGenerationRequest({ ...base, authenticated: true, admin: true, now: 2_000, lastGeneratedAt: 1_000 }).status, 429);
+});
+
+test("generated content carries draft-only review metadata", () => {
+  const review = generatedReview("test-model", "vocab-eki", "2026-08-30T00:00:00.000Z");
+  assert.deepEqual(review, {
+    status: "draft",
+    generatedBy: "openrouter:test-model",
+    model: "test-model",
+    generatedAt: "2026-08-30T00:00:00.000Z",
+    targetItemIds: ["vocab-eki"],
+    validationIssues: [],
+    reviewNotes: "",
+  });
+});
+
+test("Studio exposes review metadata and never trusts a client curriculum item", async () => {
+  const route = await readFile(new URL("../app/api/content/generate/route.ts", import.meta.url), "utf8");
+  const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
+  assert.match(route, /isAdminUser/);
+  assert.doesNotMatch(route, /requestedItem\(body\.item/);
+  assert.match(studio, /Review notes/);
+  assert.match(studio, /reviewedBy/);
 });

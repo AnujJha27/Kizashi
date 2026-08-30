@@ -3,6 +3,7 @@ import path from "node:path";
 import { gunzipSync } from "node:zlib";
 
 import { ContentStudio } from "@/components/content/content-studio";
+import { requireAdminUser } from "@/lib/auth/guard";
 import { n5Module } from "@/lib/curriculum";
 import { getModuleItems, parseModuleForReview, validateModule, validatePracticeQuestions } from "@/lib/content-validation";
 import { getPracticeQuestions } from "@/lib/questions";
@@ -34,6 +35,7 @@ async function loadSourceRegister(fallback: ContentSource[]): Promise<ContentSou
 }
 
 export default async function ContentStudioPage() {
+  await requireAdminUser();
   const module = await loadStagedModule();
   const sources = await loadSourceRegister(module.sourceManifest ?? []);
   const items = getModuleItems(module);

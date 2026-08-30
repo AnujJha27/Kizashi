@@ -1,31 +1,10 @@
 import { NextResponse } from "next/server";
 
-import { getAllowedUser } from "@/lib/auth/guard";
+import { getAllowedUser, isAdminUser } from "@/lib/auth/guard";
 import { validatePracticeQuestions } from "@/lib/content-validation";
+import { generatedReview, validateGenerationRequest } from "@/lib/content-generation-core";
 import { n5Module, type LessonContentItem } from "@/lib/curriculum";
 import type { LearningCategory, PracticeQuestion } from "@/lib/types";
-
-const questionTypes = new Set([
-  "meaning",
-  "contextual vocabulary",
-  "paraphrase",
-  "orthography",
-  "kana recall",
-  "Japanese recall",
-  "kanji reading",
-  "kanji meaning",
-  "reading in context",
-  "word to kanji recall",
-  "grammar in context",
-  "sentence completion",
-  "sentence ordering",
-  "short passage detail",
-  "information retrieval",
-  "task-based response",
-  "key point",
-  "verbal expression",
-  "quick response",
-]);
 
 const defaultModels = [
   "nvidia/nemotron-3-ultra-550b-a55b:free",
@@ -46,19 +25,6 @@ function stringValue(value: unknown) {
 
 function stringArray(value: unknown) {
   return Array.isArray(value) ? value.filter((entry): entry is string => typeof entry === "string" && entry.trim().length > 0).map((entry) => entry.trim()) : [];
-}
-
-function requestedItem(value: unknown, itemId: string): LessonContentItem | null {
-  if (!record(value) || stringValue(value.id) !== itemId) return null;
-  const category = stringValue(value.category) as LearningCategory;
-  if (!new Set<LearningCategory>(["vocabulary", "kanji", "grammar", "reading", "listening"]).has(category) || !stringValue(value.title) || !stringArray(value.tags).length) return null;
-  if (value.jlptLevel !== null && !["N5", "N4", "N3", "N2", "N1"].includes(value.jlptLevel as string)) return null;
-  if (category === "vocabulary" && stringValue(value.writtenForm) && stringValue(value.reading) && stringArray(value.meanings).length) return value as unknown as LessonContentItem;
-  if (category === "kanji" && stringValue(value.character) && stringArray(value.meanings).length) return value as unknown as LessonContentItem;
-  if (category === "grammar" && stringValue(value.pattern) && stringValue(value.meaning) && stringValue(value.formation)) return value as unknown as LessonContentItem;
-  if (category === "reading" && stringValue(value.passage)) return value as unknown as LessonContentItem;
-  if (category === "listening" && stringValue(value.situation) && stringValue(value.transcript)) return value as unknown as LessonContentItem;
-  return null;
 }
 
 function numberArray(value: unknown) {
@@ -128,8 +94,8 @@ function normalizeQuestion(raw: unknown, item: LessonContentItem, requestedType:
   const explanation = stringValue(raw.explanation);
   if (!prompt || !explanation || prompt.length > 3000 || explanation.length > 3000) return null;
   const textAnswer = raw.answerMode === "text" || ["kana recall", "Japanese recall", "word to kanji recall"].includes(requestedType);
-  const generatedAt = new Date().toISOString();
-  const base = { id: `ai-${item.id}-${Date.now()}`, itemId: item.id, category: item.category as LearningCategory, questionType: requestedType, jlptLevel: item.jlptLevel, prompt, correctIndex: 0, explanation, answerMode: textAnswer ? "text" as const : "choice" as const, validationStatus: "generated" as const, generatedBy: `openrouter:${model}`, review: { status: "draft" as const, generatedBy: `openrouter:${model}`, model, generatedAt, targetItemIds: [item.id], validationIssues: [], reviewNotes: "" } };
+  const review = generatedReview(model, item.id) as NonNullable<PracticeQuestion["review"]>;
+  const base = { id: `ai-${item.id}-${Date.now()}`, itemId: item.id, category: item.category as LearningCategory, questionType: requestedType, jlptLevel: item.jlptLevel, prompt, correctIndex: 0, explanation, answerMode: textAnswer ? "text" as const : "choice" as const, validationStatus: "generated" as const, generatedBy: `openrouter:${model}`, review };
   if (requestedType === "sentence ordering") {
     const tokens = stringArray(raw.tokens);
     const correctOrder = numberArray(raw.correctOrder);
@@ -171,9 +137,6 @@ async function requestModel(apiKey: string, model: string, item: LessonContentIt
 export async function POST(request: Request) {
   const user = await getAllowedUser();
   if (!user) return NextResponse.json({ error: "Authentication required." }, { status: 401 });
-  const apiKey = process.env.OPENROUTER_API_KEY?.trim();
-  if (!apiKey) return NextResponse.json({ error: "OPENROUTER_API_KEY is not configured." }, { status: 503 });
-  if (Date.now() - lastGeneratedAt < 3000) return NextResponse.json({ error: "Please wait a moment before generating another draft." }, { status: 429 });
 
   let body: unknown;
   try {
@@ -181,12 +144,18 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json({ error: "Request must be valid JSON." }, { status: 400 });
   }
-  if (!record(body) || typeof body.itemId !== "string" || body.itemId.length > 120 || typeof body.questionType !== "string" || !questionTypes.has(body.questionType)) return NextResponse.json({ error: "Choose a known curriculum item and question type." }, { status: 400 });
+  const now = Date.now();
+  const apiKey = process.env.OPENROUTER_API_KEY?.trim();
+  const items = allItems();
+  const gate = validateGenerationRequest({ authenticated: true, admin: isAdminUser(user), apiKey, now, lastGeneratedAt, body, knownItemIds: new Set(items.map((item) => item.id)) });
+  if (gate.status !== 200) return NextResponse.json({ error: "error" in gate ? gate.error : "Invalid generation request." }, { status: gate.status });
+  const itemId = "itemId" in gate ? gate.itemId : "";
+  const questionType = "questionType" in gate ? gate.questionType : "";
 
-  const item = allItems().find((entry) => entry.id === body.itemId) ?? requestedItem(body.item, body.itemId);
+  const item = items.find((entry) => entry.id === itemId);
   if (!item) return NextResponse.json({ error: "That curriculum item is not available." }, { status: 404 });
   const models = modelCandidates();
-  lastGeneratedAt = Date.now();
+  lastGeneratedAt = now;
 
   let lastError = "The configured models could not produce a valid draft.";
   let lastStatus = 502;
@@ -194,7 +163,7 @@ export async function POST(request: Request) {
     let response: Response;
     let payload: unknown;
     try {
-      response = await requestModel(apiKey, candidate, item, body.questionType);
+      response = await requestModel(apiKey ?? "", candidate, item, questionType);
       payload = await readResponse(response);
     } catch {
       lastError = `${candidate} could not be reached.`;
@@ -207,7 +176,7 @@ export async function POST(request: Request) {
       continue;
     }
 
-    const draft = normalizeQuestion(parseJson(modelText(payload)), item, body.questionType, candidate);
+    const draft = normalizeQuestion(parseJson(modelText(payload)), item, questionType, candidate);
     if (!draft) {
       lastStatus = 422;
       lastError = `${candidate} returned a draft that could not be validated.`;
@@ -219,7 +188,7 @@ export async function POST(request: Request) {
       lastError = `${candidate} returned a draft that failed Kizashi validation.`;
       continue;
     }
-    return NextResponse.json({ draft, model: candidate, review: { status: "draft", generatedBy: draft.generatedBy, model: candidate, generatedAt: draft.review?.generatedAt, targetItemIds: [item.id], validationIssues: [], reviewNotes: "" } });
+    return NextResponse.json({ draft, model: candidate, review: draft.review });
   }
 
   return NextResponse.json({ error: lastError }, { status: lastStatus === 429 ? 429 : lastStatus === 422 ? 422 : 502 });

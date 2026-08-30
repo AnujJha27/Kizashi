@@ -35,6 +35,9 @@ Apply `0015_private_book_storage.sql`, upload `.book-storage/books/<book-id>/par
    NEXT_PUBLIC_SUPABASE_URL
    NEXT_PUBLIC_SUPABASE_ANON_KEY
    ALLOWED_EMAIL
+   ALLOWED_EMAILS                   # optional additional accounts
+   ADMIN_EMAIL                     # Content Studio / AI owner
+   ADMIN_USER_ID                   # optional exact Supabase Auth UUID
    SUPABASE_SERVICE_KEY
    SUPABASE_BOOKS_BUCKET=books
    OPENROUTER_API_KEY                 # optional, Studio AI only
@@ -56,7 +59,7 @@ Apply `0015_private_book_storage.sql`, upload `.book-storage/books/<book-id>/par
 ./node_modules/.bin/next build
 ```
 
-AI generation is server-side, allowlist-gated, and draft-only until review. Renshuu content is not imported; the current curriculum is original/curated, and dictionary sources are cached by a project script before review. The review queue now has deterministic priority scoring, provenance-aware editing, and publish QA.
+AI generation is server-side, admin-gated, and draft-only until review. Renshuu content is not imported; the current curriculum is original/curated, and dictionary sources are cached by a project script before review. The review queue now has deterministic priority scoring, provenance-aware editing, and publish QA.
 
 ## Staged source import
 

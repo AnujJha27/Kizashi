@@ -482,3 +482,16 @@ Next session order:
 - `test/personal-import.test.mjs` covers CSV normalization and canonical
   matching. The remaining personal-content work is textbook indexes,
   screenshots, and richer mapping.
+
+## Session notes — AI/admin boundary hardening
+
+- Content Studio and `/api/content/generate` now require the configured admin
+  email or Supabase user ID; local demo mode remains available for development.
+- Generation accepts only canonical curriculum item IDs, applies a shared
+  cooldown/request gate, and keeps provider output as a validated `draft` with
+  model, target, reviewer, timestamp, and notes metadata.
+- Studio reviewers can edit `reviewedBy` and `reviewNotes` before approving or
+  rejecting a generated question. `ALLOWED_EMAILS` now supports additional
+  comma-, semicolon-, or newline-separated accounts.
+- Fresh checks: `/usr/bin/node --test test/*.test.mjs`, direct TypeScript
+  checking, `git diff --check`, and `next build` all pass.
