@@ -66,6 +66,8 @@ test("Studio loads the large review package through an admin-only compressed end
   assert.match(route, /getAllowedUser/);
   assert.match(route, /user\.isAdmin/);
   assert.match(route, /Content-Encoding.*gzip/s);
+  const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
+  assert.match(studio, /setRaw\(JSON\.stringify\(next, null, 2\)\)/);
 });
 
 test("kanji orthography prompts test the reading instead of visual matching", async () => {

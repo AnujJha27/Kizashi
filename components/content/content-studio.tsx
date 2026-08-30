@@ -160,6 +160,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, q
       .then((next) => {
         if (cancelled) return;
         setSeed(next);
+        if (!window.localStorage.getItem(CONTENT_DRAFT_STORAGE_KEY)) setRaw(JSON.stringify(next, null, 2));
         setResult(validateModule(next));
         setMessage("Loaded the full staged review package.");
       })
