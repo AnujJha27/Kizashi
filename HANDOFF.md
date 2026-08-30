@@ -564,3 +564,12 @@ Next session order:
   TypeScript checking, `next build` (24/24 pages), and `git diff --check`.
 - These changes are uncommitted and local. Existing untracked `resumer`,
   `scripts/__pycache__/`, and `supabase/.temp/` were not staged.
+
+## Session notes — reading mastery and audio prefetch
+
+- Unknown-kanji furigana now consults both vocabulary and kanji/useful-word
+  mastery, so mastered kanji readings can actually fade from support.
+- Lesson and practice flows warm the next recorded audio item in the browser
+  while the current card is active; the existing replay controls remain.
+- Verified on 2026-08-31: `/usr/bin/node --test test/*.test.mjs` (8/8), direct
+  TypeScript checking, `next build` (24/24 pages), and `git diff --check`.

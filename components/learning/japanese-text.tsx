@@ -108,8 +108,13 @@ export function JapaneseText({ text, vocabulary, kanji = [], className = "" }: R
   const entries = getJapaneseReadingEntries(vocabulary, kanji);
   if (!entries.length) return <span className={className}>{text}</span>;
   const readings = new Map(entries);
-  const vocabularyByWord = new Map(vocabulary.map((item) => [item.writtenForm, item]));
+  const masteryByWord = new Map<string, string>();
+  vocabulary.forEach((item) => masteryByWord.set(item.writtenForm, item.id));
+  kanji.forEach((item) => {
+    masteryByWord.set(item.character, item.id);
+    item.usefulWords.forEach((word) => { if (!masteryByWord.has(word.word)) masteryByWord.set(word.word, item.id); });
+  });
   const parts = text.split(new RegExp(`(${entries.map(([word]) => escapeRegExp(word)).join("|")})`, "gu"));
-  const showReading = (part: string) => { if (mode === "always") return true; if (mode === "hide") return false; if (mode === "tap") return tapped; const item = vocabularyByWord.get(part); return !item || !["stable", "strong"].includes(records[item.id]?.masteryState ?? ""); };
+  const showReading = (part: string) => { if (mode === "always") return true; if (mode === "hide") return false; if (mode === "tap") return tapped; const itemId = masteryByWord.get(part); return !itemId || !["stable", "strong"].includes(records[itemId]?.masteryState ?? ""); };
   return <span className={className} onClick={mode === "tap" ? () => setTapped((value) => !value) : undefined}>{parts.map((part, index) => readings.has(part) && showReading(part) ? <ruby key={`${part}-${index}`}>{part}<rt className="text-[.42em] font-normal tracking-normal text-[#e5b85c]">{readings.get(part)}</rt></ruby> : <span key={`${part}-${index}`}>{part}</span>)}</span>;
 }

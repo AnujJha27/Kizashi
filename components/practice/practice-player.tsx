@@ -167,6 +167,15 @@ export function PracticePlayer({ questions, vocabulary = [], kanji = [], examMod
     window.speechSynthesis.speak(utterance);
   }, [autoPlayAudio, complete, position, questionKey, questions, ready, submitted]);
 
+  useEffect(() => {
+    if (!ready || complete) return;
+    const upcoming = questions[position + 1];
+    if (!upcoming?.audioUrl) return;
+    const audio = new Audio(upcoming.audioUrl);
+    audio.preload = "auto";
+    return () => { audio.src = ""; };
+  }, [complete, position, questionKey, questions, ready]);
+
   if (!ready) return <div className="min-h-80 animate-pulse rounded-xl bg-[#17181d]" aria-label="Loading practice session" />;
   if (!questions.length) return <div className="rounded-xl border border-[#713b37] bg-[#21191a] p-5 text-sm text-[#f5f5f2]">No questions are ready for this practice mode yet.</div>;
 

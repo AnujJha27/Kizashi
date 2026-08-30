@@ -69,6 +69,15 @@ export function LessonPlayer({ lessonId, items, contrasts = [], vocabulary, kanj
   }, [complete, lessonId, position, ready]);
 
   useEffect(() => {
+    if (!ready || complete) return;
+    const upcoming = items[position + 1];
+    if (upcoming?.category !== "listening" || !upcoming.audioUrl) return;
+    const audio = new Audio(upcoming.audioUrl);
+    audio.preload = "auto";
+    return () => { audio.src = ""; };
+  }, [complete, items, position, ready]);
+
+  useEffect(() => {
     if (!ready || complete || !items[position]) return;
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === " " && !revealed) {
