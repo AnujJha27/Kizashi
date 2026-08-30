@@ -25,6 +25,9 @@ export interface CurriculumClassification {
   evidenceSources: string[];
   inclusionReason: string;
   reviewedAt: string;
+  sourceLevels?: Record<string, Exclude<JLPTLevel, null>>;
+  conflictingLevels?: Exclude<JLPTLevel, null>[];
+  conflict?: boolean;
 }
 
 export interface ExamSkillMastery {

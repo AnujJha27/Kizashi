@@ -621,5 +621,6 @@ export function writeBookNote(bookId: string, page: number, body: string) {
   if (body.trim()) notes[key] = body.trim();
   else delete notes[key];
   window.localStorage.setItem(BOOK_NOTES_STORAGE_KEY, JSON.stringify(notes));
+  window.localStorage.removeItem(`michi.book-review.${bookId}.${page}`);
   window.dispatchEvent(new Event("michi-book-notes-updated"));
 }

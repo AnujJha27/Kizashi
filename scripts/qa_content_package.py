@@ -86,6 +86,8 @@ def report(package: dict[str, Any]) -> dict[str, Any]:
             classification = item.get("classification") if isinstance(item.get("classification"), dict) else {}
             if "source-review" in strings(item.get("tags")) and category in {"vocabulary", "kanji", "grammar"} and not text(classification.get("band")):
                 blockers.append(f"{item_id}: missing reviewed curriculum classification")
+            if classification.get("conflict") is True:
+                blockers.append(f"{item_id}: curriculum classification has conflicting source levels")
     return {"totals": totals, "blockers": blockers, "status": "blocked" if blockers else "ready"}
 
 

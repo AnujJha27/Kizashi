@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -64,14 +65,47 @@ def merge_field_sources(target: dict[str, Any], incoming: dict[str, Any]) -> Non
         target["fieldSourceIds"] = merged
 
 
-def merge_classification(target: dict[str, Any], incoming: dict[str, Any]) -> None:
+LEVELS = ("N5", "N4", "N3", "N2", "N1")
+
+
+def merge_classification(target: dict[str, Any], incoming: dict[str, Any], source_id: str) -> None:
     incoming_classification = incoming.get("classification")
     if not isinstance(incoming_classification, dict):
         return
     existing_classification = target.get("classification") if isinstance(target.get("classification"), dict) else {}
     target_level = text(target.get("jlptLevel"))
     incoming_level = text(incoming_classification.get("level"))
-    level = text(existing_classification.get("level")) or target_level or incoming_level
+    source_levels: dict[str, str] = {}
+
+    def add_votes(classification: dict[str, Any], fallback_source: str) -> None:
+        levels = classification.get("sourceLevels")
+        if isinstance(levels, dict):
+            for source, level in levels.items():
+                if text(source) in source_levels or text(level) not in LEVELS:
+                    continue
+                source_levels[text(source)] = text(level)
+        level = text(classification.get("level"))
+        if level not in LEVELS:
+            return
+        sources = strings(classification.get("evidenceSources")) or [fallback_source]
+        for source in sources:
+            if source and source not in source_levels:
+                source_levels[source] = level
+
+    add_votes(existing_classification, "existing-review")
+    add_votes(incoming_classification, source_id)
+    counts = Counter(source_levels.values())
+    winners = [level for level in LEVELS if counts[level] == max(counts.values(), default=0)]
+    level = winners[0] if winners else text(existing_classification.get("level")) or target_level or incoming_level
+    conflict = len([count for count in counts.values() if count]) > 1
+    top_count = counts.get(level, 0)
+    second_count = max((count for candidate, count in counts.items() if candidate != level), default=0)
+    if not conflict and top_count >= 3:
+        confidence = "high"
+    elif top_count >= 2 and top_count > second_count:
+        confidence = "medium"
+    else:
+        confidence = "low"
     if level == "N5":
         band = text(existing_classification.get("band")) or (text(incoming_classification.get("band")) if incoming_level == level else "")
         band = band or ("core" if isinstance(target.get("difficulty"), int) and target["difficulty"] <= 2 else "extended")
@@ -84,10 +118,14 @@ def merge_classification(target: dict[str, Any], incoming: dict[str, Any]) -> No
         "itemId": text(target.get("id")) or text(incoming_classification.get("itemId")),
         "level": level or incoming_level,
         "band": band,
+        "confidence": confidence,
         "evidenceSources": unique([
             *strings(incoming_classification.get("evidenceSources")),
             *strings(existing_classification.get("evidenceSources")),
         ]),
+        "sourceLevels": dict(sorted(source_levels.items())),
+        "conflictingLevels": [candidate for candidate in LEVELS if counts.get(candidate, 0) and candidate != level],
+        "conflict": conflict,
     }
 
 
@@ -109,7 +147,7 @@ def absorb_source(target: dict[str, Any], incoming: dict[str, Any], source_id: s
         records.append({"sourceId": source_id, "record": record})
         target["sourceRecords"] = records
     merge_field_sources(target, incoming)
-    merge_classification(target, incoming)
+    merge_classification(target, incoming, source_id)
     for field in ("frequency", "frequencyMetadata", "dictionary"):
         if field in incoming and field not in target:
             target[field] = incoming[field]

@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { execFile } from "node:child_process";
-import { mkdtemp, readFile, writeFile } from "node:fs/promises";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { promisify } from "node:util";
 import { gunzipSync } from "node:zlib";
 
@@ -203,6 +203,26 @@ test("content QA requires classification only for imported source-review records
   const blockers = report.blockers.join("\n");
   assert.match(blockers, /vocab-test: approved source-review item is not assigned to a real Journey lesson/);
   assert.doesNotMatch(blockers, /vocab-curated: missing reviewed curriculum classification/);
+});
+
+test("content QA and SQL export reject unresolved classification conflicts", async () => {
+  const directory = await mkdtemp("/tmp/kizashi-conflict-test-");
+  const packagePath = `${directory}/package.json`;
+  const outputPath = `${directory}/content.sql`;
+  try {
+    const packageData = JSON.parse(await readFile(new URL("../test/fixtures/unassigned-approved-package.json", import.meta.url), "utf8"));
+    packageData.course.chapters[0].lessons[0].itemIds.push("vocab-test");
+    packageData.vocabulary.find((item) => item.id === "vocab-test").classification.conflict = true;
+    await writeFile(packagePath, JSON.stringify(packageData), "utf8");
+    const { stdout } = await execFileAsync("python3", ["scripts/qa_content_package.py", "--package", packagePath]);
+    assert.match(stdout, /vocab-test: curriculum classification has conflicting source levels/);
+    await assert.rejects(
+      execFileAsync("python3", ["scripts/render_supabase_content_sql.py", "--approved", "--package", packagePath, "--output", outputPath]),
+      /conflicting source levels/,
+    );
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
 });
 
 test("book extraction keeps candidates review-only and records page provenance", async () => {

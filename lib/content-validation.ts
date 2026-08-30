@@ -83,6 +83,15 @@ function validateClassification(item: Record<string, unknown>, path: string, iss
   stringArray(classification.evidenceSources, `${path}.classification.evidenceSources`, issues);
   stringValue(classification.inclusionReason, `${path}.classification.inclusionReason`, issues);
   stringValue(classification.reviewedAt, `${path}.classification.reviewedAt`, issues);
+  if (classification.sourceLevels !== undefined) {
+    if (!isRecord(classification.sourceLevels)) issues.push({ path: `${path}.classification.sourceLevels`, message: "Source levels must map source IDs to JLPT levels.", severity: "error" });
+    else Object.entries(classification.sourceLevels).forEach(([sourceId, level]) => {
+      if (!sourceId.trim() || !["N5", "N4", "N3", "N2", "N1"].includes(level as string)) issues.push({ path: `${path}.classification.sourceLevels.${sourceId}`, message: "Use a valid source ID and JLPT level.", severity: "error" });
+    });
+  }
+  if (classification.conflictingLevels !== undefined && (!Array.isArray(classification.conflictingLevels) || classification.conflictingLevels.some((level) => !["N5", "N4", "N3", "N2", "N1"].includes(level as string)))) issues.push({ path: `${path}.classification.conflictingLevels`, message: "Conflicting levels must be valid JLPT levels.", severity: "error" });
+  if (classification.conflict !== undefined && typeof classification.conflict !== "boolean") issues.push({ path: `${path}.classification.conflict`, message: "Classification conflict must be true or false.", severity: "error" });
+  if (classification.conflict === true) issues.push({ path: `${path}.classification.conflict`, message: "Resolve conflicting source levels before approving this item.", severity: getContentReviewStatus(item) === "approved" ? "error" : "warning" });
 }
 
 function examples(value: unknown, path: string, issues: ContentIssue[], minimum = 1) {

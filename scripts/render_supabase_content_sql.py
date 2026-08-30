@@ -108,6 +108,8 @@ def validate_export_item(item: dict[str, Any], category: str) -> None:
             raise ValueError(f"{category} item {text(item.get('id')) or '<unknown>'} has an invalid classification confidence.")
         if not strings(classification.get("evidenceSources")):
             raise ValueError(f"{category} item {text(item.get('id')) or '<unknown>'} classification needs evidenceSources.")
+        if classification.get("conflict") is True:
+            raise ValueError(f"{category} item {text(item.get('id')) or '<unknown>'} has conflicting source levels; resolve them before export.")
     if category == "vocabulary":
         for field in ("writtenForm", "reading", "partOfSpeech"):
             required_text(item, category, field)
