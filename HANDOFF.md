@@ -412,6 +412,9 @@ Next session order:
   direct TypeScript checking passed; `git diff --check` passed. The Next build
   and browser smoke checks remain intentionally unrun because the owner's Next
   server is active.
+- The mobile bottom navigation now uses five essential destinations with
+  shrink-safe grid cells and clipped labels, keeping it inside narrow phone
+  viewports; Practice and Profile are included directly.
 - The owner confirmed that the corrected full seed now succeeds against the
   hosted Supabase database. The verified code-only snapshot was pushed to
   GitHub `main`; it contains no private books, PDFs, videos,
