@@ -263,8 +263,8 @@ Next session order:
    explicit owner approval, then test sign-in and Profile sync.
 3. Continue human review/enrichment/lesson assignment of the staged source package;
    keep SQL publication and licensing decisions manual.
-4. Push commit `ecbcf8a` (and this handoff update) to `master` on `origin`
-   (`git@github.com:AnujJha27/Kizashi.git`) and record the result here.
+4. GitHub publication is complete on `origin/main`; future changes should be
+   reviewed for public disclosure before pushing.
 
 ## Session notes — 2026-08-30 continued
 
@@ -293,10 +293,12 @@ Next session order:
   The GitHub repository is empty with public `main` as its default branch. A
   clean 172-file publish tree excluding the private book blobs was prepared but
   not published because explicit approval is required for that broader public
-  disclosure. No history rewrite or force-push was performed. The app now accepts
+  disclosure. No history rewrite or force-push was performed. The clean public
+  tree was published as `26abf62` on `origin/main`; the local `master` branch
+  remains intact. The app now accepts
   the existing `SUPABASE_SERVICE_KEY` env name as well as
   `SUPABASE_SERVICE_ROLE_KEY`; the compatibility fix is `c7cffc6`.
 - The bucket settings were applied through the authenticated Storage API because
   no SQL/database connector is available here; `0015_private_book_storage.sql`
   remains the reproducible migration for another project. The Supabase objects
-  are uploaded, but the GitHub repo is still unpublished.
+  are uploaded and verified through signed access.
