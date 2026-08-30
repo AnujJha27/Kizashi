@@ -516,3 +516,19 @@ Next session order:
   connects to Supabase.
 - Fixture coverage now includes both tools; the remaining book work is still
   manual/OCR review of the supplied scanned PDFs and licensing approval.
+
+## Session notes — verified final local slice
+
+- Added the learner-facing explanation, conversation, and writing assistant;
+  responses are bounded, server-side, strictly parsed, and grounded in the
+  selected curriculum item without changing canonical content.
+- Added the missing source-license publication gate. The SQL exporter and strict
+  QA now refuse approved external source-review records without recorded license
+  terms, and AI generation accepts only approved source-review facts.
+- Verified locally on 2026-08-31: `/usr/bin/node --test test/*.test.mjs` (8/8),
+  direct TypeScript checking, `next build` (24/24 pages), and `git diff --check`.
+- Local `main` contains commits `6047c51`, `5770b78`, and `74078a2` ahead of
+  `origin/main` at `github.com/AnujJha27/Kizashi`. The push is still pending
+  explicit approval to publish the learner-facing AI feature; `resumer`,
+  `scripts/__pycache__/`, and `supabase/.temp/` remain untracked and were not
+  staged.
