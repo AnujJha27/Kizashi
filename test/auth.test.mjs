@@ -27,6 +27,12 @@ test("admin email matching is case-insensitive and exact", () => {
   assert.equal(isAdminEmail("aj05767625@gmail.com", ""), false);
 });
 
+test("the configured admin email is included in the effective allowlist", async () => {
+  const allowlist = await readFile(new URL("../lib/auth/allowlist.ts", import.meta.url), "utf8");
+  assert.match(allowlist, /process\.env\.ADMIN_EMAIL \|\| "aj05767625@gmail\.com"/);
+  assert.equal(isAllowedEmailValue("AJ05767625@GMAIL.COM", "aj05767625@gmail.com"), true);
+});
+
 test("Google sign-in returns through the existing allowlist callback", async () => {
   const login = await readFile(new URL("../components/auth/login-form.tsx", import.meta.url), "utf8");
   assert.match(login, /signInWithOAuth/);
