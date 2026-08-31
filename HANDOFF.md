@@ -646,6 +646,18 @@ Next session order:
   the original link. No third-party source is downloaded, proxied, cached, or
   uploaded.
 
+## Session notes — hosted migrations and seed verification
+
+- The owner applied the hosted migration set. Read-only PostgREST checks now
+  return `vocabulary.spoken_frequency`, `vocabulary.spoken_frequency_metadata`,
+  `learning_items.audio_metadata`, `practice_questions.audio_metadata`, and
+  `learner_error_aggregates`.
+- The hosted seed is present: `course-n5-foundations`, lessons, and grammar
+  contrasts resolve successfully. The database reports 313 approved learning
+  items and zero pending items; the 47 approved staged package IDs all match
+  hosted `learning_items` rows. No pending/rejected staging records were
+  imported.
+
 ## Session notes — current audio source-term audit
 
 - Verified the current first-party terms for Erin's Challenge, Common Voice

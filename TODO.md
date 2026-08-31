@@ -19,13 +19,11 @@
 - [x] Acquire N4 bridge vocabulary, kanji, grammar, and linked examples for above-level preparation.
 - [x] Retry the six audited vocabulary extraction errors with pitch-accent-aware parsing; four now merge into canonical records and two corrected rows remain pending review.
 - [ ] Review, enrich, classify, and assign imported records to real Journey lessons. The current staged package has 97 approved seed-derived records, 8,345 records remain pending, and none are rejected. The private learner path now releases every non-rejected staged record with an explicit `humanReviewed: false` marker; the admin review queue remains available for cleanup and promotion.
-- [ ] Apply the generated Supabase SQL import after the hosted project receives
-  migrations 0017–0019. The 47 approved rows and their supported fields,
-  classifications, provenance, and lesson links are already published through
-  a narrow equivalent REST upsert; pending and rejected records remain excluded.
-  Check with `supabase migration list`, preview with `supabase db push
-  --dry-run`, then run `supabase db push`; the current hosted check still shows
-  the three additive migrations absent.
+- [x] Apply the generated Supabase SQL import after the hosted project receives
+  migrations 0017–0019. The hosted schema now exposes spoken-frequency,
+  audio-metadata, and I-JAS aggregate support; the 47 approved staged IDs all
+  match hosted rows, and the seeded curriculum is present. Pending and rejected
+  staging records remain excluded from the database export.
 
 Review tooling is implemented: Content Studio ranks candidates, edits classification/provenance, assigns real Journey lessons, and QA/export scripts refuse incomplete approved records. Human review remains an optional quality pass for the private learner path; SQL publication still requires approved records.
 
