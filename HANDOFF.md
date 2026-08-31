@@ -2,7 +2,7 @@
 
 Date: 2026-09-01
 Status: The source-integration milestone is implemented on `main` at
-`3d5c00e` and the Aozora commit is present on `origin/main`. Hosted migrations,
+`16639d5` and the final commit is present on `origin/main`. Hosted migrations,
 seed, and the core curriculum remain verified. Remaining gates are a real
 browser phone/desktop viewport check, optional imported-content curation, and
 the deferred ServerTTS/audio-archive work.
