@@ -616,6 +616,6 @@ Next session order:
   authoring/curation, imported-record review, and database publication gates.
 - Verified on 2026-08-31: `/usr/bin/node --test test/*.test.mjs` (11/11), direct
   TypeScript checking, `next build` (25/25 pages), and `git diff --check`.
-- Current relevant changes are ready for one Kizashi-only commit to private
+- Current relevant changes were committed as `b0b35b5` and pushed to private
   `origin/main`; `resumer`, `scripts/__pycache__/`, and `supabase/.temp/` remain
-  unstaged and will not be included.
+  unstaged and were not included.
