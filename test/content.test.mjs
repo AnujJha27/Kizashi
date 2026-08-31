@@ -132,6 +132,7 @@ test("learners can flag source-review content while studying", async () => {
 test("external sources use native media and safe framing fallbacks", async () => {
   const viewer = await readFile(new URL("../components/learning/external-source-viewer.tsx", import.meta.url), "utf8");
   const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
+  const registry = await readFile(new URL("../lib/external-resources.ts", import.meta.url), "utf8");
   const launcher = await readFile(new URL("../components/learning/external-source-launcher.tsx", import.meta.url), "utf8");
   const sourceProgress = await readFile(new URL("../lib/external-source-progress.js", import.meta.url), "utf8");
   const frameExtension = JSON.parse(await readFile(new URL("../browser/kizashi-private-frame-unlocker/manifest.json", import.meta.url), "utf8"));
@@ -152,15 +153,15 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(viewer, /Open original source/);
   assert.doesNotMatch(viewer, /\{source\.mediaDelivery === "link-only" \? <p[^>]*>This provider does not allow in-app framing/);
   assert.match(viewer, /View here/);
-  assert.match(surface, /CSJ/);
-  assert.match(surface, /id: "cejc", name: "CEJC", mediaDelivery: "link-only"/);
-  assert.match(surface, /id: "csj", name: "CSJ", mediaDelivery: "link-only"/);
-  assert.match(surface, /https:\/\/chunagon\.ninjal\.ac\.jp\/shc\//);
-  assert.doesNotMatch(surface, /https:\/\/www2\.ninjal\.ac\.jp\/conversation\/cejc\.html/);
+  assert.match(registry, /CSJ/);
+  assert.match(registry, /id: "cejc", sourceId: "cejc"[\s\S]*?deliveryMode: "link-only"/);
+  assert.match(registry, /id: "csj", sourceId: "csj"[\s\S]*?deliveryMode: "link-only"/);
+  assert.match(registry, /https:\/\/chunagon\.ninjal\.ac\.jp\/shc\//);
+  assert.doesNotMatch(registry, /https:\/\/www2\.ninjal\.ac\.jp\/conversation\/cejc\.html/);
   assert.match(surface, /ExternalSourceViewer/);
-  assert.match(surface, /mediaDelivery: "link-only"/);
+  assert.match(registry, /deliveryMode: "link-only"/);
   assert.match(surface, /const erinLessons = getErinLessonSources\(\)/);
-  assert.match(surface, /id: "erin"/);
+  assert.match(registry, /id: "erin"/);
   assert.match(surface, /selectedErin/);
   assert.match(surface, /<select/);
   assert.match(surface, /selectedSourceId/);

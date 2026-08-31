@@ -6,22 +6,15 @@ import { useContentModule } from "@/components/content/use-content-module";
 import { AudioControls } from "@/components/learning/audio-controls";
 import { ExternalSourceFrame, ExternalSourceViewer } from "@/components/learning/external-source-viewer";
 import { JapaneseText } from "@/components/learning/japanese-text";
-import type { ExternalSourceLink } from "@/components/learning/external-source-launcher";
+import { externalResourceToSourceLink } from "@/components/learning/external-source-launcher";
 import { readExternalSourceProgress } from "@/lib/external-source-progress.js";
 import { getEarWarmup, getErinLessonSources, getListeningClipMetadata, selectImmersionClips } from "@/lib/immersion-core.js";
 import { readReviewRecords, type ReviewRecord } from "@/lib/session";
 import type { ListeningItem, ListeningMode } from "@/lib/types";
+import { getExternalResources } from "@/lib/external-resources";
 
 const erinLessons = getErinLessonSources();
-const sources: ExternalSourceLink[] = [
-  { id: "erin", name: "Erin's Challenge", title: "Beginner situational Japanese", level: "N5", context: "six lessons", targetSkills: ["natural dialogue", "shadowing"], description: "Choose one of six curated lessons. Video streams from Erin's original host; the full lesson page stays below it.", url: "https://www.erin.jpf.go.jp/en/" },
-  { id: "cejc", name: "CEJC", mediaDelivery: "link-only", description: "Open the authorized CEJC session in Chunagon; Kizashi does not copy its audio.", url: "https://chunagon.ninjal.ac.jp/shc/" },
-  { id: "csj", name: "CSJ", mediaDelivery: "link-only", description: "Open the authorized Chunagon session for spoken-corpus listening; Kizashi does not copy CSJ audio or transcripts.", url: "https://chunagon.ninjal.ac.jp/auth/login" },
-  { id: "common-voice", name: "Common Voice Japanese", mediaDelivery: "link-only", description: "Browse Mozilla's source page for broad human-speaker exposure; Kizashi does not re-host the dataset.", url: "https://mozilladatacollective.com/datasets/cmqim4lxy00tunr07cjkcupeg" },
-  { id: "tatoeba", name: "Tatoeba audio", mediaDelivery: "link-only", description: "The Tatoeba page blocks framing. Open it to browse sentence-level recordings; individual contributor licenses remain with each recording.", url: "https://tatoeba.org/en/audio/index/jpn" },
-  { id: "jsut", name: "JSUT", mediaDelivery: "link-only", description: "Open the official corpus page for citation and terms; Kizashi does not upload the corpus.", url: "https://sites.google.com/site/shinnosuketakamichi/publication/jsut" },
-  { id: "japanese-pod101", name: "JapanesePod101", mediaDelivery: "link-only", description: "Open the provider's free beginner material on its original site; Kizashi does not copy or re-host lessons.", url: "https://www.japanesepod101.com/begin/" },
-];
+const sources = getExternalResources().map(externalResourceToSourceLink);
 
 function knownIds(records: Record<string, ReviewRecord>) {
   return new Set(Object.keys(records));

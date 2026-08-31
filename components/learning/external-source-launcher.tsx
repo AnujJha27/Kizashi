@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 
 import { markExternalSourceOpened, readExternalSourceProgress } from "@/lib/external-source-progress.js";
+import type { ExternalResource } from "@/lib/external-resources";
 
 export interface ExternalSourceLink {
   id: string;
@@ -11,11 +12,11 @@ export interface ExternalSourceLink {
   title?: string;
   level?: string;
   context?: string;
-  targetSkills?: string[];
-  targetItemIds?: string[];
+  targetSkills?: readonly string[];
+  targetItemIds?: readonly string[];
   annotationStatus?: string;
   reviewedAt?: string;
-  resourceTypes?: string[];
+  resourceTypes?: readonly string[];
   transcriptAvailable?: boolean;
   translationAvailable?: boolean;
   mediaDelivery?: string;
@@ -23,6 +24,25 @@ export interface ExternalSourceLink {
   posterUrl?: string;
   description: string;
   url: string;
+}
+
+export function externalResourceToSourceLink(resource: ExternalResource): ExternalSourceLink {
+  return {
+    id: resource.id,
+    name: resource.name,
+    title: resource.title,
+    level: resource.level,
+    targetSkills: resource.targetSkills,
+    targetItemIds: resource.targetItemIds,
+    description: resource.description ?? "",
+    url: resource.url,
+    resourceTypes: [resource.resourceType],
+    mediaDelivery: resource.deliveryMode,
+    annotationStatus: resource.metadata?.annotationStatus as string | undefined,
+    reviewedAt: resource.metadata?.reviewedAt as string | undefined,
+    transcriptAvailable: resource.metadata?.transcriptAvailable as boolean | undefined,
+    translationAvailable: resource.metadata?.translationAvailable as boolean | undefined,
+  };
 }
 
 export function ExternalSourceLauncher({ source, children = "Open original source ↗" }: Readonly<{ source: ExternalSourceLink; children?: ReactNode }>) {
