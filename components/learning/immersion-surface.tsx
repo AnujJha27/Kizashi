@@ -5,12 +5,12 @@ import { useEffect, useMemo, useState } from "react";
 import { useContentModule } from "@/components/content/use-content-module";
 import { AudioControls } from "@/components/learning/audio-controls";
 import { ExternalSourceLauncher, type ExternalSourceLink } from "@/components/learning/external-source-launcher";
-import { getEarWarmup, getListeningClipMetadata, selectImmersionClips } from "@/lib/immersion-core.js";
+import { getEarWarmup, getErinLessonSources, getListeningClipMetadata, selectImmersionClips } from "@/lib/immersion-core.js";
 import { readReviewRecords, type ReviewRecord } from "@/lib/session";
 import type { ListeningItem, ListeningMode } from "@/lib/types";
 
 const sources: ExternalSourceLink[] = [
-  { id: "erin", name: "Erin's Challenge", description: "Japan Foundation situational Japanese with scripts, video, and learning materials.", url: "https://www.erin.jpf.go.jp/en/" },
+  ...getErinLessonSources(),
   { id: "cejc", name: "CEJC", description: "Open the authorized NINJAL corpus session for conversation research; Kizashi does not copy its audio.", url: "https://www2.ninjal.ac.jp/conversation/cejc.html" },
 ];
 
@@ -95,6 +95,6 @@ export function ImmersionSurface() {
       {shadowing ? <div className="mt-5 rounded-xl border border-[#315d4b] bg-[#162b26]/60 p-4"><p className="eyebrow">Shadowing · phrase {phrasePosition + 1} / {Math.max(phrases.length, 1)}</p><p className="jp-serif mt-3 text-xl text-[#f5f5f2]">{phrase}</p><div className="mt-4 flex flex-wrap gap-2"><button type="button" onClick={() => setPhrasePosition((value) => Math.min(value + 1, Math.max(phrases.length - 1, 0)))} className="rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce] hover:border-[#e5b85c]">Next phrase</button><button type="button" onClick={() => setSpeakingAlone((value) => !value)} className="rounded-lg bg-[#6fb98f] px-3 py-2 text-xs font-semibold text-[#0b0b0d]">{speakingAlone ? "I said it" : "Speak alone"}</button></div>{speakingAlone ? <p className="mt-3 text-xs text-[#8bcca6]" role="status">Your turn—say the phrase, then tap “I said it” to continue.</p> : <p className="mt-3 text-xs leading-5 text-[#9297a1]">Listen, shadow along, or speak alone. Audio stays external/browser-based; Kizashi does not record your voice.</p>}</div> : null}
     </section>
 
-    <section className="rounded-xl border border-white/10 bg-[#101b2b]/55 p-5 sm:p-6"><div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Original-source shelf</p><h3 className="mt-1 text-xl font-medium text-[#f5f5f2]">Keep source ownership with the source.</h3><p className="mt-1 max-w-2xl text-xs leading-5 text-[#9297a1]">These links open the original provider page. Kizashi stores no third-party corpus audio here and does not proxy or re-host it.</p></div></div><div className="mt-4 grid gap-3 sm:grid-cols-2">{sources.map((source) => <article key={source.id} className="rounded-xl border border-white/10 bg-[#17181d]/70 p-4"><p className="text-sm font-medium text-[#f5f5f2]">{source.name}</p><p className="mt-1 text-xs leading-5 text-[#9297a1]">{source.description}</p><ExternalSourceLauncher source={source} /></article>)}</div></section>
+      <section className="rounded-xl border border-white/10 bg-[#101b2b]/55 p-5 sm:p-6"><div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Original-source shelf</p><h3 className="mt-1 text-xl font-medium text-[#f5f5f2]">Keep source ownership with the source.</h3><p className="mt-1 max-w-2xl text-xs leading-5 text-[#9297a1]">These links open the original provider page. Kizashi stores no third-party corpus audio here and does not proxy or re-host it.</p></div></div><div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{sources.map((source) => <article key={source.id} className="rounded-xl border border-white/10 bg-[#17181d]/70 p-4"><p className="text-sm font-medium text-[#f5f5f2]">{source.title ?? source.name}</p><p className="mt-1 text-xs uppercase tracking-[.1em] text-[#676c75]">{source.name}</p><p className="mt-1 text-xs leading-5 text-[#9297a1]">{source.description}</p><ExternalSourceLauncher source={source}>{source.id.startsWith("erin-") ? "Open original lesson ↗" : "Open original source ↗"}</ExternalSourceLauncher></article>)}</div></section>
   </div>;
 }

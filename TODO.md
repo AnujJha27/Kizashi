@@ -55,9 +55,10 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
   terms prohibit re-posting, redistribution, or mirroring and prohibit speaker
   identification. Keep it source-linked unless a different delivery path is
   separately permitted.
-- [ ] Treat **CEJC audio** as restricted research corpus material. It may be
-  available for approved listening/access, but do not copy it into Supabase,
-  publish it, or use it in learner drills without a matching written license.
+- [x] Treat **CEJC audio** as restricted research corpus material: use the
+  authorized source launcher for approved listening/access, and do not copy it
+  into Supabase, publish it, or use it in learner drills without a matching
+  written license.
 - [x] Verify Tatoeba and JSUT terms: Tatoeba audio is licensed per contributor/file
   and needs attribution; JSUT permits personal/non-commercial research but does
   not generally permit redistribution. Use only individually cleared Tatoeba
@@ -99,10 +100,12 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 
 - [x] Add a dedicated Immersion / 聞く surface instead of treating browser TTS
   as the listening curriculum.
-- [ ] Curate and link **Erin's Challenge (Japan Foundation)** as the first
-  natural-dialogue candidate for N5 situational listening; terms are verified
-  for personal learning/linking, but scripts/MP3s/videos remain on the original
-  site unless a specific preservation or embedding permission is confirmed.
+- [x] Add exact original-page launchers for the verified Erin N5 situations:
+  first-meeting greetings, requests, indicating things, locations, prices, and
+  ordering. Scripts/MP3s/videos remain on the original site.
+- [ ] Review those Erin lessons against Kizashi listening targets and annotate
+  selected clips with learner-level metadata; do not import or re-host the
+  provider's media without a specific preservation or embedding permission.
 - [x] Keep the source roles distinct: Erin's Challenge for beginner natural
   dialogue, Tatoeba for short sentence audio, Common Voice for speaker
   variation, CEJC for conversation-pattern research, JapanesePod101 only where

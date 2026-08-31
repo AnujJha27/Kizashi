@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 export interface ExternalSourceLink {
   id: string;
   name: string;
+  title?: string;
   description: string;
   url: string;
 }

@@ -639,3 +639,7 @@ Next session order:
 - Added the backward-compatible I-JAS aggregate Supabase table/export path in
   migration `0019_ijas_aggregates.sql`; no learner IDs, transcripts, audio, or
   raw learner records are accepted.
+- Added exact Erin original-page launchers for six current N5-relevant
+  situations in `lib/immersion-core.js`; the Immersion shelf still leaves all
+  scripts, MP3s, and video on Erin's site. The remaining work is target-level
+  curation/annotation, not asset copying.
