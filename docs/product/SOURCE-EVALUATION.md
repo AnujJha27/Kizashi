@@ -76,9 +76,11 @@ For CEJC, the official access description says that the free online service can
 be used to listen to searched audio but does not allow audio/video download;
 the paid edition supplies corpus assets under a contract. Therefore Kizashi
 should link to or open the authorized CEJC session, not capture or re-serve the
-raw corpus. The current CEJC public page and CSJ Chunagon login page do not
-send frame-blocking headers, so the shelf may show them in a direct iframe with
-the original-site fallback. Erin's Challenge has now been checked as well:
+raw corpus. The default shelf currently keeps CEJC and CSJ link-only because
+their frames did not open reliably in the target browser. A device-local
+Chromium helper can remove the allowlisted frame-blocking response headers for
+personal testing, but provider login, cookies, and page scripts may still fail.
+Erin's Challenge has now been checked as well:
 personal learning
 and linking are allowed by its policy, but video downloading is prohibited, so
 the original-page launcher remains the default for scripts and source controls;

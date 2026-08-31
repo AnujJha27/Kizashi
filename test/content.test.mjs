@@ -132,6 +132,12 @@ test("learners can flag source-review content while studying", async () => {
 test("external sources use native media and safe framing fallbacks", async () => {
   const viewer = await readFile(new URL("../components/learning/external-source-viewer.tsx", import.meta.url), "utf8");
   const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
+  const launcher = await readFile(new URL("../components/learning/external-source-launcher.tsx", import.meta.url), "utf8");
+  const sourceProgress = await readFile(new URL("../lib/external-source-progress.js", import.meta.url), "utf8");
+  const frameExtension = JSON.parse(await readFile(new URL("../browser/kizashi-private-frame-unlocker/manifest.json", import.meta.url), "utf8"));
+  const frameRules = JSON.parse(await readFile(new URL("../browser/kizashi-private-frame-unlocker/rules.json", import.meta.url), "utf8"));
+  const shell = await readFile(new URL("../components/shell/app-shell.tsx", import.meta.url), "utf8");
+  const library = await readFile(new URL("../components/library/library-browser.tsx", import.meta.url), "utf8");
   assert.match(viewer, /iframe/);
   assert.match(viewer, /mediaUrl/);
   assert.match(viewer, /<video/);
@@ -145,8 +151,10 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(viewer, /w-full/);
   assert.match(viewer, /Open original source/);
   assert.match(surface, /CSJ/);
-  assert.doesNotMatch(surface, /id: "cejc"[\s\S]{0,220}mediaDelivery: "link-only"/);
-  assert.doesNotMatch(surface, /id: "csj"[\s\S]{0,220}mediaDelivery: "link-only"/);
+  assert.match(surface, /id: "cejc", name: "CEJC", mediaDelivery: "link-only"/);
+  assert.match(surface, /id: "csj", name: "CSJ", mediaDelivery: "link-only"/);
+  assert.match(surface, /https:\/\/chunagon\.ninjal\.ac\.jp\/shc\//);
+  assert.doesNotMatch(surface, /https:\/\/www2\.ninjal\.ac\.jp\/conversation\/cejc\.html/);
   assert.match(surface, /ExternalSourceViewer/);
   assert.match(surface, /mediaDelivery: "link-only"/);
   assert.match(surface, /const erinLessons = getErinLessonSources\(\)/);
@@ -156,6 +164,20 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(surface, /selectedSourceId/);
   assert.match(surface, /value=\{selectedErinSource\.id\}/);
   assert.match(surface, /ExternalSourceFrame source=\{selectedViewerSource\}/);
+  assert.match(surface, /Sources opened/);
+  assert.match(surface, /readExternalSourceProgress/);
+  assert.match(launcher, /markExternalSourceOpened/);
+  assert.match(launcher, /Opened/);
+  assert.match(sourceProgress, /EXTERNAL_SOURCE_PROGRESS_STORAGE_KEY/);
+  assert.match(sourceProgress, /michi-source-progress-updated/);
+  assert.equal(frameExtension.manifest_version, 3);
+  assert.ok(frameExtension.host_permissions.length > 0);
+  assert.equal(frameRules[0].action.type, "modifyHeaders");
+  assert.ok(frameRules[0].action.responseHeaders.some((header) => header.header === "x-frame-options" && header.operation === "remove"));
+  assert.ok(frameRules[0].action.responseHeaders.some((header) => header.header === "content-security-policy" && header.operation === "remove"));
+  assert.match(shell, /\["\/journey", "\/learn", "\/practice", "\/immersion", "\/review", "\/profile"\]/);
+  assert.match(shell, /grid-cols-6/);
+  assert.match(library, /relative z-10/);
   assert.match(surface, /JapaneseText/);
   assert.match(surface, /always/);
 });

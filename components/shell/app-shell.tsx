@@ -29,7 +29,7 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
   const pathname = usePathname();
   const [displayName, setDisplayName] = useState("");
   const visibleNavItems = isAdmin ? navItems : navItems.filter((item) => item.href !== "/studio");
-  const mobileItems = visibleNavItems.filter((item) => ["/journey", "/learn", "/practice", "/review", "/profile"].includes(item.href));
+  const mobileItems = visibleNavItems.filter((item) => ["/journey", "/learn", "/practice", "/immersion", "/review", "/profile"].includes(item.href));
 
   useEffect(() => {
     const refresh = () => setDisplayName(readDisplayName());
@@ -91,10 +91,10 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
           </Link></div>
         </header>
 
-        <main className="safe-bottom min-h-[calc(100vh-4rem)] px-5 py-7 lg:px-10 lg:py-10">{children}</main>
+        <main className="relative z-10 safe-bottom min-h-[calc(100vh-4rem)] px-5 py-7 lg:px-10 lg:py-10">{children}</main>
 
-        <nav aria-label="Mobile navigation" className="app-mobile-nav fixed inset-x-0 bottom-0 z-20 min-w-0 max-w-[100vw] overflow-x-hidden border-t border-[#292b31] px-1 pb-[env(safe-area-inset-bottom)] lg:hidden">
-          <div className="mx-auto grid w-full max-w-lg min-w-0 grid-cols-5">
+        <nav aria-label="Mobile navigation" className="app-mobile-nav fixed inset-x-0 bottom-0 z-40 min-w-0 max-w-[100vw] overflow-x-hidden border-t border-[#292b31] px-1 pb-[env(safe-area-inset-bottom)] lg:hidden">
+          <div className="mx-auto grid w-full max-w-lg min-w-0 grid-cols-6">
             {mobileItems.map((item) => (
               <Link key={item.href} href={item.href} className={`flex min-h-16 min-w-0 flex-col items-center justify-center gap-1 overflow-hidden px-1 text-[10px] ${isActive(pathname, item.href) ? "text-[#f5f5f2]" : "text-[#676c75]"}`} aria-current={isActive(pathname, item.href) ? "page" : undefined}>
                 <span className={`grid size-7 place-items-center rounded-lg text-xs ${isActive(pathname, item.href) ? "bg-[#e34a3f] text-[#0b0b0d]" : "bg-[#1e2026]"}`} aria-hidden="true">{item.mark}</span>

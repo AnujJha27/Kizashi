@@ -163,14 +163,17 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 - [x] Add an external-source launcher so learners can study linked
   Erin/CEJC/other material from one Kizashi surface without Kizashi downloading,
   proxying, caching, or re-hosting the source audio/data.
-- [x] Add an opt-in original-source viewer for CEJC and CSJ, with a direct-link
-  fallback when a provider blocks framing or login cookies. Erin uses one
-  source card with a lesson selector and a native player pointed at six
-  provider-hosted MP4 URLs; its full lesson page stays below. Common Voice,
-  Tatoeba, JSUT, and JapanesePod101 remain link-only because their current
-  headers block framing. The selected viewer expands below the full source-card
-  grid; immersion transcripts and shadowing always show mapped furigana. No
-  source material is copied, proxied, cached, mirrored, or uploaded.
+- [x] Add an opt-in original-source viewer with a direct-link fallback when a
+  provider blocks framing or login cookies. The default app keeps CEJC, CSJ,
+  Common Voice, Tatoeba, JSUT, and JapanesePod101 link-only after current
+  frame attempts failed. Erin uses one source card with a lesson selector and
+  a native player pointed at six provider-hosted MP4 URLs; its full lesson page
+  stays below. The device-local Chromium helper in
+  `browser/kizashi-private-frame-unlocker/` can retry those frames by removing
+  only the allowlisted response headers. The selected viewer expands below the
+  full source-card grid; immersion transcripts and shadowing always show mapped
+  furigana. No source material is copied, proxied, cached, mirrored, or
+  uploaded.
 - [x] Add a private learner release path for all non-rejected staged records;
   keep their source-review status pending while attaching
   `contentReview.method = "automatic"` and `humanReviewed = false`.

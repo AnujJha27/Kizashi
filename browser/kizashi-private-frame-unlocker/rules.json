@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "responseHeaders": [
+        { "header": "x-frame-options", "operation": "remove" },
+        { "header": "content-security-policy", "operation": "remove" }
+      ]
+    },
+    "condition": {
+      "requestDomains": [
+        "www.erin.jpf.go.jp",
+        "www2.ninjal.ac.jp",
+        "chunagon.ninjal.ac.jp",
+        "mozilladatacollective.com",
+        "commonvoice.mozilla.org",
+        "tatoeba.org",
+        "sites.google.com",
+        "japanesepod101.com"
+      ],
+      "resourceTypes": ["sub_frame"]
+    }
+  }
+]

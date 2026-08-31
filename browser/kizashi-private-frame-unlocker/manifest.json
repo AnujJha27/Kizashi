@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Kizashi Private Source Frames",
+  "version": "1.0.0",
+  "description": "Allow Kizashi's allowlisted source pages to load as frames on this device.",
+  "permissions": ["declarativeNetRequestWithHostAccess"],
+  "host_permissions": [
+    "https://www.erin.jpf.go.jp/*",
+    "https://www2.ninjal.ac.jp/*",
+    "https://chunagon.ninjal.ac.jp/*",
+    "https://mozilladatacollective.com/*",
+    "https://commonvoice.mozilla.org/*",
+    "https://tatoeba.org/*",
+    "https://www.tatoeba.org/*",
+    "https://sites.google.com/*",
+    "https://www.japanesepod101.com/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "source-frames",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
+}
