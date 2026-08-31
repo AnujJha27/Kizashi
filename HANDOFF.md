@@ -2,7 +2,8 @@
 
 Date: 2026-09-01
 Status: The source-integration milestone is implemented on `main` at
-`73c2da8` and the final commit is present on `origin/main`. Hosted migrations,
+source implementation at `16639d5` and documentation synchronized in
+`47fd417`; both are present on `origin/main`. Hosted migrations,
 seed, and the core curriculum remain verified. Remaining gates are a real
 browser phone/desktop viewport check, optional imported-content curation, and
 the deferred ServerTTS/audio-archive work.

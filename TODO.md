@@ -12,7 +12,8 @@ The requested source milestone is specified in
 [`docs/product/NEW_SOURCE.md`](docs/product/NEW_SOURCE.md) and planned in
 [`docs/superpowers/plans/2026-08-31-source-integration-milestone.md`](docs/superpowers/plans/2026-08-31-source-integration-milestone.md).
 The repository audit verified that the milestone extends existing abstractions,
-and the implementation is now on `main` at `73c2da8`:
+and the implementation is now on `main` at `16639d5` with documentation
+synchronized in `47fd417`:
 `ContentSource`/`sourceManifest`, `sourceIds`/`fieldSourceIds`, the existing
 `AudioProvider` chain, `ExternalSourceViewer`/`ExternalSourceLauncher`, local
 external-source progress, Content Studio review gates, the existing reading
