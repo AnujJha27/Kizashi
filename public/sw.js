@@ -1,5 +1,5 @@
 const CACHE = "kizashi-shell-v3";
-const SHELL = ["/offline", "/journey", "/learn", "/practice", "/practice/kana", "/practice/diagnostic", "/review", "/mistakes", "/library", "/progress", "/profile", "/studio", "/icon.svg", "/journey-hero.png", "/site-atmosphere.png"];
+const SHELL = ["/offline", "/journey", "/learn", "/practice", "/practice/kana", "/practice/diagnostic", "/immersion", "/review", "/mistakes", "/library", "/progress", "/profile", "/studio", "/icon.svg", "/journey-hero.png", "/site-atmosphere.png"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => Promise.all(SHELL.map((url) => cache.add(url).catch(() => undefined)))));

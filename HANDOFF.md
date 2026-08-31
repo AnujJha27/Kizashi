@@ -581,3 +581,41 @@ Next session order:
   while the current card is active; the existing replay controls remain.
 - Verified on 2026-08-31: `/usr/bin/node --test test/*.test.mjs` (8/8), direct
   TypeScript checking, `next build` (24/24 pages), and `git diff --check`.
+
+## Session notes — CEJC/I-JAS and provider-based audio
+
+- Added review-only CEJC aggregate ingestion/application and an I-JAS aggregate
+  validator. Raw CEJC/I-JAS corpus records, learner records, transcripts, and
+  audio remain outside the learner bundle.
+- Added `BrowserSpeechProvider`, `RemoteAudioProvider`, and a reserved
+  `ServerTTSProvider`; vocabulary, kanji, grammar examples, readings, lessons,
+  and practice audio now use shared Play/Replay/Slow controls. Japanese browser
+  voices are preferred and missing voices produce a clear unavailable message.
+- Added metadata-only audio persistence (`audio_metadata`) with no audio blob
+  or upload path by default. Erin's Challenge, Common Voice, Tatoeba, JSUT,
+  VOICEVOX, Open JTalk, JapanesePod101, immersion modes, shadowing, ear warm-up,
+  and an external-source viewer are recorded in `TODO.md` as reviewed/deferred
+  roadmap work.
+- Verified on 2026-08-31: `/usr/bin/node --test test/*.test.mjs` (9/9), direct
+  TypeScript checking, `next build`, and `git diff --check`.
+- These changes are local and uncommitted. Sensitive source/audio resources and
+  unrelated untracked artifacts remain unstaged; nothing was pushed to GitHub.
+
+## Session notes — source-aware listening closeout
+
+- Added the `/immersion` surface with Guided, Listen, and Immersion modes,
+  delayed transcript reveal, replay/slow controls, shadowing, phrase steps, and
+  the three-clip 耳慣らし warm-up. The external-source shelf is a launcher to
+  Erin's Challenge and CEJC; it does not iframe, copy, proxy, cache, or upload
+  third-party material. A provider-permitted iframe remains an optional future
+  enhancement with new-tab fallback.
+- CEJC aggregates now affect content priority as a distinct spoken signal next
+  to BCCWJ written frequency. I-JAS stays aggregate-only and can drive matching
+  trap warnings/adaptive boosts; explanations remain grammar-source-led.
+- TODO now separates completed implementation from source-term checks,
+  authoring/curation, imported-record review, and database publication gates.
+- Verified on 2026-08-31: `/usr/bin/node --test test/*.test.mjs` (11/11), direct
+  TypeScript checking, `next build` (25/25 pages), and `git diff --check`.
+- Current relevant changes are ready for one Kizashi-only commit to private
+  `origin/main`; `resumer`, `scripts/__pycache__/`, and `supabase/.temp/` remain
+  unstaged and will not be included.

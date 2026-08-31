@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState, type TouchEvent } from "react";
 
 import { JapaneseText } from "@/components/learning/japanese-text";
+import { AudioControls } from "@/components/learning/audio-controls";
 import { clearPracticeSession, readAnswerLeniency, readAutoPlayAudio, readPracticeSession, recordExamAttempt, recordQuestionAmbiguity, recordQuestionAnswer, recordReview, recordStudyActivity, writePracticeSession, type AnswerLeniency, type MasterySignal, type ReviewRating } from "@/lib/session";
 import { normalizeAnswer, reviewRatingForConfidence } from "@/lib/mastery";
 import type { AnswerConfidence, KanjiItem, PracticeQuestion, VocabularyItem } from "@/lib/types";
@@ -158,16 +159,6 @@ export function PracticePlayer({ questions, vocabulary = [], kanji = [], examMod
   }, [activeSessionId, answerResults, complete, examStartedAt, onComplete, questions, ready, timeLimitSeconds]);
 
   useEffect(() => {
-    const question = questions[position];
-    if (!ready || complete || submitted || !autoPlayAudio || question?.audioUrl || !question?.audioText || !("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(question.audioText);
-    utterance.lang = "ja-JP";
-    utterance.rate = 0.9;
-    window.speechSynthesis.speak(utterance);
-  }, [autoPlayAudio, complete, position, questionKey, questions, ready, submitted]);
-
-  useEffect(() => {
     if (!ready || complete) return;
     const upcoming = questions[position + 1];
     if (!upcoming?.audioUrl) return;
@@ -257,22 +248,13 @@ export function PracticePlayer({ questions, vocabulary = [], kanji = [], examMod
     next(rating);
   };
 
-  const playFallback = (rate = 0.9) => {
-    if (!question.audioText || !("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(question.audioText);
-    utterance.lang = "ja-JP";
-    utterance.rate = rate;
-    window.speechSynthesis.speak(utterance);
-  };
-
   return <div>
     <div className="mb-5 flex items-center justify-between text-xs text-[#9297a1]"><span>{examMode ? `${examLabel} · exam mode` : <>{`${question.category} · ${question.questionType}`}<span className="ml-2 text-[#e5b85c]">{stageLabel(question)}</span></>}</span><span className="flex items-center gap-3">{remainingSeconds !== null ? <span className={remainingSeconds <= 60 ? "font-semibold text-[#ef675d]" : "text-[#e5b85c]"}>Time {formatTime(remainingSeconds)}</span> : null}<span>{position + 1} / {questions.length}</span></span></div>
     <div className="mb-7 h-1 overflow-hidden rounded-full bg-[#292b31]"><div className="h-full rounded-full bg-[#e34a3f] transition-[width] duration-300" style={{ width: `${((position + (submitted ? 1 : 0)) / questions.length) * 100}%` }} /></div>
     <div className="rounded-xl border border-[#3f3427] bg-[#151720]/80 p-7 sm:p-10" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
       <p className="eyebrow mb-5">{examMode ? isTextAnswer ? "Type the answer" : "Select one answer" : isOrdering ? "Build the sentence" : isTextAnswer ? "Recall the answer" : "Choose the best answer"}</p>
       <h2 className="jp-serif whitespace-pre-line text-2xl leading-relaxed text-[#f5f5f2] sm:text-3xl"><LearningText text={question.prompt} vocabulary={vocabulary} kanji={kanji} examMode={examMode || !showPromptFurigana} /></h2>
-      {question.audioUrl ? <audio autoPlay={autoPlayAudio} controls src={question.audioUrl} className="mt-6 w-full" /> : question.audioText ? <button type="button" onClick={() => playFallback()} onDoubleClick={() => playFallback(0.6)} title="Double-tap to replay slowly" className="mt-6 inline-flex min-h-12 items-center gap-3 rounded-xl border border-[#4f9ac0] bg-[#102536]/70 px-5 py-3 text-sm font-semibold text-[#d9eef8] hover:border-[#8cc9e5]"><span className="text-lg" aria-hidden="true">🔊</span> Play Japanese audio</button> : null}
+      {question.audioUrl || question.audioText ? <AudioControls text={question.audioText} externalUrl={question.audioUrl} metadata={question.audio} autoPlay={autoPlayAudio} className="mt-6" /> : null}
       <div className="mt-7 rounded-xl border border-white/10 bg-[#101b2b]/45 p-4"><p className="mb-3 text-xs text-[#9297a1]">How sure are you? <span className="text-[#676c75]">Optional</span></p><div className="flex flex-wrap gap-2">{confidenceOptions.map(([value, label]) => <button key={value} type="button" onClick={() => !submitted && setConfidence(value)} aria-pressed={confidence === value} className={`rounded-lg border px-3 py-2 text-xs ${confidence === value ? "border-[#e5b85c] bg-[#302818] text-[#f1cf7c]" : "border-[#3f4652] text-[#9297a1] hover:border-[#e5b85c]"}`}>{label}</button>)}</div></div>
       {isOrdering ? <div className="mt-8"><div className="min-h-14 rounded-xl border border-[#4b3a29] bg-[#211d18] p-3 text-lg text-[#e5b85c]" aria-live="polite">{order.length ? <span className="inline-flex flex-wrap gap-x-2 gap-y-1">{order.map((index) => <LearningText key={`${question.id}-ordered-${index}`} text={tokens[index]} vocabulary={vocabulary} kanji={kanji} examMode={examMode} />)}</span> : <span className="text-sm text-[#676c75]">Tap the pieces in natural order.</span>}</div><div className="mt-3 flex flex-wrap gap-2">{tokens.map((token, index) => <button key={`${question.id}-token-${index}`} type="button" disabled={submitted || order.includes(index)} onClick={() => setOrder((value) => [...value, index])} className="rounded-xl border border-[#3f4652] bg-[#17181d]/70 px-4 py-3 text-sm text-[#f5f5f2] enabled:hover:border-[#e5b85c] disabled:cursor-not-allowed disabled:opacity-40"><LearningText text={token} vocabulary={vocabulary} kanji={kanji} examMode={examMode} /></button>)}</div>{order.length ? <button type="button" disabled={submitted} onClick={() => setOrder([])} className="mt-3 text-xs text-[#9297a1] hover:text-[#e5b85c]">Clear order</button> : null}</div> : isTextAnswer ? <label className="mt-8 block text-sm text-[#9297a1]">Your answer<input autoComplete="off" autoFocus={!examMode} aria-label="Your Japanese answer" enterKeyHint="done" value={typedAnswer} onChange={(event) => !submitted && setTypedAnswer(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter") submit(); }} placeholder={question.answerPlaceholder ?? "Type your answer"} disabled={submitted} className="mt-2 w-full rounded-xl border border-[#3f4652] bg-[#101b2b]/75 px-4 py-3 text-lg text-[#f5f5f2] placeholder:text-[#676c75] focus:border-[#e5b85c] focus:outline-none" /></label> : <div className="mt-8 grid gap-3">{question.options.map((option, index) => <button key={`${question.id}-${option}`} type="button" onClick={() => !submitted && setSelected(index)} disabled={submitted} aria-pressed={selected === index} className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm ${selected === index ? "border-[#e34a3f] bg-[#3a2023] text-[#f5f5f2]" : "border-[#292b31] bg-[#17181d]/70 text-[#c3c7ce] hover:border-[#5d3936]"} ${showFeedback && index === question.correctIndex ? "border-[#6fb98f] bg-[#183225] text-[#d9f1e1]" : ""}`}><span className="grid size-7 shrink-0 place-items-center rounded-lg bg-[#292b31] text-xs text-[#9297a1]">{index + 1}</span><span><LearningText text={option} vocabulary={vocabulary} kanji={kanji} examMode={examMode} /></span></button>)}</div>}
       {showFeedback ? <div className={`mt-7 rounded-xl border p-4 ${isCorrect ? "border-[#376d4c] bg-[#183225]" : "border-[#713b37] bg-[#21191a]"}`} aria-live="polite"><p className={`text-sm font-semibold ${isCorrect ? "text-[#8bcca6]" : "text-[#ef675d]"}`}>{isCorrect ? "Correct" : isOrdering ? "Not quite" : isTextAnswer ? "Not quite" : `Not quite · answer ${question.correctIndex + 1}`}</p><p className="mt-2 text-sm leading-6 text-[#c3c7ce]">{question.explanation}</p>{isOrdering && !isCorrect ? <p className="mt-3 text-sm text-[#e5b85c]">Correct order: {question.correctOrder?.map((index) => tokens[index]).join(" ")}</p> : null}{isTextAnswer && !isCorrect ? <p className="mt-3 text-sm text-[#e5b85c]">Accepted: {question.acceptedAnswers?.join(" / ")}</p> : null}<button type="button" disabled={reported} onClick={() => { recordQuestionAmbiguity(question.id); setReported(true); }} className="mt-4 text-xs text-[#9297a1] underline decoration-dotted underline-offset-4 disabled:no-underline disabled:opacity-60">{reported ? "Thanks — flagged for review" : "Something unclear? Flag this question"}</button></div> : null}

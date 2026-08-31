@@ -108,6 +108,17 @@ test("schema repair migration covers a stale migration history", async () => {
   assert.match(repair, /drop policy if exists "public read courses"/);
 });
 
+test("audio metadata is persisted without an audio blob", async () => {
+  const migration = await readFile(new URL("../supabase/migrations/0018_audio_metadata.sql", import.meta.url), "utf8");
+  const types = await readFile(new URL("../lib/types.ts", import.meta.url), "utf8");
+  const renderer = await readFile(new URL("../scripts/render_supabase_content_sql.py", import.meta.url), "utf8");
+  assert.match(migration, /audio_metadata jsonb/);
+  assert.match(migration, /browser-speech.*remote.*server-tts/s);
+  assert.match(types, /interface AudioMetadata/);
+  assert.match(renderer, /audio_metadata/);
+  assert.doesNotMatch(migration, /bytea|blob/i);
+});
+
 test("seed grammar contrast exercises close their PostgreSQL array literals", async () => {
   const seed = await readFile(new URL("../supabase/seed.sql", import.meta.url), "utf8");
   const firstContrastBlock = seed.slice(seed.indexOf("insert into public.grammar_contrasts"), seed.indexOf("on conflict (id) do nothing;", seed.indexOf("insert into public.grammar_contrasts")));

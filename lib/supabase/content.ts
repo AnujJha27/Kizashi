@@ -1,6 +1,6 @@
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 import { normalizeGrammarPracticeIds } from "@/lib/curriculum";
-import type { ContentReviewStatus, ContentSource, CurriculumClassification, ExampleSentence, GrammarContrast, GrammarItem, KanjiItem, LearningItem, ListeningItem, N5Module, PracticeQuestion, ReadingItem, VocabularyItem } from "@/lib/types";
+import type { AudioMetadata, ContentReviewStatus, ContentSource, CurriculumClassification, ExampleSentence, GrammarContrast, GrammarItem, KanjiItem, LearningItem, ListeningItem, N5Module, PracticeQuestion, ReadingItem, VocabularyItem } from "@/lib/types";
 
 function examples(value: unknown, fallback: ExampleSentence[] = []) {
   return Array.isArray(value) ? value as ExampleSentence[] : fallback;
@@ -34,6 +34,7 @@ function baseItem(row: {
   tags: string[];
   review_status?: ContentReviewStatus | null;
   field_source_ids?: unknown;
+  audio_metadata?: unknown;
 }, title: string, sourceIdsByItem: Map<string, string[]>, classificationsByItem: Map<string, CurriculumClassification>): LearningItem {
   const sourceIds = sourceIdsByItem.get(row.id);
   return {
@@ -49,6 +50,7 @@ function baseItem(row: {
     tags: row.tags,
     sourceIds: sourceIds?.length ? sourceIds : ["michi-curated-n5-seed"],
     fieldSourceIds: fieldSources(row.field_source_ids),
+    audio: row.audio_metadata && typeof row.audio_metadata === "object" && !Array.isArray(row.audio_metadata) ? row.audio_metadata as AudioMetadata : undefined,
     classification: classificationsByItem.get(`${row.item_type}:${row.id}`),
   };
 }
@@ -120,6 +122,7 @@ export async function fetchSupabaseN5Module(seed: N5Module): Promise<N5Module | 
     correctOrder: numbers(row.correct_order),
     audioUrl: row.audio_url,
     audioText: row.audio_text,
+    audio: row.audio_metadata && typeof row.audio_metadata === "object" && !Array.isArray(row.audio_metadata) ? row.audio_metadata as AudioMetadata : undefined,
     validationStatus: row.validation_status,
     generatedBy: row.generated_by ?? undefined,
     review: row.review_metadata && typeof row.review_metadata === "object" ? row.review_metadata as PracticeQuestion["review"] : undefined,

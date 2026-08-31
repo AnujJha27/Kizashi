@@ -10,6 +10,7 @@ const navItems = [
   { href: "/journey", label: "Journey", shortLabel: "Path", jpLabel: "道", mark: "◈" },
   { href: "/learn", label: "Learn", shortLabel: "Study", jpLabel: "学ぶ", mark: "文" },
   { href: "/practice", label: "Practice", shortLabel: "Drill", jpLabel: "練習", mark: "◆" },
+  { href: "/immersion", label: "Immersion", shortLabel: "Listen", jpLabel: "聞く", mark: "耳" },
   { href: "/review", label: "Review", shortLabel: "Review", jpLabel: "復習", mark: "↻" },
   { href: "/mistakes", label: "Mistakes", shortLabel: "Mistakes", jpLabel: "弱点", mark: "!" },
   { href: "/library", label: "Library", shortLabel: "Library", jpLabel: "本棚", mark: "本" },

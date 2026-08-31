@@ -424,6 +424,28 @@ function validateSourceManifest(value: unknown, items: unknown[], issues: Conten
   });
 }
 
+function validateIjasAggregates(value: unknown, issues: ContentIssue[]) {
+  if (value === undefined) return;
+  if (!Array.isArray(value)) {
+    issues.push({ path: "learnerErrorAggregates", message: "I-JAS signals must be an array.", severity: "error" });
+    return;
+  }
+  const allowed = new Set(["pattern", "category", "count", "sourceReference", "notes"]);
+  value.forEach((record, index) => {
+    const path = `learnerErrorAggregates[${index}]`;
+    if (!isRecord(record)) {
+      issues.push({ path, message: "I-JAS aggregate must be an object.", severity: "error" });
+      return;
+    }
+    Object.keys(record).forEach((key) => { if (!allowed.has(key)) issues.push({ path: `${path}.${key}`, message: "Raw learner fields are not allowed in I-JAS aggregates.", severity: "error" }); });
+    stringValue(record.pattern, `${path}.pattern`, issues);
+    stringValue(record.category, `${path}.category`, issues);
+    stringValue(record.sourceReference, `${path}.sourceReference`, issues);
+    if (!Number.isInteger(record.count) || (record.count as number) < 0) issues.push({ path: `${path}.count`, message: "I-JAS aggregate count must be a non-negative integer.", severity: "error" });
+    if (record.notes !== undefined) stringValue(record.notes, `${path}.notes`, issues, false);
+  });
+}
+
 export function validateModule(value: unknown): ContentValidationResult {
   const issues: ContentIssue[] = [];
   if (!isRecord(value)) return { valid: false, checked: 0, errors: [{ path: "root", message: "Content package must be a JSON object.", severity: "error" }], warnings: [] };
@@ -450,7 +472,8 @@ export function validateModule(value: unknown): ContentValidationResult {
   const grammarIds = new Set((Array.isArray(value.grammar) ? value.grammar : []).flatMap((item) => isRecord(item) && typeof item.id === "string" ? [item.id] : []));
   validateContrasts(value.grammarContrasts, grammarIds, issues);
   validateReferences(value, ids, issues);
-  validateSourceManifest(value, categories.flatMap((category) => Array.isArray(value[collectionKeys[category]]) ? value[collectionKeys[category]] : []), issues);
+  validateSourceManifest(value.sourceManifest, categories.flatMap((category) => Array.isArray(value[collectionKeys[category]]) ? value[collectionKeys[category]] : []), issues);
+  validateIjasAggregates(value.learnerErrorAggregates, issues);
   const errors = issues.filter((issue) => issue.severity === "error");
   return { valid: errors.length === 0, checked: ids.size, errors, warnings: issues.filter((issue) => issue.severity === "warning") };
 }

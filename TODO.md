@@ -30,7 +30,119 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 ### Phase 3 — spoken-language enrichment
 
 - [x] Evaluate CEJC and CSJ for licensed spoken-language frequency and listening realism; see `docs/product/SOURCE-EVALUATION.md`.
-- [ ] Add spoken-language enrichment only after the beginner audio workflow is stable.
+- [x] Add a review-only CEJC aggregate frequency importer and exact-form applier; keep CEJC audio, transcripts, annotations, and raw rows out of the learner bundle.
+- [x] Keep I-JAS inputs aggregate-only with a validator that rejects learner IDs, transcripts, audio, and other raw-record fields.
+- [x] Wire reviewed CEJC aggregates into distinct spoken-frequency ranking;
+  conversation tags, collocations, and original dialogue authoring still need
+  reviewed content decisions before they are automated.
+- [x] Wire approved I-JAS aggregates into common learner-trap warnings and
+  adaptive drill boosts around the learner's level; no learner records enter
+  the app.
+- [x] Keep corpus evidence subordinate to reliable grammar explanations: never
+  infer a teaching rule directly from CEJC or I-JAS counts.
+- [x] Keep the bulk audio workflow deferred until exact source terms and a
+  justified preservation need exist; BrowserSpeechProvider covers routine
+  pronunciation without creating an audio archive.
+
+### Deferred audio roadmap
+
+- [ ] Evaluate **Erin's Challenge (Japan Foundation)** first for situational
+  listening: greetings, shops, buses, food orders, friends, stations, and
+  festivals; verify the current terms for its scripts, MP3s, and videos before
+  linking, downloading, or re-hosting anything.
+- [ ] Use **Common Voice Japanese** for broad human-speaker exposure only after
+  re-checking the current dataset/service terms; its CC0 metadata does not
+  automatically permit Kizashi to mirror or re-host the audio.
+- [ ] Treat **CEJC audio** as restricted research corpus material. It may be
+  available for approved listening/access, but do not copy it into Supabase,
+  publish it, or use it in learner drills without a matching written license.
+- [ ] Prefer human recordings in this order: Tatoeba sentence audio where the individual license permits it, a deliberately selected JSUT subset, and other explicitly licensed clips.
+- [ ] Do not mirror or re-host Common Voice in the app without re-checking its current terms; CC0 dataset metadata does not override the dataset service's no-rehosting rule.
+- [ ] Use VOICEVOX as a possible synthetic fallback only after checking the selected speaker's character-use terms; keep Open JTalk as the local BSD-licensed fallback.
+- [x] Store audio provenance with `source`, `speakerId`, `license`, `isSynthetic`, and `speed`, and map every clip to a reviewed vocabulary, grammar, reading, or listening target.
+- [x] Keep the fallback chain deterministic: approved remote recording when configured, otherwise BrowserSpeechProvider; reserve ServerTTSProvider for a later approved synthetic source.
+- [x] Keep audio archives, generated audio, and private book resources outside GitHub and the public deployment bundle; serve them only through the authenticated private storage route.
+
+### Audio architecture
+
+- [x] Route vocabulary pronunciation, kanji readings, grammar examples, and
+  ordinary sentence playback through BrowserSpeechProvider by default.
+- [x] Stream explicitly approved human recordings through RemoteAudioProvider
+  when a useful external URL exists.
+- [x] Reserve ServerTTSProvider for future consistent mock-JLPT dialogues; do
+  not generate or persist server audio yet.
+- [x] Keep the UI controls consistent: play, replay, slow playback, and the
+  existing optional autoplay preference.
+- [x] Prefer browser voices whose `voice.lang` begins with `ja`; show a clear
+  unavailable message when the device has no Japanese voice.
+- [x] Persist metadata only: `audio_source`, optional `audio_url`, speaker
+  metadata, license/provenance, `is_synthetic`, and `speech_rate`; store a
+  blob only when a specific recording has a documented preservation reason.
+- [x] Keep the audio routing map explicit: vocabulary pronunciation, kanji
+  readings, grammar examples, and ordinary lesson dialogue use Browser Speech;
+  useful human exposure may use Common Voice/Tatoeba/JSUT; future mock-JLPT
+  dialogue may use dynamically generated, multi-speaker server TTS.
+- [x] Keep the persisted shape equivalent to `{ text, audio_source,
+  audio_url, speaker_id, is_synthetic, speech_rate, license, provenance }`;
+  browser TTS uses a null URL and zero backend audio storage.
+
+### Immersion / 聞く roadmap
+
+- [x] Add a dedicated Immersion / 聞く surface instead of treating browser TTS
+  as the listening curriculum.
+- [ ] Make **Erin's Challenge (Japan Foundation)** the first natural-dialogue
+  candidate for N5 situational listening; verify current script, MP3, video,
+  linking, and re-hosting terms before importing anything.
+- [x] Keep the source roles distinct: Erin's Challenge for beginner natural
+  dialogue, Tatoeba for short sentence audio, Common Voice for speaker
+  variation, CEJC for conversation-pattern research, JapanesePod101 only where
+  its free-material terms permit use, and original/generated recordings for
+  JLPT mock listening.
+- [x] Preserve the intended source-purpose map:
+
+  | Purpose | Preferred source |
+  | --- | --- |
+  | Pronunciation | Browser Speech API |
+  | Controlled example sentence | Browser TTS, then Tatoeba where licensed |
+  | Beginner natural dialogue | Erin's Challenge (Japan Foundation) |
+  | Diverse human voices | Common Voice Japanese, subject to current terms |
+  | Real conversation patterns | CEJC aggregate research signal; no raw streaming by default |
+  | Polished learner listening | JapanesePod101 free material where permitted |
+  | JLPT mock listening | Original/generated dialogues, later server TTS or recorded audio |
+- [x] Do not architect around dynamically streaming raw CEJC audio; use CEJC
+  primarily as a naturalness/conversation-pattern signal unless approved
+  corpus access and licensing cover the exact product use.
+- [x] Add three listening modes: **Guided** (level-appropriate audio with
+  transcript and tap-for-help), **Listen** (audio first, transcript hidden until
+  comprehension answers), and **Immersion** (natural speed with minimal help).
+- [x] Add clip metadata for `source`, `level`, `naturalness`, `context`,
+  `vocabularyCoverage`, `grammarCoverage`, transcript/translation availability,
+  duration, and target skills; choose clips using the learner's known content.
+- [x] Add delayed transcript controls: show transcript, replay at a slower
+  rate, and explain unknown words only after the learner attempts the clip.
+- [x] Add shadowing mode with native audio, repeated listens, shadow-along,
+  speak-alone playback, phrase progression, and a next-phrase action.
+- [x] Progress assistance from transcript + furigana in early N5, to on-demand
+  transcript, to comprehension-first audio, to exam-style no-text listening,
+  and finally natural-speed immersion.
+- [x] Add a daily **耳慣らし / Ear Warm-up**: three short clips in about two
+  minutes—one understandable, one slightly harder, and one normal-speed native
+  clip that is explicitly not expected to be fully understood.
+- [x] Add an external-source launcher so learners can study linked
+  Erin/CEJC/other material from one Kizashi surface without Kizashi downloading,
+  proxying, caching, or re-hosting the source audio/data.
+- [x] Use an iframe only when the provider explicitly permits embedding and
+  permits the exact authenticated/product context; otherwise open the source in
+  a new tab and keep ownership, login, and delivery with the provider.
+
+External-source framing nuance is recorded in `docs/product/SOURCE-EVALUATION.md`:
+single-user/private use reduces exposure risk but is not a blanket license;
+Kizashi stores a launcher URL/provenance only, never downloads, proxies,
+caches, mirrors, re-hosts, or uploads third-party source material; framing is
+opt-in and provider-controlled, with a new-tab fallback when headers or terms
+block it. CEJC's free service is listen-only for searched audio/video, while
+corpus assets are contract-controlled; Erin and every other source retain their
+own terms and attribution rules.
 
 ## Learning-content quality
 - [x] Use official JLPT material for blueprint/calibration only.
@@ -48,7 +160,12 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 - [x] Show licensed written-frequency signals in the learner entry and admin
   review surfaces.
 - [ ] Add licensed spoken-frequency signals after source and field semantics
-  are settled.
+  are settled; begin with CEJC aggregate frequency values only.
+- [x] Route pronunciation through browser speech by default, with remote audio
+  and a reserved server-TTS provider behind the same UI controls.
+- [x] Persist audio metadata only: source type, optional external URL, speaker,
+  licensing/provenance metadata, and preferred rate; do not persist generated
+  pronunciation blobs by default.
 - [x] Evaluate CEJC and CSJ for licensed spoken-language enrichment after the
   beginner audio workflow is stable; see `docs/product/SOURCE-EVALUATION.md`.
 - [x] Evaluate I-JAS for aggregated learner-error patterns and beginner trap
@@ -114,13 +231,19 @@ Suggested routes: `/books` and `/books/[bookId]`.
 - [x] Use JMdict for canonical vocabulary spellings, readings, meanings, parts of speech, and senses.
 - [x] Use KANJIDIC2 for canonical kanji readings, meanings, strokes, grades, and metadata.
 - [x] Add BCCWJ written-frequency signals to vocabulary priority.
-- [ ] Add CEJC spoken-frequency signals to conversation and listening priority.
+- [x] Add CEJC spoken-frequency signals to content priority from the reviewed
+  aggregate import, without copying CEJC corpus content; listening-specific
+  source selection remains data/curation-gated.
+- [x] Let CEJC and BCCWJ remain distinct spoken-versus-written signals and use
+  their combined score to prioritize useful beginner vocabulary.
 - [x] Build JLPT classifications from reviewed consensus evidence rather than one unofficial list.
 
 ### Enrichment layers
 
 - [x] Add Tatoeba as a reviewed example candidate pool with per-sentence attribution.
 - [x] Evaluate I-JAS for aggregated learner-error patterns and beginner trap drills; no learner data is imported.
+- [x] Use approved I-JAS aggregate error categories to boost matching adaptive
+  drills, while keeping the actual explanation tied to a reliable grammar source.
 - [x] Add Sudachi/SudachiDict and/or UniDic for tokenization, lemmas, conjugation, and sentence linking.
 - [x] Allow personal notes, textbook indexes, vocabulary lists, and screenshots to map onto canonical Kizashi items.
 - [x] Keep WaniKani out of source truth; no integration is enabled without compatible permission.

@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 
 import { PracticePlayer } from "@/components/practice/practice-player";
+import { ijasBoostForQuestion } from "@/lib/ijas-core.js";
 import { readMistakes, readQuestionStats, readReviewRecords, readStudyLaterIds, type MasterySignal, type ReviewRecord } from "@/lib/session";
-import type { KanjiItem, PracticeQuestion, VocabularyItem } from "@/lib/types";
+import type { IjasAggregate, KanjiItem, LearningItem, PracticeQuestion, VocabularyItem } from "@/lib/types";
 
 function masterySignal(question: PracticeQuestion): MasterySignal {
   if (question.category === "reading" || question.category === "listening") return "context";
@@ -23,16 +24,16 @@ function stagePriority(question: PracticeQuestion, record?: ReviewRecord) {
   return (1 - strengths[signal]) * 4 + (strengths[signal] === weakest ? 2 : 0);
 }
 
-function priority(question: PracticeQuestion, now: number, records: ReturnType<typeof readReviewRecords>, mistakes: ReturnType<typeof readMistakes>, stats: ReturnType<typeof readQuestionStats>, studyLater: Set<string>, passMode = false) {
+function priority(question: PracticeQuestion, now: number, records: ReturnType<typeof readReviewRecords>, mistakes: ReturnType<typeof readMistakes>, stats: ReturnType<typeof readQuestionStats>, studyLater: Set<string>, items: Map<string, LearningItem>, aggregates: IjasAggregate[], passMode = false) {
   const record = records[question.itemId];
   const mistake = mistakes[question.itemId];
   const questionStats = stats[question.id];
   const accuracy = record ? record.correct / Math.max(record.attempts, 1) : 0;
   const passWeight = passMode ? ({ listening: 4, reading: 3, grammar: 2, kanji: 1, vocabulary: 0 }[question.category] ?? 0) + (question.jlptLevel === "N5" ? 1 : 0) : 0;
-  return (mistake?.count ?? 0) * 6 + (studyLater.has(question.itemId) ? 5 : 0) + (record && record.dueAt <= now ? 4 : 0) + (questionStats?.slowCount ?? 0) * 2 + (!record ? 2 : 0) + (record ? 1 - accuracy : 0) + stagePriority(question, record) + passWeight - (questionStats?.ambiguityReports ?? 0) * 4;
+  return (mistake?.count ?? 0) * 6 + (studyLater.has(question.itemId) ? 5 : 0) + (record && record.dueAt <= now ? 4 : 0) + (questionStats?.slowCount ?? 0) * 2 + (!record ? 2 : 0) + (record ? 1 - accuracy : 0) + stagePriority(question, record) + passWeight + ijasBoostForQuestion(question, items, aggregates) - (questionStats?.ambiguityReports ?? 0) * 4;
 }
 
-export function AdaptivePractice({ questions, vocabulary = [], kanji = [], limit, passMode = false }: Readonly<{ questions: PracticeQuestion[]; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[]; limit?: number; passMode?: boolean }>) {
+export function AdaptivePractice({ questions, vocabulary = [], kanji = [], items = [], learnerErrorAggregates = [], limit, passMode = false }: Readonly<{ questions: PracticeQuestion[]; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[]; items?: LearningItem[]; learnerErrorAggregates?: IjasAggregate[]; limit?: number; passMode?: boolean }>) {
   const [ordered, setOrdered] = useState<PracticeQuestion[] | null>(null);
 
   useEffect(() => {
@@ -41,9 +42,10 @@ export function AdaptivePractice({ questions, vocabulary = [], kanji = [], limit
     const stats = readQuestionStats();
     const studyLater = new Set(readStudyLaterIds());
     const now = Date.now();
-    const ranked = [...questions].sort((left, right) => priority(right, now, records, mistakes, stats, studyLater, passMode) - priority(left, now, records, mistakes, stats, studyLater, passMode));
+    const itemMap = new Map(items.map((item) => [item.id, item]));
+    const ranked = [...questions].sort((left, right) => priority(right, now, records, mistakes, stats, studyLater, itemMap, learnerErrorAggregates, passMode) - priority(left, now, records, mistakes, stats, studyLater, itemMap, learnerErrorAggregates, passMode));
     setOrdered(limit ? ranked.slice(0, limit) : ranked);
-  }, [limit, passMode, questions]);
+  }, [items, learnerErrorAggregates, limit, passMode, questions]);
 
   if (ordered === null) return <div className="min-h-80 animate-pulse rounded-xl bg-[#17181d]" aria-label="Building your practice queue" />;
   return <PracticePlayer questions={ordered} vocabulary={vocabulary} kanji={kanji} />;

@@ -15,6 +15,19 @@ export type CurriculumBand = "core" | "extended" | "bridge";
 export type CurriculumConfidence = "high" | "medium" | "low";
 export type ContentReviewStatus = "pending" | "approved" | "rejected";
 export type ExamReadinessStatus = "untested" | "weak" | "developing" | "exam-ready" | "strong";
+export type AudioSourceType = "browser-speech" | "remote" | "server-tts";
+
+export interface AudioMetadata {
+  sourceType: AudioSourceType;
+  externalUrl?: string | null;
+  speakerId?: string | null;
+  speaker?: string;
+  speakerMetadata?: Record<string, unknown>;
+  isSynthetic?: boolean;
+  license?: string;
+  provenance?: Record<string, unknown>;
+  preferredRate?: number;
+}
 
 export interface CurriculumClassification {
   itemType: ItemType;
@@ -60,6 +73,29 @@ export interface ContentSource {
   notes?: string;
   sha256?: string;
   localFilename?: string;
+}
+
+export interface IjasAggregate {
+  pattern: string;
+  category: string;
+  count: number;
+  sourceReference: string;
+  notes?: string;
+}
+
+export type ListeningMode = "guided" | "listen" | "immersion";
+
+export interface ListeningClipMetadata {
+  source: string;
+  level: Exclude<JLPTLevel, null>;
+  naturalness: "controlled" | "natural";
+  context: string;
+  vocabularyCoverage: number;
+  grammarCoverage: number;
+  transcriptAvailable: boolean;
+  translationAvailable: boolean;
+  durationSeconds?: number;
+  skills: string[];
 }
 
 export type ExerciseValidationStatus = "generated" | "validated" | "rejected";
@@ -108,6 +144,7 @@ export interface PracticeQuestion {
   validationStatus?: ExerciseValidationStatus;
   generatedBy?: string;
   review?: GeneratedContentReview;
+  audio?: AudioMetadata;
   audioUrl?: string | null;
   audioText?: string;
 }
@@ -131,6 +168,7 @@ export interface LearningItem extends CurriculumMetadata {
   sourceIds?: string[];
   fieldSourceIds?: Record<string, string[]>;
   classification?: CurriculumClassification;
+  audio?: AudioMetadata;
 }
 
 export interface VocabularyItem extends LearningItem {
@@ -144,6 +182,7 @@ export interface VocabularyItem extends LearningItem {
   frequencyMetadata?: Record<string, unknown>;
   spokenFrequency?: number;
   spokenFrequencyMetadata?: Record<string, unknown>;
+  audio?: AudioMetadata;
   exampleSentences: ExampleSentence[];
   collocations: string[];
   relatedWords: string[];
@@ -165,6 +204,7 @@ export interface KanjiItem extends LearningItem {
   components?: string[];
   mnemonic?: string;
   strokeOrder?: string;
+  audio?: AudioMetadata;
   usefulWords: { word: string; reading: string; meaning: string }[];
 }
 
@@ -176,6 +216,7 @@ export interface ExampleSentence {
   sentenceId?: string;
   translationId?: string;
   license?: string;
+  audio?: AudioMetadata;
 }
 
 export interface GrammarItem extends LearningItem {
@@ -189,6 +230,7 @@ export interface GrammarItem extends LearningItem {
   commonMistakes: string[];
   contrastIds: string[];
   practiceQuestionIds: string[];
+  audio?: AudioMetadata;
 }
 
 export interface GrammarContrast {
@@ -237,6 +279,7 @@ export interface ReadingItem extends LearningItem {
   grammarIds: string[];
   kanjiIds: string[];
   estimatedDifficulty: number;
+  audio?: AudioMetadata;
   questions?: ReadingQuestion[];
 }
 
@@ -256,6 +299,8 @@ export interface ListeningItem extends LearningItem {
   voice: string;
   speed: number;
   sourceType: "recorded" | "tts" | "imported";
+  audio?: AudioMetadata;
+  clipMetadata?: ListeningClipMetadata;
   transcript: string;
   questions: ListeningQuestion[];
 }
@@ -278,6 +323,7 @@ export interface N5Module {
   listening: ListeningItem[];
   practiceQuestions?: PracticeQuestion[];
   sourceManifest?: ContentSource[];
+  learnerErrorAggregates?: IjasAggregate[];
 }
 
 export interface JourneyNode {
@@ -333,7 +379,7 @@ export interface Database {
         Relationships: [];
       };
       learning_items: {
-        Row: { id: string; slug: string; item_type: ItemType; jlpt_level: JLPTLevel; subcategory: string | null; difficulty: number; prerequisite_ids: string[]; tags: string[]; review_status: ContentReviewStatus; field_source_ids: unknown };
+        Row: { id: string; slug: string; item_type: ItemType; jlpt_level: JLPTLevel; subcategory: string | null; difficulty: number; prerequisite_ids: string[]; tags: string[]; review_status: ContentReviewStatus; field_source_ids: unknown; audio_metadata: unknown };
         Insert: Omit<Database["public"]["Tables"]["learning_items"]["Row"], "id"> & { id?: string };
         Update: Partial<Database["public"]["Tables"]["learning_items"]["Row"]>;
         Relationships: [];
@@ -411,7 +457,7 @@ export interface Database {
         Relationships: [];
       };
       practice_questions: {
-        Row: { id: string; item_id: string; category: ItemType; question_type: string; jlpt_level: JLPTLevel; prompt: string; options: unknown; correct_index: number; explanation: string; answer_mode: PracticeAnswerMode; accepted_answers: unknown; tokens: unknown | null; correct_order: unknown | null; audio_url: string | null; audio_text: string | null; validation_status: ExerciseValidationStatus; generated_by: string | null; review_metadata: unknown; created_at: string };
+        Row: { id: string; item_id: string; category: ItemType; question_type: string; jlpt_level: JLPTLevel; prompt: string; options: unknown; correct_index: number; explanation: string; answer_mode: PracticeAnswerMode; accepted_answers: unknown; tokens: unknown | null; correct_order: unknown | null; audio_url: string | null; audio_text: string | null; audio_metadata: unknown; validation_status: ExerciseValidationStatus; generated_by: string | null; review_metadata: unknown; created_at: string };
         Insert: Omit<Database["public"]["Tables"]["practice_questions"]["Row"], "created_at"> & { created_at?: string };
         Update: Partial<Database["public"]["Tables"]["practice_questions"]["Row"]>;
         Relationships: [];

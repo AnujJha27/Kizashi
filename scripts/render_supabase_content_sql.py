@@ -193,11 +193,11 @@ def question_sql(question: dict[str, Any], item_categories: dict[str, str]) -> s
         sql_text(question_id), sql_text(item_id), sql_text(category), sql_text(question.get("questionType")),
         sql_nullable_text(question.get("jlptLevel")), sql_text(question.get("prompt")), sql_json(question.get("options")),
         sql_int(question.get("correctIndex") if isinstance(question.get("correctIndex"), int) else 0), sql_text(question.get("explanation")),
-        sql_nullable_text(question.get("audioUrl")), sql_nullable_text(question.get("audioText")), sql_text("validated"),
+        sql_nullable_text(question.get("audioUrl")), sql_nullable_text(question.get("audioText")), sql_json_object(question.get("audio")), sql_text("validated"),
         sql_nullable_text(question.get("generatedBy")), sql_json_object(question.get("review")), sql_text(answer_mode), sql_json(question.get("acceptedAnswers")),
         sql_json(question.get("tokens")), sql_json(question.get("correctOrder")),
     ]
-    return "insert into public.practice_questions (id, item_id, category, question_type, jlpt_level, prompt, options, correct_index, explanation, audio_url, audio_text, validation_status, generated_by, review_metadata, answer_mode, accepted_answers, tokens, correct_order) values (" + ", ".join(values) + ") on conflict (id) do update set item_id = excluded.item_id, category = excluded.category, question_type = excluded.question_type, jlpt_level = excluded.jlpt_level, prompt = excluded.prompt, options = excluded.options, correct_index = excluded.correct_index, explanation = excluded.explanation, audio_url = excluded.audio_url, audio_text = excluded.audio_text, validation_status = excluded.validation_status, generated_by = excluded.generated_by, review_metadata = excluded.review_metadata, answer_mode = excluded.answer_mode, accepted_answers = excluded.accepted_answers, tokens = excluded.tokens, correct_order = excluded.correct_order;"
+    return "insert into public.practice_questions (id, item_id, category, question_type, jlpt_level, prompt, options, correct_index, explanation, audio_url, audio_text, audio_metadata, validation_status, generated_by, review_metadata, answer_mode, accepted_answers, tokens, correct_order) values (" + ", ".join(values) + ") on conflict (id) do update set item_id = excluded.item_id, category = excluded.category, question_type = excluded.question_type, jlpt_level = excluded.jlpt_level, prompt = excluded.prompt, options = excluded.options, correct_index = excluded.correct_index, explanation = excluded.explanation, audio_url = excluded.audio_url, audio_text = excluded.audio_text, audio_metadata = excluded.audio_metadata, validation_status = excluded.validation_status, generated_by = excluded.generated_by, review_metadata = excluded.review_metadata, answer_mode = excluded.answer_mode, accepted_answers = excluded.accepted_answers, tokens = excluded.tokens, correct_order = excluded.correct_order;"
 
 
 def source_sql(source: dict[str, Any]) -> str:
@@ -226,7 +226,7 @@ def item_sql(item: dict[str, Any], category: str) -> list[str]:
         raise ValueError(f"Item {item_id} is not approved; only approved records can be exported.")
     validate_export_item(item, category)
     item_type = ITEM_TYPES.get(category, category)
-    learning = "insert into public.learning_items (id, slug, item_type, jlpt_level, subcategory, difficulty, prerequisite_ids, tags, review_status, field_source_ids) values (" + ", ".join([
+    learning = "insert into public.learning_items (id, slug, item_type, jlpt_level, subcategory, difficulty, prerequisite_ids, tags, review_status, field_source_ids, audio_metadata) values (" + ", ".join([
         sql_text(item_id),
         sql_text(item.get("slug") or item_id),
         sql_text(item_type),
@@ -237,7 +237,8 @@ def item_sql(item: dict[str, Any], category: str) -> list[str]:
         sql_array(item.get("tags")),
         sql_text(review_status),
         sql_json_object(item.get("fieldSourceIds")),
-    ]) + ") on conflict (id) do update set slug = excluded.slug, jlpt_level = excluded.jlpt_level, subcategory = excluded.subcategory, difficulty = excluded.difficulty, prerequisite_ids = excluded.prerequisite_ids, tags = excluded.tags, review_status = excluded.review_status, field_source_ids = excluded.field_source_ids;"
+        sql_json_object(item.get("audio")),
+    ]) + ") on conflict (id) do update set slug = excluded.slug, jlpt_level = excluded.jlpt_level, subcategory = excluded.subcategory, difficulty = excluded.difficulty, prerequisite_ids = excluded.prerequisite_ids, tags = excluded.tags, review_status = excluded.review_status, field_source_ids = excluded.field_source_ids, audio_metadata = excluded.audio_metadata;"
     specialized = {
         "vocabulary": "insert into public.vocabulary (item_id, written_form, reading, meanings, part_of_speech, commonness, frequency, frequency_metadata, spoken_frequency, spoken_frequency_metadata, example_sentences, collocations, related_words, antonyms, notes, audio_url) values (" + ", ".join([
             sql_text(item_id), sql_text(item.get("writtenForm")), sql_text(item.get("reading")), sql_array(item.get("meanings")), sql_text(item.get("partOfSpeech") or "source record"), sql_int(item.get("commonness")), sql_int(item.get("frequency")), sql_json_object(item.get("frequencyMetadata")), sql_int(item.get("spokenFrequency")), sql_json_object(item.get("spokenFrequencyMetadata")), sql_json(item.get("exampleSentences")), sql_array(item.get("collocations")), sql_array(item.get("relatedWords")), sql_array(item.get("antonyms")), sql_nullable_text(item.get("notes")), sql_nullable_text(item.get("audioUrl")),

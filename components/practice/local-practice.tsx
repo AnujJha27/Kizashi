@@ -50,9 +50,10 @@ export function LocalPractice({ allQuestions, mode, duration, focus, section, to
   const quickCount = quickPracticeCount(duration);
   const questions = mode === "quick" ? selected.slice(0, quickCount) : selected;
 
-  if (mode === "weak") return <WeakPractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} />;
-  if (mode === "pass") return <AdaptivePractice questions={filterExamLevelQuestions(focusQuestions)} vocabulary={module.vocabulary} kanji={module.kanji} limit={13} passMode />;
-  if (mode === "quick") return <AdaptivePractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} />;
+  const items = [...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening];
+  if (mode === "weak") return <WeakPractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} items={items} learnerErrorAggregates={module.learnerErrorAggregates} />;
+  if (mode === "pass") return <AdaptivePractice questions={filterExamLevelQuestions(focusQuestions)} vocabulary={module.vocabulary} kanji={module.kanji} items={items} learnerErrorAggregates={module.learnerErrorAggregates} limit={13} passMode />;
+  if (mode === "quick") return <AdaptivePractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} items={items} learnerErrorAggregates={module.learnerErrorAggregates} />;
   const examMode = ["mock", "mini", "section", "full"].includes(mode);
   return <PracticePlayer questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} examMode={examMode} examLabel={mode === "full" ? "N5 full mock" : mode === "section" ? "N5 section test" : mode === "mini" ? "N5 mini test" : "N5 sampler"} sessionId={examMode ? `${mode}-test` : undefined} timeLimitSeconds={examMode ? Math.max(300, questions.length * 45) : undefined} />;
 }
