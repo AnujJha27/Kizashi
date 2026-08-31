@@ -696,3 +696,19 @@ Next session order:
   lesson assignment for the 8,396 pending imported records, semantic approval
   of authored/imported questions, a second spoken-frequency corpus with clear
   rights and semantics, and real phone/desktop preview.
+
+## Session notes — reviewed batch and CSJ signal
+
+- Fixed the QA assignment check: it now compares approved item IDs with the
+  item IDs inside real Journey lessons, not with lesson IDs.
+- Approved only the 47 complete, seed-derived N5 vocabulary records already
+  assigned to real lessons. The remaining 8,349 staged records stay pending.
+- Added the local review-only CSJ short-unit frequency importer and source
+  manifest entry. CSJ values, rows, audio, transcripts, and annotations are
+  not in the learner bundle; current CC BY-NC-ND/no-redistribution terms keep
+  publication gated.
+- Strict QA passed; local SQL inspection produced 47 items, 47 lesson links,
+  and 21 sources. No SQL was applied to Supabase.
+- Verified 11/11 tests, TypeScript, `next build` (25/25 pages), and
+  `git diff --check`. Commit `5d00d40` was pushed to `origin/main`; the
+  follow-up handoff-only commit is the next item to push.
