@@ -58,8 +58,14 @@ test("Commons resolver rejects ambiguous labels and unrelated filename matches",
   const unrelated = page("File:食べ物屋.ogg", { label: "食べ物屋" });
   for (const candidate of [ambiguous, unrelated]) {
     const { fetch } = fetchFor({ search: [{ title: candidate.title }], pages: [candidate] });
-    assert.equal(await resolveCommonsAudio({ text: "食べ物" }, { fetch }), null);
+    assert.equal(await resolveCommonsAudio({ text: "食べ物" }, { fetch, cache: new Map() }), null);
   }
+});
+
+test("Commons resolver requires Japanese source evidence even for an exact label", async () => {
+  const candidate = page("File:食べ物.ogg", { category: "Audio files" });
+  const { fetch } = fetchFor({ search: [{ title: candidate.title }], pages: [candidate] });
+  assert.equal(await resolveCommonsAudio({ text: "食べ物" }, { fetch, cache: new Map() }), null);
 });
 
 test("Commons resolver preserves creator, license, attribution, and source metadata", async () => {

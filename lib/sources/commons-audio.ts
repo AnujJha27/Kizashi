@@ -4,7 +4,6 @@ export interface CommonsAudioLookup {
   text: string;
   reading?: string;
 }
-
 export interface CommonsAudioResult {
   url: string;
   filePage: string;
@@ -27,4 +26,3 @@ export interface CommonsAudioOptions {
 export function resolveCommonsAudio(lookup: CommonsAudioLookup, options?: CommonsAudioOptions): Promise<CommonsAudioResult | null> {
   return resolve(lookup, options) as Promise<CommonsAudioResult | null>;
 }
-

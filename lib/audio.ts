@@ -1,4 +1,4 @@
-import { preferredJapaneseVoice } from "@/lib/audio-core.js";
+import { preferredJapaneseVoice, shouldFallbackToBrowser } from "@/lib/audio-core.js";
 import type { AudioMetadata, AudioSourceType } from "@/lib/types";
 
 export type { AudioMetadata, AudioSourceType } from "@/lib/types";
@@ -61,7 +61,7 @@ export async function resolveHumanAudio(request: AudioRequest, reading?: string)
 
 export async function playAudioWithBrowserFallback(provider: AudioProvider, request: AudioRequest, rate?: number) {
   const result = await provider.play(request, rate);
-  if (result.status !== "error" || provider.sourceType !== "remote" || !request.text) return { provider, result };
+  if (!shouldFallbackToBrowser({ sourceType: provider.sourceType, status: result.status, text: request.text })) return { provider, result };
   const fallback = new BrowserSpeechProvider();
   return { provider: fallback, result: await fallback.play({ text: request.text, metadata: request.metadata }, rate) };
 }

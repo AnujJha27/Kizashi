@@ -9,7 +9,6 @@ function input(value: string | null) {
   const trimmed = value?.trim() ?? "";
   return trimmed.length > 0 && trimmed.length <= MAX_INPUT_LENGTH ? trimmed : undefined;
 }
-
 export async function GET(request: Request) {
   const user = await getAllowedUser();
   if (!user) return NextResponse.json({ error: "Authentication required." }, { status: 401 });
@@ -26,4 +25,3 @@ export async function GET(request: Request) {
     return NextResponse.json({ result: null, error: "Human pronunciation lookup is temporarily unavailable." }, { status: 502 });
   }
 }
-

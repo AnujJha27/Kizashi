@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
-import { preferredJapaneseVoice } from "../lib/audio-core.js";
+import { preferredJapaneseVoice, shouldFallbackToBrowser } from "../lib/audio-core.js";
 
 test("Japanese voice selection prefers a voice whose language begins with ja", () => {
   const voices = [{ lang: "en-US", name: "English" }, { lang: "ja-JP", name: "Japanese" }];
@@ -25,4 +25,10 @@ test("audio UI and providers keep pronunciation ephemeral by default", async () 
   assert.match(controls, /Play Japanese audio slowly/);
   assert.match(controls, /autoPlay/);
   assert.doesNotMatch(provider, /supabase\.storage|upload\(/);
+});
+
+test("remote playback selects the browser fallback after a remote failure", () => {
+  assert.equal(shouldFallbackToBrowser({ sourceType: "remote", status: "error", text: "食べ物" }), true);
+  assert.equal(shouldFallbackToBrowser({ sourceType: "remote", status: "played", text: "食べ物" }), false);
+  assert.equal(shouldFallbackToBrowser({ sourceType: "browser-speech", status: "error", text: "食べ物" }), false);
 });
