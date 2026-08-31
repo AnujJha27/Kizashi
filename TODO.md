@@ -17,7 +17,7 @@
 - [x] Keep imported records out of the learner path until explicitly approved.
 - [x] Run the cache-first acquisition command and inspect the generated N5 review package.
 - [x] Acquire N4 bridge vocabulary, kanji, grammar, and linked examples for above-level preparation.
-- [ ] Review, enrich, classify, and assign imported records to real Journey lessons. The first audited batch has 47 approved seed-derived vocabulary records; 8,349 staged records remain pending.
+- [ ] Review, enrich, classify, and assign imported records to real Journey lessons. The first audited batch has 47 approved seed-derived vocabulary records; 6 known extraction errors are rejected; 8,343 staged records remain pending.
 - [ ] Publish only the approved records through the generated Supabase SQL import.
 
 Review tooling is implemented: Content Studio ranks candidates, edits classification/provenance, assigns real Journey lessons, and QA/export scripts refuse incomplete approved records. Human review and SQL application remain intentionally unchecked.

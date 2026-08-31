@@ -85,9 +85,9 @@ records. Do not copy textbook, JLPT, or other copyrighted exercises/passages.
   vocabulary records have complete learner fields, provenance, classification,
   and real Journey assignments. After fixing QA's item-ID-versus-lesson-ID
   assignment check, the package passes `--strict` and the SQL renderer produces
-  47 items, 47 lesson links, and 21 source rows. The remaining 8,349 staged
-  records remain pending; the generated SQL was inspected locally and was not
-  applied to Supabase.
+  47 items, 47 lesson links, and 21 source rows. Six unsafe extraction artifacts
+  are explicitly rejected; the remaining 8,343 staged records remain pending.
+  The generated SQL was inspected locally and was not applied to Supabase.
 - `scripts/ingest_jmnedict.py` stages proper-name lookup records outside the JLPT
   learner vocabulary. `scripts/extract_book_candidates.py` stages conservative,
   page/checksum-provenanced book candidates and keeps them pending. Optional
@@ -101,8 +101,9 @@ records. Do not copy textbook, JLPT, or other copyrighted exercises/passages.
 
   The cache-first run includes JMdict, linked JMdict examples, KANJIDIC2,
   OpenJLPT N5/N4, Irodori, Marugoto, BCCWJ, and Tatoeba candidates. The resulting
-  staging package contains 8,446 records: 50 existing approved seed records and
-  8,396 pending imported records. The import is review-only; no Supabase SQL has
+  staging package contains 8,446 records: 47 reviewed approved seed-derived
+  vocabulary records, 6 explicitly rejected extraction errors, and 8,343 pending
+  imported records. The import is review-only; no Supabase SQL has
   been generated/applied for those records yet.
 - The acquisition scripts use Windows-compatible HTTP/mirror fallbacks for the
   EDRDG TLS issue and preserve source manifests, checksums, local filenames,
@@ -697,12 +698,14 @@ Next session order:
   of authored/imported questions, a second spoken-frequency corpus with clear
   rights and semantics, and real phone/desktop preview.
 
-## Session notes — reviewed batch and CSJ signal
+## Session notes — reviewed batch, CSJ signal, and rejected extraction errors
 
 - Fixed the QA assignment check: it now compares approved item IDs with the
   item IDs inside real Journey lessons, not with lesson IDs.
 - Approved only the 47 complete, seed-derived N5 vocabulary records already
-  assigned to real lessons. The remaining 8,349 staged records stay pending.
+  assigned to real lessons. Rejected six unsafe vocabulary artifacts: the
+  OpenJLPT イクラ homograph and five Marugoto rows with truncated readings.
+  The remaining 8,343 staged records stay pending.
 - Added the local review-only CSJ short-unit frequency importer and source
   manifest entry. CSJ values, rows, audio, transcripts, and annotations are
   not in the learner bundle; current CC BY-NC-ND/no-redistribution terms keep
@@ -710,5 +713,5 @@ Next session order:
 - Strict QA passed; local SQL inspection produced 47 items, 47 lesson links,
   and 21 sources. No SQL was applied to Supabase.
 - Verified 11/11 tests, TypeScript, `next build` (25/25 pages), and
-  `git diff --check`. Commit `5d00d40` was pushed to `origin/main`; the
-  follow-up handoff-only commit is the next item to push.
+  `git diff --check`. Commits `5d00d40` and `5bce8bf` are pushed to
+  `origin/main`; the explicit rejection audit is the next commit to push.
