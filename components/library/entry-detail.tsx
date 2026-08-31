@@ -23,7 +23,15 @@ function VocabularyDetail({ item, vocabulary, kanji }: Readonly<{ item: Vocabula
   const perMillion = typeof item.frequencyMetadata?.pmw === "number" ? item.frequencyMetadata.pmw.toFixed(2) : "";
   const spokenFrequency = typeof item.spokenFrequency === "number" ? item.spokenFrequency.toLocaleString() : "";
   const spokenPerMillion = typeof item.spokenFrequencyMetadata?.pmw === "number" ? item.spokenFrequencyMetadata.pmw.toFixed(2) : "";
-  return <><p className="jp-serif text-6xl text-[#f5f5f2]"><ruby>{item.writtenForm}<rt className="text-lg text-[#e5b85c]">{toHiragana(item.reading)}</rt></ruby></p><AudioControls text={item.writtenForm} externalUrl={item.audioUrl} metadata={item.audio} className="mt-4" /><p className="mt-5 text-lg text-[#f5f5f2]">{item.meanings.join(" · ")}</p><p className="mt-2 text-sm text-[#9297a1]">{item.partOfSpeech} · {item.collocations.join(" · ")}</p>{frequency || perMillion ? <p className="mt-3 text-xs text-[#676c75]">Written frequency · {frequency || "—"}{perMillion ? ` · ${perMillion} per million` : ""}</p> : null}{spokenFrequency || spokenPerMillion ? <p className="mt-1 text-xs text-[#676c75]">Spoken frequency · {spokenFrequency || "—"}{spokenPerMillion ? ` · ${spokenPerMillion} per million` : ""}</p> : null}<div className="mt-8 space-y-3">{item.exampleSentences.map((example) => <div key={example.japanese} className="rounded-xl bg-[#101b2b]/70 p-4"><p className="jp-serif text-lg text-[#e5b85c]"><JapaneseText text={example.japanese} vocabulary={vocabulary} kanji={kanji} /></p><p className="mt-1 text-sm text-[#9297a1]">{example.translation}</p><AudioControls text={example.japanese} metadata={example.audio} className="mt-3" /><SaveSentence sourceItemId={item.id} japanese={example.japanese} translation={example.translation} /></div>)}</div></>;
+  return <>
+    <p className="jp-serif text-6xl text-[#f5f5f2]"><ruby>{item.writtenForm}<rt className="text-lg text-[#e5b85c]">{toHiragana(item.reading)}</rt></ruby></p>
+    <AudioControls text={item.writtenForm} reading={item.reading} humanFirst externalUrl={item.audioUrl} metadata={item.audio} className="mt-4" />
+    <p className="mt-5 text-lg text-[#f5f5f2]">{item.meanings.join(" · ")}</p>
+    <p className="mt-2 text-sm text-[#9297a1]">{item.partOfSpeech} · {item.collocations.join(" · ")}</p>
+    {frequency || perMillion ? <p className="mt-3 text-xs text-[#676c75]">Written frequency · {frequency || "—"}{perMillion ? ` · ${perMillion} per million` : ""}</p> : null}
+    {spokenFrequency || spokenPerMillion ? <p className="mt-1 text-xs text-[#676c75]">Spoken frequency · {spokenFrequency || "—"}{spokenPerMillion ? ` · ${spokenPerMillion} per million` : ""}</p> : null}
+    <div className="mt-8 space-y-3">{item.exampleSentences.map((example) => <div key={example.japanese} className="rounded-xl bg-[#101b2b]/70 p-4"><p className="jp-serif text-lg text-[#e5b85c]"><JapaneseText text={example.japanese} vocabulary={vocabulary} kanji={kanji} /></p><p className="mt-1 text-sm text-[#9297a1]">{example.translation}</p><AudioControls text={example.japanese} metadata={example.audio} className="mt-3" /><SaveSentence sourceItemId={item.id} japanese={example.japanese} translation={example.translation} /></div>)}</div>
+  </>;
 }
 
 function KanjiDetail({ item, vocabulary }: Readonly<{ item: KanjiItem; vocabulary: VocabularyItem[] }>) {

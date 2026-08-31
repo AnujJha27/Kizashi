@@ -2,24 +2,30 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { createAudioProvider, type AudioProvider } from "@/lib/audio";
+import { createAudioProvider, playAudioWithBrowserFallback, resolveHumanAudio, type AudioProvider } from "@/lib/audio";
 import type { AudioMetadata } from "@/lib/types";
 
-export function AudioControls({ text, externalUrl, metadata, preferredRate, autoPlay = false, className = "" }: Readonly<{ text?: string; externalUrl?: string | null; metadata?: AudioMetadata; preferredRate?: number; autoPlay?: boolean; className?: string }>) {
+export function AudioControls({ text, reading, externalUrl, metadata, preferredRate, autoPlay = false, humanFirst = false, className = "" }: Readonly<{ text?: string; reading?: string; externalUrl?: string | null; metadata?: AudioMetadata; preferredRate?: number; autoPlay?: boolean; humanFirst?: boolean; className?: string }>) {
   const provider = useRef<AudioProvider | null>(null);
+  const resolvedRequest = useRef<Awaited<ReturnType<typeof resolveHumanAudio>> | null>(null);
   const [message, setMessage] = useState("");
   const request = { text, externalUrl, metadata };
   const providerKey = externalUrl || metadata?.externalUrl || metadata?.sourceType || "browser-speech";
   const normalRate = preferredRate ?? metadata?.preferredRate ?? 0.9;
   const playAt = useCallback(async (rate: number) => {
-    provider.current ??= createAudioProvider(request);
-    const result = await provider.current.play(request, rate);
+    const playableRequest = resolvedRequest.current ?? await resolveHumanAudio(request, humanFirst ? reading : undefined);
+    resolvedRequest.current = playableRequest;
+    provider.current ??= createAudioProvider(playableRequest);
+    const playback = await playAudioWithBrowserFallback(provider.current, playableRequest, rate);
+    provider.current = playback.provider;
+    const result = playback.result;
     setMessage(result.status === "played" ? "" : result.message ?? "Audio is unavailable.");
-  }, [externalUrl, metadata, text]);
+  }, [externalUrl, humanFirst, metadata, reading, text]);
 
   useEffect(() => {
     provider.current?.stop();
     provider.current = null;
+    resolvedRequest.current = null;
   }, [providerKey]);
 
   useEffect(() => {

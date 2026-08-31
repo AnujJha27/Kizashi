@@ -16,6 +16,8 @@ test("audio UI and providers keep pronunciation ephemeral by default", async () 
   assert.match(provider, /class BrowserSpeechProvider/);
   assert.match(provider, /class RemoteAudioProvider/);
   assert.match(provider, /class ServerTTSProvider/);
+  assert.match(provider, /resolveHumanAudio/);
+  assert.match(provider, /playAudioWithBrowserFallback/);
   assert.match(await readFile(new URL("../lib/audio-core.js", import.meta.url), "utf8"), /startsWith\("ja"\)/);
   assert.match(provider, /setTimeout\(finish, 1500\)/);
   assert.match(controls, /Play Japanese audio/);
