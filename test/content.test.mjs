@@ -102,6 +102,16 @@ test("Studio exposes every pending question through a searchable paged review qu
   assert.doesNotMatch(studio, /questions\.slice\(0, 20\)/);
 });
 
+test("content review cards expand to show the full record before approval", async () => {
+  const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
+  assert.match(studio, /<ContentReviewCard key=\{item\.id\}/);
+  assert.match(studio, /<details className=/);
+  assert.match(studio, /<summary/);
+  assert.match(studio, /Full record/);
+  assert.match(studio, /JSON\.stringify\(item, null, 2\)/);
+  assert.match(studio, /Edit record/);
+});
+
 test("kanji orthography prompts test the reading instead of visual matching", async () => {
   const questions = await readFile(new URL("../lib/questions.ts", import.meta.url), "utf8");
   assert.match(questions, /Which word is read \$\{word\.reading\}\?/);
