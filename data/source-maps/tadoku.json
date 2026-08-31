@@ -1,0 +1,54 @@
+[
+  {
+    "id": "tadoku-douzo-doumo",
+    "sourceId": "tadoku",
+    "title": "どうぞどうも",
+    "level": "Start",
+    "genre": "Words & Phrases · Slices of Life",
+    "url": "https://tadoku.org/japanese/book/6812/",
+    "audio": { "available": true, "delivery": "provider-hosted", "url": "https://tadoku.org/japanese/wp-content/uploads/f0056a-douzodoumo-v2.mp3" },
+    "length": "14 pages",
+    "attribution": "NPO多言語多読",
+    "license": "CC BY-NC-ND 4.0",
+    "transformAllowed": false
+  },
+  {
+    "id": "tadoku-arimasu-ka",
+    "sourceId": "tadoku",
+    "title": "ありますか？",
+    "level": "Level 0",
+    "genre": "Food",
+    "url": "https://tadoku.org/japanese/book/6346/",
+    "audio": { "available": true, "delivery": "provider-hosted", "url": "https://tadoku.org/japanese/wp-content/uploads/f0048a-arimasuka-v2.mp3" },
+    "length": "22 pages",
+    "attribution": "NPO多言語多読",
+    "license": "CC BY-NC-ND 4.0",
+    "transformAllowed": false
+  },
+  {
+    "id": "tadoku-iidesu",
+    "sourceId": "tadoku",
+    "title": "いいです",
+    "level": "Level 1",
+    "genre": "Words & Phrases · Slices of Life",
+    "url": "https://tadoku.org/japanese/book/6645/",
+    "audio": { "available": true, "delivery": "provider-hosted", "url": "https://tadoku.org/japanese/wp-content/uploads/f0054a-iidesu.mp3" },
+    "length": "14 pages",
+    "attribution": "NPO多言語多読",
+    "license": "CC BY-NC-ND 4.0",
+    "transformAllowed": false
+  },
+  {
+    "id": "tadoku-yamani",
+    "sourceId": "tadoku",
+    "title": "山に行きました",
+    "level": "Level 0",
+    "genre": "World · Animals",
+    "url": "https://tadoku.org/japanese/book/9295/",
+    "audio": { "available": true, "delivery": "provider-hosted", "url": "https://tadoku.org/japanese/wp-content/uploads/f0086a-yamani.mp3" },
+    "length": "10 pages",
+    "attribution": "NPO多言語多読",
+    "license": "CC BY-NC-ND 4.0",
+    "transformAllowed": false
+  }
+]
