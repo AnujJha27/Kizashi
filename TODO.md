@@ -63,8 +63,9 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 
 - [x] Verify **Erin's Challenge (Japan Foundation)** terms for situational
   listening: personal learning and linking are permitted by the site policy;
-  video downloading is prohibited, so Kizashi uses an original-page launcher
-  and does not copy/re-host Erin audio/video by default.
+  video downloading is prohibited, so Kizashi streams only the six selected
+  provider-hosted MP4 URLs in a native player and does not copy, proxy, or
+  persist Erin audio/video.
 - [x] Verify **Common Voice Japanese** terms for broad human-speaker exposure:
   the current dataset is CC0 and lists CALL as an intended use, but the service
   terms prohibit re-posting, redistribution, or mirroring and prohibit speaker
@@ -75,9 +76,11 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
   into Supabase, publish it, or use it in learner drills without a matching
   written license.
 - [x] Verify Tatoeba and JSUT terms: Tatoeba audio is licensed per contributor/file
-  and needs attribution; JSUT permits personal/non-commercial research but does
-  not generally permit redistribution. Use only individually cleared Tatoeba
-  recordings or a small, justified JSUT subset; do not bulk mirror either.
+  and needs attribution; its browse page sends `X-Frame-Options: Deny`, so the
+  source shelf is link-only. Individual cleared Tatoeba audio URLs remain a
+  possible future native-player path. JSUT permits personal/non-commercial
+  research but does not generally permit redistribution; do not bulk mirror
+  either.
 - [x] Keep Common Voice source-linked rather than mirrored or re-hosted; CC0
   dataset metadata does not override the current dataset service terms.
 - [x] Verify the general VOICEVOX terms: future output may be used with required
@@ -160,12 +163,13 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 - [x] Add an external-source launcher so learners can study linked
   Erin/CEJC/other material from one Kizashi surface without Kizashi downloading,
   proxying, caching, or re-hosting the source audio/data.
-- [x] Add an opt-in original-source frame attempt for Erin, CEJC, CSJ, Common
-  Voice, Tatoeba, JSUT, and JapanesePod101, with a direct-link fallback when a
-  provider blocks framing or login cookies. The selected iframe expands below
-  the full source-card grid; immersion transcripts and shadowing always show
-  mapped furigana. The iframe loads the provider URL directly; it does not grant
-  permission, copy, proxy, cache, mirror, or upload source material.
+- [x] Add an opt-in original-source viewer for CEJC, CSJ, Common Voice, JSUT,
+  and JapanesePod101, with a direct-link fallback when a provider blocks framing
+  or login cookies. Erin uses a native player pointed at six provider-hosted MP4
+  URLs; Tatoeba is link-only because its browse page blocks framing. The
+  selected viewer expands below the full source-card grid; immersion transcripts
+  and shadowing always show mapped furigana. No source material is copied,
+  proxied, cached, mirrored, or uploaded.
 - [x] Add a private learner release path for all non-rejected staged records;
   keep their source-review status pending while attaching
   `contentReview.method = "automatic"` and `humanReviewed = false`.

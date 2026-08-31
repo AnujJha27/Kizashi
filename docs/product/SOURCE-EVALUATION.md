@@ -64,12 +64,13 @@ remain responsible for the content.
 
 Kizashi must not download, proxy, cache, mirror, re-host, or upload third-party
 audio/video/data to Supabase merely to make the source convenient. The private
-immersion shelf may attempt a direct browser iframe for the original provider
-page; the provider remains in control through framing headers, login, cookies,
-and its own terms. A blocked frame falls back to a new-tab link. The frame is
-not a license grant or permission to share the source with other users, and a
-source should be removed from the frame shelf if its terms expressly prohibit
-embedding.
+immersion shelf uses Erin's provider-hosted MP4 URLs in a native browser player
+for the six selected lessons; other frameable sources may use a direct browser
+iframe. The provider remains in control through framing headers, login,
+cookies, and its own terms. A blocked frame falls back to a new-tab link. The
+frame or native player is not a license grant or permission to share the source
+with other users, and a source should be link-only if its terms or headers
+prohibit embedding.
 
 For CEJC, the official access description says that the free online service can
 be used to listen to searched audio but does not allow audio/video download;
@@ -77,6 +78,10 @@ the paid edition supplies corpus assets under a contract. Therefore Kizashi
 should link to or open the authorized CEJC session, not capture or re-serve the
 raw corpus. Erin's Challenge has now been checked as well: personal learning
 and linking are allowed by its policy, but video downloading is prohibited, so
-the original-page launcher remains the default. Common Voice, Tatoeba, JSUT,
-and VOICEVOX now have the source-specific decisions above; Open JTalk and
+the original-page launcher remains the default for scripts and source controls;
+the six selected videos are streamed from Erin's own MP4 URLs without storage
+or proxying. Tatoeba's browse page is link-only because it sends
+`X-Frame-Options: Deny`; individual audio remains possible only when its
+recording license and attribution are recorded. Common Voice, JSUT, and
+VOICEVOX now have the source-specific decisions above; Open JTalk and
 JapanesePod101 still require their own current-term review before use.

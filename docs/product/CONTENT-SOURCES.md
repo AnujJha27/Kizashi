@@ -70,9 +70,9 @@ grammar rule or replace a reliable explanation source.
 | Source | Best use | Kizashi delivery |
 | --- | --- | --- |
 | Browser Speech API | Vocabulary, kanji readings, grammar examples, and ordinary sentences | Default `BrowserSpeechProvider`; prefers voices whose language starts with `ja`; no blob storage. |
-| [Erin's Challenge](https://www.erin.jpf.go.jp/en/) | Beginner situational dialogue, scripts, and shadowing | Original-page shelf with six N5-targeted launchers; media remains on the Japan Foundation site. |
+| [Erin's Challenge](https://www.erin.jpf.go.jp/en/) | Beginner situational dialogue, scripts, and shadowing | Six N5-targeted launchers stream the provider-hosted MP4 directly in the native browser player; scripts, subtitles, and source controls remain on the Japan Foundation page. No blob is stored or proxied. |
 | [Common Voice Japanese](https://mozilladatacollective.com/datasets/cmqim4lxy00tunr07cjkcupeg) | Human-speaker variation | Source-linked browsing only; no dataset upload, mirroring, or speaker identification. |
-| [Tatoeba audio](https://tatoeba.org/en/audio/index/jpn) | Short sentence recordings | External URL only after that recording's contributor license and attribution are recorded. |
+| [Tatoeba audio](https://tatoeba.org/en/audio/index/jpn) | Short sentence recordings | The browse page is link-only because it sends `X-Frame-Options: Deny`; an individual external audio URL may be used only after its contributor license and attribution are recorded. |
 | [JSUT](https://sites.google.com/site/shinnosuketakamichi/publication/jsut) | Clean speech research/exposure | No full-corpus upload; any future subset needs a documented preservation reason and terms. |
 | [VOICEVOX](https://voicevox.hiroshiba.jp/) | Future consistent mock-JLPT dialogue | Reserved `ServerTTSProvider`; selected voice-library terms and credits must be recorded first. |
 | Open JTalk | Future local pronunciation fallback | Not currently wired as a separate delivery source; terms and packaging must be checked first. |
@@ -81,10 +81,11 @@ grammar rule or replace a reliable explanation source.
 
 The UI exposes play, replay, slow playback, and the existing optional autoplay
 preference. `ServerTTSProvider` exists as an unavailable future path; it does
-not generate or persist audio today. The immersion shelf may attempt a direct
-browser iframe for an original provider page and falls back to a new-tab link
-when framing, login, cookies, or provider behavior block it. Kizashi does not
-download, proxy, cache, mirror, re-host, or upload the framed source.
+not generate or persist audio today. Erin's six selected videos use a native
+browser player pointed at the provider-hosted MP4; other frameable sources may
+use a direct browser iframe and fall back to a new-tab link. Tatoeba is
+explicitly link-only because its browse page blocks framing. Kizashi does not
+download, proxy, cache, mirror, re-host, or upload these sources.
 
 ## Private user-provided material
 

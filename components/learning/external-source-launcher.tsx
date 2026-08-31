@@ -14,6 +14,8 @@ export interface ExternalSourceLink {
   transcriptAvailable?: boolean;
   translationAvailable?: boolean;
   mediaDelivery?: string;
+  mediaUrl?: string;
+  posterUrl?: string;
   description: string;
   url: string;
 }

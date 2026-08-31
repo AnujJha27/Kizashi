@@ -16,7 +16,7 @@ const sources: ExternalSourceLink[] = [
   { id: "cejc", name: "CEJC", description: "Open the authorized NINJAL corpus session for conversation research; Kizashi does not copy its audio.", url: "https://www2.ninjal.ac.jp/conversation/cejc.html" },
   { id: "csj", name: "CSJ", description: "Open the authorized Chunagon session for spoken-corpus listening; Kizashi does not copy CSJ audio or transcripts.", url: "https://chunagon.ninjal.ac.jp/auth/login" },
   { id: "common-voice", name: "Common Voice Japanese", description: "Browse Mozilla's source page for broad human-speaker exposure; Kizashi does not re-host the dataset.", url: "https://mozilladatacollective.com/datasets/cmqim4lxy00tunr07cjkcupeg" },
-  { id: "tatoeba", name: "Tatoeba audio", description: "Open sentence-level recordings on the original service; individual contributor licenses remain with each recording.", url: "https://tatoeba.org/en/audio/index/jpn" },
+  { id: "tatoeba", name: "Tatoeba audio", mediaDelivery: "link-only", description: "The Tatoeba page blocks framing. Open it to browse sentence-level recordings; individual contributor licenses remain with each recording.", url: "https://tatoeba.org/en/audio/index/jpn" },
   { id: "jsut", name: "JSUT", description: "Open the official corpus page for citation and terms; Kizashi does not upload the corpus.", url: "https://sites.google.com/site/shinnosuketakamichi/publication/jsut" },
   { id: "japanese-pod101", name: "JapanesePod101", description: "Open the provider's free beginner material on its original site; Kizashi does not copy or re-host lessons.", url: "https://www.japanesepod101.com/begin/" },
 ];

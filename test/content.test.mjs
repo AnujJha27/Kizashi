@@ -133,6 +133,9 @@ test("CSJ is viewable through an original-source iframe with a direct-link fallb
   const viewer = await readFile(new URL("../components/learning/external-source-viewer.tsx", import.meta.url), "utf8");
   const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
   assert.match(viewer, /iframe/);
+  assert.match(viewer, /mediaUrl/);
+  assert.match(viewer, /<video/);
+  assert.match(viewer, /link-only/);
   assert.match(viewer, /referrerPolicy="strict-origin-when-cross-origin"/);
   assert.match(viewer, /allow="autoplay; fullscreen; picture-in-picture; encrypted-media"/);
   assert.match(viewer, /allowFullScreen/);
@@ -141,6 +144,7 @@ test("CSJ is viewable through an original-source iframe with a direct-link fallb
   assert.match(viewer, /Open original source/);
   assert.match(surface, /CSJ/);
   assert.match(surface, /ExternalSourceViewer/);
+  assert.match(surface, /mediaDelivery: "link-only"/);
   assert.match(surface, /selectedSourceId/);
   assert.match(surface, /ExternalSourceFrame source=\{selectedSource\}/);
   assert.match(surface, /JapaneseText/);
