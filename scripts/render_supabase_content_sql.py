@@ -217,6 +217,22 @@ def source_sql(source: dict[str, Any]) -> str:
     ]) + ") on conflict (id) do update set name = excluded.name, source_type = excluded.source_type, url = excluded.url, license = excluded.license, retrieved_at = excluded.retrieved_at, notes = excluded.notes, sha256 = excluded.sha256, local_filename = excluded.local_filename;"
 
 
+def ijas_aggregate_sql(record: dict[str, Any]) -> str:
+    allowed = {"pattern", "category", "count", "sourceReference", "notes"}
+    unexpected = sorted(set(record) - allowed)
+    if unexpected:
+        raise ValueError(f"I-JAS aggregate contains unsupported fields: {', '.join(unexpected)}")
+    pattern = text(record.get("pattern"))
+    category = text(record.get("category"))
+    source_reference = text(record.get("sourceReference"))
+    count = record.get("count")
+    if not pattern or not category or not source_reference or not isinstance(count, int) or isinstance(count, bool) or count < 0:
+        raise ValueError("I-JAS aggregates need pattern, category, sourceReference, and a non-negative integer count.")
+    return "insert into public.learner_error_aggregates (pattern, category, count, source_reference, notes) values (" + ", ".join([
+        sql_text(pattern), sql_text(category), str(count), sql_text(source_reference), sql_nullable_text(record.get("notes")),
+    ]) + ") on conflict (pattern, category) do update set count = excluded.count, source_reference = excluded.source_reference, notes = excluded.notes;"
+
+
 def item_sql(item: dict[str, Any], category: str) -> list[str]:
     item_id = text(item.get("id"))
     if not item_id:
@@ -310,6 +326,10 @@ def main() -> int:
     if not isinstance(course, dict):
         raise ValueError("Package has no course object.")
     source_manifest = [entry for entry in module.get("sourceManifest", []) if isinstance(entry, dict)]
+    raw_learner_error_aggregates = module.get("learnerErrorAggregates", [])
+    if not isinstance(raw_learner_error_aggregates, list) or any(not isinstance(entry, dict) for entry in raw_learner_error_aggregates):
+        raise ValueError("learnerErrorAggregates must be an array of objects.")
+    learner_error_aggregates = raw_learner_error_aggregates
     review_chapter = next((chapter for chapter in course.get("chapters", []) if isinstance(chapter, dict) and chapter.get("id") == "chapter-openjlpt-review"), None)
     if not isinstance(review_chapter, dict):
         raise ValueError("Package has no source-review chapter.")
@@ -389,6 +409,7 @@ def main() -> int:
         "-- Kizashi reviewed-content import; apply migrations before this file.",
         "begin;",
         *[source_sql(source) for source in source_manifest],
+        *[ijas_aggregate_sql(record) for record in learner_error_aggregates],
         course_sql(course),
         *[chapter_sql(course, chapter, chapter_order) for chapter_order, chapter in enumerate(real_chapters)],
         *[lesson_sql(chapter, lesson, lesson_order) for chapter in real_chapters for lesson_order, lesson in enumerate(dicts(chapter.get("lessons")))],

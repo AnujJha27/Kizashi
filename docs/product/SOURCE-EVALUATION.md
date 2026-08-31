@@ -1,8 +1,10 @@
 # External source evaluation
 
-Evaluated 2026-08-31. These sources remain analysis inputs, not learner-content
-or audio imports, until Kizashi has a written license that covers the actual
-deployment and redistribution model.
+Evaluated 2026-08-31. These sources remain analysis inputs, learner-content
+candidates, or source launchers according to the decision recorded for each
+source below. Do not infer permission to copy or redistribute an asset from a
+general dataset label; check the current source terms and the exact delivery
+path.
 
 | Source | Finding | Kizashi decision |
 | --- | --- | --- |
@@ -11,6 +13,20 @@ deployment and redistribution model.
 | [CSJ](https://clrd.ninjal.ac.jp/csj/en/) | Online and paid editions exist; commercial use is reviewed individually and the paid corpus is supplied under an agreement. | Keep frequency/listening realism evaluation-only until a matching license is executed. |
 | [I-JAS terms](https://chunagon.ninjal.ac.jp/static/I-JAS_TermsOfService.pdf) | The online service is limited to the declared research purpose, prohibits third-party copying/distribution, and requires separate consultation for commercial results. | Permit only aggregate, privacy-safe research internally; do not import learner records or publish learner-derived drills. |
 | WaniKani | No compatible source license or API permission has been established for Kizashi. | Do not integrate it; keep canonical facts in JMdict/KANJIDIC2 and treat any future use as an optional, user-provided cross-reference. |
+
+## Audio and hosted-learning source terms
+
+Audited 2026-08-31 against the providers' current first-party pages. These are
+product-use decisions, not a substitute for reviewing a changed provider term
+before a new asset is copied, embedded, or redistributed.
+
+| Source | Current finding | Kizashi decision |
+| --- | --- | --- |
+| [Erin's Challenge site policy](https://www.erin.jpf.go.jp/en/policy/) and [FAQ](https://www.erin.jpf.go.jp/en/faq/) | The Japan Foundation says site text, images, audio, and video belong to it unless stated otherwise; its exception permits private or school/educational use, including personal learning. Linking is welcome, while video downloading is prohibited. | Use an original-page launcher for personal study. Do not download, copy, or re-host Erin video/audio by default; only frame or preserve an item after the exact current page terms permit that delivery. |
+| [Common Voice Japanese 26.0](https://mozilladatacollective.com/datasets/cmqim4lxy00tunr07cjkcupeg) and [Common Voice terms](https://commonvoice.mozilla.org/terms) | The current Japanese dataset is CC0 and lists CALL as an intended use, but the service terms prohibit posting, distributing, or mirroring the dataset in whole or in part on other platforms/services. Speaker identification is prohibited. | Do not upload or bundle Common Voice in Supabase/GitHub. Keep a source/Mozilla Data Collective launcher or obtain separate permission for a different delivery path; never infer speaker identity. |
+| [Tatoeba corpus guidance](https://en.www.en.wiki.tatoeba.org/articles/show/using-the-tatoeba-corpus-for-your-own-projects), [FAQ](https://en.wiki.tatoeba.org/articles/show/faq), and [CC0 guidance](https://en.wiki.tatoeba.org/articles/show/cc0-contributions) | Sentence text is generally CC-BY with attribution, but audio has contributor-specific licenses and is not automatically CC0. Each recording's license and contributor must be checked. | Stage sentence candidates with attribution. Use an individual audio URL only after its file license is recorded; preserve attribution/provenance and do not bulk mirror audio. |
+| [JSUT official corpus terms](https://sites.google.com/site/shinnosuketakamichi/publication/jsut) | Personal use and non-commercial research are allowed, but redistribution is not generally permitted; the page describes only a small website/blog exception and asks commercial users to contact the lab. | Do not upload the full corpus to Supabase/GitHub. A small, justified personal-study subset requires preserved citation/terms; public or commercial delivery requires lab permission. |
+| [VOICEVOX software terms](https://voicevox.hiroshiba.jp/term/) and [Q&A](https://voicevox.hiroshiba.jp/qa/) | Commercial and non-commercial output use is generally allowed with VOICEVOX credit, but each voice library/character has separate terms and credit requirements. The engine itself has separate redistribution/source obligations. | Keep BrowserSpeechProvider as default. A future local/server TTS path must record the selected voice's character terms and required credits; do not ship the engine or an output archive now. |
 
 The source cache exposes CEJC/CSJ through `--source spoken-evaluation` and I-JAS
 terms through `--source learner-evaluation`. These commands cache provenance and
@@ -45,8 +61,8 @@ For CEJC, the official access description says that the free online service can
 be used to listen to searched audio but does not allow audio/video download;
 the paid edition supplies corpus assets under a contract. Therefore Kizashi
 should link to or open the authorized CEJC session, not capture or re-serve the
-raw corpus. Erin's Challenge exposes Japan Foundation learning materials on
-its own site; linking to the original material is the default until the exact
-embedding/download terms are confirmed. Every other source (Common Voice,
-Tatoeba, JSUT, VOICEVOX, Open JTalk, JapanesePod101) remains subject to its
-own current terms and speaker/contributor attribution requirements.
+raw corpus. Erin's Challenge has now been checked as well: personal learning
+and linking are allowed by its policy, but video downloading is prohibited, so
+the original-page launcher remains the default. Common Voice, Tatoeba, JSUT,
+and VOICEVOX now have the source-specific decisions above; Open JTalk and
+JapanesePod101 still require their own current-term review before use.

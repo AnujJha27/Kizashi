@@ -619,3 +619,23 @@ Next session order:
 - Current relevant changes were committed as `b0b35b5` and pushed to private
   `origin/main`; `resumer`, `scripts/__pycache__/`, and `supabase/.temp/` remain
   unstaged and were not included.
+
+## Session notes — current audio source-term audit
+
+- Verified the current first-party terms for Erin's Challenge, Common Voice
+  Japanese, Tatoeba audio, JSUT, and VOICEVOX on 2026-08-31. The exact URLs,
+  findings, and product decisions are recorded in
+  `docs/product/SOURCE-EVALUATION.md`.
+- Erin permits personal learning and welcomes linking, but prohibits video
+  downloads; Kizashi therefore launches the original page and does not copy or
+  re-host Erin audio/video by default.
+- Common Voice Japanese is currently CC0 and lists CALL as an intended use,
+  but its service terms prohibit re-posting, redistribution, and mirroring;
+  Kizashi will not upload it to Supabase/GitHub or infer speaker identity.
+- Tatoeba audio is per-file/contributor licensed and needs attribution. JSUT
+  allows personal/non-commercial research but generally prohibits redistribution.
+  VOICEVOX output requires the general and selected voice-library/character
+  credits/terms. No third-party audio was downloaded, uploaded, or committed.
+- Added the backward-compatible I-JAS aggregate Supabase table/export path in
+  migration `0019_ijas_aggregates.sql`; no learner IDs, transcripts, audio, or
+  raw learner records are accepted.

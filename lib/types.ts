@@ -456,6 +456,12 @@ export interface Database {
         Update: Partial<Database["public"]["Tables"]["curriculum_classifications"]["Row"]>;
         Relationships: [];
       };
+      learner_error_aggregates: {
+        Row: { pattern: string; category: string; count: number; source_reference: string; notes: string | null };
+        Insert: Database["public"]["Tables"]["learner_error_aggregates"]["Row"];
+        Update: Partial<Database["public"]["Tables"]["learner_error_aggregates"]["Row"]>;
+        Relationships: [];
+      };
       practice_questions: {
         Row: { id: string; item_id: string; category: ItemType; question_type: string; jlpt_level: JLPTLevel; prompt: string; options: unknown; correct_index: number; explanation: string; answer_mode: PracticeAnswerMode; accepted_answers: unknown; tokens: unknown | null; correct_order: unknown | null; audio_url: string | null; audio_text: string | null; audio_metadata: unknown; validation_status: ExerciseValidationStatus; generated_by: string | null; review_metadata: unknown; created_at: string };
         Insert: Omit<Database["public"]["Tables"]["practice_questions"]["Row"], "created_at"> & { created_at?: string };

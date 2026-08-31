@@ -46,19 +46,28 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 
 ### Deferred audio roadmap
 
-- [ ] Evaluate **Erin's Challenge (Japan Foundation)** first for situational
-  listening: greetings, shops, buses, food orders, friends, stations, and
-  festivals; verify the current terms for its scripts, MP3s, and videos before
-  linking, downloading, or re-hosting anything.
-- [ ] Use **Common Voice Japanese** for broad human-speaker exposure only after
-  re-checking the current dataset/service terms; its CC0 metadata does not
-  automatically permit Kizashi to mirror or re-host the audio.
+- [x] Verify **Erin's Challenge (Japan Foundation)** terms for situational
+  listening: personal learning and linking are permitted by the site policy;
+  video downloading is prohibited, so Kizashi uses an original-page launcher
+  and does not copy/re-host Erin audio/video by default.
+- [x] Verify **Common Voice Japanese** terms for broad human-speaker exposure:
+  the current dataset is CC0 and lists CALL as an intended use, but the service
+  terms prohibit re-posting, redistribution, or mirroring and prohibit speaker
+  identification. Keep it source-linked unless a different delivery path is
+  separately permitted.
 - [ ] Treat **CEJC audio** as restricted research corpus material. It may be
   available for approved listening/access, but do not copy it into Supabase,
   publish it, or use it in learner drills without a matching written license.
-- [ ] Prefer human recordings in this order: Tatoeba sentence audio where the individual license permits it, a deliberately selected JSUT subset, and other explicitly licensed clips.
-- [ ] Do not mirror or re-host Common Voice in the app without re-checking its current terms; CC0 dataset metadata does not override the dataset service's no-rehosting rule.
-- [ ] Use VOICEVOX as a possible synthetic fallback only after checking the selected speaker's character-use terms; keep Open JTalk as the local BSD-licensed fallback.
+- [x] Verify Tatoeba and JSUT terms: Tatoeba audio is licensed per contributor/file
+  and needs attribution; JSUT permits personal/non-commercial research but does
+  not generally permit redistribution. Use only individually cleared Tatoeba
+  recordings or a small, justified JSUT subset; do not bulk mirror either.
+- [x] Keep Common Voice source-linked rather than mirrored or re-hosted; CC0
+  dataset metadata does not override the current dataset service terms.
+- [x] Verify the general VOICEVOX terms: future output may be used with required
+  VOICEVOX and voice-library/character credits, but selected voice terms remain
+  a per-voice gate. Keep Open JTalk as a future local fallback pending its own
+  current-term check.
 - [x] Store audio provenance with `source`, `speakerId`, `license`, `isSynthetic`, and `speed`, and map every clip to a reviewed vocabulary, grammar, reading, or listening target.
 - [x] Keep the fallback chain deterministic: approved remote recording when configured, otherwise BrowserSpeechProvider; reserve ServerTTSProvider for a later approved synthetic source.
 - [x] Keep audio archives, generated audio, and private book resources outside GitHub and the public deployment bundle; serve them only through the authenticated private storage route.
@@ -90,9 +99,10 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 
 - [x] Add a dedicated Immersion / 聞く surface instead of treating browser TTS
   as the listening curriculum.
-- [ ] Make **Erin's Challenge (Japan Foundation)** the first natural-dialogue
-  candidate for N5 situational listening; verify current script, MP3, video,
-  linking, and re-hosting terms before importing anything.
+- [ ] Curate and link **Erin's Challenge (Japan Foundation)** as the first
+  natural-dialogue candidate for N5 situational listening; terms are verified
+  for personal learning/linking, but scripts/MP3s/videos remain on the original
+  site unless a specific preservation or embedding permission is confirmed.
 - [x] Keep the source roles distinct: Erin's Challenge for beginner natural
   dialogue, Tatoeba for short sentence audio, Common Voice for speaker
   variation, CEJC for conversation-pattern research, JapanesePod101 only where
@@ -159,8 +169,9 @@ own terms and attribution rules.
   one unofficial level spine.
 - [x] Show licensed written-frequency signals in the learner entry and admin
   review surfaces.
-- [ ] Add licensed spoken-frequency signals after source and field semantics
-  are settled; begin with CEJC aggregate frequency values only.
+- [ ] Add additional licensed spoken-frequency signals after source and field
+  semantics are settled; CEJC aggregate values are wired, but no new corpus
+  values should be invented or copied into the learner bundle.
 - [x] Route pronunciation through browser speech by default, with remote audio
   and a reserved server-TTS provider behind the same UI controls.
 - [x] Persist audio metadata only: source type, optional external URL, speaker,
@@ -207,7 +218,8 @@ own terms and attribution rules.
 - [x] Restore allowlisted auth and opt-in per-user Supabase progress sync (apply `0014_sync_metadata.sql` before use).
 - [x] Add deeper AI explain/conversation/writing features after the core learning loop and content bank are strong.
 - [x] Provide a bounded 2-minute adaptive micro-session alongside the longer quick-drill presets.
-- [ ] Run the full build, typecheck, tests, and phone/desktop preview before deployment.
+- [x] Run the full build, typecheck, and tests locally.
+- [ ] Complete the phone/desktop preview before deployment.
 
 ## Books and source library
 

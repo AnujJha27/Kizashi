@@ -119,6 +119,39 @@ test("audio metadata is persisted without an audio blob", async () => {
   assert.doesNotMatch(migration, /bytea|blob/i);
 });
 
+test("I-JAS remains aggregate-only through Supabase and SQL export", async () => {
+  const migration = await readFile(new URL("../supabase/migrations/0019_ijas_aggregates.sql", import.meta.url), "utf8");
+  const types = await readFile(new URL("../lib/types.ts", import.meta.url), "utf8");
+  const content = await readFile(new URL("../lib/supabase/content.ts", import.meta.url), "utf8");
+  const renderer = await readFile(new URL("../scripts/render_supabase_content_sql.py", import.meta.url), "utf8");
+  assert.match(migration, /create table if not exists public\.learner_error_aggregates/);
+  assert.match(types, /learner_error_aggregates/);
+  assert.match(content, /from\("learner_error_aggregates"\)/);
+  assert.match(renderer, /learner_error_aggregates/);
+  assert.doesNotMatch(migration, /learner_id|user_id|transcript|audio_url/i);
+});
+
+test("approved package export carries only I-JAS aggregate signals", async () => {
+  const directory = await mkdtemp("/tmp/kizashi-ijas-sql-test-");
+  const packagePath = `${directory}/package.json`;
+  const outputPath = `${directory}/content.sql`;
+  try {
+    const packageData = JSON.parse(await readFile(new URL("../test/fixtures/unassigned-approved-package.json", import.meta.url), "utf8"));
+    packageData.course.chapters[0].lessons[0].itemIds.push("vocab-test");
+    packageData.sourceManifest[0].license = "Test-only license note";
+    packageData.learnerErrorAggregates = [{ pattern: "に", category: "location-vs-action", count: 12, sourceReference: "I-JAS aggregate review" }];
+    await writeFile(packagePath, JSON.stringify(packageData), "utf8");
+    await execFileAsync("python3", ["scripts/render_supabase_content_sql.py", "--approved", "--package", packagePath, "--output", outputPath]);
+    const sql = await readFile(outputPath, "utf8");
+    assert.match(sql, /insert into public\.learner_error_aggregates/);
+    assert.match(sql, /location-vs-action/);
+    const aggregateStatement = sql.slice(sql.indexOf("insert into public.learner_error_aggregates"), sql.indexOf(";", sql.indexOf("insert into public.learner_error_aggregates")));
+    assert.doesNotMatch(aggregateStatement, /learner_id|user_id|transcript|audio_url/i);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
 test("seed grammar contrast exercises close their PostgreSQL array literals", async () => {
   const seed = await readFile(new URL("../supabase/seed.sql", import.meta.url), "utf8");
   const firstContrastBlock = seed.slice(seed.indexOf("insert into public.grammar_contrasts"), seed.indexOf("on conflict (id) do nothing;", seed.indexOf("insert into public.grammar_contrasts")));

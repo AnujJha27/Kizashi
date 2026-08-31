@@ -59,7 +59,7 @@ export async function fetchSupabaseN5Module(seed: N5Module): Promise<N5Module | 
   const supabase = createSupabaseBrowserClient();
   if (!supabase) return null;
 
-  const [courseResult, chapterResult, lessonResult, itemResult, vocabularyResult, kanjiResult, grammarResult, contrastResult, readingResult, listeningResult, lessonItemResult, practiceQuestionResult, sourceLinkResult, classificationResult, sourceResult] = await Promise.all([
+  const [courseResult, chapterResult, lessonResult, itemResult, vocabularyResult, kanjiResult, grammarResult, contrastResult, readingResult, listeningResult, lessonItemResult, practiceQuestionResult, sourceLinkResult, classificationResult, learnerErrorAggregateResult, sourceResult] = await Promise.all([
     supabase.from("courses").select("*").eq("slug", seed.course.slug).maybeSingle(),
     supabase.from("chapters").select("*").order("sort_order"),
     supabase.from("lessons").select("*").order("sort_order"),
@@ -74,6 +74,7 @@ export async function fetchSupabaseN5Module(seed: N5Module): Promise<N5Module | 
     supabase.from("practice_questions").select("*").eq("validation_status", "validated"),
     supabase.from("learning_item_sources").select("item_id, source_id"),
     supabase.from("curriculum_classifications").select("*"),
+    supabase.from("learner_error_aggregates").select("*").order("count", { ascending: false }),
     supabase.from("content_sources").select("*"),
   ]);
 
@@ -166,6 +167,7 @@ export async function fetchSupabaseN5Module(seed: N5Module): Promise<N5Module | 
     readings,
     listening,
     practiceQuestions,
+    learnerErrorAggregates: learnerErrorAggregateResult.error ? seed.learnerErrorAggregates ?? [] : (learnerErrorAggregateResult.data ?? []).map((row) => ({ pattern: row.pattern, category: row.category, count: row.count, sourceReference: row.source_reference, notes: row.notes ?? undefined })),
     sourceManifest,
   };
 }
