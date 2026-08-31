@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import { AIGenerator } from "@/components/content/ai-generator";
 import { ContentRecordEditor, type EditableKind } from "@/components/content/content-record-editor";
@@ -23,7 +23,7 @@ import { contentSources, getCurriculumBand } from "@/lib/jlpt";
 import { readMistakes, readReviewRecords } from "@/lib/session";
 import { rankContentCandidates } from "@/lib/content-priority.js";
 import { getN5PracticeCoverage, migrateLegacyQuestionPrompts } from "@/lib/questions";
-import type { ContentReviewStatus, ContentSource, ExerciseValidationStatus, LearningCategory, N5Module, PracticeQuestion } from "@/lib/types";
+import type { ContentReviewStatus, ContentSource, ExampleSentence, ExerciseValidationStatus, LearningCategory, N5Module, PracticeQuestion } from "@/lib/types";
 
 type DraftKind = LearningCategory | "grammarContrast" | "lesson";
 type ReviewMetadata = { reviewedBy: string; reviewNotes: string };
@@ -94,22 +94,74 @@ function itemPreview(item: LessonContentItem) {
   return { japanese: item.title, reading: "", detail: item.situation };
 }
 
-function ContentReviewCard({ item, sourceById, onEdit, onReview }: Readonly<{
-  item: LessonContentItem & { reason: string };
+type ReviewItem = LessonContentItem & { reason: string };
+
+function sourceProvenance(item: LessonContentItem, sourceById: Map<string, ContentSource>) {
+  return (item.sourceIds ?? []).map((id) => {
+    const source = sourceById.get(id);
+    return source ? source.name + (source.sha256 ? " · " + source.sha256.slice(0, 12) : "") : id;
+  }).join(" · ");
+}
+
+function ReviewField({ label, children }: Readonly<{ label: string; children: ReactNode }>) {
+  return <div className="rounded-lg border border-white/10 bg-[#101b2b]/60 p-3"><p className="text-[10px] font-semibold uppercase tracking-[.12em] text-[#e5b85c]">{label}</p><div className="mt-2 text-sm leading-6 text-[#c3c7ce]">{children}</div></div>;
+}
+
+function ReviewPills({ values }: Readonly<{ values: string[] }>) {
+  return values.length ? <div className="flex flex-wrap gap-2">{values.map((value) => <span key={value} className="rounded-md bg-[#17181d] px-2 py-1 text-xs text-[#c3c7ce]">{value}</span>)}</div> : <span className="text-[#676c75]">None recorded.</span>;
+}
+
+function ReviewExamples({ examples }: Readonly<{ examples: ExampleSentence[] }>) {
+  return <section><p className="text-[10px] font-semibold uppercase tracking-[.12em] text-[#e5b85c]">Examples</p><div className="mt-2 space-y-2">{examples.length ? examples.map((example, index) => <div key={`${example.japanese}-${index}`} className="rounded-lg border border-white/10 bg-[#101b2b]/60 p-3"><p className="jp-serif text-base text-[#f5f5f2]">{example.japanese}</p><p className="mt-1 text-xs text-[#9297a1]">{example.translation}</p>{example.note ? <p className="mt-1 text-[11px] text-[#e5b85c]">{example.note}</p> : null}</div>) : <p className="text-sm text-[#676c75]">None recorded.</p>}</div></section>;
+}
+
+function ReviewQuestions({ questions }: Readonly<{ questions: Array<{ prompt: string; choices: string[]; correctAnswer: number; questionType?: string; explanation?: string }> }>) {
+  return <section><p className="text-[10px] font-semibold uppercase tracking-[.12em] text-[#e5b85c]">Questions</p><div className="mt-2 space-y-2">{questions.length ? questions.map((question, index) => <div key={`${question.prompt}-${index}`} className="rounded-lg border border-white/10 bg-[#101b2b]/60 p-3"><p className="text-sm text-[#f5f5f2]">{question.prompt}</p>{question.questionType ? <p className="mt-1 text-[10px] uppercase tracking-[.1em] text-[#676c75]">{question.questionType}</p> : null}<div className="mt-2 flex flex-wrap gap-2">{question.choices.map((choice, choiceIndex) => <span key={`${choice}-${choiceIndex}`} className={`rounded-md px-2 py-1 text-xs ${choiceIndex === question.correctAnswer ? "bg-[#183225] text-[#8bcca6]" : "bg-[#17181d] text-[#9297a1]"}`}>{choice}</span>)}</div>{question.explanation ? <p className="mt-2 text-xs leading-5 text-[#9297a1]">{question.explanation}</p> : null}</div>) : <p className="text-sm text-[#676c75]">None recorded.</p>}</div></section>;
+}
+
+function ReadableRecord({ item }: Readonly<{ item: LessonContentItem }>) {
+  if (item.category === "vocabulary") return <div className="space-y-4"><div className="grid gap-3 sm:grid-cols-3"><ReviewField label="Japanese"><span className="jp-serif text-xl text-[#f5f5f2]">{item.writtenForm}</span></ReviewField><ReviewField label="Reading"><span className="jp-serif text-xl text-[#f5f5f2]">{item.reading}</span></ReviewField><ReviewField label="Part of speech">{item.partOfSpeech}</ReviewField></div><ReviewField label="Meanings"><ReviewPills values={item.meanings} /></ReviewField><ReviewExamples examples={item.exampleSentences} /><div className="grid gap-3 sm:grid-cols-3"><ReviewField label="Collocations"><ReviewPills values={item.collocations} /></ReviewField><ReviewField label="Related words"><ReviewPills values={item.relatedWords} /></ReviewField><ReviewField label="Antonyms"><ReviewPills values={item.antonyms} /></ReviewField></div>{item.notes ? <ReviewField label="Notes">{item.notes}</ReviewField> : null}</div>;
+  if (item.category === "kanji") return <div className="space-y-4"><div className="grid gap-3 sm:grid-cols-3"><ReviewField label="Character"><span className="jp-serif text-4xl text-[#f5f5f2]">{item.character}</span></ReviewField><ReviewField label="On'yomi"><ReviewPills values={item.onyomi} /></ReviewField><ReviewField label="Kun'yomi"><ReviewPills values={item.kunyomi} /></ReviewField></div><ReviewField label="Meanings"><ReviewPills values={item.meanings} /></ReviewField><ReviewField label="Useful words"><div className="space-y-2">{item.usefulWords.length ? item.usefulWords.map((word) => <div key={`${word.word}-${word.reading}`}><span className="jp-serif text-base text-[#f5f5f2]">{word.word}</span><span className="ml-2 text-xs text-[#e5b85c]">{word.reading}</span><span className="ml-2 text-xs text-[#9297a1]">{word.meaning}</span></div>) : <span className="text-[#676c75]">None recorded.</span>}</div></ReviewField><div className="grid gap-3 sm:grid-cols-3"><ReviewField label="Stroke count">{item.strokeCount ?? "Not recorded"}</ReviewField><ReviewField label="Grade">{item.grade ?? "Not recorded"}</ReviewField><ReviewField label="Radical">{item.radical ?? "Not recorded"}</ReviewField></div>{item.mnemonic ? <ReviewField label="Mnemonic">{item.mnemonic}</ReviewField> : null}</div>;
+  if (item.category === "grammar") return <div className="space-y-4"><div className="grid gap-3 sm:grid-cols-2"><ReviewField label="Pattern"><span className="jp-serif text-xl text-[#f5f5f2]">{item.pattern}</span></ReviewField><ReviewField label="Meaning">{item.meaning}</ReviewField></div><ReviewField label="Formation">{item.formation}</ReviewField><ReviewField label="Intuition">{item.intuition}</ReviewField><ReviewField label="Usage conditions"><ul className="list-disc space-y-1 pl-5">{item.usageConditions.map((condition) => <li key={condition}>{condition}</li>)}</ul></ReviewField><ReviewExamples examples={item.examples} /><ReviewField label="Common mistakes"><ReviewPills values={item.commonMistakes} /></ReviewField><div className="grid gap-3 sm:grid-cols-2"><ReviewField label="Contrast IDs"><ReviewPills values={item.contrastIds} /></ReviewField><ReviewField label="Practice question IDs"><ReviewPills values={item.practiceQuestionIds} /></ReviewField></div></div>;
+  if (item.category === "reading") return <div className="space-y-4"><ReviewField label="Passage"><p className="jp-serif whitespace-pre-wrap text-base text-[#f5f5f2]">{item.passage}</p></ReviewField><ReviewField label="Translation">{item.translation}</ReviewField><div className="grid gap-3 sm:grid-cols-3"><ReviewField label="Vocabulary links"><ReviewPills values={item.vocabularyIds} /></ReviewField><ReviewField label="Grammar links"><ReviewPills values={item.grammarIds} /></ReviewField><ReviewField label="Kanji links"><ReviewPills values={item.kanjiIds} /></ReviewField></div><ReviewQuestions questions={(item.questions ?? []).map((question) => ({ ...question, choices: question.options }))} /></div>;
+  return <div className="space-y-4"><div className="grid gap-3 sm:grid-cols-3"><ReviewField label="Situation">{item.situation}</ReviewField><ReviewField label="Source type">{item.sourceType}</ReviewField><ReviewField label="Voice / rate">{item.voice} · {item.speed}×</ReviewField></div><ReviewField label="Transcript"><p className="whitespace-pre-wrap text-[#f5f5f2]">{item.transcript}</p></ReviewField><ReviewQuestions questions={item.questions.map((question) => ({ ...question, choices: question.answers }))} /></div>;
+}
+
+function ContentReviewModal({ item, sourceById, onClose, onEdit, onReview }: Readonly<{
+  item: ReviewItem;
   sourceById: Map<string, ContentSource>;
+  onClose: () => void;
   onEdit: (kind?: EditableKind, id?: string) => void;
   onReview?: (id: string, status: ContentReviewStatus) => void;
 }>) {
   const preview = itemPreview(item);
   const reviewStatus = getContentReviewStatus(item);
   const itemBand = getCurriculumBand(item);
-  const provenance = (item.sourceIds ?? []).map((id) => {
-    const source = sourceById.get(id);
-    return source ? source.name + (source.sha256 ? " · " + source.sha256.slice(0, 12) : "") : id;
-  }).join(" · ");
+  const provenance = sourceProvenance(item, sourceById);
 
-  return <details className="group rounded-lg border border-white/10 bg-[#101b2b]/75 text-left transition open:border-[#e5b85c]/60">
-    <summary className="cursor-pointer list-none p-3 outline-none focus-visible:ring-2 focus-visible:ring-[#e5b85c]/60">
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") onClose(); };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    return () => { document.body.style.overflow = previousOverflow; window.removeEventListener("keydown", closeOnEscape); };
+  }, [onClose]);
+
+  return <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-[#05070b]/75 p-4 backdrop-blur-md sm:p-8" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}><section role="dialog" aria-modal="true" aria-labelledby={`content-review-${item.id}`} className="my-4 w-full max-w-4xl overflow-hidden rounded-2xl border border-[#e5b85c]/60 bg-[#0d1522] shadow-[0_24px_90px_rgba(0,0,0,.55)]"><div className="flex items-start justify-between gap-4 border-b border-white/10 bg-[#101b2b] px-5 py-4 sm:px-7"><div><p className="eyebrow">Content review · {item.category}</p><h2 id={`content-review-${item.id}`} className="jp-serif mt-1 text-2xl text-[#f5f5f2]">{preview.reading ? <ruby>{preview.japanese}<rt className="text-[.45em] text-[#e5b85c]">{preview.reading}</rt></ruby> : preview.japanese}</h2><p className="mt-1 text-xs text-[#9297a1]">{item.title}</p></div><button type="button" autoFocus onClick={onClose} aria-label="Close content review" className="rounded-lg border border-[#3f4652] px-3 py-2 text-xl leading-none text-[#c3c7ce] hover:border-[#e5b85c] hover:text-[#f1cf7c]">×</button></div><div className="max-h-[calc(100vh-9rem)] space-y-5 overflow-y-auto p-5 sm:p-7"><div className="grid gap-3 sm:grid-cols-3"><ReviewField label="Status"><span className={reviewStatus === "pending" ? "text-[#e5b85c]" : reviewStatus === "approved" ? "text-[#8bcca6]" : "text-[#ef675d]"}>{reviewStatus}</span></ReviewField><ReviewField label="Level">{item.jlptLevel ?? "Unassigned"}</ReviewField><ReviewField label="Difficulty">{item.difficulty} / 5</ReviewField></div><div className="grid gap-3 sm:grid-cols-2"><ReviewField label="Source">{provenance || "Not recorded"}</ReviewField><ReviewField label="Classification">{item.classification ? `${item.classification.level} · ${item.classification.band} · ${item.classification.confidence}${item.classification.conflict ? " · conflict" : ""}` : `${itemBand} · inferred`}</ReviewField></div><ReviewField label="Why this surfaced">{item.reason}</ReviewField><ReadableRecord item={item} />{onReview && reviewStatus === "pending" ? <div className="flex flex-wrap gap-2 border-t border-white/10 pt-5"><button type="button" onClick={() => onReview(item.id, "approved")} className="rounded-lg bg-[#6fb98f] px-4 py-2.5 text-xs font-semibold text-[#0b0b0d] hover:bg-[#8bcca6]">Approve</button><button type="button" onClick={() => onReview(item.id, "rejected")} className="rounded-lg border border-[#713b37] px-4 py-2.5 text-xs font-semibold text-[#ef675d] hover:border-[#ef675d]">Reject</button></div> : null}<div className="flex flex-wrap gap-2 border-t border-white/10 pt-5"><button type="button" onClick={() => { onClose(); onEdit(item.category, item.id); }} className="rounded-lg border border-[#e5b85c] px-4 py-2.5 text-xs font-semibold text-[#f1cf7c] hover:bg-[#302818]">Edit record</button><button type="button" onClick={onClose} className="rounded-lg border border-[#3f4652] px-4 py-2.5 text-xs text-[#c3c7ce] hover:border-[#e5b85c]">Close</button></div></div></section></div>;
+}
+
+function ContentReviewCard({ item, sourceById, onOpen }: Readonly<{
+  item: ReviewItem;
+  sourceById: Map<string, ContentSource>;
+  onOpen: (item: ReviewItem) => void;
+}>) {
+  const preview = itemPreview(item);
+  const reviewStatus = getContentReviewStatus(item);
+  const itemBand = getCurriculumBand(item);
+  const provenance = sourceProvenance(item, sourceById);
+
+  return <article className="rounded-lg border border-white/10 bg-[#101b2b]/75 text-left transition hover:border-[#e5b85c]/60">
+    <button type="button" onClick={() => onOpen(item)} className="block w-full p-3 text-left outline-none focus-visible:ring-2 focus-visible:ring-[#e5b85c]/60">
       <div className="flex items-start justify-between gap-3">
         <span className="jp-serif text-xl text-[#f5f5f2]">{preview.reading ? <ruby>{preview.japanese}<rt className="text-[.45em] text-[#e5b85c]">{preview.reading}</rt></ruby> : preview.japanese}</span>
         <div className="flex shrink-0 flex-col items-end gap-1 text-[10px] uppercase tracking-[.12em]">
@@ -127,16 +179,8 @@ function ContentReviewCard({ item, sourceById, onEdit, onReview }: Readonly<{
         <span className="truncate font-mono text-[10px] text-[#676c75]">{item.id}</span>
         <span className="shrink-0 text-[10px] uppercase tracking-[.1em] text-[#e5b85c]">Click to expand</span>
       </div>
-    </summary>
-    <div className="border-t border-white/10 p-3">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="text-xs font-semibold uppercase tracking-[.1em] text-[#e5b85c]">Full record</p>
-        <button type="button" onClick={() => onEdit(item.category, item.id)} className="rounded-lg border border-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#f1cf7c] hover:bg-[#302818]">Edit record</button>
-      </div>
-      <pre className="mt-3 max-h-96 overflow-auto whitespace-pre-wrap break-words rounded-lg border border-white/10 bg-[#0d1522]/90 p-3 font-mono text-[11px] leading-5 text-[#c3c7ce]">{JSON.stringify(item, null, 2)}</pre>
-      {onReview && reviewStatus === "pending" ? <div className="mt-3 flex gap-2 border-t border-white/10 pt-3"><button type="button" onClick={() => onReview(item.id, "approved")} className="rounded-lg bg-[#6fb98f] px-3 py-2 text-xs font-semibold text-[#0b0b0d] hover:bg-[#8bcca6]">Approve</button><button type="button" onClick={() => onReview(item.id, "rejected")} className="rounded-lg border border-[#713b37] px-3 py-2 text-xs font-semibold text-[#ef675d] hover:border-[#ef675d]">Reject</button></div> : null}
-    </div>
-  </details>;
+    </button>
+  </article>;
 }
 
 function ContentReview({ module, onEdit, onReview }: Readonly<{ module: N5Module; onEdit: (kind?: EditableKind, id?: string) => void; onReview?: (id: string, status: ContentReviewStatus) => void }>) {
@@ -146,6 +190,7 @@ function ContentReview({ module, onEdit, onReview }: Readonly<{ module: N5Module
   const [sourceFilter, setSourceFilter] = useState("all");
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(0);
+  const [expandedItem, setExpandedItem] = useState<ReviewItem | null>(null);
   const allItems = getModuleItems(module);
   const pendingItems = allItems.filter((item) => getContentReviewStatus(item) === "pending");
   const sourceOptions = [...new Set(allItems.flatMap((item) => item.sourceIds ?? []))].sort();
@@ -162,7 +207,7 @@ function ContentReview({ module, onEdit, onReview }: Readonly<{ module: N5Module
   const pageCount = Math.ceil(rankedItems.length / pageSize);
   const items = rankedItems.slice(page * pageSize, (page + 1) * pageSize);
   const sourceById = new Map((module.sourceManifest ?? []).map((source) => [source.id, source]));
-  useEffect(() => setPage(0), [statusFilter, levelFilter, bandFilter, sourceFilter, query]);
+  useEffect(() => { setPage(0); setExpandedItem(null); }, [statusFilter, levelFilter, bandFilter, sourceFilter, query]);
 
   return <div className="rounded-xl border border-white/10 bg-[#0d1522]/65 p-4">
     <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
@@ -205,7 +250,7 @@ function ContentReview({ module, onEdit, onReview }: Readonly<{ module: N5Module
         <span className="text-xs text-[#9297a1]">Page {page + 1} of {pageCount}</span>
         <button type="button" disabled={page === pageCount - 1} onClick={() => setPage((current) => current + 1)} className="rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce] enabled:hover:border-[#e5b85c] disabled:cursor-not-allowed disabled:opacity-40">Next</button>
       </div> : null}
-    </div><div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">{items.map((item) => <ContentReviewCard key={item.id} item={item} sourceById={sourceById} onEdit={onEdit} onReview={onReview} />)}</div></>}
+    </div><div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">{items.map((item) => <ContentReviewCard key={item.id} item={item} sourceById={sourceById} onOpen={setExpandedItem} />)}</div></>}{expandedItem ? <ContentReviewModal item={expandedItem} sourceById={sourceById} onClose={() => setExpandedItem(null)} onEdit={(kind, id) => { setExpandedItem(null); onEdit(kind, id); }} onReview={onReview} /> : null}
   </div>;
 }
 

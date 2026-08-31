@@ -192,13 +192,15 @@ test("Studio exposes every pending question through a searchable paged review qu
   assert.doesNotMatch(studio, /questions\.slice\(0, 20\)/);
 });
 
-test("content review cards expand to show the full record before approval", async () => {
+test("content review cards open a readable modal before approval", async () => {
   const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
   assert.match(studio, /<ContentReviewCard key=\{item\.id\}/);
-  assert.match(studio, /<details className=/);
-  assert.match(studio, /<summary/);
-  assert.match(studio, /Full record/);
-  assert.match(studio, /JSON\.stringify\(item, null, 2\)/);
+  assert.match(studio, /role="dialog"/);
+  assert.match(studio, /aria-modal="true"/);
+  assert.match(studio, /backdrop-blur/);
+  assert.match(studio, /ReadableRecord/);
+  assert.doesNotMatch(studio, /<details className=/);
+  assert.doesNotMatch(studio, /JSON\.stringify\(item, null, 2\)/);
   assert.match(studio, /Edit record/);
 });
 
