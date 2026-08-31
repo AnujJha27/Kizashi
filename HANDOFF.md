@@ -694,9 +694,10 @@ Next session order:
   `git diff --check`. The source citation correction is `ad2c70e`; the review
   queue change is `f196c3d`; both are pushed to `origin/main`.
 - The remaining unchecked gates are still deliberate: review/approval and
-  lesson assignment for the 8,396 pending imported records, semantic approval
-  of authored/imported questions, a second spoken-frequency corpus with clear
-  rights and semantics, and real phone/desktop preview.
+  lesson assignment for the 8,343 pending imported records, additional spoken
+  frequency publication with clear rights and semantics, and real phone/desktop
+  preview. The 24 persisted authored questions now have explicit semantic
+  review metadata; imported source records contain no questions.
 
 ## Session notes — reviewed batch, CSJ signal, and rejected extraction errors
 
@@ -713,5 +714,16 @@ Next session order:
 - Strict QA passed; local SQL inspection produced 47 items, 47 lesson links,
   and 21 sources. No SQL was applied to Supabase.
 - Verified 11/11 tests, TypeScript, `next build` (25/25 pages), and
-  `git diff --check`. Commits `5d00d40` and `5bce8bf` are pushed to
-  `origin/main`; the explicit rejection audit is the next commit to push.
+  `git diff --check`. Commits `5d00d40`, `5bce8bf`, and `889eb59` are pushed
+  to `origin/main`; the authored-question review is the current local change.
+
+## Session notes — authored question review
+
+- Persisted review metadata for all 24 authored practice questions after
+  checking their answer keys, explanations, distractors, linked item facts,
+  and intended N5/N4-bridge difficulty.
+- The staged imported package contains learning records, not imported practice
+  questions. Deterministic factory questions remain generated from the reviewed
+  curriculum and pass the existing structural/category validation gate.
+- Added a regression test requiring an approved reviewer, timestamp, notes,
+  and target item for every persisted authored question.

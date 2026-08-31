@@ -121,6 +121,13 @@ test("original context coverage is long enough and stays linked", () => {
   assert.ok(authoredQuestions.every((question) => itemIds.has(question.itemId)));
 });
 
+test("every persisted authored question has a semantic review decision", () => {
+  assert.equal(authoredQuestions.length, 24);
+  assert.ok(authoredQuestions.every((question) => question.review?.status === "approved"));
+  assert.ok(authoredQuestions.every((question) => question.review?.reviewedBy && question.review?.reviewedAt && question.review?.reviewNotes));
+  assert.ok(authoredQuestions.every((question) => question.review?.targetItemIds?.includes(question.itemId)));
+});
+
 test("database seed includes RLS and all user-owned foundations", async () => {
   const schema = await readFile(new URL("../supabase/migrations/0001_michi_foundation.sql", import.meta.url), "utf8");
   for (const table of ["user_item_progress", "reviews", "review_history", "mistakes", "notes", "study_sessions", "study_events"]) {

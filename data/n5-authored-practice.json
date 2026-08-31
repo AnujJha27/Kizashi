@@ -1,26 +1,832 @@
 [
-  { "id": "grammar-ta-form-meaning", "itemId": "grammar-ta-form", "category": "grammar", "questionType": "meaning", "jlptLevel": "N4", "prompt": "What does Vた express?", "options": ["a finished plain action", "a polite request", "a present habit", "a question"], "correctIndex": 0, "explanation": "The plain た form describes an action that has already finished.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "grammar-ta-form-completion", "itemId": "grammar-ta-form", "category": "grammar", "questionType": "sentence completion", "jlptLevel": "N4", "prompt": "昨日、映画を見___。", "options": ["た", "て", "ます", "ない"], "correctIndex": 0, "explanation": "見た is the plain past form of 見る.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "grammar-ta-form-order", "itemId": "grammar-ta-form", "category": "grammar", "questionType": "sentence ordering", "jlptLevel": "N4", "prompt": "Build the natural sentence.", "options": ["昨日", "映画を", "見た。"], "correctIndex": 0, "tokens": ["昨日", "映画を", "見た。"], "correctOrder": [0, 1, 2], "explanation": "昨日 sets the time, 映画を is the object, and 見た closes the plain-past sentence.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "grammar-mae-ni-meaning", "itemId": "grammar-mae-ni", "category": "grammar", "questionType": "meaning", "jlptLevel": "N4", "prompt": "What does Vる前に express?", "options": ["before doing V", "after doing V", "while doing V", "wanting to do V"], "correctIndex": 0, "explanation": "前に places the action before a later reference action.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "grammar-mae-ni-completion", "itemId": "grammar-mae-ni", "category": "grammar", "questionType": "sentence completion", "jlptLevel": "N4", "prompt": "寝る___、本を読みます。", "options": ["前に", "あとで", "とき", "ながら"], "correctIndex": 0, "explanation": "寝る前に means before going to bed.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "grammar-mae-ni-order", "itemId": "grammar-mae-ni", "category": "grammar", "questionType": "sentence ordering", "jlptLevel": "N4", "prompt": "Build the natural sentence.", "options": ["寝る前に", "本を", "読みます。"], "correctIndex": 0, "tokens": ["寝る前に", "本を", "読みます。"], "correctOrder": [0, 1, 2], "explanation": "The dictionary-form action comes before 前に, followed by the main action.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "grammar-ato-de-meaning", "itemId": "grammar-ato-de", "category": "grammar", "questionType": "meaning", "jlptLevel": "N4", "prompt": "What does Vたあとで express?", "options": ["after doing V", "before doing V", "while doing V", "a polite invitation"], "correctIndex": 0, "explanation": "あとで follows a completed action and introduces what happens later.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "grammar-ato-de-completion", "itemId": "grammar-ato-de", "category": "grammar", "questionType": "sentence completion", "jlptLevel": "N4", "prompt": "ご飯を食べた___、勉強します。", "options": ["あとで", "前に", "とき", "ながら"], "correctIndex": 0, "explanation": "食べたあとで means after eating.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "grammar-ato-de-order", "itemId": "grammar-ato-de", "category": "grammar", "questionType": "sentence ordering", "jlptLevel": "N4", "prompt": "Build the natural sentence.", "options": ["ご飯を食べたあとで", "勉強します。"], "correctIndex": 0, "tokens": ["ご飯を食べたあとで", "勉強します。"], "correctOrder": [0, 1], "explanation": "The finished action comes first, then the action that happens later.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "grammar-toki-meaning", "itemId": "grammar-toki", "category": "grammar", "questionType": "meaning", "jlptLevel": "N4", "prompt": "What does とき do in Vとき?", "options": ["frames when a situation happens", "marks a direct object", "shows possession", "asks for permission"], "correctIndex": 0, "explanation": "とき frames the time or situation in which the main action happens.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "grammar-toki-completion", "itemId": "grammar-toki", "category": "grammar", "questionType": "sentence completion", "jlptLevel": "N4", "prompt": "寒い___、家にいます。", "options": ["とき", "あとで", "前に", "ながら"], "correctIndex": 0, "explanation": "寒いとき means when it is cold.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "grammar-toki-order", "itemId": "grammar-toki", "category": "grammar", "questionType": "sentence ordering", "jlptLevel": "N4", "prompt": "Build the natural sentence.", "options": ["寒いとき", "家に", "います。"], "correctIndex": 0, "tokens": ["寒いとき", "家に", "います。"], "correctOrder": [0, 1, 2], "explanation": "とき frames the condition before the main action.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "grammar-nagara-meaning", "itemId": "grammar-nagara", "category": "grammar", "questionType": "meaning", "jlptLevel": "N4", "prompt": "What does Vながら express?", "options": ["while doing V", "before doing V", "a finished plain action", "a comparison"], "correctIndex": 0, "explanation": "ながら joins two actions happening at the same time, with the later action as the focus.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "grammar-nagara-completion", "itemId": "grammar-nagara", "category": "grammar", "questionType": "sentence completion", "jlptLevel": "N4", "prompt": "音楽を聞き___、勉強します。", "options": ["ながら", "とき", "あとで", "前に"], "correctIndex": 0, "explanation": "聞きながら means while listening.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "grammar-nagara-order", "itemId": "grammar-nagara", "category": "grammar", "questionType": "sentence ordering", "jlptLevel": "N4", "prompt": "Build the natural sentence.", "options": ["音楽を聞きながら", "勉強します。"], "correctIndex": 0, "tokens": ["音楽を聞きながら", "勉強します。"], "correctOrder": [0, 1], "explanation": "ながら joins the simultaneous action to the main action.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "vocab-byouin-meaning", "itemId": "vocab-byouin", "category": "vocabulary", "questionType": "meaning", "jlptLevel": "N5", "prompt": "What does 病院 mean?", "options": ["hospital", "doctor", "medicine", "classroom"], "correctIndex": 0, "explanation": "病院 (びょういん) means hospital.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "vocab-byouin-reading-recall", "itemId": "vocab-byouin", "category": "vocabulary", "questionType": "kana recall", "jlptLevel": "N5", "prompt": "Type the reading for 病院.", "options": [], "correctIndex": 0, "answerMode": "text", "acceptedAnswers": ["びょういん"], "answerPlaceholder": "ひらがな", "explanation": "病院 is read びょういん.", "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "kanji-byou-reading", "itemId": "kanji-byou", "category": "kanji", "questionType": "kanji reading", "jlptLevel": "N5", "prompt": "Choose one reading for 病.", "options": ["ビョウ", "イン", "キョウ", "ヤク"], "correctIndex": 0, "explanation": "病 is read ビョウ in 病院 (びょういん).", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "kanji-byou-reading-recall", "itemId": "kanji-byou", "category": "kanji", "questionType": "kana recall", "jlptLevel": "N5", "prompt": "Type one reading for 病.", "options": [], "correctIndex": 0, "answerMode": "text", "acceptedAnswers": ["ビョウ", "びょう"], "answerPlaceholder": "かな or 音読み", "explanation": "病 can be read ビョウ in useful words such as 病院.", "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "kanji-byou-word", "itemId": "kanji-byou", "category": "kanji", "questionType": "orthography", "jlptLevel": "N5", "prompt": "Which word is read びょういん?", "options": ["病院", "教室", "音楽", "春"], "correctIndex": 0, "explanation": "病院 is read びょういん and means hospital.", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "reading-school-and-health-question-0", "itemId": "reading-school-and-health", "category": "reading", "questionType": "short passage detail", "jlptLevel": "N4", "prompt": "学校のあとで、どこへ行きましたか。", "options": ["大学", "病院", "駅", "映画館"], "correctIndex": 1, "explanation": "午後、病院へ行きました。", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "reading-school-and-health-question-1", "itemId": "reading-school-and-health", "category": "reading", "questionType": "information retrieval", "jlptLevel": "N4", "prompt": "家で何を飲みましたか。", "options": ["水", "薬", "お茶", "牛乳"], "correctIndex": 1, "explanation": "家で薬を飲みました。", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "listening-health-appointment-question-0", "itemId": "listening-health-appointment", "category": "listening", "questionType": "key point", "jlptLevel": "N4", "prompt": "Aさんはどこが痛いですか。", "options": ["頭", "体", "足", "手"], "correctIndex": 0, "audioText": "A：頭が痛いです。病院へ行きたいです。\nB：予約がありますか。\nA：いいえ、ありません。\nB：では、午後二時に来てください。", "explanation": "頭が痛いです。", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" },
-  { "id": "listening-health-appointment-question-1", "itemId": "listening-health-appointment", "category": "listening", "questionType": "quick response", "jlptLevel": "N4", "prompt": "Aさんは予約がありますか。", "options": ["はい、あります", "いいえ、ありません", "午後二時です", "病院です"], "correctIndex": 1, "audioText": "A：頭が痛いです。病院へ行きたいです。\nB：予約がありますか。\nA：いいえ、ありません。\nB：では、午後二時に来てください。", "explanation": "いいえ、ありません。", "answerMode": "choice", "acceptedAnswers": [], "validationStatus": "validated", "generatedBy": "michi-authored-seed" }
+  {
+    "id": "grammar-ta-form-meaning",
+    "itemId": "grammar-ta-form",
+    "category": "grammar",
+    "questionType": "meaning",
+    "jlptLevel": "N4",
+    "prompt": "What does Vた express?",
+    "options": [
+      "a finished plain action",
+      "a polite request",
+      "a present habit",
+      "a question"
+    ],
+    "correctIndex": 0,
+    "explanation": "The plain た form describes an action that has already finished.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "grammar-ta-form"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, form, answer key, distractors, and N4 bridge difficulty checked against the linked grammar item."
+    }
+  },
+  {
+    "id": "grammar-ta-form-completion",
+    "itemId": "grammar-ta-form",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "昨日、映画を見___。",
+    "options": [
+      "た",
+      "て",
+      "ます",
+      "ない"
+    ],
+    "correctIndex": 0,
+    "explanation": "見た is the plain past form of 見る.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "grammar-ta-form"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, form, answer key, distractors, and N4 bridge difficulty checked against the linked grammar item."
+    }
+  },
+  {
+    "id": "grammar-ta-form-order",
+    "itemId": "grammar-ta-form",
+    "category": "grammar",
+    "questionType": "sentence ordering",
+    "jlptLevel": "N4",
+    "prompt": "Build the natural sentence.",
+    "options": [
+      "昨日",
+      "映画を",
+      "見た。"
+    ],
+    "correctIndex": 0,
+    "tokens": [
+      "昨日",
+      "映画を",
+      "見た。"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "昨日 sets the time, 映画を is the object, and 見た closes the plain-past sentence.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "grammar-ta-form"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, form, answer key, distractors, and N4 bridge difficulty checked against the linked grammar item."
+    }
+  },
+  {
+    "id": "grammar-mae-ni-meaning",
+    "itemId": "grammar-mae-ni",
+    "category": "grammar",
+    "questionType": "meaning",
+    "jlptLevel": "N4",
+    "prompt": "What does Vる前に express?",
+    "options": [
+      "before doing V",
+      "after doing V",
+      "while doing V",
+      "wanting to do V"
+    ],
+    "correctIndex": 0,
+    "explanation": "前に places the action before a later reference action.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "grammar-mae-ni"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, form, answer key, distractors, and N4 bridge difficulty checked against the linked grammar item."
+    }
+  },
+  {
+    "id": "grammar-mae-ni-completion",
+    "itemId": "grammar-mae-ni",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "寝る___、本を読みます。",
+    "options": [
+      "前に",
+      "あとで",
+      "とき",
+      "ながら"
+    ],
+    "correctIndex": 0,
+    "explanation": "寝る前に means before going to bed.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "grammar-mae-ni"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, form, answer key, distractors, and N4 bridge difficulty checked against the linked grammar item."
+    }
+  },
+  {
+    "id": "grammar-mae-ni-order",
+    "itemId": "grammar-mae-ni",
+    "category": "grammar",
+    "questionType": "sentence ordering",
+    "jlptLevel": "N4",
+    "prompt": "Build the natural sentence.",
+    "options": [
+      "寝る前に",
+      "本を",
+      "読みます。"
+    ],
+    "correctIndex": 0,
+    "tokens": [
+      "寝る前に",
+      "本を",
+      "読みます。"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "The dictionary-form action comes before 前に, followed by the main action.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "grammar-mae-ni"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, form, answer key, distractors, and N4 bridge difficulty checked against the linked grammar item."
+    }
+  },
+  {
+    "id": "grammar-ato-de-meaning",
+    "itemId": "grammar-ato-de",
+    "category": "grammar",
+    "questionType": "meaning",
+    "jlptLevel": "N4",
+    "prompt": "What does Vたあとで express?",
+    "options": [
+      "after doing V",
+      "before doing V",
+      "while doing V",
+      "a polite invitation"
+    ],
+    "correctIndex": 0,
+    "explanation": "あとで follows a completed action and introduces what happens later.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "grammar-ato-de"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, form, answer key, distractors, and N4 bridge difficulty checked against the linked grammar item."
+    }
+  },
+  {
+    "id": "grammar-ato-de-completion",
+    "itemId": "grammar-ato-de",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "ご飯を食べた___、勉強します。",
+    "options": [
+      "あとで",
+      "前に",
+      "とき",
+      "ながら"
+    ],
+    "correctIndex": 0,
+    "explanation": "食べたあとで means after eating.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "grammar-ato-de"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, form, answer key, distractors, and N4 bridge difficulty checked against the linked grammar item."
+    }
+  },
+  {
+    "id": "grammar-ato-de-order",
+    "itemId": "grammar-ato-de",
+    "category": "grammar",
+    "questionType": "sentence ordering",
+    "jlptLevel": "N4",
+    "prompt": "Build the natural sentence.",
+    "options": [
+      "ご飯を食べたあとで",
+      "勉強します。"
+    ],
+    "correctIndex": 0,
+    "tokens": [
+      "ご飯を食べたあとで",
+      "勉強します。"
+    ],
+    "correctOrder": [
+      0,
+      1
+    ],
+    "explanation": "The finished action comes first, then the action that happens later.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "grammar-ato-de"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, form, answer key, distractors, and N4 bridge difficulty checked against the linked grammar item."
+    }
+  },
+  {
+    "id": "grammar-toki-meaning",
+    "itemId": "grammar-toki",
+    "category": "grammar",
+    "questionType": "meaning",
+    "jlptLevel": "N4",
+    "prompt": "What does とき do in Vとき?",
+    "options": [
+      "frames when a situation happens",
+      "marks a direct object",
+      "shows possession",
+      "asks for permission"
+    ],
+    "correctIndex": 0,
+    "explanation": "とき frames the time or situation in which the main action happens.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "grammar-toki"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, form, answer key, distractors, and N4 bridge difficulty checked against the linked grammar item."
+    }
+  },
+  {
+    "id": "grammar-toki-completion",
+    "itemId": "grammar-toki",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "寒い___、家にいます。",
+    "options": [
+      "とき",
+      "あとで",
+      "前に",
+      "ながら"
+    ],
+    "correctIndex": 0,
+    "explanation": "寒いとき means when it is cold.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "grammar-toki"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, form, answer key, distractors, and N4 bridge difficulty checked against the linked grammar item."
+    }
+  },
+  {
+    "id": "grammar-toki-order",
+    "itemId": "grammar-toki",
+    "category": "grammar",
+    "questionType": "sentence ordering",
+    "jlptLevel": "N4",
+    "prompt": "Build the natural sentence.",
+    "options": [
+      "寒いとき",
+      "家に",
+      "います。"
+    ],
+    "correctIndex": 0,
+    "tokens": [
+      "寒いとき",
+      "家に",
+      "います。"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "とき frames the condition before the main action.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "grammar-toki"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, form, answer key, distractors, and N4 bridge difficulty checked against the linked grammar item."
+    }
+  },
+  {
+    "id": "grammar-nagara-meaning",
+    "itemId": "grammar-nagara",
+    "category": "grammar",
+    "questionType": "meaning",
+    "jlptLevel": "N4",
+    "prompt": "What does Vながら express?",
+    "options": [
+      "while doing V",
+      "before doing V",
+      "a finished plain action",
+      "a comparison"
+    ],
+    "correctIndex": 0,
+    "explanation": "ながら joins two actions happening at the same time, with the later action as the focus.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "grammar-nagara"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, form, answer key, distractors, and N4 bridge difficulty checked against the linked grammar item."
+    }
+  },
+  {
+    "id": "grammar-nagara-completion",
+    "itemId": "grammar-nagara",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "音楽を聞き___、勉強します。",
+    "options": [
+      "ながら",
+      "とき",
+      "あとで",
+      "前に"
+    ],
+    "correctIndex": 0,
+    "explanation": "聞きながら means while listening.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "grammar-nagara"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, form, answer key, distractors, and N4 bridge difficulty checked against the linked grammar item."
+    }
+  },
+  {
+    "id": "grammar-nagara-order",
+    "itemId": "grammar-nagara",
+    "category": "grammar",
+    "questionType": "sentence ordering",
+    "jlptLevel": "N4",
+    "prompt": "Build the natural sentence.",
+    "options": [
+      "音楽を聞きながら",
+      "勉強します。"
+    ],
+    "correctIndex": 0,
+    "tokens": [
+      "音楽を聞きながら",
+      "勉強します。"
+    ],
+    "correctOrder": [
+      0,
+      1
+    ],
+    "explanation": "ながら joins the simultaneous action to the main action.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "grammar-nagara"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, form, answer key, distractors, and N4 bridge difficulty checked against the linked grammar item."
+    }
+  },
+  {
+    "id": "vocab-byouin-meaning",
+    "itemId": "vocab-byouin",
+    "category": "vocabulary",
+    "questionType": "meaning",
+    "jlptLevel": "N5",
+    "prompt": "What does 病院 mean?",
+    "options": [
+      "hospital",
+      "doctor",
+      "medicine",
+      "classroom"
+    ],
+    "correctIndex": 0,
+    "explanation": "病院 (びょういん) means hospital.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "vocab-byouin"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, reading, answer key, distractors, and N5 difficulty checked against the linked vocabulary item."
+    }
+  },
+  {
+    "id": "vocab-byouin-reading-recall",
+    "itemId": "vocab-byouin",
+    "category": "vocabulary",
+    "questionType": "kana recall",
+    "jlptLevel": "N5",
+    "prompt": "Type the reading for 病院.",
+    "options": [],
+    "correctIndex": 0,
+    "answerMode": "text",
+    "acceptedAnswers": [
+      "びょういん"
+    ],
+    "answerPlaceholder": "ひらがな",
+    "explanation": "病院 is read びょういん.",
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "vocab-byouin"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Meaning, reading, answer key, distractors, and N5 difficulty checked against the linked vocabulary item."
+    }
+  },
+  {
+    "id": "kanji-byou-reading",
+    "itemId": "kanji-byou",
+    "category": "kanji",
+    "questionType": "kanji reading",
+    "jlptLevel": "N5",
+    "prompt": "Choose one reading for 病.",
+    "options": [
+      "ビョウ",
+      "イン",
+      "キョウ",
+      "ヤク"
+    ],
+    "correctIndex": 0,
+    "explanation": "病 is read ビョウ in 病院 (びょういん).",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "kanji-byou"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Reading, useful-word mapping, answer key, distractors, and N5 difficulty checked against the linked kanji item."
+    }
+  },
+  {
+    "id": "kanji-byou-reading-recall",
+    "itemId": "kanji-byou",
+    "category": "kanji",
+    "questionType": "kana recall",
+    "jlptLevel": "N5",
+    "prompt": "Type one reading for 病.",
+    "options": [],
+    "correctIndex": 0,
+    "answerMode": "text",
+    "acceptedAnswers": [
+      "ビョウ",
+      "びょう"
+    ],
+    "answerPlaceholder": "かな or 音読み",
+    "explanation": "病 can be read ビョウ in useful words such as 病院.",
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "kanji-byou"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Reading, useful-word mapping, answer key, distractors, and N5 difficulty checked against the linked kanji item."
+    }
+  },
+  {
+    "id": "kanji-byou-word",
+    "itemId": "kanji-byou",
+    "category": "kanji",
+    "questionType": "orthography",
+    "jlptLevel": "N5",
+    "prompt": "Which word is read びょういん?",
+    "options": [
+      "病院",
+      "教室",
+      "音楽",
+      "春"
+    ],
+    "correctIndex": 0,
+    "explanation": "病院 is read びょういん and means hospital.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "kanji-byou"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Reading, useful-word mapping, answer key, distractors, and N5 difficulty checked against the linked kanji item."
+    }
+  },
+  {
+    "id": "reading-school-and-health-question-0",
+    "itemId": "reading-school-and-health",
+    "category": "reading",
+    "questionType": "short passage detail",
+    "jlptLevel": "N4",
+    "prompt": "学校のあとで、どこへ行きましたか。",
+    "options": [
+      "大学",
+      "病院",
+      "駅",
+      "映画館"
+    ],
+    "correctIndex": 1,
+    "explanation": "午後、病院へ行きました。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "reading-school-and-health"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Question answer and explanation checked against the passage; N4 bridge difficulty is intentional."
+    }
+  },
+  {
+    "id": "reading-school-and-health-question-1",
+    "itemId": "reading-school-and-health",
+    "category": "reading",
+    "questionType": "information retrieval",
+    "jlptLevel": "N4",
+    "prompt": "家で何を飲みましたか。",
+    "options": [
+      "水",
+      "薬",
+      "お茶",
+      "牛乳"
+    ],
+    "correctIndex": 1,
+    "explanation": "家で薬を飲みました。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "reading-school-and-health"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Question answer and explanation checked against the passage; N4 bridge difficulty is intentional."
+    }
+  },
+  {
+    "id": "listening-health-appointment-question-0",
+    "itemId": "listening-health-appointment",
+    "category": "listening",
+    "questionType": "key point",
+    "jlptLevel": "N4",
+    "prompt": "Aさんはどこが痛いですか。",
+    "options": [
+      "頭",
+      "体",
+      "足",
+      "手"
+    ],
+    "correctIndex": 0,
+    "audioText": "A：頭が痛いです。病院へ行きたいです。\nB：予約がありますか。\nA：いいえ、ありません。\nB：では、午後二時に来てください。",
+    "explanation": "頭が痛いです。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "listening-health-appointment"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Question answer and explanation checked against the audio text; N4 bridge difficulty is intentional."
+    }
+  },
+  {
+    "id": "listening-health-appointment-question-1",
+    "itemId": "listening-health-appointment",
+    "category": "listening",
+    "questionType": "quick response",
+    "jlptLevel": "N4",
+    "prompt": "Aさんは予約がありますか。",
+    "options": [
+      "はい、あります",
+      "いいえ、ありません",
+      "午後二時です",
+      "病院です"
+    ],
+    "correctIndex": 1,
+    "audioText": "A：頭が痛いです。病院へ行きたいです。\nB：予約がありますか。\nA：いいえ、ありません。\nB：では、午後二時に来てください。",
+    "explanation": "いいえ、ありません。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-seed",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-seed",
+      "model": "human-review",
+      "generatedAt": "2026-08-31T00:00:00Z",
+      "targetItemIds": [
+        "listening-health-appointment"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-08-31T00:00:00Z",
+      "reviewNotes": "Question answer and explanation checked against the audio text; N4 bridge difficulty is intentional."
+    }
+  }
 ]

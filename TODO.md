@@ -217,7 +217,9 @@ own terms and attribution rules.
 - [x] Add more original short readings, practical notices, and listening situations with all four N5 listening task types.
 - [x] Keep Japanese facts grounded in structured sources; use AI only for derived explanations and original exercises.
 - [x] Enforce deterministic structural, category, uniqueness, and human-approval gates before publication.
-- [ ] Complete semantic lexical/grammar/difficulty review for every authored or imported question.
+- [x] Complete semantic lexical/grammar/difficulty review for every persisted
+  authored question; the imported source package contains learning items only,
+  while deterministic factory questions remain structurally validation-gated.
 
 ## Product phases
 
