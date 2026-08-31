@@ -38,6 +38,15 @@ export function getContentReviewStatus(item: { reviewStatus?: unknown; tags?: un
   return Array.isArray(item.tags) && item.tags.includes("source-review") ? "pending" : "approved";
 }
 
+export function isLearnerReleased(item: { reviewStatus?: unknown; tags?: unknown; contentReview?: unknown }) {
+  const status = getContentReviewStatus(item);
+  if (status === "rejected") return false;
+  if (status === "approved") return true;
+  return isRecord(item.contentReview)
+    && item.contentReview.method === "automatic"
+    && item.contentReview.humanReviewed === false;
+}
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }

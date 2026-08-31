@@ -58,12 +58,13 @@ URL and provenance, then let the provider's page, login, cookies, and delivery
 remain responsible for the content.
 
 Kizashi must not download, proxy, cache, mirror, re-host, or upload third-party
-audio/video/data to Supabase merely to make the source convenient. A private
-iframe is only appropriate when the provider permits embedding in this exact
-authenticated/product context and the browser allows it (for example, the
-provider may block framing with security headers). The normal fallback is a
-new-tab link to the original page. A launcher also must not be presented as a
-license grant or as permission to share the source with other users.
+audio/video/data to Supabase merely to make the source convenient. The private
+immersion shelf may attempt a direct browser iframe for the original provider
+page; the provider remains in control through framing headers, login, cookies,
+and its own terms. A blocked frame falls back to a new-tab link. The frame is
+not a license grant or permission to share the source with other users, and a
+source should be removed from the frame shelf if its terms expressly prohibit
+embedding.
 
 For CEJC, the official access description says that the free online service can
 be used to listen to searched audio but does not allow audio/video download;

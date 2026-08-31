@@ -14,6 +14,7 @@ export type PracticeMode = "quick" | "vocabulary" | "kanji" | "grammar" | "readi
 export type CurriculumBand = "core" | "extended" | "bridge";
 export type CurriculumConfidence = "high" | "medium" | "low";
 export type ContentReviewStatus = "pending" | "approved" | "rejected";
+export type ContentReleaseMethod = "automatic" | "human";
 export type ExamReadinessStatus = "untested" | "weak" | "developing" | "exam-ready" | "strong";
 export type AudioSourceType = "browser-speech" | "remote" | "server-tts";
 
@@ -161,6 +162,13 @@ export interface CurriculumMetadata {
   tags: string[];
 }
 
+export interface ContentReleaseMetadata {
+  method: ContentReleaseMethod;
+  humanReviewed: boolean;
+  releasedAt?: string;
+  reviewedBy?: string;
+}
+
 export interface LearningItem extends CurriculumMetadata {
   id: string;
   slug: string;
@@ -168,6 +176,7 @@ export interface LearningItem extends CurriculumMetadata {
   sourceIds?: string[];
   fieldSourceIds?: Record<string, string[]>;
   classification?: CurriculumClassification;
+  contentReview?: ContentReleaseMetadata;
   audio?: AudioMetadata;
 }
 

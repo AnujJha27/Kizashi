@@ -9,6 +9,7 @@ import { gunzipSync } from "node:zlib";
 import { getItemPriority, rankContentCandidates } from "../lib/content-priority.js";
 import { generatedReview, validateGenerationRequest } from "../lib/content-generation-core.js";
 import { selectWeakPracticeQuestions } from "../lib/weak-practice.js";
+import { releaseForLearners } from "../lib/content-release.js";
 
 const execFileAsync = promisify(execFile);
 
@@ -92,6 +93,49 @@ test("Studio loads the large review package through an admin-only compressed end
   assert.match(route, /Content-Encoding.*gzip/s);
   const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
   assert.match(studio, /setRaw\(JSON\.stringify\(next, null, 2\)\)/);
+});
+
+test("learner release keeps source-review status and marks records as not human reviewed", () => {
+  const released = releaseForLearners({
+    vocabulary: [{ id: "auto", reviewStatus: "pending" }, { id: "rejected", reviewStatus: "rejected" }, { id: "human", reviewStatus: "approved" }],
+  }, "2026-08-31T00:00:00.000Z");
+  assert.deepEqual(released.vocabulary[0].contentReview, { method: "automatic", humanReviewed: false, releasedAt: "2026-08-31T00:00:00.000Z" });
+  assert.equal(released.vocabulary[0].reviewStatus, "pending");
+  assert.equal(released.vocabulary[1].contentReview, undefined);
+  assert.deepEqual(released.vocabulary[2].contentReview, { method: "human", humanReviewed: true, releasedAt: "2026-08-31T00:00:00.000Z" });
+  assert.deepEqual(released.learnerRelease, { method: "automatic", humanReviewed: false, releasedAt: "2026-08-31T00:00:00.000Z" });
+});
+
+test("learners can receive the private auto-release while Studio stays admin-only", async () => {
+  const route = await readFile(new URL("../app/api/content/review-package/route.ts", import.meta.url), "utf8");
+  const moduleHook = await readFile(new URL("../components/content/use-content-module.ts", import.meta.url), "utf8");
+  assert.match(route, /audience.*learner/);
+  assert.match(route, /releaseForLearners/);
+  assert.match(route, /getAllowedUser/);
+  assert.match(route, /user\.isAdmin/);
+  assert.match(moduleHook, /review-package\?audience=learner/);
+  assert.match(moduleHook, /isLearnerReleased/);
+});
+
+test("learners can flag source-review content while studying", async () => {
+  const flags = await readFile(new URL("../lib/content-flags.js", import.meta.url), "utf8");
+  const button = await readFile(new URL("../components/library/content-flag-button.tsx", import.meta.url), "utf8");
+  const practice = await readFile(new URL("../components/practice/practice-player.tsx", import.meta.url), "utf8");
+  const entry = await readFile(new URL("../components/library/entry-detail.tsx", import.meta.url), "utf8");
+  assert.match(flags, /toggleContentFlag/);
+  assert.match(button, /Flag content/);
+  assert.match(practice, /ContentFlagButton/);
+  assert.match(practice, /question\.itemId/);
+  assert.match(entry, /ContentFlagButton/);
+});
+
+test("CSJ is viewable through an original-source iframe with a direct-link fallback", async () => {
+  const viewer = await readFile(new URL("../components/learning/external-source-viewer.tsx", import.meta.url), "utf8");
+  const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
+  assert.match(viewer, /iframe/);
+  assert.match(viewer, /Open original source/);
+  assert.match(surface, /CSJ/);
+  assert.match(surface, /ExternalSourceViewer/);
 });
 
 test("Studio exposes every pending question through a searchable paged review queue", async () => {

@@ -18,13 +18,13 @@
 - [x] Run the cache-first acquisition command and inspect the generated N5 review package.
 - [x] Acquire N4 bridge vocabulary, kanji, grammar, and linked examples for above-level preparation.
 - [x] Retry the six audited vocabulary extraction errors with pitch-accent-aware parsing; four now merge into canonical records and two corrected rows remain pending review.
-- [ ] Review, enrich, classify, and assign imported records to real Journey lessons. The current staged package has 97 approved seed-derived records, 8,345 records remain pending, and none are rejected; approval still requires human review.
+- [ ] Review, enrich, classify, and assign imported records to real Journey lessons. The current staged package has 97 approved seed-derived records, 8,345 records remain pending, and none are rejected. The private learner path now releases every non-rejected staged record with an explicit `humanReviewed: false` marker; the admin review queue remains available for cleanup and promotion.
 - [ ] Apply the generated Supabase SQL import after the hosted project receives
   migrations 0017–0019. The 47 approved rows and their supported fields,
   classifications, provenance, and lesson links are already published through
   a narrow equivalent REST upsert; pending and rejected records remain excluded.
 
-Review tooling is implemented: Content Studio ranks candidates, edits classification/provenance, assigns real Journey lessons, and QA/export scripts refuse incomplete approved records. Human review and SQL application remain intentionally unchecked.
+Review tooling is implemented: Content Studio ranks candidates, edits classification/provenance, assigns real Journey lessons, and QA/export scripts refuse incomplete approved records. Human review remains an optional quality pass for the private learner path; SQL publication still requires approved records.
 
 - [x] Keep large staged review packages resumable with browser IndexedDB; small drafts may use localStorage, and no draft is sent to a server by this path.
 
@@ -152,18 +152,26 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 - [x] Add an external-source launcher so learners can study linked
   Erin/CEJC/other material from one Kizashi surface without Kizashi downloading,
   proxying, caching, or re-hosting the source audio/data.
-- [x] Use an iframe only when the provider explicitly permits embedding and
-  permits the exact authenticated/product context; otherwise open the source in
-  a new tab and keep ownership, login, and delivery with the provider.
+- [x] Add an opt-in original-source frame attempt for Erin, CEJC, CSJ, Common
+  Voice, Tatoeba, JSUT, and JapanesePod101, with a direct-link fallback when a
+  provider blocks framing or login cookies. The iframe loads the provider URL
+  directly; it does not grant permission, copy, proxy, cache, mirror, or upload
+  source material.
+- [x] Add a private learner release path for all non-rejected staged records;
+  keep their source-review status pending while attaching
+  `contentReview.method = "automatic"` and `humanReviewed = false`.
+- [x] Add local-first learner content flags in item detail and practice, with
+  optional account-sync/backup persistence, so bad records can be flagged
+  during study instead of requiring an 8k-record pre-review pass.
 
 External-source framing nuance is recorded in `docs/product/SOURCE-EVALUATION.md`:
 single-user/private use reduces exposure risk but is not a blanket license;
 Kizashi stores a launcher URL/provenance only, never downloads, proxies,
-caches, mirrors, re-hosts, or uploads third-party source material; framing is
-opt-in and provider-controlled, with a new-tab fallback when headers or terms
-block it. CEJC's free service is listen-only for searched audio/video, while
-corpus assets are contract-controlled; Erin and every other source retain their
-own terms and attribution rules.
+caches, mirrors, re-hosts, or uploads third-party source material; the frame is
+only a direct browser view and falls back to a new tab when headers, cookies, or
+provider behavior block it. CEJC's free service is listen-only for searched
+audio/video, while corpus assets are contract-controlled; Erin and every other
+source retain their own terms and attribution rules.
 
 ## Learning-content quality
 - [x] Use official JLPT material for blueprint/calibration only.

@@ -616,10 +616,9 @@ Next session order:
 
 - Added the `/immersion` surface with Guided, Listen, and Immersion modes,
   delayed transcript reveal, replay/slow controls, shadowing, phrase steps, and
-  the three-clip 耳慣らし warm-up. The external-source shelf is a launcher to
-  Erin's Challenge and CEJC; it does not iframe, copy, proxy, cache, or upload
-  third-party material. A provider-permitted iframe remains an optional future
-  enhancement with new-tab fallback.
+  the three-clip 耳慣らし warm-up. The external-source shelf links to original
+  providers and can attempt a direct iframe with a new-tab fallback; it does
+  not copy, proxy, cache, or upload third-party material.
 - CEJC aggregates now affect content priority as a distinct spoken signal next
   to BCCWJ written frequency. I-JAS stays aggregate-only and can drive matching
   trap warnings/adaptive boosts; explanations remain grammar-source-led.
@@ -630,6 +629,22 @@ Next session order:
 - Current relevant changes were committed as `b0b35b5` and pushed to private
   `origin/main`; `resumer`, `scripts/__pycache__/`, and `supabase/.temp/` remain
   unstaged and were not included.
+
+## Session notes — private learner release and source frames
+
+- The private learner endpoint releases all non-rejected staged records at
+  runtime while preserving their pending `reviewStatus`; pending records carry
+  `contentReview.method = "automatic"` and `humanReviewed = false`, while the
+  existing approved slice keeps human-reviewed metadata. Studio's admin-only
+  review/export gates remain unchanged.
+- Added local-first `Flag content` controls to entry detail and practice. Flags
+  survive backup and optional account sync so a learner can report bad records
+  while practicing instead of reviewing the entire staging package first.
+- Added direct original-source frame attempts for the external immersion shelf,
+  including CSJ, CEJC, Erin, Common Voice, Tatoeba, JSUT, and JapanesePod101.
+  Providers retain delivery, login, and ownership; blocked frames fall back to
+  the original link. No third-party source is downloaded, proxied, cached, or
+  uploaded.
 
 ## Session notes — current audio source-term audit
 

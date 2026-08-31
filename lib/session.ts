@@ -1,4 +1,5 @@
 import { mergeSyncSnapshots } from "@/lib/supabase/sync-core.js";
+import { CONTENT_FLAGS_STORAGE_KEY } from "@/lib/content-flags.js";
 import type { AnswerConfidence, CurrentLessonState, QuestionStats } from "@/lib/types";
 
 export type { QuestionStats } from "@/lib/types";
@@ -20,7 +21,7 @@ export const BOOK_NOTES_STORAGE_KEY = "michi.book-notes";
 export const BOOK_SCREENSHOTS_STORAGE_KEY = "michi.book-screenshots";
 export const SYNC_ENABLED_STORAGE_KEY = "michi.sync-enabled";
 
-const BACKUP_KEYS = [CURRENT_LESSON_STORAGE_KEY, REVIEW_STORAGE_KEY, NOTES_STORAGE_KEY, MISTAKES_STORAGE_KEY, DIAGNOSTIC_STORAGE_KEY, QUESTION_STATS_STORAGE_KEY, STUDY_STATS_STORAGE_KEY, SAVED_SENTENCES_STORAGE_KEY, STUDY_LATER_STORAGE_KEY, PROFILE_PREFERENCES_STORAGE_KEY, EXAM_ATTEMPTS_STORAGE_KEY, CUSTOM_ENTRIES_STORAGE_KEY, BOOK_NOTES_STORAGE_KEY, BOOK_SCREENSHOTS_STORAGE_KEY, "michi.content-draft", "michi.question-draft"] as const;
+const BACKUP_KEYS = [CURRENT_LESSON_STORAGE_KEY, REVIEW_STORAGE_KEY, NOTES_STORAGE_KEY, MISTAKES_STORAGE_KEY, DIAGNOSTIC_STORAGE_KEY, QUESTION_STATS_STORAGE_KEY, STUDY_STATS_STORAGE_KEY, SAVED_SENTENCES_STORAGE_KEY, STUDY_LATER_STORAGE_KEY, PROFILE_PREFERENCES_STORAGE_KEY, EXAM_ATTEMPTS_STORAGE_KEY, CUSTOM_ENTRIES_STORAGE_KEY, BOOK_NOTES_STORAGE_KEY, BOOK_SCREENSHOTS_STORAGE_KEY, CONTENT_FLAGS_STORAGE_KEY, "michi.content-draft", "michi.question-draft"] as const;
 
 function isBackupKey(key: string) {
   return BACKUP_KEYS.includes(key as (typeof BACKUP_KEYS)[number]) || key.startsWith(`${PRACTICE_SESSION_STORAGE_KEY}.`) || key.startsWith("michi.book-review.");
@@ -65,6 +66,7 @@ export function createLocalSyncSnapshot() {
     [EXAM_ATTEMPTS_STORAGE_KEY]: "examAttempts",
     [CUSTOM_ENTRIES_STORAGE_KEY]: "customEntries",
     [BOOK_NOTES_STORAGE_KEY]: "bookNotes",
+    [CONTENT_FLAGS_STORAGE_KEY]: "contentFlags",
   };
   Object.entries(directKeys).forEach(([storageKey, syncKey]) => {
     const value = storedJson(storageKey);
@@ -101,6 +103,7 @@ export function applyLocalSyncSnapshot(snapshot: unknown) {
     examAttempts: EXAM_ATTEMPTS_STORAGE_KEY,
     customEntries: CUSTOM_ENTRIES_STORAGE_KEY,
     bookNotes: BOOK_NOTES_STORAGE_KEY,
+    contentFlags: CONTENT_FLAGS_STORAGE_KEY,
   };
   let restored = 0;
   Object.entries(storageKeys).forEach(([syncKey, storageKey]) => {
@@ -110,7 +113,7 @@ export function applyLocalSyncSnapshot(snapshot: unknown) {
   });
   if (typeof values.practiceSessions === "object" && values.practiceSessions !== null && !Array.isArray(values.practiceSessions)) Object.entries(values.practiceSessions as Record<string, unknown>).forEach(([id, value]) => { window.localStorage.setItem(`${PRACTICE_SESSION_STORAGE_KEY}.${id}`, JSON.stringify(value)); restored += 1; });
   if (typeof values.lessonStates === "object" && values.lessonStates !== null && !Array.isArray(values.lessonStates)) Object.entries(values.lessonStates as Record<string, unknown>).forEach(([id, value]) => { window.localStorage.setItem(`${CURRENT_LESSON_STORAGE_KEY}.${id}`, JSON.stringify(value)); restored += 1; });
-  ["michi-profile-updated", "michi-review-updated", "michi-study-stats-updated", "michi-question-stats-updated", "michi-lesson-updated", "michi-custom-entries-updated", "michi-book-notes-updated"].forEach((eventName) => window.dispatchEvent(new Event(eventName)));
+  ["michi-profile-updated", "michi-review-updated", "michi-study-stats-updated", "michi-question-stats-updated", "michi-lesson-updated", "michi-custom-entries-updated", "michi-book-notes-updated", "michi-content-flagged-updated"].forEach((eventName) => window.dispatchEvent(new Event(eventName)));
   return restored;
 }
 

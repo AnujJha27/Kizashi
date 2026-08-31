@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { getContentReviewStatus, getModuleItems, parseAndValidateModule, readValidatedContentDraft } from "@/lib/content-validation";
+import { getContentReviewStatus, getModuleItems, isLearnerReleased, parseAndValidateModule, parseModuleForReview, readValidatedContentDraft } from "@/lib/content-validation";
 import { readContentDraft } from "@/lib/content-draft-storage.js";
 import { n5Module } from "@/lib/curriculum";
 import { readCustomEntries } from "@/lib/session";
@@ -19,7 +19,7 @@ function withPersonalVocabulary(module: N5Module) {
 }
 
 function learnerModule(module: N5Module) {
-  const active = <T extends { id: string; reviewStatus?: unknown; tags?: unknown }>(items: T[]) => items.filter((item) => getContentReviewStatus(item) === "approved");
+  const active = <T extends { id: string; reviewStatus?: unknown; tags?: unknown; contentReview?: unknown }>(items: T[]) => items.filter(isLearnerReleased);
   const vocabulary = active(module.vocabulary);
   const kanji = active(module.kanji);
   const grammar = active(module.grammar);
@@ -55,6 +55,14 @@ export function useContentModule(seed: N5Module = n5Module) {
       if (stored && getModuleItems(stored).every((item) => getContentReviewStatus(item) !== "pending")) {
         if (!cancelled) setModule(withPersonalVocabulary(learnerModule(stored)));
         return;
+      }
+      const learnerResponse = await fetch("/api/content/review-package?audience=learner", { cache: "no-store" }).catch(() => null);
+      if (learnerResponse?.ok) {
+        const learner = parseModuleForReview(await learnerResponse.text());
+        if (!cancelled && learner) {
+          setModule(withPersonalVocabulary(learnerModule(learner)));
+          return;
+        }
       }
       const remote = await fetchSupabaseN5Module(seed).catch(() => null);
       if (cancelled) return;

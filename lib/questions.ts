@@ -79,6 +79,7 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
   const questions: PracticeQuestion[] = [];
 
   module.vocabulary.forEach((item, index) => {
+    if (!item.writtenForm || !item.reading || !item.meanings.length) return;
     const meaningChoices = rotateOptions(item.meanings[0], module.vocabulary.flatMap((entry) => entry.meanings), index);
     questions.push({ id: `${item.id}-meaning`, itemId: item.id, category: "vocabulary", questionType: "meaning", jlptLevel: item.jlptLevel, prompt: `What does ${item.writtenForm} mean?`, ...meaningChoices, explanation: `${item.writtenForm} is used for ${item.meanings.join(" / ")}.` });
     const example = item.exampleSentences[0] ?? { japanese: item.writtenForm, translation: item.meanings[0] ?? "" };
@@ -96,6 +97,7 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
   });
 
   module.kanji.forEach((item, index) => {
+    if (!item.character || !item.meanings.length || (!item.kunyomi.length && !item.onyomi.length)) return;
     const correct = item.kunyomi[0] ?? item.onyomi[0] ?? item.character;
     const choices = rotateOptions(correct, module.kanji.flatMap((entry) => [...entry.kunyomi, ...entry.onyomi]), index);
     questions.push({ id: `${item.id}-reading`, itemId: item.id, category: "kanji", questionType: "kanji reading", jlptLevel: item.jlptLevel, prompt: `Choose one reading for ${item.character}.`, ...choices, explanation: `${item.character} appears in ${item.usefulWords.slice(0, 2).map((word) => `${word.word} (${word.reading})`).join(" and ")}.` });
@@ -188,6 +190,7 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
   };
 
   module.grammar.forEach((item, index) => {
+    if (!item.pattern || !item.meaning) return;
     const authoredQuestionIds = item.practiceQuestionIds ?? [];
     const meaningChoices = rotateOptions(item.meaning, module.grammar.map((entry) => entry.meaning), index);
     questions.push({ id: authoredQuestionIds[0] ?? `${item.id}-meaning`, itemId: item.id, category: "grammar", questionType: "meaning", jlptLevel: item.jlptLevel, prompt: `What does ${item.pattern} do?`, ...meaningChoices, explanation: item.intuition });
@@ -212,12 +215,16 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
   });
 
   module.readings.forEach((item) => {
+    if (!item.passage || !item.questions?.length) return;
     item.questions?.forEach((question, index) => questions.push({ id: `${item.id}-question-${index}`, itemId: item.id, category: "reading", questionType: question.questionType ?? (index === 0 ? "short passage detail" : "information retrieval"), jlptLevel: item.jlptLevel, prompt: `${item.passage}\n\n${question.prompt}`, options: question.options, correctIndex: question.correctAnswer, explanation: question.explanation ?? item.translation }));
     const titleChoices = rotateOptions(item.title, module.readings.filter((entry) => entry.id !== item.id).map((entry) => entry.title), item.id.length);
     if (titleChoices.options.length > 1) questions.push({ id: `${item.id}-main-idea`, itemId: item.id, category: "reading", questionType: "main idea", jlptLevel: item.jlptLevel, prompt: `${item.passage}\n\nWhat is this passage mainly about?`, ...titleChoices, explanation: `This passage is about ${item.title}.` });
   });
 
-  module.listening.forEach((item) => item.questions.forEach((question, index) => questions.push({ id: `${item.id}-question-${index}`, itemId: item.id, category: "listening", questionType: question.questionType ?? (index === 0 ? "key point" : "quick response"), jlptLevel: item.jlptLevel, prompt: question.prompt, options: question.answers, correctIndex: question.correctAnswer, explanation: question.explanation ?? item.situation, audioUrl: item.audioUrl, audioText: item.transcript })));
+  module.listening.forEach((item) => {
+    if (!item.transcript || !item.questions?.length) return;
+    item.questions.forEach((question, index) => questions.push({ id: `${item.id}-question-${index}`, itemId: item.id, category: "listening", questionType: question.questionType ?? (index === 0 ? "key point" : "quick response"), jlptLevel: item.jlptLevel, prompt: question.prompt, options: question.answers, correctIndex: question.correctAnswer, explanation: question.explanation ?? item.situation, audioUrl: item.audioUrl, audioText: item.transcript }));
+  });
 
   const generatedQuestions = questions.map((question) => ({ ...question, validationStatus: question.validationStatus ?? "validated" as const, generatedBy: question.generatedBy ?? "michi-question-factory" }));
   const remoteQuestions = module.practiceQuestions ?? [];
