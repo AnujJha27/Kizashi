@@ -1,4 +1,6 @@
 import type { ContentReviewStatus, LearningCategory, N5Module, PracticeQuestion } from "@/lib/types";
+export { CONTENT_DRAFT_STORAGE_KEY } from "@/lib/content-draft-storage.js";
+import { CONTENT_DRAFT_STORAGE_KEY as CONTENT_DRAFT_KEY } from "@/lib/content-draft-storage.js";
 
 export type ContentIssue = {
   path: string;
@@ -24,7 +26,6 @@ const practiceQuestionTypes: Record<Category, readonly string[]> = {
   listening: ["task-based response", "key point", "verbal expression", "quick response", "information retrieval"],
 };
 
-export const CONTENT_DRAFT_STORAGE_KEY = "michi.content-draft";
 export const QUESTION_DRAFT_STORAGE_KEY = "michi.question-draft";
 
 export function isActivePracticeQuestion(question: Pick<PracticeQuestion, "validationStatus" | "generatedBy" | "review">) {
@@ -562,7 +563,7 @@ export function parseModuleForReview(raw: string): N5Module | null {
 export function readValidatedContentDraft(): N5Module | null {
   if (typeof window === "undefined") return null;
   try {
-    const raw = window.localStorage.getItem(CONTENT_DRAFT_STORAGE_KEY);
+    const raw = window.localStorage.getItem(CONTENT_DRAFT_KEY);
     const value = raw ? parseAndValidateModule(raw).value : null;
     return value && getModuleItems(value).every((item) => getContentReviewStatus(item) !== "pending") ? value : null;
   } catch {

@@ -6,7 +6,6 @@ import { AIGenerator } from "@/components/content/ai-generator";
 import { ContentRecordEditor, type EditableKind } from "@/components/content/content-record-editor";
 import { TopicCoverage } from "@/components/content/topic-coverage";
 import {
-  CONTENT_DRAFT_STORAGE_KEY,
   getContentReviewStatus,
   getModuleItems,
   parseModuleForReview,
@@ -18,6 +17,7 @@ import {
   validatePracticeQuestions,
   type ContentValidationResult,
 } from "@/lib/content-validation";
+import { readContentDraft, removeContentDraft, writeContentDraft } from "@/lib/content-draft-storage.js";
 import type { LessonContentItem } from "@/lib/curriculum";
 import { contentSources, getCurriculumBand } from "@/lib/jlpt";
 import { readMistakes, readReviewRecords } from "@/lib/session";
@@ -167,7 +167,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
       .then((next) => {
         if (cancelled) return;
         setSeed(next);
-        if (!window.localStorage.getItem(CONTENT_DRAFT_STORAGE_KEY)) setRaw(JSON.stringify(next, null, 2));
+        setRaw(JSON.stringify(next, null, 2));
         setResult(validateModule(next));
         setMessage("Loaded the full staged review package.");
       })
@@ -188,57 +188,63 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   };
 
   useEffect(() => {
-    const saved = window.localStorage.getItem(CONTENT_DRAFT_STORAGE_KEY);
-    const savedResult = saved ? parseAndValidateModule(saved) : null;
-    const savedDraft = savedResult?.value ?? (saved ? parseModuleForReview(saved) : null);
-    const savedIsSmaller = Boolean(savedDraft && getModuleItems(savedDraft).length < getModuleItems(seed).length);
-    const activeDraft = savedIsSmaller ? seed : savedDraft ?? seed;
-    if (savedResult?.value && !savedIsSmaller) {
-      setRaw(saved as string);
-      setResult(savedResult.result);
-      setShowContentIssues(false);
-      setMessage("Loaded the last local draft.");
-    } else if (saved && !savedIsSmaller) {
-      const reviewDraft = parseModuleForReview(saved);
-      if (reviewDraft) {
+    let cancelled = false;
+    const load = async () => {
+      const saved = await readContentDraft();
+      if (cancelled) return;
+      const savedResult = saved ? parseAndValidateModule(saved) : null;
+      const savedDraft = savedResult?.value ?? (saved ? parseModuleForReview(saved) : null);
+      const savedIsSmaller = Boolean(savedDraft && getModuleItems(savedDraft).length < getModuleItems(seed).length);
+      const activeDraft = savedIsSmaller ? seed : savedDraft ?? seed;
+      if (savedResult?.value && !savedIsSmaller) {
         setRaw(saved);
-        setResult(parseAndValidateModule(saved).result);
+        setResult(savedResult.result);
         setShowContentIssues(false);
-        setMessage("Loaded the in-progress review draft. Fix its issues before publishing.");
+        setMessage("Loaded the last saved content draft.");
+      } else if (saved && !savedIsSmaller) {
+        const reviewDraft = parseModuleForReview(saved);
+        if (reviewDraft) {
+          setRaw(saved);
+          setResult(parseAndValidateModule(saved).result);
+          setShowContentIssues(false);
+          setMessage("Loaded the in-progress review draft. Fix its issues before publishing.");
+        } else {
+          setRaw(JSON.stringify(seed, null, 2));
+          setResult(seedHealth);
+          setShowContentIssues(false);
+          setMessage("The saved draft was not a content package, so the bundled curriculum is shown.");
+        }
       } else {
         setRaw(JSON.stringify(seed, null, 2));
         setResult(seedHealth);
         setShowContentIssues(false);
-        setMessage("The saved draft was not a content package, so the bundled curriculum is shown.");
+        setMessage(savedIsSmaller ? "Kept the larger staged review package; the smaller draft was not deleted." : "Loaded the bundled curriculum.");
       }
-    } else if (savedIsSmaller) {
-      setRaw(JSON.stringify(seed, null, 2));
-      setResult(seedHealth);
-      setShowContentIssues(false);
-      setMessage("Kept the larger staged review package; the smaller browser draft was not deleted.");
-    }
 
-    const savedQuestions = window.localStorage.getItem(QUESTION_DRAFT_STORAGE_KEY);
-    if (!savedQuestions) return;
-    try {
-      const draftItems = getModuleItems(activeDraft);
-      const ids = new Set([...knownItemIds, ...draftItems.map((item) => item.id)]);
-      const categories = new Map([...getModuleItems(seed), ...draftItems].map((item) => [item.id, item.category]));
-      const migratedQuestions = migrateLegacyQuestionPrompts(JSON.parse(savedQuestions), activeDraft);
-      const savedQuestionResult = validatePracticeQuestions(migratedQuestions, ids, categories);
-      if (savedQuestionResult.valid) {
-        setQuestionRaw(JSON.stringify(migratedQuestions, null, 2));
-        setQuestionResult(savedQuestionResult);
-      } else {
+      const savedQuestions = window.localStorage.getItem(QUESTION_DRAFT_STORAGE_KEY);
+      if (!savedQuestions) return;
+      try {
+        const draftItems = getModuleItems(activeDraft);
+        const ids = new Set([...knownItemIds, ...draftItems.map((item) => item.id)]);
+        const categories = new Map([...getModuleItems(seed), ...draftItems].map((item) => [item.id, item.category]));
+        const migratedQuestions = migrateLegacyQuestionPrompts(JSON.parse(savedQuestions), activeDraft);
+        const savedQuestionResult = validatePracticeQuestions(migratedQuestions, ids, categories);
+        if (savedQuestionResult.valid) {
+          setQuestionRaw(JSON.stringify(migratedQuestions, null, 2));
+          setQuestionResult(savedQuestionResult);
+        } else {
+          setQuestionRaw(JSON.stringify(questions, null, 2));
+          setQuestionResult(questionHealth);
+          setMessage("The saved question draft was incomplete, so the bundled question bank is shown. Reset questions to clear the old copy.");
+        }
+      } catch {
         setQuestionRaw(JSON.stringify(questions, null, 2));
         setQuestionResult(questionHealth);
-        setMessage("The saved question draft was incomplete, so the bundled question bank is shown. Reset questions to clear the old copy.");
+        setMessage("The saved question draft was invalid, so the bundled question bank is shown. Reset questions to clear the old copy.");
       }
-    } catch {
-      setQuestionRaw(JSON.stringify(questions, null, 2));
-      setQuestionResult(questionHealth);
-      setMessage("The saved question draft was invalid, so the bundled question bank is shown. Reset questions to clear the old copy.");
-    }
+    };
+    void load();
+    return () => { cancelled = true; };
   }, [knownItemIds, questionHealth, questions, seed, seedHealth]);
 
   const validate = () => {
@@ -248,7 +254,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
     setMessage(next.valid ? "Package is ready to save as a local draft." : "Fix the listed errors before saving.");
   };
 
-  const saveDraft = () => {
+  const saveDraft = async () => {
     const parsed = parseAndValidateModule(raw);
     const next = parsed.result;
     setResult(next);
@@ -257,9 +263,13 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
       setMessage("Fix the JSON structure before saving this draft.");
       return;
     }
-    window.localStorage.setItem(CONTENT_DRAFT_STORAGE_KEY, raw);
-    window.dispatchEvent(new Event("michi-content-draft-updated"));
-    setMessage(next.valid ? "Saved locally on this device." : "Saved the in-progress review draft. Publishing stays locked until it validates.");
+    try {
+      const storage = await writeContentDraft(raw);
+      window.dispatchEvent(new Event("michi-content-draft-updated"));
+      setMessage(next.valid ? `Saved on this device (${storage}).` : `Saved the in-progress review draft (${storage}). Publishing stays locked until it validates.`);
+    } catch {
+      setMessage("Could not persist this large draft. Export the JSON before leaving this page.");
+    }
   };
 
   const validateQuestions = () => {
@@ -359,10 +369,11 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
         const nextRaw = JSON.stringify(packageData, null, 2);
         setRaw(nextRaw);
         setResult(parseAndValidateModule(nextRaw).result);
-        window.localStorage.setItem(CONTENT_DRAFT_STORAGE_KEY, nextRaw);
-        window.dispatchEvent(new Event("michi-content-draft-updated"));
         setShowContentIssues(false);
-        setMessage(status === "approved" ? "Approved and added to the learner pipeline." : "Rejected source record.");
+        void writeContentDraft(nextRaw).then(() => {
+          window.dispatchEvent(new Event("michi-content-draft-updated"));
+          setMessage(status === "approved" ? "Approved and added to the learner pipeline." : "Rejected source record.");
+        }).catch(() => setMessage("Updated this page, but the large draft could not be persisted. Export JSON before leaving."));
         return;
       }
       setMessage("Could not find that record in the draft.");
@@ -429,7 +440,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
 
   const resetDraft = () => {
     const next = JSON.stringify(seed, null, 2);
-    window.localStorage.removeItem(CONTENT_DRAFT_STORAGE_KEY);
+    void removeContentDraft().catch(() => setMessage("Reset this page, but the saved draft could not be cleared."));
     window.dispatchEvent(new Event("michi-content-draft-updated"));
     setRaw(next);
     setResult(seedHealth);

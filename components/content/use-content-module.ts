@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-import { getContentReviewStatus, parseAndValidateModule, readValidatedContentDraft } from "@/lib/content-validation";
+import { getContentReviewStatus, getModuleItems, parseAndValidateModule, readValidatedContentDraft } from "@/lib/content-validation";
+import { readContentDraft } from "@/lib/content-draft-storage.js";
 import { n5Module } from "@/lib/curriculum";
 import { readCustomEntries } from "@/lib/session";
 import { fetchSupabaseN5Module } from "@/lib/supabase/content";
@@ -47,6 +48,12 @@ export function useContentModule(seed: N5Module = n5Module) {
       const draft = readValidatedContentDraft();
       if (draft) {
         setModule(withPersonalVocabulary(learnerModule(draft)));
+        return;
+      }
+      const storedRaw = await readContentDraft();
+      const stored = storedRaw ? parseAndValidateModule(storedRaw).value : null;
+      if (stored && getModuleItems(stored).every((item) => getContentReviewStatus(item) !== "pending")) {
+        if (!cancelled) setModule(withPersonalVocabulary(learnerModule(stored)));
         return;
       }
       const remote = await fetchSupabaseN5Module(seed).catch(() => null);

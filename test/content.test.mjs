@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { execFile } from "node:child_process";
 import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { promisify } from "node:util";
+import { draftStorageMode, LARGE_DRAFT_THRESHOLD } from "../lib/content-draft-storage.js";
 import { gunzipSync } from "node:zlib";
 
 import { getItemPriority, rankContentCandidates } from "../lib/content-priority.js";
@@ -10,6 +11,11 @@ import { generatedReview, validateGenerationRequest } from "../lib/content-gener
 import { selectWeakPracticeQuestions } from "../lib/weak-practice.js";
 
 const execFileAsync = promisify(execFile);
+
+test("large review drafts use the browser's larger storage path", () => {
+  assert.equal(draftStorageMode("x".repeat(LARGE_DRAFT_THRESHOLD)), "localStorage");
+  assert.equal(draftStorageMode("x".repeat(LARGE_DRAFT_THRESHOLD + 1)), "indexedDB");
+});
 
 const moduleData = JSON.parse(await readFile(new URL("../data/n5-foundations.json", import.meta.url), "utf8"));
 const expansionData = await Promise.all(["n5-conversation-expansion.json", "n5-practical-expansion.json", "n5-life-expansion.json"].map(async (file) => JSON.parse(await readFile(new URL(`../data/${file}`, import.meta.url), "utf8"))));

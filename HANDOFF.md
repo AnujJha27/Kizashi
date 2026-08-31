@@ -647,3 +647,13 @@ Next session order:
   source-review records now reports `blocked` when none are approved, matching
   the SQL renderer instead of falsely reporting `ready`. The 8,396 pending
   imported records remain untouched.
+
+## Session notes — resumable large review drafts
+
+- Content Studio now stores drafts over 4 MB in browser IndexedDB and keeps
+  localStorage for smaller drafts, so the full staged review package can be
+  edited and resumed without a server-side draft or Supabase Storage blob.
+- The learner content hook can read a validated, fully reviewed IndexedDB
+  draft while still rejecting pending records from the learner path.
+- Verified on 2026-08-31: direct TypeScript checking and the full content test
+  file (36/36). Full-suite/build verification remains before commit.

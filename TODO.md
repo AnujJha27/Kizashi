@@ -22,6 +22,8 @@
 
 Review tooling is implemented: Content Studio ranks candidates, edits classification/provenance, assigns real Journey lessons, and QA/export scripts refuse incomplete approved records. Human review and SQL application remain intentionally unchecked.
 
+- [x] Keep large staged review packages resumable with browser IndexedDB; small drafts may use localStorage, and no draft is sent to a server by this path.
+
 ### Phase 2 — lookup and analysis
 
 - [x] Add JMnedict staging for proper-name lookup without treating names as normal JLPT vocabulary.
