@@ -8,12 +8,12 @@ import { ExternalSourceFrame, ExternalSourceViewer } from "@/components/learning
 import { JapaneseText } from "@/components/learning/japanese-text";
 import { externalResourceToSourceLink } from "@/components/learning/external-source-launcher";
 import { readExternalSourceProgress } from "@/lib/external-source-progress.js";
-import { getEarWarmup, getErinLessonSources, getListeningClipMetadata, selectImmersionClips } from "@/lib/immersion-core.js";
+import { getEarWarmup, getListeningClipMetadata, selectImmersionClips } from "@/lib/immersion-core.js";
 import { readReviewRecords, type ReviewRecord } from "@/lib/session";
 import type { ListeningItem, ListeningMode } from "@/lib/types";
-import { getExternalResources } from "@/lib/external-resources";
+import { getErinLessonResources, getExternalResources } from "@/lib/external-resources";
 
-const erinLessons = getErinLessonSources();
+const erinLessons = getErinLessonResources().map(externalResourceToSourceLink);
 const sources = getExternalResources().map(externalResourceToSourceLink);
 
 function knownIds(records: Record<string, ReviewRecord>) {

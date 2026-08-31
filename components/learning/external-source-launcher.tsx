@@ -4,10 +4,14 @@ import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 
 import { markExternalSourceOpened, readExternalSourceProgress } from "@/lib/external-source-progress.js";
+import { externalResourceToSourceLink as adaptExternalResource } from "@/lib/external-resources";
 import type { ExternalResource } from "@/lib/external-resources";
+
+export type ExternalSourceDelivery = "original-site" | "remote-media" | "frame-or-link" | "link-only";
 
 export interface ExternalSourceLink {
   id: string;
+  sourceId: string;
   name: string;
   title?: string;
   level?: string;
@@ -16,33 +20,20 @@ export interface ExternalSourceLink {
   targetItemIds?: readonly string[];
   annotationStatus?: string;
   reviewedAt?: string;
-  resourceTypes?: readonly string[];
+  resourceTypes: readonly string[];
   transcriptAvailable?: boolean;
   translationAvailable?: boolean;
-  mediaDelivery?: string;
+  mediaDelivery: ExternalSourceDelivery;
   mediaUrl?: string;
   posterUrl?: string;
   description: string;
   url: string;
+  license?: string;
+  attribution?: string;
 }
 
 export function externalResourceToSourceLink(resource: ExternalResource): ExternalSourceLink {
-  return {
-    id: resource.id,
-    name: resource.name,
-    title: resource.title,
-    level: resource.level,
-    targetSkills: resource.targetSkills,
-    targetItemIds: resource.targetItemIds,
-    description: resource.description ?? "",
-    url: resource.url,
-    resourceTypes: [resource.resourceType],
-    mediaDelivery: resource.deliveryMode,
-    annotationStatus: resource.metadata?.annotationStatus as string | undefined,
-    reviewedAt: resource.metadata?.reviewedAt as string | undefined,
-    transcriptAvailable: resource.metadata?.transcriptAvailable as boolean | undefined,
-    translationAvailable: resource.metadata?.translationAvailable as boolean | undefined,
-  };
+  return adaptExternalResource(resource);
 }
 
 export function ExternalSourceLauncher({ source, children = "Open original source ↗" }: Readonly<{ source: ExternalSourceLink; children?: ReactNode }>) {
