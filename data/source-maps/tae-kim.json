@@ -1,0 +1,56 @@
+{
+  "grammar-wa": {
+    "sourceId": "tae-kim",
+    "sectionTitle": "The topic particle は",
+    "url": "https://guidetojapanese.org/learn/grammar/particles#The_topic_particle_は",
+    "relationship": "alternative-explanation",
+    "description": "A Japanese-first structural explanation of は.",
+    "attribution": "Tae Kim's Guide to Japanese",
+    "license": "CC BY-NC-SA 3.0"
+  },
+  "grammar-ga": {
+    "sourceId": "tae-kim",
+    "sectionTitle": "The identifier particle が",
+    "url": "https://guidetojapanese.org/learn/grammar/particles#The_identifier_particle_が",
+    "relationship": "alternative-explanation",
+    "description": "A structural explanation of が and identification.",
+    "attribution": "Tae Kim's Guide to Japanese",
+    "license": "CC BY-NC-SA 3.0"
+  },
+  "grammar-ni": {
+    "sourceId": "tae-kim",
+    "sectionTitle": "The target particle に",
+    "url": "https://guidetojapanese.org/learn/grammar/particles#The_target_particle_に",
+    "relationship": "alternative-explanation",
+    "description": "An alternative explanation of に as a target or destination marker.",
+    "attribution": "Tae Kim's Guide to Japanese",
+    "license": "CC BY-NC-SA 3.0"
+  },
+  "grammar-de": {
+    "sourceId": "tae-kim",
+    "sectionTitle": "The context particle で",
+    "url": "https://guidetojapanese.org/learn/grammar/particles#The_contextual_particle_で",
+    "relationship": "alternative-explanation",
+    "description": "An alternative explanation of で as the setting or means of an action.",
+    "attribution": "Tae Kim's Guide to Japanese",
+    "license": "CC BY-NC-SA 3.0"
+  },
+  "grammar-te-form": {
+    "sourceId": "tae-kim",
+    "sectionTitle": "Using the て-form",
+    "url": "https://guidetojapanese.org/learn/grammar/teform",
+    "relationship": "alternative-explanation",
+    "description": "A structural walkthrough of the て-form and its uses.",
+    "attribution": "Tae Kim's Guide to Japanese",
+    "license": "CC BY-NC-SA 3.0"
+  },
+  "grammar-temoii": {
+    "sourceId": "tae-kim",
+    "sectionTitle": "Asking for permission",
+    "url": "https://guidetojapanese.org/learn/grammar/teform#Using_the_て_form_for_permission",
+    "relationship": "alternative-explanation",
+    "description": "A structural explanation of permission with てもいい.",
+    "attribution": "Tae Kim's Guide to Japanese",
+    "license": "CC BY-NC-SA 3.0"
+  }
+}

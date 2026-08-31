@@ -1,0 +1,62 @@
+{
+  "grammar-wa": {
+    "sourceId": "wikibooks-japanese",
+    "sectionTitle": "は",
+    "page": "Japanese/Grammar/Particles",
+    "url": "https://en.wikibooks.org/wiki/Japanese/Grammar/Particles",
+    "relationship": "reference",
+    "description": "Particle reference and related forms.",
+    "license": "CC BY-SA 4.0 / GFDL",
+    "attribution": "Wikibooks contributors"
+  },
+  "grammar-ga": {
+    "sourceId": "wikibooks-japanese",
+    "sectionTitle": "が",
+    "page": "Japanese/Grammar/Particles",
+    "url": "https://en.wikibooks.org/wiki/Japanese/Grammar/Particles",
+    "relationship": "reference",
+    "description": "Particle reference and related forms.",
+    "license": "CC BY-SA 4.0 / GFDL",
+    "attribution": "Wikibooks contributors"
+  },
+  "grammar-counters": {
+    "sourceId": "wikibooks-japanese",
+    "sectionTitle": "Counters",
+    "page": "Japanese/Grammar/Counters",
+    "url": "https://en.wikibooks.org/wiki/Japanese/Grammar/Counters",
+    "relationship": "reference",
+    "description": "A lookup reference for Japanese counters.",
+    "license": "CC BY-SA 4.0 / GFDL",
+    "attribution": "Wikibooks contributors"
+  },
+  "grammar-te-form": {
+    "sourceId": "wikibooks-japanese",
+    "sectionTitle": "Te-form",
+    "page": "Japanese/Grammar/Verbs",
+    "url": "https://en.wikibooks.org/wiki/Japanese/Grammar/Verbs",
+    "relationship": "reference",
+    "description": "Conjugation reference for verb forms.",
+    "license": "CC BY-SA 4.0 / GFDL",
+    "attribution": "Wikibooks contributors"
+  },
+  "grammar-dictionary-form": {
+    "sourceId": "wikibooks-japanese",
+    "sectionTitle": "Verb conjugation",
+    "page": "Japanese/Grammar/Verbs",
+    "url": "https://en.wikibooks.org/wiki/Japanese/Grammar/Verbs",
+    "relationship": "reference",
+    "description": "A conjugation reference for dictionary and polite forms.",
+    "license": "CC BY-SA 4.0 / GFDL",
+    "attribution": "Wikibooks contributors"
+  },
+  "grammar-i-adjective": {
+    "sourceId": "wikibooks-japanese",
+    "sectionTitle": "Adjectives",
+    "page": "Japanese/Grammar/Adjectives",
+    "url": "https://en.wikibooks.org/wiki/Japanese/Grammar/Adjectives",
+    "relationship": "reference",
+    "description": "A reference treatment of Japanese adjective forms.",
+    "license": "CC BY-SA 4.0 / GFDL",
+    "attribution": "Wikibooks contributors"
+  }
+}
