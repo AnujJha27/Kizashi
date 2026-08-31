@@ -6,6 +6,11 @@ source below. Do not infer permission to copy or redistribute an asset from a
 general dataset label; check the current source terms and the exact delivery
 path.
 
+The complete source inventory, including canonical curriculum inputs, audio
+providers, private books, and provenance fields, is in
+[CONTENT-SOURCES.md](./CONTENT-SOURCES.md). This file records the term-specific
+decisions; it is not a list of assets Kizashi has downloaded.
+
 | Source | Finding | Kizashi decision |
 | --- | --- | --- |
 | [CEJC frequency list](https://repository.ninjal.ac.jp/records/2000167) | The 2024.03 frequency list permits free research/education use but prohibits redistribution and sends commercial use to consultation. The full CEJC audio, transcripts, and annotations have separate access terms. | Keep as an optional spoken-frequency analysis input. Do not ship CEJC data, audio, transcripts, or derived learner assets. |

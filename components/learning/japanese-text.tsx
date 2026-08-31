@@ -94,7 +94,7 @@ export function getJapaneseReadingEntries(vocabulary: VocabularyItem[], kanji: K
   return [...entries.entries()].sort((left, right) => right[0].length - left[0].length);
 }
 
-export function JapaneseText({ text, vocabulary, kanji = [], className = "" }: Readonly<{ text: string; vocabulary: VocabularyItem[]; kanji?: KanjiItem[]; className?: string }>) {
+export function JapaneseText({ text, vocabulary, kanji = [], className = "", always = false }: Readonly<{ text: string; vocabulary: VocabularyItem[]; kanji?: KanjiItem[]; className?: string; always?: boolean }>) {
   const [mode, setMode] = useState<FuriganaMode>("unknown");
   const [records, setRecords] = useState<Record<string, ReviewRecord>>({});
   const [tapped, setTapped] = useState(false);
@@ -115,6 +115,6 @@ export function JapaneseText({ text, vocabulary, kanji = [], className = "" }: R
     item.usefulWords.forEach((word) => { if (!masteryByWord.has(word.word)) masteryByWord.set(word.word, item.id); });
   });
   const parts = text.split(new RegExp(`(${entries.map(([word]) => escapeRegExp(word)).join("|")})`, "gu"));
-  const showReading = (part: string) => { if (mode === "always") return true; if (mode === "hide") return false; if (mode === "tap") return tapped; const itemId = masteryByWord.get(part); return !itemId || !["stable", "strong"].includes(records[itemId]?.masteryState ?? ""); };
+  const showReading = (part: string) => { if (always || mode === "always") return true; if (mode === "hide") return false; if (mode === "tap") return tapped; const itemId = masteryByWord.get(part); return !itemId || !["stable", "strong"].includes(records[itemId]?.masteryState ?? ""); };
   return <span className={className} onClick={mode === "tap" ? () => setTapped((value) => !value) : undefined}>{parts.map((part, index) => readings.has(part) && showReading(part) ? <ruby key={`${part}-${index}`}>{part}<rt className="text-[.42em] font-normal tracking-normal text-[#e5b85c]">{readings.get(part)}</rt></ruby> : <span key={`${part}-${index}`}>{part}</span>)}</span>;
 }

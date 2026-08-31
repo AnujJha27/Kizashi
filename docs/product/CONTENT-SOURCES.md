@@ -1,0 +1,115 @@
+# Kizashi content-source register
+
+Updated: 2026-08-31
+
+This is the single inventory of sources used, evaluated, or intentionally kept
+outside Kizashi. It describes product handling; current provider terms still
+control any future copy, embedding, or redistribution. The detailed term
+decisions are in [SOURCE-EVALUATION.md](./SOURCE-EVALUATION.md).
+
+## Current delivery boundary
+
+- The hosted project has 313 approved seeded `learning_items` across
+  vocabulary, kanji, grammar, reading, and listening. The 47 approved staged
+  package IDs match hosted rows.
+- The tracked source-review package contains 8,442 records: 47 approved
+  source-review records, 50 authored/curated records, 8,345 pending records,
+  and no rejected records. The
+  authenticated private learner route can expose non-rejected pending records
+  with `humanReviewed: false`; SQL export and admin publication still require
+  explicit approval.
+- No third-party corpus audio, transcripts, annotations, or datasets are in
+  GitHub or Supabase Storage. The supplied personal book files are kept in the
+  private `books` bucket and are served only through the authenticated reader.
+- Routine pronunciation uses the browser Speech API. Audio metadata and
+  approved external URLs may be persisted; generated pronunciation blobs are
+  not stored by default.
+
+## Curriculum and canonical fact sources
+
+| Source ID | Source | Role in Kizashi | Current handling |
+| --- | --- | --- | --- |
+| `jlpt-official-blueprint` | [Official JLPT N5 item purposes](https://www.jlpt.jp/e/guideline/pdf/n5_e_revised.pdf) | Exam format and timing calibration | Reference only; no bulk copying of exam content. |
+| `jmdict` | [JMdict](https://www.edrdg.org/jmdict/j_jmdict.html) | Vocabulary spellings, readings, meanings, parts of speech, and senses | Canonical dictionary enrichment with EDRDG attribution/license metadata. |
+| `jmdict-examples` | [JMdict linked examples](https://ftp.edrdg.org/pub/Nihongo/00INDEX.html) | Example-sentence candidates | Staged with provenance and reviewed before learner publication. |
+| `kanjidic2` | [KANJIDIC2](https://www.edrdg.org/wiki/KANJIDIC_Project.html) | Kanji readings, meanings, grades, strokes, and metadata | Canonical kanji enrichment under CC BY-SA 4.0 handling. |
+| `openjlpt` | [OpenJLPT](https://github.com/evanclan/OpenJLPT) | Unofficial JLPT level spine | Staging evidence only; classifications remain review-required. |
+| `bccwj` | [NINJAL BCCWJ frequency list](https://clrd.ninjal.ac.jp/bccwj/freq-list.html) | Written-frequency and register signal | Frequency enrichment, distinct from curriculum truth. |
+| `irodori` | [Japan Foundation Irodori](https://www.irodori.jpf.go.jp/en/resources.html) | Communicative vocabulary, sentence patterns, and kanji progression | Review-only derived candidates with source and retrieval metadata. |
+| `marugoto` | [Japan Foundation Marugoto](https://marugoto.jpf.go.jp/en/download/) | Vocabulary, phrase progression, and can-do reference | Review-only derived candidates; source terms remain attached. |
+| `tatoeba` | [Tatoeba](https://tatoeba.org/en/downloads) | Japanese-English example candidates and possible short human audio | Per-sentence attribution and per-recording license checks are required. No bulk audio mirror. |
+| `michi-curated-n5-seed` | Kizashi-authored N5 seed | Learner curriculum, explanations, examples, and targets | Original content in the learner package and Supabase seed. |
+| `michi-question-factory` | Kizashi deterministic question factory | Original drills derived from reviewed item facts | Structural validation and semantic review metadata are required. |
+| `user-draft` | Local Content Studio draft | Owner-authored additions | Local/unpublished until explicitly reviewed. |
+
+## Lookup and corpus-analysis sources
+
+| Source | Intended signal | Current handling |
+| --- | --- | --- |
+| [JMnedict](https://www.edrdg.org/enamdict/enamdict_doc.html) | Proper-name lookup | Staged separately from JLPT vocabulary; never treated as curriculum truth. |
+| [SudachiDict](https://github.com/WorksApplications/SudachiDict) / UniDic metadata | Tokenization, lemmas, conjugation, and sentence linking | Optional local lookup metadata only; no learner publication. |
+| [CEJC frequency list](https://repository.ninjal.ac.jp/records/2000167) | Spoken frequency, conversational patterns, collocations, and naturalness | Aggregate/review input only. CEJC audio, transcripts, annotations, and raw rows stay out of Kizashi. |
+| [CEJC corpus access](https://www2.ninjal.ac.jp/conversation/cejc.html) | Authorized conversation listening/research | Source launcher or authorized session only; no capture, proxy, or re-serving. |
+| [CSJ](https://clrd.ninjal.ac.jp/csj/en/) and [CSJ frequency list](https://repository.ninjal.ac.jp/records/3276) | Broad spoken-frequency and listening-realism signal | Local review-only aggregate. The current no-redistribution/ND terms block automatic learner-bundle publication. |
+| [I-JAS terms](https://chunagon.ninjal.ac.jp/static/I-JAS_TermsOfService.pdf) | Aggregate learner-error/difficulty signal | Privacy-safe aggregates only. Learner IDs, transcripts, audio, and raw learner records are rejected. |
+| WaniKani | Optional cross-reference | Not integrated; no compatible permission has been established. |
+
+The product interpretation is deliberately narrow:
+
+```text
+CEJC  = naturalness / spoken-frequency signal
+I-JAS = learner-difficulty / error signal
+CSJ   = broader spoken-frequency / realism signal
+```
+
+Corpus evidence identifies patterns worth checking. It does not become a
+grammar rule or replace a reliable explanation source.
+
+## Listening and audio sources
+
+| Source | Best use | Kizashi delivery |
+| --- | --- | --- |
+| Browser Speech API | Vocabulary, kanji readings, grammar examples, and ordinary sentences | Default `BrowserSpeechProvider`; prefers voices whose language starts with `ja`; no blob storage. |
+| [Erin's Challenge](https://www.erin.jpf.go.jp/en/) | Beginner situational dialogue, scripts, and shadowing | Original-page shelf with six N5-targeted launchers; media remains on the Japan Foundation site. |
+| [Common Voice Japanese](https://mozilladatacollective.com/datasets/cmqim4lxy00tunr07cjkcupeg) | Human-speaker variation | Source-linked browsing only; no dataset upload, mirroring, or speaker identification. |
+| [Tatoeba audio](https://tatoeba.org/en/audio/index/jpn) | Short sentence recordings | External URL only after that recording's contributor license and attribution are recorded. |
+| [JSUT](https://sites.google.com/site/shinnosuketakamichi/publication/jsut) | Clean speech research/exposure | No full-corpus upload; any future subset needs a documented preservation reason and terms. |
+| [VOICEVOX](https://voicevox.hiroshiba.jp/) | Future consistent mock-JLPT dialogue | Reserved `ServerTTSProvider`; selected voice-library terms and credits must be recorded first. |
+| Open JTalk | Future local pronunciation fallback | Not currently wired as a separate delivery source; terms and packaging must be checked first. |
+| [JapanesePod101](https://www.japanesepod101.com/begin/) | Polished learner listening | Original-provider shelf only until the exact free-material terms are verified. |
+| Remote human audio | A specifically cleared recording | `RemoteAudioProvider` streams the approved external URL and preserves provenance metadata. |
+
+The UI exposes play, replay, slow playback, and the existing optional autoplay
+preference. `ServerTTSProvider` exists as an unavailable future path; it does
+not generate or persist audio today. The immersion shelf may attempt a direct
+browser iframe for an original provider page and falls back to a new-tab link
+when framing, login, cookies, or provider behavior block it. Kizashi does not
+download, proxy, cache, mirror, re-host, or upload the framed source.
+
+## Private user-provided material
+
+| Source | Use | Boundary |
+| --- | --- | --- |
+| Genki I supplied PDF | Personal book reading and local page notes | Private `books` bucket, short-lived signed parts, browser-side assembly. Extracted facts remain review-only. |
+| Goukaku Dekiru N4.5 supplied PDF | Personal book reading | Same private-reader boundary; not in GitHub or the public bundle. |
+| Nihongo Challenge Kanji N4–N5 supplied PDF | Personal book reading | Same private-reader boundary; not in GitHub or the public bundle. |
+| Personal CSV/JSON vocabulary lists | Local Quick Add and canonical matching | Stored as personal state; unmatched entries remain local and are not published. |
+| Local notes and page screenshots | Personal study context | Local-first and included only in the bounded opt-in backup/sync snapshot. |
+
+## Provenance contract
+
+Curriculum records carry `sourceIds` and field-level `fieldSourceIds`. Source
+manifests preserve the source ID, name, type, URL, license, retrieval date,
+checksum, local filename, and notes when available. Audio records preserve
+source type, optional URL, speaker metadata, license/provenance,
+`isSynthetic`, and preferred playback rate. Review status remains separate from
+source ownership:
+
+- `pending` means the source-review record is not approved for SQL export.
+- `approved` means it passed the explicit admin/QA publication gate.
+- private automatic learner release is marked `humanReviewed: false` and does
+  not change the source-review status.
+
+For current term findings and links, see
+[SOURCE-EVALUATION.md](./SOURCE-EVALUATION.md). For implementation and hosted
+verification, see [HANDOFF.md](../../HANDOFF.md) and [TODO.md](../../TODO.md).

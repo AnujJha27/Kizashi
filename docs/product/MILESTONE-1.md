@@ -1,5 +1,12 @@
 You are building a private single-user Japanese learning web application based on the attached PRD.
 
+> This document records the original Milestone 1 scope. Milestone 1 and the
+> later addendum-driven study, source, sync, and review features are now
+> implemented in the current repository; see [`HANDOFF.md`](../../HANDOFF.md)
+> and [`TODO.md`](../../TODO.md) for current status. The “do NOT yet
+> implement” items below describe the milestone boundary, not current
+> capability.
+
 Do not attempt to implement the entire product in one pass.
 
 For the first implementation milestone, build only the product foundation.

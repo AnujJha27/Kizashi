@@ -1,3 +1,9 @@
+> Implementation status (2026-08-31): current behavior is tracked in
+> [`HANDOFF.md`](../../HANDOFF.md), [`TODO.md`](../../TODO.md), and the
+> [content-source register](./CONTENT-SOURCES.md). The private learner route
+> may release non-rejected staged records with `humanReviewed: false`; the
+> source-review/SQL publication gate remains explicit.
+
 That concern is valid, because **there is no official modern “JLPT N5 vocabulary/grammar/kanji list” you can simply import**. The JLPT explicitly stopped publishing those content-specification lists after the 2010 revision; instead, it publishes competency descriptions, question formats, sample questions, and official practice workbooks. ([JLPT][1])
 
 So I would not make the app’s content strategy “scrape an N5 list from some random website.” I’d make it a **multi-source curriculum pipeline** with different sources serving different purposes.
@@ -1100,9 +1106,12 @@ candidates while preserving each source line for review. Then
 approved source-review records into local, idempotent SQL. Migration
 `0008_content_source_provenance.sql` keeps each artifact checksum and local
 filename in `content_sources`. Imported records also carry a per-record
-`reviewStatus`: they remain `pending` until explicitly approved, and the
-learner path ignores pending or rejected local records. Nothing connects to
-Supabase or publishes content automatically; provenance and validation remain
-required before publication. Migration `0010_content_review_status.sql` stores
-the same gate in Supabase, and `0011_content_source_types.sql` preserves
-frequency/example roles in the source registry.
+`reviewStatus`: they remain `pending` until explicitly approved for SQL/content
+publication. The local source-review/export path excludes pending and rejected
+records; the authenticated private learner route is an explicit exception for
+non-rejected records and marks them `humanReviewed: false`. Nothing publishes
+pending/rejected records to the hosted approved content tables automatically;
+provenance and validation remain required for promotion. Migration
+`0010_content_review_status.sql` stores the gate in Supabase, and
+`0011_content_source_types.sql` preserves frequency/example roles in the source
+registry.

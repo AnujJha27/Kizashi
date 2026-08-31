@@ -1,5 +1,11 @@
 # PRD — Personal Japanese Learning Platform
 
+> Current implementation status (2026-08-31) is tracked in
+> [`HANDOFF.md`](../../HANDOFF.md), [`TODO.md`](../../TODO.md), and the
+> [content-source register](./CONTENT-SOURCES.md). This file remains the
+> product specification; optional/future sections are not claims that those
+> features are still unimplemented.
+
 ## 1. Product Overview
 
 ### Working name

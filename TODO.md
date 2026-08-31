@@ -1,5 +1,11 @@
 # Kizashi TODO
 
+Status audited 2026-08-31: the private learner release, learner flags, source
+viewer, audio-provider routing, hosted migrations/seed, and GitHub `main` push
+are complete. Remaining unchecked items below are intentionally optional source
+rights/quality work or the manual browser viewport gate. The complete source
+register is [`docs/product/CONTENT-SOURCES.md`](docs/product/CONTENT-SOURCES.md).
+
 ## Content acquisition and curriculum expansion
 
 ### Phase 1 — content foundation
@@ -18,7 +24,8 @@
 - [x] Run the cache-first acquisition command and inspect the generated N5 review package.
 - [x] Acquire N4 bridge vocabulary, kanji, grammar, and linked examples for above-level preparation.
 - [x] Retry the six audited vocabulary extraction errors with pitch-accent-aware parsing; four now merge into canonical records and two corrected rows remain pending review.
-- [ ] Review, enrich, classify, and assign imported records to real Journey lessons. The current staged package has 97 approved seed-derived records, 8,345 records remain pending, and none are rejected. The private learner path now releases every non-rejected staged record with an explicit `humanReviewed: false` marker; the admin review queue remains available for cleanup and promotion.
+- [x] Release all non-rejected staged records through the private learner path with an explicit `humanReviewed: false` marker, while preserving pending status and the admin review/export queue. The current package has 47 approved source-review records, 50 authored/curated records, 8,345 pending records, and none rejected.
+- [ ] Optional quality pass: review, enrich, classify, and assign imported records to real Journey lessons before promoting them to the approved SQL/content pool.
 - [x] Apply the generated Supabase SQL import after the hosted project receives
   migrations 0017–0019. The hosted schema now exposes spoken-frequency,
   audio-metadata, and I-JAS aggregate support; the 47 approved staged IDs all
@@ -155,9 +162,10 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
   proxying, caching, or re-hosting the source audio/data.
 - [x] Add an opt-in original-source frame attempt for Erin, CEJC, CSJ, Common
   Voice, Tatoeba, JSUT, and JapanesePod101, with a direct-link fallback when a
-  provider blocks framing or login cookies. The iframe loads the provider URL
-  directly; it does not grant permission, copy, proxy, cache, mirror, or upload
-  source material.
+  provider blocks framing or login cookies. The selected iframe expands below
+  the full source-card grid; immersion transcripts and shadowing always show
+  mapped furigana. The iframe loads the provider URL directly; it does not grant
+  permission, copy, proxy, cache, mirror, or upload source material.
 - [x] Add a private learner release path for all non-rejected staged records;
   keep their source-review status pending while attaching
   `contentReview.method = "automatic"` and `humanReviewed = false`.
@@ -189,9 +197,11 @@ source retain their own terms and attribution rules.
   one unofficial level spine.
 - [x] Show licensed written-frequency signals in the learner entry and admin
   review surfaces.
-- [ ] Publish additional spoken-frequency values after source and field
-  semantics are settled; CEJC aggregate values are wired, while CSJ remains a
-  local review-only input because its current terms prohibit redistribution.
+- [x] Wire the permitted CEJC aggregate spoken-frequency signal through the
+  reviewed analysis path; keep it distinct from BCCWJ written frequency.
+- [ ] Obtain matching downstream permission before publishing CSJ-derived
+  spoken-frequency values; CSJ remains a local review-only input under its
+  current no-redistribution/ND terms.
 - [x] Route pronunciation through browser speech by default, with remote audio
   and a reserved server-TTS provider behind the same UI controls.
 - [x] Persist audio metadata only: source type, optional external URL, speaker,
@@ -241,7 +251,10 @@ source retain their own terms and attribution rules.
 - [x] Add deeper AI explain/conversation/writing features after the core learning loop and content bank are strong.
 - [x] Provide a bounded 2-minute adaptive micro-session alongside the longer quick-drill presets.
 - [x] Run the full build, typecheck, and tests locally.
-- [ ] Complete the phone/desktop preview before deployment.
+- [ ] Complete the manual phone/desktop viewport preview before deployment.
+  Route/HTTP smoke checks, build, typecheck, and tests pass; a browser-capable
+  environment must still inspect protected routes at real phone and desktop
+  widths.
 
 ## Books and source library
 

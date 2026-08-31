@@ -1,6 +1,6 @@
 # Kizashi
 
-Kizashi is a calm, dark-first Japanese-learning path. The current slice includes the responsive shell, Journey, interactive N5 study/review loop, PWA shell, content validation, and Supabase-backed curriculum.
+Kizashi is a calm, dark-first Japanese-learning path. The current private preview includes the responsive shell, Journey, interactive N5 study/review loop, immersion/source shelf, browser Japanese speech, PWA shell, content validation, and Supabase-backed curriculum.
 
 ## Local setup
 
@@ -10,9 +10,9 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Without Supabase variables the app runs in local demo mode. With Supabase configured, magic-link auth, the `ALLOWED_EMAIL`/`ALLOWED_EMAILS` allowlist, protected app routes, and RLS-backed account sync are active. Set `ADMIN_EMAIL` to the admin email (`aj05767625@gmail.com`) to protect Content Studio and AI generation; `ADMIN_USER_ID` is an optional UUID override. Apply the migrations in `supabase/migrations/`, including `0014_sync_metadata.sql`, before enabling account sync in Profile.
+Without Supabase variables the app runs in local demo mode. With Supabase configured, magic-link auth, the `ALLOWED_EMAIL`/`ALLOWED_EMAILS` allowlist, protected app routes, and RLS-backed account sync are active. Set `ADMIN_EMAIL` to the admin email (`aj05767625@gmail.com`) to protect Content Studio and AI generation; `ADMIN_USER_ID` is an optional UUID override. The configured hosted project already has the migrations and seed applied and was verified on 2026-08-31.
 
-Apply the migrations in `supabase/migrations/` (including `0017_spoken_frequency.sql`), then run `supabase/seed.sql` in the Supabase SQL Editor. Curriculum reads require an authenticated user when Supabase is configured; user-owned tables remain protected by RLS. Profile sync is explicit opt-in and keeps browser state intact if the network fails.
+For a fresh Supabase project, apply the migrations in `supabase/migrations/` (including `0017_spoken_frequency.sql`, `0018_audio_metadata.sql`, and `0019_ijas_aggregates.sql`) and then run `supabase/seed.sql`. That setup instruction is not a pending action for the configured project: no additional SQL Editor work is currently required. Curriculum reads require an authenticated user when Supabase is configured; user-owned tables remain protected by RLS. Profile sync is explicit opt-in and keeps browser state intact if the network fails.
 
 To check and apply the hosted migration history with the Supabase CLI (from this directory):
 
@@ -28,9 +28,9 @@ supabase migration list
 If the CLI is installed only as an npm project dependency, prefix those commands
 with `npx`. The list compares local files with the remote migration history, and
 `db push` applies only pending migrations. Never use `supabase db reset --linked`
-against this project; that is destructive. After the migrations are current, run
-the complete `supabase/seed.sql` in the SQL Editor and verify the core tables
-before enabling account sync.
+against this project; that is destructive. The linked project is already current
+and its seed/core tables were verified; only a new project or an intentional
+seed repair needs the SQL Editor step.
 
 ### Private books on the free plan
 
@@ -42,7 +42,7 @@ python scripts/split_books_for_storage.py --input "N5-books/Study Material N5/Go
 python scripts/split_books_for_storage.py --input "N5-books/Study Material N5/Nihongo_Challenge_Kanji_N4-N5.pdf" --book-id nihongo-challenge-kanji
 ```
 
-Apply `0015_private_book_storage.sql`, upload `.book-storage/books/<book-id>/part-*.pdf` to the matching paths in the private bucket, and set `SUPABASE_SERVICE_ROLE_KEY` (or the existing `SUPABASE_SERVICE_KEY`) only in the server deployment environment. The app checks the existing allowlist, returns short-lived signed URLs for each private part, and assembles the PDF in the browser so large books do not pass through a Vercel Function response. Audio is deferred until its source and storage terms are settled.
+Apply `0015_private_book_storage.sql`, upload `.book-storage/books/<book-id>/part-*.pdf` to the matching paths in the private bucket, and set `SUPABASE_SERVICE_ROLE_KEY` (or the existing `SUPABASE_SERVICE_KEY`) only in the server deployment environment. The app checks the existing allowlist, returns short-lived signed URLs for each private part, and assembles the PDF in the browser so large books do not pass through a Vercel Function response. Routine pronunciation uses browser speech; generated audio blobs are not stored by default. Third-party audio remains source-linked or externally streamed only after its terms/provenance are recorded.
 
 ### Vercel deployment
 
@@ -66,7 +66,7 @@ Apply `0015_private_book_storage.sql`, upload `.book-storage/books/<book-id>/par
    Apply the public variables to Preview and Production. Apply the service key, allowlisted email, and optional AI key only where needed. Never use `NEXT_PUBLIC_` for a service key.
 3. In Supabase Dashboard → Authentication → URL Configuration, set Site URL to the production domain and add `<production-domain>/auth/callback`. Add the matching Vercel preview callback pattern if preview sign-in is needed.
 4. For Google sign-in, open Supabase Dashboard → Authentication → Providers → Google, enable it, and paste the Google OAuth Client ID and Client Secret. In Google Cloud, create a Web application OAuth client and set its authorized redirect URI to the callback URL shown in the Supabase Google provider panel (`https://<project-ref>.supabase.co/auth/v1/callback`). In Supabase Authentication → URL Configuration, add `<production-domain>/auth/callback` to Redirect URLs. The app's Google button already uses that callback, and the callback still enforces the email allowlist and admin email.
-5. In Supabase SQL Editor, run every migration in `supabase/migrations/` in filename order, including `0014_sync_metadata.sql`, `0015_private_book_storage.sql`, and the idempotent `0016_repair_schema.sql` when the remote migration history says it is current but a seed reports missing tables. Then run `supabase/seed.sql`. Do not enable account sync until the tables exist.
+5. For a new Supabase project, run every migration in `supabase/migrations/` in filename order, including `0014_sync_metadata.sql`, `0015_private_book_storage.sql`, `0016_repair_schema.sql`, and `0017`–`0019`, then run `supabase/seed.sql`. For the configured project, migrations, seed, core tables, and the 313-row hosted curriculum have already been verified; there is no SQL Editor action left.
 6. Confirm the `books` bucket is private and contains every uploaded book part. The deployed Books reader loads through `/api/books/<book-id>/parts`; the old whole-file endpoint remains only as a local fallback.
 7. Deploy, then smoke-test: magic-link login, Google login, `/journey`, `/practice`, `/profile` sync, `/studio` as admin, and every `/books/<book-id>` reader. Change Vercel environment variables only before a new deployment; existing deployments keep their previous values.
 
@@ -78,7 +78,7 @@ Apply `0015_private_book_storage.sql`, upload `.book-storage/books/<book-id>/par
 ./node_modules/.bin/next build
 ```
 
-AI generation is server-side, admin-gated, and draft-only until review. Renshuu content is not imported; the current curriculum is original/curated, and dictionary sources are cached by a project script before review. The review queue now has deterministic priority scoring, provenance-aware editing, and publish QA.
+AI generation is server-side, admin-gated, and draft-only until review. Renshuu content is not imported; the current curriculum is original/curated, and dictionary sources are cached by a project script before review. The review queue now has deterministic priority scoring, provenance-aware editing, and publish QA. See [`docs/product/CONTENT-SOURCES.md`](docs/product/CONTENT-SOURCES.md) for the complete source register and delivery boundaries.
 
 ## Staged source import
 
@@ -101,7 +101,7 @@ python scripts/qa_content_package.py --package data/staging/kizashi-n5-source-re
 python scripts/render_supabase_content_sql.py --approved --questions data/staging/kizashi-question-review.json
 ```
 
-The browser does not ask you to load source files. Run `python scripts/fetch_dictionary_sources.py --source core --level N5` once to cache the approved dictionary, curriculum, frequency, and sentence artifacts in ignored `data/source-cache/`. Then run `python scripts/ingest_openjlpt.py --level N5`; it automatically consumes cached JMdict, linked JMdict examples, BCCWJ frequency data, and capped Tatoeba Japanese-English candidates when both Tatoeba exports exist. Run `python scripts/merge_openjlpt_staging.py` to build an importable, review-only package. Content Studio loads the tracked compressed snapshot `data/staging/kizashi-n5-source-review.json.gz`, so the review package is available after deployment; after regenerating the JSON locally, refresh the snapshot with `gzip -c data/staging/kizashi-n5-source-review.json > data/staging/kizashi-n5-source-review.json.gz`. Imported records start with `reviewStatus: "pending"`; approve each record in Content Studio before exporting. `qa_content_package.py --strict` fails on missing learner fields, provenance, reviewed classification, or real-lesson assignment. After reviewing and fixing the package, export the approved question array if needed, then run `python scripts/render_supabase_content_sql.py --approved --questions data/staging/kizashi-question-review.json` and apply the generated SQL; this exporter only writes a local SQL file, validates required learner-facing fields, and never connects to Supabase. Omit `--questions` when importing curriculum records only. Migrations `0010_content_review_status.sql` and `0011_content_source_types.sql` store the review gate and source roles in Supabase.
+The browser does not ask you to load source files. Run `python scripts/fetch_dictionary_sources.py --source core --level N5` once to cache the approved dictionary, curriculum, frequency, and sentence artifacts in ignored `data/source-cache/`. Then run `python scripts/ingest_openjlpt.py --level N5`; it automatically consumes cached JMdict, linked JMdict examples, BCCWJ frequency data, and capped Tatoeba Japanese-English candidates when both Tatoeba exports exist. Run `python scripts/merge_openjlpt_staging.py` to build an importable, review-only package. Content Studio loads the tracked compressed snapshot `data/staging/kizashi-n5-source-review.json.gz`, so the review package is available after deployment; after regenerating the JSON locally, refresh the snapshot with `gzip -c data/staging/kizashi-n5-source-review.json > data/staging/kizashi-n5-source-review.json.gz`. Imported records retain `reviewStatus: "pending"`; the private learner route can expose non-rejected records with an explicit `humanReviewed: false` marker, while Content Studio/SQL export still require approval. `qa_content_package.py --strict` fails on missing learner fields, provenance, reviewed classification, or real-lesson assignment. After reviewing and fixing the package, export the approved question array if needed, then run `python scripts/render_supabase_content_sql.py --approved --questions data/staging/kizashi-question-review.json` and apply the generated SQL; this exporter only writes a local SQL file, validates required learner-facing fields, and never connects to Supabase. Omit `--questions` when importing curriculum records only. Migrations `0010_content_review_status.sql` and `0011_content_source_types.sql` store the review gate and source roles in Supabase.
 
 Optional lookup, corpus-evaluation, and book tools remain review-only:
 
@@ -115,4 +115,4 @@ python scripts/extract_book_candidates.py --input "N5-books/Study Material N5/<b
 python scripts/extract_book_content.py --input "<reviewed text export>" --book-id <book-id>
 ```
 
-JMnedict is proper-name lookup data, not JLPT vocabulary. Sudachi staging is morphology lookup data, not curriculum truth. Book extraction preserves page/checksum provenance and emits pending candidates; structured book facts require explicit `CHAPTER`, `PAGE`, and fact-type lines. Neither tool publishes to Supabase. See `docs/product/SOURCE-EVALUATION.md` for the CEJC, CSJ, I-JAS, and WaniKani license decisions.
+JMnedict is proper-name lookup data, not JLPT vocabulary. Sudachi staging is morphology lookup data, not curriculum truth. Book extraction preserves page/checksum provenance and emits pending candidates; structured book facts require explicit `CHAPTER`, `PAGE`, and fact-type lines. Neither tool publishes to Supabase. See [`docs/product/CONTENT-SOURCES.md`](docs/product/CONTENT-SOURCES.md) and `docs/product/SOURCE-EVALUATION.md` for the CEJC, CSJ, I-JAS, audio, and WaniKani decisions.

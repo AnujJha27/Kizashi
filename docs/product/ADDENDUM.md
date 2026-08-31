@@ -1,5 +1,11 @@
 # ADDENDUM — JLPT Content System + Mobile Learning Experience
 
+> Current implementation status (2026-08-31) is tracked in
+> [`HANDOFF.md`](../../HANDOFF.md), [`TODO.md`](../../TODO.md), and the
+> [content-source register](./CONTENT-SOURCES.md). This file remains the
+> requirements addendum; the current private learner-release and source
+> delivery boundaries are documented there.
+
 Extend the existing Japanese-learning product PRD with the following requirements.
 
 The application must not become a beautiful shell with shallow learning content.

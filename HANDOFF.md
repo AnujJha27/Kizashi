@@ -1,7 +1,59 @@
 # Kizashi implementation handoff
 
-Date: 2026-08-30
-Status: Active implementation; N5/N4 private preview, review tooling, source staging helpers, original N5 practice, allowlisted/admin auth, opt-in account sync, and the study-mode backlog are implemented. The base hosted seed is complete; imported-content approval/publication, Vercel environment configuration, and final smoke checks remain gated.
+Date: 2026-08-31
+Status: Current private preview is implemented and verified locally. `main` is
+at `5221bca` and pushed to `origin/main`; hosted migrations, seed, and the core
+curriculum are verified. Remaining gates are Vercel environment/deployment
+configuration, a real browser phone/desktop viewport check, optional imported
+content curation, and additional source permission where needed.
+
+## Current snapshot
+
+- Milestone 1 and the addendum-driven N5/N4 private-preview work are implemented:
+  Journey, learn/review/practice, mastery and sync, Content Studio, source
+  staging, books, audio controls, immersion modes, learner flags, and the
+  original-source shelf are present.
+- Local demo mode remains available without Supabase. With Supabase configured,
+  middleware enforces the allowlist, Content Studio/AI are admin-gated, and
+  Profile exposes explicit opt-in account sync that preserves local state on
+  failure.
+- Content Studio still has the explicit review/editor/export gate. The private
+  learner endpoint releases every non-rejected staged record at runtime and
+  attaches `humanReviewed: false`; it does not change `reviewStatus`, export
+  pending/rejected records, or make them hosted approved curriculum.
+- The source-review package contains 8,442 records: 47 approved source-review
+  records, 50 authored/curated records, 8,345 pending records, and zero rejected
+  records. The learner flag control is available in item detail and practice,
+  with local backup and optional sync.
+- Spoken-language handling is complete at the current boundary: CEJC aggregate
+  signals and I-JAS aggregate learner-error signals are wired; CSJ remains a
+  local review-only input. Raw corpus records, learner records, transcripts,
+  annotations, and corpus audio are not imported.
+- Audio uses `BrowserSpeechProvider` by default, `RemoteAudioProvider` only for
+  explicitly cleared external recordings, and a reserved unavailable
+  `ServerTTSProvider`. Generated pronunciation blobs are not persisted. The
+  complete source and rights register is
+  [`docs/product/CONTENT-SOURCES.md`](docs/product/CONTENT-SOURCES.md).
+- The six Erin N5 launchers plus CEJC, CSJ, Common Voice, Tatoeba, JSUT, and
+  JapanesePod101 source cards can attempt a direct original-page iframe and fall
+  back to a new tab when framing or login behavior blocks it. Kizashi does not
+  download, proxy, cache, mirror, re-host, or upload those sources.
+- The hosted Supabase project was verified on 2026-08-31: migrations are current,
+  the seeded course/lessons/contrasts exist, the hosted curriculum has 313
+  approved items and zero pending items, and all 47 approved staged IDs match
+  hosted rows. No SQL Editor action remains for this project.
+- The supplied books are outside GitHub and the public bundle. Their 13 split
+  parts are in the private `books` bucket and are loaded with short-lived signed
+  URLs and browser-side PDF assembly.
+- Verification completed on 2026-08-31: 11/11 test files, direct TypeScript
+  checking, Next production build (25/25 pages), and `git diff --check`.
+- Untracked `resumer`, `scripts/__pycache__/`, and `supabase/.temp/` are user or
+  environment artifacts and remain unstaged. The browser/Sol relay is not
+  available in this environment, so Sol was not consulted.
+
+The historical state and session notes below are retained as an audit trail;
+their older counts, push results, and next steps are superseded by this current
+snapshot.
 
 ## User objective
 
@@ -52,7 +104,7 @@ The addendum explicitly prioritizes content quality, review quality, and mobile
 study experience over decorative polish. Do not seed hundreds of shallow filler
 records. Do not copy textbook, JLPT, or other copyrighted exercises/passages.
 
-## Current state
+## Historical state — superseded by the current snapshot above
 
 - Milestone 1 is implemented in the current repository.
 - The N5 module is represented in `data/n5-foundations.json` and `supabase/seed.sql`.
@@ -164,7 +216,22 @@ Avoid adding AI, charts, graph databases, a state-management library, a large
 animation system, or a separate backend until the vertical slice proves the
 learning loop.
 
-## Exact next order
+## Next actions
+
+1. Configure the allowlisted/admin environment values in Vercel and deploy the
+   pushed `main` commit. Do not add private books, corpus files, audio blobs, or
+   credentials to GitHub.
+2. Sign in with the allowlisted account and smoke-test `/journey`, `/practice`,
+   `/profile` sync, `/studio` as admin, `/immersion`, and each private book
+   reader. Confirm the source shelf's iframe/new-tab fallback behavior.
+3. In a browser-capable environment, inspect the protected routes at a narrow
+   phone viewport and a desktop viewport. This is the only currently unchecked
+   deployment gate because this environment has no browser engine.
+4. Treat imported-record enrichment/lesson assignment, CSJ publication rights,
+   Open JTalk terms, and any preserved human audio as optional follow-up gates;
+   none should be silently promoted or uploaded.
+
+## Historical next order — superseded
 
 1. Continue the content phase in Studio: review the highest-value imported records,
    fill missing examples/grammar fields, assign approved records to real Journey
@@ -222,11 +289,12 @@ learning loop.
 
 ## Finish criteria for this handoff
 
-Continue in `michi/`, inspect the current worktree, and continue at content
-review/enrichment rather than rebuilding the already-implemented vertical slice.
-Do not publish staged content automatically. Before handoff, record verification
-results, the exact staged file list, push result, and any remaining human-review or
-authorization blocker here.
+The implementation portion of this handoff is complete and its local/hosted
+verification is recorded in the current snapshot. Before deployment, record the
+Vercel deployment result, authenticated route smoke results, real phone/desktop
+viewport result, and any remaining source-rights or optional curation decision
+here. Do not add private book files, third-party corpus assets, or credentials
+to GitHub.
 
 ## Session notes — 2026-08-30
 

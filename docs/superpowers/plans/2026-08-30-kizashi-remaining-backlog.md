@@ -1,8 +1,15 @@
 # Kizashi Remaining Backlog Implementation Plan
 
+> Implementation completed and verified on 2026-08-31. Hosted migrations and
+> seed are current, the verified code is pushed to `origin/main`, and the only
+> remaining external gate is manual phone/desktop viewport inspection plus
+> optional source-quality/rights work. See the
+> [content-source register](../../product/CONTENT-SOURCES.md) for the current
+> source inventory.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Finish the actionable remaining Kizashi backlog around reviewed content, learner adaptation, authenticated sync, books, source tooling, and original N5 practice without publishing unreviewed or proprietary material.
+**Goal:** Finish the actionable remaining Kizashi backlog around reviewed content, learner adaptation, authenticated sync, books, source tooling, and original N5 practice without publicly redistributing proprietary material. Private authenticated learner release may expose non-rejected pending records with an explicit unreviewed marker.
 
 **Architecture:** Keep the existing Next.js App Router, local-first browser state, typed curriculum package, and Supabase schema. Add pure deterministic scoring/selection helpers where behavior is shared, server-side Supabase sync behind the existing auth boundary, and small source/import utilities that stage data for owner review. Keep external source acquisition and AI generation downstream from canonical facts and human approval.
 
@@ -13,7 +20,7 @@
 ## Global Constraints
 
 - Do not modify `lattice/` or unrelated root changes.
-- Do not publish pending or rejected content to the learner path.
+- Do not export pending or rejected content to the hosted approved tables. The private authenticated learner route may expose non-rejected pending content with `humanReviewed: false`; rejected content remains excluded.
 - Do not copy copyrighted textbook, JLPT, Renshuu, or third-party exercise content.
 - Preserve source records, licenses, retrieval dates, checksums, local filenames, and review status.
 - Use official JLPT materials for blueprint/calibration only, not as a bulk content database.
