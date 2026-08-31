@@ -1,11 +1,11 @@
 # Kizashi implementation handoff
 
-Date: 2026-08-31
-Status: Current private preview is implemented and verified locally. `main` is
-at `5221bca` and pushed to `origin/main`; hosted migrations, seed, and the core
-curriculum are verified. Remaining gates are Vercel environment/deployment
-configuration, a real browser phone/desktop viewport check, optional imported
-content curation, and additional source permission where needed.
+Date: 2026-09-01
+Status: The source-integration milestone is implemented on `main` at
+`3d5c00e` and the Aozora commit is present on `origin/main`. Hosted migrations,
+seed, and the core curriculum remain verified. Remaining gates are a real
+browser phone/desktop viewport check, optional imported-content curation, and
+the deferred ServerTTS/audio-archive work.
 
 ## Current snapshot
 
@@ -34,6 +34,16 @@ content curation, and additional source permission where needed.
   `ServerTTSProvider`. Generated pronunciation blobs are not persisted. The
   complete source and rights register is
   [`docs/product/CONTENT-SOURCES.md`](docs/product/CONTENT-SOURCES.md).
+- The six new source integrations are learner-visible: Tae Kim and Wikibooks
+  appear as grammar references; Commons/Lingua Libre resolves compatible human
+  pronunciation metadata on demand before browser speech; Irodori adds a
+  Can-do card to overlapping lessons; Tadoku is an unchanged beginner reading
+  shelf; and Aozora provides a rights-filtered native-reading example with
+  estimated coverage and local reader position.
+- External metadata is centralized in `lib/external-resources.ts` and source
+  maps. Commons and Wikibooks use short-lived runtime metadata caches; Aozora
+  uses ignored catalog cache data and fetches only qualifying text. No new
+  Supabase audio/text mirror or external source database was added.
 - The six Erin N5 launchers stream provider-hosted MP4s in a native player and
   keep the full lesson page below it. CEJC, CSJ, Common Voice, Tatoeba, JSUT,
   and JapanesePod101 are link-only in the default app because framing or
@@ -48,8 +58,8 @@ content curation, and additional source permission where needed.
 - The supplied books are outside GitHub and the public bundle. Their 13 split
   parts are in the private `books` bucket and are loaded with short-lived signed
   URLs and browser-side PDF assembly.
-- Verification completed on 2026-08-31: 11/11 test files, direct TypeScript
-  checking, Next production build (25/25 pages), and `git diff --check`.
+- Verification is rerun after each source checkpoint; the final test/typecheck/
+  build results will be recorded here before the next `main` push.
 - Untracked `resumer`, `scripts/__pycache__/`, and `supabase/.temp/` are user or
   environment artifacts and remain unstaged. The browser/Sol relay is not
   available in this environment, so Sol was not consulted.

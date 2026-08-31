@@ -49,3 +49,10 @@ test("Wikibooks adapter caches hits and rejects API failures", async () => {
   await assert.rejects(() => getWikibooksSection({ page: "Japanese/Grammar" }, { fetch: async () => ({ ok: false, status: 503 }), cache: new Map() }));
 });
 
+test("Wikibooks adapter does not substitute a whole page for a missing section", async () => {
+  const result = await getWikibooksSection({ page: "Japanese", section: "Missing section" }, {
+    fetch: async () => ({ ok: true, status: 200, async json() { return { parse: { title: "Japanese", wikitext: "== Existing section ==\nReference text." } }; } }),
+    cache: new Map(),
+  });
+  assert.equal(result, null);
+});

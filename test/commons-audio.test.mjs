@@ -19,12 +19,14 @@ function fetchFor({ search = [], pages = [] } = {}) {
   return { fetch, calls };
 }
 
-function page(title, { mime = "audio/ogg", url = "https://upload.wikimedia.org/audio.ogg", label = "食べ物", license = "CC BY 4.0", licenseUrl = "https://creativecommons.org/licenses/by/4.0/", artist = "Speaker", category = "Lingua Libre Japanese pronunciation" } = {}) {
+function page(title, { mime = "audio/ogg", url = "https://upload.wikimedia.org/audio.ogg", label = "食べ物", license = "CC BY 4.0", licenseUrl = "https://creativecommons.org/licenses/by/4.0/", artist = "Speaker", speaker = "", speakerId = "", category = "Lingua Libre Japanese pronunciation" } = {}) {
   return { title, imageinfo: [{ url, mime, user: artist, extmetadata: {
     ObjectName: { value: label },
     LicenseShortName: { value: license },
     LicenseUrl: { value: licenseUrl },
     Artist: { value: artist },
+    ...(speaker ? { Speaker: { value: speaker } } : {}),
+    ...(speakerId ? { SpeakerID: { value: speakerId } } : {}),
     Categories: { value: category },
   }}] };
 }
@@ -68,8 +70,20 @@ test("Commons resolver requires Japanese source evidence even for an exact label
   assert.equal(await resolveCommonsAudio({ text: "食べ物" }, { fetch, cache: new Map() }), null);
 });
 
-test("Commons resolver preserves creator, license, attribution, and source metadata", async () => {
-  const candidate = page("File:食べ物.ogg", { artist: "Aiko", license: "CC BY-SA 4.0", category: "Japanese pronunciation" });
+test("Commons resolver does not treat a generic Lingua Libre category as Japanese evidence", async () => {
+  const candidate = page("File:食べ物.ogg", { category: "Lingua Libre" });
+  const { fetch } = fetchFor({ search: [{ title: candidate.title }], pages: [candidate] });
+  assert.equal(await resolveCommonsAudio({ text: "食べ物" }, { fetch, cache: new Map() }), null);
+});
+
+test("Commons resolver compares licenses as exact normalized identifiers", async () => {
+  const candidate = page("File:食べ物.ogg", { license: "CC BY-NC-ND 4.0" });
+  const { fetch } = fetchFor({ search: [{ title: candidate.title }], pages: [candidate] });
+  assert.equal(await resolveCommonsAudio({ text: "食べ物" }, { fetch, cache: new Map(), acceptedLicenses: ["CC BY"] }), null);
+});
+
+test("Commons resolver preserves explicit speaker, uploader-safe attribution, license, and source metadata", async () => {
+  const candidate = page("File:食べ物.ogg", { artist: "Aiko", speaker: "Aiko", speakerId: "aiko-1", license: "CC BY-SA 4.0", category: "Japanese pronunciation" });
   candidate.imageinfo[0].extmetadata.Credit = { value: "Lingua Libre contributor" };
   const { fetch } = fetchFor({ search: [{ title: candidate.title }], pages: [candidate] });
   assert.deepEqual(await resolveCommonsAudio({ text: "食べ物" }, { fetch, cache: new Map() }), {
@@ -77,7 +91,7 @@ test("Commons resolver preserves creator, license, attribution, and source metad
     filePage: "https://commons.wikimedia.org/wiki/File:%E9%A3%9F%E3%81%B9%E7%89%A9.ogg",
     label: "食べ物",
     speaker: "Aiko",
-    speakerId: "Aiko",
+    speakerId: "aiko-1",
     license: "CC BY-SA 4.0",
     licenseUrl: "https://creativecommons.org/licenses/by/4.0/",
     attribution: "Lingua Libre contributor",

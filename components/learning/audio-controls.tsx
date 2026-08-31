@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { audioSourceInfo } from "@/lib/audio-core.js";
 import { createAudioProvider, playAudioWithBrowserFallback, resolveHumanAudio, type AudioProvider } from "@/lib/audio";
 import type { AudioMetadata } from "@/lib/types";
 
@@ -14,20 +15,13 @@ export function AudioControls({ text, reading, externalUrl, metadata, preferredR
   const providerKey = `${externalUrl || metadata?.externalUrl || metadata?.sourceType || "browser-speech"}|${text || ""}|${reading || ""}|${humanFirst}`;
   const normalRate = preferredRate ?? metadata?.preferredRate ?? 0.9;
   const playAt = useCallback(async (rate: number) => {
-    const playableRequest = resolvedRequest.current ?? await resolveHumanAudio(request, humanFirst ? reading : undefined);
+    const playableRequest = resolvedRequest.current ?? await resolveHumanAudio(request, reading, humanFirst);
     resolvedRequest.current = playableRequest;
     provider.current ??= createAudioProvider(playableRequest);
     const playback = await playAudioWithBrowserFallback(provider.current, playableRequest, rate);
     provider.current = playback.provider;
     const result = playback.result;
-    const provenance = playableRequest.metadata?.provenance ?? {};
-    const sourceId = typeof provenance?.sourceId === "string" ? provenance.sourceId : "";
-    setSourceInfo(sourceId === "wikimedia-commons" ? {
-      label: provenance?.collection === "lingua-libre" ? "Human recording · Lingua Libre" : "Human recording · Wikimedia Commons",
-      filePage: typeof provenance.sourceUrl === "string" ? provenance.sourceUrl : undefined,
-      attribution: typeof provenance.attribution === "string" ? provenance.attribution : undefined,
-      license: typeof playableRequest.metadata?.license === "string" ? playableRequest.metadata.license : undefined,
-    } : null);
+    setSourceInfo(audioSourceInfo(playback.provider.sourceType, playableRequest.metadata));
     setMessage(result.status === "played" ? "" : result.message ?? "Audio is unavailable.");
   }, [externalUrl, humanFirst, metadata, reading, text]);
 

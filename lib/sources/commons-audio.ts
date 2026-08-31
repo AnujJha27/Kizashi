@@ -10,6 +10,7 @@ export interface CommonsAudioResult {
   label: string;
   speaker?: string;
   speakerId?: string;
+  uploader?: string;
   license: string;
   licenseUrl?: string;
   attribution?: string;

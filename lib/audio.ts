@@ -18,8 +18,8 @@ function record(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
-export async function resolveHumanAudio(request: AudioRequest, reading?: string): Promise<AudioRequest> {
-  if (!request.text?.trim() || request.externalUrl || request.metadata?.externalUrl) return request;
+export async function resolveHumanAudio(request: AudioRequest, reading?: string, enabled = false): Promise<AudioRequest> {
+  if (!enabled || !request.text?.trim() || request.externalUrl || request.metadata?.externalUrl) return request;
   try {
     const params = new URLSearchParams({ text: request.text });
     if (reading?.trim()) params.set("reading", reading.trim());
@@ -60,7 +60,12 @@ export async function resolveHumanAudio(request: AudioRequest, reading?: string)
 }
 
 export async function playAudioWithBrowserFallback(provider: AudioProvider, request: AudioRequest, rate?: number) {
-  const result = await provider.play(request, rate);
+  let result: AudioPlayResult;
+  try {
+    result = await provider.play(request, rate);
+  } catch {
+    result = { status: "error", message: "Audio could not be played." };
+  }
   if (!shouldFallbackToBrowser({ sourceType: provider.sourceType, status: result.status, text: request.text })) return { provider, result };
   const fallback = new BrowserSpeechProvider();
   return { provider: fallback, result: await fallback.play({ text: request.text, metadata: request.metadata }, rate) };

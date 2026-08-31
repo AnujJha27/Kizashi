@@ -1,6 +1,6 @@
 # Kizashi
 
-Kizashi is a calm, dark-first Japanese-learning path. The current private preview includes the responsive shell, Journey, interactive N5 study/review loop, immersion/source shelf, browser Japanese speech, PWA shell, content validation, and Supabase-backed curriculum.
+Kizashi is a calm, dark-first Japanese-learning path. The current private preview includes the responsive shell, Journey, interactive N5 study/review loop, immersion/source shelf, browser Japanese speech, PWA shell, content validation, and Supabase-backed curriculum. Source integrations are organized by learning intent: Tae Kim/Wikibooks references, Commons/Lingua Libre human-pronunciation fallback, Irodori practical lessons, Tadoku graded reading, and rights-filtered Aozora native reading. External audio/text remains provider-hosted or dynamically fetched; it is not mirrored into Supabase Storage.
 
 ## Local setup
 
@@ -78,7 +78,7 @@ Apply `0015_private_book_storage.sql`, upload `.book-storage/books/<book-id>/par
 ./node_modules/.bin/next build
 ```
 
-AI generation is server-side, admin-gated, and draft-only until review. Renshuu content is not imported; the current curriculum is original/curated, and dictionary sources are cached by a project script before review. The review queue now has deterministic priority scoring, provenance-aware editing, and publish QA. See [`docs/product/CONTENT-SOURCES.md`](docs/product/CONTENT-SOURCES.md) for the complete source register and delivery boundaries.
+AI generation is server-side, admin-gated, and draft-only until review. Renshuu content is not imported; the current curriculum is original/curated, and dictionary sources are cached by a project script before review. The review queue now has deterministic priority scoring, provenance-aware editing, source coverage diagnostics, and publish QA. See [`docs/product/CONTENT-SOURCES.md`](docs/product/CONTENT-SOURCES.md) and [`docs/product/SOURCE-EVALUATION.md`](docs/product/SOURCE-EVALUATION.md) for the complete source roles, delivery boundaries, and term decisions.
 
 ## Staged source import
 

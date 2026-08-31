@@ -1,6 +1,6 @@
 # Kizashi content-source register
 
-Updated: 2026-08-31
+Updated: 2026-09-01
 
 This is the single inventory of sources used, evaluated, or intentionally kept
 outside Kizashi. It describes product handling; current provider terms still
@@ -89,6 +89,41 @@ link-only because their current frame attempts failed. A device-local Chromium
 helper in `browser/kizashi-private-frame-unlocker/` can retry the allowlisted
 frames by removing only their frame-blocking response headers. Kizashi does not
 download, proxy, cache, mirror, re-host, or upload these sources.
+
+## Learner-facing source integrations
+
+The external-resource registry in `lib/external-resources.ts` is the single
+learner-facing catalog. Source maps hold only small, reviewed relationships;
+they do not replace the curriculum or create a second content database.
+
+| Source | Pedagogical role and learner entry point | Delivery and storage behavior | Failure behavior |
+| --- | --- | --- | --- |
+| [Tae Kim](https://www.guidetojapanese.org/start.html) | Alternative structural explanation under `別の見方` on mapped grammar details, such as は/が and particle patterns. | Specific deep links from `data/source-maps/tae-kim.json`; no copied prose. CC BY-NC-SA 3.0 attribution remains in source info. | The Kizashi explanation, examples, and practice remain usable if the link is unavailable. |
+| [Wikibooks Japanese](https://en.wikibooks.org/wiki/Japanese_Grammar) | Supplementary particle, counter, conjugation, and pronunciation reference beside relevant grammar. | The MediaWiki API returns a small sanitized section on request; metadata is cached briefly in memory and no fetched text is persisted. CC BY-SA 4.0/GFDL attribution remains available. | The mapped source link remains available and the normal Kizashi grammar page is unaffected by API failure or a missing section. |
+| [Wikimedia Commons / Lingua Libre](https://commons.wikimedia.org/wiki/Category:Japanese_pronunciation) | On-demand human pronunciation for vocabulary and kanji when a compatible exact Japanese recording exists. | `/api/audio/commons` returns remote metadata and the existing `RemoteAudioProvider` streams the original URL. Each file's license, file page, creator/voice metadata, and attribution are retained; no audio blob is stored. | A miss, ambiguous result, incompatible license, API failure, or remote playback error falls back to Japanese Browser Speech. |
+| [Aozora Bunko](https://www.aozora.gr.jp/) | Native reading for later immersion, surfaced in `読む · 青空文庫`, with known-item coverage and an explicitly estimated difficulty. | The catalog is cache-only metadata. A qualifying public-domain work is fetched on Read, normalized conservatively, and rendered in the existing Japanese text surface; the catalog and text are not committed or mirrored. | Saved metadata and the original card link remain available; protected works are rejected before text fetch and upstream failures show retry/open-source controls. |
+| [Free Tadoku Books](https://tadoku.org/japanese/en/free-books-en/) | Beginner graded extensive reading in `読む · 多読`, with level, genre, audio availability, and opened progress. | Original provider-hosted pages/audio through `ExternalSourceViewer` and `RemoteAudioProvider`; entries are marked non-transformable and only local progress metadata is stored. | If framing is blocked, the original Tadoku page opens directly; no copied pages, translations, questions, or illustrations are created. |
+| [Irodori](https://www.irodori.jpf.go.jp/en/) | Practical Can-do reinforcement on overlapping Learn lessons, beginning with Starter Lesson 6 restaurant ordering. | The existing three Irodori item ingestors remain the staging path. The learner card stores official lesson/Can-do/resource metadata and opens provider-hosted lesson/audio pages; no media mirror is created. | The Kizashi lesson remains functional and the official source link remains available if Irodori media or framing fails. |
+
+The registry uses `resourceType`, `deliveryMode`, target item/skill IDs, source
+role, and rights behavior to place resources by intent: `聞く` for listening,
+`読む` for Tadoku/Aozora, `実際の日本語` for Irodori, and `参考` for grammar
+references. Erin remains one family card with a lesson selector rather than six
+publisher cards. Content Studio computes coverage from these mappings and
+shows readable source relationships alongside existing `sourceIds` and
+`fieldSourceIds`.
+
+### Resolved provenance shape
+
+External integrations preserve the existing provenance model. Content fields
+continue to use `sourceIds`/`fieldSourceIds`; resource records preserve the
+source URL, source-specific page URL, attribution, license, retrieval date, and
+rights behavior. Commons audio additionally exposes its file page, actual
+per-file license/license URL, creator or source-provided speaker metadata, and
+remote URL. Aozora entries preserve work/person IDs and rights status. Irodori
+entries preserve course, lesson, Can-do, available resource types, official
+terms URL, and target item IDs. These relationships are evidence or references,
+not JLPT classifications or replacements for Kizashi-authored explanations.
 
 ## Private user-provided material
 

@@ -9,8 +9,9 @@ role, appear at the relevant learning moment, preserve provenance, degrade
 gracefully, and add essentially no third-party media to Supabase Storage or
 GitHub.
 
-This is a planning document. The current milestone has not been implemented.
-The source specification supplied by the user is the authority:
+Implementation is in progress on `main`; Tasks 1–6 are implemented and Tasks
+7–9 are in the final integration/verification pass. The source specification
+supplied by the user is the authority:
 `docs/product/NEW_SOURCE.md`.
 
 ## Architecture
@@ -133,7 +134,7 @@ Primary pages checked:
 
 ## Implementation plan
 
-### 0. Lock the contract and baseline
+### Task 0 — Lock the contract and baseline
 
 Files to inspect/change:
 
@@ -183,7 +184,7 @@ git diff --check
 Commit checkpoint: `chore: lock source integration boundaries` (only if the
 baseline and docs changes are intentional).
 
-### 1. Central external-resource registry
+### Task 1 — Central external-resource registry
 
 Files:
 
@@ -260,7 +261,7 @@ Tests:
 - Registry entries expose all six new source families and the expected
   pedagogical role/delivery mode.
 
-### 2. Commons/Lingua Libre resolver and audio fallback
+### Task 2 — Commons/Lingua Libre resolver and audio fallback
 
 Files:
 
@@ -331,7 +332,7 @@ Tests:
 - Resolver failure and RemoteAudioProvider failure both select browser speech.
 - No test or implementation path writes audio bytes to Supabase Storage.
 
-### 3. Grammar reference framework, Tae Kim, and Wikibooks
+### Task 3 — Grammar reference framework, Tae Kim, and Wikibooks
 
 Files:
 
@@ -380,7 +381,7 @@ Tests:
 - API failure and empty response leave the grammar page usable.
 - Source-derived text is distinguishable from Kizashi-authored text.
 
-### 4. Irodori lesson, Can-do, and resource enrichment
+### Task 4 — Irodori lesson, Can-do, and resource enrichment
 
 Files:
 
@@ -422,7 +423,7 @@ Tests:
 - Irodori audio remains remote/provider-hosted and no media file is staged.
 - At least one Learn/Journey card links to an Irodori practical activity.
 
-### 5. Tadoku shelf and source-hosted reading
+### Task 5 — Tadoku shelf and source-hosted reading
 
 Files:
 
@@ -456,7 +457,7 @@ Tests:
 - A blocked frame still exposes the original source link.
 - Read/open progress is local metadata only.
 
-### 6. Aozora catalog and native-reading experience
+### Task 6 — Aozora catalog and native-reading experience
 
 Files:
 
@@ -504,7 +505,7 @@ Tests:
 - Difficulty estimate uses actual input signals and is clearly labeled.
 - Reader has no horizontal overflow and local resume/font-size state works.
 
-### 7. Immersion organization and mobile polish
+### Task 7 — Immersion organization and mobile polish
 
 Files:
 
@@ -529,7 +530,7 @@ Steps:
 5. Test one-tap mobile playback, source buttons, readable Japanese text,
    responsive cards, no horizontal overflow, and link fallback.
 
-### 8. Content Studio source evidence and real coverage
+### Task 8 — Content Studio source evidence and real coverage
 
 Files:
 
@@ -562,7 +563,7 @@ Tests:
 - Source evidence is readable and no longer requires opening JSON.
 - A source-specific failure does not alter item review status.
 
-### 9. Documentation and final verification
+### Task 9 — Documentation and final verification
 
 Files:
 

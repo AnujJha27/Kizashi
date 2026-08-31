@@ -8,5 +8,5 @@ export default async function LearnPage({ searchParams }: { searchParams: Promis
   const { lesson: requestedLessonId } = await searchParams;
   const lesson = n5Module.course.chapters.flatMap((chapter) => chapter.lessons).find((entry) => entry.id === requestedLessonId) ?? getCurrentLesson();
 
-  return <><LocalLesson requestedLessonId={requestedLessonId} fallbackLesson={lesson ?? null} fallbackItems={lesson ? getLessonItems(lesson) : []} fallbackContrasts={n5Module.grammarContrasts} /><div className="mx-auto max-w-5xl px-4 pb-8"><IrodoriPracticeCard /></div></>;
+  return <><LocalLesson requestedLessonId={requestedLessonId} fallbackLesson={lesson ?? null} fallbackItems={lesson ? getLessonItems(lesson) : []} fallbackContrasts={n5Module.grammarContrasts} /><div className="mx-auto max-w-5xl px-4 pb-8"><IrodoriPracticeCard itemIds={lesson?.itemIds ?? []} /></div></>;
 }

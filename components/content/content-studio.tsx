@@ -5,6 +5,9 @@ import { useEffect, useState, type ReactNode } from "react";
 import { AIGenerator } from "@/components/content/ai-generator";
 import { ContentRecordEditor, type EditableKind } from "@/components/content/content-record-editor";
 import { TopicCoverage } from "@/components/content/topic-coverage";
+import { SourceCoverage } from "@/components/content/source-coverage";
+import taeKimMappings from "@/data/source-maps/tae-kim.json";
+import wikibooksMappings from "@/data/source-maps/wikibooks.json";
 import {
   getContentReviewStatus,
   getModuleItems,
@@ -103,6 +106,18 @@ function sourceProvenance(item: LessonContentItem, sourceById: Map<string, Conte
   }).join(" · ");
 }
 
+function externalEvidence(item: LessonContentItem) {
+  const evidence: string[] = [];
+  if (item.category === "grammar") {
+    if (taeKimMappings[item.id as keyof typeof taeKimMappings]) evidence.push("Tae Kim · alternative explanation");
+    if (wikibooksMappings[item.id as keyof typeof wikibooksMappings]) evidence.push("Wikibooks · reference");
+  }
+  if (item.category === "vocabulary" || item.category === "kanji") evidence.push("Wikimedia Commons / Lingua Libre · pronunciation on demand");
+  if ((item.sourceIds ?? []).some((sourceId) => sourceId === "irodori" || sourceId.startsWith("irodori-"))) evidence.push("Irodori · practical source relation");
+  if (item.audio?.sourceType === "remote") evidence.push(`Remote audio · ${item.audio.license ?? "provenance attached"}`);
+  return evidence;
+}
+
 function ReviewField({ label, children }: Readonly<{ label: string; children: ReactNode }>) {
   return <div className="rounded-lg border border-white/10 bg-[#101b2b]/60 p-3"><p className="text-[10px] font-semibold uppercase tracking-[.12em] text-[#e5b85c]">{label}</p><div className="mt-2 text-sm leading-6 text-[#c3c7ce]">{children}</div></div>;
 }
@@ -138,6 +153,7 @@ function ContentReviewModal({ item, sourceById, onClose, onEdit, onReview }: Rea
   const reviewStatus = getContentReviewStatus(item);
   const itemBand = getCurriculumBand(item);
   const provenance = sourceProvenance(item, sourceById);
+  const relatedSources = externalEvidence(item);
 
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") onClose(); };
@@ -147,7 +163,7 @@ function ContentReviewModal({ item, sourceById, onClose, onEdit, onReview }: Rea
     return () => { document.body.style.overflow = previousOverflow; window.removeEventListener("keydown", closeOnEscape); };
   }, [onClose]);
 
-  return <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-[#05070b]/75 p-4 backdrop-blur-md sm:p-8" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}><section role="dialog" aria-modal="true" aria-labelledby={`content-review-${item.id}`} className="my-4 w-full max-w-4xl overflow-hidden rounded-2xl border border-[#e5b85c]/60 bg-[#0d1522] shadow-[0_24px_90px_rgba(0,0,0,.55)]"><div className="flex items-start justify-between gap-4 border-b border-white/10 bg-[#101b2b] px-5 py-4 sm:px-7"><div><p className="eyebrow">Content review · {item.category}</p><h2 id={`content-review-${item.id}`} className="jp-serif mt-1 text-2xl text-[#f5f5f2]">{preview.reading ? <ruby>{preview.japanese}<rt className="text-[.45em] text-[#e5b85c]">{preview.reading}</rt></ruby> : preview.japanese}</h2><p className="mt-1 text-xs text-[#9297a1]">{item.title}</p></div><button type="button" autoFocus onClick={onClose} aria-label="Close content review" className="rounded-lg border border-[#3f4652] px-3 py-2 text-xl leading-none text-[#c3c7ce] hover:border-[#e5b85c] hover:text-[#f1cf7c]">×</button></div><div className="max-h-[calc(100vh-9rem)] space-y-5 overflow-y-auto p-5 sm:p-7"><div className="grid gap-3 sm:grid-cols-3"><ReviewField label="Status"><span className={reviewStatus === "pending" ? "text-[#e5b85c]" : reviewStatus === "approved" ? "text-[#8bcca6]" : "text-[#ef675d]"}>{reviewStatus}</span></ReviewField><ReviewField label="Level">{item.jlptLevel ?? "Unassigned"}</ReviewField><ReviewField label="Difficulty">{item.difficulty} / 5</ReviewField></div><div className="grid gap-3 sm:grid-cols-2"><ReviewField label="Source">{provenance || "Not recorded"}</ReviewField><ReviewField label="Classification">{item.classification ? `${item.classification.level} · ${item.classification.band} · ${item.classification.confidence}${item.classification.conflict ? " · conflict" : ""}` : `${itemBand} · inferred`}</ReviewField></div><ReviewField label="Why this surfaced">{item.reason}</ReviewField><ReadableRecord item={item} />{onReview && reviewStatus === "pending" ? <div className="flex flex-wrap gap-2 border-t border-white/10 pt-5"><button type="button" onClick={() => onReview(item.id, "approved")} className="rounded-lg bg-[#6fb98f] px-4 py-2.5 text-xs font-semibold text-[#0b0b0d] hover:bg-[#8bcca6]">Approve</button><button type="button" onClick={() => onReview(item.id, "rejected")} className="rounded-lg border border-[#713b37] px-4 py-2.5 text-xs font-semibold text-[#ef675d] hover:border-[#ef675d]">Reject</button></div> : null}<div className="flex flex-wrap gap-2 border-t border-white/10 pt-5"><button type="button" onClick={() => { onClose(); onEdit(item.category, item.id); }} className="rounded-lg border border-[#e5b85c] px-4 py-2.5 text-xs font-semibold text-[#f1cf7c] hover:bg-[#302818]">Edit record</button><button type="button" onClick={onClose} className="rounded-lg border border-[#3f4652] px-4 py-2.5 text-xs text-[#c3c7ce] hover:border-[#e5b85c]">Close</button></div></div></section></div>;
+  return <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-[#05070b]/75 p-4 backdrop-blur-md sm:p-8" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}><section role="dialog" aria-modal="true" aria-labelledby={`content-review-${item.id}`} className="my-4 w-full max-w-4xl overflow-hidden rounded-2xl border border-[#e5b85c]/60 bg-[#0d1522] shadow-[0_24px_90px_rgba(0,0,0,.55)]"><div className="flex items-start justify-between gap-4 border-b border-white/10 bg-[#101b2b] px-5 py-4 sm:px-7"><div><p className="eyebrow">Content review · {item.category}</p><h2 id={`content-review-${item.id}`} className="jp-serif mt-1 text-2xl text-[#f5f5f2]">{preview.reading ? <ruby>{preview.japanese}<rt className="text-[.45em] text-[#e5b85c]">{preview.reading}</rt></ruby> : preview.japanese}</h2><p className="mt-1 text-xs text-[#9297a1]">{item.title}</p></div><button type="button" autoFocus onClick={onClose} aria-label="Close content review" className="rounded-lg border border-[#3f4652] px-3 py-2 text-xl leading-none text-[#c3c7ce] hover:border-[#e5b85c] hover:text-[#f1cf7c]">×</button></div><div className="max-h-[calc(100vh-9rem)] space-y-5 overflow-y-auto p-5 sm:p-7"><div className="grid gap-3 sm:grid-cols-3"><ReviewField label="Status"><span className={reviewStatus === "pending" ? "text-[#e5b85c]" : reviewStatus === "approved" ? "text-[#8bcca6]" : "text-[#ef675d]"}>{reviewStatus}</span></ReviewField><ReviewField label="Level">{item.jlptLevel ?? "Unassigned"}</ReviewField><ReviewField label="Difficulty">{item.difficulty} / 5</ReviewField></div><div className="grid gap-3 sm:grid-cols-2"><ReviewField label="Source">{provenance || "Not recorded"}</ReviewField><ReviewField label="Classification">{item.classification ? `${item.classification.level} · ${item.classification.band} · ${item.classification.confidence}${item.classification.conflict ? " · conflict" : ""}` : `${itemBand} · inferred`}</ReviewField></div>{relatedSources.length ? <ReviewField label="External references"><ReviewPills values={relatedSources} /></ReviewField> : null}<ReviewField label="Why this surfaced">{item.reason}</ReviewField><ReadableRecord item={item} />{onReview && reviewStatus === "pending" ? <div className="flex flex-wrap gap-2 border-t border-white/10 pt-5"><button type="button" onClick={() => onReview(item.id, "approved")} className="rounded-lg bg-[#6fb98f] px-4 py-2.5 text-xs font-semibold text-[#0b0b0d] hover:bg-[#8bcca6]">Approve</button><button type="button" onClick={() => onReview(item.id, "rejected")} className="rounded-lg border border-[#713b37] px-4 py-2.5 text-xs font-semibold text-[#ef675d] hover:border-[#ef675d]">Reject</button></div> : null}<div className="flex flex-wrap gap-2 border-t border-white/10 pt-5"><button type="button" onClick={() => { onClose(); onEdit(item.category, item.id); }} className="rounded-lg border border-[#e5b85c] px-4 py-2.5 text-xs font-semibold text-[#f1cf7c] hover:bg-[#302818]">Edit record</button><button type="button" onClick={onClose} className="rounded-lg border border-[#3f4652] px-4 py-2.5 text-xs text-[#c3c7ce] hover:border-[#e5b85c]">Close</button></div></div></section></div>;
 }
 
 function ContentReviewCard({ item, sourceById, onOpen }: Readonly<{
@@ -595,6 +611,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
 
   return <div className="space-y-7">
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><Health label="Last curriculum validation" result={result} /><Health label="Practice question bank" result={questionResult} /><CoverageHealth coverage={practiceCoverage} /></div>
+    <SourceCoverage items={getModuleItems(coverageModule)} />
     <TopicCoverage module={coverageModule} />
     <AIGenerator items={getModuleItems(coverageModule).filter((item) => getContentReviewStatus(item) === "approved")} onAdd={addGeneratedQuestion} />
 

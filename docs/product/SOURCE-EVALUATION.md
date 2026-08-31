@@ -1,6 +1,6 @@
 # External source evaluation
 
-Evaluated 2026-08-31. These sources remain analysis inputs, learner-content
+Evaluated 2026-09-01; first-party term pages were checked 2026-08-31. These sources remain analysis inputs, learner-content
 candidates, or source launchers according to the decision recorded for each
 source below. Do not infer permission to copy or redistribute an asset from a
 general dataset label; check the current source terms and the exact delivery
@@ -32,6 +32,25 @@ before a new asset is copied, embedded, or redistributed.
 | [Tatoeba corpus guidance](https://en.www.en.wiki.tatoeba.org/articles/show/using-the-tatoeba-corpus-for-your-own-projects), [FAQ](https://en.wiki.tatoeba.org/articles/show/faq), and [CC0 guidance](https://en.wiki.tatoeba.org/articles/show/cc0-contributions) | Sentence text is generally CC-BY with attribution, but audio has contributor-specific licenses and is not automatically CC0. Each recording's license and contributor must be checked. | Stage sentence candidates with attribution. Use an individual audio URL only after its file license is recorded; preserve attribution/provenance and do not bulk mirror audio. |
 | [JSUT official corpus terms](https://sites.google.com/site/shinnosuketakamichi/publication/jsut) | Personal use and non-commercial research are allowed, but redistribution is not generally permitted; the page describes only a small website/blog exception and asks commercial users to contact the lab. | Do not upload the full corpus to Supabase/GitHub. A small, justified personal-study subset requires preserved citation/terms; public or commercial delivery requires lab permission. |
 | [VOICEVOX software terms](https://voicevox.hiroshiba.jp/term/) and [Q&A](https://voicevox.hiroshiba.jp/qa/) | Commercial and non-commercial output use is generally allowed with VOICEVOX credit, but each voice library/character has separate terms and credit requirements. The engine itself has separate redistribution/source obligations. | Keep BrowserSpeechProvider as default. A future local/server TTS path must record the selected voice's character terms and required credits; do not ship the engine or an output archive now. |
+
+## New source integration decisions
+
+The following decisions are the implementation boundary for the six sources in
+the milestone. The source page and terms remain authoritative if they change.
+
+| Source | First-party finding checked | Exact Kizashi behavior |
+| --- | --- | --- |
+| [Tae Kim's Guide](https://www.guidetojapanese.org/start.html) | The guide identifies its material as CC BY-NC-SA 3.0. Adapted material therefore needs attribution and ShareAlike handling. | Kizashi uses reviewed, item-specific deep links as alternative explanations. It does not ingest or silently relabel Tae Kim prose as authored curriculum. |
+| [Wikibooks copyrights](https://en.wikibooks.org/wiki/Wikibooks:Copyrights) | Wikibooks text is generally CC BY-SA 4.0/GFDL, with page history/footer and file-specific details still relevant. | Kizashi uses the MediaWiki API for small mapped sections, sanitizes the response, retains page URL/attribution/license, and does not persist bulk reference text. |
+| [Commons/Lingua Libre API](https://commons.wikimedia.org/wiki/Help:Lingua_Libre/APIs) and [MediaWiki imageinfo](https://www.mediawiki.org/wiki/API:Imageinfo/en) | Recordings are file-specific Commons assets; language, actual audio type, license, file page, and attribution must be read from metadata. | Kizashi resolves exact compatible Japanese files on demand and streams their remote URLs. It rejects non-audio, ambiguous, missing/incompatible-license results and falls back to Browser Speech. No Commons audio is uploaded or proxied. |
+| [Aozora usage guide](https://www.aozora.gr.jp/guide/nyuumon.html) | Aozora publishes UTF-8 bibliographic metadata and distinguishes public-domain/expired-rights works from works whose rights continue. File and source handling instructions remain source-specific. | Kizashi catalogs metadata, filters rights status before fetching, and renders only a qualifying public/reusable work dynamically. Protected works stay card-link-only; no catalog or corpus mirror is committed. |
+| [Free Tadoku Books terms](https://tadoku.org/japanese/en/free-books-en/note-en/) | The free books are CC BY-NC-ND 4.0 and the provider asks users to credit NPO多言語多読; unchanged linking/reading is the relevant boundary. | Kizashi keeps the work provider-hosted and non-transformable. It may frame when technically allowed, otherwise opens the original page, and stores only a local opened marker. No extraction, translation, annotation, questions, or altered illustrations. |
+| [Irodori FAQ](https://www.irodori.jpf.go.jp/en/faq.html), [About Irodori](https://www.irodori.jpf.go.jp/en/about.html), and [Starter Lesson 6 audio](https://www.irodori.jpf.go.jp/en/starter/audio/lesson06.html) | The Foundation provides the material for independent/educational study while the site and media remain provider-owned; official lesson pages identify available scripts/audio and may constrain browser/device delivery. | Kizashi adds official lesson/Can-do metadata and source-hosted resource links to overlapping lessons. It keeps Irodori levels separate from JLPT fields, does not mirror media, and preserves the terms/source relation. |
+
+These are engineering decisions, not blanket permission to copy a source. The
+app's private single-user boundary reduces exposure but does not change source
+ownership. The product therefore stores references and provenance while leaving
+provider-hosted content, login, cookies, and delivery controls with the source.
 
 The source cache exposes CEJC/CSJ through `--source spoken-evaluation` and I-JAS
 terms through `--source learner-evaluation`. These commands cache provenance and
