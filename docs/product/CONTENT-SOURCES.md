@@ -83,8 +83,9 @@ The UI exposes play, replay, slow playback, and the existing optional autoplay
 preference. `ServerTTSProvider` exists as an unavailable future path; it does
 not generate or persist audio today. Erin's six selected videos use a native
 browser player pointed at the provider-hosted MP4; other frameable sources may
-use a direct browser iframe and fall back to a new-tab link. Tatoeba is
-explicitly link-only because its browse page blocks framing. Kizashi does not
+use a direct browser iframe and fall back to a new-tab link. The current shelf
+frames CEJC and CSJ, while Common Voice, Tatoeba, JSUT, and JapanesePod101 are
+explicitly link-only because their current headers block framing. Kizashi does not
 download, proxy, cache, mirror, re-host, or upload these sources.
 
 ## Private user-provided material

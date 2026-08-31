@@ -36,7 +36,7 @@ function japaneseVoice(synthesis: SpeechSynthesis) {
       resolve(preferredJapaneseVoice(synthesis.getVoices()));
     };
     synthesis.addEventListener("voiceschanged", finish, { once: true });
-    window.setTimeout(finish, 500);
+    window.setTimeout(finish, 1500);
   });
 }
 

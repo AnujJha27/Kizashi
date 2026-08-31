@@ -129,12 +129,14 @@ test("learners can flag source-review content while studying", async () => {
   assert.match(entry, /ContentFlagButton/);
 });
 
-test("CSJ is viewable through an original-source iframe with a direct-link fallback", async () => {
+test("external sources use native media and safe framing fallbacks", async () => {
   const viewer = await readFile(new URL("../components/learning/external-source-viewer.tsx", import.meta.url), "utf8");
   const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
   assert.match(viewer, /iframe/);
   assert.match(viewer, /mediaUrl/);
   assert.match(viewer, /<video/);
+  assert.match(viewer, /source\.mediaUrl \? <video[\s\S]*?<\/video> : null/);
+  assert.match(viewer, /Lesson page/);
   assert.match(viewer, /link-only/);
   assert.match(viewer, /referrerPolicy="strict-origin-when-cross-origin"/);
   assert.match(viewer, /allow="autoplay; fullscreen; picture-in-picture; encrypted-media"/);
@@ -143,10 +145,17 @@ test("CSJ is viewable through an original-source iframe with a direct-link fallb
   assert.match(viewer, /w-full/);
   assert.match(viewer, /Open original source/);
   assert.match(surface, /CSJ/);
+  assert.doesNotMatch(surface, /id: "cejc"[\s\S]{0,220}mediaDelivery: "link-only"/);
+  assert.doesNotMatch(surface, /id: "csj"[\s\S]{0,220}mediaDelivery: "link-only"/);
   assert.match(surface, /ExternalSourceViewer/);
   assert.match(surface, /mediaDelivery: "link-only"/);
+  assert.match(surface, /const erinLessons = getErinLessonSources\(\)/);
+  assert.match(surface, /id: "erin"/);
+  assert.match(surface, /selectedErin/);
+  assert.match(surface, /<select/);
   assert.match(surface, /selectedSourceId/);
-  assert.match(surface, /ExternalSourceFrame source=\{selectedSource\}/);
+  assert.match(surface, /value=\{selectedErinSource\.id\}/);
+  assert.match(surface, /ExternalSourceFrame source=\{selectedViewerSource\}/);
   assert.match(surface, /JapaneseText/);
   assert.match(surface, /always/);
 });

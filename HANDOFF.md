@@ -34,11 +34,12 @@ content curation, and additional source permission where needed.
   `ServerTTSProvider`. Generated pronunciation blobs are not persisted. The
   complete source and rights register is
   [`docs/product/CONTENT-SOURCES.md`](docs/product/CONTENT-SOURCES.md).
-- The six Erin N5 launchers stream provider-hosted MP4s in a native player; CEJC,
-  CSJ, Common Voice, JSUT, and JapanesePod101 use a direct original-page iframe
-  with a new-tab fallback. Tatoeba is link-only because its page sends
-  `X-Frame-Options: Deny`. Kizashi does not download, proxy, cache, mirror,
-  re-host, or upload those sources.
+- The six Erin N5 launchers stream provider-hosted MP4s in a native player and
+  keep the full lesson page below it. CEJC and CSJ use a direct original-page
+  iframe with a new-tab fallback. Common Voice, Tatoeba, JSUT, and
+  JapanesePod101 are link-only because their current headers block framing.
+  Kizashi does not download, proxy, cache, mirror, re-host, or upload those
+  sources.
 - The hosted Supabase project was verified on 2026-08-31: migrations are current,
   the seeded course/lessons/contrasts exist, the hosted curriculum has 313
   approved items and zero pending items, and all 47 approved staged IDs match

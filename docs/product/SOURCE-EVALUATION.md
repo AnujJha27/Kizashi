@@ -76,7 +76,10 @@ For CEJC, the official access description says that the free online service can
 be used to listen to searched audio but does not allow audio/video download;
 the paid edition supplies corpus assets under a contract. Therefore Kizashi
 should link to or open the authorized CEJC session, not capture or re-serve the
-raw corpus. Erin's Challenge has now been checked as well: personal learning
+raw corpus. The current CEJC public page and CSJ Chunagon login page do not
+send frame-blocking headers, so the shelf may show them in a direct iframe with
+the original-site fallback. Erin's Challenge has now been checked as well:
+personal learning
 and linking are allowed by its policy, but video downloading is prohibited, so
 the original-page launcher remains the default for scripts and source controls;
 the six selected videos are streamed from Erin's own MP4 URLs without storage
