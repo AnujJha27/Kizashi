@@ -643,3 +643,7 @@ Next session order:
   situations in `lib/immersion-core.js`; the Immersion shelf still leaves all
   scripts, MP3s, and video on Erin's site. The remaining work is target-level
   curation/annotation, not asset copying.
+- Tightened `scripts/qa_content_package.py`: a staged package containing
+  source-review records now reports `blocked` when none are approved, matching
+  the SQL renderer instead of falsely reporting `ready`. The 8,396 pending
+  imported records remain untouched.

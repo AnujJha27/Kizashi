@@ -323,6 +323,13 @@ test("content QA reports review blockers instead of silently publishing them", a
   );
 });
 
+test("content QA blocks a staged package with no approved source-review records", async () => {
+  const { stdout } = await execFileAsync("python3", ["scripts/qa_content_package.py", "--package", "data/staging/kizashi-n5-source-review.json"]);
+  const report = JSON.parse(stdout);
+  assert.equal(report.status, "blocked");
+  assert.match(report.blockers.join("\n"), /No approved source-review items found/);
+});
+
 test("content QA requires classification only for imported source-review records", async () => {
   const { stdout } = await execFileAsync("python3", ["scripts/qa_content_package.py", "--package", "test/fixtures/unassigned-approved-package.json"]);
   const report = JSON.parse(stdout);

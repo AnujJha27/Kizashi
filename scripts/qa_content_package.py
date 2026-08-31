@@ -71,6 +71,8 @@ def report(package: dict[str, Any]) -> dict[str, Any]:
     }
     real_assignments = assignments.intersection(real_lesson_ids(package))
     blockers: list[str] = []
+    source_review_count = 0
+    approved_source_review_count = 0
     totals: dict[str, int] = {}
     for category in CATEGORIES:
         entries = package_items(package, category)
@@ -78,6 +80,11 @@ def report(package: dict[str, Any]) -> dict[str, Any]:
         for item in entries:
             item_id = text(item.get("id")) or f"{category} item"
             status = text(item.get("reviewStatus")) or "approved"
+            source_review = "source-review" in strings(item.get("tags"))
+            if source_review:
+                source_review_count += 1
+                if status == "approved":
+                    approved_source_review_count += 1
             if status not in {"pending", "approved", "rejected"}:
                 blockers.append(f"{item_id}: unknown review status {status}")
             if status != "approved":
@@ -101,6 +108,8 @@ def report(package: dict[str, Any]) -> dict[str, Any]:
                 blockers.append(f"{item_id}: missing reviewed curriculum classification")
             if classification.get("conflict") is True:
                 blockers.append(f"{item_id}: curriculum classification has conflicting source levels")
+    if source_review_count and not approved_source_review_count:
+        blockers.append("No approved source-review items found; set reviewStatus to approved after checking each record.")
     return {"totals": totals, "blockers": blockers, "status": "blocked" if blockers else "ready"}
 
 
