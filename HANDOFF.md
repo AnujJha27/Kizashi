@@ -656,4 +656,6 @@ Next session order:
 - The learner content hook can read a validated, fully reviewed IndexedDB
   draft while still rejecting pending records from the learner path.
 - Verified on 2026-08-31: direct TypeScript checking and the full content test
-  file (36/36). Full-suite/build verification remains before commit.
+  file (36/36), full test suite (11/11), direct TypeScript checking, `next
+  build` (25/25 pages), and `git diff --check`. Committed as `beb79ec` and
+  pushed to private `origin/main`.
