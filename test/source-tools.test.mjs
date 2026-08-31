@@ -28,6 +28,70 @@ test("Sudachi staging keeps morphology records review-only with provenance", asy
   assert.equal(packageData.sourceManifest[0].id, "sudachi-dictionary");
 });
 
+test("Marugoto staging preserves readings split by pitch-accent marks", async () => {
+  const packageData = await runToTemp("scripts/ingest_marugoto_vocab.py", "test/fixtures/marugoto-vocabulary.txt", "marugoto.json");
+  const readings = new Map(packageData.records.vocabulary.map((record) => [record.writtenForm, record.reading]));
+  assert.deepEqual(Object.fromEntries(readings), {
+    "いくら": "いくら",
+    "どこ": "どこ",
+    "バス": "バス",
+    "ありがとう": "ありがとう",
+    "すみません": "すみません",
+  });
+});
+
+test("rejected vocabulary retry repairs rows and merges canonical duplicates", async () => {
+  const directory = await mkdtemp(path.join(tmpdir(), "kizashi-retry-test-"));
+  try {
+    const input = path.join(directory, "package.json");
+    const output = path.join(directory, "retried.json");
+    await writeFile(input, JSON.stringify({
+      vocabulary: [
+        { id: "vocab-ikura", writtenForm: "いくら", reading: "いくら", meanings: ["how much"], sourceIds: [] },
+        {
+          id: "openjlpt-vocabulary-cd2f86eedfd9",
+          writtenForm: "いくら",
+          reading: "イクラ",
+          meanings: ["salted salmon roe"],
+          reviewStatus: "rejected",
+          sourceIds: ["openjlpt-vocab-n5"],
+          classification: { itemType: "vocabulary", itemId: "openjlpt-vocabulary-cd2f86eedfd9", level: "N5" },
+          sourceRecord: { word: "いくら", reading: "", meanings: ["how much?"], level: "N5" },
+        },
+        {
+          id: "marugoto-starter-vocab-7ddb68d985db",
+          writtenForm: "いくら",
+          reading: "い",
+          meanings: ["ikura how much 13"],
+          reviewStatus: "rejected",
+          sourceIds: ["marugoto-starter-vocab"],
+          sourceRecord: { line: "  いくら                       い￢くら               ikura         how much                                            13", lineNumber: 1 },
+        },
+        {
+          id: "marugoto-elementary1-vocab-32738872e84f",
+          writtenForm: "ありがとう",
+          reading: "あり",
+          meanings: ["Thank you. 3"],
+          reviewStatus: "rejected",
+          sourceIds: ["marugoto-elementary1-vocab"],
+          sourceRecord: { line: "  ありがとう                             あり￢がとう      Thank you.                                              3", lineNumber: 2 },
+        },
+      ],
+    }));
+    await execFileAsync("python3", ["scripts/retry_rejected_vocab.py", "--package", input, "--output", output]);
+    const retried = JSON.parse(await readFile(output, "utf8"));
+    const byId = new Map(retried.vocabulary.map((item) => [item.id, item]));
+    assert.equal(byId.has("openjlpt-vocabulary-cd2f86eedfd9"), false);
+    assert.equal(byId.has("marugoto-starter-vocab-7ddb68d985db"), false);
+    assert.equal(byId.get("vocab-ikura").sourceIds.includes("openjlpt-vocab-n5"), true);
+    assert.equal(byId.get("vocab-ikura").sourceIds.includes("marugoto-starter-vocab"), true);
+    assert.equal(byId.get("marugoto-elementary1-vocab-32738872e84f").reading, "ありがとう");
+    assert.equal(byId.get("marugoto-elementary1-vocab-32738872e84f").reviewStatus, "pending");
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
 test("book content extraction preserves chapter/page facts as pending records", async () => {
   const packageData = await runToTemp("scripts/extract_book_content.py", "test/fixtures/book-content.txt", "book-content.json", ["--book-id", "fixture-book"]);
   assert.equal(packageData.status, "staged");

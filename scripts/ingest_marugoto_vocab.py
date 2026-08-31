@@ -28,6 +28,8 @@ SOURCE_URLS = {
 }
 JAPANESE = re.compile(r"[ぁ-んァ-ヶ一-龯々ー・]+")
 KANA = re.compile(r"^[ぁ-んァ-ヶー・]+$")
+READING_FIELD = re.compile(r"[ぁ-んァ-ヶー・]+(?:[￢￣／][ぁ-んァ-ヶー・]*)*")
+PITCH_MARKS = str.maketrans("￢￣", "  ")
 
 
 def now() -> str:
@@ -64,14 +66,16 @@ def candidate(line: str, line_number: int, source_id: str, dictionary: dict[tupl
     if not written or written.isdigit() or len(written) > 32:
         return None
     reading = ""
-    if len(runs) > 1 and KANA.fullmatch(runs[1].group(0)):
-        reading = runs[1].group(0)
+    reading_match = READING_FIELD.search(raw, runs[0].end())
+    english_start = runs[0].end()
+    if reading_match:
+        reading = reading_match.group(0).translate(PITCH_MARKS).replace(" ", "")
+        english_start = reading_match.end()
     if not KANA.fullmatch(written):
         match = dictionary.get((written, ""))
         reading = reading or (match.get("readings", [""])[0] if match else "")
     else:
         reading = reading or written
-    english_start = runs[-1].end()
     meaning = raw[english_start:].strip(" -:|·")
     if not reading or not meaning or not re.search(r"[A-Za-z]", meaning):
         return None

@@ -85,8 +85,9 @@ records. Do not copy textbook, JLPT, or other copyrighted exercises/passages.
   vocabulary records have complete learner fields, provenance, classification,
   and real Journey assignments. After fixing QA's item-ID-versus-lesson-ID
   assignment check, the package passes `--strict` and the SQL renderer produces
-  47 items, 47 lesson links, and 21 source rows. Six unsafe extraction artifacts
-  are explicitly rejected; the remaining 8,343 staged records remain pending.
+  47 items, 47 lesson links, and 21 source rows. Six audited extraction artifacts
+  were retried; four now merge into canonical records and two corrected rows remain
+  pending. The remaining 8,345 staged records remain pending and none are rejected.
   The generated SQL was inspected locally and was not applied to Supabase.
 - `scripts/ingest_jmnedict.py` stages proper-name lookup records outside the JLPT
   learner vocabulary. `scripts/extract_book_candidates.py` stages conservative,
@@ -101,9 +102,9 @@ records. Do not copy textbook, JLPT, or other copyrighted exercises/passages.
 
   The cache-first run includes JMdict, linked JMdict examples, KANJIDIC2,
   OpenJLPT N5/N4, Irodori, Marugoto, BCCWJ, and Tatoeba candidates. The resulting
-  staging package contains 8,446 records: 47 reviewed approved seed-derived
-  vocabulary records, 6 explicitly rejected extraction errors, and 8,343 pending
-  imported records. The pending import remains review-only. The 47 approved
+  staging package contains 8,442 records: 47 reviewed approved seed-derived
+  vocabulary records, repaired extraction records, and 8,345 pending imported
+  records. The pending import remains review-only. The 47 approved
   records and their supported fields were published to the configured private
   Supabase project through a narrow equivalent REST upsert; no pending/rejected
   records or audio blobs were written.
@@ -696,7 +697,7 @@ Next session order:
   `git diff --check`. The source citation correction is `ad2c70e`; the review
   queue change is `f196c3d`; both are pushed to `origin/main`.
 - The remaining unchecked gates are still deliberate: review/approval and
-  lesson assignment for the 8,343 pending imported records, additional spoken
+  lesson assignment for the 8,345 pending imported records, additional spoken
   frequency publication with clear rights and semantics, and real phone/desktop
   preview. The 24 persisted authored questions now have explicit semantic
   review metadata; imported source records contain no questions.
@@ -737,6 +738,18 @@ Next session order:
   `practice_questions.audio_metadata`. The linked pooler URL has no database
   password, so migrations 0017–0019 must be run from the Supabase SQL Editor or
   another authorized SQL connection before the generated SQL can be applied.
+
+## Session notes — repaired extraction artifacts
+
+- Added pitch-accent-aware Marugoto parsing so readings such as `い￢くら` are
+  preserved as `いくら` instead of being truncated at the accent mark.
+- Retried all six audited vocabulary artifacts. The OpenJLPT `いくら` homograph
+  and the Marugoto `いくら`, `どこ`, and `バス` rows now contribute provenance to
+  canonical records; corrected `ありがとう` and `すみません` rows remain
+  pending normal enrichment and lesson review.
+- The staged package now has 8,442 total records, 97 approved imported records,
+  8,345 pending records, and zero rejected records. Full tests and strict content
+  QA pass; no audio or third-party corpus blobs were downloaded or uploaded.
 
 ## Session notes — authored question review
 

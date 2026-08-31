@@ -66,22 +66,21 @@ test("the deployable Studio review package keeps the staged records", async () =
   assert.ok(staged.grammar.length > 400);
 });
 
-test("known source extraction errors stay rejected", async () => {
+test("known source extraction errors are retried or merged canonically", async () => {
   const compressed = await readFile(new URL("../data/staging/kizashi-n5-source-review.json.gz", import.meta.url));
   const staged = JSON.parse(gunzipSync(compressed));
   const vocabulary = new Map(staged.vocabulary.map((item) => [item.id, item]));
-  const reasons = {
-    "openjlpt-vocabulary-cd2f86eedfd9": /イクラ.*homograph/,
-    "marugoto-starter-vocab-7ddb68d985db": /truncated reading/,
-    "marugoto-starter-vocab-cee10e7167df": /truncated reading/,
-    "marugoto-starter-vocab-0a5e23e8d9b2": /truncated reading/,
-    "marugoto-elementary1-vocab-666d51b66503": /truncated reading/,
-    "marugoto-elementary1-vocab-32738872e84f": /truncated reading/,
-  };
-  for (const [id, reason] of Object.entries(reasons)) {
-    assert.equal(vocabulary.get(id)?.reviewStatus, "rejected");
-    assert.match(vocabulary.get(id)?.notes ?? "", reason);
-  }
+  assert.equal(vocabulary.has("openjlpt-vocabulary-cd2f86eedfd9"), false);
+  assert.equal(vocabulary.has("marugoto-starter-vocab-7ddb68d985db"), false);
+  assert.equal(vocabulary.has("marugoto-starter-vocab-cee10e7167df"), false);
+  assert.equal(vocabulary.has("marugoto-starter-vocab-0a5e23e8d9b2"), false);
+  assert.equal(vocabulary.get("vocab-ikura")?.sourceIds.includes("openjlpt-vocab-n5"), true);
+  assert.equal(vocabulary.get("vocab-ikura")?.sourceIds.includes("marugoto-starter-vocab"), true);
+  assert.equal(vocabulary.get("marugoto-elementary1-vocab-666d51b66503")?.reading, "すみません");
+  assert.equal(vocabulary.get("marugoto-elementary1-vocab-32738872e84f")?.reading, "ありがとう");
+  assert.equal(vocabulary.get("marugoto-elementary1-vocab-666d51b66503")?.reviewStatus, "pending");
+  assert.equal(vocabulary.get("marugoto-elementary1-vocab-32738872e84f")?.reviewStatus, "pending");
+  assert.equal(staged.vocabulary.some((item) => item.reviewStatus === "rejected"), false);
 });
 
 test("Studio loads the large review package through an admin-only compressed endpoint", async () => {
