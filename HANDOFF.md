@@ -761,3 +761,17 @@ Next session order:
   curriculum and pass the existing structural/category validation gate.
 - Added a regression test requiring an approved reviewer, timestamp, notes,
   and target item for every persisted authored question.
+
+## Session notes — production preview smoke
+
+- Ran the built app with configured Supabase environment: `/login`, `/offline`,
+  and `/manifest.webmanifest` returned 200 for desktop and phone user agents;
+  protected learner/admin routes correctly returned 307 to `/login` without a
+  session.
+- Strict package QA passed with 97 approved records and 8,345 pending records;
+  approved-only SQL rendering produced 47 publishable vocabulary items, 47
+  lesson links, and 21 source rows. No pending or rejected content was exported.
+- A browser engine is not available in this environment, so actual rendered
+  pixel-level phone/desktop inspection remains an explicit deployment gate.
+  Do not check off the visual preview item until a browser-capable environment
+  can inspect the protected routes at real phone and desktop viewports.

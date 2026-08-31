@@ -18,7 +18,7 @@
 - [x] Run the cache-first acquisition command and inspect the generated N5 review package.
 - [x] Acquire N4 bridge vocabulary, kanji, grammar, and linked examples for above-level preparation.
 - [x] Retry the six audited vocabulary extraction errors with pitch-accent-aware parsing; four now merge into canonical records and two corrected rows remain pending review.
-- [ ] Review, enrich, classify, and assign imported records to real Journey lessons. The first audited batch has 47 approved seed-derived vocabulary records; 8,345 staged records remain pending and none are rejected.
+- [ ] Review, enrich, classify, and assign imported records to real Journey lessons. The current staged package has 97 approved seed-derived records, 8,345 records remain pending, and none are rejected; approval still requires human review.
 - [ ] Apply the generated Supabase SQL import after the hosted project receives
   migrations 0017–0019. The 47 approved rows and their supported fields,
   classifications, provenance, and lesson links are already published through
