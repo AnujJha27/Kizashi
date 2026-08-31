@@ -16,5 +16,5 @@ export function ExternalSourceViewer({ source, open, onToggle }: Readonly<{ sour
     if (!controlled) setInternalOpen((value) => !value);
     onToggle?.();
   };
-  return <div className="mt-4"><div className="flex flex-wrap items-center gap-2">{source.mediaDelivery === "link-only" ? <p className="text-xs text-[#9297a1]">This provider does not allow in-app framing.</p> : <button type="button" onClick={toggle} aria-expanded={isOpen} className="rounded-lg bg-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#0b0b0d] hover:bg-[#f1cf7c]">{isOpen ? "Close frame" : "View here"}</button>}<ExternalSourceLauncher source={source} /></div>{!controlled && isOpen ? <ExternalSourceFrame source={source} /> : null}</div>;
+  return <div className="mt-4"><div className="flex flex-wrap items-center gap-2"><button type="button" onClick={toggle} aria-expanded={isOpen} className="rounded-lg bg-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#0b0b0d] hover:bg-[#f1cf7c]">{isOpen ? "Close frame" : "View here"}</button>{source.mediaDelivery === "link-only" ? <p className="text-xs text-[#9297a1]">This provider may block in-app framing.</p> : null}<ExternalSourceLauncher source={source} /></div>{!controlled && isOpen ? <ExternalSourceFrame source={source} /> : null}</div>;
 }

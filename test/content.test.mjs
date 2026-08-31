@@ -150,6 +150,8 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(viewer, /ExternalSourceFrame/);
   assert.match(viewer, /w-full/);
   assert.match(viewer, /Open original source/);
+  assert.doesNotMatch(viewer, /\{source\.mediaDelivery === "link-only" \? <p[^>]*>This provider does not allow in-app framing/);
+  assert.match(viewer, /View here/);
   assert.match(surface, /CSJ/);
   assert.match(surface, /id: "cejc", name: "CEJC", mediaDelivery: "link-only"/);
   assert.match(surface, /id: "csj", name: "CSJ", mediaDelivery: "link-only"/);
