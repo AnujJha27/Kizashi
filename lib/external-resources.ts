@@ -18,9 +18,15 @@ export interface ExternalResourceMetadata {
   readonly shelf?: boolean;
   readonly lessonIds?: readonly string[];
   readonly context?: string;
+  readonly course?: string;
+  readonly lesson?: string;
+  readonly canDo?: string;
+  readonly resourceTypes?: readonly string[];
+  readonly audioAvailable?: boolean;
+  readonly audioDelivery?: "provider-hosted";
+  readonly termsUrl?: string;
   readonly annotationStatus?: string;
   readonly reviewedAt?: string;
-  readonly resourceTypes?: readonly string[];
   readonly transcriptAvailable?: boolean;
   readonly translationAvailable?: boolean;
   readonly mediaDelivery?: "original-site";

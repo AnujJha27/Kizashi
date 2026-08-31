@@ -1,0 +1,14 @@
+[
+  {
+    "id": "irodori-elementary1-lesson-05-ordering",
+    "sourceId": "irodori",
+    "course": "初級1",
+    "lesson": "Lesson 5",
+    "canDo": "レストランで注文する",
+    "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+    "resourceTypes": ["lesson", "script", "audio"],
+    "audio": { "available": true, "delivery": "provider-hosted" },
+    "targetItemIds": ["grammar-kudasai", "grammar-wo", "vocab-gohan"],
+    "terms": { "url": "https://www.irodori.jpf.go.jp/en/faq.html", "retrievedAt": "2026-09-01" }
+  }
+]
