@@ -11,9 +11,10 @@ import {
 } from "../lib/sources/aozora-core.js";
 
 const catalog = [
-  "作品ID,人物ID,作品名,著者名,カードURL,テキストURL,文字遣い,状態",
+  "作品ID,人物ID,作品名,著者名,カードURL,テキストURL,文字遣い,状態,備考",
   "127,879,羅生門,芥川 竜之介,https://www.aozora.gr.jp/cards/000879/card127.html,https://www.aozora.gr.jp/cards/000879/files/127_15260.html,新字新仮名,公開中",
-  "999,1000,保護作品,存続著者,https://example.test/card999,https://example.test/text999,新字新仮名,公開中 ＊著作権存続＊",
+  "999,1000,保護作品,存続著者,https://example.test/card999,https://example.test/text999,新字新仮名,公開中,＊著作権存続＊",
+  "1000,1001,公開作品,消滅著者,https://example.test/card1000,https://example.test/text1000,新字新仮名,公開中,著作権消滅",
 ].join("\n");
 
 test("Aozora catalog parsing maps bibliographic fields and rights markers", () => {
@@ -27,10 +28,12 @@ test("Aozora catalog parsing maps bibliographic fields and rights markers", () =
     textUrl: "https://www.aozora.gr.jp/cards/000879/files/127_15260.html",
     orthography: "新字新仮名",
     rightsMarker: "公開中",
-    rightsStatus: "public-domain",
+    rightsStatus: "unknown",
   });
   assert.equal(works[1].rightsStatus, "protected");
-  assert.equal(isReusableAozoraWork(works[0]), true);
+  assert.equal(works[2].rightsStatus, "public-domain");
+  assert.equal(isReusableAozoraWork(works[0]), false);
+  assert.equal(isReusableAozoraWork(works[2]), true);
   assert.equal(isReusableAozoraWork(works[1]), false);
 });
 

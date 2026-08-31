@@ -19,9 +19,21 @@ AOZORA_ORIGIN = "https://www.aozora.gr.jp"
 def rights_status(marker: str) -> str:
     if any(token in marker.lower() for token in ("著作権存続", "保護", "protected", "copyright reserved", "作業中")):
         return "protected"
-    if any(token in marker.lower() for token in ("著作権消滅", "public domain", "expired", "reusable", "公開")):
+    if any(token in marker.lower() for token in ("著作権消滅", "public domain", "expired", "reusable")):
         return "public-domain"
     return "unknown"
+
+
+def rights_marker(row: dict[str, str]) -> str:
+    values = [
+        value.strip()
+        for key, value in row.items()
+        if any(token in key.lower() for token in ("権利", "著作権", "copyright", "rights", "備考", "remarks", "note")) and value
+    ]
+    status = (row.get("状態") or row.get("status") or "").strip()
+    if status and any(token in status.lower() for token in ("著作権", "copyright", "rights", "protected", "public domain", "expired", "reusable")):
+        values.append(status)
+    return " ".join(values) or status
 
 
 def url_for(value: str) -> str | None:
@@ -44,7 +56,7 @@ def parse_catalog(raw: str) -> list[dict[str, str | None]]:
         title = (row.get("作品名") or row.get("title") or "").strip()
         if not work_id or not person_id or not title:
             continue
-        marker = " ".join(value.strip() for key, value in row.items() if any(token in key for token in ("状態", "著作権", "権利")) and value)
+        marker = rights_marker(row)
         card_url = url_for(row.get("カードURL", "")) or f"{AOZORA_ORIGIN}/cards/{person_id.zfill(6)}/card{work_id}.html"
         text_url = url_for(row.get("テキストURL", "") or row.get("textUrl", ""))
         works.append({

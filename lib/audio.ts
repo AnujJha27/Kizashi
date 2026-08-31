@@ -86,14 +86,18 @@ function playbackRate(rate: number | undefined, fallback = 0.9) {
 function japaneseVoice(synthesis: SpeechSynthesis) {
   const voices = synthesis.getVoices();
   const selected = preferredJapaneseVoice(voices);
-  if (selected || voices.length) return Promise.resolve(selected);
+  if (selected) return Promise.resolve(selected);
   return new Promise<SpeechSynthesisVoice | null>((resolve) => {
+    const deadline = Date.now() + 1500;
     const finish = () => {
+      const next = preferredJapaneseVoice(synthesis.getVoices());
+      if (!next && Date.now() < deadline) return;
       synthesis.removeEventListener("voiceschanged", finish);
-      resolve(preferredJapaneseVoice(synthesis.getVoices()));
+      resolve(next);
     };
-    synthesis.addEventListener("voiceschanged", finish, { once: true });
+    synthesis.addEventListener("voiceschanged", finish);
     window.setTimeout(finish, 1500);
+    finish();
   });
 }
 
