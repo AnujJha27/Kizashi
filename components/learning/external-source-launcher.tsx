@@ -4,6 +4,10 @@ export interface ExternalSourceLink {
   id: string;
   name: string;
   title?: string;
+  level?: string;
+  context?: string;
+  targetSkills?: string[];
+  targetItemIds?: string[];
   description: string;
   url: string;
 }
