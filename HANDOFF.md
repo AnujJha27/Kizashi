@@ -669,3 +669,23 @@ Next session order:
   the provider's media.
 - The remaining Erin task is no longer source mapping; it is optional future
   expansion beyond these six curated launchers.
+
+## Session notes — source citation and complete question review queue
+
+- Rechecked the current first-party terms for Erin's Challenge, Common Voice
+  Japanese 26.0, Tatoeba audio, JSUT, and VOICEVOX on 2026-08-31. The source
+  ledger now cites the current Mozilla Data Collective re-hosting FAQ and the
+  exact Common Voice release identifier; no third-party asset was downloaded,
+  uploaded, or committed.
+- The Studio question-review queue now supports search and paging across every
+  pending question instead of rendering only the first 20. This makes the
+  existing semantic review/approval workflow reachable for the full authored
+  and derived question set without changing the publish gate.
+- Verified after the change: `/usr/bin/node --test test/*.test.mjs` (11/11),
+  direct TypeScript checking, `next build` (25/25 pages), and
+  `git diff --check`. The source citation correction is `ad2c70e`; the review
+  queue change is `f196c3d`; both are pushed to `origin/main`.
+- The remaining unchecked gates are still deliberate: review/approval and
+  lesson assignment for the 8,396 pending imported records, semantic approval
+  of authored/imported questions, a second spoken-frequency corpus with clear
+  rights and semantics, and real phone/desktop preview.
