@@ -6,6 +6,243 @@ are complete. Remaining unchecked items below are intentionally optional source
 rights/quality work or the manual browser viewport gate. The complete source
 register is [`docs/product/CONTENT-SOURCES.md`](docs/product/CONTENT-SOURCES.md).
 
+## Source-integration milestone — preflight verified, implementation pending
+
+The requested source milestone is specified in
+[`docs/product/NEW_SOURCE.md`](docs/product/NEW_SOURCE.md) and planned in
+[`docs/superpowers/plans/2026-08-31-source-integration-milestone.md`](docs/superpowers/plans/2026-08-31-source-integration-milestone.md).
+The repository audit verified that the milestone extends existing abstractions:
+`ContentSource`/`sourceManifest`, `sourceIds`/`fieldSourceIds`, the existing
+`AudioProvider` chain, `ExternalSourceViewer`/`ExternalSourceLauncher`, local
+external-source progress, Content Studio review gates, the existing reading
+text helpers, and the three Irodori ingestors. No second source database or
+audio mirror is planned.
+
+### Verified boundaries before implementation
+
+- [x] Record the six-source product roles: Tae Kim = alternative grammar
+  intuition; Wikibooks = supplementary reference; Commons/Lingua Libre =
+  dynamic human pronunciation; Aozora = native reading; Tadoku = unchanged
+  graded reading; Irodori = practical Can-do, vocabulary, patterns, kanji,
+  and provider-hosted lesson media.
+- [x] Confirm Tae Kim's source page identifies CC BY-NC-SA 3.0. Any adapted
+  source text must retain attribution and ShareAlike metadata and remain
+  separate from Kizashi-authored explanations.
+- [x] Confirm Wikibooks' general text handling is CC BY-SA 4.0/GFDL, while
+  page history, footer, and media metadata can impose page/file-specific
+  conditions. Prefer API-backed references and avoid bulk copying.
+- [x] Confirm Commons/Lingua Libre recordings need file-level license and
+  attribution inspection; never assume a global recording license.
+- [x] Confirm Aozora distinguishes public-domain/expired-rights works from
+  still-protected works and provides separate file-handling guidance. Only
+  qualifying works may be rendered through Kizashi's reader.
+- [x] Confirm Free Tadoku Books are CC BY-NC-ND 4.0: linking is allowed with
+  NPO多言語多読 credit, but Kizashi must not alter, translate, annotate,
+  quiz-generate, or re-publish the books.
+- [x] Confirm Irodori supports independent study and educational use, while
+  site content remains owned by the Foundation/other rights holders. Keep
+  source relation, attribution, and provider-hosted media metadata.
+- [x] Confirm the storage boundary: no Commons, Irodori, Tadoku, Tae Kim,
+  Wikibooks, or Aozora audio/text mirror in Supabase or GitHub; Supabase
+  Storage remains for genuinely private user assets.
+
+### Ordered implementation todos
+
+#### 1. Registry and shared source-reference foundation
+
+- [ ] Add one typed registry module, preferably `lib/external-resources.ts`,
+  with source ID, pedagogical role, resource type, level, URL, delivery mode,
+  target item/skill mappings, attribution, license, and provider metadata.
+- [ ] Move the existing Erin, CEJC, CSJ, Common Voice, Tatoeba, JSUT, and
+  JapanesePod101 shelf metadata out of `immersion-surface.tsx` into the
+  registry; preserve the existing Erin lesson selector and six exact URLs.
+- [ ] Add registry entries for Tae Kim, Wikibooks, Commons/Lingua Libre,
+  Aozora, Tadoku, and Irodori without adding six publisher-directory routes.
+- [ ] Keep external-resource metadata distinct from `ContentSource`: use the
+  existing source manifest/provenance model for content fields and the new
+  registry only for learner-facing resource delivery.
+- [ ] Add a small resolver/filter API so grammar, vocabulary, lessons,
+  immersion, reading, and Content Studio can request resources by item ID,
+  skill, role, or tag.
+- [ ] Add tests proving links are centralized, source roles are preserved, and
+  a missing optional resource never removes core Kizashi content.
+
+#### 2. Commons/Lingua Libre dynamic pronunciation
+
+- [ ] Add `lib/sources/commons-audio.ts` using the Wikimedia/MediaWiki APIs,
+  not HTML scraping, with an injectable fetch boundary for deterministic tests.
+- [ ] Add `app/api/audio/commons/route.ts` as a same-origin metadata resolver;
+  it may return remote metadata but must never proxy or persist the audio blob.
+- [ ] Resolve only actual audio and rank exact Japanese label, exact reading,
+  Lingua Libre Japanese pronunciation, then other clearly Japanese recordings.
+  Reject filename-only fuzzy matches.
+- [ ] Read `imageinfo`/`extmetadata` and retain remote audio URL, file page,
+  label, creator/speaker metadata, license, license URL, attribution, source,
+  and collection.
+- [ ] Reject non-audio, missing/incompatible-license, and ambiguous results;
+  return a typed miss so the caller can use BrowserSpeechProvider.
+- [ ] Cache successful metadata and misses briefly using the Next/server or
+  browser cache already available; do not add a persistent audio table.
+- [ ] Add unit tests for exact match, non-audio rejection, license rejection,
+  attribution retention, cache hit/miss, and no-result fallback.
+
+#### 3. Existing audio-flow extension
+
+- [ ] Extend the current `AudioProvider` flow in `lib/audio.ts` rather than
+  replacing it: explicit approved remote recording, Commons resolution, then
+  BrowserSpeechProvider.
+- [ ] Add the smallest request/metadata field needed to identify a Commons
+  lookup target; keep `AudioMetadata` as the persisted shape.
+- [ ] Keep BrowserSpeechProvider as the default for vocabulary, kanji, grammar
+  examples, ordinary sentences, and lesson dialogue.
+- [ ] Preserve play, replay, slow playback, autoplay, preferred rate, Japanese
+  voice selection, and the current graceful unavailable-device message.
+- [ ] Show “human recording” and a compact attribution/info affordance without
+  putting legal text in the main study card.
+- [ ] Test that Commons failure and remote playback failure both fall back to
+  BrowserSpeechProvider and that no blob/storage write path is introduced.
+
+#### 4. Reusable grammar/reference panel
+
+- [ ] Add `components/learning/source-reference-panel.tsx` with the roles
+  alternative explanation, reference, human pronunciation, graded reader,
+  real-world practice, and native reading.
+- [ ] Integrate the panel into the existing grammar detail surface without
+  replacing Kizashi's explanation, formation, examples, mistakes, or practice.
+- [ ] Show attribution/license/source details behind an info control and keep
+  source-derived excerpts visually separate from authored Kizashi text.
+- [ ] Add failure rendering that leaves the grammar page fully usable when a
+  remote reference cannot load.
+- [ ] Add component/source-resolution tests for optional and missing references.
+
+#### 5. Tae Kim deep-link mappings
+
+- [ ] Add `data/source-maps/tae-kim.json` for a small reviewed set of existing
+  grammar IDs, using specific section URLs and a relationship label such as
+  `alternative-explanation`; do not map every item to the homepage.
+- [ ] Resolve mappings through the registry/reference panel and preserve the
+  Kizashi explanation as canonical for curriculum and practice.
+- [ ] Include the verified CC BY-NC-SA 3.0 attribution/ShareAlike metadata in
+  the registry/docs; keep any future cached/adapted prose review-only.
+- [ ] Add tests for mapping resolution, deep-link URLs, missing mapping, and
+  “external reference unavailable does not break grammar.”
+- [ ] Defer `scripts/ingest_tae_kim.py` unless a concrete review-only excerpt
+  use is approved; linking is enough for the first end-to-end example.
+
+#### 6. Wikibooks API reference
+
+- [ ] Add `lib/sources/wikibooks.ts` with `getWikibooksSection({ page,
+  section? })`, MediaWiki API requests, response typing, minimal sanitization,
+  and short-lived caching.
+- [ ] Add `app/api/reference/wikibooks/route.ts` with input validation and a
+  typed error response; never write fetched reference prose to Supabase.
+- [ ] Add a few reviewed mappings for particles, counters, conjugation, and
+  pronunciation/pitch-accent lookup where the existing curriculum benefits.
+- [ ] Show a small attributed excerpt only when the API returns safe structured
+  content; otherwise show the source launcher and keep Kizashi content intact.
+- [ ] Add tests for section parsing, sanitization, attribution/source URL,
+  cache behavior, API failure, and missing mapping.
+
+#### 7. Irodori learner-facing enrichment
+
+- [ ] Preserve and test `ingest_irodori_wordlist.py`,
+  `ingest_irodori_sentence_patterns.py`, and `ingest_irodori_kanji.py`; do not
+  create a replacement ingestion pipeline.
+- [ ] Add a resource manifest generator only for official metadata needed by
+  the learner UI, preferably `scripts/ingest_irodori_resources.py`; keep raw
+  media out of staging, GitHub, and Supabase Storage.
+- [ ] Store course, lesson, Can-do, official URL, available resource types,
+  listening/audio availability, target item IDs, source terms, and retrieval
+  metadata as review-only source metadata.
+- [ ] Add separate Irodori lesson/Can-do mappings; never put Irodori level or
+  Can-do into `curriculum_classifications` as JLPT truth.
+- [ ] Surface “Real-world practice” on overlapping Learn/Journey lessons with
+  an original lesson link or provider-hosted `RemoteAudioProvider` URL.
+- [ ] Add a practical follow-up card for at least one existing N5 lesson, with
+  attribution and a failure fallback to the normal Kizashi lesson.
+- [ ] Add tests for manifest parsing, Can-do mapping, remote audio metadata,
+  no-JLPT-classification leakage, and preservation of existing ingestor output.
+
+#### 8. Tadoku beginner reading shelf
+
+- [ ] Add a small source manifest of official Free Tadoku Books containing only
+  published metadata: title, level, genre, original URL, audio availability,
+  approximate length, and provider attribution.
+- [ ] Mark Tadoku entries non-transformable and do not extract book text,
+  illustrations, translations, explanations, tests, or generated questions.
+- [ ] Reuse `ExternalSourceViewer`/`ExternalSourceLauncher` for source-hosted
+  reading and frame/link fallback; show one useful beginner shelf rather than
+  a directory of duplicated pages.
+- [ ] Reuse/localize external-source progress for opened/read status and add a
+  local resume marker only for the source page/resource ID, not copied pages.
+- [ ] Add mobile-friendly shelf cards and tests proving `transformAllowed` is
+  false and blocked framing still provides a working original link.
+
+#### 9. Aozora native-reading catalog and reader
+
+- [ ] Add `scripts/fetch_aozora_catalog.py` for the published UTF-8
+  bibliographic CSV, cache-first under `data/source-cache/`, with retrieval
+  date/checksum and no catalog commit.
+- [ ] Parse work/person/title/card/text URLs, orthography, and rights status;
+  filter protected works before any in-app text fetch.
+- [ ] Add a small server-side text route for qualifying public/reusable works,
+  with source URL, normalization, bounded fetch/cache behavior, and explicit
+  protected-work rejection.
+- [ ] Reuse existing Japanese text/furigana, known-item links, study-later,
+  and local browser storage patterns; do not create a second reader engine.
+- [ ] Add a native-reading shelf with estimated difficulty signals: known
+  vocabulary/kanji coverage, length, and sentence length. Label it as an
+  estimate, never a JLPT certification.
+- [ ] Add mobile typography, adjustable font size, no horizontal scrolling,
+  consistent furigana, and local resume position.
+- [ ] Add tests for CSV parsing, rights filtering, URL mapping, text
+  normalization, protected-work rejection, difficulty estimate, and fetch
+  failure fallback.
+
+#### 10. Immersion and mobile reorganization
+
+- [ ] Refactor `immersion-surface.tsx` to consume the registry and organize
+  sources by learner intent: 聞く, 読む, 実際の日本語, and 参考.
+- [ ] Keep Ear Warm-up, Guided/Listen/Immersion modes, shadowing, transcript
+  reveal, mapped furigana, and the existing listening selection logic intact.
+- [ ] Put Erin in one source card with its lesson selector; do not render six
+  separate Erin cards.
+- [ ] Add Tadoku/Aozora/Irodori/Tae Kim/Wikibooks learner entry points in the
+  relevant section, with no core lesson dependency on external availability.
+- [ ] Ensure one-tap mobile audio, thumb-sized source controls, readable
+  Japanese text, and no horizontal overflow in shelf/reader/reference views.
+- [ ] Add responsive tests or source-level assertions for registry rendering,
+  one Erin card, all six new source roles, and external failure fallbacks.
+
+#### 11. Content Studio provenance and coverage diagnostics
+
+- [ ] Extend the existing readable review modal/source evidence UI with source
+  roles and field-level provenance; do not expose raw JSON as the review path.
+- [ ] Show grammar mappings, Irodori patterns, dictionary/frequency evidence,
+  and resolved human-audio metadata as inspectable source evidence.
+- [ ] Add actual coverage calculations from registry mappings, staged data,
+  and successful resolver metadata; never hard-code percentages.
+- [ ] Keep imported/source-review records pending and preserve existing approval,
+  rejection, learner-release, and learner-flag behavior.
+- [ ] Add tests for provenance serialization, actual coverage counts, source
+  evidence rendering, and unchanged review gates.
+
+#### 12. Documentation, full verification, and delivery
+
+- [ ] Update `docs/product/CONTENT-SOURCES.md` with the resulting source roles,
+  delivery modes, storage boundary, provenance shape, and failure behavior.
+- [ ] Update `docs/product/SOURCE-EVALUATION.md` with first-party term dates,
+  exact integration behavior, and source-specific restrictions.
+- [ ] Keep `README.md`/`HANDOFF.md` accurate about what is implemented,
+  provider-hosted, dynamically resolved, cached, or still deferred.
+- [ ] Run the repository commands: `npm test`, `npm run typecheck`,
+  `npm run build`, and `git diff --check`.
+- [ ] Run focused source tests with mocked APIs and no network dependency.
+- [ ] Verify no third-party audio/text is added to GitHub, Supabase Storage,
+  SQL seed output, or the public deployment bundle.
+- [ ] Commit only intentional milestone files, keep user-local artifacts
+  untracked, and push the verified result to `main`.
+
 ## Content acquisition and curriculum expansion
 
 ### Phase 1 — content foundation
