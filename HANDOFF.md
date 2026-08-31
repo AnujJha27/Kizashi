@@ -58,8 +58,9 @@ the deferred ServerTTS/audio-archive work.
 - The supplied books are outside GitHub and the public bundle. Their 13 split
   parts are in the private `books` bucket and are loaded with short-lived signed
   URLs and browser-side PDF assembly.
-- Verification is rerun after each source checkpoint; the final test/typecheck/
-  build results will be recorded here before the next `main` push.
+- Verification completed on 2026-09-01: 18/18 test files, direct TypeScript
+  checking, Python syntax checks for the source scripts, Next production build
+  (28/28 pages), and `git diff --check`.
 - Untracked `resumer`, `scripts/__pycache__/`, and `supabase/.temp/` are user or
   environment artifacts and remain unstaged. The browser/Sol relay is not
   available in this environment, so Sol was not consulted.

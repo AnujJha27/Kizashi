@@ -6,17 +6,28 @@ are complete. Remaining unchecked items below are intentionally optional source
 rights/quality work or the manual browser viewport gate. The complete source
 register is [`docs/product/CONTENT-SOURCES.md`](docs/product/CONTENT-SOURCES.md).
 
-## Source-integration milestone — preflight verified, implementation pending
+## Source-integration milestone — implemented 2026-09-01
 
 The requested source milestone is specified in
 [`docs/product/NEW_SOURCE.md`](docs/product/NEW_SOURCE.md) and planned in
 [`docs/superpowers/plans/2026-08-31-source-integration-milestone.md`](docs/superpowers/plans/2026-08-31-source-integration-milestone.md).
-The repository audit verified that the milestone extends existing abstractions:
+The repository audit verified that the milestone extends existing abstractions,
+and the implementation is now on `main` in commits `3d5c00e` and `a43203b`:
 `ContentSource`/`sourceManifest`, `sourceIds`/`fieldSourceIds`, the existing
 `AudioProvider` chain, `ExternalSourceViewer`/`ExternalSourceLauncher`, local
 external-source progress, Content Studio review gates, the existing reading
 text helpers, and the three Irodori ingestors. No second source database or
 audio mirror is planned.
+
+- [x] Central registry and source-specific learner entry points are live.
+- [x] Commons/Lingua Libre metadata resolution and browser fallback are live
+  without an audio storage path.
+- [x] Tae Kim/Wikibooks grammar references, Irodori practical overlap, Tadoku
+  shelf, Aozora reader, source coverage, and readable provenance are live.
+- [x] Full automated tests, TypeScript, Python syntax, production build, and
+  diff checks pass locally; `main` is pushed to `origin/main`.
+- [ ] Manual phone/desktop viewport smoke test remains; it is a deployment
+  verification step, not a source-integration blocker.
 
 ### Verified boundaries before implementation
 

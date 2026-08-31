@@ -9,10 +9,21 @@ role, appear at the relevant learning moment, preserve provenance, degrade
 gracefully, and add essentially no third-party media to Supabase Storage or
 GitHub.
 
-Implementation is in progress on `main`; Tasks 1–6 are implemented and Tasks
-7–9 are in the final integration/verification pass. The source specification
-supplied by the user is the authority:
+Implementation is complete on `main` in commits `3d5c00e` and `a43203b`; only
+the manual viewport smoke test remains. The source specification supplied by
+the user is the authority:
 `docs/product/NEW_SOURCE.md`.
+
+## Implementation status — 2026-09-01
+
+- [x] Tasks 1–6: registry, Commons audio fallback, grammar references, Tae Kim,
+  Wikibooks, Irodori, and Tadoku.
+- [x] Task 7: intent-organized listening surface, one Erin family card, and
+  mobile-safe source/reader controls.
+- [x] Task 8: readable Content Studio source evidence and computed coverage.
+- [x] Task 9: source documentation, focused tests, full test suite, TypeScript,
+  Python syntax, production build, and diff checks.
+- [ ] Manual phone/desktop viewport smoke test after deployment.
 
 ## Architecture
 
@@ -641,4 +652,4 @@ Delivery:
   difficulty estimate.
 - [x] Includes mobile behavior, graceful failure, Content Studio visibility,
   provenance, tests, docs, build, and delivery verification.
-- [x] Makes no claim that the milestone is implemented.
+- [x] Records the implementation status and the one remaining manual check.
