@@ -77,6 +77,14 @@ test("Studio loads the large review package through an admin-only compressed end
   assert.match(studio, /setRaw\(JSON\.stringify\(next, null, 2\)\)/);
 });
 
+test("Studio exposes every pending question through a searchable paged review queue", async () => {
+  const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
+  assert.match(studio, /Search pending questions/);
+  assert.match(studio, /questionPageSize/);
+  assert.match(studio, /questionPageCount/);
+  assert.doesNotMatch(studio, /questions\.slice\(0, 20\)/);
+});
+
 test("kanji orthography prompts test the reading instead of visual matching", async () => {
   const questions = await readFile(new URL("../lib/questions.ts", import.meta.url), "utf8");
   assert.match(questions, /Which word is read \$\{word\.reading\}\?/);
