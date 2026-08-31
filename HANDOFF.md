@@ -714,8 +714,8 @@ Next session order:
 - Strict QA passed; local SQL inspection produced 47 items, 47 lesson links,
   and 21 sources. No SQL was applied to Supabase.
 - Verified 11/11 tests, TypeScript, `next build` (25/25 pages), and
-  `git diff --check`. Commits `5d00d40`, `5bce8bf`, and `889eb59` are pushed
-  to `origin/main`; the authored-question review is the current local change.
+  `git diff --check`. Commits `5d00d40`, `5bce8bf`, `889eb59`, and `aff854d`
+  are pushed to `origin/main`.
 
 ## Session notes — authored question review
 
