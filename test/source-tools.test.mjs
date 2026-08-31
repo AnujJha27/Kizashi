@@ -114,6 +114,32 @@ test("CEJC aggregate values apply only to exact canonical written forms", async 
   }
 });
 
+test("CSJ ingestion emits reviewed-only spoken frequency aggregates", async () => {
+  const packageData = await runToTemp("scripts/ingest_csj_frequency.py", "test/fixtures/csj-frequency.tsv", "csj.json", ["--version", "2018.03.1"]);
+  assert.equal(packageData.status, "staged");
+  assert.equal(packageData.stats.rows, 3);
+  assert.equal(packageData.stats.records, 2);
+  assert.deepEqual(packageData.records.vocabulary[0], {
+    writtenForm: "駅",
+    spokenFrequency: 9,
+    spokenFrequencyMetadata: {
+      corpus: "CSJ",
+      version: "2018.03.1",
+      unit: "CSJ short-unit lemma",
+      register: "CSJ overall",
+      pmw: 4.5,
+      rowCount: 2,
+      aggregation: "sum of published CSJ frequency rows sharing the lemma",
+    },
+    sourceIds: ["csj-frequency"],
+    fieldSourceIds: { spokenFrequency: ["csj-frequency"], spokenFrequencyMetadata: ["csj-frequency"] },
+    reviewStatus: "pending",
+  });
+  assert.match(packageData.sourceManifest[0].license, /CC BY-NC-ND 3\.0/);
+  assert.match(packageData.sourcePolicy, /no redistribution/);
+  assert.equal("sourceRecord" in packageData.records.vocabulary[0], false);
+});
+
 test("I-JAS aggregate validation rejects learner records and raw content", async () => {
   await execFileAsync("python3", ["scripts/validate_ijas_aggregate.py", "--input", "test/fixtures/ijas-aggregate.json"]);
   const directory = await mkdtemp(path.join(tmpdir(), "kizashi-ijas-test-"));

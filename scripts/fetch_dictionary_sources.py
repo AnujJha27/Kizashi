@@ -143,6 +143,14 @@ SOURCES = {
         "notes": "Spoken-frequency and listening-realism evaluation only; do not import corpus data or audio without a matching license.",
         "optional": True,
     },
+    "csj-frequencylist": {
+        "filename": "CSJ_frequencylist_suw_ver201803.zip",
+        "url": "https://repository.ninjal.ac.jp/records/3276/files/CSJ_frequencylist_suw_ver201803.zip",
+        "type": "frequency",
+        "license": "CC BY-NC-ND 3.0; free research/education use, no redistribution, commercial use by consultation.",
+        "notes": "Short-unit spoken-frequency table for local review only; do not redistribute or ship raw rows, audio, or transcripts.",
+        "optional": True,
+    },
     "i-jas": {
         "filename": "ijas-terms.pdf",
         "url": "https://chunagon.ninjal.ac.jp/static/I-JAS_TermsOfService.pdf",
@@ -167,7 +175,7 @@ GROUPS = {
     ),
     "frequency": ("bccwj-suw",),
     "examples": ("jmdict-examples", "tatoeba-jpn-indices", "tatoeba-sentences"),
-    "spoken-evaluation": ("cejc", "csj"),
+    "spoken-evaluation": ("cejc", "csj", "csj-frequencylist"),
     "learner-evaluation": ("i-jas",),
     "core": ("dictionaries", "jmdict-examples", "curriculum", "frequency", "tatoeba-jpn-indices", "tatoeba-sentences"),
 }

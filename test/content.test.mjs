@@ -337,11 +337,11 @@ test("content QA reports review blockers instead of silently publishing them", a
   );
 });
 
-test("content QA blocks a staged package with no approved source-review records", async () => {
+test("content QA accepts the staged package after the reviewed batch is approved", async () => {
   const { stdout } = await execFileAsync("python3", ["scripts/qa_content_package.py", "--package", "data/staging/kizashi-n5-source-review.json"]);
   const report = JSON.parse(stdout);
-  assert.equal(report.status, "blocked");
-  assert.match(report.blockers.join("\n"), /No approved source-review items found/);
+  assert.equal(report.status, "ready");
+  assert.deepEqual(report.blockers, []);
 });
 
 test("content QA requires classification only for imported source-review records", async () => {
@@ -351,6 +351,37 @@ test("content QA requires classification only for imported source-review records
   assert.match(blockers, /vocab-test: approved source-review item is not assigned to a real Journey lesson/);
   assert.match(blockers, /vocab-test: source test-source has no recorded license terms/);
   assert.doesNotMatch(blockers, /vocab-curated: missing reviewed curriculum classification/);
+});
+
+test("content QA blocks a package with no approved source-review records", async () => {
+  const directory = await mkdtemp("/tmp/kizashi-no-approved-qa-");
+  const packagePath = `${directory}/package.json`;
+  try {
+    const packageData = JSON.parse(await readFile(new URL("../test/fixtures/unassigned-approved-package.json", import.meta.url), "utf8"));
+    packageData.vocabulary.find((item) => item.id === "vocab-test").reviewStatus = "pending";
+    await writeFile(packagePath, JSON.stringify(packageData), "utf8");
+    const { stdout } = await execFileAsync("python3", ["scripts/qa_content_package.py", "--package", packagePath]);
+    const report = JSON.parse(stdout);
+    assert.equal(report.status, "blocked");
+    assert.match(report.blockers.join("\n"), /No approved source-review items found/);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("content QA recognizes source records assigned by item ID in real lessons", async () => {
+  const directory = await mkdtemp("/tmp/kizashi-assignment-qa-");
+  const packagePath = `${directory}/package.json`;
+  try {
+    const packageData = JSON.parse(await readFile(new URL("../test/fixtures/unassigned-approved-package.json", import.meta.url), "utf8"));
+    packageData.course.chapters[0].lessons[0].itemIds.push("vocab-test");
+    packageData.sourceManifest[0].license = "Test-only license note";
+    await writeFile(packagePath, JSON.stringify(packageData), "utf8");
+    const { stdout } = await execFileAsync("python3", ["scripts/qa_content_package.py", "--package", packagePath]);
+    assert.doesNotMatch(stdout, /assigned to a real Journey lesson/);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
 });
 
 test("content QA and SQL export reject unresolved classification conflicts", async () => {

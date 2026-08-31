@@ -10,7 +10,7 @@ path.
 | --- | --- | --- |
 | [CEJC frequency list](https://repository.ninjal.ac.jp/records/2000167) | The 2024.03 frequency list permits free research/education use but prohibits redistribution and sends commercial use to consultation. The full CEJC audio, transcripts, and annotations have separate access terms. | Keep as an optional spoken-frequency analysis input. Do not ship CEJC data, audio, transcripts, or derived learner assets. |
 | [CEJC corpus access](https://www2.ninjal.ac.jp/conversation/cejc.html) | Online search is available by application; downloadable audio/video and annotations are in the paid, contracted edition. | Use only after confirming the intended product use and license in writing. |
-| [CSJ](https://clrd.ninjal.ac.jp/csj/en/) | Online and paid editions exist; commercial use is reviewed individually and the paid corpus is supplied under an agreement. | Keep frequency/listening realism evaluation-only until a matching license is executed. |
+| [CSJ](https://clrd.ninjal.ac.jp/csj/en/) and its [published frequency list](https://repository.ninjal.ac.jp/records/3276) | CSJ is a broad spoken corpus, not an everyday-conversation-only corpus. NINJAL publishes the 2018.03.1 short-unit vocabulary table for research/education use, but the repository labels the download CC BY-NC-ND 3.0: no redistribution and commercial use by consultation. The corpus itself has separate online/paid access terms. | Keep the frequency table as a local, review-only aggregate input. Do not redistribute the table, copy CSJ audio/transcripts, or publish derived learner values until the exact downstream permission is confirmed. |
 | [I-JAS terms](https://chunagon.ninjal.ac.jp/static/I-JAS_TermsOfService.pdf) | The online service is limited to the declared research purpose, prohibits third-party copying/distribution, and requires separate consultation for commercial results. | Permit only aggregate, privacy-safe research internally; do not import learner records or publish learner-derived drills. |
 | WaniKani | No compatible source license or API permission has been established for Kizashi. | Do not integrate it; keep canonical facts in JMdict/KANJIDIC2 and treat any future use as an optional, user-provided cross-reference. |
 
@@ -35,11 +35,19 @@ path.
 
 The intended product roles are deliberately narrow: CEJC is a naturalness
 signal for spoken-frequency ranking, conversation patterns, collocations, and
-original dialogue prompts; I-JAS is a difficulty/error signal for reviewed
-learner-trap warnings and adaptive drill priorities. Neither corpus is the
-curriculum backbone or a grammar authority. Counts identify patterns worth
-checking; explanations must come from reliable grammar sources, and only
-approved aggregates may enter the private review workflow.
+original dialogue prompts; CSJ is a broader spoken-frequency/listening-realism
+signal that includes multiple speech registers; I-JAS is a difficulty/error
+signal for reviewed learner-trap warnings and adaptive drill priorities.
+Neither corpus is the curriculum backbone or a grammar authority. Counts
+identify patterns worth checking; explanations must come from reliable grammar
+sources, and only approved aggregates may enter the private review workflow.
+
+`scripts/ingest_csj_frequency.py` accepts NINJAL's published short-unit table
+and emits only local, pending aggregates. It deliberately does not copy source
+rows, audio, transcripts, or annotations, and its output is not included in the
+tracked learner package. The no-redistribution/ND term still means this parser
+does not grant permission to publish the derived values; obtain a matching
+written permission before deploying them outside private review.
 
 ## Private external-source framing
 

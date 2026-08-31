@@ -17,7 +17,7 @@
 - [x] Keep imported records out of the learner path until explicitly approved.
 - [x] Run the cache-first acquisition command and inspect the generated N5 review package.
 - [x] Acquire N4 bridge vocabulary, kanji, grammar, and linked examples for above-level preparation.
-- [ ] Review, enrich, classify, and assign imported records to real Journey lessons.
+- [ ] Review, enrich, classify, and assign imported records to real Journey lessons. The first audited batch has 47 approved seed-derived vocabulary records; 8,349 staged records remain pending.
 - [ ] Publish only the approved records through the generated Supabase SQL import.
 
 Review tooling is implemented: Content Studio ranks candidates, edits classification/provenance, assigns real Journey lessons, and QA/export scripts refuse incomplete approved records. Human review and SQL application remain intentionally unchecked.
@@ -33,6 +33,7 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 
 - [x] Evaluate CEJC and CSJ for licensed spoken-language frequency and listening realism; see `docs/product/SOURCE-EVALUATION.md`.
 - [x] Add a review-only CEJC aggregate frequency importer and exact-form applier; keep CEJC audio, transcripts, annotations, and raw rows out of the learner bundle.
+- [x] Add a review-only CSJ short-unit frequency importer; keep the CC BY-NC-ND source table and all CSJ corpus assets out of the learner bundle.
 - [x] Keep I-JAS inputs aggregate-only with a validator that rejects learner IDs, transcripts, audio, and other raw-record fields.
 - [x] Wire reviewed CEJC aggregates into distinct spoken-frequency ranking;
   conversation tags, collocations, and original dialogue authoring still need
@@ -175,9 +176,9 @@ own terms and attribution rules.
   one unofficial level spine.
 - [x] Show licensed written-frequency signals in the learner entry and admin
   review surfaces.
-- [ ] Add additional licensed spoken-frequency signals after source and field
-  semantics are settled; CEJC aggregate values are wired, but no new corpus
-  values should be invented or copied into the learner bundle.
+- [ ] Publish additional spoken-frequency values after source and field
+  semantics are settled; CEJC aggregate values are wired, while CSJ remains a
+  local review-only input because its current terms prohibit redistribution.
 - [x] Route pronunciation through browser speech by default, with remote audio
   and a reserved server-TTS provider behind the same UI controls.
 - [x] Persist audio metadata only: source type, optional external URL, speaker,

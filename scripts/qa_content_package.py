@@ -46,15 +46,15 @@ def package_items(package: dict[str, Any], category: str) -> list[dict[str, Any]
     return [item for item in package.get(category, []) if isinstance(item, dict)]
 
 
-def real_lesson_ids(package: dict[str, Any]) -> set[str]:
+def real_lesson_item_ids(package: dict[str, Any]) -> set[str]:
     course = package.get("course") if isinstance(package.get("course"), dict) else {}
     result: set[str] = set()
     for chapter in course.get("chapters", []):
         if not isinstance(chapter, dict) or chapter.get("id") == "chapter-openjlpt-review":
             continue
         for lesson in chapter.get("lessons", []):
-            if isinstance(lesson, dict) and text(lesson.get("id")):
-                result.add(text(lesson["id"]))
+            if isinstance(lesson, dict):
+                result.update(strings(lesson.get("itemIds")))
     return result
 
 
@@ -69,7 +69,7 @@ def report(package: dict[str, Any]) -> dict[str, Any]:
         if isinstance(lesson, dict)
         for item_id in strings(lesson.get("itemIds"))
     }
-    real_assignments = assignments.intersection(real_lesson_ids(package))
+    real_assignments = assignments.intersection(real_lesson_item_ids(package))
     blockers: list[str] = []
     source_review_count = 0
     approved_source_review_count = 0

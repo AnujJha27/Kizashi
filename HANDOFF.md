@@ -81,6 +81,13 @@ records. Do not copy textbook, JLPT, or other copyrighted exercises/passages.
 - `scripts/qa_content_package.py --strict` is a local publish gate for missing
   fields, provenance, classification, and real Journey assignment. It does not
   approve records or connect to Supabase.
+- The first narrow review batch is complete: 47 existing seed-derived N5
+  vocabulary records have complete learner fields, provenance, classification,
+  and real Journey assignments. After fixing QA's item-ID-versus-lesson-ID
+  assignment check, the package passes `--strict` and the SQL renderer produces
+  47 items, 47 lesson links, and 21 source rows. The remaining 8,349 staged
+  records remain pending; the generated SQL was inspected locally and was not
+  applied to Supabase.
 - `scripts/ingest_jmnedict.py` stages proper-name lookup records outside the JLPT
   learner vocabulary. `scripts/extract_book_candidates.py` stages conservative,
   page/checksum-provenanced book candidates and keeps them pending. Optional
