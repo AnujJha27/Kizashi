@@ -9,7 +9,7 @@ role, appear at the relevant learning moment, preserve provenance, degrade
 gracefully, and add essentially no third-party media to Supabase Storage or
 GitHub.
 
-Implementation is complete on `main` at `16639d5`; only
+Implementation is complete on `main` at `73c2da8`; only
 the manual viewport smoke test remains. The source specification supplied by
 the user is the authority:
 `docs/product/NEW_SOURCE.md`.
