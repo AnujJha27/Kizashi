@@ -14,6 +14,24 @@ Without Supabase variables the app runs in local demo mode. With Supabase config
 
 Apply the migrations in `supabase/migrations/` (including `0017_spoken_frequency.sql`), then run `supabase/seed.sql` in the Supabase SQL Editor. Curriculum reads require an authenticated user when Supabase is configured; user-owned tables remain protected by RLS. Profile sync is explicit opt-in and keeps browser state intact if the network fails.
 
+To check and apply the hosted migration history with the Supabase CLI (from this directory):
+
+```sh
+supabase login
+supabase link --project-ref jjusevtyzousoykpjgzq
+supabase migration list
+supabase db push --dry-run
+supabase db push
+supabase migration list
+```
+
+If the CLI is installed only as an npm project dependency, prefix those commands
+with `npx`. The list compares local files with the remote migration history, and
+`db push` applies only pending migrations. Never use `supabase db reset --linked`
+against this project; that is destructive. After the migrations are current, run
+the complete `supabase/seed.sql` in the SQL Editor and verify the core tables
+before enabling account sync.
+
 ### Private books on the free plan
 
 The supplied PDFs are intentionally not part of Git history or the deployment bundle. Supabase Free limits each Storage object to 50 MiB, so split each PDF into 45 MiB parts and upload the generated files to a private `books` bucket. Run the splitter once per book (the output is ignored by Git):

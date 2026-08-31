@@ -23,6 +23,9 @@
   migrations 0017–0019. The 47 approved rows and their supported fields,
   classifications, provenance, and lesson links are already published through
   a narrow equivalent REST upsert; pending and rejected records remain excluded.
+  Check with `supabase migration list`, preview with `supabase db push
+  --dry-run`, then run `supabase db push`; the current hosted check still shows
+  the three additive migrations absent.
 
 Review tooling is implemented: Content Studio ranks candidates, edits classification/provenance, assigns real Journey lessons, and QA/export scripts refuse incomplete approved records. Human review remains an optional quality pass for the private learner path; SQL publication still requires approved records.
 
