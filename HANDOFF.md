@@ -103,8 +103,10 @@ records. Do not copy textbook, JLPT, or other copyrighted exercises/passages.
   OpenJLPT N5/N4, Irodori, Marugoto, BCCWJ, and Tatoeba candidates. The resulting
   staging package contains 8,446 records: 47 reviewed approved seed-derived
   vocabulary records, 6 explicitly rejected extraction errors, and 8,343 pending
-  imported records. The import is review-only; no Supabase SQL has
-  been generated/applied for those records yet.
+  imported records. The pending import remains review-only. The 47 approved
+  records and their supported fields were published to the configured private
+  Supabase project through a narrow equivalent REST upsert; no pending/rejected
+  records or audio blobs were written.
 - The acquisition scripts use Windows-compatible HTTP/mirror fallbacks for the
   EDRDG TLS issue and preserve source manifests, checksums, local filenames,
   record-level provenance, field-level provenance, JLPT level, and curriculum band.
@@ -113,8 +115,8 @@ records. Do not copy textbook, JLPT, or other copyrighted exercises/passages.
   progress/notes/preferences upload is implemented as an explicit opt-in bounded
   snapshot; it never accepts a client user ID and preserves local state on failure.
 - The latest Windows acquisition run completed successfully with `--level N5
-  --bridge-level N4`; the staged source package is ready for review and has not
-  been published to Supabase.
+  --bridge-level N4`; the staged source package is ready for review. Only the
+  47 approved seed-derived vocabulary records have been published so far.
 - Existing `lattice/` was inspected for reusable ideas only. It is an unrelated
   knowledge/portrait app with Next 15, Supabase SSR helpers, dark tokens,
   React Query, and a FastAPI/Alembic backend. Reuse concepts, not its files;
@@ -712,10 +714,29 @@ Next session order:
   not in the learner bundle; current CC BY-NC-ND/no-redistribution terms keep
   publication gated.
 - Strict QA passed; local SQL inspection produced 47 items, 47 lesson links,
-  and 21 sources. No SQL was applied to Supabase.
+  and 21 sources. The approved slice was published via an equivalent REST
+  upsert after the hosted project rejected the SQL payload's missing migration
+  columns; the generated SQL remains local and ready after migrations.
 - Verified 11/11 tests, TypeScript, `next build` (25/25 pages), and
   `git diff --check`. Commits `5d00d40`, `5bce8bf`, `889eb59`, and `aff854d`
   are pushed to `origin/main`.
+
+## Session notes — approved slice hosted publish
+
+- Read-only preflight confirmed the hosted project already contained the
+  47 seed-derived rows, but with stale slugs/provenance and without migrations
+  0017–0019. The source-review export now uses globally unique item IDs as
+  database slugs, matching the existing seed convention.
+- Published exactly 47 approved vocabulary rows, 47 classifications, 379
+  provenance links, 47 lesson links, and 12 referenced source records through
+  idempotent service-role REST upserts. All 47 hosted rows are approved and have
+  unique slugs; no pending/rejected records, audio blobs, or user data were
+  touched.
+- The hosted schema still lacks `vocabulary.spoken_frequency`,
+  `vocabulary.spoken_frequency_metadata`, `learning_items.audio_metadata`, and
+  `practice_questions.audio_metadata`. The linked pooler URL has no database
+  password, so migrations 0017–0019 must be run from the Supabase SQL Editor or
+  another authorized SQL connection before the generated SQL can be applied.
 
 ## Session notes — authored question review
 

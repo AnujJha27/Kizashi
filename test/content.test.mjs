@@ -288,6 +288,15 @@ test("SQL export refuses an approved source record without a real Journey lesson
   );
 });
 
+test("approved source exports use globally unique item IDs as slugs", async () => {
+  const directory = await mkdtemp("/tmp/kizashi-slug-export-");
+  const outputPath = `${directory}/content.sql`;
+  await execFileAsync("python3", ["scripts/render_supabase_content_sql.py", "--approved", "--package", "data/staging/kizashi-n5-source-review.json", "--output", outputPath]);
+  const sql = await readFile(outputPath, "utf8");
+  assert.match(sql, /insert into public\.learning_items \(id, slug, item_type[\s\S]*\('vocab-kyou', 'vocab-kyou', 'vocabulary'/);
+  await rm(directory, { recursive: true, force: true });
+});
+
 test("SQL export refuses an approved source record without license terms", async () => {
   const directory = await mkdtemp("/tmp/kizashi-unlicensed-package-");
   const packagePath = `${directory}/package.json`;

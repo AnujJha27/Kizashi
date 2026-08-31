@@ -244,7 +244,9 @@ def item_sql(item: dict[str, Any], category: str) -> list[str]:
     item_type = ITEM_TYPES.get(category, category)
     learning = "insert into public.learning_items (id, slug, item_type, jlpt_level, subcategory, difficulty, prerequisite_ids, tags, review_status, field_source_ids, audio_metadata) values (" + ", ".join([
         sql_text(item_id),
-        sql_text(item.get("slug") or item_id),
+        # ponytail: imported slugs can collide across categories; IDs are the
+        # existing globally unique learner slugs and need no collision registry.
+        sql_text(item_id),
         sql_text(item_type),
         sql_nullable_text(item.get("jlptLevel")),
         sql_nullable_text(item.get("subcategory")),
