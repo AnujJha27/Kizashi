@@ -1,0 +1,19 @@
+[
+  {
+    "id": "aozora-127",
+    "sourceId": "aozora-bunko",
+    "workId": "127",
+    "personId": "879",
+    "title": "羅生門",
+    "reading": "らしょうもん",
+    "author": "芥川 竜之介",
+    "cardUrl": "https://www.aozora.gr.jp/cards/000879/card127.html",
+    "textUrl": "https://www.aozora.gr.jp/cards/000879/files/127_15260.html",
+    "orthography": "新字新仮名",
+    "rightsMarker": "公開中",
+    "rightsStatus": "public-domain",
+    "attribution": "青空文庫 · 芥川 竜之介『羅生門』",
+    "license": "Aozora public-domain work; retain source attribution",
+    "difficultyNote": "Estimated from the fetched text and Kizashi known-item coverage; not JLPT certification."
+  }
+]
