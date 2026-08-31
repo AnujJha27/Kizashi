@@ -8,6 +8,12 @@ export interface ExternalSourceLink {
   context?: string;
   targetSkills?: string[];
   targetItemIds?: string[];
+  annotationStatus?: string;
+  reviewedAt?: string;
+  resourceTypes?: string[];
+  transcriptAvailable?: boolean;
+  translationAvailable?: boolean;
+  mediaDelivery?: string;
   description: string;
   url: string;
 }

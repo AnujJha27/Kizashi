@@ -29,6 +29,10 @@ test("Erin source shelf points to exact original N5 lesson pages", () => {
   assert.ok(sources.every((source) => source.url.startsWith("https://www.erin.jpf.go.jp/en/lesson/")));
   assert.equal(sources[0].title, "First-meeting greetings · classroom");
   assert.equal(sources[0].level, "N5");
+  assert.ok(sources.every((source) => source.annotationStatus === "reviewed"));
+  assert.deepEqual(sources[0].resourceTypes, ["basic skit", "script PDF", "script audio MP3"]);
+  assert.equal(sources[3].transcriptAvailable, true);
+  assert.equal(sources[3].mediaDelivery, "original-site");
   assert.deepEqual(sources[3].targetSkills, ["location question"]);
   assert.deepEqual(sources[3].targetItemIds, ["vocab-doko", "grammar-doko", "grammar-ni", "grammar-de"]);
   assert.equal(sources.at(-1).title, "Ordering · fast food");

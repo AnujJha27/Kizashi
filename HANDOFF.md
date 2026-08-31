@@ -641,8 +641,8 @@ Next session order:
   raw learner records are accepted.
 - Added exact Erin original-page launchers for six current N5-relevant
   situations in `lib/immersion-core.js`; the Immersion shelf still leaves all
-  scripts, MP3s, and video on Erin's site. The remaining work is target-level
-  curation/annotation, not asset copying.
+  scripts, MP3s, and video on Erin's site. Target-level curation is recorded
+  in the source metadata; this does not copy or re-host the assets.
 - Tightened `scripts/qa_content_package.py`: a staged package containing
   source-review records now reports `blocked` when none are approved, matching
   the SQL renderer instead of falsely reporting `ready`. The 8,396 pending
@@ -659,3 +659,13 @@ Next session order:
   file (36/36), full test suite (11/11), direct TypeScript checking, `next
   build` (25/25 pages), and `git diff --check`. Committed as `beb79ec` and
   pushed to private `origin/main`.
+
+## Session notes — Erin target annotations
+
+- Rechecked the six selected Erin Basic Skit pages against the live Japan
+  Foundation pages. Each page exposes a named N5 situation, an English script
+  PDF, and script audio; the source shelf now records that reviewed resource
+  set, target item IDs/skills, and original-site delivery without importing
+  the provider's media.
+- The remaining Erin task is no longer source mapping; it is optional future
+  expansion beyond these six curated launchers.

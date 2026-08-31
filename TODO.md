@@ -105,8 +105,9 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
 - [x] Add exact original-page launchers for the verified Erin N5 situations:
   first-meeting greetings, requests, indicating things, locations, prices, and
   ordering. Scripts/MP3s/videos remain on the original site.
-- [ ] Review those Erin lessons against Kizashi listening targets and annotate
-  selected clips with learner-level metadata; do not import or re-host the
+- [x] Review the six selected Erin lessons against Kizashi listening targets
+  and annotate their N5 context, target IDs/skills, available script/audio
+  resources, and original-site delivery boundary; do not import or re-host the
   provider's media without a specific preservation or embedding permission.
 - [x] Keep the source roles distinct: Erin's Challenge for beginner natural
   dialogue, Tatoeba for short sentence audio, Common Voice for speaker
