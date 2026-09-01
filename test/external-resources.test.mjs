@@ -71,7 +71,7 @@ test("existing listening sources keep original URLs and can try the private fram
     "common-voice": "https://mozilladatacollective.com/datasets/cmqim4lxy00tunr07cjkcupeg",
     tatoeba: "https://tatoeba.org/en/audio/index/jpn",
     jsut: "https://sites.google.com/site/shinnosuketakamichi/publication/jsut",
-    "japanese-pod101": "https://www.japanesepod101.com/begin/",
+    "japanese-pod101": "https://www.japanesepod101.com/lesson-library/level-1-japanese",
   };
 
   for (const [id, url] of Object.entries(expected)) {

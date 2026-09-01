@@ -116,5 +116,5 @@ export function JapaneseText({ text, vocabulary, kanji = [], className = "", alw
   });
   const parts = text.split(new RegExp(`(${entries.map(([word]) => escapeRegExp(word)).join("|")})`, "gu"));
   const showReading = (part: string) => { if (always || mode === "always") return true; if (mode === "hide") return false; if (mode === "tap") return tapped; const itemId = masteryByWord.get(part); return !itemId || !["stable", "strong"].includes(records[itemId]?.masteryState ?? ""); };
-  return <span className={className} onClick={mode === "tap" ? () => setTapped((value) => !value) : undefined}>{parts.map((part, index) => readings.has(part) && showReading(part) ? <ruby key={`${part}-${index}`}>{part}<rt className="text-[.42em] font-normal tracking-normal text-[#e5b85c]">{readings.get(part)}</rt></ruby> : <span key={`${part}-${index}`}>{part}</span>)}</span>;
+  return <span className={`japanese-text ${className}`.trim()} onClick={mode === "tap" ? () => setTapped((value) => !value) : undefined}>{parts.map((part, index) => readings.has(part) && showReading(part) ? <ruby key={`${part}-${index}`}>{part}<rt className="text-[.42em] font-normal tracking-normal text-[#e5b85c]">{readings.get(part)}</rt></ruby> : <span key={`${part}-${index}`}>{part}</span>)}</span>;
 }

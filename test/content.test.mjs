@@ -205,6 +205,8 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(library, /relative z-10/);
   assert.match(surface, /JapaneseText/);
   assert.match(surface, /always/);
+  assert.match(surface, /JapaneseText text=\{question\.prompt\}/);
+  assert.match(surface, /JapaneseText text=\{answer\}/);
 });
 
 test("Studio exposes every pending question through a searchable paged review queue", async () => {

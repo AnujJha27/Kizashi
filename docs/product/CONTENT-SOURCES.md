@@ -76,7 +76,7 @@ grammar rule or replace a reliable explanation source.
 | [JSUT](https://sites.google.com/site/shinnosuketakamichi/publication/jsut) | Clean speech research/exposure | No full-corpus upload; any future subset needs a documented preservation reason and terms. |
 | [VOICEVOX](https://voicevox.hiroshiba.jp/) | Future consistent mock-JLPT dialogue | Reserved `ServerTTSProvider`; selected voice-library terms and credits must be recorded first. |
 | Open JTalk | Future local pronunciation fallback | Not currently wired as a separate delivery source; terms and packaging must be checked first. |
-| [JapanesePod101](https://www.japanesepod101.com/begin/) | Polished learner listening | Original-provider shelf only until the exact free-material terms are verified. |
+| [JapanesePod101](https://www.japanesepod101.com/lesson-library/level-1-japanese) | Polished learner listening | Original-provider shelf points to the Level 1 learning library; exact free-material terms still govern any deeper integration. |
 | Remote human audio | A specifically cleared recording | `RemoteAudioProvider` streams the approved external URL and preserves provenance metadata. |
 
 The UI exposes play, replay, slow playback, and the existing optional autoplay
