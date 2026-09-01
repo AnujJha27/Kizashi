@@ -72,6 +72,16 @@ test("Aozora Shift_JIS source bytes are decoded before normalization", async () 
   assert.equal(text, "羅生門\n下人");
 });
 
+test("Aozora UTF-8 source bytes are not misdecoded as Shift_JIS", async () => {
+  const bytes = new TextEncoder().encode("<div>羅生門<br>下人</div>");
+  const text = await fetchAozoraText({ textUrl: "https://example.test/aozora", rightsStatus: "public-domain" }, async () => ({
+    ok: true,
+    headers: { get: () => "text/html; charset=UTF-8" },
+    arrayBuffer: async () => bytes.buffer,
+  }));
+  assert.equal(text, "羅生門\n下人");
+});
+
 test("difficulty estimate reports actual coverage and clearly remains an estimate", () => {
   const estimate = estimateAozoraDifficulty("私は駅で水を飲みます。", {
     vocabulary: [{ writtenForm: "私" }, { writtenForm: "駅" }, { writtenForm: "水" }],
