@@ -47,8 +47,9 @@ the deferred ServerTTS/audio-archive work.
   Supabase audio/text mirror or external source database was added.
 - The six Erin N5 launchers stream provider-hosted MP4s in a native player and
   keep the full lesson page below it. CEJC, CSJ, Common Voice, Tatoeba, JSUT,
-  and JapanesePod101 are link-only in the default app because framing or
-  provider behavior blocks them. A device-local Chromium helper at
+  and JapanesePod101 now expose a frame attempt, with the original-source
+  launcher as fallback when framing or provider behavior blocks them. A
+  device-local Chromium helper at
   `browser/kizashi-private-frame-unlocker/` can remove frame-blocking response
   headers for this allowlist only. Kizashi does not download, proxy, cache,
   mirror, re-host, or upload those sources.

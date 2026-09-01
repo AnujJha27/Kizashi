@@ -57,6 +57,21 @@ test("public Aozora markup is normalized without simplifying the source", async 
   assert.equal(loaded, text);
 });
 
+test("Aozora Shift_JIS source bytes are decoded before normalization", async () => {
+  const bytes = Uint8Array.from([
+    0x3c, 0x64, 0x69, 0x76, 0x3e,
+    0x97, 0x85, 0x90, 0xb6, 0x96, 0xe5,
+    0x3c, 0x62, 0x72, 0x3e,
+    0x89, 0xba, 0x90, 0x6c,
+    0x3c, 0x2f, 0x64, 0x69, 0x76, 0x3e,
+  ]);
+  const text = await fetchAozoraText({ textUrl: "https://example.test/aozora", rightsStatus: "public-domain" }, async () => ({
+    ok: true,
+    arrayBuffer: async () => bytes.buffer,
+  }));
+  assert.equal(text, "羅生門\n下人");
+});
+
 test("difficulty estimate reports actual coverage and clearly remains an estimate", () => {
   const estimate = estimateAozoraDifficulty("私は駅で水を飲みます。", {
     vocabulary: [{ writtenForm: "私" }, { writtenForm: "駅" }, { writtenForm: "水" }],

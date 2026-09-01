@@ -95,10 +95,11 @@ For CEJC, the official access description says that the free online service can
 be used to listen to searched audio but does not allow audio/video download;
 the paid edition supplies corpus assets under a contract. Therefore Kizashi
 should link to or open the authorized CEJC session, not capture or re-serve the
-raw corpus. The default shelf currently keeps CEJC and CSJ link-only because
-their frames did not open reliably in the target browser. A device-local
-Chromium helper can remove the allowlisted frame-blocking response headers for
-personal testing, but provider login, cookies, and page scripts may still fail.
+raw corpus. The shelf now exposes a frame attempt for CEJC and CSJ, plus Common
+Voice, Tatoeba, JSUT, and JapanesePod101, because the device-local Chromium
+helper can remove allowlisted frame-blocking response headers for personal
+testing. Provider DNS, login, cookies, page scripts, or explicit frame denial
+may still make the original-source fallback necessary.
 Erin's Challenge has now been checked as well:
 personal learning
 and linking are allowed by its policy, but video downloading is prohibited, so

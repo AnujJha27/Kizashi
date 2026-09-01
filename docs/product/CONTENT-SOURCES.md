@@ -82,12 +82,11 @@ grammar rule or replace a reliable explanation source.
 The UI exposes play, replay, slow playback, and the existing optional autoplay
 preference. `ServerTTSProvider` exists as an unavailable future path; it does
 not generate or persist audio today. Erin's six selected videos use a native
-browser player pointed at the provider-hosted MP4; other sources use an
-original-site link and fall back to a new-tab link when framing fails. The
-default shelf keeps CEJC, CSJ, Common Voice, Tatoeba, JSUT, and JapanesePod101
-link-only because their current frame attempts failed. A device-local Chromium
-helper in `browser/kizashi-private-frame-unlocker/` can retry the allowlisted
-frames by removing only their frame-blocking response headers. Kizashi does not
+browser player pointed at the provider-hosted MP4; the six other listening
+sources expose a frame attempt and fall back to a new-tab link when framing
+fails. A device-local Chromium helper in
+`browser/kizashi-private-frame-unlocker/` can retry the allowlisted frames by
+removing only their frame-blocking response headers. Kizashi does not
 download, proxy, cache, mirror, re-host, or upload these sources.
 
 ## Learner-facing source integrations

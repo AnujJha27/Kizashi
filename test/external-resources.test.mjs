@@ -47,12 +47,12 @@ test("registry and nested resource data are immutable", () => {
 test("all registered source families expose their role and delivery boundary", () => {
   const expected = {
     erin: ["beginner situational dialogue", "frame-or-link"],
-    cejc: ["real conversational patterns", "link-only"],
-    csj: ["spoken-corpus exposure", "link-only"],
-    "common-voice": ["diverse human voices", "link-only"],
-    tatoeba: ["sentence-linked human audio", "link-only"],
-    jsut: ["controlled speech", "link-only"],
-    "japanese-pod101": ["polished learner listening", "link-only"],
+    cejc: ["real conversational patterns", "frame-or-link"],
+    csj: ["spoken-corpus exposure", "frame-or-link"],
+    "common-voice": ["diverse human voices", "frame-or-link"],
+    tatoeba: ["sentence-linked human audio", "frame-or-link"],
+    jsut: ["controlled speech", "frame-or-link"],
+    "japanese-pod101": ["polished learner listening", "frame-or-link"],
     "tae-kim": ["alternative grammar intuition", "reference"],
     "wikibooks-japanese": ["supplementary grammar reference", "reference"],
     "wikimedia-commons": ["dynamic human pronunciation", "dynamic"],
@@ -64,7 +64,7 @@ test("all registered source families expose their role and delivery boundary", (
   assert.deepEqual(Object.fromEntries(getExternalResources().map((resource) => [resource.sourceId, [resource.metadata.role, resource.deliveryMode]])), expected);
 });
 
-test("existing listening sources remain link-only at their original providers", () => {
+test("existing listening sources keep original URLs and can try the private frame helper", () => {
   const expected = {
     cejc: "https://chunagon.ninjal.ac.jp/shc/",
     csj: "https://chunagon.ninjal.ac.jp/auth/login",
@@ -76,7 +76,7 @@ test("existing listening sources remain link-only at their original providers", 
 
   for (const [id, url] of Object.entries(expected)) {
     const resource = getExternalResourceById(id);
-    assert.equal(resource.deliveryMode, "link-only");
+    assert.equal(resource.deliveryMode, "frame-or-link");
     assert.equal(resource.url, url);
   }
 });
