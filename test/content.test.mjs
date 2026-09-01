@@ -49,6 +49,7 @@ test("practice navigation reuses validated questions and restores the active tab
   const tabs = await readFile(new URL("../components/practice/practice-mode-tabs.tsx", import.meta.url), "utf8");
   assert.match(questions, /validatedPracticeCache/);
   assert.match(page, /PracticeModeTabs/);
+  assert.match(page, /<LocalPractice[\s\S]*key=\{[\s\S]*mode/);
   assert.match(tabs, /scrollIntoView/);
   assert.match(tabs, /aria-label="Practice modes"/);
 });
