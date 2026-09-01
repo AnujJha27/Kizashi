@@ -26,7 +26,7 @@ def run(script: str, *arguments: str) -> None:
 
 
 def require_cached(level: str, cache_dir: Path) -> None:
-    required = [f"openjlpt-{kind}-{level.lower()}.json" for kind in ("vocab", "kanji", "grammar")] + [
+    required = [(f"openjlpt-{kind}-{level.lower()}.json",) for kind in ("vocab", "kanji", "grammar")] + [
         ("JMdict_e.gz", "JMdict_e.xml"),
         ("JMdict_e_examp.gz", "JMdict_e_examp.xml"),
         ("kanjidic2.xml.gz", "kanjidic2.xml"),
@@ -105,7 +105,7 @@ def main() -> int:
         *merge_args,
     )
     run("report_phase1_staging.py", "--input", f"data/staging/kizashi-{level}-source-review.json")
-    print("Staging complete. Review the package before running render_supabase_content_sql.py --approved.")
+    print("Staging complete. Non-rejected records are learner-released and can be rendered with render_supabase_content_sql.py.")
     return 0
 
 

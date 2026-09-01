@@ -72,7 +72,6 @@ def report(package: dict[str, Any]) -> dict[str, Any]:
     real_assignments = assignments.intersection(real_lesson_item_ids(package))
     blockers: list[str] = []
     source_review_count = 0
-    approved_source_review_count = 0
     totals: dict[str, int] = {}
     for category in CATEGORIES:
         entries = package_items(package, category)
@@ -83,15 +82,10 @@ def report(package: dict[str, Any]) -> dict[str, Any]:
             source_review = "source-review" in strings(item.get("tags"))
             if source_review:
                 source_review_count += 1
-                if status == "approved":
-                    approved_source_review_count += 1
             if status not in {"pending", "approved", "rejected"}:
                 blockers.append(f"{item_id}: unknown review status {status}")
-            if status != "approved":
+            if status == "rejected":
                 continue
-            missing = [field for field in REQUIRED[category] if not has_value(item.get(field))]
-            if missing:
-                blockers.append(f"{item_id}: missing {', '.join(missing)}")
             if not strings(item.get("sourceIds")):
                 blockers.append(f"{item_id}: missing sourceIds")
             if any(source_id not in source_ids for source_id in strings(item.get("sourceIds"))):
@@ -102,14 +96,17 @@ def report(package: dict[str, Any]) -> dict[str, Any]:
                     if source and text(source.get("type")) != "user" and not source_id.startswith("michi-") and not text(source.get("license")):
                         blockers.append(f"{item_id}: source {source_id} has no recorded license terms")
             if "source-review" in strings(item.get("tags")) and item_id not in real_assignments:
-                blockers.append(f"{item_id}: approved source-review item is not assigned to a real Journey lesson")
+                blockers.append(f"{item_id}: non-rejected source-review item is not assigned to a real Journey lesson")
+            if status != "approved":
+                continue
+            missing = [field for field in REQUIRED[category] if not has_value(item.get(field))]
+            if missing:
+                blockers.append(f"{item_id}: missing {', '.join(missing)}")
             classification = item.get("classification") if isinstance(item.get("classification"), dict) else {}
             if "source-review" in strings(item.get("tags")) and category in {"vocabulary", "kanji", "grammar"} and not text(classification.get("band")):
                 blockers.append(f"{item_id}: missing reviewed curriculum classification")
             if classification.get("conflict") is True:
                 blockers.append(f"{item_id}: curriculum classification has conflicting source levels")
-    if source_review_count and not approved_source_review_count:
-        blockers.append("No approved source-review items found; set reviewStatus to approved after checking each record.")
     return {"totals": totals, "blockers": blockers, "status": "blocked" if blockers else "ready"}
 
 

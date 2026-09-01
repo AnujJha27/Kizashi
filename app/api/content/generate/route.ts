@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { getAllowedUser, isAdminUser } from "@/lib/auth/guard";
-import { validatePracticeQuestions } from "@/lib/content-validation";
+import { getContentReviewStatus, validatePracticeQuestions } from "@/lib/content-validation";
 import { generatedReview, validateGenerationRequest } from "@/lib/content-generation-core";
 import { n5Module, type LessonContentItem } from "@/lib/curriculum";
 import type { LearningCategory, PracticeQuestion } from "@/lib/types";
@@ -32,7 +32,7 @@ function requestedItem(value: unknown, itemId: string): LessonContentItem | null
   const category = stringValue(value.category) as LearningCategory;
   const tags = stringArray(value.tags);
   if (!new Set<LearningCategory>(["vocabulary", "kanji", "grammar", "reading", "listening"]).has(category) || !stringValue(value.title) || !tags.length) return null;
-  if ((value.reviewStatus !== undefined && value.reviewStatus !== "approved") || (tags.includes("source-review") && value.reviewStatus !== "approved")) return null;
+  if (getContentReviewStatus(value) === "rejected") return null;
   if (value.jlptLevel !== null && !["N5", "N4", "N3", "N2", "N1"].includes(value.jlptLevel as string)) return null;
   if (category === "vocabulary" && stringValue(value.writtenForm) && stringValue(value.reading) && stringArray(value.meanings).length) return value as unknown as LessonContentItem;
   if (category === "kanji" && stringValue(value.character) && stringArray(value.meanings).length) return value as unknown as LessonContentItem;

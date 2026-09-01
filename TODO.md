@@ -533,19 +533,19 @@ requirements.
 - [x] Stage Marugoto vocabulary/progression references when the local PDF extractor is available.
 - [x] Stage JMdict-linked examples and Tatoeba Japanese-English candidates with attribution metadata.
 - [x] Preserve source records, licenses, retrieval dates, checksums, and review status.
-- [x] Keep imported records out of the learner path until explicitly approved.
+- [x] Release imported non-rejected records into the learner path while retaining pending/unreviewed markers and learner flag controls.
 - [x] Run the cache-first acquisition command and inspect the generated N5 review package.
 - [x] Acquire N4 bridge vocabulary, kanji, grammar, and linked examples for above-level preparation.
 - [x] Retry the six audited vocabulary extraction errors with pitch-accent-aware parsing; four now merge into canonical records and two corrected rows remain pending review.
 - [x] Release all non-rejected staged records through the private learner path with an explicit `humanReviewed: false` marker, while preserving pending status and the admin review/export queue. The current package has 47 approved source-review records, 50 authored/curated records, 8,345 pending records, and none rejected.
-- [ ] Optional quality pass: review, enrich, classify, and assign imported records to real Journey lessons before promoting them to the approved SQL/content pool.
+- [x] Assign every non-rejected imported record to a real Journey lesson: 71 remain in core lessons and 8,321 are split across 57 bounded source-curriculum lessons.
 - [x] Apply the generated Supabase SQL import after the hosted project receives
   migrations 0017–0019. The hosted schema now exposes spoken-frequency,
   audio-metadata, and I-JAS aggregate support; the 47 approved staged IDs all
-  match hosted rows, and the seeded curriculum is present. Pending and rejected
-  staging records remain excluded from the database export.
+  match hosted rows, and the seeded curriculum is present. The current exporter
+  now includes pending rows with their status intact and excludes only rejected rows.
 
-Review tooling is implemented: Content Studio ranks candidates, edits classification/provenance, assigns real Journey lessons, and QA/export scripts refuse incomplete approved records. Human review remains an optional quality pass for the private learner path; SQL publication still requires approved records.
+Review tooling is implemented: Content Studio ranks candidates, edits classification/provenance, and supports learner flags. Human review is optional; SQL publication preserves pending status instead of hiding those records.
 
 - [x] Keep large staged review packages resumable with browser IndexedDB; small drafts may use localStorage, and no draft is sent to a server by this path.
 
@@ -747,8 +747,8 @@ source retain their own terms and attribution rules.
 
 ## AI generation boundary
 
-- [x] Keep generation server-side, admin-only, rate-limited, validated, and
-  draft-only until review.
+- [x] Keep generation server-side, admin-only, rate-limited, and validated;
+  generated questions are learner-active immediately while retaining draft provenance.
 - [x] Preserve model, target IDs, validation issues, reviewer, timestamps, and
   notes on generated drafts.
 - [x] Add learner-facing sentence explanation, conversation, and writing

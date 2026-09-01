@@ -12,6 +12,11 @@ export type StudyBook = {
   chapters?: StudyBookChapter[];
 };
 
+export const studyDrive = {
+  folderId: "1i7ftSO4eKlzKIiNIIXeNKReUqLElwpIv",
+  folderUrl: "https://drive.google.com/drive/folders/1i7ftSO4eKlzKIiNIIXeNKReUqLElwpIv",
+};
+
 export const studyBooks: StudyBook[] = [
   {
     id: "genki-i",

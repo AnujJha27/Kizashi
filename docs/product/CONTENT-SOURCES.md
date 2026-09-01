@@ -9,15 +9,14 @@ decisions are in [SOURCE-EVALUATION.md](./SOURCE-EVALUATION.md).
 
 ## Current delivery boundary
 
-- The hosted project has 313 approved seeded `learning_items` across
-  vocabulary, kanji, grammar, reading, and listening. The 47 approved staged
-  package IDs match hosted rows.
+- The hosted project was last verified with 313 approved seeded `learning_items`.
+  A current local SQL export is ready to publish every non-rejected staged row
+  while preserving its pending/approved status.
 - The tracked source-review package contains 8,442 records: 47 approved
   source-review records, 50 authored/curated records, 8,345 pending records,
-  and no rejected records. The
-  authenticated private learner route can expose non-rejected pending records
-  with `humanReviewed: false`; SQL export and admin publication still require
-  explicit approval.
+  and no rejected records. All 8,392 source-review records have real lesson
+  placement (71 core, 8,321 across 57 bounded expansion lessons). Pending rows
+  are learner-active and SQL-publishable with `humanReviewed: false` semantics.
 - No third-party corpus audio, transcripts, annotations, or datasets are in
   GitHub or Supabase Storage. The supplied personal book files are kept in the
   private `books` bucket and are served only through the authenticated reader.
@@ -143,8 +142,8 @@ source type, optional URL, speaker metadata, license/provenance,
 `isSynthetic`, and preferred playback rate. Review status remains separate from
 source ownership:
 
-- `pending` means the source-review record is not approved for SQL export.
-- `approved` means it passed the explicit admin/QA publication gate.
+- `pending` means the record is automatically learner-released and SQL-publishable, but has not been human reviewed.
+- `approved` means it has additionally passed human review.
 - private automatic learner release is marked `humanReviewed: false` and does
   not change the source-review status.
 

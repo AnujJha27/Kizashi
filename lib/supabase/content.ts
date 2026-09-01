@@ -37,13 +37,15 @@ function baseItem(row: {
   audio_metadata?: unknown;
 }, title: string, sourceIdsByItem: Map<string, string[]>, classificationsByItem: Map<string, CurriculumClassification>): LearningItem {
   const sourceIds = sourceIdsByItem.get(row.id);
+  const reviewStatus = row.review_status === "pending" || row.review_status === "rejected" ? row.review_status : "approved";
   return {
     id: row.id,
     slug: row.slug,
     title,
     jlptLevel: row.jlpt_level,
     category: row.item_type as LearningItem["category"],
-    reviewStatus: row.review_status === "pending" || row.review_status === "rejected" ? row.review_status : "approved",
+    reviewStatus,
+    contentReview: reviewStatus === "pending" ? { method: "automatic", humanReviewed: false } : undefined,
     subcategory: row.subcategory ?? undefined,
     difficulty: row.difficulty,
     prerequisiteIds: row.prerequisite_ids,
@@ -63,7 +65,7 @@ export async function fetchSupabaseN5Module(seed: N5Module): Promise<N5Module | 
     supabase.from("courses").select("*").eq("slug", seed.course.slug).maybeSingle(),
     supabase.from("chapters").select("*").order("sort_order"),
     supabase.from("lessons").select("*").order("sort_order"),
-    supabase.from("learning_items").select("*").eq("review_status", "approved"),
+    supabase.from("learning_items").select("*").neq("review_status", "rejected"),
     supabase.from("vocabulary").select("*"),
     supabase.from("kanji").select("*"),
     supabase.from("grammar_points").select("*"),
@@ -71,7 +73,7 @@ export async function fetchSupabaseN5Module(seed: N5Module): Promise<N5Module | 
     supabase.from("readings").select("*"),
     supabase.from("listening_exercises").select("*"),
     supabase.from("lesson_learning_items").select("*").order("sort_order"),
-    supabase.from("practice_questions").select("*").eq("validation_status", "validated"),
+    supabase.from("practice_questions").select("*").neq("validation_status", "rejected"),
     supabase.from("learning_item_sources").select("item_id, source_id"),
     supabase.from("curriculum_classifications").select("*"),
     supabase.from("learner_error_aggregates").select("*").order("count", { ascending: false }),

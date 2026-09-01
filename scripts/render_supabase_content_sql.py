@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render reviewed staged content as idempotent Supabase SQL."""
+"""Render non-rejected staged content as idempotent Supabase SQL."""
 
 from __future__ import annotations
 
@@ -99,8 +99,8 @@ def validate_question(question: dict[str, Any], item_categories: dict[str, str])
         raise ValueError(f"Question {question_id} targets an unknown learning item.")
     if text(question.get("category")) != item_categories[item_id]:
         raise ValueError(f"Question {question_id} category must match {item_categories[item_id]}.")
-    if text(question.get("validationStatus")) != "validated":
-        raise ValueError(f"Question {question_id} is not approved; only validated questions can be exported.")
+    if text(question.get("validationStatus")) not in ("generated", "validated"):
+        raise ValueError(f"Question {question_id} is rejected or has an unknown validation status.")
     if not text(question.get("questionType")) or not text(question.get("prompt")) or not text(question.get("explanation")):
         raise ValueError(f"Question {question_id} needs a question type, prompt, and explanation.")
     answer_mode = text(question.get("answerMode")) or "choice"
@@ -185,19 +185,16 @@ def question_sql(question: dict[str, Any], item_categories: dict[str, str]) -> s
     question_id = text(question.get("id"))
     item_id = text(question.get("itemId"))
     if not question_id or not item_id:
-        raise ValueError("An approved question is missing id or itemId.")
+        raise ValueError("A question is missing id or itemId.")
     validate_question(question, item_categories)
     category = text(question.get("category"))
-    if text(question.get("generatedBy")).startswith("openrouter:"):
-        review = question.get("review")
-        if not isinstance(review, dict) or text(review.get("status")) != "approved" or not text(review.get("reviewedBy")) or not text(review.get("reviewedAt")):
-            raise ValueError(f"Question {question_id} needs human approval before export.")
     answer_mode = text(question.get("answerMode")) or "choice"
+    validation_status = text(question.get("validationStatus")) or "generated"
     values = [
         sql_text(question_id), sql_text(item_id), sql_text(category), sql_text(question.get("questionType")),
         sql_nullable_text(question.get("jlptLevel")), sql_text(question.get("prompt")), sql_json(question.get("options")),
         sql_int(question.get("correctIndex") if isinstance(question.get("correctIndex"), int) else 0), sql_text(question.get("explanation")),
-        sql_nullable_text(question.get("audioUrl")), sql_nullable_text(question.get("audioText")), sql_json_object(question.get("audio")), sql_text("validated"),
+        sql_nullable_text(question.get("audioUrl")), sql_nullable_text(question.get("audioText")), sql_json_object(question.get("audio")), sql_text(validation_status),
         sql_nullable_text(question.get("generatedBy")), sql_json_object(question.get("review")), sql_text(answer_mode), sql_json(question.get("acceptedAnswers")),
         sql_json(question.get("tokens")), sql_json(question.get("correctOrder")),
     ]
@@ -242,9 +239,10 @@ def item_sql(item: dict[str, Any], category: str) -> list[str]:
     if not item_id:
         raise ValueError(f"A {category} item is missing id.")
     review_status = text(item.get("reviewStatus")) or "approved"
-    if review_status != "approved":
-        raise ValueError(f"Item {item_id} is not approved; only approved records can be exported.")
-    validate_export_item(item, category)
+    if review_status == "rejected":
+        raise ValueError(f"Item {item_id} is rejected and cannot be exported.")
+    if review_status == "approved":
+        validate_export_item(item, category)
     item_type = ITEM_TYPES.get(category, category)
     learning = "insert into public.learning_items (id, slug, item_type, jlpt_level, subcategory, difficulty, prerequisite_ids, tags, review_status, field_source_ids, audio_metadata) values (" + ", ".join([
         sql_text(item_id),
@@ -321,11 +319,9 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--package", type=Path, default=Path("data/staging/kizashi-n5-source-review.json"))
     parser.add_argument("--output", type=Path, default=Path("supabase/generated/kizashi-content.sql"))
-    parser.add_argument("--questions", type=Path, help="Optional JSON array of approved question drafts to include.")
-    parser.add_argument("--approved", action="store_true", help="Confirm the package was reviewed and is ready for SQL generation.")
+    parser.add_argument("--questions", type=Path, help="Optional JSON array of non-rejected question drafts to include.")
+    parser.add_argument("--approved", action="store_true", help=argparse.SUPPRESS)
     args = parser.parse_args()
-    if not args.approved:
-        raise ValueError("Refusing to render content that has not been explicitly approved; pass --approved after review.")
 
     module = read_json(args.package)
     csj_values = any(
@@ -362,9 +358,9 @@ def main() -> int:
                 if status not in ("pending", "approved", "rejected"):
                     raise ValueError(f"Item {text(item.get('id')) or category} has an unknown review status: {status}.")
                 source_items.append(item)
-    items = [item for item in source_items if (text(item.get("reviewStatus")) or "pending") == "approved"]
+    items = [item for item in source_items if (text(item.get("reviewStatus")) or "pending") != "rejected"]
     if not items:
-        raise ValueError("No approved source-review items found; set reviewStatus to approved after checking each record.")
+        raise ValueError("No non-rejected source-review items found.")
     manifest_ids = {text(source.get("id")) for source in source_manifest}
     missing_sources = sorted({source_id for item in items for source_id in [*strings(item.get("sourceIds")), *field_source_ids(item)] if source_id not in manifest_ids})
     if missing_sources:
@@ -377,7 +373,7 @@ def main() -> int:
         if isinstance(item, dict)
         and text(item.get("id"))
         and text(item.get("category"))
-        and ("source-review" not in strings(item.get("tags")) or (text(item.get("reviewStatus")) or "pending") == "approved")
+        and ("source-review" not in strings(item.get("tags")) or (text(item.get("reviewStatus")) or "pending") != "rejected")
     }
     questions: list[dict[str, Any]] = []
     if args.questions:
@@ -395,7 +391,7 @@ def main() -> int:
             question_ids.add(question_id)
             validate_question(question, item_categories)
 
-    approved_ids = {text(item["id"]) for item in items}
+    export_ids = {text(item["id"]) for item in items}
     assignments: dict[str, list[tuple[str, int]]] = {}
     for chapter in real_chapters:
         for lesson in dicts(chapter.get("lessons")):
@@ -403,14 +399,14 @@ def main() -> int:
             if not lesson_id:
                 continue
             for sort_order, item_id in enumerate(strings(lesson.get("itemIds"))):
-                if item_id not in approved_ids:
+                if item_id not in export_ids:
                     continue
                 destinations = assignments.setdefault(item_id, [])
                 if (lesson_id, sort_order) not in destinations:
                     destinations.append((lesson_id, sort_order))
     unassigned = [text(item["id"]) for item in items if not assignments.get(text(item["id"]), [])]
     if unassigned:
-        raise ValueError("Approved source-review items must be assigned to a real Journey lesson before export: " + ", ".join(unassigned[:20]))
+        raise ValueError("Non-rejected source-review items must be assigned to a real Journey lesson before export: " + ", ".join(unassigned[:20]))
     sources_by_id = {text(source.get("id")): source for source in source_manifest if text(source.get("id"))}
     unlicensed = sorted({source_id for item in items for source_id in [*strings(item.get("sourceIds")), *field_source_ids(item)] if (source := sources_by_id.get(source_id)) and text(source.get("type")) != "user" and not source_id.startswith("michi-") and not text(source.get("license"))})
     if unlicensed:
@@ -420,7 +416,7 @@ def main() -> int:
     review_lesson = {**review_lesson, "itemIds": [text(item["id"]) for item in review_items]}
 
     statements = [
-        "-- Kizashi reviewed-content import; apply migrations before this file.",
+        "-- Kizashi non-rejected content import; pending rows remain marked unreviewed.",
         "begin;",
         *[source_sql(source) for source in source_manifest],
         *[ijas_aggregate_sql(record) for record in learner_error_aggregates],

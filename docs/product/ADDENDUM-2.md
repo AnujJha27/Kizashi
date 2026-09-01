@@ -1102,16 +1102,14 @@ Irodori vocabulary, grammar-pattern, and kanji normalizers into an importable
 source-review module. When the cached Marugoto PDFs and `pdftotext` are
 available, `scripts/ingest_marugoto_vocab.py` adds conservative vocabulary
 candidates while preserving each source line for review. Then
-`scripts/render_supabase_content_sql.py --approved` renders only explicitly
-approved source-review records into local, idempotent SQL. Migration
+`scripts/render_supabase_content_sql.py` renders all non-rejected source-review
+records into local, idempotent SQL while preserving pending/approved status. Migration
 `0008_content_source_provenance.sql` keeps each artifact checksum and local
 filename in `content_sources`. Imported records also carry a per-record
-`reviewStatus`: they remain `pending` until explicitly approved for SQL/content
-publication. The local source-review/export path excludes pending and rejected
-records; the authenticated private learner route is an explicit exception for
-non-rejected records and marks them `humanReviewed: false`. Nothing publishes
-pending/rejected records to the hosted approved content tables automatically;
-provenance and validation remain required for promotion. Migration
+`reviewStatus`: pending means learner-active but not human reviewed. Both the
+private learner route and SQL export include non-rejected records; rejected
+records remain excluded. Provenance, source terms, and real-lesson placement
+remain required, and generated questions retain draft provenance. Migration
 `0010_content_review_status.sql` stores the gate in Supabase, and
 `0011_content_source_types.sql` preserves frequency/example roles in the source
 registry.

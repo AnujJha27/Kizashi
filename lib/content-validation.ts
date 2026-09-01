@@ -29,8 +29,7 @@ const practiceQuestionTypes: Record<Category, readonly string[]> = {
 export const QUESTION_DRAFT_STORAGE_KEY = "michi.question-draft";
 
 export function isActivePracticeQuestion(question: Pick<PracticeQuestion, "validationStatus" | "generatedBy" | "review">) {
-  if (question.validationStatus === "generated" || question.validationStatus === "rejected") return false;
-  return !question.generatedBy?.startsWith("openrouter:") || question.review?.status === "approved";
+  return question.validationStatus !== "rejected";
 }
 
 export function getContentReviewStatus(item: { reviewStatus?: unknown; tags?: unknown }): ContentReviewStatus {

@@ -200,6 +200,36 @@ def package_source_id(package: dict[str, Any]) -> str:
     return "source-review"
 
 
+def source_curriculum_chapter(items: list[dict[str, Any]], assigned: set[str], chunk_size: int = 150) -> dict[str, Any]:
+    labels = {
+        "vocabulary": ("Vocabulary expansion", "語彙を広げる"),
+        "kanji": ("Kanji expansion", "漢字を広げる"),
+        "grammar": ("Grammar expansion", "文法を広げる"),
+    }
+    lessons: list[dict[str, Any]] = []
+    for category, (title, subtitle) in labels.items():
+        item_ids = [text(item.get("id")) for item in items if item.get("category") == category and item.get("reviewStatus") != "rejected" and text(item.get("id")) not in assigned]
+        for offset in range(0, len(item_ids), chunk_size):
+            number = offset // chunk_size + 1
+            lessons.append({
+                "id": f"lesson-source-{category}-{number}",
+                "slug": f"source-{category}-{number}",
+                "title": f"{title} {number}",
+                "subtitle": subtitle,
+                "description": "Automatically released source records. Use them now and flag any bad record while studying.",
+                "estimatedMinutes": 20,
+                "itemIds": item_ids[offset:offset + chunk_size],
+            })
+    return {
+        "id": "chapter-source-curriculum",
+        "slug": "source-curriculum",
+        "title": "Expanded source curriculum",
+        "description": "Non-rejected imported material, grouped into bounded learner lessons.",
+        "region": "quiet-city",
+        "lessons": lessons,
+    }
+
+
 def base_fields(item: dict[str, Any], category: str, source_id: str) -> dict[str, Any]:
     source_ids = unique([source_id, *strings(item.get("sourceIds"))])
     tags = unique([*strings(item.get("tags")), "source-review"])
@@ -343,7 +373,15 @@ def main() -> int:
     course = module.get("course")
     if not isinstance(course, dict):
         raise ValueError("Base package has no course object.")
-    chapters = [chapter for chapter in list_value(course.get("chapters")) if isinstance(chapter, dict) and chapter.get("id") != "chapter-openjlpt-review"]
+    chapters = [chapter for chapter in list_value(course.get("chapters")) if isinstance(chapter, dict) and chapter.get("id") not in {"chapter-openjlpt-review", "chapter-source-curriculum"}]
+    assigned = {
+        item_id
+        for chapter in chapters
+        for lesson in list_value(chapter.get("lessons"))
+        if isinstance(lesson, dict)
+        for item_id in strings(lesson.get("itemIds"))
+    }
+    chapters.append(source_curriculum_chapter(imported, assigned))
     chapters.append({
         "id": "chapter-openjlpt-review",
         "slug": "openjlpt-review",

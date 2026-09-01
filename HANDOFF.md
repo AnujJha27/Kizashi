@@ -21,14 +21,15 @@ the deferred ServerTTS/audio-archive work.
   middleware enforces the allowlist, Content Studio/AI are admin-gated, and
   Profile exposes explicit opt-in account sync that preserves local state on
   failure.
-- Content Studio still has the explicit review/editor/export gate. The private
-  learner endpoint releases every non-rejected staged record at runtime and
-  attaches `humanReviewed: false`; it does not change `reviewStatus`, export
-  pending/rejected records, or make them hosted approved curriculum.
+- Content Studio retains optional review/edit controls. Every non-rejected
+  staged record is learner-active, SQL-publishable with its original status,
+  and marked `humanReviewed: false` when pending; rejected records stay out.
 - The source-review package contains 8,442 records: 47 approved source-review
   records, 50 authored/curated records, 8,345 pending records, and zero rejected
   records. The learner flag control is available in item detail and practice,
-  with local backup and optional sync.
+  with local backup and optional sync. All 8,392 source-review records have a
+  real lesson assignment: 71 in the six core lessons and 8,321 across 57
+  bounded source-curriculum lessons.
 - Spoken-language handling is complete at the current boundary: CEJC aggregate
   signals and I-JAS aggregate learner-error signals are wired; CSJ remains a
   local review-only input. Raw corpus records, learner records, transcripts,
@@ -66,10 +67,10 @@ the deferred ServerTTS/audio-archive work.
   `browser/kizashi-private-frame-unlocker/` can remove frame-blocking response
   headers for this allowlist only. Kizashi does not download, proxy, cache,
   mirror, re-host, or upload those sources.
-- The hosted Supabase project was verified on 2026-08-31: migrations are current,
-  the seeded course/lessons/contrasts exist, the hosted curriculum has 313
-  approved items and zero pending items, and all 47 approved staged IDs match
-  hosted rows. No SQL Editor action remains for this project.
+- The hosted Supabase project was last verified on 2026-08-31 with 313 approved
+  items. The current local SQL export contains all 8,392 non-rejected staged
+  records and preserves pending status; apply `supabase/generated/kizashi-content.sql`
+  to bring the hosted database to the current learner release.
 - The supplied books are outside GitHub and the public bundle. Their 13 split
   parts are in the private `books` bucket and are loaded with short-lived signed
   URLs and browser-side PDF assembly. They remain a private reference viewer;
@@ -634,7 +635,8 @@ Next session order:
   selected curriculum item without changing canonical content.
 - Added the missing source-license publication gate. The SQL exporter and strict
   QA now refuse approved external source-review records without recorded license
-  terms, and AI generation accepts only approved source-review facts.
+  terms. Non-rejected source records and generated questions are learner-active
+  immediately while retaining pending/draft provenance and flag controls.
 - Verified locally on 2026-08-31: `/usr/bin/node --test test/*.test.mjs` (8/8),
   direct TypeScript checking, `next build` (24/24 pages), and `git diff --check`.
 - Local `main` contains commits `6047c51`, `5770b78`, and `74078a2` ahead of

@@ -389,19 +389,18 @@ test("seed creates the curated source before provenance references it", async ()
   assert.match(seed.slice(sourceInsert, firstReference), /michi-curated-n5-seed/);
 });
 
-test("AI content generation stays allowlisted, rate-limited, and draft-only", async () => {
+test("AI content generation stays allowlisted and rate-limited while drafts are learner-active", async () => {
   const route = await readFile(new URL("../app/api/content/generate/route.ts", import.meta.url), "utf8");
   const validation = await readFile(new URL("../lib/content-validation.ts", import.meta.url), "utf8");
   assert.match(route, /const user = await getAllowedUser\(\);\s+if \(!user\).*status: 401/s);
   assert.match(route, /if \(!user\.isAdmin\).*status: 403/s);
   assert.match(route, /lastGeneratedAt/);
   assert.match(route, /stringValue\(value\.id\) !== itemId/);
-  assert.match(route, /value\.reviewStatus !== undefined && value\.reviewStatus !== "approved"/);
-  assert.match(route, /source-review/);
+  assert.match(route, /getContentReviewStatus/);
   assert.match(route, /validationStatus: "generated"/);
   assert.match(route, /generatedReview\(model, item\.id\)/);
   assert.match(validation, /generatedBy.*openrouter/);
-  assert.match(validation, /review.*approved/);
+  assert.match(validation, /validationStatus !== "rejected"/);
 });
 
 test("practice coverage checks every item and normalizes JLPT family aliases", async () => {
@@ -480,7 +479,7 @@ test("SQL export refuses an approved source record without license terms", async
   }
 });
 
-test("SQL export refuses validated AI questions without human approval", async () => {
+test("SQL export keeps unreviewed AI questions flagged and active", async () => {
   const directory = await mkdtemp("/tmp/kizashi-unreviewed-question-");
   const packagePath = `${directory}/package.json`;
   const questionsPath = `${directory}/questions.json`;
@@ -491,16 +490,15 @@ test("SQL export refuses validated AI questions without human approval", async (
     const question = { id: "ai-vocab-test", itemId: "vocab-test", category: "vocabulary", questionType: "meaning", jlptLevel: "N5", prompt: "What does 駅 mean?", options: ["station", "school"], correctIndex: 0, explanation: "駅 means station.", validationStatus: "validated", generatedBy: "openrouter:test-model", review: { status: "draft" } };
     await writeFile(packagePath, JSON.stringify(packageData), "utf8");
     await writeFile(questionsPath, JSON.stringify([question]), "utf8");
-    await assert.rejects(
-      execFileAsync("python3", ["scripts/render_supabase_content_sql.py", "--approved", "--package", packagePath, "--questions", questionsPath, "--output", `${directory}/content.sql`]),
-      /human approval/,
-    );
+    const outputPath = `${directory}/content.sql`;
+    await execFileAsync("python3", ["scripts/render_supabase_content_sql.py", "--package", packagePath, "--questions", questionsPath, "--output", outputPath]);
+    assert.match(await readFile(outputPath, "utf8"), /'ai-vocab-test'.*'validated'.*'openrouter:test-model'/s);
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
 });
 
-test("SQL export refuses any non-validated question instead of dropping it", async () => {
+test("SQL export publishes generated questions with their unreviewed status", async () => {
   const directory = await mkdtemp("/tmp/kizashi-unvalidated-question-");
   const packagePath = `${directory}/package.json`;
   const questionsPath = `${directory}/questions.json`;
@@ -511,10 +509,9 @@ test("SQL export refuses any non-validated question instead of dropping it", asy
     const question = { id: "draft-vocab-test", itemId: "vocab-test", category: "vocabulary", questionType: "meaning", jlptLevel: "N5", prompt: "What does 駅 mean?", options: ["station", "school"], correctIndex: 0, explanation: "駅 means station.", validationStatus: "generated", generatedBy: "michi-question-factory" };
     await writeFile(packagePath, JSON.stringify(packageData), "utf8");
     await writeFile(questionsPath, JSON.stringify([question]), "utf8");
-    await assert.rejects(
-      execFileAsync("python3", ["scripts/render_supabase_content_sql.py", "--approved", "--package", packagePath, "--questions", questionsPath, "--output", `${directory}/content.sql`]),
-      /not approved/,
-    );
+    const outputPath = `${directory}/content.sql`;
+    await execFileAsync("python3", ["scripts/render_supabase_content_sql.py", "--package", packagePath, "--questions", questionsPath, "--output", outputPath]);
+    assert.match(await readFile(outputPath, "utf8"), /'draft-vocab-test'.*'generated'.*'michi-question-factory'/s);
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
@@ -549,22 +546,24 @@ test("content QA requires classification only for imported source-review records
   const { stdout } = await execFileAsync("python3", ["scripts/qa_content_package.py", "--package", "test/fixtures/unassigned-approved-package.json"]);
   const report = JSON.parse(stdout);
   const blockers = report.blockers.join("\n");
-  assert.match(blockers, /vocab-test: approved source-review item is not assigned to a real Journey lesson/);
+  assert.match(blockers, /vocab-test: non-rejected source-review item is not assigned to a real Journey lesson/);
   assert.match(blockers, /vocab-test: source test-source has no recorded license terms/);
   assert.doesNotMatch(blockers, /vocab-curated: missing reviewed curriculum classification/);
 });
 
-test("content QA blocks a package with no approved source-review records", async () => {
+test("content QA accepts pending records once they have real lesson placement", async () => {
   const directory = await mkdtemp("/tmp/kizashi-no-approved-qa-");
   const packagePath = `${directory}/package.json`;
   try {
     const packageData = JSON.parse(await readFile(new URL("../test/fixtures/unassigned-approved-package.json", import.meta.url), "utf8"));
     packageData.vocabulary.find((item) => item.id === "vocab-test").reviewStatus = "pending";
+    packageData.course.chapters[0].lessons[0].itemIds.push("vocab-test");
+    packageData.sourceManifest[0].license = "Test-only license note";
     await writeFile(packagePath, JSON.stringify(packageData), "utf8");
     const { stdout } = await execFileAsync("python3", ["scripts/qa_content_package.py", "--package", packagePath]);
     const report = JSON.parse(stdout);
-    assert.equal(report.status, "blocked");
-    assert.match(report.blockers.join("\n"), /No approved source-review items found/);
+    assert.equal(report.status, "ready");
+    assert.deepEqual(report.blockers, []);
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
