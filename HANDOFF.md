@@ -2,8 +2,8 @@
 
 Date: 2026-09-01
 Status: The source-integration milestone is implemented on `main` at
-source implementation at `16639d5`; the core integrated-learning milestone
-is now implemented locally and will be pushed with this handoff update.
+source implementation at `16639d5`; the core integrated-learning milestone is
+implemented at `4790446` on `origin/main`.
 Documentation for the source milestone is synchronized in
 `47fd417`; both are present on `origin/main`. Hosted migrations,
 seed, and the core curriculum remain verified. Remaining gates are a real

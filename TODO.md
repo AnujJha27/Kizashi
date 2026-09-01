@@ -38,7 +38,7 @@ furigana renderer, mastery records, external-resource registry, immersion
 selection, and Practice player into one adaptive study loop. It does not create
 a second curriculum, question database, or source-ingestion system.
 
-The core stages are implemented and verified with the full repository test
+The core stages are implemented in commit `4790446` and verified with the full repository test
 suite, TypeScript, production build, and diff checks. Remaining unchecked items
 are deliberate follow-up quality work: broader source coverage, richer repair
 cards, and manual phone/desktop smoke testing.
