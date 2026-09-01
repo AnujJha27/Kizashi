@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createServerClient, type SetAllCookies } from "@supabase/ssr";
 
 import { getSupabaseConfig } from "@/lib/supabase/env";
+import { fetchWithTimeout } from "@/lib/request-timeout.js";
 
 export async function middleware(request: Request & { cookies: { getAll(): { name: string; value: string }[]; set(name: string, value: string): void } }) {
   const config = getSupabaseConfig();
@@ -9,6 +10,7 @@ export async function middleware(request: Request & { cookies: { getAll(): { nam
   if (!config) return response;
 
   const supabase = createServerClient(config.url, config.anonKey, {
+    global: { fetch: fetchWithTimeout },
     cookies: {
       getAll() {
         return request.cookies.getAll();

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getContentReviewStatus, getModuleItems, isLearnerReleased, parseAndValidateModule, parseModuleForReview, readValidatedContentDraft } from "@/lib/content-validation";
 import { readContentDraft } from "@/lib/content-draft-storage.js";
 import { n5Module } from "@/lib/curriculum";
+import { fetchWithTimeout } from "@/lib/request-timeout.js";
 import { readCustomEntries } from "@/lib/session";
 import { fetchSupabaseN5Module } from "@/lib/supabase/content";
 import type { N5Module, VocabularyItem } from "@/lib/types";
@@ -39,37 +40,50 @@ function learnerModule(module: N5Module) {
   };
 }
 
+let cachedModule: N5Module | null = null;
+let modulePromise: Promise<N5Module> | null = null;
+
+function loadSharedModule(seed: N5Module) {
+  if (cachedModule) return Promise.resolve(cachedModule);
+  if (modulePromise) return modulePromise;
+  const pending = (async () => {
+    const draft = readValidatedContentDraft();
+    if (draft) return learnerModule(draft);
+    const storedRaw = await readContentDraft();
+    const stored = storedRaw ? parseAndValidateModule(storedRaw).value : null;
+    if (stored && getModuleItems(stored).every((item) => getContentReviewStatus(item) !== "pending")) return learnerModule(stored);
+    const learnerResponse = await fetchWithTimeout("/api/content/review-package?audience=learner", { cache: "no-store" }).catch(() => null);
+    if (learnerResponse?.ok) {
+      const learner = parseModuleForReview(await learnerResponse.text());
+      if (learner) return learnerModule(learner);
+    }
+    const remote = await fetchSupabaseN5Module(seed).catch(() => null);
+    const parsed = parseAndValidateModule(JSON.stringify(remote ?? seed));
+    return learnerModule(parsed.value ?? seed);
+  })();
+  modulePromise = pending.then((value) => {
+    cachedModule = value;
+    return value;
+  }).finally(() => {
+    modulePromise = null;
+  });
+  return modulePromise;
+}
+
 export function useContentModule(seed: N5Module = n5Module) {
   const [module, setModule] = useState(seed);
 
   useEffect(() => {
     let cancelled = false;
     const refresh = async () => {
-      const draft = readValidatedContentDraft();
-      if (draft) {
-        setModule(withPersonalVocabulary(learnerModule(draft)));
-        return;
-      }
-      const storedRaw = await readContentDraft();
-      const stored = storedRaw ? parseAndValidateModule(storedRaw).value : null;
-      if (stored && getModuleItems(stored).every((item) => getContentReviewStatus(item) !== "pending")) {
-        if (!cancelled) setModule(withPersonalVocabulary(learnerModule(stored)));
-        return;
-      }
-      const learnerResponse = await fetch("/api/content/review-package?audience=learner", { cache: "no-store" }).catch(() => null);
-      if (learnerResponse?.ok) {
-        const learner = parseModuleForReview(await learnerResponse.text());
-        if (!cancelled && learner) {
-          setModule(withPersonalVocabulary(learnerModule(learner)));
-          return;
-        }
-      }
-      const remote = await fetchSupabaseN5Module(seed).catch(() => null);
-      if (cancelled) return;
-      const parsed = parseAndValidateModule(JSON.stringify(remote ?? seed));
-      if (parsed.value) setModule(withPersonalVocabulary(learnerModule(parsed.value)));
+      const loaded = await loadSharedModule(seed);
+      if (!cancelled) setModule(withPersonalVocabulary(loaded));
     };
-    const onDraftUpdated = () => void refresh();
+    const onDraftUpdated = () => {
+      cachedModule = null;
+      modulePromise = null;
+      void refresh();
+    };
     void refresh();
     window.addEventListener("michi-content-draft-updated", onDraftUpdated);
     window.addEventListener("michi-custom-entries-updated", onDraftUpdated);

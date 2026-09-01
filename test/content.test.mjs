@@ -10,12 +10,37 @@ import { getItemPriority, rankContentCandidates } from "../lib/content-priority.
 import { generatedReview, validateGenerationRequest } from "../lib/content-generation-core.js";
 import { selectWeakPracticeQuestions } from "../lib/weak-practice.js";
 import { releaseForLearners } from "../lib/content-release.js";
+import { fetchWithTimeout } from "../lib/request-timeout.js";
 
 const execFileAsync = promisify(execFile);
 
 test("large review drafts use the browser's larger storage path", () => {
   assert.equal(draftStorageMode("x".repeat(LARGE_DRAFT_THRESHOLD)), "localStorage");
   assert.equal(draftStorageMode("x".repeat(LARGE_DRAFT_THRESHOLD + 1)), "indexedDB");
+});
+
+test("shared request timeout aborts a stalled upstream request", async () => {
+  await assert.rejects(
+    fetchWithTimeout("https://example.test", {}, 5, (_input, init) => new Promise((_resolve, reject) => {
+      init.signal.addEventListener("abort", () => reject(new DOMException("Aborted", "AbortError")), { once: true });
+    })),
+    { name: "AbortError" },
+  );
+});
+
+test("tab content loading is bounded and shared", async () => {
+  const hook = await readFile(new URL("../components/content/use-content-module.ts", import.meta.url), "utf8");
+  const worker = await readFile(new URL("../public/sw.js", import.meta.url), "utf8");
+  const supabaseFiles = await Promise.all([
+    readFile(new URL("../lib/supabase/browser.ts", import.meta.url), "utf8"),
+    readFile(new URL("../lib/supabase/server.ts", import.meta.url), "utf8"),
+    readFile(new URL("../middleware.ts", import.meta.url), "utf8"),
+  ]);
+  assert.match(hook, /fetchWithTimeout/);
+  assert.match(hook, /modulePromise/);
+  assert.match(worker, /_next\//);
+  assert.match(worker, /\/api\//);
+  assert.ok(supabaseFiles.every((source) => /fetchWithTimeout/u.test(source)));
 });
 
 const moduleData = JSON.parse(await readFile(new URL("../data/n5-foundations.json", import.meta.url), "utf8"));
@@ -598,5 +623,7 @@ test("offline worker caches recorded audio without caching arbitrary cross-origi
   const worker = await readFile(new URL("../public/sw.js", import.meta.url), "utf8");
   assert.match(worker, /event\.request\.destination === "audio"/);
   assert.match(worker, /response\.type === "opaque"/);
-  assert.match(worker, /new URL\(event\.request\.url\)\.origin !== self\.location\.origin/);
+  assert.match(worker, /url\.origin !== self\.location\.origin/);
+  assert.match(worker, /url\.pathname\.startsWith\("\/_next\/"\)/);
+  assert.match(worker, /url\.pathname\.startsWith\("\/api\/"\)/);
 });

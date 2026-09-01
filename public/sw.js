@@ -1,4 +1,4 @@
-const CACHE = "kizashi-shell-v3";
+const CACHE = "kizashi-shell-v4";
 const SHELL = ["/offline", "/journey", "/learn", "/practice", "/practice/kana", "/practice/diagnostic", "/immersion", "/review", "/mistakes", "/library", "/progress", "/profile", "/studio", "/icon.svg", "/journey-hero.png", "/site-atmosphere.png"];
 
 self.addEventListener("install", (event) => {
@@ -22,7 +22,9 @@ self.addEventListener("fetch", (event) => {
     }).catch(() => Response.error())));
     return;
   }
-  if (new URL(event.request.url).origin !== self.location.origin) return;
+  const url = new URL(event.request.url);
+  if (url.origin !== self.location.origin) return;
+  if (event.request.destination === "document" || url.pathname.startsWith("/_next/") || url.pathname.startsWith("/api/") || event.request.headers.has("RSC")) return;
   event.respondWith(fetch(event.request).then((response) => {
     if (response.ok) {
       const copy = response.clone();
