@@ -40,8 +40,8 @@ function useActiveQuestions(fallback: PracticeQuestion[]) {
   return { questions, module };
 }
 
-export function LocalPractice({ allQuestions, mode, duration, focus, section, topic }: Readonly<{ allQuestions: PracticeQuestion[]; mode: PracticeMode; duration: number; focus?: string; section?: string; topic?: string }>) {
-  const { questions: activeQuestions, module } = useActiveQuestions(allQuestions);
+export function LocalPractice({ allQuestions, mode, duration, focus, section, topic }: Readonly<{ allQuestions?: PracticeQuestion[]; mode: PracticeMode; duration: number; focus?: string; section?: string; topic?: string }>) {
+  const { questions: activeQuestions, module } = useActiveQuestions(allQuestions ?? getValidatedPracticeQuestions());
   const [repair, setRepair] = useState("");
   useEffect(() => setRepair(new URLSearchParams(window.location.search).get("repair") ?? ""), []);
   const topicIds = topic ? getTopicItemIds([...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening], topic) : null;

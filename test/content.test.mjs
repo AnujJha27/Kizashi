@@ -49,9 +49,18 @@ test("practice navigation reuses validated questions and restores the active tab
   const tabs = await readFile(new URL("../components/practice/practice-mode-tabs.tsx", import.meta.url), "utf8");
   assert.match(questions, /validatedPracticeCache/);
   assert.match(page, /PracticeModeTabs/);
-  assert.match(page, /<LocalPractice[\s\S]*key=\{[\s\S]*mode/);
+  assert.match(page, /<LazyPractice[\s\S]*key=\{[\s\S]*mode/);
   assert.match(tabs, /scrollIntoView/);
   assert.match(tabs, /aria-label="Practice modes"/);
+});
+
+test("practice defers the question bank until its panel loads", async () => {
+  const page = await readFile(new URL("../app/(main)/practice/page.tsx", import.meta.url), "utf8");
+  const lazyPractice = await readFile(new URL("../components/practice/lazy-practice.tsx", import.meta.url), "utf8");
+  assert.doesNotMatch(page, /getValidatedPracticeQuestions/);
+  assert.match(page, /LazyPractice/);
+  assert.match(lazyPractice, /dynamic/);
+  assert.match(lazyPractice, /ssr:\s*false/);
 });
 
 const moduleData = JSON.parse(await readFile(new URL("../data/n5-foundations.json", import.meta.url), "utf8"));
