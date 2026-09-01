@@ -116,9 +116,10 @@ Upload `.book-storage/books/<book-id>/part-*.pdf` to the corresponding path in
 the private `books` bucket. The authenticated reader requests short-lived URLs
 and assembles the parts in the browser.
 
-The Books page also includes a shared Google Drive shelf at `/books/drive` for
-large reference collections; access follows the permissions of that Drive
-folder.
+The Books page also includes a shared Google Drive shelf at `/books/drive`.
+Connect Google Drive once from that page to browse the configured folder and
+open its PDFs in Kizashi. The connection uses Google OAuth's read-only Drive
+scope and keeps the short-lived provider token in an HTTP-only session cookie.
 
 ## Verification
 
