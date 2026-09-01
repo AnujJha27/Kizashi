@@ -3,8 +3,9 @@
 Status audited 2026-08-31: the private learner release, learner flags, source
 viewer, audio-provider routing, hosted migrations/seed, and GitHub `main` push
 are complete. Remaining unchecked items below are intentionally optional source
-rights/quality work or the manual browser viewport gate. The complete source
-register is [`docs/product/CONTENT-SOURCES.md`](docs/product/CONTENT-SOURCES.md).
+rights/quality work, the manual browser viewport gate, or the planned
+integrated-learning milestone. The complete source register is
+[`docs/product/CONTENT-SOURCES.md`](docs/product/CONTENT-SOURCES.md).
 
 ## Source-integration milestone — implemented 2026-09-01
 
@@ -29,6 +30,254 @@ audio mirror is planned.
   diff checks pass locally; `main` is pushed to `origin/main`.
 - [ ] Manual phone/desktop viewport smoke test remains; it is a deployment
   verification step, not a source-integration blocker.
+
+## Integrated learning intelligence milestone — planned
+
+Status: design direction agreed 2026-09-01. This milestone turns the existing
+furigana renderer, mastery records, external-resource registry, immersion
+selection, and Practice player into one adaptive study loop. It does not create
+a second curriculum, question database, or source-ingestion system.
+
+### Product decisions locked
+
+- [x] Full furigana is the default for Kizashi-controlled Japanese text,
+  including lesson text, Immersion transcripts/questions, reading passages,
+  saved sentences, Aozora text, and user-owned book text when text is
+  available.
+- [x] Furigana settings support at least full coverage, unknown-only, and
+  hidden modes; the learner can change the preference without changing source
+  content or mastery state.
+- [x] Readings must come from a trustworthy reading source or an explicit
+  reviewed mapping. Never guess a reading from a kanji character alone.
+- [x] If a reading cannot be resolved, preserve the original text and expose
+  an unresolved-reading state for inspection rather than showing false
+  pronunciation.
+- [x] Cross-origin provider pages and iframes remain opaque. Kizashi may not
+  inspect their DOM or extract their text; the sentence inspector applies to
+  Kizashi-controlled text and permitted fetched text only.
+- [x] Integrated exams hide furigana, translations, explanations, source
+  references, and other assistance while the attempt is active.
+- [x] Integrated-exam review reveals full furigana, transcript/text support,
+  the tested concepts, the learner's answer, and the repair action.
+- [x] The existing `itemId` remains the primary compatibility field for
+  `PracticeQuestion`; multi-concept questions add target metadata instead of
+  breaking existing practice, review, or sync records.
+- [x] Live exams use original deterministic Kizashi content built from
+  reviewed facts. AI can draft candidates in Content Studio, but cannot inject
+  unreviewed questions into an active exam.
+- [x] External source availability never blocks the core lesson, planner,
+  practice session, or exam result.
+
+### 1. Full-coverage furigana and sentence inspector
+
+Goal: make any text Kizashi is allowed to display understandable without
+silently dropping readings for words outside the current N5 item list.
+
+- [ ] Audit every Japanese-text surface and route it through the existing
+  `JapaneseText`/reading helpers where appropriate; remove raw Japanese output
+  from Immersion prompts, choices, feedback, Aozora reader text, and saved
+  sentence views.
+- [ ] Extend the existing reading-resolution path to resolve longest useful
+  words first, then inflections/lemmas, then kanji readings only when the
+  context is unambiguous. Keep JMdict/KANJIDIC2/Sudachi metadata as inputs;
+  do not create a second dictionary database.
+- [ ] Add a resolved-reading result that distinguishes `resolved`,
+  `unresolved`, and `not-applicable` text segments. Kana-only text should not
+  be treated as an error.
+- [ ] Preserve punctuation, whitespace, speaker labels, line breaks, and
+  original source text exactly while adding ruby annotations.
+- [ ] Keep furigana layout stable at desktop and narrow phone widths: no
+  clipped `rt`, overlapping lines, horizontal scrolling, or broken wrapping.
+- [ ] Add the learner setting for full/unknown-only/hidden furigana using the
+  existing session preference/event pattern. `always` remains available for
+  guided surfaces that explicitly require readings.
+- [ ] Add a sentence-inspector interaction for Kizashi-controlled text:
+  tapping a resolved word shows reading, meaning, category, canonical entry,
+  and source/provenance; tapping an unknown word offers a safe lookup or
+  `Study later` action.
+- [ ] Reuse `StudyLaterButton`, saved sentences, Content Studio provenance,
+  and canonical item links. Do not add a parallel word-detail or SRS system.
+- [ ] Make unresolved readings visible in development/Content Studio
+  diagnostics with text and location, but keep normal learner UI calm and
+  readable.
+- [ ] Add tests for multi-word longest-match behavior, inflected forms,
+  punctuation/newlines, kana-only text, unresolved words, furigana settings,
+  and serialization of the original text.
+
+### 2. Exam date, countdown, and adaptive plan
+
+Goal: turn the learner's actual exam date and evidence-based weaknesses into
+one realistic next action.
+
+- [ ] Add an explicit local-first exam-plan setting: target exam level, exam
+  date, daily-minute goal, available study days, and optional rest days.
+- [ ] Sync the setting only through the existing opt-in account snapshot; the
+  app remains fully usable without auth or Supabase.
+- [ ] Calculate days remaining using a stable local-date representation so
+  timezone changes and daylight-saving transitions do not shift the countdown.
+- [ ] Derive the daily recommendation from due reviews, current mastery,
+  timed accuracy, weak categories, exam section floors, and remaining days.
+  Never display a fabricated pass probability.
+- [ ] Show one primary action on Journey: continue lesson, review due, repair a
+  weak concept, or run an integrated exam set. Keep the existing quick 2/5/10
+  minute actions available.
+- [ ] Add a compact countdown and plan status to Journey/Profile, with an
+  honest state for no exam date, overdue plan, and insufficient evidence.
+- [ ] Allow the learner to pause/reset the plan without deleting mastery,
+  mistakes, question history, or saved content.
+- [ ] Add tests for no-date, same-day, past-date, leap-day, timezone-boundary,
+  low-evidence, and already-complete-plan states.
+
+### 3. Coverage-based Immersion queue
+
+Goal: make Immersion choose the most useful next source item instead of acting
+as a static shelf.
+
+- [ ] Reuse `selectImmersionClips`, review records, the external-resource
+  registry, and source progress as the queue inputs.
+- [ ] Rank candidate items by known-word coverage, grammar coverage, recent
+  mistakes, target skill, source difficulty, prior opens, and the current exam
+  plan. Prefer understandable stretch material over random difficulty.
+- [ ] Start with a clear coverage band (roughly 80–95% familiar) and make the
+  threshold adjustable later; store the chosen threshold as a preference only
+  if the UI proves it useful.
+- [ ] Mix the existing natural-listening roles intentionally: Erin/Irodori for
+  situational beginner speech, Tadoku for graded reading, Aozora for later
+  native reading, and corpus/source launchers for optional exposure.
+- [ ] Keep provider-hosted sources as launch/frame/link entries. The queue may
+  recommend and track an item, but may not copy blocked pages or audio.
+- [ ] Add `Next recommended` and `Why this item` affordances showing a short
+  learner-facing reason such as `89% familiar · weak location questions`.
+- [ ] Preserve Ear Warm-up, Guided/Listen/Immersion modes, shadowing,
+  transcript reveal, source attribution, and local opened/read progress.
+- [ ] Add deterministic queue tests: stable ordering, coverage thresholds,
+  mistake boosts, source failure fallback, empty-source behavior, and no
+  duplicate item within one queue session.
+
+### 4. Integrated exam-style multi-concept mode
+
+Goal: add a real blended-context exam mode rather than another random mix of
+single-concept questions.
+
+- [ ] Add a new explicit Practice mode, tentatively `integrated`, without
+  changing the behavior of `mock`, `mini`, `section`, `full`, `pass`, `weak`,
+  or quick practice.
+- [ ] Model an exam context/set with a stable ID, N5 level, stimulus type,
+  original stimulus, estimated time, ordered question IDs, target item IDs,
+  tested skills, and review notes.
+- [ ] Extend `PracticeQuestion` compatibly with optional context metadata:
+  `contextSetId`, `targetItemIds`, `testedSkills`, and an exact primary
+  `itemId`/assessed concept. Existing persisted questions must continue to
+  load unchanged.
+- [ ] Keep one stimulus tied to a coherent situation: restaurant dialogue,
+  timetable, store notice, short message/email, classroom exchange, map,
+  schedule, or practical reading.
+- [ ] Make each set blend concepts across its questions, for example:
+  vocabulary meaning, particle use, polite-request interpretation, listening
+  detail, and inferred next action.
+- [ ] Use question-level assessed concepts for mastery attribution while
+  retaining set-level target IDs for coverage and review context. Do not mark
+  every concept in a set as definitively failed when one ambiguous question is
+  missed.
+- [ ] Begin with a small reviewed N5 bank: at least one dialogue set, one
+  practical-reading set, one notice/schedule set, and one listening set. Expand
+  only after the set quality gate passes.
+- [ ] Calibrate timing and distribution against the official JLPT blueprint,
+  while labeling the result as Kizashi exam-style practice rather than an
+  official JLPT simulation.
+- [ ] During an active integrated exam, hide furigana, translation, source
+  links, explanations, and non-requested hints. Preserve the existing answer
+  timer/session-resume behavior.
+- [ ] In review, show the full context, furigana, correct reasoning, assessed
+  concept, related target concepts, mistake signal, and a direct repair action.
+- [ ] Score overall, by broad skill/category, and by assessed concept. Keep
+  `recordExamAttempt` backward-compatible and add optional context metadata to
+  the existing attempt shape only where needed.
+- [ ] Add tests for context-set validation, target-ID preservation, question
+  ordering, strict-mode assistance hiding, review-mode reveal, scoring
+  attribution, timer expiry, resume, and missing external media.
+
+### 5. Concept-specific mistake repair loop
+
+Goal: turn a missed integrated question into a short repair sequence instead of
+only adding another item to a generic weak list.
+
+- [ ] On a wrong/uncertain/slow integrated response, identify the assessed
+  concept and retain the broader context IDs for explanation.
+- [ ] Generate a compact original repair card: one plain explanation, one
+  minimal contrast, one new example, one answer, and one delayed follow-up.
+- [ ] Reuse reliable Kizashi grammar explanations, grammar contrasts, I-JAS
+  aggregate warnings, existing question validation, and the learner's actual
+  mistake record. Corpus evidence may prioritize a repair but may not become
+  the grammar rule.
+- [ ] Use the existing review scheduler and mastery signals; do not create a
+  second repair scheduler.
+- [ ] Add a `Repair now` action in integrated-exam review, Mistake Notebook,
+  Journey's next-action card, and the existing weak-practice entry point.
+- [ ] Record whether the learner completed the repair and whether the delayed
+  follow-up succeeded, without overwriting the original exam result.
+- [ ] Keep repair content original or already-reviewed. Never transform a
+  Tadoku work, copy provider-hosted lesson text, or publish raw corpus content.
+- [ ] Add tests proving repairs target the assessed concept, preserve the
+  original mistake, respect source boundaries, and schedule the follow-up.
+
+### 6. Optional dictation experiment — deferred
+
+- [ ] Do not build dictation until the furigana, planner, queue, integrated
+  exam, and repair loops are stable.
+- [ ] If revisited, start with a local authored listening clip: play once,
+  accept normalized kana/text input, show a transcript diff, and record a
+  listening signal. Reuse `PracticePlayer`, `AudioControls`, and existing
+  session records.
+- [ ] Keep dictation separate from official exam scoring until answer
+  normalization and Japanese segmentation are proven reliable.
+- [ ] Do not require speech recognition, server audio generation, microphone
+  uploads, or cloud billing for the first experiment.
+
+### Shared failure behavior and non-goals
+
+- [ ] No reading resolver, source API, external frame, or optional media
+  failure may blank a core lesson or lose learner progress.
+- [ ] Keep all source provenance, review status, `sourceIds`, and
+  `fieldSourceIds` intact through sentence inspection, queue recommendations,
+  exam sets, and repairs.
+- [ ] Do not copy official JLPT questions, copyrighted textbook exercises,
+  Tadoku pages, CEJC/CSJ/I-JAS raw records, or provider-hosted media.
+- [ ] Do not turn external sources into JLPT truth, replace Kizashi's
+  explanations, or create a parallel curriculum engine.
+- [ ] Do not add an audio mirror or persistent third-party corpus table.
+- [ ] Do not expose raw JSON as the learner's explanation/review experience.
+- [ ] Keep all new controls mobile-first: large tap targets, no horizontal
+  overflow, readable ruby, resumable sessions, and clear loading/error states.
+
+### Definition of done
+
+- [ ] Any Kizashi-controlled Japanese sentence can show trustworthy full
+  furigana or an explicit unresolved-reading state.
+- [ ] The learner can set an exam date and receive one evidence-based daily
+  next action.
+- [ ] Immersion recommends source-hosted material using actual knowledge and
+  weakness signals, with a working fallback when a source is unavailable.
+- [ ] Integrated exam sets blend multiple concepts around coherent original
+  contexts and produce concept-level review signals.
+- [ ] Exam mode is strict during attempts and fully explanatory afterward.
+- [ ] Mistakes lead directly to a targeted repair and delayed follow-up.
+- [ ] Existing Practice, Review, SRS, source provenance, sync, and private-book
+  behavior remain compatible.
+- [ ] Add focused unit tests plus one end-to-end fixture for each of the five
+  core stages; run the full repository test suite, TypeScript check, production
+  build, Python syntax checks, and `git diff --check`.
+- [ ] Complete a real phone/desktop smoke test for furigana wrapping, planner
+  layout, Immersion queue cards, integrated exam controls, and repair review.
+
+### Implementation order
+
+1. Furigana resolution + sentence inspector
+2. Exam plan/countdown data and Journey action
+3. Coverage-based Immersion queue
+4. Reviewed integrated exam context sets
+5. Concept-specific mistake repair
+6. Optional dictation spike
 
 ### Verified boundaries before implementation
 
