@@ -11,6 +11,7 @@ import { generatedReview, validateGenerationRequest } from "../lib/content-gener
 import { selectWeakPracticeQuestions } from "../lib/weak-practice.js";
 import { releaseForLearners } from "../lib/content-release.js";
 import { fetchWithTimeout } from "../lib/request-timeout.js";
+import { preservePracticePosition } from "../lib/practice-session-core.js";
 
 const execFileAsync = promisify(execFile);
 
@@ -61,6 +62,26 @@ test("practice defers the question bank until its panel loads", async () => {
   assert.match(page, /LazyPractice/);
   assert.match(lazyPractice, /dynamic/);
   assert.match(lazyPractice, /ssr:\s*false/);
+});
+
+test("practice query changes rebuild the queue without restarting it", async () => {
+  const page = await readFile(new URL("../app/(main)/practice/page.tsx", import.meta.url), "utf8");
+  const player = await readFile(new URL("../components/practice/practice-player.tsx", import.meta.url), "utf8");
+  assert.match(page, /export const dynamic = ["']force-dynamic["']/);
+  assert.match(player, /preservePracticePosition/);
+  assert.equal(preservePracticePosition(["a", "b", "c"], 1, ["x", "b", "y"]), 1);
+  assert.equal(preservePracticePosition(["a", "b", "c"], 1, ["x"]), 0);
+});
+
+test("opted-in account sync stays mounted across route changes", async () => {
+  const shell = await readFile(new URL("../components/shell/app-shell.tsx", import.meta.url), "utf8");
+  const sync = await readFile(new URL("../components/profile/account-sync.tsx", import.meta.url), "utf8");
+  const profile = await readFile(new URL("../app/(main)/profile/page.tsx", import.meta.url), "utf8");
+  assert.match(shell, /AccountSync/);
+  assert.match(shell, /visible=\{pathname === "\/profile"\}/);
+  assert.match(sync, /visible\?/);
+  assert.match(sync, /sync\(true\)/);
+  assert.doesNotMatch(profile, /AccountSync/);
 });
 
 const moduleData = JSON.parse(await readFile(new URL("../data/n5-foundations.json", import.meta.url), "utf8"));

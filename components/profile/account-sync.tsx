@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { applyLocalSyncSnapshot, createLocalSyncSnapshot, readSyncEnabled, writeSyncEnabled } from "@/lib/session";
 
-export function AccountSync() {
+export function AccountSync({ visible = true }: Readonly<{ visible?: boolean }>) {
   const [enabled, setEnabled] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -42,7 +42,11 @@ export function AccountSync() {
     return () => { window.clearTimeout(timer); window.removeEventListener("online", retry); events.forEach((eventName) => window.removeEventListener(eventName, schedule)); };
   }, [enabled]);
 
-  useEffect(() => setEnabled(readSyncEnabled()), []);
+  useEffect(() => {
+    const value = readSyncEnabled();
+    setEnabled(value);
+    if (value) void sync(true);
+  }, []);
 
   const toggle = (value: boolean) => {
     writeSyncEnabled(value);
@@ -50,5 +54,6 @@ export function AccountSync() {
     if (value) void sync();
   };
 
-  return <section className="surface-panel-raised p-6"><div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"><div><p className="eyebrow mb-2">Account sync · 同期</p><h2 className="text-lg font-medium text-[#f5f5f2]">Keep your path across devices.</h2><p className="mt-2 max-w-xl text-sm leading-6 text-[#9297a1]">Sync is opt-in. Kizashi sends bounded study state only after you enable it; failed sync leaves this browser unchanged.</p><p className="mt-2 text-xs text-[#e5b85c]" role="status">{message}</p></div><label className="flex shrink-0 items-center gap-3 text-xs text-[#c3c7ce]"><input type="checkbox" checked={enabled} onChange={(event) => toggle(event.target.checked)} className="size-4 accent-[#e34a3f]" /> Allow automatic sync</label></div><div className="mt-5 flex flex-wrap gap-2"><button type="button" onClick={() => void sync()} className="rounded-xl bg-[#e34a3f] px-4 py-3 text-xs font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">Sync now</button><button type="button" onClick={() => void sync(true)} className="rounded-xl border border-white/10 px-4 py-3 text-xs font-semibold text-[#c3c7ce] hover:border-[#e5b85c] hover:text-[#f5f5f2]">Pull account state</button></div></section>;
+  if (!visible) return null;
+  return <section className="surface-panel-raised p-6"><div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"><div><p className="eyebrow mb-2">Account sync · 同期</p><h2 className="text-lg font-medium text-[#f5f5f2]">Keep your path across devices.</h2><p className="mt-2 max-w-xl text-sm leading-6 text-[#9297a1]">Sync is opt-in. Kizashi sends bounded study state only after you enable it; failed sync leaves this browser unchanged.</p><p className="mt-2 text-xs text-[#e5b85c]" role="status">{message}</p></div><label className="flex shrink-0 items-center gap-3 text-xs text-[#c3c7ce]"><input type="checkbox" checked={enabled} onChange={(event) => toggle(event.target.checked)} className="size-4 accent-[#e34a3f]" /> Allow automatic sync</label></div><div className="mt-5 flex flex-wrap gap-2"><button type="button" onClick={() => void sync()} className="rounded-xl bg-[#e34a3f] px-4 py-3 text-xs font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">Sync now</button><button type="button" onClick={() => void sync(true)} className="rounded-xl border border-white/10 px-4 py-3 text-xs text-[#c3c7ce] hover:border-[#e5b85c] hover:text-[#f5f5f2]">Pull account state</button></div></section>;
 }

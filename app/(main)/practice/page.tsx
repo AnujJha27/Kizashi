@@ -5,6 +5,7 @@ import { PracticeModeTabs } from "@/components/practice/practice-mode-tabs";
 import type { PracticeMode } from "@/lib/types";
 
 export const metadata = { title: "Practice" };
+export const dynamic = "force-dynamic";
 
 const modes: { value: PracticeMode; label: string; jp: string }[] = [
   { value: "quick", label: "Quick drill", jp: "小さな練習" },

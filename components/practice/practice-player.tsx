@@ -9,6 +9,7 @@ import { ContentFlagButton } from "@/components/library/content-flag-button";
 import { clearPracticeSession, readAnswerLeniency, readAutoPlayAudio, readPracticeSession, recordExamAttempt, recordMistake, recordQuestionAmbiguity, recordQuestionAnswer, recordReview, recordStudyActivity, startRepair, writePracticeSession, type AnswerLeniency, type MasterySignal, type ReviewRating } from "@/lib/session";
 import { conceptBreakdown } from "@/lib/integrated-exam-core.js";
 import { normalizeAnswer, reviewRatingForConfidence } from "@/lib/mastery";
+import { preservePracticePosition } from "@/lib/practice-session-core.js";
 import type { AnswerConfidence, GrammarContrast, KanjiItem, LearningItem, PracticeQuestion, VocabularyItem } from "@/lib/types";
 
 type CompletionResult = { correct: number; total: number; categoryBreakdown: Record<string, { correct: number; total: number }> };
@@ -99,8 +100,24 @@ export function PracticePlayer({ questions, vocabulary = [], kanji = [], items =
   const [answerLeniency, setAnswerLeniency] = useState<AnswerLeniency>("kana");
   const [ready, setReady] = useState(false);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const previousQuestionIds = useRef<string[] | null>(null);
 
   useEffect(() => {
+    const previousIds = previousQuestionIds.current;
+    if (previousIds) {
+      const currentQuestionId = previousIds[position];
+      const currentQuestionStillExists = Boolean(currentQuestionId && questionIds.includes(currentQuestionId));
+      setPosition(preservePracticePosition(previousIds, position, questionIds));
+      if (!currentQuestionStillExists) {
+        setSelected(null);
+        setTypedAnswer("");
+        setOrder([]);
+        setSubmitted(false);
+        setConfidence(null);
+      }
+      previousQuestionIds.current = questionIds;
+      return;
+    }
     const saved = readPracticeSession(activeSessionId, questionIds);
     setComplete(false);
     setReported(false);
@@ -131,6 +148,7 @@ export function PracticePlayer({ questions, vocabulary = [], kanji = [], items =
     setExamStartedAt(timeLimitSeconds ? nextSessionStartedAt : null);
     setRemainingSeconds(timeLimitSeconds ? Math.max(0, timeLimitSeconds - Math.floor((Date.now() - nextSessionStartedAt) / 1000)) : null);
     setReady(true);
+    previousQuestionIds.current = questionIds;
     // ponytail: the question key is the session identity; do not restore another drill.
   }, [activeSessionId, questionKey, timeLimitSeconds]);
 

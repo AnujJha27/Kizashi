@@ -12,7 +12,7 @@ npm run dev
 
 Without Supabase variables the app runs in local demo mode. With Supabase configured, magic-link auth, the `ALLOWED_EMAIL`/`ALLOWED_EMAILS` allowlist, protected app routes, and RLS-backed account sync are active. Set `ADMIN_EMAIL` to the admin email (`aj05767625@gmail.com`) to protect Content Studio and AI generation; `ADMIN_USER_ID` is an optional UUID override. The configured hosted project already has the migrations and seed applied and was verified on 2026-08-31.
 
-For a fresh Supabase project, apply the migrations in `supabase/migrations/` (including `0017_spoken_frequency.sql`, `0018_audio_metadata.sql`, and `0019_ijas_aggregates.sql`) and then run `supabase/seed.sql`. That setup instruction is not a pending action for the configured project: no additional SQL Editor work is currently required. Curriculum reads require an authenticated user when Supabase is configured; user-owned tables remain protected by RLS. Profile sync is explicit opt-in and keeps browser state intact if the network fails.
+For a fresh Supabase project, apply the migrations in `supabase/migrations/` (including `0017_spoken_frequency.sql`, `0018_audio_metadata.sql`, and `0019_ijas_aggregates.sql`) and then run `supabase/seed.sql`. That setup instruction is not a pending action for the configured project: no additional SQL Editor work is currently required. Curriculum reads require an authenticated user when Supabase is configured; user-owned tables remain protected by RLS. Profile sync is explicit opt-in, stays mounted while you study across the app, pulls the opted-in snapshot on startup, and keeps browser state intact if the network fails.
 
 To check and apply the hosted migration history with the Supabase CLI (from this directory):
 

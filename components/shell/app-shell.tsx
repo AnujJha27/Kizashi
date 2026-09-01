@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CommandPalette } from "@/components/shell/command-palette";
+import { AccountSync } from "@/components/profile/account-sync";
 import { readDisplayName } from "@/lib/session";
 
 const navItems = [
@@ -91,7 +92,7 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
           </Link></div>
         </header>
 
-        <main className="relative z-10 safe-bottom min-h-[calc(100vh-4rem)] px-5 py-7 lg:px-10 lg:py-10">{children}</main>
+        <main className="relative z-10 safe-bottom min-h-[calc(100vh-4rem)] px-5 py-7 lg:px-10 lg:py-10">{children}<AccountSync visible={pathname === "/profile"} /></main>
 
         <nav aria-label="Mobile navigation" className="app-mobile-nav fixed inset-x-0 bottom-0 z-40 min-w-0 max-w-[100vw] overflow-x-hidden border-t border-[#292b31] px-1 pb-[env(safe-area-inset-bottom)] lg:hidden">
           <div className="mx-auto grid w-full max-w-lg min-w-0 grid-cols-6">
