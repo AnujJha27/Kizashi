@@ -155,13 +155,15 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(viewer, /const canRender = canEmbedExternalSource\(source\.mediaDelivery\) \|\| \(canPlayExternalSourceMedia\(source\.mediaDelivery\) && Boolean\(source\.mediaUrl\)\)/);
   assert.doesNotMatch(viewer, /\{source\.mediaDelivery === "link-only" \? <p[^>]*>This provider does not allow in-app framing/);
   assert.match(viewer, /View here/);
+  assert.match(viewer, /role="dialog"/);
+  assert.match(viewer, /backdrop-blur/);
   assert.match(surface, /ExternalSourceViewer/);
   assert.match(surface, /const erinLessons = getErinLessonResources\(\)\.map\(externalResourceToSourceLink\)/);
   assert.match(surface, /selectedErin/);
   assert.match(surface, /<select/);
   assert.match(surface, /selectedSourceId/);
   assert.match(surface, /value=\{selectedErinSource\.id\}/);
-  assert.match(surface, /ExternalSourceFrame source=\{selectedViewerSource\}/);
+  assert.match(surface, /selectedViewerSource/);
   assert.match(surface, /Sources opened/);
   assert.match(surface, /readExternalSourceProgress/);
   assert.match(launcher, /markExternalSourceOpened/);

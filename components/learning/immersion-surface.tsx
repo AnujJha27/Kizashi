@@ -65,9 +65,8 @@ export function ImmersionSurface() {
   const phrases = clip?.transcript.split(/\n+/u).map((phrase) => phrase.trim()).filter(Boolean) ?? [];
   const phrase = phrases[phrasePosition] ?? phrases[0] ?? clip?.transcript ?? "";
   const transcriptVisible = mode === "guided" || showTranscript || shadowing;
-  const selectedSource = sources.find((source) => source.id === selectedSourceId) ?? null;
   const selectedErinSource = erinLessons.find((source) => source.id === selectedErinId) ?? erinLessons[0] ?? sources[0];
-  const selectedViewerSource = selectedSource?.id === "erin" ? selectedErinSource : selectedSource;
+  const selectedViewerSource = null;
   const trackableSourceIds = [...erinLessons.map((source) => source.id), ...sources.filter((source) => source.id !== "erin").map((source) => source.id)];
   const openedSourceCount = trackableSourceIds.filter((id) => sourceProgress[id]).length;
 
