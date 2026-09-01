@@ -163,7 +163,7 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(surface, /<select/);
   assert.match(surface, /selectedSourceId/);
   assert.match(surface, /value=\{selectedErinSource\.id\}/);
-  assert.match(surface, /selectedViewerSource/);
+  assert.match(surface, /value === source\.id \? null : source\.id/);
   assert.match(surface, /Sources opened/);
   assert.match(surface, /readExternalSourceProgress/);
   assert.match(launcher, /markExternalSourceOpened/);
