@@ -183,7 +183,7 @@ def main() -> int:
         "schemaVersion": 1,
         "status": "staged",
         "generatedAt": retrieved_at,
-        "sources": [{"id": SOURCE_ID, "name": "Japan Foundation Irodori vocabulary", "type": "curriculum", "url": SOURCE_URL, "retrievedAt": retrieved_at, "sha256": sha256(args.input), "localFilename": args.input.name, "notes": "Official vocabulary reference; review terms before publishing derived content."}],
+        "sources": [{"id": SOURCE_ID, "name": "Japan Foundation Irodori vocabulary", "type": "curriculum", "license": "Japan Foundation Irodori terms; personal educational use", "url": SOURCE_URL, "retrievedAt": retrieved_at, "sha256": sha256(args.input), "localFilename": args.input.name, "notes": "Official vocabulary reference; review terms before publishing derived content."}],
         "records": {"vocabulary": vocabulary, "kanji": [], "grammar": [], "tatoebaExamples": []},
         "stats": {"vocabulary": len(vocabulary), "kanji": 0, "grammar": 0, "tatoebaExamples": 0},
     }

@@ -95,7 +95,7 @@ def main() -> int:
         "schemaVersion": 1,
         "status": "staged",
         "generatedAt": retrieved_at,
-        "sources": [{"id": SOURCE_ID, "name": "Japan Foundation Irodori kanji", "type": "curriculum", "url": SOURCE_URL, "retrievedAt": retrieved_at, "sha256": sha256(args.input), "localFilename": args.input.name, "notes": "Official kanji progression reference; dictionary facts require review before publishing."}],
+        "sources": [{"id": SOURCE_ID, "name": "Japan Foundation Irodori kanji", "type": "curriculum", "license": "Japan Foundation Irodori terms; personal educational use", "url": SOURCE_URL, "retrievedAt": retrieved_at, "sha256": sha256(args.input), "localFilename": args.input.name, "notes": "Official kanji progression reference; dictionary facts require review before publishing."}],
         "records": {"vocabulary": [], "kanji": kanji, "grammar": [], "tatoebaExamples": []},
         "stats": {"vocabulary": 0, "kanji": len(kanji), "grammar": 0, "tatoebaExamples": 0},
     }

@@ -43,6 +43,8 @@ BASE_SOURCE = {
     "id": "michi-curated-n5-seed",
     "name": "Kizashi curated N5 seed",
     "type": "curriculum",
+    "license": "Kizashi-authored content",
+    "attribution": "Kizashi",
     "notes": "Original authored curriculum and examples.",
 }
 
@@ -359,7 +361,15 @@ def main() -> int:
         }],
     })
     course["chapters"] = chapters
-    source_manifest_by_id = {text(entry.get("id")): entry for entry in source_manifest if text(entry.get("id"))}
+    source_manifest_by_id: dict[str, dict[str, Any]] = {}
+    for entry in source_manifest:
+        source_id = text(entry.get("id"))
+        if not source_id:
+            continue
+        source_manifest_by_id[source_id] = {
+            **source_manifest_by_id.get(source_id, {}),
+            **{key: value for key, value in entry.items() if value not in (None, "", [])},
+        }
     module["sourceManifest"] = list(source_manifest_by_id.values())
     module["status"] = "staged"
     module["level"] = module.get("level") or course.get("jlptLevel")

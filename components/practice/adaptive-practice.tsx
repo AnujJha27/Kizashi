@@ -30,11 +30,12 @@ function priority(question: PracticeQuestion, now: number, records: ReturnType<t
   const questionStats = stats[question.id];
   const accuracy = record ? record.correct / Math.max(record.attempts, 1) : 0;
   const passWeight = passMode ? ({ listening: 4, reading: 3, grammar: 2, kanji: 1, vocabulary: 0 }[question.category] ?? 0) + (question.jlptLevel === "N5" ? 1 : 0) : 0;
-  return (mistake?.count ?? 0) * 6 + (studyLater.has(question.itemId) ? 5 : 0) + (record && record.dueAt <= now ? 4 : 0) + (questionStats?.slowCount ?? 0) * 2 + (!record ? 2 : 0) + (record ? 1 - accuracy : 0) + stagePriority(question, record) + passWeight + ijasBoostForQuestion(question, items, aggregates) - (questionStats?.ambiguityReports ?? 0) * 4;
+  return (mistake?.count ?? 0) * 6 + (studyLater.has(question.itemId) ? 5 : 0) + (record && record.dueAt <= now ? 4 : 0) + (questionStats?.slowCount ?? 0) * 2 + (!record ? 2 : 0) + (record ? 1 - accuracy : 0) + stagePriority(question, record) + passWeight + ijasBoostForQuestion(question, items, aggregates) - (questionStats?.ambiguityReports ?? 0) * 4 - (questionStats?.attempts ?? 0) * 0.25;
 }
 
 export function AdaptivePractice({ questions, vocabulary = [], kanji = [], items = [], learnerErrorAggregates = [], limit, passMode = false }: Readonly<{ questions: PracticeQuestion[]; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[]; items?: LearningItem[]; learnerErrorAggregates?: IjasAggregate[]; limit?: number; passMode?: boolean }>) {
   const [ordered, setOrdered] = useState<PracticeQuestion[] | null>(null);
+  const [session, setSession] = useState(0);
 
   useEffect(() => {
     const records = readReviewRecords();
@@ -45,8 +46,8 @@ export function AdaptivePractice({ questions, vocabulary = [], kanji = [], items
     const itemMap = new Map(items.map((item) => [item.id, item]));
     const ranked = [...questions].sort((left, right) => priority(right, now, records, mistakes, stats, studyLater, itemMap, learnerErrorAggregates, passMode) - priority(left, now, records, mistakes, stats, studyLater, itemMap, learnerErrorAggregates, passMode));
     setOrdered(limit ? ranked.slice(0, limit) : ranked);
-  }, [items, learnerErrorAggregates, limit, passMode, questions]);
+  }, [items, learnerErrorAggregates, limit, passMode, questions, session]);
 
   if (ordered === null) return <div className="min-h-80 animate-pulse rounded-xl bg-[#17181d]" aria-label="Building your practice queue" />;
-  return <PracticePlayer questions={ordered} vocabulary={vocabulary} kanji={kanji} />;
+  return <PracticePlayer key={session} questions={ordered} vocabulary={vocabulary} kanji={kanji} onRestart={() => setSession((value) => value + 1)} />;
 }

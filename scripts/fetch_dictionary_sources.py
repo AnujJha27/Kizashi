@@ -65,6 +65,7 @@ SOURCES = {
         "optional": True,
     },
     "bccwj-suw": {
+        "name": "NINJAL BCCWJ frequency list (SUW)",
         "filename": "BCCWJ_frequencylist_suw_ver1_0.zip",
         "url": "https://repository.ninjal.ac.jp/record/3234/files/BCCWJ_frequencylist_suw_ver1_0.zip",
         "type": "frequency",
