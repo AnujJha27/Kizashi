@@ -8,8 +8,8 @@ import { ExternalSourceViewer } from "@/components/learning/external-source-view
 import { JapaneseText } from "@/components/learning/japanese-text";
 import { externalResourceToSourceLink } from "@/components/learning/external-source-launcher";
 import { readExternalSourceProgress } from "@/lib/external-source-progress.js";
-import { getEarWarmup, getListeningClipMetadata, selectImmersionClips } from "@/lib/immersion-core.js";
-import { readReviewRecords, type ReviewRecord } from "@/lib/session";
+import { getEarWarmup, getImmersionReason, getListeningClipMetadata, selectImmersionClips } from "@/lib/immersion-core.js";
+import { readMistakes, readReviewRecords, type MistakeRecord, type ReviewRecord } from "@/lib/session";
 import type { ListeningItem, ListeningMode } from "@/lib/types";
 import { getErinLessonResources, getExternalResources } from "@/lib/external-resources";
 
@@ -27,6 +27,7 @@ function coverageLabel(value: number) {
 export function ImmersionSurface() {
   const module = useContentModule();
   const [records, setRecords] = useState<Record<string, ReviewRecord>>({});
+  const [mistakes, setMistakes] = useState<Record<string, MistakeRecord>>({});
   const [mode, setMode] = useState<ListeningMode>("guided");
   const [warmup, setWarmup] = useState(false);
   const [position, setPosition] = useState(0);
@@ -41,10 +42,11 @@ export function ImmersionSurface() {
   const [sourceProgress, setSourceProgress] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
-    const refresh = () => setRecords(readReviewRecords());
+    const refresh = () => { setRecords(readReviewRecords()); setMistakes(readMistakes()); };
     refresh();
     window.addEventListener("michi-review-updated", refresh);
-    return () => window.removeEventListener("michi-review-updated", refresh);
+    window.addEventListener("michi-mistakes-updated", refresh);
+    return () => { window.removeEventListener("michi-review-updated", refresh); window.removeEventListener("michi-mistakes-updated", refresh); };
   }, []);
 
   useEffect(() => {
@@ -57,7 +59,7 @@ export function ImmersionSurface() {
   const known = useMemo(() => knownIds(records), [records]);
   const itemMap = useMemo(() => new Map([...module.vocabulary, ...module.grammar, ...module.kanji].map((item) => [item.id, item])), [module.grammar, module.kanji, module.vocabulary]);
   const warmupClips = useMemo(() => getEarWarmup(module.listening, known), [known, module.listening]);
-  const clips = useMemo(() => warmup ? warmupClips : selectImmersionClips(module.listening, mode, known, 12), [known, mode, module.listening, warmup, warmupClips]);
+  const clips = useMemo(() => warmup ? warmupClips : selectImmersionClips(module.listening, mode, known, 12, { mistakes, sourceProgress }), [known, mode, module.listening, mistakes, sourceProgress, warmup, warmupClips]);
   const clipIds = clips.map((clip) => clip.id).join("|");
   const clip = clips[position] as ListeningItem | undefined;
   const metadata = clip ? getListeningClipMetadata(clip, itemMap, known) : null;
@@ -102,7 +104,7 @@ export function ImmersionSurface() {
     </section>
 
     <section className="surface-panel overflow-hidden p-6 sm:p-9">
-      <div className="flex flex-wrap items-center justify-between gap-3"><div><p className="eyebrow">{metadata.context} · {metadata.naturalness} speech</p><h3 className="mt-1 text-2xl font-medium text-[#f5f5f2]">{clip.title}</h3></div><div className="flex flex-wrap gap-2 text-[10px] uppercase tracking-[.12em] text-[#676c75]"><span>{metadata.source}</span><span>{metadata.level}</span><span>{coverageLabel(Math.max(metadata.vocabularyCoverage, metadata.grammarCoverage))}</span></div></div>
+      <div className="flex flex-wrap items-center justify-between gap-3"><div><p className="eyebrow">{metadata.context} · {metadata.naturalness} speech</p><h3 className="mt-1 text-2xl font-medium text-[#f5f5f2]">{clip.title}</h3><p className="mt-2 text-xs text-[#e5b85c]">{getImmersionReason(clip, known, mistakes)}</p></div><div className="flex flex-wrap gap-2 text-[10px] uppercase tracking-[.12em] text-[#676c75]"><span>{metadata.source}</span><span>{metadata.level}</span><span>{coverageLabel(Math.max(metadata.vocabularyCoverage, metadata.grammarCoverage))}</span></div></div>
       <AudioControls text={clip.transcript} externalUrl={clip.audioUrl} metadata={clip.audio} className="mt-6" />
       {transcriptVisible ? <div className="mt-6 rounded-xl border border-white/10 bg-[#101b2b]/70 p-4"><p className="eyebrow mb-2">Transcript</p><p className="jp-serif whitespace-pre-line text-lg leading-8 text-[#f5f5f2]"><JapaneseText text={clip.transcript} vocabulary={module.vocabulary} kanji={module.kanji} always /></p></div> : <div className="mt-6 rounded-xl border border-[#3f4652] bg-[#101b2b]/40 p-4 text-sm text-[#9297a1]">Audio first. Try the question before revealing the transcript.</div>}
       <div className="mt-7 rounded-xl border border-[#3f4652] bg-[#101b2b]/45 p-4"><p className="jp-serif text-sm text-[#f5f5f2]"><JapaneseText text={question.prompt} vocabulary={module.vocabulary} kanji={module.kanji} always /></p><div className="mt-3 grid gap-2 sm:grid-cols-2">{question.answers.map((answer, index) => <button key={`${answer}-${index}`} type="button" onClick={() => !submitted && setSelected(index)} disabled={submitted} aria-pressed={selected === index} className={`jp-serif rounded-lg border px-3 py-2.5 text-left text-sm ${selected === index ? "border-[#e34a3f] bg-[#3a2023] text-[#f5f5f2]" : "border-white/10 bg-[#17181d]/70 text-[#c3c7ce] hover:border-[#e5b85c]"}`}><JapaneseText text={answer} vocabulary={module.vocabulary} kanji={module.kanji} always /></button>)}</div><div className="mt-4 flex flex-wrap gap-2"><button type="button" disabled={selected === null || submitted} onClick={() => setSubmitted(true)} className="rounded-lg bg-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#0b0b0d] disabled:cursor-not-allowed disabled:opacity-40">Answer</button>{mode !== "guided" && submitted && !showTranscript ? <button type="button" onClick={() => setShowTranscript(true)} className="rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce] hover:border-[#e5b85c]">Show transcript</button> : null}</div>{submitted ? <p className={`mt-3 text-sm ${selected === question.correctAnswer ? "text-[#8bcca6]" : "text-[#ef675d]"}`} role="status">{selected === question.correctAnswer ? "Correct." : `Not quite. ${question.explanation ?? "Review the transcript and try the pattern again."}`}</p> : null}</div>

@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 
 import { PracticePlayer } from "@/components/practice/practice-player";
 import { selectWeakPracticeQuestions } from "@/lib/weak-practice.js";
-import { readMistakes, readReviewRecords } from "@/lib/session";
+import { completeRepair, readMistakes, readReviewRecords } from "@/lib/session";
 import type { IjasAggregate, KanjiItem, LearningItem, PracticeQuestion, VocabularyItem } from "@/lib/types";
 
-export function WeakPractice({ questions, vocabulary = [], kanji = [], items = [], learnerErrorAggregates = [] }: Readonly<{ questions: PracticeQuestion[]; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[]; items?: LearningItem[]; learnerErrorAggregates?: IjasAggregate[] }>) {
+export function WeakPractice({ questions, vocabulary = [], kanji = [], items = [], learnerErrorAggregates = [], repairId }: Readonly<{ questions: PracticeQuestion[]; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[]; items?: LearningItem[]; learnerErrorAggregates?: IjasAggregate[]; repairId?: string }>) {
   const [weakQuestions, setWeakQuestions] = useState<PracticeQuestion[] | null>(null);
 
   useEffect(() => {
@@ -16,5 +16,5 @@ export function WeakPractice({ questions, vocabulary = [], kanji = [], items = [
 
   if (weakQuestions === null) return <div className="min-h-80 animate-pulse rounded-xl bg-[#17181d]" aria-label="Loading weak areas" />;
 
-  return <PracticePlayer questions={weakQuestions.length ? weakQuestions : questions.slice(0, 7)} vocabulary={vocabulary} kanji={kanji} />;
+  return <PracticePlayer questions={weakQuestions.length ? weakQuestions : questions.slice(0, 7)} vocabulary={vocabulary} kanji={kanji} onComplete={() => { if (repairId) completeRepair(repairId); }} />;
 }

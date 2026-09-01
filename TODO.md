@@ -31,12 +31,17 @@ audio mirror is planned.
 - [ ] Manual phone/desktop viewport smoke test remains; it is a deployment
   verification step, not a source-integration blocker.
 
-## Integrated learning intelligence milestone — planned
+## Integrated learning intelligence milestone — core implementation complete
 
-Status: design direction agreed 2026-09-01. This milestone turns the existing
+Status: core implementation delivered 2026-09-01. This milestone turns the existing
 furigana renderer, mastery records, external-resource registry, immersion
 selection, and Practice player into one adaptive study loop. It does not create
 a second curriculum, question database, or source-ingestion system.
+
+The core stages are implemented and verified with the full repository test
+suite, TypeScript, production build, and diff checks. Remaining unchecked items
+are deliberate follow-up quality work: broader source coverage, richer repair
+cards, and manual phone/desktop smoke testing.
 
 ### Product decisions locked
 
@@ -77,21 +82,21 @@ silently dropping readings for words outside the current N5 item list.
   `JapaneseText`/reading helpers where appropriate; remove raw Japanese output
   from Immersion prompts, choices, feedback, Aozora reader text, and saved
   sentence views.
-- [ ] Extend the existing reading-resolution path to resolve longest useful
+- [x] Extend the existing reading-resolution path to resolve longest useful
   words first, then inflections/lemmas, then kanji readings only when the
   context is unambiguous. Keep JMdict/KANJIDIC2/Sudachi metadata as inputs;
   do not create a second dictionary database.
-- [ ] Add a resolved-reading result that distinguishes `resolved`,
+- [x] Add a resolved-reading result that distinguishes `resolved`,
   `unresolved`, and `not-applicable` text segments. Kana-only text should not
   be treated as an error.
-- [ ] Preserve punctuation, whitespace, speaker labels, line breaks, and
+- [x] Preserve punctuation, whitespace, speaker labels, line breaks, and
   original source text exactly while adding ruby annotations.
-- [ ] Keep furigana layout stable at desktop and narrow phone widths: no
+- [x] Keep furigana layout stable at desktop and narrow phone widths: no
   clipped `rt`, overlapping lines, horizontal scrolling, or broken wrapping.
-- [ ] Add the learner setting for full/unknown-only/hidden furigana using the
+- [x] Add the learner setting for full/unknown-only/hidden furigana using the
   existing session preference/event pattern. `always` remains available for
   guided surfaces that explicitly require readings.
-- [ ] Add a sentence-inspector interaction for Kizashi-controlled text:
+- [x] Add a sentence-inspector interaction for Kizashi-controlled text:
   tapping a resolved word shows reading, meaning, category, canonical entry,
   and source/provenance; tapping an unknown word offers a safe lookup or
   `Study later` action.
@@ -100,7 +105,7 @@ silently dropping readings for words outside the current N5 item list.
 - [ ] Make unresolved readings visible in development/Content Studio
   diagnostics with text and location, but keep normal learner UI calm and
   readable.
-- [ ] Add tests for multi-word longest-match behavior, inflected forms,
+- [x] Add tests for multi-word longest-match behavior, inflected forms,
   punctuation/newlines, kana-only text, unresolved words, furigana settings,
   and serialization of the original text.
 
@@ -109,23 +114,23 @@ silently dropping readings for words outside the current N5 item list.
 Goal: turn the learner's actual exam date and evidence-based weaknesses into
 one realistic next action.
 
-- [ ] Add an explicit local-first exam-plan setting: target exam level, exam
+- [x] Add an explicit local-first exam-plan setting: target exam level, exam
   date, daily-minute goal, available study days, and optional rest days.
-- [ ] Sync the setting only through the existing opt-in account snapshot; the
+- [x] Sync the setting only through the existing opt-in account snapshot; the
   app remains fully usable without auth or Supabase.
-- [ ] Calculate days remaining using a stable local-date representation so
+- [x] Calculate days remaining using a stable local-date representation so
   timezone changes and daylight-saving transitions do not shift the countdown.
-- [ ] Derive the daily recommendation from due reviews, current mastery,
+- [x] Derive the daily recommendation from due reviews, current mastery,
   timed accuracy, weak categories, exam section floors, and remaining days.
   Never display a fabricated pass probability.
-- [ ] Show one primary action on Journey: continue lesson, review due, repair a
+- [x] Show one primary action on Journey: continue lesson, review due, repair a
   weak concept, or run an integrated exam set. Keep the existing quick 2/5/10
   minute actions available.
-- [ ] Add a compact countdown and plan status to Journey/Profile, with an
+- [x] Add a compact countdown and plan status to Journey/Profile, with an
   honest state for no exam date, overdue plan, and insufficient evidence.
 - [ ] Allow the learner to pause/reset the plan without deleting mastery,
   mistakes, question history, or saved content.
-- [ ] Add tests for no-date, same-day, past-date, leap-day, timezone-boundary,
+- [x] Add tests for no-date, same-day, past-date, leap-day, timezone-boundary,
   low-evidence, and already-complete-plan states.
 
 ### 3. Coverage-based Immersion queue
@@ -133,9 +138,9 @@ one realistic next action.
 Goal: make Immersion choose the most useful next source item instead of acting
 as a static shelf.
 
-- [ ] Reuse `selectImmersionClips`, review records, the external-resource
+- [x] Reuse `selectImmersionClips`, review records, the external-resource
   registry, and source progress as the queue inputs.
-- [ ] Rank candidate items by known-word coverage, grammar coverage, recent
+- [x] Rank candidate items by known-word coverage, grammar coverage, recent
   mistakes, target skill, source difficulty, prior opens, and the current exam
   plan. Prefer understandable stretch material over random difficulty.
 - [ ] Start with a clear coverage band (roughly 80–95% familiar) and make the
@@ -146,7 +151,7 @@ as a static shelf.
   native reading, and corpus/source launchers for optional exposure.
 - [ ] Keep provider-hosted sources as launch/frame/link entries. The queue may
   recommend and track an item, but may not copy blocked pages or audio.
-- [ ] Add `Next recommended` and `Why this item` affordances showing a short
+- [x] Add `Next recommended` and `Why this item` affordances showing a short
   learner-facing reason such as `89% familiar · weak location questions`.
 - [ ] Preserve Ear Warm-up, Guided/Listen/Immersion modes, shadowing,
   transcript reveal, source attribution, and local opened/read progress.
@@ -159,38 +164,38 @@ as a static shelf.
 Goal: add a real blended-context exam mode rather than another random mix of
 single-concept questions.
 
-- [ ] Add a new explicit Practice mode, tentatively `integrated`, without
+- [x] Add a new explicit Practice mode, tentatively `integrated`, without
   changing the behavior of `mock`, `mini`, `section`, `full`, `pass`, `weak`,
   or quick practice.
-- [ ] Model an exam context/set with a stable ID, N5 level, stimulus type,
+- [x] Model an exam context/set with a stable ID, N5 level, stimulus type,
   original stimulus, estimated time, ordered question IDs, target item IDs,
   tested skills, and review notes.
-- [ ] Extend `PracticeQuestion` compatibly with optional context metadata:
+- [x] Extend `PracticeQuestion` compatibly with optional context metadata:
   `contextSetId`, `targetItemIds`, `testedSkills`, and an exact primary
   `itemId`/assessed concept. Existing persisted questions must continue to
   load unchanged.
-- [ ] Keep one stimulus tied to a coherent situation: restaurant dialogue,
+- [x] Keep one stimulus tied to a coherent situation: restaurant dialogue,
   timetable, store notice, short message/email, classroom exchange, map,
   schedule, or practical reading.
-- [ ] Make each set blend concepts across its questions, for example:
+- [x] Make each set blend concepts across its questions, for example:
   vocabulary meaning, particle use, polite-request interpretation, listening
   detail, and inferred next action.
-- [ ] Use question-level assessed concepts for mastery attribution while
+- [x] Use question-level assessed concepts for mastery attribution while
   retaining set-level target IDs for coverage and review context. Do not mark
   every concept in a set as definitively failed when one ambiguous question is
   missed.
-- [ ] Begin with a small reviewed N5 bank: at least one dialogue set, one
+- [x] Begin with a small reviewed N5 bank: at least one dialogue set, one
   practical-reading set, one notice/schedule set, and one listening set. Expand
   only after the set quality gate passes.
-- [ ] Calibrate timing and distribution against the official JLPT blueprint,
+- [x] Calibrate timing and distribution against the official JLPT blueprint,
   while labeling the result as Kizashi exam-style practice rather than an
   official JLPT simulation.
-- [ ] During an active integrated exam, hide furigana, translation, source
+- [x] During an active integrated exam, hide furigana, translation, source
   links, explanations, and non-requested hints. Preserve the existing answer
   timer/session-resume behavior.
-- [ ] In review, show the full context, furigana, correct reasoning, assessed
+- [x] In review, show the full context, furigana, correct reasoning, assessed
   concept, related target concepts, mistake signal, and a direct repair action.
-- [ ] Score overall, by broad skill/category, and by assessed concept. Keep
+- [x] Score overall, by broad skill/category, and by assessed concept. Keep
   `recordExamAttempt` backward-compatible and add optional context metadata to
   the existing attempt shape only where needed.
 - [ ] Add tests for context-set validation, target-ID preservation, question
@@ -202,7 +207,7 @@ single-concept questions.
 Goal: turn a missed integrated question into a short repair sequence instead of
 only adding another item to a generic weak list.
 
-- [ ] On a wrong/uncertain/slow integrated response, identify the assessed
+- [x] On a wrong/uncertain/slow integrated response, identify the assessed
   concept and retain the broader context IDs for explanation.
 - [ ] Generate a compact original repair card: one plain explanation, one
   minimal contrast, one new example, one answer, and one delayed follow-up.
@@ -210,11 +215,11 @@ only adding another item to a generic weak list.
   aggregate warnings, existing question validation, and the learner's actual
   mistake record. Corpus evidence may prioritize a repair but may not become
   the grammar rule.
-- [ ] Use the existing review scheduler and mastery signals; do not create a
+- [x] Use the existing review scheduler and mastery signals; do not create a
   second repair scheduler.
-- [ ] Add a `Repair now` action in integrated-exam review, Mistake Notebook,
+- [x] Add a `Repair now` action in integrated-exam review, Mistake Notebook,
   Journey's next-action card, and the existing weak-practice entry point.
-- [ ] Record whether the learner completed the repair and whether the delayed
+- [x] Record whether the learner completed the repair and whether the delayed
   follow-up succeeded, without overwriting the original exam result.
 - [ ] Keep repair content original or already-reviewed. Never transform a
   Tadoku work, copy provider-hosted lesson text, or publish raw corpus content.
@@ -236,7 +241,7 @@ only adding another item to a generic weak list.
 
 ### Shared failure behavior and non-goals
 
-- [ ] No reading resolver, source API, external frame, or optional media
+- [x] No reading resolver, source API, external frame, or optional media
   failure may blank a core lesson or lose learner progress.
 - [ ] Keep all source provenance, review status, `sourceIds`, and
   `fieldSourceIds` intact through sentence inspection, queue recommendations,
@@ -252,19 +257,19 @@ only adding another item to a generic weak list.
 
 ### Definition of done
 
-- [ ] Any Kizashi-controlled Japanese sentence can show trustworthy full
+- [x] Any Kizashi-controlled Japanese sentence can show trustworthy full
   furigana or an explicit unresolved-reading state.
-- [ ] The learner can set an exam date and receive one evidence-based daily
+- [x] The learner can set an exam date and receive one evidence-based daily
   next action.
-- [ ] Immersion recommends source-hosted material using actual knowledge and
+- [x] Immersion recommends source-hosted material using actual knowledge and
   weakness signals, with a working fallback when a source is unavailable.
-- [ ] Integrated exam sets blend multiple concepts around coherent original
+- [x] Integrated exam sets blend multiple concepts around coherent original
   contexts and produce concept-level review signals.
-- [ ] Exam mode is strict during attempts and fully explanatory afterward.
+- [x] Exam mode is strict during attempts and fully explanatory afterward.
 - [ ] Mistakes lead directly to a targeted repair and delayed follow-up.
-- [ ] Existing Practice, Review, SRS, source provenance, sync, and private-book
+- [x] Existing Practice, Review, SRS, source provenance, sync, and private-book
   behavior remain compatible.
-- [ ] Add focused unit tests plus one end-to-end fixture for each of the five
+- [x] Add focused unit tests plus one end-to-end fixture for each of the five
   core stages; run the full repository test suite, TypeScript check, production
   build, Python syntax checks, and `git diff --check`.
 - [ ] Complete a real phone/desktop smoke test for furigana wrapping, planner

@@ -18,6 +18,7 @@ const modes: { value: PracticeMode; label: string; jp: string }[] = [
   { value: "mini", label: "Mini test", jp: "小テスト" },
   { value: "section", label: "Section test", jp: "分野テスト" },
   { value: "full", label: "Full mock", jp: "本番模試" },
+  { value: "integrated", label: "Integrated context", jp: "文脈総合" },
   { value: "mock", label: "N5 sampler", jp: "模擬" },
   { value: "weak", label: "Weak areas", jp: "弱点" },
 ];
@@ -26,8 +27,8 @@ function isPracticeMode(value: string | undefined): value is PracticeMode {
   return modes.some((mode) => mode.value === value);
 }
 
-export default async function PracticePage({ searchParams }: { searchParams: Promise<{ mode?: string; duration?: string; focus?: string; section?: string; topic?: string }> }) {
-  const { mode: requestedMode, duration: requestedDuration, focus, section, topic } = await searchParams;
+export default async function PracticePage({ searchParams }: { searchParams: Promise<{ mode?: string; duration?: string; focus?: string; section?: string; topic?: string; repair?: string }> }) {
+  const { mode: requestedMode, duration: requestedDuration, focus, section, topic, repair } = await searchParams;
   const mode = isPracticeMode(requestedMode) ? requestedMode : "quick";
   const duration = ["2", "5", "10", "20", "30"].includes(requestedDuration ?? "") ? Number(requestedDuration) : 5;
   const activeSection = section === "grammar-reading" || section === "listening" ? section : "vocabulary";

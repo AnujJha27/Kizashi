@@ -4,13 +4,11 @@ import { useEffect, useState } from "react";
 
 import { readFuriganaMode, readReviewRecords, type FuriganaMode, type ReviewRecord } from "@/lib/session";
 import { toHiragana } from "@/lib/mastery";
+import { segmentJapaneseText } from "@/lib/japanese-text-core.js";
 import type { KanjiItem, VocabularyItem } from "@/lib/types";
 
-function escapeRegExp(value: string) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
 const godanIRow: Record<string, [string, string]> = { "う": ["い", "い"], "く": ["き", "き"], "ぐ": ["ぎ", "ぎ"], "す": ["し", "し"], "つ": ["ち", "ち"], "ぬ": ["に", "に"], "ぶ": ["び", "び"], "む": ["み", "み"], "る": ["り", "り"] };
+const reviewedReadingHints: [string, string][] = [["お客さん", "おきゃくさん"], ["飲み物", "のみもの"], ["午後", "ごご"], ["午前", "ごぜん"]];
 
 function verbAliases(item: VocabularyItem) {
   if (!/verb/u.test(item.partOfSpeech)) return [] as [string, string][];
@@ -88,16 +86,18 @@ export function getJapaneseReadingEntries(vocabulary: VocabularyItem[], kanji: K
   });
   kanji.forEach((item) => {
     item.usefulWords.forEach((word) => { if (!entries.has(word.word)) entries.set(word.word, toHiragana(word.reading)); });
-    const reading = toHiragana(item.kunyomi[0] ?? item.onyomi[0] ?? "");
-    if (reading && !entries.has(item.character)) entries.set(item.character, reading);
+    const readings = [...new Set([...item.kunyomi, ...item.onyomi].map(toHiragana).filter(Boolean))];
+    if (readings.length === 1 && !entries.has(item.character)) entries.set(item.character, readings[0]);
   });
+  reviewedReadingHints.forEach(([word, reading]) => { if (!entries.has(word)) entries.set(word, reading); });
   return [...entries.entries()].sort((left, right) => right[0].length - left[0].length);
 }
 
-export function JapaneseText({ text, vocabulary, kanji = [], className = "", always = false }: Readonly<{ text: string; vocabulary: VocabularyItem[]; kanji?: KanjiItem[]; className?: string; always?: boolean }>) {
-  const [mode, setMode] = useState<FuriganaMode>("unknown");
+export function JapaneseText({ text, vocabulary, kanji = [], className = "", always = false, inspect = true }: Readonly<{ text: string; vocabulary: VocabularyItem[]; kanji?: KanjiItem[]; className?: string; always?: boolean; inspect?: boolean }>) {
+  const [mode, setMode] = useState<FuriganaMode>("always");
   const [records, setRecords] = useState<Record<string, ReviewRecord>>({});
   const [tapped, setTapped] = useState(false);
+  const [inspected, setInspected] = useState<string | null>(null);
   useEffect(() => {
     const refresh = () => { setMode(readFuriganaMode()); setRecords(readReviewRecords()); };
     refresh();
@@ -106,15 +106,24 @@ export function JapaneseText({ text, vocabulary, kanji = [], className = "", alw
     return () => { window.removeEventListener("michi-profile-updated", refresh); window.removeEventListener("michi-review-updated", refresh); };
   }, []);
   const entries = getJapaneseReadingEntries(vocabulary, kanji);
-  if (!entries.length) return <span className={className}>{text}</span>;
-  const readings = new Map(entries);
   const masteryByWord = new Map<string, string>();
+  const itemsByWord = new Map<string, VocabularyItem | KanjiItem>();
   vocabulary.forEach((item) => masteryByWord.set(item.writtenForm, item.id));
+  vocabulary.forEach((item) => itemsByWord.set(item.writtenForm, item));
   kanji.forEach((item) => {
     masteryByWord.set(item.character, item.id);
+    itemsByWord.set(item.character, item);
     item.usefulWords.forEach((word) => { if (!masteryByWord.has(word.word)) masteryByWord.set(word.word, item.id); });
+    item.usefulWords.forEach((word) => { if (!itemsByWord.has(word.word)) itemsByWord.set(word.word, item); });
   });
-  const parts = text.split(new RegExp(`(${entries.map(([word]) => escapeRegExp(word)).join("|")})`, "gu"));
-  const showReading = (part: string) => { if (always || mode === "always") return true; if (mode === "hide") return false; if (mode === "tap") return tapped; const itemId = masteryByWord.get(part); return !itemId || !["stable", "strong"].includes(records[itemId]?.masteryState ?? ""); };
-  return <span className={`japanese-text ${className}`.trim()} onClick={mode === "tap" ? () => setTapped((value) => !value) : undefined}>{parts.map((part, index) => readings.has(part) && showReading(part) ? <ruby key={`${part}-${index}`}>{part}<rt className="text-[.42em] font-normal tracking-normal text-[#e5b85c]">{readings.get(part)}</rt></ruby> : <span key={`${part}-${index}`}>{part}</span>)}</span>;
+  const segments = segmentJapaneseText(text, entries.map(([word, reading]) => ({ text: word, reading, itemId: masteryByWord.get(word) })));
+  const showReading = (part: (typeof segments)[number]) => { if (always || mode === "always") return part.status === "resolved"; if (mode === "hide") return false; if (mode === "tap") return tapped && part.status === "resolved"; const itemId = part.itemId; return part.status === "resolved" && (!itemId || !["stable", "strong"].includes(records[itemId]?.masteryState ?? "")); };
+  const inspectedItem = inspected ? [...itemsByWord.entries()].find(([word]) => word === inspected)?.[1] : undefined;
+  const inspectedSegment = inspected ? segments.find((segment: { text: string; status: string; reading?: string }) => segment.text === inspected) : undefined;
+  const renderPart = (part: (typeof segments)[number], index: number) => {
+    const content = showReading(part) ? <ruby>{part.text}<rt className="text-[.42em] font-normal tracking-normal text-[#e5b85c]">{part.reading}</rt></ruby> : part.text;
+    if (!inspect || part.status === "not-applicable") return <span key={`${part.text}-${index}`}>{content}</span>;
+    return <button type="button" key={`${part.text}-${index}`} onClick={(event) => { event.stopPropagation(); setInspected(inspected === part.text ? null : part.text); }} className="rounded px-0.5 hover:bg-[#302818]" aria-label={`Inspect ${part.text}`}>{content}</button>;
+  };
+  return <span className={`japanese-text ${className}`.trim()} onClick={mode === "tap" ? () => setTapped((value) => !value) : undefined}>{segments.map(renderPart)}{inspectedItem ? <span className="ml-3 inline-block rounded-lg border border-[#4b3a29] bg-[#211d18] px-2 py-1 align-middle text-left text-xs" role="status"><span className="jp-serif text-[#e5b85c]">{"writtenForm" in inspectedItem ? inspectedItem.writtenForm : inspectedItem.character}</span><span className="ml-2 text-[#c3c7ce]">{inspectedItem.meanings.join(" · ")}</span><span className="ml-2 text-[#676c75]">{inspectedItem.category} · {(inspectedItem.sourceIds ?? []).join(", ")}</span></span> : inspectedSegment?.status === "resolved" ? <span className="ml-3 inline-flex items-center gap-2 rounded-lg border border-[#4b3a29] bg-[#211d18] px-2 py-1 align-middle text-left text-xs" role="status"><span className="jp-serif text-[#e5b85c]">{inspected}</span><span className="text-[#9297a1]">{inspectedSegment.reading}</span></span> : inspected ? <span className="ml-3 inline-flex items-center gap-2 rounded-lg border border-[#4b3a29] bg-[#211d18] px-2 py-1 align-middle text-left text-xs" role="status"><span className="jp-serif text-[#e5b85c]">{inspected}</span><span className="text-[#9297a1]">Reading unavailable</span><button type="button" onClick={() => void navigator.clipboard?.writeText(inspected)} className="text-[#e5b85c] underline underline-offset-2">Copy for lookup</button></span> : null}</span>;
 }

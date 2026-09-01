@@ -1,5 +1,7 @@
 import { mergeSyncSnapshots } from "@/lib/supabase/sync-core.js";
 import { CONTENT_FLAGS_STORAGE_KEY } from "@/lib/content-flags.js";
+import { buildRepairPlan } from "@/lib/repair-core.js";
+import { normalizeExamPlan } from "@/lib/exam-plan-core.js";
 import type { AnswerConfidence, CurrentLessonState, QuestionStats } from "@/lib/types";
 
 export type { QuestionStats } from "@/lib/types";
@@ -16,12 +18,13 @@ export const STUDY_LATER_STORAGE_KEY = "michi.study-later";
 export const PRACTICE_SESSION_STORAGE_KEY = "michi.practice-session";
 export const PROFILE_PREFERENCES_STORAGE_KEY = "michi.profile-preferences";
 export const EXAM_ATTEMPTS_STORAGE_KEY = "michi.exam-attempts";
+export const REPAIR_STORAGE_KEY = "michi.repair-records";
 export const CUSTOM_ENTRIES_STORAGE_KEY = "michi.custom-entries";
 export const BOOK_NOTES_STORAGE_KEY = "michi.book-notes";
 export const BOOK_SCREENSHOTS_STORAGE_KEY = "michi.book-screenshots";
 export const SYNC_ENABLED_STORAGE_KEY = "michi.sync-enabled";
 
-const BACKUP_KEYS = [CURRENT_LESSON_STORAGE_KEY, REVIEW_STORAGE_KEY, NOTES_STORAGE_KEY, MISTAKES_STORAGE_KEY, DIAGNOSTIC_STORAGE_KEY, QUESTION_STATS_STORAGE_KEY, STUDY_STATS_STORAGE_KEY, SAVED_SENTENCES_STORAGE_KEY, STUDY_LATER_STORAGE_KEY, PROFILE_PREFERENCES_STORAGE_KEY, EXAM_ATTEMPTS_STORAGE_KEY, CUSTOM_ENTRIES_STORAGE_KEY, BOOK_NOTES_STORAGE_KEY, BOOK_SCREENSHOTS_STORAGE_KEY, CONTENT_FLAGS_STORAGE_KEY, "michi.content-draft", "michi.question-draft"] as const;
+const BACKUP_KEYS = [CURRENT_LESSON_STORAGE_KEY, REVIEW_STORAGE_KEY, NOTES_STORAGE_KEY, MISTAKES_STORAGE_KEY, DIAGNOSTIC_STORAGE_KEY, QUESTION_STATS_STORAGE_KEY, STUDY_STATS_STORAGE_KEY, SAVED_SENTENCES_STORAGE_KEY, STUDY_LATER_STORAGE_KEY, PROFILE_PREFERENCES_STORAGE_KEY, EXAM_ATTEMPTS_STORAGE_KEY, REPAIR_STORAGE_KEY, CUSTOM_ENTRIES_STORAGE_KEY, BOOK_NOTES_STORAGE_KEY, BOOK_SCREENSHOTS_STORAGE_KEY, CONTENT_FLAGS_STORAGE_KEY, "michi.content-draft", "michi.question-draft"] as const;
 
 function isBackupKey(key: string) {
   return BACKUP_KEYS.includes(key as (typeof BACKUP_KEYS)[number]) || key.startsWith(`${PRACTICE_SESSION_STORAGE_KEY}.`) || key.startsWith("michi.book-review.");
@@ -64,6 +67,7 @@ export function createLocalSyncSnapshot() {
     [SAVED_SENTENCES_STORAGE_KEY]: "savedSentences",
     [STUDY_LATER_STORAGE_KEY]: "studyLaterIds",
     [EXAM_ATTEMPTS_STORAGE_KEY]: "examAttempts",
+    [REPAIR_STORAGE_KEY]: "repairRecords",
     [CUSTOM_ENTRIES_STORAGE_KEY]: "customEntries",
     [BOOK_NOTES_STORAGE_KEY]: "bookNotes",
     [CONTENT_FLAGS_STORAGE_KEY]: "contentFlags",
@@ -101,6 +105,7 @@ export function applyLocalSyncSnapshot(snapshot: unknown) {
     savedSentences: SAVED_SENTENCES_STORAGE_KEY,
     studyLaterIds: STUDY_LATER_STORAGE_KEY,
     examAttempts: EXAM_ATTEMPTS_STORAGE_KEY,
+    repairRecords: REPAIR_STORAGE_KEY,
     customEntries: CUSTOM_ENTRIES_STORAGE_KEY,
     bookNotes: BOOK_NOTES_STORAGE_KEY,
     contentFlags: CONTENT_FLAGS_STORAGE_KEY,
@@ -113,7 +118,7 @@ export function applyLocalSyncSnapshot(snapshot: unknown) {
   });
   if (typeof values.practiceSessions === "object" && values.practiceSessions !== null && !Array.isArray(values.practiceSessions)) Object.entries(values.practiceSessions as Record<string, unknown>).forEach(([id, value]) => { window.localStorage.setItem(`${PRACTICE_SESSION_STORAGE_KEY}.${id}`, JSON.stringify(value)); restored += 1; });
   if (typeof values.lessonStates === "object" && values.lessonStates !== null && !Array.isArray(values.lessonStates)) Object.entries(values.lessonStates as Record<string, unknown>).forEach(([id, value]) => { window.localStorage.setItem(`${CURRENT_LESSON_STORAGE_KEY}.${id}`, JSON.stringify(value)); restored += 1; });
-  ["michi-profile-updated", "michi-review-updated", "michi-study-stats-updated", "michi-question-stats-updated", "michi-lesson-updated", "michi-custom-entries-updated", "michi-book-notes-updated", "michi-content-flagged-updated"].forEach((eventName) => window.dispatchEvent(new Event(eventName)));
+  ["michi-profile-updated", "michi-review-updated", "michi-study-stats-updated", "michi-question-stats-updated", "michi-lesson-updated", "michi-custom-entries-updated", "michi-book-notes-updated", "michi-content-flagged-updated", "michi-repair-updated"].forEach((eventName) => window.dispatchEvent(new Event(eventName)));
   return restored;
 }
 
@@ -174,6 +179,8 @@ export interface MistakeRecord {
   lastSeenAt: number;
   lastQuestionType?: string;
   questionTypes?: Record<string, number>;
+  contextSetId?: string;
+  targetItemIds?: string[];
 }
 
 export interface DiagnosticResult {
@@ -194,13 +201,35 @@ export interface StudyStats {
 export interface ExamAttempt {
   attemptId: string;
   level: "N5";
-  section: "sampler" | "diagnostic" | "mini" | "section" | "full";
+  section: "sampler" | "diagnostic" | "mini" | "section" | "full" | "integrated";
   questionsAttempted: number;
   correct: number;
   duration: number;
   categoryBreakdown: Record<string, { correct: number; total: number }>;
   weakTopics: string[];
   completedAt: number;
+  contextSetId?: string;
+  conceptBreakdown?: Record<string, { correct: number; total: number }>;
+}
+
+export interface ExamPlanPreferences {
+  targetLevel: "N5" | "N4";
+  examDate: string;
+  dailyMinutes: number;
+  availableStudyDays: number[];
+  restDays: number[];
+}
+
+export interface RepairRecord {
+  id: string;
+  itemId: string;
+  questionId: string;
+  contextSetId?: string;
+  targetItemIds: string[];
+  followUpDueAt: number;
+  status: "started" | "completed";
+  startedAt?: number;
+  completedAt?: number;
 }
 
 export interface SavedSentence {
@@ -358,13 +387,13 @@ export function readMistakes(): Record<string, MistakeRecord> {
   }
 }
 
-export function recordMistake(itemId: string, questionType?: string) {
+export function recordMistake(itemId: string, questionType?: string, contextSetId?: string, targetItemIds: string[] = []) {
   if (typeof window === "undefined") return;
   const mistakes = readMistakes();
   const previous = mistakes[itemId];
   const questionTypes = { ...(previous?.questionTypes ?? {}) };
   if (questionType) questionTypes[questionType] = (questionTypes[questionType] ?? 0) + 1;
-  mistakes[itemId] = { itemId, count: (previous?.count ?? 0) + 1, lastSeenAt: Date.now(), lastQuestionType: questionType ?? previous?.lastQuestionType, questionTypes };
+  mistakes[itemId] = { itemId, count: (previous?.count ?? 0) + 1, lastSeenAt: Date.now(), lastQuestionType: questionType ?? previous?.lastQuestionType, questionTypes, ...(contextSetId ? { contextSetId } : {}), ...(targetItemIds.length ? { targetItemIds: [...new Set(targetItemIds)] } : {}) };
   window.localStorage.setItem(MISTAKES_STORAGE_KEY, JSON.stringify(mistakes));
   window.dispatchEvent(new Event("michi-mistakes-updated"));
 }
@@ -400,6 +429,45 @@ export function recordExamAttempt(attempt: ExamAttempt) {
   if (typeof window === "undefined") return;
   window.localStorage.setItem(EXAM_ATTEMPTS_STORAGE_KEY, JSON.stringify([attempt, ...readExamAttempts()].slice(0, 30)));
   window.dispatchEvent(new Event("michi-exam-attempt-updated"));
+}
+
+export function readExamPlanPreferences(): ExamPlanPreferences {
+  if (typeof window === "undefined") return normalizeExamPlan({}) as ExamPlanPreferences;
+  try {
+    return normalizeExamPlan(JSON.parse(window.localStorage.getItem(PROFILE_PREFERENCES_STORAGE_KEY) ?? "{}")) as ExamPlanPreferences;
+  } catch {
+    return normalizeExamPlan({}) as ExamPlanPreferences;
+  }
+}
+
+export function readRepairRecords(): RepairRecord[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const value = JSON.parse(window.localStorage.getItem(REPAIR_STORAGE_KEY) ?? "[]");
+    return Array.isArray(value) ? value as RepairRecord[] : [];
+  } catch {
+    return [];
+  }
+}
+
+export function startRepair(question: { id: string; itemId: string; contextSetId?: string; targetItemIds?: string[] }) {
+  if (typeof window === "undefined") return null;
+  const plan = buildRepairPlan(question, Date.now()) as RepairRecord;
+  const records = readRepairRecords();
+  const existing = records.find((record) => record.id === plan.id);
+  if (!existing) {
+    window.localStorage.setItem(REPAIR_STORAGE_KEY, JSON.stringify([{ ...plan, startedAt: Date.now() }, ...records].slice(0, 50)));
+    window.dispatchEvent(new Event("michi-repair-updated"));
+  }
+  return plan.id;
+}
+
+export function completeRepair(repairId: string) {
+  if (typeof window === "undefined") return;
+  const records = readRepairRecords();
+  const next = records.map((record) => record.id === repairId ? { ...record, status: "completed" as const, completedAt: Date.now() } : record);
+  window.localStorage.setItem(REPAIR_STORAGE_KEY, JSON.stringify(next));
+  window.dispatchEvent(new Event("michi-repair-updated"));
 }
 
 export function readQuestionStats(): Record<string, QuestionStats> {
@@ -481,12 +549,12 @@ export function readDisplayName() {
 }
 
 export function readFuriganaMode(): FuriganaMode {
-  if (typeof window === "undefined") return "unknown";
+  if (typeof window === "undefined") return "always";
   try {
     const value = JSON.parse(window.localStorage.getItem(PROFILE_PREFERENCES_STORAGE_KEY) ?? "{}").furiganaMode;
-    return ["always", "unknown", "tap", "hide"].includes(value) ? value : "unknown";
+    return ["always", "unknown", "tap", "hide"].includes(value) ? value : "always";
   } catch {
-    return "unknown";
+    return "always";
   }
 }
 

@@ -9,7 +9,7 @@ export type LearningCategory =
 
 export type ItemType = LearningCategory;
 
-export type PracticeMode = "quick" | "vocabulary" | "kanji" | "grammar" | "reading" | "listening" | "mixed" | "mock" | "mini" | "section" | "full" | "pass" | "weak";
+export type PracticeMode = "quick" | "vocabulary" | "kanji" | "grammar" | "reading" | "listening" | "mixed" | "mock" | "mini" | "section" | "full" | "pass" | "weak" | "integrated";
 
 export type CurriculumBand = "core" | "extended" | "bridge";
 export type CurriculumConfidence = "high" | "medium" | "low";
@@ -148,6 +148,10 @@ export interface PracticeQuestion {
   audio?: AudioMetadata;
   audioUrl?: string | null;
   audioText?: string;
+  contextSetId?: string;
+  contextText?: string;
+  targetItemIds?: string[];
+  testedSkills?: string[];
 }
 
 export type JourneyNodeStatus = "locked" | "available" | "current" | "learned" | "mastered";

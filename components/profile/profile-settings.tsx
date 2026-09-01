@@ -14,9 +14,12 @@ interface Preferences {
   furiganaMode: FuriganaMode;
   answerLeniency: AnswerLeniency;
   autoPlayAudio: boolean;
+  availableStudyDays: number[];
+  restDays: number[];
 }
 
-const defaultPreferences: Preferences = { displayName: "", targetLevel: "N5", dailyMinutes: "10", examDate: "", furiganaMode: "unknown", answerLeniency: "kana", autoPlayAudio: false };
+const defaultPreferences: Preferences = { displayName: "", targetLevel: "N5", dailyMinutes: "10", examDate: "", furiganaMode: "always", answerLeniency: "kana", autoPlayAudio: false, availableStudyDays: [1, 2, 3, 4, 5], restDays: [] };
+const days = [[1, "Mon"], [2, "Tue"], [3, "Wed"], [4, "Thu"], [5, "Fri"], [6, "Sat"], [0, "Sun"]] as const;
 
 export function ProfileSettings() {
   const [preferences, setPreferences] = useState<Preferences>(defaultPreferences);
@@ -104,6 +107,21 @@ export function ProfileSettings() {
         <div className="mt-7 flex items-center justify-between gap-4 border-t border-[#292b31] pt-5">
           <p className="text-sm text-[#6fb98f]" role="status">{saved ? "Saved. Your path will use these preferences." : ""}</p>
           <button type="button" onClick={save} className="rounded-xl bg-[#e34a3f] px-4 py-3 text-sm font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">Save settings</button>
+        </div>
+      </section>
+      <section className="surface-panel p-6 sm:p-8">
+        <p className="eyebrow mb-2">Exam plan</p>
+        <h2 className="text-xl font-medium">Choose when the plan can ask for your attention.</h2>
+        <p className="mt-2 text-sm leading-6 text-[#9297a1]">The planner uses these days to pace reviews. It never deletes progress on rest days.</p>
+        <div className="mt-5 grid gap-5 sm:grid-cols-2">
+          <fieldset>
+            <legend className="text-sm text-[#9297a1]">Available study days</legend>
+            <div className="mt-2 flex flex-wrap gap-2">{days.map(([value, label]) => <label key={value} className="flex items-center gap-2 rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce]"><input type="checkbox" checked={preferences.availableStudyDays.includes(value)} onChange={() => { setSaved(false); setPreferences((current) => ({ ...current, availableStudyDays: current.availableStudyDays.includes(value) ? current.availableStudyDays.filter((day) => day !== value) : [...current.availableStudyDays, value] })); }} className="accent-[#e34a3f]" />{label}</label>)}</div>
+          </fieldset>
+          <fieldset>
+            <legend className="text-sm text-[#9297a1]">Optional rest days</legend>
+            <div className="mt-2 flex flex-wrap gap-2">{days.map(([value, label]) => <label key={value} className="flex items-center gap-2 rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce]"><input type="checkbox" checked={preferences.restDays.includes(value)} onChange={() => { setSaved(false); setPreferences((current) => ({ ...current, restDays: current.restDays.includes(value) ? current.restDays.filter((day) => day !== value) : [...current.restDays, value] })); }} className="accent-[#e34a3f]" />{label}</label>)}</div>
+          </fieldset>
         </div>
       </section>
       <section className="surface-panel-raised p-6">

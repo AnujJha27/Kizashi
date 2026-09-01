@@ -19,11 +19,11 @@ const categories = ["vocabulary", "kanji", "grammar", "reading", "listening"] as
 type Category = (typeof categories)[number];
 const collectionKeys = { vocabulary: "vocabulary", kanji: "kanji", grammar: "grammar", reading: "readings", listening: "listening" } as const;
 const practiceQuestionTypes: Record<Category, readonly string[]> = {
-  vocabulary: ["meaning", "contextual vocabulary", "paraphrase", "orthography", "kana recall", "Japanese recall", "audio recognition"],
+  vocabulary: ["meaning", "contextual vocabulary", "paraphrase", "orthography", "kana recall", "Japanese recall", "audio recognition", "integrated vocabulary", "schedule vocabulary", "notice vocabulary"],
   kanji: ["kanji reading", "kanji meaning", "reading in context", "word to kanji recall", "orthography", "kana recall", "kanji in context"],
-  grammar: ["meaning", "sentence completion", "sentence composition", "sentence ordering", "text grammar", "grammar in context"],
-  reading: ["short passage", "short passage detail", "mid-length passage", "information retrieval", "reading in context", "main idea", "sequence", "condition detail", "task-based response"],
-  listening: ["task-based response", "key point", "verbal expression", "quick response", "information retrieval"],
+  grammar: ["meaning", "sentence completion", "sentence composition", "sentence ordering", "text grammar", "grammar in context", "polite request", "particle choice", "inferred next action"],
+  reading: ["short passage", "short passage detail", "mid-length passage", "information retrieval", "reading in context", "main idea", "sequence", "condition detail", "task-based response", "inferred next action", "reading detail"],
+  listening: ["task-based response", "key point", "verbal expression", "quick response", "information retrieval", "listening detail"],
 };
 
 export const QUESTION_DRAFT_STORAGE_KEY = "michi.question-draft";

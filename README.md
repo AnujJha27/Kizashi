@@ -1,6 +1,6 @@
 # Kizashi
 
-Kizashi is a calm, dark-first Japanese-learning path. The current private preview includes the responsive shell, Journey, interactive N5 study/review loop, immersion/source shelf, browser Japanese speech, PWA shell, content validation, and Supabase-backed curriculum. Source integrations are organized by learning intent: Tae Kim/Wikibooks references, Commons/Lingua Libre human-pronunciation fallback, Irodori practical lessons, Tadoku graded reading, and rights-filtered Aozora native reading. External audio/text remains provider-hosted or dynamically fetched; it is not mirrored into Supabase Storage.
+Kizashi is a calm, dark-first Japanese-learning path. The current private preview includes the responsive shell, Journey, interactive N5 study/review loop, immersion/source shelf, browser Japanese speech, PWA shell, content validation, and Supabase-backed curriculum. It also includes full-coverage reading segmentation with sentence inspection, an exam-date plan, weakness-aware Immersion ordering, and deterministic integrated-context exam sets with targeted repair links. Source integrations are organized by learning intent: Tae Kim/Wikibooks references, Commons/Lingua Libre human-pronunciation fallback, Irodori practical lessons, Tadoku graded reading, and rights-filtered Aozora native reading. External audio/text remains provider-hosted or dynamically fetched; it is not mirrored into Supabase Storage.
 
 ## Local setup
 

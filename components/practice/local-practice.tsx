@@ -42,20 +42,23 @@ function useActiveQuestions(fallback: PracticeQuestion[]) {
 
 export function LocalPractice({ allQuestions, mode, duration, focus, section, topic }: Readonly<{ allQuestions: PracticeQuestion[]; mode: PracticeMode; duration: number; focus?: string; section?: string; topic?: string }>) {
   const { questions: activeQuestions, module } = useActiveQuestions(allQuestions);
+  const [repair, setRepair] = useState("");
+  useEffect(() => setRepair(new URLSearchParams(window.location.search).get("repair") ?? ""), []);
   const topicIds = topic ? getTopicItemIds([...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening], topic) : null;
   const scopedQuestions = topicIds ? activeQuestions.filter((question) => topicIds.has(question.itemId)) : activeQuestions;
   const focusedIds = focus ? new Set(module.grammarContrasts.find((contrast) => contrast.id === focus)?.grammarPointIds ?? []) : null;
   const focusQuestions = focusedIds?.size ? scopedQuestions.filter((question) => focusedIds.has(question.itemId)) : scopedQuestions;
-  const selected = mode === "weak" ? focusQuestions : mode === "section" && section === "vocabulary" ? [...selectPracticeQuestions("vocabulary", focusQuestions).slice(0, 8), ...selectPracticeQuestions("kanji", focusQuestions).slice(0, 4)] : mode === "section" && section === "grammar-reading" ? [...selectPracticeQuestions("grammar", focusQuestions).slice(0, 8), ...selectPracticeQuestions("reading", focusQuestions).slice(0, 6)] : mode === "section" && section === "listening" ? selectPracticeQuestions("listening", focusQuestions).slice(0, 10) : selectPracticeQuestions(mode, focusQuestions);
+  const repairQuestions = repair ? focusQuestions.filter((question) => question.id === repair || question.itemId === repair || question.targetItemIds?.includes(repair)) : focusQuestions;
+  const selected = mode === "weak" ? repairQuestions : mode === "section" && section === "vocabulary" ? [...selectPracticeQuestions("vocabulary", focusQuestions).slice(0, 8), ...selectPracticeQuestions("kanji", focusQuestions).slice(0, 4)] : mode === "section" && section === "grammar-reading" ? [...selectPracticeQuestions("grammar", focusQuestions).slice(0, 8), ...selectPracticeQuestions("reading", focusQuestions).slice(0, 6)] : mode === "section" && section === "listening" ? selectPracticeQuestions("listening", focusQuestions).slice(0, 10) : selectPracticeQuestions(mode, focusQuestions);
   const quickCount = quickPracticeCount(duration);
   const questions = mode === "quick" ? selected.slice(0, quickCount) : selected;
 
   const items = [...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening];
-  if (mode === "weak") return <WeakPractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} items={items} learnerErrorAggregates={module.learnerErrorAggregates} />;
+  if (mode === "weak") return <WeakPractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} items={items} learnerErrorAggregates={module.learnerErrorAggregates} repairId={repair ? `repair-${repair}` : undefined} />;
   if (mode === "pass") return <AdaptivePractice questions={filterExamLevelQuestions(focusQuestions)} vocabulary={module.vocabulary} kanji={module.kanji} items={items} learnerErrorAggregates={module.learnerErrorAggregates} limit={13} passMode />;
   if (mode === "quick") return <AdaptivePractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} items={items} learnerErrorAggregates={module.learnerErrorAggregates} />;
-  const examMode = ["mock", "mini", "section", "full"].includes(mode);
-  return <PracticePlayer questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} examMode={examMode} examLabel={mode === "full" ? "N5 full mock" : mode === "section" ? "N5 section test" : mode === "mini" ? "N5 mini test" : "N5 sampler"} sessionId={examMode ? `${mode}-test` : undefined} timeLimitSeconds={examMode ? Math.max(300, questions.length * 45) : undefined} />;
+  const examMode = ["mock", "mini", "section", "full", "integrated"].includes(mode);
+  return <PracticePlayer questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} examMode={examMode} examLabel={mode === "integrated" ? "N5 integrated context" : mode === "full" ? "N5 full mock" : mode === "section" ? "N5 section test" : mode === "mini" ? "N5 mini test" : "N5 sampler"} sessionId={examMode ? `${mode}-test` : undefined} timeLimitSeconds={examMode ? Math.max(300, questions.length * 45) : undefined} />;
 }
 
 export function LocalDiagnostic({ allQuestions }: Readonly<{ allQuestions: PracticeQuestion[] }>) {

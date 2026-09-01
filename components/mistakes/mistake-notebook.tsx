@@ -26,7 +26,8 @@ export function MistakeNotebook({ items: _items, grammarContrasts }: Readonly<{ 
     const refresh = () => setMistakes(readMistakes());
     refresh();
     window.addEventListener("michi-review-updated", refresh);
-    return () => window.removeEventListener("michi-review-updated", refresh);
+    window.addEventListener("michi-mistakes-updated", refresh);
+    return () => { window.removeEventListener("michi-review-updated", refresh); window.removeEventListener("michi-mistakes-updated", refresh); };
   }, []);
 
   if (!mistakes) return <div className="min-h-64 animate-pulse rounded-xl bg-[#17181d]" aria-label="Loading mistakes" />;

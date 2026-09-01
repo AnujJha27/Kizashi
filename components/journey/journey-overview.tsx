@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import { useContentModule } from "@/components/content/use-content-module";
 import { DailySession } from "@/components/journey/daily-session";
+import { ExamCountdown } from "@/components/profile/exam-countdown";
 import { InkField } from "@/components/journey/ink-field";
 import { JourneyMap } from "@/components/journey/journey-map";
 import { LessonProgress } from "@/components/journey/lesson-progress";
@@ -74,6 +75,8 @@ export function JourneyOverview() {
     </section>
 
     {lesson ? <div className="mb-8"><DailySession lessonId={lesson.id} items={lessonItems} allItems={allItems} /></div> : null}
+
+    <div className="mb-8"><ExamCountdown /></div>
 
     <div className="grid gap-6 lg:grid-cols-[1.25fr_.75fr]">
       <section>

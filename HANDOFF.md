@@ -2,11 +2,13 @@
 
 Date: 2026-09-01
 Status: The source-integration milestone is implemented on `main` at
-source implementation at `16639d5` and documentation synchronized in
+source implementation at `16639d5`; the core integrated-learning milestone
+is now implemented locally and will be pushed with this handoff update.
+Documentation for the source milestone is synchronized in
 `47fd417`; both are present on `origin/main`. Hosted migrations,
 seed, and the core curriculum remain verified. Remaining gates are a real
-browser phone/desktop viewport check, optional imported-content curation, and
-the deferred ServerTTS/audio-archive work.
+browser phone/desktop viewport check, optional imported-content curation, the
+richer repair-card follow-up, and the deferred ServerTTS/audio-archive work.
 
 ## Current snapshot
 
@@ -41,6 +43,13 @@ the deferred ServerTTS/audio-archive work.
   Can-do card to overlapping lessons; Tadoku is an unchanged beginner reading
   shelf; and Aozora provides a rights-filtered native-reading example with
   estimated coverage and local reader position.
+- The integrated-learning core is learner-visible: Japanese text uses longest
+  trustworthy reading matches with unresolved states and inspection; Journey
+  and Profile expose the exam plan; Immersion ranks by coverage and mistakes;
+  Practice has a deterministic `integrated` context mode; and wrong,
+  uncertain, or slow integrated answers retain concept metadata for targeted
+  repair. Active attempts hide assistance; review reveals furigana, reasoning,
+  concept labels, and the repair action.
 - External metadata is centralized in `lib/external-resources.ts` and source
   maps. Commons and Wikibooks use short-lived runtime metadata caches; Aozora
   uses ignored catalog cache data and fetches only qualifying text. No new
@@ -60,7 +69,7 @@ the deferred ServerTTS/audio-archive work.
 - The supplied books are outside GitHub and the public bundle. Their 13 split
   parts are in the private `books` bucket and are loaded with short-lived signed
   URLs and browser-side PDF assembly.
-- Verification completed on 2026-09-01: 18/18 test files, direct TypeScript
+- Verification completed on 2026-09-01: 19/19 test files, direct TypeScript
   checking, Python syntax checks for the source scripts, Next production build
   (28/28 pages), and `git diff --check`.
 - Untracked `resumer`, `scripts/__pycache__/`, and `supabase/.temp/` are user or
@@ -661,8 +670,8 @@ Next session order:
 
 - Added a local Profile setting for strict versus kana-friendly typed answers;
   both practice questions and lesson recall use the selected policy.
-- The no-preference furigana fallback is now `unknown`, matching the addendum's
-  recommended gradual-fade behavior while preserving existing saved choices.
+- The no-preference furigana fallback is now `always`; the learner can still
+  choose unknown-only, tap, or hidden modes without changing source content.
 - Verified on 2026-08-31: `/usr/bin/node --test test/*.test.mjs` (8/8), direct
   TypeScript checking, `next build` (24/24 pages), and `git diff --check`.
 - These changes are uncommitted and local. Existing untracked `resumer`,

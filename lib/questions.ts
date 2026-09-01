@@ -1,6 +1,7 @@
 import { n5Module } from "@/lib/curriculum";
 import { isActivePracticeQuestion, validatePracticeQuestions } from "@/lib/content-validation";
 import { n5ExamBlueprint } from "@/lib/jlpt";
+import { buildIntegratedExamSets, selectIntegratedExamSet } from "@/lib/integrated-exam-core.js";
 import type { N5Module, PracticeMode, PracticeQuestion } from "@/lib/types";
 
 function rotateOptions(correct: string, distractors: string[], seed: number) {
@@ -226,7 +227,9 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
     item.questions.forEach((question, index) => questions.push({ id: `${item.id}-question-${index}`, itemId: item.id, category: "listening", questionType: question.questionType ?? (index === 0 ? "key point" : "quick response"), jlptLevel: item.jlptLevel, prompt: question.prompt, options: question.answers, correctIndex: question.correctAnswer, explanation: question.explanation ?? item.situation, audioUrl: item.audioUrl, audioText: item.transcript }));
   });
 
-  const generatedQuestions = questions.map((question) => ({ ...question, validationStatus: question.validationStatus ?? "validated" as const, generatedBy: question.generatedBy ?? "michi-question-factory" }));
+  const availableItemIds = new Set([...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening].map((item) => item.id));
+  const integratedQuestions: PracticeQuestion[] = buildIntegratedExamSets([...availableItemIds]).flatMap((set) => set.questions) as PracticeQuestion[];
+  const generatedQuestions: PracticeQuestion[] = [...questions, ...integratedQuestions].map((question) => ({ ...question, validationStatus: question.validationStatus ?? "validated" as const, generatedBy: question.generatedBy ?? "michi-question-factory" })) as PracticeQuestion[];
   const remoteQuestions = module.practiceQuestions ?? [];
   if (!remoteQuestions.length) return generatedQuestions;
   const remoteIds = new Set(remoteQuestions.map((question) => question.id));
@@ -272,6 +275,7 @@ export function migrateLegacyQuestionPrompts(questions: PracticeQuestion[], modu
 
 export function selectPracticeQuestions(mode: PracticeMode, questions = getValidatedPracticeQuestions()) {
   const calibrated = questions.filter((question) => question.jlptLevel === "N5");
+  if (mode === "integrated") return selectIntegratedExamSet(calibrated, new Date().getDate());
   if (mode === "quick") return takeQuick(questions);
   if (mode === "mini") return takeQuick(questions).slice(0, 10);
   if (mode === "section") return [...takeByQuestionTypes(calibrated, "vocabulary", ["kana recall", "contextual vocabulary", "orthography", "paraphrase", "meaning"], 5), ...takeByQuestionTypes(calibrated, "kanji", ["kana recall", "kanji in context", "reading in context", "orthography", "kanji reading"], 3), ...takeByQuestionTypes(calibrated, "grammar", ["sentence composition", "sentence completion", "grammar in context", "text grammar", "sentence ordering", "meaning"], 5), ...takeByCategory(calibrated, "reading", 3), ...takeListening(calibrated, 3)];
@@ -284,5 +288,5 @@ export function selectPracticeQuestions(mode: PracticeMode, questions = getValid
   if (mode === "vocabulary") return takeByQuestionTypes(questions, "vocabulary", ["kana recall", "Japanese recall", "orthography", "audio recognition", "meaning", "contextual vocabulary", "paraphrase"], 12);
   if (mode === "kanji") return takeByQuestionTypes(questions, "kanji", ["kana recall", "kanji in context", "reading in context", "kanji reading", "kanji meaning", "orthography", "word to kanji recall"], 12);
   if (mode === "weak") return [];
-  return takeByCategory(questions, mode, 12);
+  return takeByCategory(questions, mode as PracticeQuestion["category"], 12);
 }
