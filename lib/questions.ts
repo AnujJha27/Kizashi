@@ -42,6 +42,8 @@ function takeByQuestionTypes(questions: PracticeQuestion[], category: PracticeQu
 
 const listeningTypes = ["task-based response", "key point", "verbal expression", "quick response"];
 
+const validatedPracticeCache = new WeakMap<N5Module, PracticeQuestion[]>();
+
 function takeListening(questions: PracticeQuestion[], count: number) {
   return takeByQuestionTypes(questions, "listening", listeningTypes, count);
 }
@@ -237,16 +239,20 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
 }
 
 export function getValidatedPracticeQuestions(module: N5Module = n5Module) {
+  const cached = validatedPracticeCache.get(module);
+  if (cached) return cached;
   const questions = getPracticeQuestions(module);
   const items = [...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening];
   const itemIds = new Set(items.map((item) => item.id));
   const itemCategories = new Map(items.map((item) => [item.id, item.category]));
   const seen = new Set<string>();
-  return questions.filter((question) => {
+  const validated = questions.filter((question) => {
     if (seen.has(question.id)) return false;
     seen.add(question.id);
     return isActivePracticeQuestion(question) && validatePracticeQuestions([question], itemIds, itemCategories).valid;
   });
+  validatedPracticeCache.set(module, validated);
+  return validated;
 }
 
 const questionFamilyAliases: Record<string, string> = { "sentence completion": "sentence composition", "short passage detail": "short passage" };

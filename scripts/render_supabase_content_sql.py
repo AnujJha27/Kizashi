@@ -39,6 +39,10 @@ def field_source_ids(item: dict[str, Any]) -> list[str]:
     return [source_id for sources in values.values() for source_id in strings(sources)]
 
 
+def source_ids(item: dict[str, Any]) -> list[str]:
+    return [*strings(item.get("sourceIds")), *field_source_ids(item)]
+
+
 def sql_text(value: Any) -> str:
     return "'" + text(value).replace("'", "''") + "'"
 
@@ -324,6 +328,14 @@ def main() -> int:
         raise ValueError("Refusing to render content that has not been explicitly approved; pass --approved after review.")
 
     module = read_json(args.package)
+    csj_values = any(
+        isinstance(item, dict) and item.get("spokenFrequency") is not None and "csj-frequency" in source_ids(item)
+        for item in module.get("vocabulary", [])
+    )
+    if csj_values:
+        publication = module.get("spokenFrequencyImport")
+        if not isinstance(publication, dict) or text(publication.get("sourceId")) != "csj-frequency" or text(publication.get("status")) != "private-published" or text(publication.get("audience")) != "private-allowlisted":
+            raise ValueError("CSJ-derived values need explicit private publication authorization before SQL export.")
     course = module.get("course")
     if not isinstance(course, dict):
         raise ValueError("Package has no course object.")

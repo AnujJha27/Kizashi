@@ -178,6 +178,26 @@ test("CEJC aggregate values apply only to exact canonical written forms", async 
   }
 });
 
+test("CSJ aggregate publication requires the explicit private authorization flag", async () => {
+  const directory = await mkdtemp(path.join(tmpdir(), "kizashi-csj-apply-test-"));
+  try {
+    const base = path.join(directory, "base.json");
+    const frequency = path.join(directory, "csj.json");
+    const output = path.join(directory, "output.json");
+    await writeFile(base, JSON.stringify({ sourceManifest: [], vocabulary: [{ id: "vocab-eki", writtenForm: "駅", sourceIds: [] }] }));
+    await writeFile(frequency, JSON.stringify({
+      sourceManifest: [{ id: "csj-frequency", name: "CSJ frequency", type: "frequency" }],
+      records: { vocabulary: [{ writtenForm: "駅", spokenFrequency: 9, spokenFrequencyMetadata: { corpus: "CSJ" }, sourceIds: ["csj-frequency"], fieldSourceIds: { spokenFrequency: ["csj-frequency"] } }] },
+    }));
+    await assert.rejects(execFileAsync("python3", ["scripts/apply_spoken_frequency.py", "--package", base, "--frequency", frequency, "--output", output]), /private/);
+    await execFileAsync("python3", ["scripts/apply_spoken_frequency.py", "--package", base, "--frequency", frequency, "--output", output, "--publish-private"]);
+    const merged = JSON.parse(await readFile(output, "utf8"));
+    assert.deepEqual(merged.spokenFrequencyImport, { sourceId: "csj-frequency", matchedVocabulary: 1, candidateRecords: 1, status: "private-published", audience: "private-allowlisted" });
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
 test("CSJ ingestion emits reviewed-only spoken frequency aggregates", async () => {
   const packageData = await runToTemp("scripts/ingest_csj_frequency.py", "test/fixtures/csj-frequency.tsv", "csj.json", ["--version", "2018.03.1"]);
   assert.equal(packageData.status, "staged");

@@ -43,6 +43,16 @@ test("tab content loading is bounded and shared", async () => {
   assert.ok(supabaseFiles.every((source) => /fetchWithTimeout/u.test(source)));
 });
 
+test("practice navigation reuses validated questions and restores the active tab", async () => {
+  const questions = await readFile(new URL("../lib/questions.ts", import.meta.url), "utf8");
+  const page = await readFile(new URL("../app/(main)/practice/page.tsx", import.meta.url), "utf8");
+  const tabs = await readFile(new URL("../components/practice/practice-mode-tabs.tsx", import.meta.url), "utf8");
+  assert.match(questions, /validatedPracticeCache/);
+  assert.match(page, /PracticeModeTabs/);
+  assert.match(tabs, /scrollIntoView/);
+  assert.match(tabs, /aria-label="Practice modes"/);
+});
+
 const moduleData = JSON.parse(await readFile(new URL("../data/n5-foundations.json", import.meta.url), "utf8"));
 const expansionData = await Promise.all(["n5-conversation-expansion.json", "n5-practical-expansion.json", "n5-life-expansion.json"].map(async (file) => JSON.parse(await readFile(new URL(`../data/${file}`, import.meta.url), "utf8"))));
 const authoredQuestions = JSON.parse(await readFile(new URL("../data/n5-authored-practice.json", import.meta.url), "utf8"));

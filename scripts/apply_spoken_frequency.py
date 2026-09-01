@@ -42,6 +42,7 @@ def main() -> int:
     parser.add_argument("--package", type=Path, required=True)
     parser.add_argument("--frequency", type=Path, required=True, help="Output from ingest_cejc_frequency.py after review.")
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--publish-private", action="store_true", help="Authorize CSJ aggregate values for the private allowlisted learner package.")
     args = parser.parse_args()
 
     package = read_json(args.package)
@@ -51,6 +52,10 @@ def main() -> int:
     if not source:
         raise ValueError("Frequency package has no source manifest entry.")
     source_id = text(source.get("id"))
+    if args.publish_private and source_id != "csj-frequency":
+        raise ValueError("--publish-private is only valid for CSJ aggregate values.")
+    if source_id == "csj-frequency" and not args.publish_private:
+        raise ValueError("CSJ values remain staged; pass --publish-private after owner authorization.")
     records = frequency_package.get("records")
     records = records.get("vocabulary") if isinstance(records, dict) else None
     if not isinstance(records, list):
@@ -91,7 +96,7 @@ def main() -> int:
     existing_manifest = package.get("sourceManifest") if isinstance(package.get("sourceManifest"), list) else []
     package["sourceManifest"] = [*existing_manifest, source] if source_id not in {text(entry.get("id")) for entry in existing_manifest if isinstance(entry, dict)} else existing_manifest
     package.setdefault("spokenFrequencyImport", {})
-    package["spokenFrequencyImport"] = {"sourceId": source_id, "matchedVocabulary": matched, "candidateRecords": len(records), "status": "staged"}
+    package["spokenFrequencyImport"] = {"sourceId": source_id, "matchedVocabulary": matched, "candidateRecords": len(records), "status": "private-published" if args.publish_private else "staged", "audience": "private-allowlisted" if args.publish_private else "review-only"}
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(package, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"output": str(args.output), "matchedVocabulary": matched, "candidateRecords": len(records)}, ensure_ascii=False))

@@ -11,6 +11,7 @@ interface Preferences {
   targetLevel: "N5" | "N4";
   dailyMinutes: "2" | "5" | "10" | "20" | "30";
   examDate: string;
+  paused: boolean;
   furiganaMode: FuriganaMode;
   answerLeniency: AnswerLeniency;
   autoPlayAudio: boolean;
@@ -18,7 +19,7 @@ interface Preferences {
   restDays: number[];
 }
 
-const defaultPreferences: Preferences = { displayName: "", targetLevel: "N5", dailyMinutes: "10", examDate: "", furiganaMode: "always", answerLeniency: "kana", autoPlayAudio: false, availableStudyDays: [1, 2, 3, 4, 5], restDays: [] };
+const defaultPreferences: Preferences = { displayName: "", targetLevel: "N5", dailyMinutes: "10", examDate: "", paused: false, furiganaMode: "always", answerLeniency: "kana", autoPlayAudio: false, availableStudyDays: [1, 2, 3, 4, 5], restDays: [] };
 const days = [[1, "Mon"], [2, "Tue"], [3, "Wed"], [4, "Thu"], [5, "Fri"], [6, "Sat"], [0, "Sun"]] as const;
 
 export function ProfileSettings() {
@@ -103,6 +104,10 @@ export function ProfileSettings() {
               <span className="mt-1 block text-xs leading-5 text-[#9297a1]">Play Japanese audio when an audio question appears. Off by default.</span>
             </span>
           </label>
+          <label className="flex items-start gap-3 rounded-xl border border-[#3f4652] bg-[#101b2b]/55 p-4 text-sm text-[#c3c7ce]">
+            <input type="checkbox" checked={preferences.paused} onChange={(event) => { setSaved(false); setPreferences((current) => ({ ...current, paused: event.target.checked })); }} className="mt-0.5 size-4 accent-[#e34a3f]" />
+            <span><span className="block text-[#f5f5f2]">Pause exam plan</span><span className="mt-1 block text-xs leading-5 text-[#9297a1]">Pause countdown recommendations without deleting your learning progress.</span></span>
+          </label>
         </div>
         <div className="mt-7 flex items-center justify-between gap-4 border-t border-[#292b31] pt-5">
           <p className="text-sm text-[#6fb98f]" role="status">{saved ? "Saved. Your path will use these preferences." : ""}</p>
@@ -123,6 +128,7 @@ export function ProfileSettings() {
             <div className="mt-2 flex flex-wrap gap-2">{days.map(([value, label]) => <label key={value} className="flex items-center gap-2 rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce]"><input type="checkbox" checked={preferences.restDays.includes(value)} onChange={() => { setSaved(false); setPreferences((current) => ({ ...current, restDays: current.restDays.includes(value) ? current.restDays.filter((day) => day !== value) : [...current.restDays, value] })); }} className="accent-[#e34a3f]" />{label}</label>)}</div>
           </fieldset>
         </div>
+        <div className="mt-5 flex flex-wrap items-center gap-3 border-t border-[#292b31] pt-5"><button type="button" onClick={() => { setSaved(false); setPreferences((current) => ({ ...current, examDate: "", paused: false })); }} className="rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#9297a1] hover:border-[#e5b85c] hover:text-[#f1cf7c]">Reset exam plan</button><span className="text-xs text-[#676c75]">Clears only the date and pause state.</span></div>
       </section>
       <section className="surface-panel-raised p-6">
         <p className="eyebrow mb-2">Local-first + sync</p>

@@ -15,7 +15,7 @@ decisions; it is not a list of assets Kizashi has downloaded.
 | --- | --- | --- |
 | [CEJC frequency list](https://repository.ninjal.ac.jp/records/2000167) | The 2024.03 frequency list permits free research/education use but prohibits redistribution and sends commercial use to consultation. The full CEJC audio, transcripts, and annotations have separate access terms. | Keep as an optional spoken-frequency analysis input. Do not ship CEJC data, audio, transcripts, or derived learner assets. |
 | [CEJC corpus access](https://www2.ninjal.ac.jp/conversation/cejc.html) | Online search is available by application; downloadable audio/video and annotations are in the paid, contracted edition. | Use only after confirming the intended product use and license in writing. |
-| [CSJ](https://clrd.ninjal.ac.jp/csj/en/) and its [published frequency list](https://repository.ninjal.ac.jp/records/3276) | CSJ is a broad spoken corpus, not an everyday-conversation-only corpus. NINJAL publishes the 2018.03.1 short-unit vocabulary table for research/education use, but the repository labels the download CC BY-NC-ND 3.0: no redistribution and commercial use by consultation. The corpus itself has separate online/paid access terms. | Keep the frequency table as a local, review-only aggregate input. Do not redistribute the table, copy CSJ audio/transcripts, or publish derived learner values until the exact downstream permission is confirmed. |
+| [CSJ](https://clrd.ninjal.ac.jp/csj/en/) and its [published frequency list](https://repository.ninjal.ac.jp/records/3276) | CSJ is a broad spoken corpus, not an everyday-conversation-only corpus. NINJAL publishes the 2018.03.1 short-unit vocabulary table for research/education use, but the repository labels the download CC BY-NC-ND 3.0: no redistribution and commercial use by consultation. The corpus itself has separate online/paid access terms. | The workspace owner authorized derived aggregate values for this private, allowlisted deployment on 2026-09-01. Use `apply_spoken_frequency.py --publish-private` before SQL export; raw CSJ tables, audio, transcripts, annotations, and public redistribution remain excluded. |
 | [I-JAS terms](https://chunagon.ninjal.ac.jp/static/I-JAS_TermsOfService.pdf) | The online service is limited to the declared research purpose, prohibits third-party copying/distribution, and requires separate consultation for commercial results. | Permit only aggregate, privacy-safe research internally; do not import learner records or publish learner-derived drills. |
 | WaniKani | No compatible source license or API permission has been established for Kizashi. | Do not integrate it; keep canonical facts in JMdict/KANJIDIC2 and treat any future use as an optional, user-provided cross-reference. |
 
@@ -68,10 +68,11 @@ sources, and only approved aggregates may enter the private review workflow.
 
 `scripts/ingest_csj_frequency.py` accepts NINJAL's published short-unit table
 and emits only local, pending aggregates. It deliberately does not copy source
-rows, audio, transcripts, or annotations, and its output is not included in the
-tracked learner package. The no-redistribution/ND term still means this parser
-does not grant permission to publish the derived values; obtain a matching
-written permission before deploying them outside private review.
+rows, audio, transcripts, or annotations. The workspace owner's private-use
+authorization is recorded for this deployment; an operator must still pass
+`--publish-private` to `scripts/apply_spoken_frequency.py`, after which the
+SQL renderer accepts only the aggregate fields for the private allowlisted
+package. No raw table or corpus asset is exported.
 
 ## Private external-source framing
 

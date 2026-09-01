@@ -48,8 +48,8 @@ function detail(item: LessonContentItem, vocabulary: VocabularyItem[], kanji: Ka
   return <p className="mt-2 line-clamp-2 text-sm leading-6 text-[#f5f5f2]">{item.category === "reading" ? item.passage : item.situation}</p>;
 }
 
-export function LibraryBrowser({ items, initialFilter = "all" }: Readonly<{ items: LessonContentItem[]; initialFilter?: LibraryFilter }>) {
-  const [query, setQuery] = useState("");
+export function LibraryBrowser({ items, initialFilter = "all", initialQuery = "" }: Readonly<{ items: LessonContentItem[]; initialFilter?: LibraryFilter; initialQuery?: string }>) {
+  const [query, setQuery] = useState(initialQuery);
   const [filter, setFilter] = useState<(typeof filters)[number]>(initialFilter);
   const [notes, setNotes] = useState<Record<string, NoteRecord>>({});
   const [studyLater, setStudyLater] = useState<string[]>([]);
@@ -58,6 +58,7 @@ export function LibraryBrowser({ items, initialFilter = "all" }: Readonly<{ item
   const vocabulary = catalog.filter((item): item is VocabularyItem => item.category === "vocabulary");
   const kanji = catalog.filter((item): item is KanjiItem => item.category === "kanji");
   useEffect(() => setFilter(initialFilter), [initialFilter]);
+  useEffect(() => setQuery(initialQuery), [initialQuery]);
   useEffect(() => { const refresh = () => { setNotes(readNotes()); setStudyLater(readStudyLaterIds()); setRecords(readReviewRecords()); }; refresh(); window.addEventListener("michi-notes-updated", refresh); window.addEventListener("michi-study-later-updated", refresh); window.addEventListener("michi-review-updated", refresh); return () => { window.removeEventListener("michi-notes-updated", refresh); window.removeEventListener("michi-study-later-updated", refresh); window.removeEventListener("michi-review-updated", refresh); }; }, []);
   const filtered = useMemo(() => catalog.filter((item) => (filter === "all" || (filter === "queue" ? studyLater.includes(item.id) : ["new", "weak", "learned", "N5", "N4"].includes(filter) ? matchesProgressFilter(filter, item, records) : item.category === filter)) && `${searchText(item)} ${notes[item.id]?.body ?? ""}`.toLowerCase().includes(query.toLowerCase().trim())).slice(0, 60), [catalog, filter, notes, query, records, studyLater]);
 

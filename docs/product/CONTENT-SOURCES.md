@@ -50,7 +50,7 @@ decisions are in [SOURCE-EVALUATION.md](./SOURCE-EVALUATION.md).
 | [SudachiDict](https://github.com/WorksApplications/SudachiDict) / UniDic metadata | Tokenization, lemmas, conjugation, and sentence linking | Optional local lookup metadata only; no learner publication. |
 | [CEJC frequency list](https://repository.ninjal.ac.jp/records/2000167) | Spoken frequency, conversational patterns, collocations, and naturalness | Aggregate/review input only. CEJC audio, transcripts, annotations, and raw rows stay out of Kizashi. |
 | [CEJC corpus access](https://www2.ninjal.ac.jp/conversation/cejc.html) | Authorized conversation listening/research | Source launcher or authorized session only; no capture, proxy, or re-serving. |
-| [CSJ](https://clrd.ninjal.ac.jp/csj/en/) and [CSJ frequency list](https://repository.ninjal.ac.jp/records/3276) | Broad spoken-frequency and listening-realism signal | Local review-only aggregate. The current no-redistribution/ND terms block automatic learner-bundle publication. |
+| [CSJ](https://clrd.ninjal.ac.jp/csj/en/) and [CSJ frequency list](https://repository.ninjal.ac.jp/records/3276) | Broad spoken-frequency and listening-realism signal | Owner-authorized aggregate values may enter the private allowlisted learner package only through the explicit `--publish-private` export path. Raw tables and corpus assets remain excluded. |
 | [I-JAS terms](https://chunagon.ninjal.ac.jp/static/I-JAS_TermsOfService.pdf) | Aggregate learner-error/difficulty signal | Privacy-safe aggregates only. Learner IDs, transcripts, audio, and raw learner records are rejected. |
 | WaniKani | Optional cross-reference | Not integrated; no compatible permission has been established. |
 

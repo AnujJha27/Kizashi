@@ -26,6 +26,8 @@ import { contentSources, getCurriculumBand } from "@/lib/jlpt";
 import { readMistakes, readReviewRecords } from "@/lib/session";
 import { rankContentCandidates } from "@/lib/content-priority.js";
 import { getN5PracticeCoverage, migrateLegacyQuestionPrompts } from "@/lib/questions";
+import { getUnresolvedJapaneseSegments } from "@/lib/japanese-text-core.js";
+import { getJapaneseReadingEntries } from "@/components/learning/japanese-text";
 import type { ContentReviewStatus, ContentSource, ExampleSentence, ExerciseValidationStatus, LearningCategory, N5Module, PracticeQuestion } from "@/lib/types";
 
 type DraftKind = LearningCategory | "grammarContrast" | "lesson";
@@ -73,6 +75,17 @@ function Health({ label, result }: Readonly<{ label: string; result: ContentVali
 
 function CoverageHealth({ coverage }: Readonly<{ coverage: ReturnType<typeof getN5PracticeCoverage> }>) {
   return <div className="rounded-xl border border-white/10 bg-[#101b2b]/70 p-4"><div className="flex items-center justify-between gap-3"><p className="text-sm text-[#f5f5f2]">N5 practice coverage</p><span className={coverage.complete ? "text-[#6fb98f]" : "text-[#e34a3f]"}>{coverage.complete ? "Complete" : "Needs work"}</span></div><p className="mt-2 text-xs text-[#9297a1]">{coverage.coveredItemCount} / {coverage.itemCount} items · {coverage.questionCount} active questions</p>{coverage.missingFamilies.length ? <p className="mt-1 text-[10px] text-[#ef675d]">Missing families: {coverage.missingFamilies.join(", ")}</p> : null}{coverage.uncoveredItemIds.length ? <p className="mt-1 truncate text-[10px] text-[#ef675d]" title={coverage.uncoveredItemIds.join(", ")}>Uncovered items: {coverage.uncoveredItemIds.join(", ")}</p> : null}</div>;
+}
+
+function ReadingDiagnostics({ module }: Readonly<{ module: N5Module }>) {
+  const vocabulary = module.vocabulary;
+  const kanji = module.kanji;
+  const entries = getJapaneseReadingEntries(vocabulary, kanji);
+  const surfaces = getModuleItems(module).flatMap((item) => {
+    const texts = item.category === "vocabulary" ? item.exampleSentences.map((example) => example.japanese) : item.category === "grammar" ? item.examples.map((example) => example.japanese) : item.category === "reading" ? [item.passage, ...(item.questions ?? []).map((question) => question.prompt)] : item.category === "listening" ? [item.transcript, ...(item.questions ?? []).map((question) => question.prompt)] : item.usefulWords.map((word) => word.word);
+    return texts.flatMap((text) => getUnresolvedJapaneseSegments(text, entries.map(([word, reading]) => ({ text: word, reading })))).map((segment) => ({ item, text: segment.text }));
+  });
+  return <section className={`rounded-xl border p-4 ${surfaces.length ? "border-[#5d4c2c] bg-[#2b2418]/70" : "border-[#315d4b] bg-[#162b26]/70"}`}><div className="flex items-center justify-between gap-3"><p className="text-sm text-[#f5f5f2]">Japanese reading diagnostics</p><span className={surfaces.length ? "text-[#e5b85c]" : "text-[#6fb98f]"}>{surfaces.length ? `${surfaces.length} unresolved` : "Clear"}</span></div><p className="mt-2 text-xs text-[#9297a1]">Development-only scan of learner-facing authored examples. Unresolved text is not silently assigned a reading.</p>{surfaces.length ? <ul className="mt-3 space-y-1 text-xs text-[#f1cf7c]">{surfaces.slice(0, 8).map((entry, index) => <li key={`${entry.item.id}-${entry.text}-${index}`}><span className="font-mono">{entry.item.id}</span> · {entry.text}</li>)}</ul> : null}</section>;
 }
 
 function Issues({ result }: Readonly<{ result: ContentValidationResult }>) {
@@ -611,6 +624,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
 
   return <div className="space-y-7">
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><Health label="Last curriculum validation" result={result} /><Health label="Practice question bank" result={questionResult} /><CoverageHealth coverage={practiceCoverage} /></div>
+    <ReadingDiagnostics module={coverageModule} />
     <SourceCoverage items={getModuleItems(coverageModule)} />
     <TopicCoverage module={coverageModule} />
     <AIGenerator items={getModuleItems(coverageModule).filter((item) => getContentReviewStatus(item) === "approved")} onAdd={addGeneratedQuestion} />

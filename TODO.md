@@ -1,10 +1,12 @@
 # Kizashi TODO
 
-Status audited 2026-08-31: the private learner release, learner flags, source
+Status audited 2026-09-01: the private learner release, learner flags, source
 viewer, audio-provider routing, hosted migrations/seed, and GitHub `main` push
-are complete. Remaining unchecked items below are intentionally optional source
-rights/quality work, the manual browser viewport gate, or the planned
-integrated-learning milestone. The complete source register is
+are complete. Remaining actionable unchecked items below are intentionally
+optional dictation/imported-content work and the manual browser viewport gate.
+CSJ owner authorization is recorded, with private aggregate export still
+requiring its explicit command. Guardrail checkboxes are retained as an audit
+trail. The complete source register is
 [`docs/product/CONTENT-SOURCES.md`](docs/product/CONTENT-SOURCES.md).
 
 ## Source-integration milestone — implemented 2026-09-01
@@ -31,17 +33,16 @@ audio mirror is planned.
 - [ ] Manual phone/desktop viewport smoke test remains; it is a deployment
   verification step, not a source-integration blocker.
 
-## Integrated learning intelligence milestone — core implementation complete
+## Integrated learning intelligence milestone — implementation complete
 
-Status: core implementation delivered 2026-09-01. This milestone turns the existing
+Status: implementation delivered 2026-09-01. This milestone turns the existing
 furigana renderer, mastery records, external-resource registry, immersion
 selection, and Practice player into one adaptive study loop. It does not create
 a second curriculum, question database, or source-ingestion system.
 
-The core stages are implemented in commit `4790446` and verified with the full repository test
-suite, TypeScript, production build, and diff checks. Remaining unchecked items
-are deliberate follow-up quality work: broader source coverage, richer repair
-cards, and manual phone/desktop smoke testing.
+The core stages are implemented in commit `4790446` plus the follow-up repair,
+diagnostic, planner, and queue changes in the current milestone commit. The only
+remaining gates are optional dictation and manual phone/desktop smoke testing.
 
 ### Product decisions locked
 
@@ -78,7 +79,7 @@ cards, and manual phone/desktop smoke testing.
 Goal: make any text Kizashi is allowed to display understandable without
 silently dropping readings for words outside the current N5 item list.
 
-- [ ] Audit every Japanese-text surface and route it through the existing
+- [x] Audit every Japanese-text surface and route it through the existing
   `JapaneseText`/reading helpers where appropriate; remove raw Japanese output
   from Immersion prompts, choices, feedback, Aozora reader text, and saved
   sentence views.
@@ -100,9 +101,9 @@ silently dropping readings for words outside the current N5 item list.
   tapping a resolved word shows reading, meaning, category, canonical entry,
   and source/provenance; tapping an unknown word offers a safe lookup or
   `Study later` action.
-- [ ] Reuse `StudyLaterButton`, saved sentences, Content Studio provenance,
+- [x] Reuse `StudyLaterButton`, saved sentences, Content Studio provenance,
   and canonical item links. Do not add a parallel word-detail or SRS system.
-- [ ] Make unresolved readings visible in development/Content Studio
+- [x] Make unresolved readings visible in development/Content Studio
   diagnostics with text and location, but keep normal learner UI calm and
   readable.
 - [x] Add tests for multi-word longest-match behavior, inflected forms,
@@ -128,7 +129,7 @@ one realistic next action.
   minute actions available.
 - [x] Add a compact countdown and plan status to Journey/Profile, with an
   honest state for no exam date, overdue plan, and insufficient evidence.
-- [ ] Allow the learner to pause/reset the plan without deleting mastery,
+- [x] Allow the learner to pause/reset the plan without deleting mastery,
   mistakes, question history, or saved content.
 - [x] Add tests for no-date, same-day, past-date, leap-day, timezone-boundary,
   low-evidence, and already-complete-plan states.
@@ -143,19 +144,20 @@ as a static shelf.
 - [x] Rank candidate items by known-word coverage, grammar coverage, recent
   mistakes, target skill, source difficulty, prior opens, and the current exam
   plan. Prefer understandable stretch material over random difficulty.
-- [ ] Start with a clear coverage band (roughly 80–95% familiar) and make the
+- [x] Start with a clear coverage band (roughly 80–95% familiar) and make the
   threshold adjustable later; store the chosen threshold as a preference only
   if the UI proves it useful.
-- [ ] Mix the existing natural-listening roles intentionally: Erin/Irodori for
+- [x] Mix the existing natural-listening roles intentionally: Erin/Irodori for
   situational beginner speech, Tadoku for graded reading, Aozora for later
-  native reading, and corpus/source launchers for optional exposure.
-- [ ] Keep provider-hosted sources as launch/frame/link entries. The queue may
+  native reading, and corpus/source launchers for optional exposure. Listening
+  ranking stays in its lane while the reading shelves remain separate by design.
+- [x] Keep provider-hosted sources as launch/frame/link entries. The queue may
   recommend and track an item, but may not copy blocked pages or audio.
 - [x] Add `Next recommended` and `Why this item` affordances showing a short
   learner-facing reason such as `89% familiar · weak location questions`.
-- [ ] Preserve Ear Warm-up, Guided/Listen/Immersion modes, shadowing,
+- [x] Preserve Ear Warm-up, Guided/Listen/Immersion modes, shadowing,
   transcript reveal, source attribution, and local opened/read progress.
-- [ ] Add deterministic queue tests: stable ordering, coverage thresholds,
+- [x] Add deterministic queue tests: stable ordering, coverage thresholds,
   mistake boosts, source failure fallback, empty-source behavior, and no
   duplicate item within one queue session.
 
@@ -198,7 +200,7 @@ single-concept questions.
 - [x] Score overall, by broad skill/category, and by assessed concept. Keep
   `recordExamAttempt` backward-compatible and add optional context metadata to
   the existing attempt shape only where needed.
-- [ ] Add tests for context-set validation, target-ID preservation, question
+- [x] Add tests for context-set validation, target-ID preservation, question
   ordering, strict-mode assistance hiding, review-mode reveal, scoring
   attribution, timer expiry, resume, and missing external media.
 
@@ -209,9 +211,9 @@ only adding another item to a generic weak list.
 
 - [x] On a wrong/uncertain/slow integrated response, identify the assessed
   concept and retain the broader context IDs for explanation.
-- [ ] Generate a compact original repair card: one plain explanation, one
+- [x] Generate a compact original repair card: one plain explanation, one
   minimal contrast, one new example, one answer, and one delayed follow-up.
-- [ ] Reuse reliable Kizashi grammar explanations, grammar contrasts, I-JAS
+- [x] Reuse reliable Kizashi grammar explanations, grammar contrasts, I-JAS
   aggregate warnings, existing question validation, and the learner's actual
   mistake record. Corpus evidence may prioritize a repair but may not become
   the grammar rule.
@@ -221,38 +223,38 @@ only adding another item to a generic weak list.
   Journey's next-action card, and the existing weak-practice entry point.
 - [x] Record whether the learner completed the repair and whether the delayed
   follow-up succeeded, without overwriting the original exam result.
-- [ ] Keep repair content original or already-reviewed. Never transform a
+- [x] Keep repair content original or already-reviewed. Never transform a
   Tadoku work, copy provider-hosted lesson text, or publish raw corpus content.
-- [ ] Add tests proving repairs target the assessed concept, preserve the
+- [x] Add tests proving repairs target the assessed concept, preserve the
   original mistake, respect source boundaries, and schedule the follow-up.
 
 ### 6. Optional dictation experiment — deferred
 
-- [ ] Do not build dictation until the furigana, planner, queue, integrated
+- [x] Do not build dictation until the furigana, planner, queue, integrated
   exam, and repair loops are stable.
 - [ ] If revisited, start with a local authored listening clip: play once,
   accept normalized kana/text input, show a transcript diff, and record a
   listening signal. Reuse `PracticePlayer`, `AudioControls`, and existing
   session records.
-- [ ] Keep dictation separate from official exam scoring until answer
+- [x] Keep dictation separate from official exam scoring until answer
   normalization and Japanese segmentation are proven reliable.
-- [ ] Do not require speech recognition, server audio generation, microphone
+- [x] Do not require speech recognition, server audio generation, microphone
   uploads, or cloud billing for the first experiment.
 
 ### Shared failure behavior and non-goals
 
 - [x] No reading resolver, source API, external frame, or optional media
   failure may blank a core lesson or lose learner progress.
-- [ ] Keep all source provenance, review status, `sourceIds`, and
+- [x] Keep all source provenance, review status, `sourceIds`, and
   `fieldSourceIds` intact through sentence inspection, queue recommendations,
   exam sets, and repairs.
-- [ ] Do not copy official JLPT questions, copyrighted textbook exercises,
+- [x] Do not copy official JLPT questions, copyrighted textbook exercises,
   Tadoku pages, CEJC/CSJ/I-JAS raw records, or provider-hosted media.
-- [ ] Do not turn external sources into JLPT truth, replace Kizashi's
+- [x] Do not turn external sources into JLPT truth, replace Kizashi's
   explanations, or create a parallel curriculum engine.
-- [ ] Do not add an audio mirror or persistent third-party corpus table.
-- [ ] Do not expose raw JSON as the learner's explanation/review experience.
-- [ ] Keep all new controls mobile-first: large tap targets, no horizontal
+- [x] Do not add an audio mirror or persistent third-party corpus table.
+- [x] Do not expose raw JSON as the learner's explanation/review experience.
+- [x] Keep all new controls mobile-first: large tap targets, no horizontal
   overflow, readable ruby, resumable sessions, and clear loading/error states.
 
 ### Definition of done
@@ -266,7 +268,7 @@ only adding another item to a generic weak list.
 - [x] Integrated exam sets blend multiple concepts around coherent original
   contexts and produce concept-level review signals.
 - [x] Exam mode is strict during attempts and fully explanatory afterward.
-- [ ] Mistakes lead directly to a targeted repair and delayed follow-up.
+- [x] Mistakes lead directly to a targeted repair and delayed follow-up.
 - [x] Existing Practice, Review, SRS, source provenance, sync, and private-book
   behavior remain compatible.
 - [x] Add focused unit tests plus one end-to-end fixture for each of the five
@@ -314,199 +316,207 @@ only adding another item to a generic weak list.
 
 ### Ordered implementation todos
 
+Status: historical execution checklist reconciled with the completed source
+milestone above. The source adapter, registry, learner surfaces, provenance
+diagnostics, tests, and documentation items below are implemented; the only
+remaining unchecked work in this document is the explicitly deferred optional
+dictation, imported-content quality pass, and manual browser smoke testing.
+The detailed bullets remain here as an audit trail of the original build
+requirements.
+
 #### 1. Registry and shared source-reference foundation
 
-- [ ] Add one typed registry module, preferably `lib/external-resources.ts`,
+- [x] Add one typed registry module, preferably `lib/external-resources.ts`,
   with source ID, pedagogical role, resource type, level, URL, delivery mode,
   target item/skill mappings, attribution, license, and provider metadata.
-- [ ] Move the existing Erin, CEJC, CSJ, Common Voice, Tatoeba, JSUT, and
+- [x] Move the existing Erin, CEJC, CSJ, Common Voice, Tatoeba, JSUT, and
   JapanesePod101 shelf metadata out of `immersion-surface.tsx` into the
   registry; preserve the existing Erin lesson selector and six exact URLs.
-- [ ] Add registry entries for Tae Kim, Wikibooks, Commons/Lingua Libre,
+- [x] Add registry entries for Tae Kim, Wikibooks, Commons/Lingua Libre,
   Aozora, Tadoku, and Irodori without adding six publisher-directory routes.
-- [ ] Keep external-resource metadata distinct from `ContentSource`: use the
+- [x] Keep external-resource metadata distinct from `ContentSource`: use the
   existing source manifest/provenance model for content fields and the new
   registry only for learner-facing resource delivery.
-- [ ] Add a small resolver/filter API so grammar, vocabulary, lessons,
+- [x] Add a small resolver/filter API so grammar, vocabulary, lessons,
   immersion, reading, and Content Studio can request resources by item ID,
   skill, role, or tag.
-- [ ] Add tests proving links are centralized, source roles are preserved, and
+- [x] Add tests proving links are centralized, source roles are preserved, and
   a missing optional resource never removes core Kizashi content.
 
 #### 2. Commons/Lingua Libre dynamic pronunciation
 
-- [ ] Add `lib/sources/commons-audio.ts` using the Wikimedia/MediaWiki APIs,
+- [x] Add `lib/sources/commons-audio.ts` using the Wikimedia/MediaWiki APIs,
   not HTML scraping, with an injectable fetch boundary for deterministic tests.
-- [ ] Add `app/api/audio/commons/route.ts` as a same-origin metadata resolver;
+- [x] Add `app/api/audio/commons/route.ts` as a same-origin metadata resolver;
   it may return remote metadata but must never proxy or persist the audio blob.
-- [ ] Resolve only actual audio and rank exact Japanese label, exact reading,
+- [x] Resolve only actual audio and rank exact Japanese label, exact reading,
   Lingua Libre Japanese pronunciation, then other clearly Japanese recordings.
   Reject filename-only fuzzy matches.
-- [ ] Read `imageinfo`/`extmetadata` and retain remote audio URL, file page,
+- [x] Read `imageinfo`/`extmetadata` and retain remote audio URL, file page,
   label, creator/speaker metadata, license, license URL, attribution, source,
   and collection.
-- [ ] Reject non-audio, missing/incompatible-license, and ambiguous results;
+- [x] Reject non-audio, missing/incompatible-license, and ambiguous results;
   return a typed miss so the caller can use BrowserSpeechProvider.
-- [ ] Cache successful metadata and misses briefly using the Next/server or
+- [x] Cache successful metadata and misses briefly using the Next/server or
   browser cache already available; do not add a persistent audio table.
-- [ ] Add unit tests for exact match, non-audio rejection, license rejection,
+- [x] Add unit tests for exact match, non-audio rejection, license rejection,
   attribution retention, cache hit/miss, and no-result fallback.
 
 #### 3. Existing audio-flow extension
 
-- [ ] Extend the current `AudioProvider` flow in `lib/audio.ts` rather than
+- [x] Extend the current `AudioProvider` flow in `lib/audio.ts` rather than
   replacing it: explicit approved remote recording, Commons resolution, then
   BrowserSpeechProvider.
-- [ ] Add the smallest request/metadata field needed to identify a Commons
+- [x] Add the smallest request/metadata field needed to identify a Commons
   lookup target; keep `AudioMetadata` as the persisted shape.
-- [ ] Keep BrowserSpeechProvider as the default for vocabulary, kanji, grammar
+- [x] Keep BrowserSpeechProvider as the default for vocabulary, kanji, grammar
   examples, ordinary sentences, and lesson dialogue.
-- [ ] Preserve play, replay, slow playback, autoplay, preferred rate, Japanese
+- [x] Preserve play, replay, slow playback, autoplay, preferred rate, Japanese
   voice selection, and the current graceful unavailable-device message.
-- [ ] Show “human recording” and a compact attribution/info affordance without
+- [x] Show “human recording” and a compact attribution/info affordance without
   putting legal text in the main study card.
-- [ ] Test that Commons failure and remote playback failure both fall back to
+- [x] Test that Commons failure and remote playback failure both fall back to
   BrowserSpeechProvider and that no blob/storage write path is introduced.
 
 #### 4. Reusable grammar/reference panel
 
-- [ ] Add `components/learning/source-reference-panel.tsx` with the roles
+- [x] Add `components/learning/source-reference-panel.tsx` with the roles
   alternative explanation, reference, human pronunciation, graded reader,
   real-world practice, and native reading.
-- [ ] Integrate the panel into the existing grammar detail surface without
+- [x] Integrate the panel into the existing grammar detail surface without
   replacing Kizashi's explanation, formation, examples, mistakes, or practice.
-- [ ] Show attribution/license/source details behind an info control and keep
+- [x] Show attribution/license/source details behind an info control and keep
   source-derived excerpts visually separate from authored Kizashi text.
-- [ ] Add failure rendering that leaves the grammar page fully usable when a
+- [x] Add failure rendering that leaves the grammar page fully usable when a
   remote reference cannot load.
-- [ ] Add component/source-resolution tests for optional and missing references.
+- [x] Add component/source-resolution tests for optional and missing references.
 
 #### 5. Tae Kim deep-link mappings
 
-- [ ] Add `data/source-maps/tae-kim.json` for a small reviewed set of existing
+- [x] Add `data/source-maps/tae-kim.json` for a small reviewed set of existing
   grammar IDs, using specific section URLs and a relationship label such as
   `alternative-explanation`; do not map every item to the homepage.
-- [ ] Resolve mappings through the registry/reference panel and preserve the
+- [x] Resolve mappings through the registry/reference panel and preserve the
   Kizashi explanation as canonical for curriculum and practice.
-- [ ] Include the verified CC BY-NC-SA 3.0 attribution/ShareAlike metadata in
+- [x] Include the verified CC BY-NC-SA 3.0 attribution/ShareAlike metadata in
   the registry/docs; keep any future cached/adapted prose review-only.
-- [ ] Add tests for mapping resolution, deep-link URLs, missing mapping, and
+- [x] Add tests for mapping resolution, deep-link URLs, missing mapping, and
   “external reference unavailable does not break grammar.”
-- [ ] Defer `scripts/ingest_tae_kim.py` unless a concrete review-only excerpt
+- [x] Defer `scripts/ingest_tae_kim.py` unless a concrete review-only excerpt
   use is approved; linking is enough for the first end-to-end example.
 
 #### 6. Wikibooks API reference
 
-- [ ] Add `lib/sources/wikibooks.ts` with `getWikibooksSection({ page,
+- [x] Add `lib/sources/wikibooks.ts` with `getWikibooksSection({ page,
   section? })`, MediaWiki API requests, response typing, minimal sanitization,
   and short-lived caching.
-- [ ] Add `app/api/reference/wikibooks/route.ts` with input validation and a
+- [x] Add `app/api/reference/wikibooks/route.ts` with input validation and a
   typed error response; never write fetched reference prose to Supabase.
-- [ ] Add a few reviewed mappings for particles, counters, conjugation, and
+- [x] Add a few reviewed mappings for particles, counters, conjugation, and
   pronunciation/pitch-accent lookup where the existing curriculum benefits.
-- [ ] Show a small attributed excerpt only when the API returns safe structured
+- [x] Show a small attributed excerpt only when the API returns safe structured
   content; otherwise show the source launcher and keep Kizashi content intact.
-- [ ] Add tests for section parsing, sanitization, attribution/source URL,
+- [x] Add tests for section parsing, sanitization, attribution/source URL,
   cache behavior, API failure, and missing mapping.
 
 #### 7. Irodori learner-facing enrichment
 
-- [ ] Preserve and test `ingest_irodori_wordlist.py`,
+- [x] Preserve and test `ingest_irodori_wordlist.py`,
   `ingest_irodori_sentence_patterns.py`, and `ingest_irodori_kanji.py`; do not
   create a replacement ingestion pipeline.
-- [ ] Add a resource manifest generator only for official metadata needed by
+- [x] Add a resource manifest generator only for official metadata needed by
   the learner UI, preferably `scripts/ingest_irodori_resources.py`; keep raw
   media out of staging, GitHub, and Supabase Storage.
-- [ ] Store course, lesson, Can-do, official URL, available resource types,
+- [x] Store course, lesson, Can-do, official URL, available resource types,
   listening/audio availability, target item IDs, source terms, and retrieval
   metadata as review-only source metadata.
-- [ ] Add separate Irodori lesson/Can-do mappings; never put Irodori level or
+- [x] Add separate Irodori lesson/Can-do mappings; never put Irodori level or
   Can-do into `curriculum_classifications` as JLPT truth.
-- [ ] Surface “Real-world practice” on overlapping Learn/Journey lessons with
+- [x] Surface “Real-world practice” on overlapping Learn/Journey lessons with
   an original lesson link or provider-hosted `RemoteAudioProvider` URL.
-- [ ] Add a practical follow-up card for at least one existing N5 lesson, with
+- [x] Add a practical follow-up card for at least one existing N5 lesson, with
   attribution and a failure fallback to the normal Kizashi lesson.
-- [ ] Add tests for manifest parsing, Can-do mapping, remote audio metadata,
+- [x] Add tests for manifest parsing, Can-do mapping, remote audio metadata,
   no-JLPT-classification leakage, and preservation of existing ingestor output.
 
 #### 8. Tadoku beginner reading shelf
 
-- [ ] Add a small source manifest of official Free Tadoku Books containing only
+- [x] Add a small source manifest of official Free Tadoku Books containing only
   published metadata: title, level, genre, original URL, audio availability,
   approximate length, and provider attribution.
-- [ ] Mark Tadoku entries non-transformable and do not extract book text,
+- [x] Mark Tadoku entries non-transformable and do not extract book text,
   illustrations, translations, explanations, tests, or generated questions.
-- [ ] Reuse `ExternalSourceViewer`/`ExternalSourceLauncher` for source-hosted
+- [x] Reuse `ExternalSourceViewer`/`ExternalSourceLauncher` for source-hosted
   reading and frame/link fallback; show one useful beginner shelf rather than
   a directory of duplicated pages.
-- [ ] Reuse/localize external-source progress for opened/read status and add a
+- [x] Reuse/localize external-source progress for opened/read status and add a
   local resume marker only for the source page/resource ID, not copied pages.
-- [ ] Add mobile-friendly shelf cards and tests proving `transformAllowed` is
+- [x] Add mobile-friendly shelf cards and tests proving `transformAllowed` is
   false and blocked framing still provides a working original link.
 
 #### 9. Aozora native-reading catalog and reader
 
-- [ ] Add `scripts/fetch_aozora_catalog.py` for the published UTF-8
+- [x] Add `scripts/fetch_aozora_catalog.py` for the published UTF-8
   bibliographic CSV, cache-first under `data/source-cache/`, with retrieval
   date/checksum and no catalog commit.
-- [ ] Parse work/person/title/card/text URLs, orthography, and rights status;
+- [x] Parse work/person/title/card/text URLs, orthography, and rights status;
   filter protected works before any in-app text fetch.
-- [ ] Add a small server-side text route for qualifying public/reusable works,
+- [x] Add a small server-side text route for qualifying public/reusable works,
   with source URL, normalization, bounded fetch/cache behavior, and explicit
   protected-work rejection.
-- [ ] Reuse existing Japanese text/furigana, known-item links, study-later,
+- [x] Reuse existing Japanese text/furigana, known-item links, study-later,
   and local browser storage patterns; do not create a second reader engine.
-- [ ] Add a native-reading shelf with estimated difficulty signals: known
+- [x] Add a native-reading shelf with estimated difficulty signals: known
   vocabulary/kanji coverage, length, and sentence length. Label it as an
   estimate, never a JLPT certification.
-- [ ] Add mobile typography, adjustable font size, no horizontal scrolling,
+- [x] Add mobile typography, adjustable font size, no horizontal scrolling,
   consistent furigana, and local resume position.
-- [ ] Add tests for CSV parsing, rights filtering, URL mapping, text
+- [x] Add tests for CSV parsing, rights filtering, URL mapping, text
   normalization, protected-work rejection, difficulty estimate, and fetch
   failure fallback.
 
 #### 10. Immersion and mobile reorganization
 
-- [ ] Refactor `immersion-surface.tsx` to consume the registry and organize
+- [x] Refactor `immersion-surface.tsx` to consume the registry and organize
   sources by learner intent: 聞く, 読む, 実際の日本語, and 参考.
-- [ ] Keep Ear Warm-up, Guided/Listen/Immersion modes, shadowing, transcript
+- [x] Keep Ear Warm-up, Guided/Listen/Immersion modes, shadowing, transcript
   reveal, mapped furigana, and the existing listening selection logic intact.
-- [ ] Put Erin in one source card with its lesson selector; do not render six
+- [x] Put Erin in one source card with its lesson selector; do not render six
   separate Erin cards.
-- [ ] Add Tadoku/Aozora/Irodori/Tae Kim/Wikibooks learner entry points in the
+- [x] Add Tadoku/Aozora/Irodori/Tae Kim/Wikibooks learner entry points in the
   relevant section, with no core lesson dependency on external availability.
-- [ ] Ensure one-tap mobile audio, thumb-sized source controls, readable
+- [x] Ensure one-tap mobile audio, thumb-sized source controls, readable
   Japanese text, and no horizontal overflow in shelf/reader/reference views.
-- [ ] Add responsive tests or source-level assertions for registry rendering,
+- [x] Add responsive tests or source-level assertions for registry rendering,
   one Erin card, all six new source roles, and external failure fallbacks.
 
 #### 11. Content Studio provenance and coverage diagnostics
 
-- [ ] Extend the existing readable review modal/source evidence UI with source
+- [x] Extend the existing readable review modal/source evidence UI with source
   roles and field-level provenance; do not expose raw JSON as the review path.
-- [ ] Show grammar mappings, Irodori patterns, dictionary/frequency evidence,
+- [x] Show grammar mappings, Irodori patterns, dictionary/frequency evidence,
   and resolved human-audio metadata as inspectable source evidence.
-- [ ] Add actual coverage calculations from registry mappings, staged data,
+- [x] Add actual coverage calculations from registry mappings, staged data,
   and successful resolver metadata; never hard-code percentages.
-- [ ] Keep imported/source-review records pending and preserve existing approval,
+- [x] Keep imported/source-review records pending and preserve existing approval,
   rejection, learner-release, and learner-flag behavior.
-- [ ] Add tests for provenance serialization, actual coverage counts, source
+- [x] Add tests for provenance serialization, actual coverage counts, source
   evidence rendering, and unchanged review gates.
 
 #### 12. Documentation, full verification, and delivery
 
-- [ ] Update `docs/product/CONTENT-SOURCES.md` with the resulting source roles,
+- [x] Update `docs/product/CONTENT-SOURCES.md` with the resulting source roles,
   delivery modes, storage boundary, provenance shape, and failure behavior.
-- [ ] Update `docs/product/SOURCE-EVALUATION.md` with first-party term dates,
+- [x] Update `docs/product/SOURCE-EVALUATION.md` with first-party term dates,
   exact integration behavior, and source-specific restrictions.
-- [ ] Keep `README.md`/`HANDOFF.md` accurate about what is implemented,
+- [x] Keep `README.md`/`HANDOFF.md` accurate about what is implemented,
   provider-hosted, dynamically resolved, cached, or still deferred.
-- [ ] Run the repository commands: `npm test`, `npm run typecheck`,
+- [x] Run the repository commands: `npm test`, `npm run typecheck`,
   `npm run build`, and `git diff --check`.
-- [ ] Run focused source tests with mocked APIs and no network dependency.
-- [ ] Verify no third-party audio/text is added to GitHub, Supabase Storage,
+- [x] Run focused source tests with mocked APIs and no network dependency.
+- [x] Verify no third-party audio/text is added to GitHub, Supabase Storage,
   SQL seed output, or the public deployment bundle.
-- [ ] Commit only intentional milestone files, keep user-local artifacts
+- [x] Commit only intentional milestone files, keep user-local artifacts
   untracked, and push the verified result to `main`.
 
 ## Content acquisition and curriculum expansion
@@ -710,9 +720,9 @@ source retain their own terms and attribution rules.
   review surfaces.
 - [x] Wire the permitted CEJC aggregate spoken-frequency signal through the
   reviewed analysis path; keep it distinct from BCCWJ written frequency.
-- [ ] Obtain matching downstream permission before publishing CSJ-derived
-  spoken-frequency values; CSJ remains a local review-only input under its
-  current no-redistribution/ND terms.
+- [x] Record owner authorization and add an explicit private-only export path
+  for CSJ-derived spoken-frequency values; raw tables, audio, transcripts, and
+  annotations remain excluded. No CSJ values are currently staged to publish.
 - [x] Route pronunciation through browser speech by default, with remote audio
   and a reserved server-TTS provider behind the same UI controls.
 - [x] Persist audio metadata only: source type, optional external URL, speaker,

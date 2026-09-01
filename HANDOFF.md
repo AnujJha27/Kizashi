@@ -2,13 +2,14 @@
 
 Date: 2026-09-01
 Status: The source-integration milestone is implemented on `main` at
-source implementation at `16639d5`; the core integrated-learning milestone is
-implemented at `4790446` on `origin/main`.
+`16639d5`; the core integrated-learning milestone is implemented at `4790446`
+with the follow-up repair, diagnostics, planner, and queue changes staged for
+the next `main` commit.
 Documentation for the source milestone is synchronized in
 `47fd417`; both are present on `origin/main`. Hosted migrations,
 seed, and the core curriculum remain verified. Remaining gates are a real
-browser phone/desktop viewport check, optional imported-content curation, the
-richer repair-card follow-up, and the deferred ServerTTS/audio-archive work.
+browser phone/desktop viewport check, optional imported-content curation, and
+the deferred ServerTTS/audio-archive work.
 
 ## Current snapshot
 
@@ -49,7 +50,10 @@ richer repair-card follow-up, and the deferred ServerTTS/audio-archive work.
   Practice has a deterministic `integrated` context mode; and wrong,
   uncertain, or slow integrated answers retain concept metadata for targeted
   repair. Active attempts hide assistance; review reveals furigana, reasoning,
-  concept labels, and the repair action.
+  concept labels, and the repair action. Repair records now persist a compact
+  explanation/contrast/example/answer card, source IDs, completion state, and
+  delayed follow-up state; Profile can pause/reset the exam plan, and Content
+  Studio reports unresolved learner-facing readings.
 - External metadata is centralized in `lib/external-resources.ts` and source
   maps. Commons and Wikibooks use short-lived runtime metadata caches; Aozora
   uses ignored catalog cache data and fetches only qualifying text. No new
@@ -68,7 +72,9 @@ richer repair-card follow-up, and the deferred ServerTTS/audio-archive work.
   hosted rows. No SQL Editor action remains for this project.
 - The supplied books are outside GitHub and the public bundle. Their 13 split
   parts are in the private `books` bucket and are loaded with short-lived signed
-  URLs and browser-side PDF assembly.
+  URLs and browser-side PDF assembly. They remain a private reference viewer;
+  N5-book text is not automatically ingested into the Kizashi library or
+  published curriculum.
 - Verification completed on 2026-09-01: 19/19 test files, direct TypeScript
   checking, Python syntax checks for the source scripts, Next production build
   (28/28 pages), and `git diff --check`.
@@ -830,10 +836,9 @@ Next session order:
   assigned to real lessons. Rejected six unsafe vocabulary artifacts: the
   OpenJLPT イクラ homograph and five Marugoto rows with truncated readings.
   The remaining 8,343 staged records stay pending.
-- Added the local review-only CSJ short-unit frequency importer and source
-  manifest entry. CSJ values, rows, audio, transcripts, and annotations are
-  not in the learner bundle; current CC BY-NC-ND/no-redistribution terms keep
-  publication gated.
+- Added the CSJ short-unit frequency importer and an explicit owner-authorized
+  private-only aggregate export path. No CSJ values are currently staged;
+  rows, audio, transcripts, and annotations remain outside the learner bundle.
 - Strict QA passed; local SQL inspection produced 47 items, 47 lesson links,
   and 21 sources. The approved slice was published via an equivalent REST
   upsert after the hosted project rejected the SQL payload's missing migration

@@ -34,7 +34,7 @@ seed repair needs the SQL Editor step.
 
 ### Private books on the free plan
 
-The supplied PDFs are intentionally not part of Git history or the deployment bundle. Supabase Free limits each Storage object to 50 MiB, so split each PDF into 45 MiB parts and upload the generated files to a private `books` bucket. Run the splitter once per book (the output is ignored by Git):
+The supplied PDFs are intentionally not part of Git history or the deployment bundle. They remain private reference books in the Books viewer; they are not automatically mined into the learner library or published curriculum. Supabase Free limits each Storage object to 50 MiB, so split each PDF into 45 MiB parts and upload the generated files to a private `books` bucket. Run the splitter once per book (the output is ignored by Git):
 
 ```sh
 python scripts/split_books_for_storage.py --input "N5-books/Study Material N5/Genki - An Integrated Course in Elementary Japanese I [Second Edition] (2011), WITH PDF BOOKMARKS!.pdf" --book-id genki-i

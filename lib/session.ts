@@ -215,6 +215,7 @@ export interface ExamAttempt {
 export interface ExamPlanPreferences {
   targetLevel: "N5" | "N4";
   examDate: string;
+  paused: boolean;
   dailyMinutes: number;
   availableStudyDays: number[];
   restDays: number[];
@@ -228,6 +229,18 @@ export interface RepairRecord {
   targetItemIds: string[];
   followUpDueAt: number;
   status: "started" | "completed";
+  followUpStatus?: "pending" | "passed" | "needs-review";
+  repairCompletedAt?: number;
+  followUpCompletedAt?: number;
+  card?: {
+    explanation: string;
+    contrast: string;
+    example: string;
+    exampleTranslation?: string;
+    answer: string;
+    followUp: string;
+    sourceIds: string[];
+  };
   startedAt?: number;
   completedAt?: number;
 }
@@ -450,9 +463,9 @@ export function readRepairRecords(): RepairRecord[] {
   }
 }
 
-export function startRepair(question: { id: string; itemId: string; contextSetId?: string; targetItemIds?: string[] }) {
+export function startRepair(question: { id: string; itemId: string; contextSetId?: string; targetItemIds?: string[] }, context: { item?: unknown; contrast?: unknown } = {}) {
   if (typeof window === "undefined") return null;
-  const plan = buildRepairPlan(question, Date.now()) as RepairRecord;
+  const plan = buildRepairPlan(question, Date.now(), context) as RepairRecord;
   const records = readRepairRecords();
   const existing = records.find((record) => record.id === plan.id);
   if (!existing) {
@@ -462,10 +475,11 @@ export function startRepair(question: { id: string; itemId: string; contextSetId
   return plan.id;
 }
 
-export function completeRepair(repairId: string) {
+export function completeRepair(repairId: string, phase: "repair" | "follow-up" = "repair", passed = true) {
   if (typeof window === "undefined") return;
   const records = readRepairRecords();
-  const next = records.map((record) => record.id === repairId ? { ...record, status: "completed" as const, completedAt: Date.now() } : record);
+  const now = Date.now();
+  const next = records.map((record) => record.id === repairId ? phase === "follow-up" ? { ...record, followUpStatus: passed ? "passed" as const : "needs-review" as const, followUpCompletedAt: now } : { ...record, status: "completed" as const, completedAt: now, repairCompletedAt: now, followUpStatus: "pending" as const } : record);
   window.localStorage.setItem(REPAIR_STORAGE_KEY, JSON.stringify(next));
   window.dispatchEvent(new Event("michi-repair-updated"));
 }
