@@ -16,6 +16,8 @@ test("audio UI and providers keep pronunciation ephemeral by default", async () 
   assert.match(provider, /class BrowserSpeechProvider/);
   assert.match(provider, /class RemoteAudioProvider/);
   assert.match(provider, /class ServerTTSProvider/);
+  assert.match(provider, /pause\(\)/);
+  assert.match(provider, /resume\(\)/);
   assert.match(provider, /resolveHumanAudio/);
   assert.match(provider, /enabled = false/);
   assert.match(provider, /playAudioWithBrowserFallback/);
@@ -25,6 +27,8 @@ test("audio UI and providers keep pronunciation ephemeral by default", async () 
   assert.match(controls, /Play Japanese audio/);
   assert.match(controls, /Replay Japanese audio/);
   assert.match(controls, /Play Japanese audio slowly/);
+  assert.match(controls, /Pause Japanese audio/);
+  assert.match(controls, /Resume Japanese audio/);
   assert.match(controls, /autoPlay/);
   assert.match(controls, /resolveHumanAudio\(request, reading, humanFirst\)/);
   assert.doesNotMatch(provider, /supabase\.storage|upload\(/);

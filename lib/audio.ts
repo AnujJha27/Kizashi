@@ -75,6 +75,8 @@ export interface AudioProvider {
   readonly sourceType: AudioSourceType;
   canPlay(request: AudioRequest): boolean;
   play(request: AudioRequest, rate?: number): Promise<AudioPlayResult>;
+  pause(): void;
+  resume(): void;
   stop(): void;
 }
 
@@ -103,6 +105,7 @@ function japaneseVoice(synthesis: SpeechSynthesis) {
 
 export class BrowserSpeechProvider implements AudioProvider {
   readonly sourceType = "browser-speech" as const;
+  private requestId = 0;
 
   canPlay(request: AudioRequest) {
     return typeof window !== "undefined" && "speechSynthesis" in window && Boolean(request.text?.trim());
@@ -111,7 +114,9 @@ export class BrowserSpeechProvider implements AudioProvider {
   async play(request: AudioRequest, rate?: number): Promise<AudioPlayResult> {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return { status: "unavailable", message: "Speech synthesis is unavailable on this device." };
     if (!request.text?.trim()) return { status: "error", message: "No Japanese text is available to play." };
+    const requestId = ++this.requestId;
     const voice = await japaneseVoice(window.speechSynthesis);
+    if (requestId !== this.requestId) return { status: "error", message: "Audio playback was cancelled." };
     if (!voice) return { status: "unavailable", message: "Japanese speech is unavailable on this device." };
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(request.text);
@@ -130,7 +135,16 @@ export class BrowserSpeechProvider implements AudioProvider {
   }
 
   stop() {
+    this.requestId += 1;
     if (typeof window !== "undefined" && "speechSynthesis" in window) window.speechSynthesis.cancel();
+  }
+
+  pause() {
+    if (typeof window !== "undefined" && "speechSynthesis" in window) window.speechSynthesis.pause();
+  }
+
+  resume() {
+    if (typeof window !== "undefined" && "speechSynthesis" in window) window.speechSynthesis.resume();
   }
 }
 
@@ -148,9 +162,13 @@ export class RemoteAudioProvider implements AudioProvider {
     try {
       this.stop();
       this.audio = new Audio(url);
-      this.audio.playbackRate = playbackRate(rate ?? request.metadata?.preferredRate);
-      await this.audio.play();
-      return { status: "played" };
+      const audio = this.audio;
+      audio.playbackRate = playbackRate(rate ?? request.metadata?.preferredRate);
+      await audio.play();
+      return await new Promise<AudioPlayResult>((resolve) => {
+        audio.onended = () => resolve({ status: "played" });
+        audio.onerror = () => resolve({ status: "error", message: "The external audio could not be played." });
+      });
     } catch {
       return { status: "error", message: "The external audio could not be played." };
     }
@@ -160,6 +178,14 @@ export class RemoteAudioProvider implements AudioProvider {
     this.audio?.pause();
     if (this.audio) this.audio.currentTime = 0;
     this.audio = null;
+  }
+
+  pause() {
+    this.audio?.pause();
+  }
+
+  resume() {
+    void this.audio?.play();
   }
 }
 
@@ -174,6 +200,8 @@ export class ServerTTSProvider implements AudioProvider {
     return { status: "unavailable" as const, message: "Server pronunciation is not configured." };
   }
 
+  pause() {}
+  resume() {}
   stop() {}
 }
 
