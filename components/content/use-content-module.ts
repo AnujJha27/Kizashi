@@ -118,11 +118,14 @@ export function useContentModule(seed: N5Module = n5Module) {
       modulePromise = null;
       void refresh();
     };
-    void refresh();
+    const cancelScheduledRefresh = typeof window.requestIdleCallback === "function"
+      ? (() => { const id = window.requestIdleCallback(() => { if (!cancelled) void refresh(); }, { timeout: 3000 }); return () => window.cancelIdleCallback(id); })()
+      : (() => { const id = window.setTimeout(() => { if (!cancelled) void refresh(); }, 250); return () => window.clearTimeout(id); })();
     window.addEventListener("michi-content-draft-updated", onDraftUpdated);
     window.addEventListener("michi-custom-entries-updated", onDraftUpdated);
     return () => {
       cancelled = true;
+      cancelScheduledRefresh();
       window.removeEventListener("michi-content-draft-updated", onDraftUpdated);
       window.removeEventListener("michi-custom-entries-updated", onDraftUpdated);
     };

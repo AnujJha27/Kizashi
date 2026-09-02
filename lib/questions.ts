@@ -42,6 +42,7 @@ function takeByQuestionTypes(questions: PracticeQuestion[], category: PracticeQu
 
 const listeningTypes = ["task-based response", "key point", "verbal expression", "quick response"];
 
+const practiceQuestionCache = new WeakMap<N5Module, PracticeQuestion[]>();
 const validatedPracticeCache = new WeakMap<N5Module, PracticeQuestion[]>();
 
 function takeListening(questions: PracticeQuestion[], count: number) {
@@ -79,6 +80,8 @@ function takeQuick(questions: PracticeQuestion[]) {
 const politeForms: Record<string, string> = { "食べる": "食べます", "飲む": "飲みます", "行く": "行きます", "来る": "来ます", "見る": "見ます", "勉強する": "勉強します", "買う": "買います", "話す": "話します", "休む": "休みます", "読む": "読みます", "書く": "書きます", "聞く": "聞きます", "する": "します", "遊ぶ": "遊びます", "会う": "会います", "帰る": "帰ります", "乗る": "乗ります", "降りる": "降ります", "分かる": "分かります", "教える": "教えます", "使う": "使います", "持つ": "持ちます", "住む": "住みます" };
 
 export function getPracticeQuestions(module: N5Module = n5Module) {
+  const cached = practiceQuestionCache.get(module);
+  if (cached) return cached;
   const questions: PracticeQuestion[] = [];
 
   module.vocabulary.forEach((item, index) => {
@@ -233,9 +236,14 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
   const integratedQuestions: PracticeQuestion[] = buildIntegratedExamSets([...availableItemIds]).flatMap((set) => set.questions) as PracticeQuestion[];
   const generatedQuestions: PracticeQuestion[] = [...questions, ...integratedQuestions].map((question) => ({ ...question, validationStatus: question.validationStatus ?? "validated" as const, generatedBy: question.generatedBy ?? "michi-question-factory" })) as PracticeQuestion[];
   const remoteQuestions = module.practiceQuestions ?? [];
-  if (!remoteQuestions.length) return generatedQuestions;
+  if (!remoteQuestions.length) {
+    practiceQuestionCache.set(module, generatedQuestions);
+    return generatedQuestions;
+  }
   const remoteIds = new Set(remoteQuestions.map((question) => question.id));
-  return [...generatedQuestions.filter((question) => !remoteIds.has(question.id)), ...remoteQuestions];
+  const merged = [...generatedQuestions.filter((question) => !remoteIds.has(question.id)), ...remoteQuestions];
+  practiceQuestionCache.set(module, merged);
+  return merged;
 }
 
 export function getValidatedPracticeQuestions(module: N5Module = n5Module) {
