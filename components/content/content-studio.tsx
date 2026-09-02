@@ -627,7 +627,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   return <div className="space-y-7">
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><Health label="Last curriculum validation" result={result} /><Health label="Practice question bank" result={questionResult} /><CoverageHealth coverage={practiceCoverage} /></div>
     <ReadingDiagnostics module={coverageModule} />
-    <SourceCoverage items={getModuleItems(coverageModule)} />
+    <SourceCoverage items={getModuleItems(coverageModule)} sources={sources} />
     <TopicCoverage module={coverageModule} />
     <AIGenerator items={getModuleItems(coverageModule).filter((item) => getContentReviewStatus(item) === "approved")} onAdd={addGeneratedQuestion} />
 

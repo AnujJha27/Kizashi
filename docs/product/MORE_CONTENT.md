@@ -27,7 +27,7 @@ Do not ask the user to make routine implementation decisions. Inspect the existi
 
 ## Code-backed implementation status
 
-Updated 2026-09-02. This checklist records verified repository state, not
+Updated 2026-09-03. This checklist records verified repository state, not
 intent. Counts come from `data/staging/kizashi-n5-source-review.json.gz`.
 
 Legend: `[x]` implemented, `[~]` partially implemented or needs broader
@@ -48,7 +48,7 @@ coverage/verification, `[ ]` not implemented.
 - [x] Japanese with Shun and Nihongo con Teppei are learner-facing provider-hosted listening entries in the shared registry and Immersion `寄り道` shelf; both retain a link fallback and store no media.
 - [~] The shared staged package now includes 603 N4-classified records and N4 source evidence, but a dedicated authored N4 learning path and substantial N4 reading/listening bank are still missing.
 - [x] Practice routing accepts an explicit N4 target and keeps N5 prerequisite questions available in the same existing PracticePlayer; N5 remains the default route.
-- [~] Content Studio has computed source coverage for current mappings, but the complete deficit dashboard from this milestone is not implemented.
+- [x] Content Studio has computed source coverage plus a live provenance-gap dashboard showing missing and unknown source IDs by content category from the current source manifest.
 - [~] Mobile, external-frame, performance, and source-failure behavior have been improved in affected flows; a full end-to-end audit remains.
 
 ### Priority tracking
