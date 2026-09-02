@@ -198,6 +198,7 @@ test("learners can flag source-review content while studying", async () => {
 test("external sources use native media and safe framing fallbacks", async () => {
   const viewer = await readFile(new URL("../components/learning/external-source-viewer.tsx", import.meta.url), "utf8");
   const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
+  const player = await readFile(new URL("../components/learning/immersion-player.tsx", import.meta.url), "utf8");
   const launcher = await readFile(new URL("../components/learning/external-source-launcher.tsx", import.meta.url), "utf8");
   const sourceProgress = await readFile(new URL("../lib/external-source-progress.js", import.meta.url), "utf8");
   const frameExtension = JSON.parse(await readFile(new URL("../browser/kizashi-private-frame-unlocker/manifest.json", import.meta.url), "utf8"));
@@ -224,13 +225,11 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(viewer, /role="dialog"/);
   assert.match(viewer, /backdrop-blur/);
   assert.match(surface, /ExternalSourceViewer/);
-  assert.match(surface, /const erinLessons = getErinLessonResources\(\)\.map\(externalResourceToSourceLink\)/);
-  assert.match(surface, /selectedErin/);
-  assert.match(surface, /<select/);
-  assert.match(surface, /selectedSourceId/);
-  assert.match(surface, /value=\{selectedErinSource\.id\}/);
-  assert.match(surface, /value === source\.id \? null : source\.id/);
-  assert.match(surface, /Sources opened/);
+  assert.match(surface, /ImmersionPlayer/);
+  assert.match(surface, /role="tablist"/);
+  assert.match(surface, /selectedClipId/);
+  assert.match(surface, /SourceCard/);
+  assert.match(surface, /sources opened/);
   assert.match(surface, /readExternalSourceProgress/);
   assert.match(launcher, /markExternalSourceOpened/);
   assert.match(launcher, /Opened/);
@@ -245,10 +244,10 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(shell, /href: "\/library"/);
   assert.match(shell, /grid-cols-5/);
   assert.match(library, /relative z-10/);
-  assert.match(surface, /JapaneseText/);
-  assert.match(surface, /always/);
-  assert.match(surface, /JapaneseText text=\{question\.prompt\}/);
-  assert.match(surface, /JapaneseText text=\{answer\}/);
+  assert.match(player, /JapaneseText/);
+  assert.match(player, /always/);
+  assert.match(player, /JapaneseText text=\{question\.prompt\}/);
+  assert.match(player, /JapaneseText text=\{answer\}/);
 });
 
 test("Studio exposes every pending question through a searchable paged review queue", async () => {
