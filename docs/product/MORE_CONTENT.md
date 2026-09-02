@@ -63,6 +63,7 @@ coverage/verification, `[ ]` not implemented.
 - [~] Priority 5 — the deterministic original-listening generator and initial 80-scenario N5/N4 banks are implemented across task, key-point, verbal-expression, and quick-response families; constrained requests, richer dialogue variation, and review remain.
 - [x] Priority 6 — dynamic Tatoeba audio is wired for exact sentence matches with reusable API-reported licenses; misses fall through to Browser Speech.
 - [x] Priority 7 — Japanese with Shun and Nihongo con Teppei are registered as provider-hosted video/podcast immersion.
+- [x] Priority 8 — the Conjugation Lab now derives bounded N5/N4 verb and adjective transformation prompts through the existing PracticePlayer and answer normalization.
 
 This status block must be refreshed whenever a milestone slice is implemented;
 unchecked requirements below remain active.
