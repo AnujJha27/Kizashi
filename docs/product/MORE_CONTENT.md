@@ -52,7 +52,7 @@ coverage/verification, `[ ]` not implemented.
 - [x] Practice routing accepts an explicit N4 target and keeps N5 prerequisite questions available in the same existing PracticePlayer; N5 remains the default route.
 - [x] Content Studio has computed source coverage plus a live provenance-gap dashboard showing missing and unknown source IDs by content category from the current source manifest.
 - [x] Content Studio now reports computed modality coverage for examples, attached audio, reading/listening checks, and conjugation candidates alongside source coverage.
-- [~] Mobile, external-frame, performance, and source-failure behavior have been improved in affected flows; practice queue identity is isolated by mode/length/topic and route loading feedback is present, but a full end-to-end audit remains.
+- [~] Mobile, external-frame, performance, and source-failure behavior have been improved in affected flows; Practice mode/length/topic changes now stay client-side with a visible transition state, Studio's expensive reading scan is deferred, and queue identity is isolated, but a full end-to-end audit remains.
 
 ### Priority tracking
 

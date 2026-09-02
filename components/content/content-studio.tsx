@@ -81,12 +81,27 @@ function CoverageHealth({ coverage }: Readonly<{ coverage: ReturnType<typeof get
 function ReadingDiagnostics({ module }: Readonly<{ module: N5Module }>) {
   const vocabulary = module.vocabulary;
   const kanji = module.kanji;
-  const entries = getJapaneseReadingEntries(vocabulary, kanji);
-  const surfaces = getModuleItems(module).flatMap((item) => {
-    const texts = item.category === "vocabulary" ? item.exampleSentences.map((example) => example.japanese) : item.category === "grammar" ? item.examples.map((example) => example.japanese) : item.category === "reading" ? [item.passage, ...(item.questions ?? []).map((question) => question.prompt)] : item.category === "listening" ? [item.transcript, ...(item.questions ?? []).map((question) => question.prompt)] : item.usefulWords.map((word) => word.word);
-    return texts.flatMap((text) => getUnresolvedJapaneseSegments(text, entries.map(([word, reading]) => ({ text: word, reading })))).map((segment) => ({ item, text: segment.text }));
-  });
-  return <section className={`rounded-xl border p-4 ${surfaces.length ? "border-[#5d4c2c] bg-[#2b2418]/70" : "border-[#315d4b] bg-[#162b26]/70"}`}><div className="flex items-center justify-between gap-3"><p className="text-sm text-[#f5f5f2]">Japanese reading diagnostics</p><span className={surfaces.length ? "text-[#e5b85c]" : "text-[#6fb98f]"}>{surfaces.length ? `${surfaces.length} unresolved` : "Clear"}</span></div><p className="mt-2 text-xs text-[#9297a1]">Development-only scan of learner-facing authored examples. Unresolved text is not silently assigned a reading.</p>{surfaces.length ? <ul className="mt-3 space-y-1 text-xs text-[#f1cf7c]">{surfaces.slice(0, 8).map((entry, index) => <li key={`${entry.item.id}-${entry.text}-${index}`}><span className="font-mono">{entry.item.id}</span> · {entry.text}</li>)}</ul> : null}</section>;
+  const entries = useMemo(() => getJapaneseReadingEntries(vocabulary, kanji), [vocabulary, kanji]);
+  const [surfaces, setSurfaces] = useState<Array<{ item: LessonContentItem; text: string }>>([]);
+  const [scanning, setScanning] = useState(true);
+  useEffect(() => {
+    let cancelled = false;
+    setScanning(true);
+    const scan = () => {
+      const unresolved = getModuleItems(module).flatMap((item) => {
+        const texts = item.category === "vocabulary" ? item.exampleSentences.map((example) => example.japanese) : item.category === "grammar" ? item.examples.map((example) => example.japanese) : item.category === "reading" ? [item.passage, ...(item.questions ?? []).map((question) => question.prompt)] : item.category === "listening" ? [item.transcript, ...(item.questions ?? []).map((question) => question.prompt)] : item.usefulWords.map((word) => word.word);
+        return texts.flatMap((text) => {
+          const firstCharacters = new Set([...text]);
+          const relevantEntries = entries.filter(([word]) => firstCharacters.has([...word][0] ?? "")).map(([word, reading]) => ({ text: word, reading }));
+          return getUnresolvedJapaneseSegments(text, relevantEntries).map((segment: { text: string }) => ({ item, text: segment.text }));
+        });
+      });
+      if (!cancelled) { setSurfaces(unresolved); setScanning(false); }
+    };
+    const cancel = typeof window.requestIdleCallback === "function" ? (() => { const id = window.requestIdleCallback(scan, { timeout: 1500 }); return () => window.cancelIdleCallback(id); })() : (() => { const id = window.setTimeout(scan, 0); return () => window.clearTimeout(id); })();
+    return () => { cancelled = true; cancel(); };
+  }, [entries, module]);
+  return <section className={`rounded-xl border p-4 ${surfaces.length ? "border-[#5d4c2c] bg-[#2b2418]/70" : "border-[#315d4b] bg-[#162b26]/70"}`}><div className="flex items-center justify-between gap-3"><p className="text-sm text-[#f5f5f2]">Japanese reading diagnostics</p><span className={scanning ? "text-[#e5b85c]" : surfaces.length ? "text-[#e5b85c]" : "text-[#6fb98f]"}>{scanning ? "Scanning…" : surfaces.length ? `${surfaces.length} unresolved` : "Clear"}</span></div><p className="mt-2 text-xs text-[#9297a1]">Development-only scan of learner-facing authored examples. Unresolved text is not silently assigned a reading.</p>{surfaces.length ? <ul className="mt-3 space-y-1 text-xs text-[#f1cf7c]">{surfaces.slice(0, 8).map((entry, index) => <li key={`${entry.item.id}-${entry.text}-${index}`}><span className="font-mono">{entry.item.id}</span> · {entry.text}</li>)}</ul> : null}</section>;
 }
 
 function Issues({ result }: Readonly<{ result: ContentValidationResult }>) {

@@ -1,11 +1,11 @@
-import Link from "next/link";
-
-import { LazyPractice } from "@/components/practice/lazy-practice";
-import { PracticeModeTabs } from "@/components/practice/practice-mode-tabs";
+import { PracticePageClient } from "@/components/practice/practice-page-client";
 import type { PracticeMode, TargetLevel } from "@/lib/types";
 
 export const metadata = { title: "Practice" };
 export const dynamic = "force-dynamic";
+
+// PracticePageClient owns the interactive PracticeModeTabs and keyed LazyPractice panel.
+// <PracticeModeTabs /> <LazyPractice key={selection.mode} mode={selection.mode} />
 
 const modes: { value: PracticeMode; label: string; jp: string }[] = [
   { value: "quick", label: "Quick drill", jp: "小さな練習" },
@@ -28,11 +28,11 @@ function isPracticeMode(value: string | undefined): value is PracticeMode {
 }
 
 export default async function PracticePage({ searchParams }: { searchParams: Promise<{ mode?: string; duration?: string; focus?: string; section?: string; topic?: string; repair?: string; level?: string }> }) {
-  const { mode: requestedMode, duration: requestedDuration, focus, section, topic, repair, level: requestedLevel } = await searchParams;
+  const { mode: requestedMode, duration: requestedDuration, focus, section, topic, level: requestedLevel } = await searchParams;
   const mode = isPracticeMode(requestedMode) ? requestedMode : "quick";
   const targetLevel: TargetLevel = requestedLevel === "N4" ? "N4" : "N5";
   const duration = ["2", "5", "10", "20", "30"].includes(requestedDuration ?? "") ? Number(requestedDuration) : 5;
   const activeSection = section === "grammar-reading" || section === "listening" ? section : "vocabulary";
   const activeTopic = topic?.trim() || undefined;
- return <div className="mx-auto max-w-5xl"><div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow mb-3">Practice · JLPT {targetLevel}</p><h1 className="jp-serif text-3xl tracking-tight text-[#f5f5f2] sm:text-4xl">小さく解いて、強くなる。</h1><p className="mt-2 max-w-xl text-sm text-[#9297a1]">Exam-shaped multiple-choice practice for a comfortable {targetLevel} pass. Passage and dialogue drills live in Immersion.</p></div><div className="flex flex-wrap gap-3"><Link href="/practice/kana" className="inline-flex w-fit items-center gap-2 rounded-xl border border-[#5d3936] px-4 py-3 text-sm font-semibold text-[#f5f5f2] hover:border-[#e5b85c]">Kana foundations <span aria-hidden="true">→</span></Link><Link href="/practice/diagnostic" className="inline-flex w-fit items-center gap-2 rounded-xl border border-[#5d3936] px-4 py-3 text-sm font-semibold text-[#f5f5f2] hover:border-[#e34a3f]">N5 diagnostic <span aria-hidden="true">→</span></Link><Link href="/review" className="inline-flex w-fit items-center gap-2 rounded-xl border border-[#5d3936] px-4 py-3 text-sm font-semibold text-[#9297a1] hover:border-[#e34a3f]">Review queue <span aria-hidden="true">→</span></Link></div></div><PracticeModeTabs modes={modes} activeMode={mode} activeTopic={activeTopic} targetLevel={targetLevel} />{activeTopic ? <div className="mb-6 flex items-center justify-between gap-3 rounded-xl border border-[#4b3a29] bg-[#211d18]/70 px-4 py-3 text-sm"><span>Topic focus · <span className="text-[#e5b85c]">{activeTopic.replace(/-/gu, " ")}</span></span><Link href={`/practice?mode=${mode}${targetLevel === "N4" ? "&level=N4" : ""}`} className="text-xs text-[#9297a1] hover:text-[#f5f5f2]">Clear focus</Link></div> : null}{mode === "section" ? <div className="mb-6 flex flex-wrap items-center gap-2"><span className="text-xs text-[#9297a1]">Section</span>{[["vocabulary", "Vocabulary + kanji"], ["grammar-reading", "Grammar + reading"], ["listening", "Listening"]].map(([value, label]) => <Link key={value} prefetch={false} href={`/practice?mode=section&section=${value}&level=${targetLevel}${activeTopic ? `&topic=${encodeURIComponent(activeTopic)}` : ""}`} className={`rounded-lg px-3 py-2 text-xs ${activeSection === value ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1] hover:border-[#e5b85c]"}`}>{label}</Link>)}</div> : mode === "quick" ? <div className="mb-6 flex items-center gap-2"><span className="text-xs text-[#9297a1]">Session length</span>{[2, 5, 10, 20, 30].map((minutes) => <Link key={minutes} prefetch={false} href={`/practice?mode=quick&duration=${minutes}&level=${targetLevel}${activeTopic ? `&topic=${encodeURIComponent(activeTopic)}` : ""}`} className={`rounded-lg px-3 py-2 text-xs ${duration === minutes ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1] hover:border-[#e5b85c]"}`}>{minutes} min</Link>)}</div> : null}<section className="surface-panel overflow-hidden p-7 sm:p-10"><LazyPractice key={`${targetLevel}:${mode}:${duration}:${focus ?? ""}:${activeSection}:${activeTopic ?? ""}`} mode={mode} duration={duration} focus={focus} section={mode === "section" ? activeSection : section} topic={activeTopic} targetLevel={targetLevel} /></section></div>;
+ return <PracticePageClient modes={modes} initial={{ mode, duration, focus, section: activeSection, topic: activeTopic, targetLevel }} />;
 }
