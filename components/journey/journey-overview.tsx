@@ -70,7 +70,8 @@ export function JourneyOverview() {
   const allItems: LessonContentItem[] = [...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening];
   const nodes = getJourneyNodesForModule(module, lesson?.id);
   const level = module.course.jlptLevel ?? "N5";
-  const topics = getTopicCoverage(allItems, records).sort((left, right) => (left.held / Math.max(left.total, 1)) - (right.held / Math.max(right.total, 1)) || right.total - left.total);
+  const topics = getTopicCoverage(lessonItems, records).sort((left, right) => (left.held / Math.max(left.total, 1)) - (right.held / Math.max(right.total, 1)) || right.total - left.total);
+  const lessonShape = { vocabulary: lessonItems.filter((item) => item.category === "vocabulary").length, kanji: lessonItems.filter((item) => item.category === "kanji").length, grammar: lessonItems.filter((item) => item.category === "grammar").length, contexts: lessonItems.filter((item) => item.category === "reading" || item.category === "listening").length };
 
   return <div className="journey-page mx-auto max-w-6xl">
     <section className="journey-hero relative mb-8 overflow-hidden rounded-2xl border border-[#292b31] p-6 sm:p-10">
@@ -98,7 +99,7 @@ export function JourneyOverview() {
     <div className="grid gap-6 lg:grid-cols-[1.25fr_.75fr]">
       <section>
         <div className="mb-4 flex items-end justify-between"><div><p className="eyebrow">Your route</p><h2 className="mt-1 text-xl font-medium">{module.course.title}</h2></div><span className="text-xs text-[#676c75]">{lessons.length} lesson{lessons.length === 1 ? "" : "s"}</span></div>
-        <JourneyMap nodes={nodes} />
+        <JourneyMap nodes={nodes} focusLessonId={lesson?.id} />
       </section>
 
       <aside className="space-y-6">
@@ -109,9 +110,8 @@ export function JourneyOverview() {
 
         <section className="surface-panel-raised p-6">
           <p className="eyebrow mb-3">Module shape</p>
-          <p className="text-3xl font-semibold text-[#f5f5f2]">{module.vocabulary.length}<span className="ml-2 text-sm font-normal text-[#9297a1]">useful words</span></p>
-          <div className="mt-5 grid grid-cols-3 gap-2 text-center text-xs"><div className="rounded-lg bg-[#111216] p-3"><p className="text-lg text-[#e5b85c]">{module.kanji.length}</p><p className="mt-1 text-[#676c75]">kanji</p></div><div className="rounded-lg bg-[#111216] p-3"><p className="text-lg text-[#e5b85c]">{module.grammar.length}</p><p className="mt-1 text-[#676c75]">grammar</p></div><div className="rounded-lg bg-[#111216] p-3"><p className="text-lg text-[#e5b85c]">{module.readings.length + module.listening.length}</p><p className="mt-1 text-[#676c75]">contexts</p></div></div>
-          <p className="mt-4 text-xs text-[#676c75]">{lessonItems.length} items in the current lesson</p>
+          <p className="text-3xl font-semibold text-[#f5f5f2]">{lessonItems.length}<span className="ml-2 text-sm font-normal text-[#9297a1]">items in this lesson</span></p>
+          <div className="mt-5 grid grid-cols-4 gap-2 text-center text-xs"><div className="rounded-lg bg-[#111216] p-3"><p className="text-lg text-[#e5b85c]">{lessonShape.vocabulary}</p><p className="mt-1 text-[#676c75]">words</p></div><div className="rounded-lg bg-[#111216] p-3"><p className="text-lg text-[#e5b85c]">{lessonShape.kanji}</p><p className="mt-1 text-[#676c75]">kanji</p></div><div className="rounded-lg bg-[#111216] p-3"><p className="text-lg text-[#e5b85c]">{lessonShape.grammar}</p><p className="mt-1 text-[#676c75]">grammar</p></div><div className="rounded-lg bg-[#111216] p-3"><p className="text-lg text-[#e5b85c]">{lessonShape.contexts}</p><p className="mt-1 text-[#676c75]">contexts</p></div></div>
           <div className="mt-5 border-t border-white/10 pt-4"><div className="mb-3 flex items-end justify-between gap-3"><div><p className="eyebrow">Topic coverage</p><p className="mt-1 text-xs text-[#9297a1]">Your least-held topics rise first.</p></div><Link href="/library" className="text-xs text-[#e5b85c] hover:text-[#f1cf7c]">Open shelf →</Link></div><TopicProgressList topics={topics} /></div>
         </section>
       </aside>

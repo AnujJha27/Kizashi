@@ -22,7 +22,7 @@ function nodeStatusLabel(node: JourneyNode) {
   return statusLabel[node.status];
 }
 
-export function JourneyMap({ nodes }: Readonly<{ nodes: JourneyNode[] }>) {
+export function JourneyMap({ nodes, focusLessonId }: Readonly<{ nodes: JourneyNode[]; focusLessonId?: string }>) {
   const [records, setRecords] = useState<Record<string, ReviewRecord> | null>(null);
 
   useEffect(() => {
@@ -62,6 +62,14 @@ export function JourneyMap({ nodes }: Readonly<{ nodes: JourneyNode[] }>) {
     if (statuses.some((status) => status === "available")) return { ...node, status: "available" as const };
     return node;
   });
+  const lessonIndexes = visibleNodes.flatMap((node, index) => node.kind === "lesson" ? [index] : []);
+  const focusIndex = focusLessonId ? visibleNodes.findIndex((node) => node.id === focusLessonId) : lessonIndexes[0] ?? -1;
+  const focusLessonPosition = Math.max(0, lessonIndexes.findIndex((index) => index === focusIndex));
+  const windowLessonIndexes = lessonIndexes.slice(Math.max(0, focusLessonPosition - 3), focusLessonPosition + 4);
+  const firstLessonIndex = windowLessonIndexes[0] ?? 0;
+  const lastLessonIndex = windowLessonIndexes.at(-1) ?? Math.max(visibleNodes.length - 1, 0);
+  const routeNodes = visibleNodes.slice(Math.max(0, firstLessonIndex - 1), Math.min(visibleNodes.length, lastLessonIndex + 2));
+  const shownLessons = routeNodes.filter((node) => node.kind === "lesson").length;
 
   return (
     <div className="journey-map relative overflow-hidden rounded-2xl border border-[#292b31] px-5 py-8 sm:px-10">
@@ -72,8 +80,9 @@ export function JourneyMap({ nodes }: Readonly<{ nodes: JourneyNode[] }>) {
           <div><p className="eyebrow">旅の道 · the path</p><p className="jp-serif mt-1 text-sm text-[#9297a1]">静かに、ひとつずつ</p></div>
           <span className="seal" aria-label="N5 pass path"><span>N5</span><small>道</small></span>
         </div>
+        {lessonIndexes.length > shownLessons ? <p className="mb-4 text-xs text-[#676c75]">Showing the current lesson and up to three nearby lessons. <Link href="/learn" className="text-[#e5b85c] hover:text-[#f1cf7c]">View all lessons →</Link></p> : null}
         <div className="space-y-0">
-          {visibleNodes.map((node, index) => {
+          {routeNodes.map((node, index) => {
             const isLink = Boolean(node.href) && node.status !== "locked";
             const isActiveLesson = node.kind === "lesson" && node.status === "current";
             const content = (
@@ -88,7 +97,7 @@ export function JourneyMap({ nodes }: Readonly<{ nodes: JourneyNode[] }>) {
             );
             return (
               <div key={node.id} className="relative">
-                {index < nodes.length - 1 ? <span className="journey-line absolute left-[17px] top-12 h-8 w-px" aria-hidden="true" /> : null}
+                {index < routeNodes.length - 1 ? <span className="journey-line absolute left-[17px] top-12 h-8 w-px" aria-hidden="true" /> : null}
                 {isLink ? <Link href={node.href!} className="block rounded-xl hover:bg-[#17181d]">{content}</Link> : <div>{content}</div>}
               </div>
             );

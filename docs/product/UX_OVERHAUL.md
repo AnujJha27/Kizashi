@@ -58,8 +58,8 @@ verification, `[ ]` not implemented.
 - [x] Cmd/Ctrl-K searches Japanese content, lessons, reading, immersion, and references through the bounded search route.
 - [x] Progress leads with a weekly narrative, recent strengths, accuracy, and priority signals before detailed metrics.
 - [x] Library entries expose direct Practice and Immersion actions; Books, Reference, and saved sentences are reachable from Library.
-- [~] Journey visual hierarchy is reduced, but the route still needs the bounded three-before/three-after lesson window and learner-sized module totals.
-- [~] Shelf/card spacing cleanup is in the working tree and still needs verification and publication.
+- [x] Journey visual hierarchy is reduced to the active lesson plus up to three nearby lessons, with learner-sized current-lesson totals.
+- [x] Shelf/card spacing uses bottom-aligned action rails so Aozora and Tadoku controls sit consistently across cards.
 
 ### Adaptive support and presentation
 
@@ -81,11 +81,11 @@ verification, `[ ]` not implemented.
 - [x] Phase 9 — Unified Japanese search
 - [~] Phase 10 — Adaptive scaffolding
 - [x] Phase 11 — Progress narrative
-- [~] Phase 12 — Journey visual hierarchy
+- [x] Phase 12 — Journey visual hierarchy
 - [x] Phase 13 — Contextual actions
 - [~] Phase 14 — Visual refinement
 - [~] Phase 15 — Mobile/accessibility/performance
-- [~] Phase 16 — Tests/build verification
+- [x] Phase 16 — Tests/build verification
 
 Inspect the current repository first, preserve working behavior, implement the UX changes end-to-end, and run existing tests/builds.
 
