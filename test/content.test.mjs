@@ -143,10 +143,13 @@ test("known source extraction errors are retried or merged canonically", async (
   assert.equal(vocabulary.has("marugoto-starter-vocab-0a5e23e8d9b2"), false);
   assert.equal(vocabulary.get("vocab-ikura")?.sourceIds.includes("openjlpt-vocab-n5"), true);
   assert.equal(vocabulary.get("vocab-ikura")?.sourceIds.includes("marugoto-starter-vocab"), true);
-  assert.equal(vocabulary.get("marugoto-elementary1-vocab-666d51b66503")?.reading, "すみません");
-  assert.equal(vocabulary.get("marugoto-elementary1-vocab-32738872e84f")?.reading, "ありがとう");
-  assert.equal(vocabulary.get("marugoto-elementary1-vocab-666d51b66503")?.reviewStatus, "pending");
-  assert.equal(vocabulary.get("marugoto-elementary1-vocab-32738872e84f")?.reviewStatus, "pending");
+  const elementaryOne = [...vocabulary.values()].filter((item) => item.sourceIds?.includes("marugoto-elementary1-vocab"));
+  const sumimasen = elementaryOne.find((item) => item.writtenForm === "すみません");
+  const arigatou = elementaryOne.find((item) => item.writtenForm === "ありがとう");
+  assert.equal(sumimasen?.reading, "すみません");
+  assert.equal(arigatou?.reading, "ありがとう");
+  assert.equal(sumimasen?.reviewStatus, "pending");
+  assert.equal(arigatou?.reviewStatus, "pending");
   assert.equal(staged.vocabulary.some((item) => item.reviewStatus === "rejected"), false);
 });
 

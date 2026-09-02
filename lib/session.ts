@@ -202,7 +202,7 @@ export interface StudyStats {
 
 export interface ExamAttempt {
   attemptId: string;
-  level: "N5";
+  level: "N5" | "N4";
   section: "sampler" | "diagnostic" | "mini" | "section" | "full" | "integrated";
   questionsAttempted: number;
   correct: number;

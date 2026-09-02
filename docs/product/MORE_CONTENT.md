@@ -35,16 +35,18 @@ coverage/verification, `[ ]` not implemented.
 
 ### Current evidence
 
-- [x] The tracked staged package currently contains 7,329 vocabulary, 630 kanji, 413 grammar, 6 reading, and 6 listening records: 8,384 records across 64 lessons; 603 records carry N4 classification and every item is assigned to a Journey lesson.
+- [x] The tracked staged package currently contains 7,328 vocabulary, 630 kanji, 413 grammar, 6 reading, and 6 listening records: 8,383 records across 64 lessons; 603 records carry N4 classification and every item is assigned to a Journey lesson.
+- [x] The learner release path exposes every non-rejected staged record immediately with automatic provenance, while merging bundled authored expansions so remote package loading does not hide original reading/listening lessons; pending remains a Studio status, not a learner gate.
 - [x] The existing three Irodori item ingestors remain in place and preserve source IDs, field-level provenance, course, and source-level metadata.
 - [~] Irodori now has seven source-hosted activity records with course/lesson/Can-do metadata and a dedicated Immersion real-life lane; the full Starter, Elementary 1/2, and Pre-Intermediate catalog is still incomplete.
 - [x] Aozora has a rights-filtered metadata shelf and dynamic reader; Tadoku has a provider-hosted graded-reading shelf with local opened progress.
 - [x] Tae Kim, Wikibooks, and Commons/Lingua Libre use the existing external-resource/audio/reference abstractions without copying third-party media into Supabase.
 - [x] Erin's registry now indexes all 25 Basic and 25 Advanced provider lesson pages; six curated Basic entries additionally have Kizashi target mappings and direct provider MP4 metadata.
-- [~] Original Kizashi reading and listening banks currently contain only 6 records each; substantial N5/N4 families are not complete.
+- [~] The learner curriculum now contains the initial original reading target: 60 N5 assets (30 short, 15 mid, 15 information-retrieval) and 55 N4 assets (25 short, 15 mid, 15 information-retrieval) after the existing records are included; the new static listening bank adds 80 N5 and 80 N4 scenarios across all four families, but still needs constrained-generation review and richer variation.
 - [x] Tatoeba has metadata-only exact-sentence audio resolution through the existing `AudioControls` fallback chain; per-recording license, contributor, sentence page, and remote URL are retained without mirroring audio.
 - [x] Japanese with Shun and Nihongo con Teppei are learner-facing provider-hosted listening entries in the shared registry and Immersion `寄り道` shelf; both retain a link fallback and store no media.
 - [~] The shared staged package now includes 603 N4-classified records and N4 source evidence, but a dedicated authored N4 learning path and substantial N4 reading/listening bank are still missing.
+- [x] Practice routing accepts an explicit N4 target and keeps N5 prerequisite questions available in the same existing PracticePlayer; N5 remains the default route.
 - [~] Content Studio has computed source coverage for current mappings, but the complete deficit dashboard from this milestone is not implemented.
 - [~] Mobile, external-frame, performance, and source-failure behavior have been improved in affected flows; a full end-to-end audit remains.
 
@@ -54,8 +56,8 @@ coverage/verification, `[ ]` not implemented.
 - [x] A calculated `scripts/audit_irodori_grammar.py` report now measures Irodori source records by course/source level, canonical pattern matches, duplicate sets, relevance, review status, and learner-field completeness before further mapping work.
 - [~] Priority 2 — the existing Irodori resource pipeline now emits activity types, course levels, categorized target IDs, and provenance, and seven activities are learner-visible; broader source coverage is still required.
 - [x] Priority 3 — all 25 Basic and 25 Advanced Erin skit pages are indexed; only the six curated Basic entries are currently mapped into Kizashi item context.
-- [ ] Priority 4 — Original N5/N4 reading generators and substantial banks.
-- [ ] Priority 5 — Original N5/N4 listening generators and substantial banks.
+- [~] Priority 4 — the deterministic original-reading generator and initial N5/N4 bank are implemented; constrained request parameters, broader review, and non-template expansion remain.
+- [~] Priority 5 — the deterministic original-listening generator and initial 80-scenario N5/N4 banks are implemented across task, key-point, verbal-expression, and quick-response families; constrained requests, richer dialogue variation, and review remain.
 - [x] Priority 6 — dynamic Tatoeba audio is wired for exact sentence matches with reusable API-reported licenses; misses fall through to Browser Speech.
 - [x] Priority 7 — Japanese with Shun and Nihongo con Teppei are registered as provider-hosted video/podcast immersion.
 
@@ -161,13 +163,13 @@ Before changing anything, independently recompute these numbers.
 The current staged package is expected to be approximately:
 
 ```text
-Vocabulary    7,329
+Vocabulary    7,328
 Kanji           630
 Grammar         413
 Reading           6
 Listening         6
 ────────────────────
-Total         8,384
+Total         8,383
 ```
 
 Do not assume these numbers remain exact if the repository has changed.

@@ -130,13 +130,12 @@ def retry_marugoto(item: dict[str, Any], dictionary: dict[tuple[str, str], dict[
     return fixed
 
 
-def review_lesson(package: dict[str, Any]) -> dict[str, Any] | None:
+def remove_ids_from_lessons(package: dict[str, Any], removed: set[str]) -> None:
     course = package.get("course") if isinstance(package.get("course"), dict) else {}
     for chapter in course.get("chapters", []) if isinstance(course.get("chapters"), list) else []:
         for lesson in chapter.get("lessons", []) if isinstance(chapter, dict) and isinstance(chapter.get("lessons"), list) else []:
-            if isinstance(lesson, dict) and lesson.get("id") == "lesson-openjlpt-review":
-                return lesson
-    return None
+            if isinstance(lesson, dict) and isinstance(lesson.get("itemIds"), list):
+                lesson["itemIds"] = [item_id for item_id in strings(lesson["itemIds"]) if item_id not in removed]
 
 
 def main() -> int:
@@ -172,10 +171,16 @@ def main() -> int:
         added += 1
 
     package["vocabulary"] = fixed_items
-    lesson = review_lesson(package)
-    if lesson is not None:
-        item_ids = [item_id for item_id in strings(lesson.get("itemIds")) if item_id not in removed]
-        lesson["itemIds"] = unique([*item_ids, *added_ids])
+    remove_ids_from_lessons(package, removed)
+    course = package.get("course") if isinstance(package.get("course"), dict) else {}
+    review_lessons = [
+        lesson
+        for chapter in course.get("chapters", []) if isinstance(course.get("chapters"), list) and isinstance(chapter, dict)
+        for lesson in chapter.get("lessons", []) if isinstance(chapter.get("lessons"), list) and isinstance(lesson, dict)
+        if lesson.get("id") == "lesson-openjlpt-review"
+    ]
+    if review_lessons:
+        review_lessons[0]["itemIds"] = unique([*strings(review_lessons[0].get("itemIds")), *added_ids])
 
     stats = package.get("stagingStats") if isinstance(package.get("stagingStats"), dict) else {}
     if stats:

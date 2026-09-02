@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import { getAllowedUser } from "@/lib/auth/guard";
 import { getStudyBook } from "@/lib/books";
-import { getBookStoragePartPaths } from "@/lib/supabase/book-storage-core";
+import { getBookStoragePartPaths, getBookStoragePath } from "@/lib/supabase/book-storage-core";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 
@@ -19,15 +19,22 @@ export async function GET(_request: Request, { params }: { params: Promise<{ boo
   if (user.isDemo || !isSupabaseConfigured() || !(process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_SERVICE_KEY)) return NextResponse.json({ error: "Remote book storage is not configured." }, { status: 503 });
 
   const supabase = createSupabaseAdminClient();
-  const paths = getBookStoragePartPaths(book);
-  if (!supabase || !paths.length) return NextResponse.json({ error: "Book storage path is invalid." }, { status: 500 });
+  const pathSets = [getBookStoragePartPaths(book), [getBookStoragePath(book)].filter((value): value is string => Boolean(value))];
+  if (!supabase || !pathSets.some((paths) => paths.length)) return NextResponse.json({ error: "Book storage path is invalid." }, { status: 500 });
 
-  const parts: string[] = [];
-  for (const path of paths) {
-    const { data, error } = await supabase.storage.from(STORAGE_BUCKET).createSignedUrl(path, SIGNED_URL_SECONDS);
-    if (error || !data?.signedUrl) return NextResponse.json({ error: "Book file is unavailable." }, { status: 404 });
-    parts.push(data.signedUrl);
+  let parts: string[] = [];
+  for (const paths of pathSets) {
+    if (!paths.length) continue;
+    const next: string[] = [];
+    let failed = false;
+    for (const path of paths) {
+      const { data, error } = await supabase.storage.from(STORAGE_BUCKET).createSignedUrl(path, SIGNED_URL_SECONDS);
+      if (error || !data?.signedUrl) { failed = true; break; }
+      next.push(data.signedUrl);
+    }
+    if (!failed) { parts = next; break; }
   }
+  if (!parts.length) return NextResponse.json({ error: "Book file is unavailable." }, { status: 404 });
 
   return NextResponse.json({ parts }, { headers: { "Cache-Control": "private, max-age=300" } });
 }

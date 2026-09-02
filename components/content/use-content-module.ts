@@ -19,6 +19,40 @@ function withPersonalVocabulary(module: N5Module) {
   return { ...module, vocabulary: [...module.vocabulary, ...customVocabulary().filter((item) => !existing.has(item.id))] };
 }
 
+function mergeById<T extends { id: string }>(preferred: T[], fallback: T[]) {
+  const merged = new Map(fallback.map((item) => [item.id, item]));
+  preferred.forEach((item) => merged.set(item.id, item));
+  return [...merged.values()];
+}
+
+function mergeModules(preferred: N5Module, fallback: N5Module): N5Module {
+  const fallbackChapters = new Map(fallback.course.chapters.map((chapter) => [chapter.id, chapter]));
+  const chapters = preferred.course.chapters.map((chapter) => {
+    const fallbackChapter = fallbackChapters.get(chapter.id);
+    if (!fallbackChapter) return chapter;
+    const lessons = mergeById(chapter.lessons, fallbackChapter.lessons).map((lesson) => {
+      const fallbackLesson = fallbackChapter.lessons.find((entry) => entry.id === lesson.id);
+      return fallbackLesson ? { ...fallbackLesson, ...lesson, itemIds: [...new Set([...fallbackLesson.itemIds, ...lesson.itemIds])] } : lesson;
+    });
+    return { ...fallbackChapter, ...chapter, lessons };
+  });
+  const preferredChapterIds = new Set(chapters.map((chapter) => chapter.id));
+  chapters.push(...fallback.course.chapters.filter((chapter) => !preferredChapterIds.has(chapter.id)));
+  return {
+    ...fallback,
+    ...preferred,
+    course: { ...fallback.course, ...preferred.course, chapters },
+    vocabulary: mergeById(preferred.vocabulary, fallback.vocabulary),
+    kanji: mergeById(preferred.kanji, fallback.kanji),
+    grammar: mergeById(preferred.grammar, fallback.grammar),
+    readings: mergeById(preferred.readings, fallback.readings),
+    listening: mergeById(preferred.listening, fallback.listening),
+    grammarContrasts: mergeById(preferred.grammarContrasts, fallback.grammarContrasts),
+    practiceQuestions: mergeById(preferred.practiceQuestions ?? [], fallback.practiceQuestions ?? []),
+    sourceManifest: mergeById(preferred.sourceManifest ?? [], fallback.sourceManifest ?? []),
+  };
+}
+
 function learnerModule(module: N5Module) {
   const active = <T extends { id: string; reviewStatus?: unknown; tags?: unknown; contentReview?: unknown }>(items: T[]) => items.filter(isLearnerReleased);
   const vocabulary = active(module.vocabulary);
@@ -55,10 +89,10 @@ function loadSharedModule(seed: N5Module) {
     const learnerResponse = await fetchWithTimeout("/api/content/review-package?audience=learner", { cache: "no-store" }).catch(() => null);
     if (learnerResponse?.ok) {
       const learner = parseModuleForReview(await learnerResponse.text());
-      if (learner) return learnerModule(learner);
+      if (learner) return learnerModule(mergeModules(learner, seed));
     }
     const remote = await fetchSupabaseN5Module(seed).catch(() => null);
-    const parsed = parseAndValidateModule(JSON.stringify(remote ?? seed));
+    const parsed = parseAndValidateModule(JSON.stringify(remote ? mergeModules(remote, seed) : seed));
     return learnerModule(parsed.value ?? seed);
   })();
   modulePromise = pending.then((value) => {

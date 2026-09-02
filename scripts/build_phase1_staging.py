@@ -104,6 +104,12 @@ def main() -> int:
         "merge_openjlpt_staging.py",
         *merge_args,
     )
+    run(
+        "retry_rejected_vocab.py",
+        "--package", f"data/staging/kizashi-{level}-source-review.json",
+        "--jmdict", str(jmdict_path),
+        "--output", f"data/staging/kizashi-{level}-source-review.json",
+    )
     run("report_phase1_staging.py", "--input", f"data/staging/kizashi-{level}-source-review.json")
     print("Staging complete. Non-rejected records are learner-released and can be rendered with render_supabase_content_sql.py.")
     return 0

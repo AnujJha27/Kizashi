@@ -10,7 +10,7 @@ import { clearPracticeSession, readAnswerLeniency, readAutoPlayAudio, readPracti
 import { conceptBreakdown } from "@/lib/integrated-exam-core.js";
 import { normalizeAnswer, reviewRatingForConfidence } from "@/lib/mastery";
 import { preservePracticePosition } from "@/lib/practice-session-core.js";
-import type { AnswerConfidence, GrammarContrast, KanjiItem, LearningItem, PracticeQuestion, VocabularyItem } from "@/lib/types";
+import type { AnswerConfidence, GrammarContrast, KanjiItem, LearningItem, PracticeQuestion, TargetLevel, VocabularyItem } from "@/lib/types";
 
 type CompletionResult = { correct: number; total: number; categoryBreakdown: Record<string, { correct: number; total: number }> };
 type SessionSignal = { confidence: AnswerConfidence | null; responseMs: number | null };
@@ -33,11 +33,11 @@ function formatTime(seconds: number) {
   return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
 }
 
-function saveExamAttempt(sessionId: string, questions: PracticeQuestion[], answers: Record<string, boolean>, startedAt: number | null) {
+function saveExamAttempt(sessionId: string, questions: PracticeQuestion[], answers: Record<string, boolean>, startedAt: number | null, level: TargetLevel) {
   if (startedAt === null) return;
   const result = completionResult(questions, answers);
   const section = sessionId === "diagnostic" ? "diagnostic" : sessionId === "mini-test" ? "mini" : sessionId === "section-test" ? "section" : sessionId === "full-test" ? "full" : sessionId === "integrated-test" ? "integrated" : "sampler";
-  recordExamAttempt({ attemptId: `${sessionId}-${Date.now()}`, level: "N5", section, questionsAttempted: Object.keys(answers).length, correct: result.correct, duration: Math.round((Date.now() - startedAt) / 1000), categoryBreakdown: result.categoryBreakdown, weakTopics: Object.entries(result.categoryBreakdown).filter(([, score]) => score.correct / Math.max(score.total, 1) < 0.75).map(([category]) => category), ...(section === "integrated" ? { contextSetId: questions[0]?.contextSetId, conceptBreakdown: conceptBreakdown(questions, answers) } : {}), completedAt: Date.now() });
+  recordExamAttempt({ attemptId: `${sessionId}-${Date.now()}`, level, section, questionsAttempted: Object.keys(answers).length, correct: result.correct, duration: Math.round((Date.now() - startedAt) / 1000), categoryBreakdown: result.categoryBreakdown, weakTopics: Object.entries(result.categoryBreakdown).filter(([, score]) => score.correct / Math.max(score.total, 1) < 0.75).map(([category]) => category), ...(section === "integrated" ? { contextSetId: questions[0]?.contextSetId, conceptBreakdown: conceptBreakdown(questions, answers) } : {}), completedAt: Date.now() });
 }
 
 function masterySignal(question: PracticeQuestion): MasterySignal {
@@ -75,7 +75,7 @@ function LearningText({ text, vocabulary, kanji, examMode }: Readonly<{ text: st
   return examMode ? <>{text}</> : <JapaneseText text={text} vocabulary={vocabulary} kanji={kanji} />;
 }
 
-export function PracticePlayer({ questions, vocabulary = [], kanji = [], items = [], grammarContrasts = [], examMode = false, examLabel = "N5 sampler", onComplete, onRestart, sessionId, timeLimitSeconds }: Readonly<{ questions: PracticeQuestion[]; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[]; items?: LearningItem[]; grammarContrasts?: GrammarContrast[]; examMode?: boolean; examLabel?: string; onComplete?: (result: CompletionResult) => void; onRestart?: () => void; sessionId?: string; timeLimitSeconds?: number }>) {
+export function PracticePlayer({ questions, vocabulary = [], kanji = [], items = [], grammarContrasts = [], examMode = false, targetLevel = "N5", examLabel = "N5 sampler", onComplete, onRestart, sessionId, timeLimitSeconds }: Readonly<{ questions: PracticeQuestion[]; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[]; items?: LearningItem[]; grammarContrasts?: GrammarContrast[]; examMode?: boolean; targetLevel?: TargetLevel; examLabel?: string; onComplete?: (result: CompletionResult) => void; onRestart?: () => void; sessionId?: string; timeLimitSeconds?: number }>) {
   const activeSessionId = sessionId ?? (examMode ? "diagnostic" : "practice");
   const questionIds = questions.map((question) => question.id);
   const questionKey = questionIds.join("|");
@@ -167,7 +167,7 @@ export function PracticePlayer({ questions, vocabulary = [], kanji = [], items =
       setScore(result.correct);
       setEarnedXp(0);
       recordStudyActivity(0, Math.max(1, Math.ceil((Date.now() - sessionStartedAt) / 60000)));
-      saveExamAttempt(activeSessionId, questions, answerResults, examStartedAt);
+      saveExamAttempt(activeSessionId, questions, answerResults, examStartedAt, targetLevel);
       onComplete?.(result);
       clearPracticeSession(activeSessionId);
       setComplete(true);
@@ -237,7 +237,7 @@ export function PracticePlayer({ questions, vocabulary = [], kanji = [], items =
       setScore(result.correct);
       recordStudyActivity(sessionXp, sessionMinutes);
       setEarnedXp(sessionXp);
-      if (examMode) saveExamAttempt(activeSessionId, questions, finalAnswers, examStartedAt);
+      if (examMode) saveExamAttempt(activeSessionId, questions, finalAnswers, examStartedAt, targetLevel);
       onComplete?.(result);
       clearPracticeSession(activeSessionId);
       setComplete(true);

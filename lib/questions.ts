@@ -2,7 +2,7 @@ import { n5Module } from "@/lib/curriculum";
 import { isActivePracticeQuestion, validatePracticeQuestions } from "@/lib/content-validation";
 import { n5ExamBlueprint } from "@/lib/jlpt";
 import { buildIntegratedExamSets, selectIntegratedExamSet } from "@/lib/integrated-exam-core.js";
-import type { N5Module, PracticeMode, PracticeQuestion } from "@/lib/types";
+import type { N5Module, PracticeMode, PracticeQuestion, TargetLevel } from "@/lib/types";
 
 function rotateOptions(correct: string, distractors: string[], seed: number) {
   const values = [...new Set([correct, ...distractors.filter((value) => value !== correct)])].slice(0, 4);
@@ -279,20 +279,22 @@ export function migrateLegacyQuestionPrompts(questions: PracticeQuestion[], modu
   });
 }
 
-export function selectPracticeQuestions(mode: PracticeMode, questions = getValidatedPracticeQuestions()) {
-  const calibrated = questions.filter((question) => question.jlptLevel === "N5");
-  if (mode === "integrated") return selectIntegratedExamSet(calibrated, new Date().getDate());
-  if (mode === "quick") return takeQuick(questions);
-  if (mode === "mini") return takeQuick(questions).slice(0, 10);
-  if (mode === "section") return [...takeByQuestionTypes(calibrated, "vocabulary", ["kana recall", "contextual vocabulary", "orthography", "paraphrase", "meaning"], 5), ...takeByQuestionTypes(calibrated, "kanji", ["kana recall", "kanji in context", "reading in context", "orthography", "kanji reading"], 3), ...takeByQuestionTypes(calibrated, "grammar", ["sentence composition", "sentence completion", "grammar in context", "text grammar", "sentence ordering", "meaning"], 5), ...takeByCategory(calibrated, "reading", 3), ...takeListening(calibrated, 3)];
+export function selectPracticeQuestions(mode: PracticeMode, questions = getValidatedPracticeQuestions(), targetLevel: TargetLevel = "N5") {
+  const targetQuestions = targetLevel === "N4" ? [...questions.filter((question) => question.jlptLevel === "N4"), ...questions.filter((question) => question.jlptLevel === "N5")] : questions;
+  const calibrated = targetQuestions.filter((question) => question.jlptLevel === targetLevel);
+  const examQuestions = calibrated.length ? calibrated : targetQuestions;
+  if (mode === "integrated") return selectIntegratedExamSet(examQuestions, new Date().getDate());
+  if (mode === "quick") return takeQuick(targetQuestions);
+  if (mode === "mini") return takeQuick(targetQuestions).slice(0, 10);
+  if (mode === "section") return [...takeByQuestionTypes(examQuestions, "vocabulary", ["kana recall", "contextual vocabulary", "orthography", "paraphrase", "meaning"], 5), ...takeByQuestionTypes(examQuestions, "kanji", ["kana recall", "kanji in context", "reading in context", "orthography", "kanji reading"], 3), ...takeByQuestionTypes(examQuestions, "grammar", ["sentence composition", "sentence completion", "grammar in context", "text grammar", "sentence ordering", "meaning"], 5), ...takeByCategory(examQuestions, "reading", 3), ...takeListening(examQuestions, 3)];
   // ponytail: fixed exam counts fit the authored bank; increase them after the item bank is expanded and calibrated.
-  if (mode === "full") return [...takeByQuestionTypes(calibrated, "vocabulary", ["kana recall", "audio recognition", "contextual vocabulary", "orthography", "paraphrase", "Japanese recall", "meaning"], 12), ...takeByQuestionTypes(calibrated, "kanji", ["kana recall", "kanji in context", "reading in context", "orthography", "word to kanji recall", "kanji meaning", "kanji reading"], 6), ...takeByQuestionTypes(calibrated, "grammar", ["sentence composition", "sentence completion", "grammar in context", "text grammar", "sentence ordering", "meaning"], 10), ...takeByCategory(calibrated, "reading", 6), ...takeListening(calibrated, 6)];
-  if (mode === "mock") return [...takeByQuestionTypes(calibrated, "vocabulary", ["kana recall", "contextual vocabulary", "orthography", "paraphrase", "meaning"], 6), ...takeByQuestionTypes(calibrated, "kanji", ["kana recall", "kanji in context", "reading in context", "orthography", "kanji reading"], 3), ...takeByQuestionTypes(calibrated, "grammar", ["sentence composition", "sentence completion", "grammar in context", "sentence ordering", "meaning"], 5), ...takeByCategory(calibrated, "reading", 3), ...takeListening(calibrated, 3)];
-  if (mode === "pass") return selectPracticeQuestions("mixed", questions);
-  if (mode === "mixed") return [...takeByQuestionTypes(questions, "vocabulary", ["kana recall", "Japanese recall", "orthography", "audio recognition", "meaning"], 3), ...takeByQuestionTypes(questions, "kanji", ["kana recall", "kanji in context", "reading in context", "orthography", "kanji reading"], 2), ...takeGrammar(questions, 3), ...takeByCategory(questions, "reading", 2), ...takeListening(questions, 2)];
-  if (mode === "grammar") return takeGrammar(questions, 12);
-  if (mode === "vocabulary") return takeByQuestionTypes(questions, "vocabulary", ["kana recall", "Japanese recall", "orthography", "audio recognition", "meaning", "contextual vocabulary", "paraphrase"], 12);
-  if (mode === "kanji") return takeByQuestionTypes(questions, "kanji", ["kana recall", "kanji in context", "reading in context", "kanji reading", "kanji meaning", "orthography", "word to kanji recall"], 12);
+  if (mode === "full") return [...takeByQuestionTypes(examQuestions, "vocabulary", ["kana recall", "audio recognition", "contextual vocabulary", "orthography", "paraphrase", "Japanese recall", "meaning"], 12), ...takeByQuestionTypes(examQuestions, "kanji", ["kana recall", "kanji in context", "reading in context", "orthography", "word to kanji recall", "kanji meaning", "kanji reading"], 6), ...takeByQuestionTypes(examQuestions, "grammar", ["sentence composition", "sentence completion", "grammar in context", "text grammar", "sentence ordering", "meaning"], 10), ...takeByCategory(examQuestions, "reading", 6), ...takeListening(examQuestions, 6)];
+  if (mode === "mock") return [...takeByQuestionTypes(examQuestions, "vocabulary", ["kana recall", "contextual vocabulary", "orthography", "paraphrase", "meaning"], 6), ...takeByQuestionTypes(examQuestions, "kanji", ["kana recall", "kanji in context", "reading in context", "orthography", "kanji reading"], 3), ...takeByQuestionTypes(examQuestions, "grammar", ["sentence composition", "sentence completion", "grammar in context", "sentence ordering", "meaning"], 5), ...takeByCategory(examQuestions, "reading", 3), ...takeListening(examQuestions, 3)];
+  if (mode === "pass") return selectPracticeQuestions("mixed", targetQuestions, targetLevel);
+  if (mode === "mixed") return [...takeByQuestionTypes(targetQuestions, "vocabulary", ["kana recall", "Japanese recall", "orthography", "audio recognition", "meaning"], 3), ...takeByQuestionTypes(targetQuestions, "kanji", ["kana recall", "kanji in context", "reading in context", "orthography", "kanji reading"], 2), ...takeGrammar(targetQuestions, 3), ...takeByCategory(targetQuestions, "reading", 2), ...takeListening(targetQuestions, 2)];
+  if (mode === "grammar") return takeGrammar(targetQuestions, 12);
+  if (mode === "vocabulary") return takeByQuestionTypes(targetQuestions, "vocabulary", ["kana recall", "Japanese recall", "orthography", "audio recognition", "meaning", "contextual vocabulary", "paraphrase"], 12);
+  if (mode === "kanji") return takeByQuestionTypes(targetQuestions, "kanji", ["kana recall", "kanji in context", "reading in context", "kanji reading", "kanji meaning", "orthography", "word to kanji recall"], 12);
   if (mode === "weak") return [];
-  return takeByCategory(questions, mode as PracticeQuestion["category"], 12);
+  return takeByCategory(targetQuestions, mode as PracticeQuestion["category"], 12);
 }

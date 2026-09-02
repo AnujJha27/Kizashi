@@ -3,6 +3,8 @@ import expansionData from "@/data/n5-conversation-expansion.json";
 import practicalExpansionData from "@/data/n5-practical-expansion.json";
 import lifeExpansionData from "@/data/n5-life-expansion.json";
 import authoredPracticeData from "@/data/n5-authored-practice.json";
+import originalReadingData from "@/data/original-reading-bank.json";
+import originalListeningData from "@/data/original-listening-bank.json";
 
 import { contentSources } from "@/lib/jlpt";
 import type { GrammarItem, JourneyNode, KanjiItem, Lesson, ListeningItem, N5Module, ReadingItem, VocabularyItem } from "@/lib/types";
@@ -27,13 +29,13 @@ export function normalizeGrammarPracticeIds(items: GrammarItem[]) {
 
 export const n5Module = {
   ...moduleData,
-  course: { ...moduleData.course, chapters: [...moduleData.course.chapters, ...expansionData.course.chapters, ...practicalExpansionData.course.chapters, ...lifeExpansionData.course.chapters] },
+  course: { ...moduleData.course, chapters: [...moduleData.course.chapters, ...expansionData.course.chapters, ...practicalExpansionData.course.chapters, ...lifeExpansionData.course.chapters, ...originalReadingData.course.chapters, ...originalListeningData.course.chapters] },
   vocabulary: sourceAware([...foundationVocabulary, ...expansionData.vocabulary, ...practicalExpansionData.vocabulary, ...lifeExpansionData.vocabulary]),
   kanji: sourceAware([...foundationKanji, ...expansionData.kanji, ...practicalExpansionData.kanji, ...lifeExpansionData.kanji]),
   grammar: sourceAware(normalizeGrammarPracticeIds([...foundationGrammar, ...expansionData.grammar, ...practicalExpansionData.grammar, ...lifeExpansionData.grammar] as GrammarItem[])),
   grammarContrasts: [...moduleData.grammarContrasts, ...expansionData.grammarContrasts, ...practicalExpansionData.grammarContrasts, ...lifeExpansionData.grammarContrasts],
-  readings: sourceAware([...foundationReadings, ...expansionData.readings, ...practicalExpansionData.readings, ...lifeExpansionData.readings]),
-  listening: sourceAware([...foundationListening, ...expansionData.listening, ...practicalExpansionData.listening, ...lifeExpansionData.listening]),
+  readings: sourceAware([...foundationReadings, ...expansionData.readings, ...practicalExpansionData.readings, ...lifeExpansionData.readings, ...originalReadingData.readings]),
+  listening: sourceAware([...foundationListening, ...expansionData.listening, ...practicalExpansionData.listening, ...lifeExpansionData.listening, ...originalListeningData.listening]),
   practiceQuestions: authoredPracticeData,
   sourceManifest: contentSources,
 } as unknown as N5Module;

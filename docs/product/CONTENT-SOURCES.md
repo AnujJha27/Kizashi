@@ -12,8 +12,8 @@ decisions are in [SOURCE-EVALUATION.md](./SOURCE-EVALUATION.md).
 - The hosted project was last verified with 313 approved seeded `learning_items`.
   A current local SQL export is ready to publish every non-rejected staged row
   while preserving its pending/approved status.
-- The tracked source-review package contains 8,384 records: 50 approved,
-  8,334 pending, and no rejected records. Every record ID is assigned to a
+- The tracked source-review package contains 8,383 records: 50 approved,
+  8,333 pending, and no rejected records. Every record ID is assigned to a
   Journey lesson; the package contains 57 bounded source-curriculum lessons
   plus the review queue. Pending rows are learner-active and SQL-publishable
   with `humanReviewed: false` semantics.

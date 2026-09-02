@@ -1,0 +1,6981 @@
+{
+  "course": {
+    "chapters": [
+      {
+        "id": "chapter-original-listening",
+        "slug": "original-listening",
+        "title": "Original listening practice",
+        "description": "Original listening scenarios calibrated to N5 and N4 families.",
+        "region": "assessment",
+        "lessons": [
+          {
+            "id": "lesson-original-n5-1",
+            "slug": "original-n5-1",
+            "title": "N5 task-based response",
+            "subtitle": "Original listening scenarios",
+            "description": "Practice the task-based response listening family with original N5 exchanges.",
+            "estimatedMinutes": 25,
+            "itemIds": [
+              "assessment-listening-n5-01",
+              "assessment-listening-n5-02",
+              "assessment-listening-n5-03",
+              "assessment-listening-n5-04",
+              "assessment-listening-n5-05",
+              "assessment-listening-n5-06",
+              "assessment-listening-n5-07",
+              "assessment-listening-n5-08",
+              "assessment-listening-n5-09",
+              "assessment-listening-n5-10",
+              "assessment-listening-n5-11",
+              "assessment-listening-n5-12",
+              "assessment-listening-n5-13",
+              "assessment-listening-n5-14",
+              "assessment-listening-n5-15",
+              "assessment-listening-n5-16",
+              "assessment-listening-n5-17",
+              "assessment-listening-n5-18",
+              "assessment-listening-n5-19",
+              "assessment-listening-n5-20"
+            ]
+          },
+          {
+            "id": "lesson-original-n5-2",
+            "slug": "original-n5-2",
+            "title": "N5 key point",
+            "subtitle": "Original listening scenarios",
+            "description": "Practice the key point listening family with original N5 exchanges.",
+            "estimatedMinutes": 25,
+            "itemIds": [
+              "assessment-listening-n5-21",
+              "assessment-listening-n5-22",
+              "assessment-listening-n5-23",
+              "assessment-listening-n5-24",
+              "assessment-listening-n5-25",
+              "assessment-listening-n5-26",
+              "assessment-listening-n5-27",
+              "assessment-listening-n5-28",
+              "assessment-listening-n5-29",
+              "assessment-listening-n5-30",
+              "assessment-listening-n5-31",
+              "assessment-listening-n5-32",
+              "assessment-listening-n5-33",
+              "assessment-listening-n5-34",
+              "assessment-listening-n5-35",
+              "assessment-listening-n5-36",
+              "assessment-listening-n5-37",
+              "assessment-listening-n5-38",
+              "assessment-listening-n5-39",
+              "assessment-listening-n5-40"
+            ]
+          },
+          {
+            "id": "lesson-original-n5-3",
+            "slug": "original-n5-3",
+            "title": "N5 verbal expression",
+            "subtitle": "Original listening scenarios",
+            "description": "Practice the verbal expression listening family with original N5 exchanges.",
+            "estimatedMinutes": 25,
+            "itemIds": [
+              "assessment-listening-n5-41",
+              "assessment-listening-n5-42",
+              "assessment-listening-n5-43",
+              "assessment-listening-n5-44",
+              "assessment-listening-n5-45",
+              "assessment-listening-n5-46",
+              "assessment-listening-n5-47",
+              "assessment-listening-n5-48",
+              "assessment-listening-n5-49",
+              "assessment-listening-n5-50",
+              "assessment-listening-n5-51",
+              "assessment-listening-n5-52",
+              "assessment-listening-n5-53",
+              "assessment-listening-n5-54",
+              "assessment-listening-n5-55",
+              "assessment-listening-n5-56",
+              "assessment-listening-n5-57",
+              "assessment-listening-n5-58",
+              "assessment-listening-n5-59",
+              "assessment-listening-n5-60"
+            ]
+          },
+          {
+            "id": "lesson-original-n5-4",
+            "slug": "original-n5-4",
+            "title": "N5 quick response",
+            "subtitle": "Original listening scenarios",
+            "description": "Practice the quick response listening family with original N5 exchanges.",
+            "estimatedMinutes": 25,
+            "itemIds": [
+              "assessment-listening-n5-61",
+              "assessment-listening-n5-62",
+              "assessment-listening-n5-63",
+              "assessment-listening-n5-64",
+              "assessment-listening-n5-65",
+              "assessment-listening-n5-66",
+              "assessment-listening-n5-67",
+              "assessment-listening-n5-68",
+              "assessment-listening-n5-69",
+              "assessment-listening-n5-70",
+              "assessment-listening-n5-71",
+              "assessment-listening-n5-72",
+              "assessment-listening-n5-73",
+              "assessment-listening-n5-74",
+              "assessment-listening-n5-75",
+              "assessment-listening-n5-76",
+              "assessment-listening-n5-77",
+              "assessment-listening-n5-78",
+              "assessment-listening-n5-79",
+              "assessment-listening-n5-80"
+            ]
+          },
+          {
+            "id": "lesson-original-n4-1",
+            "slug": "original-n4-1",
+            "title": "N4 task-based response",
+            "subtitle": "Original listening scenarios",
+            "description": "Practice the task-based response listening family with original N4 exchanges.",
+            "estimatedMinutes": 25,
+            "itemIds": [
+              "assessment-listening-n4-01",
+              "assessment-listening-n4-02",
+              "assessment-listening-n4-03",
+              "assessment-listening-n4-04",
+              "assessment-listening-n4-05",
+              "assessment-listening-n4-06",
+              "assessment-listening-n4-07",
+              "assessment-listening-n4-08",
+              "assessment-listening-n4-09",
+              "assessment-listening-n4-10",
+              "assessment-listening-n4-11",
+              "assessment-listening-n4-12",
+              "assessment-listening-n4-13",
+              "assessment-listening-n4-14",
+              "assessment-listening-n4-15",
+              "assessment-listening-n4-16",
+              "assessment-listening-n4-17",
+              "assessment-listening-n4-18",
+              "assessment-listening-n4-19",
+              "assessment-listening-n4-20"
+            ]
+          },
+          {
+            "id": "lesson-original-n4-2",
+            "slug": "original-n4-2",
+            "title": "N4 key point",
+            "subtitle": "Original listening scenarios",
+            "description": "Practice the key point listening family with original N4 exchanges.",
+            "estimatedMinutes": 25,
+            "itemIds": [
+              "assessment-listening-n4-21",
+              "assessment-listening-n4-22",
+              "assessment-listening-n4-23",
+              "assessment-listening-n4-24",
+              "assessment-listening-n4-25",
+              "assessment-listening-n4-26",
+              "assessment-listening-n4-27",
+              "assessment-listening-n4-28",
+              "assessment-listening-n4-29",
+              "assessment-listening-n4-30",
+              "assessment-listening-n4-31",
+              "assessment-listening-n4-32",
+              "assessment-listening-n4-33",
+              "assessment-listening-n4-34",
+              "assessment-listening-n4-35",
+              "assessment-listening-n4-36",
+              "assessment-listening-n4-37",
+              "assessment-listening-n4-38",
+              "assessment-listening-n4-39",
+              "assessment-listening-n4-40"
+            ]
+          },
+          {
+            "id": "lesson-original-n4-3",
+            "slug": "original-n4-3",
+            "title": "N4 verbal expression",
+            "subtitle": "Original listening scenarios",
+            "description": "Practice the verbal expression listening family with original N4 exchanges.",
+            "estimatedMinutes": 25,
+            "itemIds": [
+              "assessment-listening-n4-41",
+              "assessment-listening-n4-42",
+              "assessment-listening-n4-43",
+              "assessment-listening-n4-44",
+              "assessment-listening-n4-45",
+              "assessment-listening-n4-46",
+              "assessment-listening-n4-47",
+              "assessment-listening-n4-48",
+              "assessment-listening-n4-49",
+              "assessment-listening-n4-50",
+              "assessment-listening-n4-51",
+              "assessment-listening-n4-52",
+              "assessment-listening-n4-53",
+              "assessment-listening-n4-54",
+              "assessment-listening-n4-55",
+              "assessment-listening-n4-56",
+              "assessment-listening-n4-57",
+              "assessment-listening-n4-58",
+              "assessment-listening-n4-59",
+              "assessment-listening-n4-60"
+            ]
+          },
+          {
+            "id": "lesson-original-n4-4",
+            "slug": "original-n4-4",
+            "title": "N4 quick response",
+            "subtitle": "Original listening scenarios",
+            "description": "Practice the quick response listening family with original N4 exchanges.",
+            "estimatedMinutes": 25,
+            "itemIds": [
+              "assessment-listening-n4-61",
+              "assessment-listening-n4-62",
+              "assessment-listening-n4-63",
+              "assessment-listening-n4-64",
+              "assessment-listening-n4-65",
+              "assessment-listening-n4-66",
+              "assessment-listening-n4-67",
+              "assessment-listening-n4-68",
+              "assessment-listening-n4-69",
+              "assessment-listening-n4-70",
+              "assessment-listening-n4-71",
+              "assessment-listening-n4-72",
+              "assessment-listening-n4-73",
+              "assessment-listening-n4-74",
+              "assessment-listening-n4-75",
+              "assessment-listening-n4-76",
+              "assessment-listening-n4-77",
+              "assessment-listening-n4-78",
+              "assessment-listening-n4-79",
+              "assessment-listening-n4-80"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "listening": [
+    {
+      "id": "assessment-listening-n5-01",
+      "slug": "assessment-listening-n5-01",
+      "title": "駅 · 切符",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "station"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about station.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、駅では何をすればいいですか。\nB：まず切符を買ってください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "切符を買ってください。",
+            "駅へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "切符を買ってください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-02",
+      "slug": "assessment-listening-n5-02",
+      "title": "喫茶店 · お茶",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "cafe"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about cafe.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、喫茶店では何をすればいいですか。\nB：まずお茶を注文してください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "お茶を注文してください。",
+            "喫茶店へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "お茶を注文してください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-03",
+      "slug": "assessment-listening-n5-03",
+      "title": "教室 · 本",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about school.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、教室では何をすればいいですか。\nB：まず本を読んでください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "本を読んでください。",
+            "教室へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "本を読んでください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-04",
+      "slug": "assessment-listening-n5-04",
+      "title": "家 · 鍵",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about home.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、家では何をすればいいですか。\nB：まず鍵を取ってください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "鍵を取ってください。",
+            "家へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "鍵を取ってください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-05",
+      "slug": "assessment-listening-n5-05",
+      "title": "スーパー · 牛乳",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about shopping.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、スーパーでは何をすればいいですか。\nB：まず牛乳を二本買ってください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "牛乳を二本買ってください。",
+            "スーパーへ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "牛乳を二本買ってください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-06",
+      "slug": "assessment-listening-n5-06",
+      "title": "公園 · 友達",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "people"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about people.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、公園では何をすればいいですか。\nB：まず友達を待ってください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "友達を待ってください。",
+            "公園へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "友達を待ってください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-07",
+      "slug": "assessment-listening-n5-07",
+      "title": "病院 · 予約",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about health.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、病院では何をすればいいですか。\nB：まず予約を確認してください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "予約を確認してください。",
+            "病院へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "予約を確認してください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-08",
+      "slug": "assessment-listening-n5-08",
+      "title": "バス停 · バス",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about transport.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、バス停では何をすればいいですか。\nB：まずバスに乗ってください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "バスに乗ってください。",
+            "バス停へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "バスに乗ってください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-09",
+      "slug": "assessment-listening-n5-09",
+      "title": "図書館 · 本",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about study.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、図書館では何をすればいいですか。\nB：まず本を返してください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "本を返してください。",
+            "図書館へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "本を返してください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-10",
+      "slug": "assessment-listening-n5-10",
+      "title": "レストラン · 水",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about food.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、レストランでは何をすればいいですか。\nB：まず水を飲んでください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "水を飲んでください。",
+            "レストランへ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "水を飲んでください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-11",
+      "slug": "assessment-listening-n5-11",
+      "title": "郵便局 · 荷物",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "errands"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about errands.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、郵便局では何をすればいいですか。\nB：まず荷物を送ってください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "荷物を送ってください。",
+            "郵便局へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "荷物を送ってください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-12",
+      "slug": "assessment-listening-n5-12",
+      "title": "服の店 · 赤いシャツ",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about shopping.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、服の店では何をすればいいですか。\nB：まずシャツを買ってください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "シャツを買ってください。",
+            "服の店へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "シャツを買ってください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-13",
+      "slug": "assessment-listening-n5-13",
+      "title": "駅の出口 · 傘",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "weather"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about weather.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、駅の出口では何をすればいいですか。\nB：まず傘を持ってください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "傘を持ってください。",
+            "駅の出口へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "傘を持ってください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-14",
+      "slug": "assessment-listening-n5-14",
+      "title": "学校 · 宿題",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about school.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、学校では何をすればいいですか。\nB：まず宿題をしてください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "宿題をしてください。",
+            "学校へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "宿題をしてください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-15",
+      "slug": "assessment-listening-n5-15",
+      "title": "ホテル · 部屋",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about travel.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、ホテルでは何をすればいいですか。\nB：まず受付で手続きをしてください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "受付で手続きをしてください。",
+            "ホテルへ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "受付で手続きをしてください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-16",
+      "slug": "assessment-listening-n5-16",
+      "title": "電話 · 先生",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "communication"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about communication.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、電話では何をすればいいですか。\nB：まず先生と話してください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "先生と話してください。",
+            "電話へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "先生と話してください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-17",
+      "slug": "assessment-listening-n5-17",
+      "title": "家族の食事 · 魚",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "family"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about family.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、家族の食事では何をすればいいですか。\nB：まず魚を食べてください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "魚を食べてください。",
+            "家族の食事へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "魚を食べてください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-18",
+      "slug": "assessment-listening-n5-18",
+      "title": "映画館 · 映画",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "hobby"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about hobby.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、映画館では何をすればいいですか。\nB：まず映画を見てください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "映画を見てください。",
+            "映画館へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "映画を見てください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-19",
+      "slug": "assessment-listening-n5-19",
+      "title": "京都 · お寺",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about travel.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、京都では何をすればいいですか。\nB：まずお寺へ行ってください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "お寺へ行ってください。",
+            "京都へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "お寺へ行ってください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-20",
+      "slug": "assessment-listening-n5-20",
+      "title": "カレンダー · 日曜日",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "routine"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about routine.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：すみません、カレンダーでは何をすればいいですか。\nB：まず休んでください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "休んでください。",
+            "カレンダーへ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "休んでください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-21",
+      "slug": "assessment-listening-n5-21",
+      "title": "駅 · 切符",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "station"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about station.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：駅について聞きました。\nB：はい、切符は三番線です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "駅で切符について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "駅で切符について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-22",
+      "slug": "assessment-listening-n5-22",
+      "title": "喫茶店 · お茶",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "cafe"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about cafe.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：喫茶店について聞きました。\nB：はい、お茶は三百円です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "喫茶店でお茶について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "喫茶店でお茶について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-23",
+      "slug": "assessment-listening-n5-23",
+      "title": "教室 · 本",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about school.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：教室について聞きました。\nB：はい、本は机の上です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "教室で本について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "教室で本について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-24",
+      "slug": "assessment-listening-n5-24",
+      "title": "家 · 鍵",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about home.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：家について聞きました。\nB：はい、鍵は玄関です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "家で鍵について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "家で鍵について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-25",
+      "slug": "assessment-listening-n5-25",
+      "title": "スーパー · 牛乳",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about shopping.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：スーパーについて聞きました。\nB：はい、牛乳は二本です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "スーパーで牛乳について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "スーパーで牛乳について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-26",
+      "slug": "assessment-listening-n5-26",
+      "title": "公園 · 友達",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "people"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about people.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：公園について聞きました。\nB：はい、友達は午後二時です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "公園で友達について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "公園で友達について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-27",
+      "slug": "assessment-listening-n5-27",
+      "title": "病院 · 予約",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about health.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：病院について聞きました。\nB：はい、予約は午前十時です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "病院で予約について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "病院で予約について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-28",
+      "slug": "assessment-listening-n5-28",
+      "title": "バス停 · バス",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about transport.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：バス停について聞きました。\nB：はい、バスは学校の右です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "バス停でバスについて話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "バス停でバスについて話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-29",
+      "slug": "assessment-listening-n5-29",
+      "title": "図書館 · 本",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about study.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：図書館について聞きました。\nB：はい、本は来週の月曜日です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "図書館で本について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "図書館で本について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-30",
+      "slug": "assessment-listening-n5-30",
+      "title": "レストラン · 水",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about food.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：レストランについて聞きました。\nB：はい、水はテーブルの上です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "レストランで水について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "レストランで水について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-31",
+      "slug": "assessment-listening-n5-31",
+      "title": "郵便局 · 荷物",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "errands"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about errands.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：郵便局について聞きました。\nB：はい、荷物は明日の朝です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "郵便局で荷物について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "郵便局で荷物について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-32",
+      "slug": "assessment-listening-n5-32",
+      "title": "服の店 · 赤いシャツ",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about shopping.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：服の店について聞きました。\nB：はい、赤いシャツは二千円です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "服の店で赤いシャツについて話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "服の店で赤いシャツについて話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-33",
+      "slug": "assessment-listening-n5-33",
+      "title": "駅の出口 · 傘",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "weather"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about weather.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：駅の出口について聞きました。\nB：はい、傘は西口です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "駅の出口で傘について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "駅の出口で傘について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-34",
+      "slug": "assessment-listening-n5-34",
+      "title": "学校 · 宿題",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about school.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：学校について聞きました。\nB：はい、宿題は今日の夜です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "学校で宿題について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "学校で宿題について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-35",
+      "slug": "assessment-listening-n5-35",
+      "title": "ホテル · 部屋",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about travel.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：ホテルについて聞きました。\nB：はい、部屋は二階です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "ホテルで部屋について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "ホテルで部屋について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-36",
+      "slug": "assessment-listening-n5-36",
+      "title": "電話 · 先生",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "communication"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about communication.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：電話について聞きました。\nB：はい、先生は午後五時です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "電話で先生について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "電話で先生について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-37",
+      "slug": "assessment-listening-n5-37",
+      "title": "家族の食事 · 魚",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "family"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about family.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：家族の食事について聞きました。\nB：はい、魚は日曜日です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "家族の食事で魚について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "家族の食事で魚について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-38",
+      "slug": "assessment-listening-n5-38",
+      "title": "映画館 · 映画",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "hobby"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about hobby.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：映画館について聞きました。\nB：はい、映画は七時です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "映画館で映画について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "映画館で映画について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-39",
+      "slug": "assessment-listening-n5-39",
+      "title": "京都 · お寺",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about travel.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：京都について聞きました。\nB：はい、お寺は来週です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "京都でお寺について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "京都でお寺について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-40",
+      "slug": "assessment-listening-n5-40",
+      "title": "カレンダー · 日曜日",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "routine"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about routine.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：カレンダーについて聞きました。\nB：はい、日曜日は休みです。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "カレンダーで日曜日について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "カレンダーで日曜日について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-41",
+      "slug": "assessment-listening-n5-41",
+      "title": "駅 · 切符",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "station"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about station.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：駅で何と言いますか。\nB：切符をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "切符をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "切符をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-42",
+      "slug": "assessment-listening-n5-42",
+      "title": "喫茶店 · お茶",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "cafe"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about cafe.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：喫茶店で何と言いますか。\nB：お茶をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "お茶をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "お茶をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-43",
+      "slug": "assessment-listening-n5-43",
+      "title": "教室 · 本",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about school.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：教室で何と言いますか。\nB：本をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "本をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "本をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-44",
+      "slug": "assessment-listening-n5-44",
+      "title": "家 · 鍵",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about home.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：家で何と言いますか。\nB：鍵をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "鍵をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "鍵をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-45",
+      "slug": "assessment-listening-n5-45",
+      "title": "スーパー · 牛乳",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about shopping.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：スーパーで何と言いますか。\nB：牛乳をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "牛乳をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "牛乳をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-46",
+      "slug": "assessment-listening-n5-46",
+      "title": "公園 · 友達",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "people"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about people.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：公園で何と言いますか。\nB：友達をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "友達をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "友達をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-47",
+      "slug": "assessment-listening-n5-47",
+      "title": "病院 · 予約",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about health.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：病院で何と言いますか。\nB：予約をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "予約をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "予約をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-48",
+      "slug": "assessment-listening-n5-48",
+      "title": "バス停 · バス",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about transport.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：バス停で何と言いますか。\nB：バスをお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "バスをお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "バスをお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-49",
+      "slug": "assessment-listening-n5-49",
+      "title": "図書館 · 本",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about study.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：図書館で何と言いますか。\nB：本をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "本をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "本をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-50",
+      "slug": "assessment-listening-n5-50",
+      "title": "レストラン · 水",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about food.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：レストランで何と言いますか。\nB：水をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "水をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "水をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-51",
+      "slug": "assessment-listening-n5-51",
+      "title": "郵便局 · 荷物",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "errands"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about errands.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：郵便局で何と言いますか。\nB：荷物をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "荷物をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "荷物をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-52",
+      "slug": "assessment-listening-n5-52",
+      "title": "服の店 · 赤いシャツ",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about shopping.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：服の店で何と言いますか。\nB：赤いシャツをお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "赤いシャツをお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "赤いシャツをお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-53",
+      "slug": "assessment-listening-n5-53",
+      "title": "駅の出口 · 傘",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "weather"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about weather.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：駅の出口で何と言いますか。\nB：傘をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "傘をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "傘をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-54",
+      "slug": "assessment-listening-n5-54",
+      "title": "学校 · 宿題",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about school.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：学校で何と言いますか。\nB：宿題をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "宿題をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "宿題をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-55",
+      "slug": "assessment-listening-n5-55",
+      "title": "ホテル · 部屋",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about travel.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：ホテルで何と言いますか。\nB：部屋をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "部屋をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "部屋をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-56",
+      "slug": "assessment-listening-n5-56",
+      "title": "電話 · 先生",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "communication"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about communication.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：電話で何と言いますか。\nB：先生をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "先生をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "先生をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-57",
+      "slug": "assessment-listening-n5-57",
+      "title": "家族の食事 · 魚",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "family"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about family.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：家族の食事で何と言いますか。\nB：魚をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "魚をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "魚をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-58",
+      "slug": "assessment-listening-n5-58",
+      "title": "映画館 · 映画",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "hobby"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about hobby.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：映画館で何と言いますか。\nB：映画をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "映画をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "映画をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-59",
+      "slug": "assessment-listening-n5-59",
+      "title": "京都 · お寺",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about travel.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：京都で何と言いますか。\nB：お寺をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "お寺をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "お寺をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-60",
+      "slug": "assessment-listening-n5-60",
+      "title": "カレンダー · 日曜日",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "routine"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about routine.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：カレンダーで何と言いますか。\nB：日曜日をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "日曜日をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "日曜日をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-61",
+      "slug": "assessment-listening-n5-61",
+      "title": "駅 · 切符",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "station"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about station.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：駅について教えてください。\nB：切符は三番線です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "三番線",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "三番線"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-62",
+      "slug": "assessment-listening-n5-62",
+      "title": "喫茶店 · お茶",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "cafe"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about cafe.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：喫茶店について教えてください。\nB：お茶は三百円です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "三百円",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "三百円"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-63",
+      "slug": "assessment-listening-n5-63",
+      "title": "教室 · 本",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about school.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：教室について教えてください。\nB：本は机の上です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "机の上",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "机の上"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-64",
+      "slug": "assessment-listening-n5-64",
+      "title": "家 · 鍵",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about home.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：家について教えてください。\nB：鍵は玄関です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "玄関",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "玄関"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-65",
+      "slug": "assessment-listening-n5-65",
+      "title": "スーパー · 牛乳",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about shopping.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：スーパーについて教えてください。\nB：牛乳は二本です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "二本",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "二本"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-66",
+      "slug": "assessment-listening-n5-66",
+      "title": "公園 · 友達",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "people"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about people.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：公園について教えてください。\nB：友達は午後二時です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "午後二時",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "午後二時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-67",
+      "slug": "assessment-listening-n5-67",
+      "title": "病院 · 予約",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about health.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：病院について教えてください。\nB：予約は午前十時です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "午前十時",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "午前十時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-68",
+      "slug": "assessment-listening-n5-68",
+      "title": "バス停 · バス",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about transport.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：バス停について教えてください。\nB：バスは学校の右です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "学校の右",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "学校の右"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-69",
+      "slug": "assessment-listening-n5-69",
+      "title": "図書館 · 本",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about study.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：図書館について教えてください。\nB：本は来週の月曜日です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "来週の月曜日",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "来週の月曜日"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-70",
+      "slug": "assessment-listening-n5-70",
+      "title": "レストラン · 水",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about food.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：レストランについて教えてください。\nB：水はテーブルの上です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "テーブルの上",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "テーブルの上"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-71",
+      "slug": "assessment-listening-n5-71",
+      "title": "郵便局 · 荷物",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "errands"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about errands.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：郵便局について教えてください。\nB：荷物は明日の朝です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "明日の朝",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "明日の朝"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-72",
+      "slug": "assessment-listening-n5-72",
+      "title": "服の店 · 赤いシャツ",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about shopping.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：服の店について教えてください。\nB：赤いシャツは二千円です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "二千円",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "二千円"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-73",
+      "slug": "assessment-listening-n5-73",
+      "title": "駅の出口 · 傘",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "weather"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about weather.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：駅の出口について教えてください。\nB：傘は西口です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "西口",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "西口"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-74",
+      "slug": "assessment-listening-n5-74",
+      "title": "学校 · 宿題",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about school.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：学校について教えてください。\nB：宿題は今日の夜です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "今日の夜",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "今日の夜"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-75",
+      "slug": "assessment-listening-n5-75",
+      "title": "ホテル · 部屋",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about travel.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：ホテルについて教えてください。\nB：部屋は二階です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "二階",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "二階"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-76",
+      "slug": "assessment-listening-n5-76",
+      "title": "電話 · 先生",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "communication"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about communication.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：電話について教えてください。\nB：先生は午後五時です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "午後五時",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "午後五時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-77",
+      "slug": "assessment-listening-n5-77",
+      "title": "家族の食事 · 魚",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "family"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about family.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：家族の食事について教えてください。\nB：魚は日曜日です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "日曜日",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "日曜日"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-78",
+      "slug": "assessment-listening-n5-78",
+      "title": "映画館 · 映画",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "hobby"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about hobby.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：映画館について教えてください。\nB：映画は七時です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "七時",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "七時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-79",
+      "slug": "assessment-listening-n5-79",
+      "title": "京都 · お寺",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about travel.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：京都について教えてください。\nB：お寺は来週です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "来週",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "来週"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n5-80",
+      "slug": "assessment-listening-n5-80",
+      "title": "カレンダー · 日曜日",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "routine"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about routine.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：カレンダーについて教えてください。\nB：日曜日は休みです。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "休み",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "休み"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-01",
+      "slug": "assessment-listening-n4-01",
+      "title": "市役所 · 住所変更",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "administration"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about administration.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、市役所では何をすればいいですか。\nB：まず住所変更の手続きをしてください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "住所変更の手続きをしてください。",
+            "市役所へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "住所変更の手続きをしてください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-02",
+      "slug": "assessment-listening-n4-02",
+      "title": "会社 · 会議資料",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "work"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about work.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、会社では何をすればいいですか。\nB：まず会議資料を印刷してください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "会議資料を印刷してください。",
+            "会社へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "会議資料を印刷してください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-03",
+      "slug": "assessment-listening-n4-03",
+      "title": "薬局 · 薬",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about health.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、薬局では何をすればいいですか。\nB：まず薬を飲んでください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "薬を飲んでください。",
+            "薬局へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "薬を飲んでください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-04",
+      "slug": "assessment-listening-n4-04",
+      "title": "駅 · 乗り換え",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about transport.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、駅では何をすればいいですか。\nB：まず四番線へ移動してください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "四番線へ移動してください。",
+            "駅へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "四番線へ移動してください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-05",
+      "slug": "assessment-listening-n4-05",
+      "title": "図書館 · 新聞",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about study.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、図書館では何をすればいいですか。\nB：まず新聞を読んでください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "新聞を読んでください。",
+            "図書館へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "新聞を読んでください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-06",
+      "slug": "assessment-listening-n4-06",
+      "title": "料理教室 · 野菜",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about food.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、料理教室では何をすればいいですか。\nB：まず野菜を切ってください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "野菜を切ってください。",
+            "料理教室へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "野菜を切ってください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-07",
+      "slug": "assessment-listening-n4-07",
+      "title": "アパート · 水道",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about home.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、アパートでは何をすればいいですか。\nB：まず水道の修理を頼んでください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "水道の修理を頼んでください。",
+            "アパートへ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "水道の修理を頼んでください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-08",
+      "slug": "assessment-listening-n4-08",
+      "title": "旅行会社 · ホテル",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about travel.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、旅行会社では何をすればいいですか。\nB：まずホテルを予約してください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "ホテルを予約してください。",
+            "旅行会社へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "ホテルを予約してください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-09",
+      "slug": "assessment-listening-n4-09",
+      "title": "病院 · 検査",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about health.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、病院では何をすればいいですか。\nB：まず検査を受けてください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "検査を受けてください。",
+            "病院へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "検査を受けてください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-10",
+      "slug": "assessment-listening-n4-10",
+      "title": "スーパー · 割引券",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about shopping.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、スーパーでは何をすればいいですか。\nB：まず割引券を使ってください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "割引券を使ってください。",
+            "スーパーへ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "割引券を使ってください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-11",
+      "slug": "assessment-listening-n4-11",
+      "title": "学校 · 発表",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about school.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、学校では何をすればいいですか。\nB：まず発表を準備してください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "発表を準備してください。",
+            "学校へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "発表を準備してください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-12",
+      "slug": "assessment-listening-n4-12",
+      "title": "公園 · 花",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "community"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about community.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、公園では何をすればいいですか。\nB：まず花を植えてください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "花を植えてください。",
+            "公園へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "花を植えてください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-13",
+      "slug": "assessment-listening-n4-13",
+      "title": "郵便局 · 再配達",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "errands"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about errands.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、郵便局では何をすればいいですか。\nB：まず荷物を受け取ってください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "荷物を受け取ってください。",
+            "郵便局へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "荷物を受け取ってください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-14",
+      "slug": "assessment-listening-n4-14",
+      "title": "会社 · 昼休み",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "work"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about work.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、会社では何をすればいいですか。\nB：まず一時間休んでください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "一時間休んでください。",
+            "会社へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "一時間休んでください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-15",
+      "slug": "assessment-listening-n4-15",
+      "title": "映画館 · 上映時間",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "hobby"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about hobby.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、映画館では何をすればいいですか。\nB：まず映画を見てください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "映画を見てください。",
+            "映画館へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "映画を見てください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-16",
+      "slug": "assessment-listening-n4-16",
+      "title": "町のセンター · 日本語教室",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about study.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、町のセンターでは何をすればいいですか。\nB：まず教室に参加してください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "教室に参加してください。",
+            "町のセンターへ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "教室に参加してください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-17",
+      "slug": "assessment-listening-n4-17",
+      "title": "家 · 掃除",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about home.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、家では何をすればいいですか。\nB：まず部屋を片付けてください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "部屋を片付けてください。",
+            "家へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "部屋を片付けてください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-18",
+      "slug": "assessment-listening-n4-18",
+      "title": "電車 · 遅れ",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about transport.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、電車では何をすればいいですか。\nB：まず電車を待ってください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "電車を待ってください。",
+            "電車へ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "電車を待ってください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-19",
+      "slug": "assessment-listening-n4-19",
+      "title": "レストラン · 窓側の席",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about food.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、レストランでは何をすればいいですか。\nB：まず席を予約してください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "席を予約してください。",
+            "レストランへ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "席を予約してください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-20",
+      "slug": "assessment-listening-n4-20",
+      "title": "市民プール · 利用時間",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "task-based response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "routine"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about routine.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：すみません、市民プールでは何をすればいいですか。\nB：まずプールで泳いでください。\nA：はい、分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、次に何をしますか。",
+          "answers": [
+            "プールで泳いでください。",
+            "市民プールへ帰る。",
+            "友達に電話する。",
+            "何もしない。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "プールで泳いでください。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-21",
+      "slug": "assessment-listening-n4-21",
+      "title": "市役所 · 住所変更",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "administration"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about administration.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：市役所について聞きました。\nB：はい、住所変更は来週の火曜日です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "市役所で住所変更について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "市役所で住所変更について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-22",
+      "slug": "assessment-listening-n4-22",
+      "title": "会社 · 会議資料",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "work"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about work.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：会社について聞きました。\nB：はい、会議資料は午後三時です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "会社で会議資料について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "会社で会議資料について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-23",
+      "slug": "assessment-listening-n4-23",
+      "title": "薬局 · 薬",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about health.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：薬局について聞きました。\nB：はい、薬は食事のあとです。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "薬局で薬について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "薬局で薬について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-24",
+      "slug": "assessment-listening-n4-24",
+      "title": "駅 · 乗り換え",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about transport.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：駅について聞きました。\nB：はい、乗り換えは四番線です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "駅で乗り換えについて話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "駅で乗り換えについて話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-25",
+      "slug": "assessment-listening-n4-25",
+      "title": "図書館 · 新聞",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about study.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：図書館について聞きました。\nB：はい、新聞は毎週土曜日です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "図書館で新聞について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "図書館で新聞について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-26",
+      "slug": "assessment-listening-n4-26",
+      "title": "料理教室 · 野菜",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about food.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：料理教室について聞きました。\nB：はい、野菜は最初にです。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "料理教室で野菜について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "料理教室で野菜について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-27",
+      "slug": "assessment-listening-n4-27",
+      "title": "アパート · 水道",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about home.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：アパートについて聞きました。\nB：はい、水道は明日の午前です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "アパートで水道について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "アパートで水道について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-28",
+      "slug": "assessment-listening-n4-28",
+      "title": "旅行会社 · ホテル",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about travel.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：旅行会社について聞きました。\nB：はい、ホテルは二泊です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "旅行会社でホテルについて話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "旅行会社でホテルについて話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-29",
+      "slug": "assessment-listening-n4-29",
+      "title": "病院 · 検査",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about health.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：病院について聞きました。\nB：はい、検査は午後二時半です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "病院で検査について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "病院で検査について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-30",
+      "slug": "assessment-listening-n4-30",
+      "title": "スーパー · 割引券",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about shopping.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：スーパーについて聞きました。\nB：はい、割引券は今月末までです。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "スーパーで割引券について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "スーパーで割引券について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-31",
+      "slug": "assessment-listening-n4-31",
+      "title": "学校 · 発表",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about school.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：学校について聞きました。\nB：はい、発表は金曜日です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "学校で発表について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "学校で発表について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-32",
+      "slug": "assessment-listening-n4-32",
+      "title": "公園 · 花",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "community"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about community.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：公園について聞きました。\nB：はい、花は雨が降る前です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "公園で花について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "公園で花について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-33",
+      "slug": "assessment-listening-n4-33",
+      "title": "郵便局 · 再配達",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "errands"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about errands.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：郵便局について聞きました。\nB：はい、再配達は土曜日の午後です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "郵便局で再配達について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "郵便局で再配達について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-34",
+      "slug": "assessment-listening-n4-34",
+      "title": "会社 · 昼休み",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "work"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about work.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：会社について聞きました。\nB：はい、昼休みは一時間です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "会社で昼休みについて話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "会社で昼休みについて話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-35",
+      "slug": "assessment-listening-n4-35",
+      "title": "映画館 · 上映時間",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "hobby"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about hobby.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：映画館について聞きました。\nB：はい、上映時間は午後八時です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "映画館で上映時間について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "映画館で上映時間について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-36",
+      "slug": "assessment-listening-n4-36",
+      "title": "町のセンター · 日本語教室",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about study.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：町のセンターについて聞きました。\nB：はい、日本語教室は水曜日の夜です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "町のセンターで日本語教室について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "町のセンターで日本語教室について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-37",
+      "slug": "assessment-listening-n4-37",
+      "title": "家 · 掃除",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about home.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：家について聞きました。\nB：はい、掃除は客が来る前です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "家で掃除について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "家で掃除について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-38",
+      "slug": "assessment-listening-n4-38",
+      "title": "電車 · 遅れ",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about transport.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：電車について聞きました。\nB：はい、遅れは雨のためです。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "電車で遅れについて話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "電車で遅れについて話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-39",
+      "slug": "assessment-listening-n4-39",
+      "title": "レストラン · 窓側の席",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about food.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：レストランについて聞きました。\nB：はい、窓側の席は七時半です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "レストランで窓側の席について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "レストランで窓側の席について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-40",
+      "slug": "assessment-listening-n4-40",
+      "title": "市民プール · 利用時間",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "key point",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "routine"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about routine.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：市民プールについて聞きました。\nB：はい、利用時間は水曜日以外です。\nA：そうですか。ありがとうございます。",
+      "questions": [
+        {
+          "prompt": "話の大切な点は何ですか。",
+          "answers": [
+            "市民プールで利用時間について話している。",
+            "明日は休みになる。",
+            "新しい店ができる。",
+            "電車がありません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "key point",
+          "explanation": "市民プールで利用時間について話している。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-41",
+      "slug": "assessment-listening-n4-41",
+      "title": "市役所 · 住所変更",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "administration"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about administration.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：市役所で何と言いますか。\nB：住所変更をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "住所変更をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "住所変更をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-42",
+      "slug": "assessment-listening-n4-42",
+      "title": "会社 · 会議資料",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "work"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about work.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：会社で何と言いますか。\nB：会議資料をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "会議資料をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "会議資料をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-43",
+      "slug": "assessment-listening-n4-43",
+      "title": "薬局 · 薬",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about health.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：薬局で何と言いますか。\nB：薬をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "薬をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "薬をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-44",
+      "slug": "assessment-listening-n4-44",
+      "title": "駅 · 乗り換え",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about transport.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：駅で何と言いますか。\nB：乗り換えをお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "乗り換えをお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "乗り換えをお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-45",
+      "slug": "assessment-listening-n4-45",
+      "title": "図書館 · 新聞",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about study.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：図書館で何と言いますか。\nB：新聞をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "新聞をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "新聞をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-46",
+      "slug": "assessment-listening-n4-46",
+      "title": "料理教室 · 野菜",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about food.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：料理教室で何と言いますか。\nB：野菜をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "野菜をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "野菜をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-47",
+      "slug": "assessment-listening-n4-47",
+      "title": "アパート · 水道",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about home.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：アパートで何と言いますか。\nB：水道をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "水道をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "水道をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-48",
+      "slug": "assessment-listening-n4-48",
+      "title": "旅行会社 · ホテル",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about travel.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：旅行会社で何と言いますか。\nB：ホテルをお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "ホテルをお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "ホテルをお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-49",
+      "slug": "assessment-listening-n4-49",
+      "title": "病院 · 検査",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about health.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：病院で何と言いますか。\nB：検査をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "検査をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "検査をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-50",
+      "slug": "assessment-listening-n4-50",
+      "title": "スーパー · 割引券",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about shopping.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：スーパーで何と言いますか。\nB：割引券をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "割引券をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "割引券をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-51",
+      "slug": "assessment-listening-n4-51",
+      "title": "学校 · 発表",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about school.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：学校で何と言いますか。\nB：発表をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "発表をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "発表をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-52",
+      "slug": "assessment-listening-n4-52",
+      "title": "公園 · 花",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "community"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about community.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：公園で何と言いますか。\nB：花をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "花をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "花をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-53",
+      "slug": "assessment-listening-n4-53",
+      "title": "郵便局 · 再配達",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "errands"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about errands.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：郵便局で何と言いますか。\nB：再配達をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "再配達をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "再配達をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-54",
+      "slug": "assessment-listening-n4-54",
+      "title": "会社 · 昼休み",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "work"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about work.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：会社で何と言いますか。\nB：昼休みをお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "昼休みをお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "昼休みをお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-55",
+      "slug": "assessment-listening-n4-55",
+      "title": "映画館 · 上映時間",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "hobby"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about hobby.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：映画館で何と言いますか。\nB：上映時間をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "上映時間をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "上映時間をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-56",
+      "slug": "assessment-listening-n4-56",
+      "title": "町のセンター · 日本語教室",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about study.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：町のセンターで何と言いますか。\nB：日本語教室をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "日本語教室をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "日本語教室をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-57",
+      "slug": "assessment-listening-n4-57",
+      "title": "家 · 掃除",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about home.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：家で何と言いますか。\nB：掃除をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "掃除をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "掃除をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-58",
+      "slug": "assessment-listening-n4-58",
+      "title": "電車 · 遅れ",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about transport.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：電車で何と言いますか。\nB：遅れをお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "遅れをお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "遅れをお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-59",
+      "slug": "assessment-listening-n4-59",
+      "title": "レストラン · 窓側の席",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about food.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：レストランで何と言いますか。\nB：窓側の席をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "窓側の席をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "窓側の席をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-60",
+      "slug": "assessment-listening-n4-60",
+      "title": "市民プール · 利用時間",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "verbal expression",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "routine"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about routine.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：市民プールで何と言いますか。\nB：利用時間をお願いします。\nA：はい、どうぞ。",
+      "questions": [
+        {
+          "prompt": "この場面で、自然な表現はどれですか。",
+          "answers": [
+            "利用時間をお願いします。",
+            "分かりませんでした。",
+            "おやすみなさい。",
+            "いただきません。"
+          ],
+          "correctAnswer": 0,
+          "questionType": "verbal expression",
+          "explanation": "利用時間をお願いします。"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-61",
+      "slug": "assessment-listening-n4-61",
+      "title": "市役所 · 住所変更",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "administration"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about administration.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：市役所について教えてください。\nB：住所変更は来週の火曜日です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "来週の火曜日",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "来週の火曜日"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-62",
+      "slug": "assessment-listening-n4-62",
+      "title": "会社 · 会議資料",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "work"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about work.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：会社について教えてください。\nB：会議資料は午後三時です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "午後三時",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "午後三時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-63",
+      "slug": "assessment-listening-n4-63",
+      "title": "薬局 · 薬",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about health.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：薬局について教えてください。\nB：薬は食事のあとです。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "食事のあと",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "食事のあと"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-64",
+      "slug": "assessment-listening-n4-64",
+      "title": "駅 · 乗り換え",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about transport.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：駅について教えてください。\nB：乗り換えは四番線です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "四番線",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "四番線"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-65",
+      "slug": "assessment-listening-n4-65",
+      "title": "図書館 · 新聞",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about study.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：図書館について教えてください。\nB：新聞は毎週土曜日です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "毎週土曜日",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "毎週土曜日"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-66",
+      "slug": "assessment-listening-n4-66",
+      "title": "料理教室 · 野菜",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about food.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：料理教室について教えてください。\nB：野菜は最初にです。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "最初に",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "最初に"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-67",
+      "slug": "assessment-listening-n4-67",
+      "title": "アパート · 水道",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about home.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：アパートについて教えてください。\nB：水道は明日の午前です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "明日の午前",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "明日の午前"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-68",
+      "slug": "assessment-listening-n4-68",
+      "title": "旅行会社 · ホテル",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about travel.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：旅行会社について教えてください。\nB：ホテルは二泊です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "二泊",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "二泊"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-69",
+      "slug": "assessment-listening-n4-69",
+      "title": "病院 · 検査",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about health.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：病院について教えてください。\nB：検査は午後二時半です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "午後二時半",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "午後二時半"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-70",
+      "slug": "assessment-listening-n4-70",
+      "title": "スーパー · 割引券",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about shopping.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：スーパーについて教えてください。\nB：割引券は今月末までです。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "今月末まで",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "今月末まで"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-71",
+      "slug": "assessment-listening-n4-71",
+      "title": "学校 · 発表",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about school.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：学校について教えてください。\nB：発表は金曜日です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "金曜日",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "金曜日"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-72",
+      "slug": "assessment-listening-n4-72",
+      "title": "公園 · 花",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "community"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about community.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：公園について教えてください。\nB：花は雨が降る前です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "雨が降る前",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "雨が降る前"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-73",
+      "slug": "assessment-listening-n4-73",
+      "title": "郵便局 · 再配達",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "errands"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about errands.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：郵便局について教えてください。\nB：再配達は土曜日の午後です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "土曜日の午後",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "土曜日の午後"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-74",
+      "slug": "assessment-listening-n4-74",
+      "title": "会社 · 昼休み",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "work"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about work.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：会社について教えてください。\nB：昼休みは一時間です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "一時間",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "一時間"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-75",
+      "slug": "assessment-listening-n4-75",
+      "title": "映画館 · 上映時間",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "hobby"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about hobby.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：映画館について教えてください。\nB：上映時間は午後八時です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "午後八時",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "午後八時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-76",
+      "slug": "assessment-listening-n4-76",
+      "title": "町のセンター · 日本語教室",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about study.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：町のセンターについて教えてください。\nB：日本語教室は水曜日の夜です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "水曜日の夜",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "水曜日の夜"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-77",
+      "slug": "assessment-listening-n4-77",
+      "title": "家 · 掃除",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about home.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：家について教えてください。\nB：掃除は客が来る前です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "客が来る前",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "客が来る前"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-78",
+      "slug": "assessment-listening-n4-78",
+      "title": "電車 · 遅れ",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about transport.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：電車について教えてください。\nB：遅れは雨のためです。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "雨のため",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "雨のため"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-79",
+      "slug": "assessment-listening-n4-79",
+      "title": "レストラン · 窓側の席",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about food.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：レストランについて教えてください。\nB：窓側の席は七時半です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "七時半",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "七時半"
+        }
+      ]
+    },
+    {
+      "id": "assessment-listening-n4-80",
+      "slug": "assessment-listening-n4-80",
+      "title": "市民プール · 利用時間",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "routine"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about routine.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：市民プールについて教えてください。\nB：利用時間は水曜日以外です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "水曜日以外",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "水曜日以外"
+        }
+      ]
+    }
+  ],
+  "source": {
+    "id": "michi-curated-n5-seed",
+    "role": "Kizashi-authored assessment listening"
+  }
+}

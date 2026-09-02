@@ -1,0 +1,5908 @@
+{
+  "course": {
+    "chapters": [
+      {
+        "id": "chapter-original-reading",
+        "slug": "original-reading",
+        "title": "Original reading practice",
+        "description": "Original reading material calibrated to N5 and N4 reading families.",
+        "region": "assessment",
+        "lessons": [
+          {
+            "id": "lesson-original-n5-reading",
+            "slug": "original-n5-reading",
+            "title": "N5 reading practice",
+            "subtitle": "Original short texts, notices, and schedules",
+            "description": "Build reading transfer with short original N5 material.",
+            "estimatedMinutes": 25,
+            "itemIds": [
+              "assessment-reading-n5-short-01",
+              "assessment-reading-n5-short-02",
+              "assessment-reading-n5-short-03",
+              "assessment-reading-n5-short-04",
+              "assessment-reading-n5-short-05",
+              "assessment-reading-n5-short-06",
+              "assessment-reading-n5-short-07",
+              "assessment-reading-n5-short-08",
+              "assessment-reading-n5-short-09",
+              "assessment-reading-n5-short-10",
+              "assessment-reading-n5-short-11",
+              "assessment-reading-n5-short-12",
+              "assessment-reading-n5-short-13",
+              "assessment-reading-n5-short-14",
+              "assessment-reading-n5-short-15",
+              "assessment-reading-n5-short-16",
+              "assessment-reading-n5-short-17",
+              "assessment-reading-n5-short-18",
+              "assessment-reading-n5-short-19",
+              "assessment-reading-n5-short-20",
+              "assessment-reading-n5-short-21",
+              "assessment-reading-n5-short-22",
+              "assessment-reading-n5-short-23",
+              "assessment-reading-n5-short-24",
+              "assessment-reading-n5-short-25",
+              "assessment-reading-n5-short-26",
+              "assessment-reading-n5-mid-01",
+              "assessment-reading-n5-mid-02",
+              "assessment-reading-n5-mid-03",
+              "assessment-reading-n5-mid-04",
+              "assessment-reading-n5-mid-05",
+              "assessment-reading-n5-mid-06",
+              "assessment-reading-n5-mid-07",
+              "assessment-reading-n5-mid-08",
+              "assessment-reading-n5-mid-09",
+              "assessment-reading-n5-mid-10",
+              "assessment-reading-n5-mid-11",
+              "assessment-reading-n5-mid-12",
+              "assessment-reading-n5-mid-13",
+              "assessment-reading-n5-mid-14",
+              "assessment-reading-n5-information-retrieval-01",
+              "assessment-reading-n5-information-retrieval-02",
+              "assessment-reading-n5-information-retrieval-03",
+              "assessment-reading-n5-information-retrieval-04",
+              "assessment-reading-n5-information-retrieval-05",
+              "assessment-reading-n5-information-retrieval-06",
+              "assessment-reading-n5-information-retrieval-07",
+              "assessment-reading-n5-information-retrieval-08",
+              "assessment-reading-n5-information-retrieval-09"
+            ]
+          },
+          {
+            "id": "lesson-original-n4-reading",
+            "slug": "original-n4-reading",
+            "title": "N4 reading practice",
+            "subtitle": "Original narratives and practical information",
+            "description": "Practice longer original N4 narratives and notices.",
+            "estimatedMinutes": 30,
+            "itemIds": [
+              "assessment-reading-n4-short-01",
+              "assessment-reading-n4-short-02",
+              "assessment-reading-n4-short-03",
+              "assessment-reading-n4-short-04",
+              "assessment-reading-n4-short-05",
+              "assessment-reading-n4-short-06",
+              "assessment-reading-n4-short-07",
+              "assessment-reading-n4-short-08",
+              "assessment-reading-n4-short-09",
+              "assessment-reading-n4-short-10",
+              "assessment-reading-n4-short-11",
+              "assessment-reading-n4-short-12",
+              "assessment-reading-n4-short-13",
+              "assessment-reading-n4-short-14",
+              "assessment-reading-n4-short-15",
+              "assessment-reading-n4-short-16",
+              "assessment-reading-n4-short-17",
+              "assessment-reading-n4-short-18",
+              "assessment-reading-n4-short-19",
+              "assessment-reading-n4-short-20",
+              "assessment-reading-n4-short-21",
+              "assessment-reading-n4-short-22",
+              "assessment-reading-n4-short-23",
+              "assessment-reading-n4-short-24",
+              "assessment-reading-n4-mid-01",
+              "assessment-reading-n4-mid-02",
+              "assessment-reading-n4-mid-03",
+              "assessment-reading-n4-mid-04",
+              "assessment-reading-n4-mid-05",
+              "assessment-reading-n4-mid-06",
+              "assessment-reading-n4-mid-07",
+              "assessment-reading-n4-mid-08",
+              "assessment-reading-n4-mid-09",
+              "assessment-reading-n4-mid-10",
+              "assessment-reading-n4-mid-11",
+              "assessment-reading-n4-mid-12",
+              "assessment-reading-n4-mid-13",
+              "assessment-reading-n4-mid-14",
+              "assessment-reading-n4-information-retrieval-01",
+              "assessment-reading-n4-information-retrieval-02",
+              "assessment-reading-n4-information-retrieval-03",
+              "assessment-reading-n4-information-retrieval-04",
+              "assessment-reading-n4-information-retrieval-05",
+              "assessment-reading-n4-information-retrieval-06",
+              "assessment-reading-n4-information-retrieval-07",
+              "assessment-reading-n4-information-retrieval-08",
+              "assessment-reading-n4-information-retrieval-09",
+              "assessment-reading-n4-information-retrieval-10",
+              "assessment-reading-n4-information-retrieval-11",
+              "assessment-reading-n4-information-retrieval-12",
+              "assessment-reading-n4-information-retrieval-13",
+              "assessment-reading-n4-information-retrieval-14",
+              "assessment-reading-n4-information-retrieval-15"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "readings": [
+    {
+      "id": "assessment-reading-n5-short-01",
+      "slug": "assessment-reading-n5-short-01",
+      "title": "教室の予定",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "class-note",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "月曜日、田中さんは九時に教室で日本語を勉強します。",
+      "translation": "On Monday, Tanaka studies Japanese in the classroom at nine.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "月曜日、何をしますか。",
+          "options": [
+            "日本語を勉強します",
+            "映画を見ます",
+            "買い物をします",
+            "病院へ行きます"
+          ],
+          "correctAnswer": 0,
+          "questionType": "short passage detail",
+          "explanation": "日本語を勉強します"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-02",
+      "slug": "assessment-reading-n5-short-02",
+      "title": "朝のメモ",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "morning-message",
+        "routine"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "母は毎朝六時に起きます。朝ご飯のあとで、駅へ行きます。",
+      "translation": "Mother gets up at six every morning. After breakfast, she goes to the station.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "母は何時に起きますか。",
+          "options": [
+            "五時",
+            "六時",
+            "七時",
+            "八時"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "六時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-03",
+      "slug": "assessment-reading-n5-short-03",
+      "title": "図書館のカード",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "library-card",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "図書館でカードを作りました。カードは机の上にあります。",
+      "translation": "I made a library card. The card is on the desk.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "カードはどこですか。",
+          "options": [
+            "駅の前",
+            "机の上",
+            "学校の下",
+            "店の中"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "机の上"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-04",
+      "slug": "assessment-reading-n5-short-04",
+      "title": "雨の日",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "rain-coat",
+        "weather"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "今日は雨です。山田さんは傘を持って、学校へ行きます。",
+      "translation": "It is raining today. Yamada takes an umbrella and goes to school.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "山田さんは何を持ちますか。",
+          "options": [
+            "本",
+            "傘",
+            "切符",
+            "写真"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "傘"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-05",
+      "slug": "assessment-reading-n5-short-05",
+      "title": "昼ご飯",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "lunch-box",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "昼は家でご飯を食べます。午後は友達と公園へ行きます。",
+      "translation": "I eat lunch at home. In the afternoon, I go to the park with a friend.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "昼、どこでご飯を食べますか。",
+          "options": [
+            "家",
+            "公園",
+            "駅",
+            "大学"
+          ],
+          "correctAnswer": 0,
+          "questionType": "short passage detail",
+          "explanation": "家"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-06",
+      "slug": "assessment-reading-n5-short-06",
+      "title": "新しい靴",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "new-shoes",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "新しい靴は店の前にあります。黒い靴を買いました。",
+      "translation": "The new shoes are in front of the shop. I bought black shoes.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "何色の靴を買いましたか。",
+          "options": [
+            "白",
+            "赤",
+            "黒",
+            "青"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "黒"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-07",
+      "slug": "assessment-reading-n5-short-07",
+      "title": "切符",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "train-ticket",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "駅で切符を買います。電車は三番線から出ます。",
+      "translation": "I buy a ticket at the station. The train leaves from platform three.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "電車は何番線ですか。",
+          "options": [
+            "一番線",
+            "二番線",
+            "三番線",
+            "四番線"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "三番線"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-08",
+      "slug": "assessment-reading-n5-short-08",
+      "title": "クラブの部屋",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "club-room",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "水曜日の午後、学生はクラブの部屋で歌を練習します。",
+      "translation": "On Wednesday afternoon, the students practice singing in the club room.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "学生はどこで歌を練習しますか。",
+          "options": [
+            "教室",
+            "クラブの部屋",
+            "図書館",
+            "家"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "クラブの部屋"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-09",
+      "slug": "assessment-reading-n5-short-09",
+      "title": "家族の写真",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "family-photo",
+        "family"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "この写真に父と母と妹がいます。弟は写真を撮りました。",
+      "translation": "This picture has my father, mother, and younger sister. My younger brother took it.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "だれが写真を撮りましたか。",
+          "options": [
+            "父",
+            "母",
+            "妹",
+            "弟"
+          ],
+          "correctAnswer": 3,
+          "questionType": "short passage detail",
+          "explanation": "弟"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-10",
+      "slug": "assessment-reading-n5-short-10",
+      "title": "夕方の散歩",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "evening-walk",
+        "routine"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "夕方、私は犬と川の近くを歩きます。七時に家へ帰ります。",
+      "translation": "In the evening, I walk near the river with my dog. I return home at seven.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "だれと歩きますか。",
+          "options": [
+            "友達",
+            "犬",
+            "先生",
+            "家族"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "犬"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-11",
+      "slug": "assessment-reading-n5-short-11",
+      "title": "病院のメモ",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "doctor-note",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "頭が痛いので、木曜日に病院へ行きます。予約は十時です。",
+      "translation": "Because I have a headache, I go to the hospital on Thursday. The appointment is at ten.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "予約は何時ですか。",
+          "options": [
+            "八時",
+            "九時",
+            "十時",
+            "十一時"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "十時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-12",
+      "slug": "assessment-reading-n5-short-12",
+      "title": "誕生日カード",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "birthday-card",
+        "people"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "友達の誕生日です。私は小さいカードを書いて、郵便で送りました。",
+      "translation": "It is my friend's birthday. I wrote a small card and mailed it.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "何を送りましたか。",
+          "options": [
+            "本",
+            "カード",
+            "花",
+            "写真"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "カード"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-13",
+      "slug": "assessment-reading-n5-short-13",
+      "title": "バス停",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "bus-stop",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "バス停は学校の右です。八時のバスに乗って会社へ行きます。",
+      "translation": "The bus stop is to the right of the school. I take the eight o'clock bus to work.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "バス停はどこですか。",
+          "options": [
+            "学校の左",
+            "学校の右",
+            "駅の中",
+            "家の上"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "学校の右"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-14",
+      "slug": "assessment-reading-n5-short-14",
+      "title": "机の掃除",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "desk-cleaning",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "土曜日に部屋を掃除します。本は本棚へ、かばんは椅子の下へ置きます。",
+      "translation": "On Saturday I clean my room. I put the books on the bookshelf and the bag under the chair.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "かばんはどこへ置きますか。",
+          "options": [
+            "机の上",
+            "本棚",
+            "椅子の下",
+            "部屋の外"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "椅子の下"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-15",
+      "slug": "assessment-reading-n5-short-15",
+      "title": "音楽の授業",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "music-class",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "金曜日は音楽の授業があります。授業のあとで、学生は先生と話します。",
+      "translation": "There is music class on Friday. After class, the students talk with the teacher.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "いつ音楽の授業がありますか。",
+          "options": [
+            "月曜日",
+            "水曜日",
+            "金曜日",
+            "日曜日"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "金曜日"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-16",
+      "slug": "assessment-reading-n5-short-16",
+      "title": "買い物リスト",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "market-list",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "店へ行く前に、母は牛乳とパンのリストを書きました。",
+      "translation": "Before going to the shop, Mother wrote a list of milk and bread.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "リストに何がありますか。",
+          "options": [
+            "魚と水",
+            "牛乳とパン",
+            "本と傘",
+            "靴と服"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "牛乳とパン"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-17",
+      "slug": "assessment-reading-n5-short-17",
+      "title": "公園のベンチ",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "park-bench",
+        "places"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "公園にはベンチが三つあります。子どもたちは真ん中のベンチに座ります。",
+      "translation": "There are three benches in the park. The children sit on the middle bench.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "子どもたちはどのベンチに座りますか。",
+          "options": [
+            "右",
+            "左",
+            "真ん中",
+            "外"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "真ん中"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-18",
+      "slug": "assessment-reading-n5-short-18",
+      "title": "事務室",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "office-hours",
+        "information"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "事務室は朝八時から午後五時までです。昼は十二時から一時まで休みます。",
+      "translation": "The office is open from eight in the morning to five in the afternoon. It closes for lunch from twelve to one.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "事務室は何時までですか。",
+          "options": [
+            "一時",
+            "三時",
+            "五時",
+            "八時"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "五時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-19",
+      "slug": "assessment-reading-n5-short-19",
+      "title": "夏の予定",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "summer-plan",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "夏休みに海へ行きます。海で泳いで、夜はホテルで休みます。",
+      "translation": "I go to the sea during summer vacation. I swim and rest at a hotel at night.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "夏休みにどこへ行きますか。",
+          "options": [
+            "山",
+            "海",
+            "学校",
+            "病院"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "海"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-20",
+      "slug": "assessment-reading-n5-short-20",
+      "title": "電話",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "phone-call",
+        "communication"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "今、鈴木さんに電話をします。鈴木さんは午後三時に家へ帰ります。",
+      "translation": "I am calling Suzuki now. Suzuki returns home at three in the afternoon.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "鈴木さんは何時に帰りますか。",
+          "options": [
+            "一時",
+            "二時",
+            "三時",
+            "四時"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "三時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-21",
+      "slug": "assessment-reading-n5-short-21",
+      "title": "家の鍵",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "house-key",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "鍵は玄関の小さい箱の中です。出かける前に鍵を取ってください。",
+      "translation": "The key is in the small box at the entrance. Please take it before going out.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "鍵はどこですか。",
+          "options": [
+            "箱の中",
+            "机の下",
+            "駅の前",
+            "店の右"
+          ],
+          "correctAnswer": 0,
+          "questionType": "short passage detail",
+          "explanation": "箱の中"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-22",
+      "slug": "assessment-reading-n5-short-22",
+      "title": "クラス写真",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "class-photo",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "クラス写真は来週の火曜日です。学生は午前十時に学校へ来ます。",
+      "translation": "The class photo is next Tuesday. Students come to school at ten in the morning.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "学生は何時に来ますか。",
+          "options": [
+            "午前九時",
+            "午前十時",
+            "午後一時",
+            "午後三時"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "午前十時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-23",
+      "slug": "assessment-reading-n5-short-23",
+      "title": "夜の本",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "night-book",
+        "routine"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "寝る前に本を少し読みます。十一時に電気を消して、寝ます。",
+      "translation": "Before bed I read a little. At eleven I turn off the light and sleep.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "何時に寝ますか。",
+          "options": [
+            "九時",
+            "十時",
+            "十一時",
+            "十二時"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "十一時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-24",
+      "slug": "assessment-reading-n5-short-24",
+      "title": "花屋",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "flower-shop",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "花屋は駅の近くです。母のために赤い花を三本買いました。",
+      "translation": "The flower shop is near the station. I bought three red flowers for my mother.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "何本の花を買いましたか。",
+          "options": [
+            "一本",
+            "二本",
+            "三本",
+            "四本"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "三本"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-25",
+      "slug": "assessment-reading-n5-short-25",
+      "title": "忘れた傘",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "lost-umbrella",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "電車に傘を忘れました。駅の人に聞くと、傘は受付にありました。",
+      "translation": "I left my umbrella on the train. When I asked a station worker, it was at the reception desk.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "傘はどこにありましたか。",
+          "options": [
+            "電車の中",
+            "受付",
+            "学校",
+            "店"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "受付"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-short-26",
+      "slug": "assessment-reading-n5-short-26",
+      "title": "朝のバス",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "morning-bus",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "朝はバスで駅へ行きます。今日は道が混んでいたので、いつもより十分遅く着きました。",
+      "translation": "I take the bus to the station in the morning. Today the roads were busy, so I arrived ten minutes later than usual.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "今日はいつもよりどうなりましたか。",
+          "options": [
+            "早く着きました",
+            "遅く着きました",
+            "歩いて帰りました",
+            "駅へ行きませんでした"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "遅く着きました"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-mid-01",
+      "slug": "assessment-reading-n5-mid-01",
+      "title": "平日の一日",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "weekday-diary",
+        "routine"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "私は毎朝七時に起きます。朝ご飯を食べて、八時に学校へ行きます。午後は図書館で本を読み、夜は家で宿題をします。",
+      "translation": "I get up at seven every morning. I eat breakfast and go to school at eight. In the afternoon I read at the library, and at night I do homework at home.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "午後、どこで本を読みますか。",
+          "options": [
+            "学校",
+            "図書館",
+            "駅",
+            "家"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "図書館"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-mid-02",
+      "slug": "assessment-reading-n5-mid-02",
+      "title": "友達の家",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "friend-visit",
+        "people"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "日曜日、友達の家へ行きました。駅で会って、一緒にパンを買いました。友達の家では音楽を聞きながら話しました。",
+      "translation": "On Sunday I went to my friend's house. We met at the station and bought bread together. At the house we talked while listening to music.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "二人はどこで会いましたか。",
+          "options": [
+            "駅",
+            "学校",
+            "店",
+            "公園"
+          ],
+          "correctAnswer": 0,
+          "questionType": "mid-length passage",
+          "explanation": "駅"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-mid-03",
+      "slug": "assessment-reading-n5-mid-03",
+      "title": "学校のお祭り",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "school-festival",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "土曜日に学校のお祭りがあります。午前は歌を聞き、午後は食べ物を買います。雨のときは教室で映画を見ます。",
+      "translation": "There is a school festival on Saturday. In the morning we listen to songs, and in the afternoon we buy food. If it rains, we watch a movie in the classroom.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "雨のとき、どこで映画を見ますか。",
+          "options": [
+            "体育館",
+            "教室",
+            "駅",
+            "家"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "教室"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-mid-04",
+      "slug": "assessment-reading-n5-mid-04",
+      "title": "電車の旅行",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "train-trip",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "来週、家族と京都へ行きます。朝の電車に乗るので、駅へ早く行きます。京都でお寺を見て、夕方に帰ります。",
+      "translation": "Next week I am going to Kyoto with my family. We take a morning train, so we go to the station early. We see a temple in Kyoto and return in the evening.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "だれと京都へ行きますか。",
+          "options": [
+            "友達",
+            "先生",
+            "家族",
+            "一人"
+          ],
+          "correctAnswer": 2,
+          "questionType": "mid-length passage",
+          "explanation": "家族"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-mid-05",
+      "slug": "assessment-reading-n5-mid-05",
+      "title": "アルバイトの予定",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "part-time-shift",
+        "work"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "月曜日と水曜日は店で働きます。仕事は午後六時から九時までです。金曜日は働かないで、家で休みます。",
+      "translation": "I work at a shop on Monday and Wednesday. Work is from six to nine in the evening. On Friday I do not work and rest at home.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "何曜日に店で働きますか。",
+          "options": [
+            "月曜日と水曜日",
+            "火曜日と木曜日",
+            "金曜日",
+            "土曜日と日曜日"
+          ],
+          "correctAnswer": 0,
+          "questionType": "mid-length passage",
+          "explanation": "月曜日と水曜日"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-mid-06",
+      "slug": "assessment-reading-n5-mid-06",
+      "title": "朝ご飯",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "healthy-breakfast",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "毎朝、私はご飯と魚を食べます。忙しい日はパンだけですが、水を飲んでから学校へ行きます。",
+      "translation": "Every morning I eat rice and fish. On busy days I only eat bread, but I drink water before going to school.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "忙しい日は何を食べますか。",
+          "options": [
+            "魚だけ",
+            "パンだけ",
+            "ご飯と魚",
+            "何も食べません"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "パンだけ"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-mid-07",
+      "slug": "assessment-reading-n5-mid-07",
+      "title": "図書館のルール",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "library-rule",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "図書館では静かにしてください。本は一人三冊まで借りることができます。土曜日は午後四時に閉まります。",
+      "translation": "Please be quiet in the library. You can borrow up to three books. On Saturday it closes at four in the afternoon.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "一人何冊まで借りることができますか。",
+          "options": [
+            "一冊",
+            "二冊",
+            "三冊",
+            "四冊"
+          ],
+          "correctAnswer": 2,
+          "questionType": "mid-length passage",
+          "explanation": "三冊"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-mid-08",
+      "slug": "assessment-reading-n5-mid-08",
+      "title": "天気と予定",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "weather-change",
+        "weather"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "朝は晴れていましたが、午後から雨になりました。公園へ行く予定をやめて、家で料理をしました。",
+      "translation": "It was sunny in the morning, but it began raining in the afternoon. I cancelled the plan to go to the park and cooked at home.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "雨になって、何をしましたか。",
+          "options": [
+            "公園へ行きました",
+            "映画を見ました",
+            "家で料理をしました",
+            "駅へ行きました"
+          ],
+          "correctAnswer": 2,
+          "questionType": "mid-length passage",
+          "explanation": "家で料理をしました"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-mid-09",
+      "slug": "assessment-reading-n5-mid-09",
+      "title": "部屋の引っ越し",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "moving-room",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "新しい部屋は前の部屋より広いです。窓の近くに机を置き、本棚はドアの右に置きました。",
+      "translation": "The new room is larger than the old one. I put the desk near the window and the bookshelf to the right of the door.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "本棚はどこですか。",
+          "options": [
+            "窓の左",
+            "ドアの右",
+            "机の上",
+            "部屋の外"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "ドアの右"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-mid-10",
+      "slug": "assessment-reading-n5-mid-10",
+      "title": "コンサート",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "concert-plan",
+        "plans"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "友達と土曜日のコンサートへ行きます。切符はもう買いました。コンサートのあとで駅の近くの店で晩ご飯を食べます。",
+      "translation": "I am going to a Saturday concert with a friend. We have already bought tickets. After the concert we eat dinner at a shop near the station.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "切符はどうしましたか。",
+          "options": [
+            "まだ買いません",
+            "友達にあげました",
+            "もう買いました",
+            "駅でなくしました"
+          ],
+          "correctAnswer": 2,
+          "questionType": "mid-length passage",
+          "explanation": "もう買いました"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-mid-11",
+      "slug": "assessment-reading-n5-mid-11",
+      "title": "朝の予約",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "morning-appointment",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "明日は病院の予約があります。朝ご飯を食べたあとで、九時のバスに乗ります。病院では先生に頭の痛さを話します。",
+      "translation": "Tomorrow I have a hospital appointment. After breakfast I take the nine o'clock bus. At the hospital I tell the doctor about my headache.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "何時のバスに乗りますか。",
+          "options": [
+            "七時",
+            "八時",
+            "九時",
+            "十時"
+          ],
+          "correctAnswer": 2,
+          "questionType": "mid-length passage",
+          "explanation": "九時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-mid-12",
+      "slug": "assessment-reading-n5-mid-12",
+      "title": "プレゼント",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "shopping-gift",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "妹の誕生日に、駅の店で青いかばんを買いました。家へ帰って、カードを書いてかばんと一緒に包みました。",
+      "translation": "For my younger sister's birthday, I bought a blue bag at a shop near the station. I went home, wrote a card, and wrapped it with the bag.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "何色のかばんですか。",
+          "options": [
+            "赤",
+            "青",
+            "白",
+            "黒"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "青"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-mid-13",
+      "slug": "assessment-reading-n5-mid-13",
+      "title": "授業の変更",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "class-change",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "先生からメールが来ました。明日の日本語の授業は午前ではなく、午後二時から始まります。教室はいつもの部屋です。",
+      "translation": "The teacher sent an email. Tomorrow's Japanese class starts at two in the afternoon instead of the morning. The classroom is the usual one.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "授業は何時からですか。",
+          "options": [
+            "午前九時",
+            "午後一時",
+            "午後二時",
+            "午後四時"
+          ],
+          "correctAnswer": 2,
+          "questionType": "mid-length passage",
+          "explanation": "午後二時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-mid-14",
+      "slug": "assessment-reading-n5-mid-14",
+      "title": "週末の料理",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "weekend-cooking",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "土曜日に母と買い物をして、野菜と肉を買いました。家へ帰ったあとで、二人でカレーを作りました。",
+      "translation": "On Saturday I shopped with my mother and bought vegetables and meat. After returning home, we made curry together.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "だれとカレーを作りましたか。",
+          "options": [
+            "父",
+            "母",
+            "先生",
+            "友達"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "母"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-information-retrieval-01",
+      "slug": "assessment-reading-n5-information-retrieval-01",
+      "title": "プールのお知らせ",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "pool-notice",
+        "notice"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "プールのお知らせ\n月曜日は休みです。火曜日から金曜日は午前十時から午後六時まで、土曜日と日曜日は午前九時から開いています。",
+      "translation": "Pool notice: It is closed Monday. Tuesday through Friday it is open 10 a.m. to 6 p.m.; Saturday and Sunday it opens at 9 a.m.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "プールが休みの日はいつですか。",
+          "options": [
+            "月曜日",
+            "火曜日",
+            "土曜日",
+            "日曜日"
+          ],
+          "correctAnswer": 0,
+          "questionType": "information retrieval",
+          "explanation": "月曜日"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-information-retrieval-02",
+      "slug": "assessment-reading-n5-information-retrieval-02",
+      "title": "喫茶店のメニュー",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "cafe-menu",
+        "menu"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "今日のメニュー\nコーヒー 300円\nお茶 250円\nサンドイッチ 500円\nケーキはありません。",
+      "translation": "Today's menu: coffee 300 yen, tea 250 yen, sandwich 500 yen. There is no cake.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "一番安いものは何ですか。",
+          "options": [
+            "コーヒー",
+            "お茶",
+            "サンドイッチ",
+            "ケーキ"
+          ],
+          "correctAnswer": 1,
+          "questionType": "information retrieval",
+          "explanation": "お茶"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-information-retrieval-03",
+      "slug": "assessment-reading-n5-information-retrieval-03",
+      "title": "バスの時刻",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "bus-timetable",
+        "timetable"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "駅行きバス\n朝：8:00、9:00、10:00\n午後：1:00、3:00、5:00\n駅まで二十分かかります。",
+      "translation": "Bus to the station: morning 8, 9, 10; afternoon 1, 3, 5. It takes twenty minutes to the station.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "午後に何時のバスがありますか。",
+          "options": [
+            "十二時",
+            "一時",
+            "二時",
+            "四時"
+          ],
+          "correctAnswer": 1,
+          "questionType": "information retrieval",
+          "explanation": "一時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-information-retrieval-04",
+      "slug": "assessment-reading-n5-information-retrieval-04",
+      "title": "美術館の時間",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "museum-hours",
+        "notice"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "美術館は水曜日から日曜日まで開いています。午前十時から午後五時までです。月曜日と火曜日は休みです。",
+      "translation": "The museum is open Wednesday through Sunday, 10 a.m. to 5 p.m. It is closed Monday and Tuesday.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "美術館が開いている日はどれですか。",
+          "options": [
+            "月曜日",
+            "火曜日",
+            "水曜日",
+            "月曜日と火曜日"
+          ],
+          "correctAnswer": 2,
+          "questionType": "information retrieval",
+          "explanation": "水曜日"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-information-retrieval-05",
+      "slug": "assessment-reading-n5-information-retrieval-05",
+      "title": "授業時間割",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "class-timetable",
+        "schedule"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "月曜日：日本語、体育\n火曜日：数学、音楽\n水曜日：英語\n日本語の授業は朝一番です。",
+      "translation": "Class schedule: Monday Japanese and PE; Tuesday math and music; Wednesday English. Japanese is the first class in the morning.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "火曜日に何の授業がありますか。",
+          "options": [
+            "日本語と体育",
+            "数学と音楽",
+            "英語",
+            "体育と英語"
+          ],
+          "correctAnswer": 1,
+          "questionType": "information retrieval",
+          "explanation": "数学と音楽"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-information-retrieval-06",
+      "slug": "assessment-reading-n5-information-retrieval-06",
+      "title": "店のセール",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "shop-sale",
+        "sale"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "春のセール\nシャツは20%安くなります。靴は半額です。セールは今週の日曜日までです。",
+      "translation": "Spring sale: shirts are 20% off and shoes are half price. The sale runs through this Sunday.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "何が半額ですか。",
+          "options": [
+            "シャツ",
+            "靴",
+            "かばん",
+            "帽子"
+          ],
+          "correctAnswer": 1,
+          "questionType": "information retrieval",
+          "explanation": "靴"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-information-retrieval-07",
+      "slug": "assessment-reading-n5-information-retrieval-07",
+      "title": "病院の受付",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "clinic-sheet",
+        "notice"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "受付時間\n午前：9:00〜12:00\n午後：2:00〜5:00\n水曜日の午後と日曜日は休みです。",
+      "translation": "Reception hours: 9–12 a.m. and 2–5 p.m. Wednesday afternoon and Sunday are closed.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "水曜日の午後に受付へ行けますか。",
+          "options": [
+            "はい、いつでも行けます",
+            "いいえ、休みです",
+            "午前だけです",
+            "日曜日だけです"
+          ],
+          "correctAnswer": 1,
+          "questionType": "information retrieval",
+          "explanation": "いいえ、休みです"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-information-retrieval-08",
+      "slug": "assessment-reading-n5-information-retrieval-08",
+      "title": "図書館のイベント",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "library-event",
+        "event"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "子どもの本の会\n六月十日（土）午後二時\n場所：図書館二階\n参加したい人は一時半までに来てください。",
+      "translation": "Children's book event: June 10 Saturday at 2 p.m., second floor of the library. Those attending should come by 1:30.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "何時までに来てくださいと言っていますか。",
+          "options": [
+            "一時",
+            "一時半",
+            "二時",
+            "二時半"
+          ],
+          "correctAnswer": 1,
+          "questionType": "information retrieval",
+          "explanation": "一時半"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n5-information-retrieval-09",
+      "slug": "assessment-reading-n5-information-retrieval-09",
+      "title": "駅の案内",
+      "jlptLevel": "N5",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-reading",
+        "train-map",
+        "directions"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "駅の出口\n東口：バス、タクシー\n西口：公園、ホテル\n切符売り場は中央口の近くです。",
+      "translation": "Station exits: east for buses and taxis; west for the park and hotel. The ticket office is near the central exit.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
+      "kanjiIds": [
+        "kanji-hi",
+        "kanji-ji",
+        "kanji-gaku"
+      ],
+      "estimatedDifficulty": 2,
+      "questions": [
+        {
+          "prompt": "ホテルへ行くにはどの出口ですか。",
+          "options": [
+            "東口",
+            "西口",
+            "中央口",
+            "出口はありません"
+          ],
+          "correctAnswer": 1,
+          "questionType": "information retrieval",
+          "explanation": "西口"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-01",
+      "slug": "assessment-reading-n4-short-01",
+      "title": "病院の帰り",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "health-return",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "病院で薬をもらったあと、駅まで歩きました。家に帰る前に薬局にも寄りました。",
+      "translation": "After receiving medicine at the hospital, I walked to the station. Before going home I also stopped at a pharmacy.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "家に帰る前にどこへ寄りましたか。",
+          "options": [
+            "薬局",
+            "学校",
+            "図書館",
+            "公園"
+          ],
+          "correctAnswer": 0,
+          "questionType": "short passage detail",
+          "explanation": "薬局"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-02",
+      "slug": "assessment-reading-n4-short-02",
+      "title": "新しい隣人",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "new-neighbor",
+        "people"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "先月、隣に新しい家族が引っ越してきました。週末にお菓子を持って挨拶しました。",
+      "translation": "Last month a new family moved next door. On the weekend I brought sweets and greeted them.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "何を持って挨拶しましたか。",
+          "options": [
+            "花",
+            "本",
+            "お菓子",
+            "傘"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "お菓子"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-03",
+      "slug": "assessment-reading-n4-short-03",
+      "title": "財布を探す",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "lost-wallet",
+        "daily-life"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "財布が見つからなかったので、昨日行った店に電話しました。店員が預かっていました。",
+      "translation": "Because I could not find my wallet, I called the shop I visited yesterday. The clerk had kept it.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "財布はどこにありましたか。",
+          "options": [
+            "家",
+            "店",
+            "駅",
+            "学校"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "店"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-04",
+      "slug": "assessment-reading-n4-short-04",
+      "title": "クラブを選ぶ",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "club-choice",
+        "hobby"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "私は写真クラブに入ることにしました。毎週木曜日に公園で写真を撮ります。",
+      "translation": "I decided to join the photography club. Every Thursday we take photos in the park.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "いつ写真を撮りますか。",
+          "options": [
+            "毎週月曜日",
+            "毎週水曜日",
+            "毎週木曜日",
+            "毎週土曜日"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "毎週木曜日"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-05",
+      "slug": "assessment-reading-n4-short-05",
+      "title": "バスの遅れ",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "bus-delay",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "雨のためバスが遅れました。駅に着いたとき、予定の電車はもう出たあとでした。",
+      "translation": "The bus was late because of rain. When I arrived at the station, the scheduled train had already left.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "なぜバスが遅れましたか。",
+          "options": [
+            "雪のため",
+            "雨のため",
+            "電車のため",
+            "病気のため"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "雨のため"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-06",
+      "slug": "assessment-reading-n4-short-06",
+      "title": "仕事の昼休み",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "work-lunch",
+        "work"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "昼休みは一時間あります。会社の近くの食堂で食べることもありますが、今日は弁当を持ってきました。",
+      "translation": "There is a one-hour lunch break. I sometimes eat at a cafeteria near work, but today I brought a boxed lunch.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "今日は何を持ってきましたか。",
+          "options": [
+            "本",
+            "弁当",
+            "傘",
+            "切符"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "弁当"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-07",
+      "slug": "assessment-reading-n4-short-07",
+      "title": "冬の服",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "winter-clothes",
+        "weather"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "去年より今年の冬は寒くなりそうです。古いコートを出して、暖かい手袋も買いました。",
+      "translation": "This winter looks likely to be colder than last year. I took out my old coat and bought warm gloves too.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "何を買いましたか。",
+          "options": [
+            "コート",
+            "靴",
+            "手袋",
+            "帽子"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "手袋"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-08",
+      "slug": "assessment-reading-n4-short-08",
+      "title": "勉強の方法",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "study-method",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "漢字を覚えるために、毎晩ノートに五回ずつ書いています。分からない漢字は先生に聞きます。",
+      "translation": "To remember kanji, I write each one five times in a notebook every night. I ask the teacher about kanji I do not understand.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "漢字を何回ずつ書きますか。",
+          "options": [
+            "二回",
+            "三回",
+            "五回",
+            "十回"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "五回"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-09",
+      "slug": "assessment-reading-n4-short-09",
+      "title": "週末の訪問",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "weekend-visit",
+        "family"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "土曜日は祖母の家を訪ねる予定です。天気がよければ、自転車で行くつもりです。",
+      "translation": "I plan to visit my grandmother's house on Saturday. If the weather is good, I intend to go by bicycle.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "天気がよければ、どうやって行きますか。",
+          "options": [
+            "電車で",
+            "バスで",
+            "自転車で",
+            "歩いて"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "自転車で"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-10",
+      "slug": "assessment-reading-n4-short-10",
+      "title": "料理教室",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "cooking-class",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "料理教室では、最初に先生が作り方を説明します。そのあと、学生が自分で野菜を切ります。",
+      "translation": "In cooking class, the teacher first explains how to make the dish. After that, students cut vegetables themselves.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "最初に何をしますか。",
+          "options": [
+            "野菜を食べます",
+            "先生が説明します",
+            "家へ帰ります",
+            "買い物をします"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "先生が説明します"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-11",
+      "slug": "assessment-reading-n4-short-11",
+      "title": "電話の修理",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "phone-repair",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "電話が動かなくなったので、駅前の店に持っていきました。修理には三日かかるそうです。",
+      "translation": "My phone stopped working, so I took it to a shop in front of the station. Apparently repairs will take three days.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "修理にどのくらいかかりますか。",
+          "options": [
+            "一日",
+            "二日",
+            "三日",
+            "一週間"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "三日"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-12",
+      "slug": "assessment-reading-n4-short-12",
+      "title": "朝の運動",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "morning-exercise",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "健康のために、朝起きたら十分ぐらい走ります。雨の日は家で体を動かすことにしています。",
+      "translation": "For my health, I run for about ten minutes after waking up. On rainy days I make a point of exercising at home.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "雨の日はどこで運動しますか。",
+          "options": [
+            "公園",
+            "学校",
+            "家",
+            "会社"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "家"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-13",
+      "slug": "assessment-reading-n4-short-13",
+      "title": "映画を選ぶ",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "movie-choice",
+        "hobby"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "二つの映画で迷いましたが、友達が面白いと言っていた映画を見ることにしました。",
+      "translation": "I was unsure between two movies, but I decided to watch the one my friend said was interesting.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "どの映画を見ることにしましたか。",
+          "options": [
+            "先生の映画",
+            "友達が面白いと言った映画",
+            "短い映画",
+            "新しい映画"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "友達が面白いと言った映画"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-14",
+      "slug": "assessment-reading-n4-short-14",
+      "title": "庭の仕事",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "garden-work",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "父が庭の木を切っている間に、私は花に水をやりました。仕事が終わったら一緒に昼ご飯を食べました。",
+      "translation": "While my father was cutting trees in the garden, I watered the flowers. When the work was finished, we ate lunch together.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "私は何をしましたか。",
+          "options": [
+            "木を切りました",
+            "花に水をやりました",
+            "昼ご飯を作りました",
+            "買い物をしました"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "花に水をやりました"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-15",
+      "slug": "assessment-reading-n4-short-15",
+      "title": "言葉の交換",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "language-exchange",
+        "communication"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "日本語を練習するため、週に一度外国人の友達と話しています。私は日本語を教え、友達は英語を教えてくれます。",
+      "translation": "To practice Japanese, I talk with a foreign friend once a week. I teach Japanese, and my friend teaches me English.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "私は何を教えますか。",
+          "options": [
+            "英語",
+            "日本語",
+            "中国語",
+            "数学"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "日本語"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-16",
+      "slug": "assessment-reading-n4-short-16",
+      "title": "ホテルの受付",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "hotel-checkin",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "ホテルに着くと、受付で名前を伝えてから部屋の鍵を受け取りました。部屋は三階でした。",
+      "translation": "When I arrived at the hotel, I gave my name at reception and then received the room key. The room was on the third floor.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "どこで鍵を受け取りましたか。",
+          "options": [
+            "駅",
+            "受付",
+            "部屋",
+            "食堂"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "受付"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-17",
+      "slug": "assessment-reading-n4-short-17",
+      "title": "ごみの日",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "recycling-day",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "この町では、燃えるごみは月曜日と木曜日に出します。びんと缶は水曜日なので、別の袋に入れておきます。",
+      "translation": "In this town, burnable garbage is put out Monday and Thursday. Bottles and cans are Wednesday, so I put them in a separate bag.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "びんと缶はいつ出しますか。",
+          "options": [
+            "月曜日",
+            "火曜日",
+            "水曜日",
+            "木曜日"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "水曜日"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-18",
+      "slug": "assessment-reading-n4-short-18",
+      "title": "電車の乗り換え",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "train-platform",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "二番線の電車を降りたら、階段を上がって四番線へ行ってください。乗り換えには五分ほどかかります。",
+      "translation": "After getting off the train at platform two, go up the stairs to platform four. The transfer takes about five minutes.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "次は何番線へ行きますか。",
+          "options": [
+            "一番線",
+            "二番線",
+            "三番線",
+            "四番線"
+          ],
+          "correctAnswer": 3,
+          "questionType": "short passage detail",
+          "explanation": "四番線"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-19",
+      "slug": "assessment-reading-n4-short-19",
+      "title": "雨の日のイベント",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "rainy-event",
+        "event"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "屋外のイベントは雨で中止になりました。代わりに、市民センターの大きい部屋で発表会を行います。",
+      "translation": "The outdoor event was cancelled due to rain. Instead, the presentation will be held in a large room at the civic center.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "発表会はどこで行いますか。",
+          "options": [
+            "公園",
+            "駅",
+            "市民センター",
+            "学校"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "市民センター"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-20",
+      "slug": "assessment-reading-n4-short-20",
+      "title": "読書の習慣",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "reading-habit",
+        "routine"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "寝る前にスマートフォンを見るのをやめて、本を読むようにしています。そのほうがよく眠れる気がします。",
+      "translation": "I have stopped looking at my smartphone before bed and try to read a book. I feel that helps me sleep better.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "寝る前に何を読むようにしていますか。",
+          "options": [
+            "新聞",
+            "メール",
+            "本",
+            "地図"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "本"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-21",
+      "slug": "assessment-reading-n4-short-21",
+      "title": "隣人の手伝い",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "neighbor-help",
+        "people"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "旅行中の隣人に頼まれて、毎朝花に水をやっています。帰ってくるのは来週の月曜日だそうです。",
+      "translation": "At my neighbor's request, I water the flowers every morning while they travel. They apparently return next Monday.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "私は毎朝何をしますか。",
+          "options": [
+            "犬を散歩させます",
+            "花に水をやります",
+            "新聞を買います",
+            "部屋を掃除します"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "花に水をやります"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-22",
+      "slug": "assessment-reading-n4-short-22",
+      "title": "会社の会議",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "office-meeting",
+        "work"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "会議は午後三時に始まります。資料を十部印刷して、始まる前に会議室の机へ置いておきます。",
+      "translation": "The meeting starts at three in the afternoon. I will print ten copies of the materials and put them on the meeting-room table beforehand.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "資料を何部印刷しますか。",
+          "options": [
+            "五部",
+            "八部",
+            "十部",
+            "十五部"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "十部"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-23",
+      "slug": "assessment-reading-n4-short-23",
+      "title": "祭りの食べ物",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "festival-food",
+        "event"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "祭りでは、焼きそばを食べたり、友達と写真を撮ったりしました。最後に花火を見てから帰りました。",
+      "translation": "At the festival, I ate yakisoba and took photos with friends. Finally, I watched fireworks before going home.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "最後に何を見ましたか。",
+          "options": [
+            "映画",
+            "花火",
+            "電車",
+            "写真"
+          ],
+          "correctAnswer": 1,
+          "questionType": "short passage detail",
+          "explanation": "花火"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-short-24",
+      "slug": "assessment-reading-n4-short-24",
+      "title": "荷物の配達",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "short",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "package-delivery",
+        "daily-life"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "荷物が届いたとき家にいなかったので、配達員に電話しました。明日の午後にもう一度来てもらうことになりました。",
+      "translation": "I was not home when the package arrived, so I called the delivery person. We arranged for them to come again tomorrow afternoon.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "配達員はいつ来ますか。",
+          "options": [
+            "今日の朝",
+            "今日の夜",
+            "明日の午後",
+            "来週"
+          ],
+          "correctAnswer": 2,
+          "questionType": "short passage detail",
+          "explanation": "明日の午後"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-mid-01",
+      "slug": "assessment-reading-n4-mid-01",
+      "title": "初めての仕事",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "first-workday",
+        "work"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "初めてアルバイトをした日は、店の仕事を覚えるだけで大変でした。しかし、先輩が親切に教えてくれたので、三日目には一人で注文を受けられるようになりました。",
+      "translation": "On my first day of part-time work, learning the shop duties was difficult. However, a senior coworker taught me kindly, so by the third day I could take orders alone.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "三日目には何ができるようになりましたか。",
+          "options": [
+            "料理を作ること",
+            "注文を受けること",
+            "店を掃除すること",
+            "電車に乗ること"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "注文を受けること"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-mid-02",
+      "slug": "assessment-reading-n4-mid-02",
+      "title": "旅行の変更",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "travel-change",
+        "travel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "家族で山へ行く予定でしたが、天気予報によると週末は大雨になるそうです。そのため、旅行を一週間後に延ばし、今週は近くの博物館へ行くことにしました。",
+      "translation": "We planned to go to the mountains as a family, but the forecast says there will be heavy rain this weekend. Therefore we postponed the trip a week and decided to visit a nearby museum this week.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "旅行をいつに延ばしましたか。",
+          "options": [
+            "明日",
+            "週末",
+            "一週間後",
+            "来月"
+          ],
+          "correctAnswer": 2,
+          "questionType": "mid-length passage",
+          "explanation": "一週間後"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-mid-03",
+      "slug": "assessment-reading-n4-mid-03",
+      "title": "健康のために",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "health-routine",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "最近、仕事のあとで疲れすぎて運動できませんでした。そこで、朝少し早く起きて、駅まで歩くことにしました。一か月続けたら、前より元気になりました。",
+      "translation": "Recently I was too tired after work to exercise. So I decided to get up a little earlier and walk to the station. After a month I became more energetic.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "なぜ朝歩くことにしましたか。",
+          "options": [
+            "駅が近いから",
+            "仕事のあとに疲れていたから",
+            "友達に誘われたから",
+            "雨が多いから"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "仕事のあとに疲れていたから"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-mid-04",
+      "slug": "assessment-reading-n4-mid-04",
+      "title": "地域の教室",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "community-class",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "町のセンターで外国人向けの日本語教室が始まりました。参加費は無料ですが、毎週水曜日の夜に通わなければなりません。私は会話を上達させたいので参加するつもりです。",
+      "translation": "A Japanese class for foreigners began at the community center. It is free, but participants must attend every Wednesday night. I plan to join because I want to improve conversation.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "なぜ参加するつもりですか。",
+          "options": [
+            "無料だから",
+            "会話を上達させたいから",
+            "水曜日が休みだから",
+            "センターが近いから"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "会話を上達させたいから"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-mid-05",
+      "slug": "assessment-reading-n4-mid-05",
+      "title": "家の修理",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "house-repair",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "昨日から台所の水道が壊れています。管理会社に連絡したところ、明日の午前中に修理の人が来るそうです。それまで、隣の水道を使うことにしました。",
+      "translation": "The kitchen faucet has been broken since yesterday. The management company said a repair person will come tomorrow morning. Until then, we decided to use the neighbor's faucet.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "修理の人はいつ来ますか。",
+          "options": [
+            "昨日",
+            "今日の午後",
+            "明日の午前中",
+            "明日の夜"
+          ],
+          "correctAnswer": 2,
+          "questionType": "mid-length passage",
+          "explanation": "明日の午前中"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-mid-06",
+      "slug": "assessment-reading-n4-mid-06",
+      "title": "本の発表",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "book-report",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "授業で読んだ本について発表することになりました。私は主人公の行動を説明し、友達は本の時代背景を調べます。発表は来週の金曜日です。",
+      "translation": "We have to present on a book read in class. I will explain the protagonist's actions, and my friend will research the historical setting. The presentation is next Friday.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "私は何を説明しますか。",
+          "options": [
+            "時代背景",
+            "主人公の行動",
+            "作者の住所",
+            "本の値段"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "主人公の行動"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-mid-07",
+      "slug": "assessment-reading-n4-mid-07",
+      "title": "買った服",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "shopping-return",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "買ったシャツを家で着てみると、少し小さかったので店に戻りました。店員に相談したら、別のサイズと交換してくれました。",
+      "translation": "When I tried on the shirt at home, it was a little small, so I returned to the shop. After consulting the clerk, they exchanged it for another size.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "シャツをどうしましたか。",
+          "options": [
+            "捨てました",
+            "友達にあげました",
+            "別のサイズと交換しました",
+            "そのまま着ました"
+          ],
+          "correctAnswer": 2,
+          "questionType": "mid-length passage",
+          "explanation": "別のサイズと交換しました"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-mid-08",
+      "slug": "assessment-reading-n4-mid-08",
+      "title": "学校の会議",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "school-council",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "学生会では、文化祭で何をするか話し合いました。去年は食べ物を売りましたが、今年はみんなで劇をする案が選ばれました。",
+      "translation": "The student council discussed what to do at the cultural festival. Last year they sold food, but this year the proposal to perform a play together was chosen.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "今年は何をすることになりましたか。",
+          "options": [
+            "食べ物を売る",
+            "劇をする",
+            "旅行する",
+            "歌を録音する"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "劇をする"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-mid-09",
+      "slug": "assessment-reading-n4-mid-09",
+      "title": "天気と服",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "weather-clothes",
+        "weather"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "朝は暖かかったので薄い上着を着て出かけました。しかし夕方から風が強くなると聞いて、帰りに店でマフラーを買いました。",
+      "translation": "It was warm in the morning, so I went out in a light jacket. But after hearing the wind would get stronger in the evening, I bought a scarf at a shop on the way home.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "なぜマフラーを買いましたか。",
+          "options": [
+            "雨が降ったから",
+            "風が強くなると聞いたから",
+            "上着をなくしたから",
+            "店が安かったから"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "風が強くなると聞いたから"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-mid-10",
+      "slug": "assessment-reading-n4-mid-10",
+      "title": "家族の食事",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "family-meal",
+        "food"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "父の誕生日に、家族でレストランへ行きました。父は魚料理を選び、母は肉料理を選びました。私は二人が好きなケーキを注文しました。",
+      "translation": "For Father's birthday, the family went to a restaurant. Father chose fish, Mother chose meat, and I ordered a cake they both like.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "私は何を注文しましたか。",
+          "options": [
+            "魚料理",
+            "肉料理",
+            "ケーキ",
+            "飲み物"
+          ],
+          "correctAnswer": 2,
+          "questionType": "mid-length passage",
+          "explanation": "ケーキ"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-mid-11",
+      "slug": "assessment-reading-n4-mid-11",
+      "title": "通勤時間",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "commute-book",
+        "routine"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "電車に乗っている時間が長いので、最近はその間に小説を読むようになりました。駅に着く前に一章読めることもあります。",
+      "translation": "Because my train ride is long, I recently started reading novels during it. Sometimes I can read one chapter before reaching the station.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "いつ小説を読みますか。",
+          "options": [
+            "家で寝る前",
+            "電車に乗っている間",
+            "駅で働いている間",
+            "昼ご飯のあとだけ"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "電車に乗っている間"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-mid-12",
+      "slug": "assessment-reading-n4-mid-12",
+      "title": "ボランティアの日",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "volunteer-day",
+        "community"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "日曜日に町の公園を掃除するボランティアに参加しました。朝はごみを拾い、午後は新しい花を植えました。",
+      "translation": "On Sunday I joined a volunteer activity to clean the town park. In the morning we picked up trash, and in the afternoon we planted new flowers.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "午後は何をしましたか。",
+          "options": [
+            "ごみを拾いました",
+            "花を植えました",
+            "料理をしました",
+            "本を読みました"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "花を植えました"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-mid-13",
+      "slug": "assessment-reading-n4-mid-13",
+      "title": "日本語の目標",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "language-goal",
+        "study"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "今年は日本語の新聞を読めるようになりたいです。そのために、毎日新しい言葉を十個覚え、週末には短い記事を読んでいます。",
+      "translation": "This year I want to be able to read Japanese newspapers. To do that, I learn ten new words every day and read short articles on weekends.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "何のために新しい言葉を覚えていますか。",
+          "options": [
+            "旅行するため",
+            "新聞を読むため",
+            "料理をするため",
+            "仕事を休むため"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "新聞を読むため"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-mid-14",
+      "slug": "assessment-reading-n4-mid-14",
+      "title": "修理の予約",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "mid",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "repair-appointment",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "洗濯機の音が大きくなったので、修理を頼みました。担当者は金曜日の午後に来ますが、部品がなければ来週になるかもしれません。",
+      "translation": "The washing machine became noisy, so I requested a repair. The technician will come Friday afternoon, but if there is no part it may be next week.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "担当者はいつ来る予定ですか。",
+          "options": [
+            "木曜日の朝",
+            "金曜日の午後",
+            "土曜日の夜",
+            "来週の月曜日"
+          ],
+          "correctAnswer": 1,
+          "questionType": "mid-length passage",
+          "explanation": "金曜日の午後"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-information-retrieval-01",
+      "slug": "assessment-reading-n4-information-retrieval-01",
+      "title": "電車のお知らせ",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "train-notice",
+        "notice"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "電車の案内\n工事のため、土曜日は午前九時から午後二時まで運休します。駅から隣町までは代わりのバスを利用してください。",
+      "translation": "Train notice: Due to construction, trains stop Saturday from 9 a.m. to 2 p.m. Use a replacement bus from the station to the neighboring town.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "土曜日、何時まで電車が止まりますか。",
+          "options": [
+            "午前九時",
+            "正午",
+            "午後二時",
+            "午後五時"
+          ],
+          "correctAnswer": 2,
+          "questionType": "information retrieval",
+          "explanation": "午後二時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-information-retrieval-02",
+      "slug": "assessment-reading-n4-information-retrieval-02",
+      "title": "市立図書館",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "city-library",
+        "notice"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "市立図書館\n月・水・金：午後八時まで\n火・木：午後五時まで\n土曜日：午後六時まで\n日曜日：休館",
+      "translation": "City library: Monday/Wednesday/Friday until 8 p.m.; Tuesday/Thursday until 5; Saturday until 6; closed Sunday.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "火曜日は何時まで開いていますか。",
+          "options": [
+            "午後五時",
+            "午後六時",
+            "午後七時",
+            "午後八時"
+          ],
+          "correctAnswer": 0,
+          "questionType": "information retrieval",
+          "explanation": "午後五時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-information-retrieval-03",
+      "slug": "assessment-reading-n4-information-retrieval-03",
+      "title": "ホテルの案内",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "hotel-plan",
+        "hotel"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "宿泊プラン\n朝食付き：一泊8,000円\n朝食なし：一泊6,500円\n朝食は午前七時から九時まで一階で食べられます。",
+      "translation": "Hotel plans: with breakfast 8,000 yen per night; without breakfast 6,500 yen. Breakfast is served on the first floor from 7 to 9.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "朝食はどこで食べられますか。",
+          "options": [
+            "二階",
+            "一階",
+            "部屋",
+            "駅"
+          ],
+          "correctAnswer": 1,
+          "questionType": "information retrieval",
+          "explanation": "一階"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-information-retrieval-04",
+      "slug": "assessment-reading-n4-information-retrieval-04",
+      "title": "スポーツセンター",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "sports-center",
+        "schedule"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "スポーツセンターの利用時間\n平日：午前七時〜午後九時\n土曜：午前九時〜午後六時\n日曜：午前九時〜午後三時\n水曜日は休みです。",
+      "translation": "Sports center hours: weekdays 7 a.m.–9 p.m.; Saturday 9–6; Sunday 9–3. Closed Wednesday.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "水曜日に利用できますか。",
+          "options": [
+            "はい、朝だけ",
+            "はい、午後だけ",
+            "いいえ、休みです",
+            "日曜日だけです"
+          ],
+          "correctAnswer": 2,
+          "questionType": "information retrieval",
+          "explanation": "いいえ、休みです"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-information-retrieval-05",
+      "slug": "assessment-reading-n4-information-retrieval-05",
+      "title": "講座のポスター",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "course-poster",
+        "event"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "写真講座\n全四回・毎週土曜日\n開始：六月三日\n持ち物：カメラ、ノート\n参加費：2,000円",
+      "translation": "Photography course: four sessions every Saturday, starting June 3. Bring a camera and notebook. Fee 2,000 yen.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "何を持っていかなければなりませんか。",
+          "options": [
+            "カメラとノート",
+            "本と傘",
+            "弁当と水",
+            "パソコンと鍵"
+          ],
+          "correctAnswer": 0,
+          "questionType": "information retrieval",
+          "explanation": "カメラとノート"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-information-retrieval-06",
+      "slug": "assessment-reading-n4-information-retrieval-06",
+      "title": "市場の案内",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "market-map",
+        "directions"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "市場の場所\n入口の右：野菜と果物\n入口の左：魚\n二階：服と靴\n出口の近く：休憩所",
+      "translation": "Market map: vegetables and fruit right of the entrance; fish left; clothes and shoes on the second floor; rest area near the exit.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "魚はどこにありますか。",
+          "options": [
+            "入口の右",
+            "入口の左",
+            "二階",
+            "出口の近く"
+          ],
+          "correctAnswer": 1,
+          "questionType": "information retrieval",
+          "explanation": "入口の左"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-information-retrieval-07",
+      "slug": "assessment-reading-n4-information-retrieval-07",
+      "title": "会社の行事",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "office-event",
+        "work"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "社員研修は九月十五日です。午前は会議室で説明を聞き、午後は近くの工場を見学します。昼食は会社が用意します。",
+      "translation": "Employee training is September 15. In the morning listen to an explanation in the conference room; in the afternoon tour a nearby factory. The company provides lunch.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "午後は何をしますか。",
+          "options": [
+            "会議をします",
+            "工場を見学します",
+            "昼食を作ります",
+            "家へ帰ります"
+          ],
+          "correctAnswer": 1,
+          "questionType": "information retrieval",
+          "explanation": "工場を見学します"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-information-retrieval-08",
+      "slug": "assessment-reading-n4-information-retrieval-08",
+      "title": "診療所の予約",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "clinic-booking",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "診療所は予約が必要です。電話受付は午前八時から十時まで、インターネット受付は前日の午後六時までです。",
+      "translation": "Appointments are required at the clinic. Phone reception is 8–10 a.m.; online booking closes at 6 p.m. the day before.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "インターネットでいつまで予約できますか。",
+          "options": [
+            "当日の朝",
+            "前日の午後六時",
+            "前日の夜十時",
+            "一週間前"
+          ],
+          "correctAnswer": 1,
+          "questionType": "information retrieval",
+          "explanation": "前日の午後六時"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-information-retrieval-09",
+      "slug": "assessment-reading-n4-information-retrieval-09",
+      "title": "校外学習",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "school-trip",
+        "school"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "校外学習の日は、学校に八時半までに集合してください。昼食と水を持ってきて、動きやすい靴を履いてください。雨の場合は中止します。",
+      "translation": "For the field trip, gather at school by 8:30. Bring lunch and water and wear easy-to-move-in shoes. It will be cancelled if it rains.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "雨の場合はどうなりますか。",
+          "options": [
+            "学校へ行きます",
+            "延期します",
+            "中止します",
+            "昼食を買います"
+          ],
+          "correctAnswer": 2,
+          "questionType": "information retrieval",
+          "explanation": "中止します"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-information-retrieval-10",
+      "slug": "assessment-reading-n4-information-retrieval-10",
+      "title": "アパートの規則",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "apartment-rules",
+        "home"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "アパートでは、夜十時以降に大きな音を出してはいけません。ごみは決められた曜日の朝に、建物の後ろへ出してください。",
+      "translation": "In the apartment, do not make loud noise after 10 p.m. Put garbage behind the building in the morning on the designated days.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "ごみはどこへ出しますか。",
+          "options": [
+            "建物の前",
+            "建物の後ろ",
+            "駅の近く",
+            "部屋の中"
+          ],
+          "correctAnswer": 1,
+          "questionType": "information retrieval",
+          "explanation": "建物の後ろ"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-information-retrieval-11",
+      "slug": "assessment-reading-n4-information-retrieval-11",
+      "title": "レストランの予約",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "restaurant-booking",
+        "restaurant"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "予約は二名から受け付けています。午後六時の席はいっぱいですが、七時半なら窓の近くの席があります。",
+      "translation": "The restaurant accepts reservations for two or more people. The 6 p.m. tables are full, but a table near the window is available at 7:30.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "窓の近くの席は何時ならありますか。",
+          "options": [
+            "五時",
+            "六時",
+            "七時",
+            "七時半"
+          ],
+          "correctAnswer": 3,
+          "questionType": "information retrieval",
+          "explanation": "七時半"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-information-retrieval-12",
+      "slug": "assessment-reading-n4-information-retrieval-12",
+      "title": "博物館のチケット",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "museum-ticket",
+        "museum"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "博物館の入場料は大人600円、学生300円です。企画展を見る場合は、別に200円必要です。月曜日は無料ですが、予約が必要です。",
+      "translation": "Museum admission is 600 yen for adults and 300 for students. The special exhibit costs 200 yen extra. Monday is free, but reservations are required.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "学生が企画展を見るにはいくら必要ですか。",
+          "options": [
+            "200円",
+            "300円",
+            "500円",
+            "600円"
+          ],
+          "correctAnswer": 2,
+          "questionType": "information retrieval",
+          "explanation": "500円"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-information-retrieval-13",
+      "slug": "assessment-reading-n4-information-retrieval-13",
+      "title": "週末の天気予報",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "weather-plan",
+        "weather"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "土曜日は晴れますが、日曜日は午後から雨になるでしょう。外で活動するなら、土曜日の午前中にしたほうがよさそうです。",
+      "translation": "Saturday will be sunny, but Sunday will likely rain from the afternoon. For outdoor activities, Saturday morning seems best.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "外の活動はいつがよさそうですか。",
+          "options": [
+            "土曜日の午前中",
+            "土曜日の夜",
+            "日曜日の午後",
+            "日曜日の夜"
+          ],
+          "correctAnswer": 0,
+          "questionType": "information retrieval",
+          "explanation": "土曜日の午前中"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-information-retrieval-14",
+      "slug": "assessment-reading-n4-information-retrieval-14",
+      "title": "荷物の受け取り",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "delivery-options",
+        "delivery"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "荷物は平日の午前中に届けられます。家にいない場合は、駅前のロッカーで受け取るか、土曜日に再配達を頼めます。",
+      "translation": "The package can be delivered on weekday mornings. If you are not home, you can receive it in a locker by the station or request redelivery Saturday.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "家にいない場合、どこで受け取れますか。",
+          "options": [
+            "学校の受付",
+            "駅前のロッカー",
+            "病院",
+            "公園"
+          ],
+          "correctAnswer": 1,
+          "questionType": "information retrieval",
+          "explanation": "駅前のロッカー"
+        }
+      ]
+    },
+    {
+      "id": "assessment-reading-n4-information-retrieval-15",
+      "slug": "assessment-reading-n4-information-retrieval-15",
+      "title": "町のバス",
+      "jlptLevel": "N4",
+      "category": "reading",
+      "subcategory": "information-retrieval",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-reading",
+        "community-bus",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "passage": "町のバスは一日三本です。駅を八時、十二時、午後四時に出発します。病院へ行く人は、二つ目の停留所で降りてください。",
+      "translation": "The community bus runs three times a day. It leaves the station at 8, 12, and 4. People going to the hospital should get off at the second stop.",
+      "vocabularyIds": [
+        "vocab-mainichi",
+        "vocab-hon",
+        "vocab-eki",
+        "vocab-benkyou"
+      ],
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-ta-form",
+        "grammar-toki"
+      ],
+      "kanjiIds": [
+        "kanji-kyou",
+        "kanji-go-noon",
+        "kanji-shitsu"
+      ],
+      "estimatedDifficulty": 4,
+      "questions": [
+        {
+          "prompt": "病院へ行く人はどこで降りますか。",
+          "options": [
+            "一つ目",
+            "二つ目",
+            "三つ目",
+            "駅"
+          ],
+          "correctAnswer": 1,
+          "questionType": "information retrieval",
+          "explanation": "二つ目"
+        }
+      ]
+    }
+  ],
+  "source": {
+    "id": "michi-curated-n5-seed",
+    "role": "Kizashi-authored assessment reading"
+  }
+}

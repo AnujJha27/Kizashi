@@ -27,14 +27,19 @@ export function BookReader({ book }: Readonly<{ book: StudyBook }>) {
     const loadPdf = async () => {
       try {
         const manifest = await fetch(`/api/books/${book.id}/parts`, { cache: "no-store" });
-        let blob: Blob;
+        let blob: Blob | null = null;
         if (manifest.ok) {
-          const payload = await manifest.json() as { parts?: unknown };
-          if (!Array.isArray(payload.parts) || !payload.parts.every((part): part is string => typeof part === "string")) throw new Error("Book parts are invalid.");
-          const responses = await Promise.all(payload.parts.map((part) => fetch(part)));
-          if (responses.some((response) => !response.ok)) throw new Error("Book part unavailable.");
-          blob = new Blob(await Promise.all(responses.map((response) => response.blob())), { type: "application/pdf" });
-        } else {
+          try {
+            const payload = await manifest.json() as { parts?: unknown };
+            if (!Array.isArray(payload.parts) || !payload.parts.every((part): part is string => typeof part === "string")) throw new Error("Book parts are invalid.");
+            const responses = await Promise.all(payload.parts.map((part) => fetch(part)));
+            if (responses.some((response) => !response.ok)) throw new Error("Book part unavailable.");
+            blob = new Blob(await Promise.all(responses.map((response) => response.blob())), { type: "application/pdf" });
+          } catch {
+            blob = null;
+          }
+        }
+        if (!blob) {
           const response = await fetch(`/api/books/${book.id}`, { cache: "no-store" });
           if (!response.ok) throw new Error("Book file unavailable.");
           blob = await response.blob();
@@ -93,9 +98,9 @@ export function BookReader({ book }: Readonly<{ book: StudyBook }>) {
         <form onSubmit={(event) => { event.preventDefault(); loadPageState(Math.max(1, Number.parseInt(pageInput, 10) || 1)); }} className="flex items-center gap-2"><label htmlFor="book-page" className="text-xs text-[#9297a1]">Page</label><input id="book-page" type="number" min="1" value={pageInput} onChange={(event) => setPageInput(event.target.value)} className="w-16 rounded-lg border border-[#3f4652] bg-[#101b2b]/90 px-2 py-2 text-center text-xs text-[#f5f5f2] outline-none focus:border-[#e5b85c]" /><button type="submit" className="rounded-lg border border-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#f1cf7c] hover:bg-[#302818]">Go</button></form>
       </div>
     </div>
-    <div className="mt-2 grid gap-3 lg:grid-cols-[minmax(0,1fr)_18rem]">
-      {pdfLoading ? <div className="grid h-[68vh] min-h-[38rem] place-items-center rounded-lg bg-[#f5f5f2] text-sm text-[#676c75]">Loading private book…</div> : pdfUrl ? <iframe key={page} title={`${book.title} PDF · page ${page}`} src={`${pdfUrl}#page=${page}`} className="h-[68vh] min-h-[38rem] w-full rounded-lg bg-[#f5f5f2]" /> : <div className="grid h-[68vh] min-h-[38rem] place-items-center rounded-lg border border-[#713b37] bg-[#21191a] p-6 text-center text-sm text-[#ef675d]" role="alert">{pdfError || "This book could not be loaded."}</div>}
-      <aside className="rounded-lg border border-[#4b3a29] bg-[#211d18]/70 p-4">
+    <div className="mt-2 grid items-start gap-3 lg:grid-cols-2">
+      {pdfLoading ? <div className="grid h-[78vh] min-h-[42rem] place-items-center rounded-lg bg-[#f5f3e8] text-sm text-[#676c75]">Loading book…</div> : pdfUrl ? <iframe key={page} title={`${book.title} PDF · page ${page}`} src={`${pdfUrl}#page=${page}`} className="h-[78vh] min-h-[42rem] w-full rounded-lg bg-[#f5f3e8]" /> : <div className="grid h-[78vh] min-h-[42rem] place-items-center rounded-lg border border-[#713b37] bg-[#21191a] p-6 text-center text-sm text-[#ef675d]" role="alert">{pdfError || "This book could not be loaded."}</div>}
+      <aside className="min-w-0 rounded-lg border border-[#4b3a29] bg-[#211d18]/70 p-4">
         <HandwrittenNotes bookId={book.id} />
         <p className="eyebrow">Review beside page</p><p className="mt-2 text-xs leading-5 text-[#9297a1]">{book.description}</p>
         <label className="mt-4 block text-xs text-[#c3c7ce]">Your note<textarea value={note} onChange={(event) => { setNote(event.target.value); setSaved(false); }} rows={8} placeholder="Record a fact to verify or a Kizashi follow-up…" className="mt-2 w-full resize-y rounded-lg border border-[#3f4652] bg-[#101b2b]/90 px-3 py-2.5 text-sm text-[#f5f5f2] outline-none placeholder:text-[#676c75] focus:border-[#e5b85c]" /></label>

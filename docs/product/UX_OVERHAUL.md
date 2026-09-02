@@ -52,6 +52,7 @@ verification, `[ ]` not implemented.
 - [x] Today/Journey has a time-aware greeting, current-path CTA, daily session plan, duration choices, and completion state.
 - [x] Practice is organized around Quick, Focus, Weaknesses, and Test while retaining compatible deep links for existing modes.
 - [x] Practice defers its question bank and bounds the live working catalog instead of retaining the full imported lesson corpus on every drill.
+- [x] Learner content loading merges the released remote package with bundled authored expansions, so deployment does not drop bundled reading/listening lessons while waiting on review data.
 - [x] Learn opens the active lesson directly with a compact lesson selector and step progression.
 - [x] Immersion is split into a recommendation feed and a focused activity player.
 - [x] Immersion includes a dedicated `実際に使う` real-life lane for source-hosted Irodori activities, separate from the general source shelf.
@@ -88,7 +89,7 @@ verification, `[ ]` not implemented.
 - [x] Phase 13 — Contextual actions
 - [~] Phase 14 — Visual refinement
 - [~] Phase 15 — Mobile/accessibility/performance
-- [~] Phase 16 — Tests/build verification (typecheck/build pass; one existing content-package assertion still fails)
+- [x] Phase 16 — Tests/build verification (19/19 direct Node test files pass; strict package QA, typecheck, and production build are green)
 
 ### Feature-to-code evidence
 
@@ -99,6 +100,8 @@ items intentionally remain visible until the remaining surfaces are finished.
 - [x] **Navigation shell** — `components/shell/app-shell.tsx`, `/journey`, `/practice`, `/immersion`, and `/library`; secondary destinations remain available through More.
 - [x] **Today/session orchestration** — `components/journey/daily-session.tsx`, `app/(main)/journey/page.tsx`, and `lib/exam-plan-core.js`; duration, next action, continue, and completion states are wired.
 - [x] **Practice IA and bounded loading** — `components/practice/practice-mode-tabs.tsx`, `components/practice/lazy-practice.tsx`, `components/practice/practice-player.tsx`, and `lib/questions.ts`; Quick/Focus/Weaknesses/Test group the existing modes and the question bank loads inside the practice panel.
+- [x] **Original reading practice** — `data/original-reading-bank.json`, `scripts/generate_original_reading_bank.py`, and `lib/curriculum.ts`; N5/N4 original short, mid-length, and information-retrieval material is assigned to learner-facing reading lessons and flows through the existing PracticePlayer.
+- [x] **Original listening practice** — `data/original-listening-bank.json`, `scripts/generate_original_listening_bank.py`, and `lib/curriculum.ts`; N5/N4 original scenarios cover task-based, key-point, verbal-expression, and quick-response families and use the existing BrowserSpeechProvider fallback.
 - [x] **Lesson-first Learn flow** — `components/learning/local-lesson.tsx`, `components/learning/lesson-player.tsx`, and `app/(main)/learn/page.tsx`; active lesson selection and step progression are learner-facing.
 - [x] **Immersion feed/player split** — `components/learning/immersion-surface.tsx` and `components/learning/immersion-player.tsx`; feed selection and focused playback are separate states.
 - [x] **Real-world practice lane** — `components/learning/irodori-practice-card.tsx` and the Irodori entries in `lib/external-resources-runtime.js`; Irodori is surfaced as practical activity context.
@@ -108,13 +111,14 @@ items intentionally remain visible until the remaining surfaces are finished.
 - [x] **Japanese-aware search and contextual actions** — `components/shell/command-palette.tsx`, `app/api/search/route.ts`, `components/library/study-later.tsx`, and item action components.
 - [x] **Progress narrative and Journey hierarchy** — `components/progress/progress-dashboard.tsx`, `components/journey/journey-overview.tsx`, `components/journey/journey-map.tsx`, and `components/journey/lesson-progress.tsx`.
 - [x] **Library knowledge home** — `app/(main)/library/page.tsx`, `components/library/library-browser.tsx`, `components/learning/tadoku-shelf.tsx`, and `components/learning/aozora-shelf.tsx`.
+- [x] **Book reader and personal notes** — `components/books/book-reader.tsx`, `components/books/drive-shelf.tsx`, and `components/books/handwritten-notes.tsx`; the reader and Drive viewer use the same equal-width side-by-side scratchpad, with local pages, colors, highlighter, and PDF export. Authenticated Drive lookup is the deployed-reader fallback when private storage parts are unavailable.
 - [x] **Reading/listening activity placement** — Immersion owns the source-hosted listening and reading shelves; `app/(main)/practice/page.tsx` owns the JLPT-style MCQ practice surface.
 - [x] **Integrated context practice** — `lib/integrated-exam-core.js` and the integrated Practice mode retain one primary item plus `targetItemIds` for multi-concept sets.
 - [~] **Furigana/scaffolding** — `components/learning/japanese-text.tsx`, `components/learning/reading-panel.tsx`, and practice renderers support `always`, but every immersion/question surface still needs a final consistency pass.
 - [~] **Visual refinement/card density** — the affected cards use shared action rails and reduced nesting, but the full visual pass requested by U65/U66/U70 is not complete.
 - [~] **Mobile/accessibility/performance** — responsive navigation and bounded content loading exist, but a complete audit of every new shelf, player, and reader is still outstanding.
 - [~] **Persistence beyond the browser** — local resume/progress works through `lib/session.ts`; account-backed synchronization is opt-in and the current deploy/package persistence path still needs verification.
-- [~] **Verification** — `tsc --noEmit`, the production build, and 18/19 direct Node tests pass; the remaining failing existing test is the stale/changed staged source-extraction expectation in `test/content.test.mjs`.
+- [x] **Verification** — strict package QA, `tsc --noEmit`, the production build, and all 19 direct Node test files pass.
 - [ ] **Not yet implemented** — complete fading scaffolding, full offline behavior, and the final all-surface accessibility/performance pass.
 
 Inspect the current repository first, preserve working behavior, implement the UX changes end-to-end, and run existing tests/builds.
