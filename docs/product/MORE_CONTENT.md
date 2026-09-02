@@ -51,6 +51,7 @@ coverage/verification, `[ ]` not implemented.
 ### Priority tracking
 
 - [~] Priority 1 — Irodori grammar ingestion has provenance/course fields, but canonicalization and example-quality review remain.
+- [x] A calculated `scripts/audit_irodori_grammar.py` report now measures Irodori source records by course/source level, canonical pattern matches, duplicate sets, relevance, review status, and learner-field completeness before further mapping work.
 - [~] Priority 2 — the existing Irodori resource pipeline now emits activity types, course levels, categorized target IDs, and provenance, and seven activities are learner-visible; broader source coverage is still required.
 - [x] Priority 3 — all 25 Basic and 25 Advanced Erin skit pages are indexed; only the six curated Basic entries are currently mapped into Kizashi item context.
 - [ ] Priority 4 — Original N5/N4 reading generators and substantial banks.
