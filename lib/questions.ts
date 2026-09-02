@@ -2,6 +2,7 @@ import { n5Module } from "@/lib/curriculum";
 import { isActivePracticeQuestion, validatePracticeQuestions } from "@/lib/content-validation";
 import { n5ExamBlueprint } from "@/lib/jlpt";
 import { buildIntegratedExamSets, selectIntegratedExamSet } from "@/lib/integrated-exam-core.js";
+import { getConjugationForms } from "@/lib/conjugation-core.js";
 import type { N5Module, PracticeMode, PracticeQuestion, TargetLevel } from "@/lib/types";
 
 function rotateOptions(correct: string, distractors: string[], seed: number) {
@@ -81,15 +82,13 @@ function takeQuick(questions: PracticeQuestion[]) {
   return selected;
 }
 
-const politeForms: Record<string, string> = { "食べる": "食べます", "飲む": "飲みます", "行く": "行きます", "来る": "来ます", "見る": "見ます", "勉強する": "勉強します", "買う": "買います", "話す": "話します", "休む": "休みます", "読む": "読みます", "書く": "書きます", "聞く": "聞きます", "する": "します", "遊ぶ": "遊びます", "会う": "会います", "帰る": "帰ります", "乗る": "乗ります", "降りる": "降ります", "分かる": "分かります", "教える": "教えます", "使う": "使います", "持つ": "持ちます", "住む": "住みます" };
-
 export function getPracticeQuestions(module: N5Module = n5Module) {
   const cached = practiceQuestionCache.get(module);
   if (cached) return cached;
   const questions: PracticeQuestion[] = [];
   const vocabularyMeanings = module.vocabulary.flatMap((entry) => entry.meanings);
   const vocabularyWrittenForms = module.vocabulary.map((entry) => entry.writtenForm);
-  const vocabularyPoliteForms = module.vocabulary.map((entry) => politeForms[entry.writtenForm] ?? entry.writtenForm);
+  const vocabularyPoliteForms = module.vocabulary.map((entry) => getConjugationForms(entry).politeNonPast ?? entry.writtenForm);
   const vocabularyReadings = module.vocabulary.map((entry) => entry.reading);
 
   module.vocabulary.forEach((item, index) => {
@@ -97,7 +96,7 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
     const meaningChoices = rotateOptions(item.meanings[0], vocabularyMeanings, index);
     questions.push({ id: `${item.id}-meaning`, itemId: item.id, category: "vocabulary", questionType: "meaning", jlptLevel: item.jlptLevel, prompt: `What does ${item.writtenForm} mean?`, ...meaningChoices, explanation: `${item.writtenForm} is used for ${item.meanings.join(" / ")}.` });
     const example = item.exampleSentences[0] ?? { japanese: item.writtenForm, translation: item.meanings[0] ?? "" };
-    const contextTarget = [item.writtenForm, politeForms[item.writtenForm]].find((form) => example.japanese.includes(form));
+    const contextTarget = [item.writtenForm, getConjugationForms(item).politeNonPast].find((form) => form && example.japanese.includes(form));
     const contextChoices = rotateOptions(contextTarget ?? item.writtenForm, vocabularyPoliteForms, index + 1);
     questions.push({ id: `${item.id}-context`, itemId: item.id, category: "vocabulary", questionType: "contextual vocabulary", jlptLevel: item.jlptLevel, prompt: `${example.translation}\n${contextTarget ? example.japanese.replace(contextTarget, "＿＿") : `${example.japanese}\nWhich word is being practiced?`}`, ...contextChoices, explanation: `${item.writtenForm} means ${item.meanings.join(" / ")} in this context.` });
     const paraphraseChoices = rotateOptions(item.meanings[0], vocabularyMeanings, index + 2);
@@ -108,8 +107,11 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
     questions.push({ id: `${item.id}-production`, itemId: item.id, category: "vocabulary", questionType: "Japanese recall", jlptLevel: item.jlptLevel, prompt: `Write the Japanese for: ${item.meanings[0]}.`, options: [], correctIndex: 0, answerMode: "text", acceptedAnswers: [item.writtenForm], answerPlaceholder: "Japanese", explanation: `The Japanese word is ${item.writtenForm} (${item.reading}).` });
     const audioChoices = rotateOptions(item.meanings[0], vocabularyMeanings, index + 3);
     questions.push({ id: `${item.id}-audio`, itemId: item.id, category: "vocabulary", questionType: "audio recognition", jlptLevel: item.jlptLevel, prompt: "Listen to the word. What does it mean?", ...audioChoices, explanation: `${item.reading} means ${item.meanings.join(" / ")}.`, audioText: item.reading, audioUrl: item.audioUrl });
-    const politeForm = politeForms[item.writtenForm];
-    if (politeForm) questions.push({ id: `${item.id}-conjugation-masu`, itemId: item.id, category: "vocabulary", questionType: "conjugation", jlptLevel: item.jlptLevel, prompt: `Write the polite ます-form of ${item.writtenForm} (${item.reading}).`, options: [], correctIndex: 0, answerMode: "text", acceptedAnswers: [politeForm], answerPlaceholder: "ます-form", explanation: `${item.writtenForm} becomes ${politeForm} in the polite present form.` });
+    if ((item.jlptLevel === "N5" || item.jlptLevel === "N4") && (item.commonness ?? 0) >= 4) {
+      const forms = getConjugationForms(item);
+      const labels: Record<string, string> = { dictionary: "dictionary form", politeNonPast: "polite non-past", politeNegative: "polite negative", politePast: "polite past", politePastNegative: "polite past negative", te: "て-form", nai: "ない-form", ta: "た-form", tai: "たい-form", present: "present form", negative: "negative form", past: "past form", pastNegative: "past negative form", modifier: "noun-modifying form" };
+      Object.entries(forms).forEach(([form, answer]) => { if (!answer || form === "dictionary") return; questions.push({ id: `${item.id}-conjugation-${form}`, itemId: item.id, category: "vocabulary", questionType: "conjugation", jlptLevel: item.jlptLevel, prompt: `Write the ${labels[form] ?? form} of ${item.writtenForm} (${item.reading}).`, options: [], correctIndex: 0, answerMode: "text", acceptedAnswers: [answer], answerPlaceholder: "Japanese form", explanation: `${item.writtenForm} → ${answer}.` }); });
+    }
   });
 
   module.kanji.forEach((item, index) => {
