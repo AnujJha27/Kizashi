@@ -52,9 +52,14 @@ export function ProgressDashboard({ items }: Readonly<{ items: LessonContentItem
   const recurring = catalog.filter((item) => mistakes[item.id]).sort((left, right) => mistakes[right.id].count - mistakes[left.id].count).slice(0, 4);
   const summary = getN5Readiness(catalog, records, examAttempts);
   const topicCoverage = getTopicCoverage(catalog, records).sort((left, right) => (left.held / Math.max(left.total, 1)) - (right.held / Math.max(right.total, 1)) || right.total - left.total).slice(0, 8);
+  const recent = catalog.filter((item) => (records[item.id]?.lastReviewedAt ?? 0) >= Date.now() - 7 * 86400000).sort((left, right) => (records[right.id]?.lastReviewedAt ?? 0) - (records[left.id]?.lastReviewedAt ?? 0));
+  const recentAttempts = recent.reduce((total, item) => total + (records[item.id]?.attempts ?? 0), 0);
+  const recentCorrect = recent.reduce((total, item) => total + (records[item.id]?.correct ?? 0), 0);
+  const priorityLabel = label(summary.priority.skillType);
 
   return (
     <div className="space-y-7">
+      <section className="border-l-2 border-[#e5b85c] pl-4"><p className="eyebrow">Your week · 今週</p><h2 className="mt-1 text-xl font-medium">{recent.length ? `${recent.length} concepts moved this week.` : "Your next change starts with one small session."}</h2><p className="mt-2 text-sm leading-6 text-[#9297a1]">{recentAttempts ? `${recentCorrect} of ${recentAttempts} recent answers were correct. Your next priority is ${priorityLabel.toLowerCase()}.` : `Start with ${priorityLabel.toLowerCase()} to give the path its first signal.`}</p><div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs"><Link href={`/practice?mode=${practiceModes[summary.priority.skillType]}`} className="font-semibold text-[#e5b85c] hover:text-[#f1cf7c]">Strengthen {priorityLabel} →</Link>{recent[0] ? <Link href={`/entry/${recent[0].id}`} className="text-[#9297a1] hover:text-[#f5f5f2]">Last touched: {recent[0].title}</Link> : null}</div></section>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
         <div className="rounded-xl border border-white/10 bg-[#102536]/55 p-4"><p className="eyebrow">Seen</p><p className="mt-2 text-3xl font-semibold text-[#f5f5f2]">{reviewed}<span className="ml-1 text-sm font-normal text-[#9297a1]">/ {catalog.length}</span></p></div>
         <div className="rounded-xl border border-white/10 bg-[#172b3a]/65 p-4"><p className="eyebrow">Learning</p><p className="mt-2 text-3xl font-semibold text-[#8cc9e5]">{learning}<span className="ml-1 text-sm font-normal text-[#9297a1]">in motion</span></p></div>
