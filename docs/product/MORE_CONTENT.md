@@ -4365,7 +4365,7 @@ No speech-recognition scoring is required for this milestone.
 
 # A17. BUILD A DICTATION SYSTEM
 
-Add Dictation as a first-class practice mode.
+Add Dictation as a first-class Immersion activity (Practice remains the JLPT-style MCQ surface).
 
 Dictation should reuse existing:
 
@@ -4378,7 +4378,7 @@ mistake
 practice
 ```
 
-infrastructure.
+infrastructure. The current learner slice is wired at `components/learning/dictation-activity.tsx` with deterministic hear/type/reveal/next behavior and mistake recording; the broader word/phrase/sentence/dialogue-gap curriculum remains to be expanded.
 
 Do NOT build a parallel testing engine.
 
