@@ -6,11 +6,12 @@ import { useContentModule } from "@/components/content/use-content-module";
 import { AudioControls } from "@/components/learning/audio-controls";
 import { ExternalSourceViewer } from "@/components/learning/external-source-viewer";
 import { JapaneseText } from "@/components/learning/japanese-text";
+import { ReadingPanel } from "@/components/learning/reading-panel";
 import { externalResourceToSourceLink } from "@/components/learning/external-source-launcher";
 import { readExternalSourceProgress } from "@/lib/external-source-progress.js";
 import { getEarWarmup, getImmersionReason, getListeningClipMetadata, selectImmersionClips } from "@/lib/immersion-core.js";
 import { readMistakes, readReviewRecords, type MistakeRecord, type ReviewRecord } from "@/lib/session";
-import type { ListeningItem, ListeningMode } from "@/lib/types";
+import type { ListeningItem, ListeningMode, ReadingItem } from "@/lib/types";
 import { getErinLessonResources, getExternalResources } from "@/lib/external-resources";
 
 const erinLessons = getErinLessonResources().map(externalResourceToSourceLink);
@@ -37,6 +38,9 @@ export function ImmersionSurface() {
   const [shadowing, setShadowing] = useState(false);
   const [phrasePosition, setPhrasePosition] = useState(0);
   const [speakingAlone, setSpeakingAlone] = useState(false);
+  const [readingPosition, setReadingPosition] = useState(0);
+  const [readingSelected, setReadingSelected] = useState<number | null>(null);
+  const [readingSubmitted, setReadingSubmitted] = useState(false);
   const [selectedSourceId, setSelectedSourceId] = useState<string | null>(null);
   const [selectedErinId, setSelectedErinId] = useState(erinLessons[0]?.id ?? "");
   const [sourceProgress, setSourceProgress] = useState<Record<string, boolean>>({});
@@ -64,6 +68,8 @@ export function ImmersionSurface() {
   const clip = clips[position] as ListeningItem | undefined;
   const metadata = clip ? getListeningClipMetadata(clip, itemMap, known) : null;
   const question = clip?.questions?.[0];
+  const reading = module.readings[readingPosition % Math.max(module.readings.length, 1)] as ReadingItem | undefined;
+  const readingQuestion = reading?.questions?.[0];
   const phrases = clip?.transcript.split(/\n+/u).map((phrase) => phrase.trim()).filter(Boolean) ?? [];
   const phrase = phrases[phrasePosition] ?? phrases[0] ?? clip?.transcript ?? "";
   const transcriptVisible = mode === "guided" || showTranscript || shadowing;
@@ -93,6 +99,11 @@ export function ImmersionSurface() {
     setPhrasePosition(0);
     setSpeakingAlone(false);
   };
+  const nextReading = () => {
+    setReadingPosition((value) => (value + 1) % Math.max(module.readings.length, 1));
+    setReadingSelected(null);
+    setReadingSubmitted(false);
+  };
 
   if (!clip || !metadata || !question) return <div className="rounded-xl border border-[#4b3a29] bg-[#211d18]/70 p-6"><p className="eyebrow">聞く · Listen</p><p className="mt-2 text-sm text-[#c3c7ce]">Listening material is not available yet.</p><p className="mt-2 text-xs leading-5 text-[#9297a1]">Use Browser Speech for lesson examples while reviewed natural-dialogue clips are added.</p></div>;
 
@@ -111,6 +122,8 @@ export function ImmersionSurface() {
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3"><button type="button" onClick={() => { setShadowing((value) => !value); setShowTranscript(true); }} className="rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce] hover:border-[#e5b85c]">{shadowing ? "Close shadowing" : "Shadow this clip"}</button>{submitted ? <button type="button" onClick={next} className="rounded-lg border border-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#f1cf7c] hover:bg-[#302818]">Next clip →</button> : null}</div>
       {shadowing ? <div className="mt-5 rounded-xl border border-[#315d4b] bg-[#162b26]/60 p-4"><p className="eyebrow">Shadowing · phrase {phrasePosition + 1} / {Math.max(phrases.length, 1)}</p><p className="jp-serif mt-3 text-xl text-[#f5f5f2]"><JapaneseText text={phrase} vocabulary={module.vocabulary} kanji={module.kanji} always /></p><AudioControls text={phrase} className="mt-3" /><div className="mt-4 flex flex-wrap gap-2"><button type="button" onClick={() => setPhrasePosition((value) => Math.min(value + 1, Math.max(phrases.length - 1, 0)))} className="rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce] hover:border-[#e5b85c]">Next phrase</button><button type="button" onClick={() => setSpeakingAlone((value) => !value)} className="rounded-lg bg-[#6fb98f] px-3 py-2 text-xs font-semibold text-[#0b0b0d]">{speakingAlone ? "I said it" : "Speak alone"}</button></div>{speakingAlone ? <p className="mt-3 text-xs text-[#8bcca6]" role="status">Your turn—say the phrase, then tap “I said it” to continue.</p> : <p className="mt-3 text-xs leading-5 text-[#9297a1]">Listen, shadow along, or speak alone. Audio stays external/browser-based; Kizashi does not record your voice.</p>}</div> : null}
     </section>
+
+    {reading && readingQuestion ? <section className="surface-panel p-6 sm:p-9"><div className="flex flex-wrap items-center justify-between gap-3"><div><p className="eyebrow">読む · Reading drill</p><h3 className="mt-1 text-2xl font-medium text-[#f5f5f2]">{reading.title}</h3><p className="mt-1 text-xs text-[#9297a1]">Read the passage first; the question stays with its context.</p></div><button type="button" onClick={nextReading} className="rounded-lg border border-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#f1cf7c] hover:bg-[#302818]">Next passage →</button></div><div className="mt-6 rounded-xl border border-white/10 bg-[#101b2b]/50 p-4"><ReadingPanel item={reading} vocabulary={module.vocabulary} kanji={module.kanji} /></div><div className="mt-6 rounded-xl border border-[#3f4652] bg-[#101b2b]/45 p-4"><p className="jp-serif text-sm text-[#f5f5f2]"><JapaneseText text={readingQuestion.prompt} vocabulary={module.vocabulary} kanji={module.kanji} always /></p><div className="mt-3 grid gap-2 sm:grid-cols-2">{readingQuestion.options.map((answer, index) => <button key={`${answer}-${index}`} type="button" onClick={() => !readingSubmitted && setReadingSelected(index)} disabled={readingSubmitted} aria-pressed={readingSelected === index} className={`jp-serif rounded-lg border px-3 py-2.5 text-left text-sm ${readingSelected === index ? "border-[#e34a3f] bg-[#3a2023] text-[#f5f5f2]" : "border-white/10 bg-[#17181d]/70 text-[#c3c7ce] hover:border-[#e5b85c]"}`}><JapaneseText text={answer} vocabulary={module.vocabulary} kanji={module.kanji} always /></button>)}</div><div className="mt-4 flex flex-wrap gap-2"><button type="button" disabled={readingSelected === null || readingSubmitted} onClick={() => setReadingSubmitted(true)} className="rounded-lg bg-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#0b0b0d] disabled:cursor-not-allowed disabled:opacity-40">Answer</button></div>{readingSubmitted ? <p className={`mt-3 text-sm ${readingSelected === readingQuestion.correctAnswer ? "text-[#8bcca6]" : "text-[#ef675d]"}`} role="status">{readingSelected === readingQuestion.correctAnswer ? "Correct." : `Not quite. ${readingQuestion.explanation ?? reading.translation}`}</p> : null}</div></section> : null}
 
     <section className="rounded-xl border border-white/10 bg-[#101b2b]/55 p-5 sm:p-6"><div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">聞く · LISTEN</p><h3 className="mt-1 text-xl font-medium text-[#f5f5f2]">Natural listening, kept with the source.</h3><p className="mt-1 max-w-2xl text-xs leading-5 text-[#9297a1]">Erin, corpus, and human-voice sources stay provider-hosted. Reading, practical practice, and grammar references appear in their own learner context below or on the relevant lesson.</p></div><span className="text-xs text-[#9297a1]">Sources opened · {openedSourceCount} / {trackableSourceIds.length}</span></div><div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{sources.map((source) => <article key={source.id} className="rounded-xl border border-white/10 bg-[#17181d]/70 p-4"><p className="text-sm font-medium text-[#f5f5f2]">{source.title ?? source.name}</p><p className="mt-1 text-xs uppercase tracking-[.1em] text-[#676c75]">{source.name}{source.level ? ` · ${source.level}` : ""}{source.context ? ` · ${source.context}` : ""}</p><p className="mt-1 text-xs leading-5 text-[#9297a1]">{source.description}</p>{source.targetSkills?.length ? <p className="mt-2 text-[11px] text-[#e5b85c]">Target: {source.targetSkills.join(" · ")}</p> : null}{source.targetItemIds?.length ? <p className="mt-1 text-[10px] leading-4 text-[#9297a1]">Maps to: {source.targetItemIds.join(" · ")}</p> : null}{source.resourceTypes?.length ? <p className="mt-1 text-[10px] leading-4 text-[#9297a1]">On source: {source.resourceTypes.join(" · ")}</p> : null}{source.id === "erin" ? <label className="mt-3 block text-xs text-[#9297a1]"><span className="mr-2">Lesson</span><select value={selectedErinSource.id} onChange={(event) => setSelectedErinId(event.target.value)} className="mt-1 w-full rounded-lg border border-[#3f4652] bg-[#101b2b] px-3 py-2 text-xs text-[#f5f5f2]">{erinLessons.map((lesson) => <option key={lesson.id} value={lesson.id}>{lesson.title}</option>)}</select></label> : null}<ExternalSourceViewer source={source.id === "erin" ? selectedErinSource : source} open={selectedSourceId === source.id} onToggle={() => setSelectedSourceId((value) => value === source.id ? null : source.id)} /></article>)}</div></section>
   </div>;
