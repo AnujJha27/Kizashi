@@ -5,7 +5,11 @@ import { buildIntegratedExamSets, selectIntegratedExamSet } from "@/lib/integrat
 import type { N5Module, PracticeMode, PracticeQuestion, TargetLevel } from "@/lib/types";
 
 function rotateOptions(correct: string, distractors: string[], seed: number) {
-  const values = [...new Set([correct, ...distractors.filter((value) => value !== correct)])].slice(0, 4);
+  const values = [correct];
+  for (const value of distractors) {
+    if (value !== correct && !values.includes(value)) values.push(value);
+    if (values.length === 4) break;
+  }
   const offset = seed % values.length;
   const options = [...values.slice(offset), ...values.slice(0, offset)];
   return { options, correctIndex: options.indexOf(correct) };
@@ -83,22 +87,26 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
   const cached = practiceQuestionCache.get(module);
   if (cached) return cached;
   const questions: PracticeQuestion[] = [];
+  const vocabularyMeanings = module.vocabulary.flatMap((entry) => entry.meanings);
+  const vocabularyWrittenForms = module.vocabulary.map((entry) => entry.writtenForm);
+  const vocabularyPoliteForms = module.vocabulary.map((entry) => politeForms[entry.writtenForm] ?? entry.writtenForm);
+  const vocabularyReadings = module.vocabulary.map((entry) => entry.reading);
 
   module.vocabulary.forEach((item, index) => {
     if (!item.writtenForm || !item.reading || !item.meanings.length) return;
-    const meaningChoices = rotateOptions(item.meanings[0], module.vocabulary.flatMap((entry) => entry.meanings), index);
+    const meaningChoices = rotateOptions(item.meanings[0], vocabularyMeanings, index);
     questions.push({ id: `${item.id}-meaning`, itemId: item.id, category: "vocabulary", questionType: "meaning", jlptLevel: item.jlptLevel, prompt: `What does ${item.writtenForm} mean?`, ...meaningChoices, explanation: `${item.writtenForm} is used for ${item.meanings.join(" / ")}.` });
     const example = item.exampleSentences[0] ?? { japanese: item.writtenForm, translation: item.meanings[0] ?? "" };
     const contextTarget = [item.writtenForm, politeForms[item.writtenForm]].find((form) => example.japanese.includes(form));
-    const contextChoices = rotateOptions(contextTarget ?? item.writtenForm, module.vocabulary.map((entry) => politeForms[entry.writtenForm] ?? entry.writtenForm), index + 1);
+    const contextChoices = rotateOptions(contextTarget ?? item.writtenForm, vocabularyPoliteForms, index + 1);
     questions.push({ id: `${item.id}-context`, itemId: item.id, category: "vocabulary", questionType: "contextual vocabulary", jlptLevel: item.jlptLevel, prompt: `${example.translation}\n${contextTarget ? example.japanese.replace(contextTarget, "＿＿") : `${example.japanese}\nWhich word is being practiced?`}`, ...contextChoices, explanation: `${item.writtenForm} means ${item.meanings.join(" / ")} in this context.` });
-    const paraphraseChoices = rotateOptions(item.meanings[0], module.vocabulary.flatMap((entry) => entry.meanings), index + 2);
+    const paraphraseChoices = rotateOptions(item.meanings[0], vocabularyMeanings, index + 2);
     questions.push({ id: `${item.id}-paraphrase`, itemId: item.id, category: "vocabulary", questionType: "paraphrase", jlptLevel: item.jlptLevel, prompt: `Which expression is closest in meaning to ${item.writtenForm}?`, ...paraphraseChoices, explanation: `${item.writtenForm} means ${item.meanings.join(" / ")}.` });
-    const orthographyChoices = rotateOptions(item.writtenForm, module.vocabulary.map((entry) => entry.writtenForm), index + 4);
+    const orthographyChoices = rotateOptions(item.writtenForm, vocabularyWrittenForms, index + 4);
     questions.push({ id: `${item.id}-orthography`, itemId: item.id, category: "vocabulary", questionType: "orthography", jlptLevel: item.jlptLevel, prompt: `Which written form matches ${item.reading}?`, ...orthographyChoices, explanation: `${item.reading} is written ${item.writtenForm}.` });
     questions.push({ id: `${item.id}-reading-recall`, itemId: item.id, category: "vocabulary", questionType: "kana recall", jlptLevel: item.jlptLevel, prompt: `Type the reading for ${item.writtenForm}.`, options: [], correctIndex: 0, answerMode: "text", acceptedAnswers: [item.reading], answerPlaceholder: "ひらがな", explanation: `${item.writtenForm} is read ${item.reading}.` });
     questions.push({ id: `${item.id}-production`, itemId: item.id, category: "vocabulary", questionType: "Japanese recall", jlptLevel: item.jlptLevel, prompt: `Write the Japanese for: ${item.meanings[0]}.`, options: [], correctIndex: 0, answerMode: "text", acceptedAnswers: [item.writtenForm], answerPlaceholder: "Japanese", explanation: `The Japanese word is ${item.writtenForm} (${item.reading}).` });
-    const audioChoices = rotateOptions(item.meanings[0], module.vocabulary.flatMap((entry) => entry.meanings), index + 3);
+    const audioChoices = rotateOptions(item.meanings[0], vocabularyMeanings, index + 3);
     questions.push({ id: `${item.id}-audio`, itemId: item.id, category: "vocabulary", questionType: "audio recognition", jlptLevel: item.jlptLevel, prompt: "Listen to the word. What does it mean?", ...audioChoices, explanation: `${item.reading} means ${item.meanings.join(" / ")}.`, audioText: item.reading, audioUrl: item.audioUrl });
   });
 
@@ -116,7 +124,7 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
       questions.push({ id: wordIndex === 0 ? `${item.id}-word` : `${item.id}-word-${wordIndex}-orthography`, itemId: item.id, category: "kanji", questionType: "orthography", jlptLevel: item.jlptLevel, prompt: `Which word is read ${word.reading}?`, ...wordChoices, explanation: `${word.word} is read ${word.reading} and means ${word.meaning}.` });
       const characterChoices = rotateOptions(item.character, module.kanji.filter((entry) => entry.id !== item.id).map((entry) => entry.character), index + wordIndex + 3);
       questions.push({ id: wordIndex === 0 ? `${item.id}-recall` : `${item.id}-word-${wordIndex}-kanji`, itemId: item.id, category: "kanji", questionType: "word to kanji recall", jlptLevel: item.jlptLevel, prompt: `Which kanji is used in ${word.word} (${word.reading})?`, ...characterChoices, explanation: `${word.word} uses ${item.character}, meaning ${item.meanings.join(" / ")}.` });
-      const readingChoices = rotateOptions(word.reading, [...item.usefulWords.map((entry) => entry.reading), ...module.vocabulary.map((entry) => entry.reading)], index + wordIndex + 4);
+      const readingChoices = rotateOptions(word.reading, [...item.usefulWords.map((entry) => entry.reading), ...vocabularyReadings], index + wordIndex + 4);
       if (readingChoices.options.length > 1) questions.push({ id: `${item.id}-word-${wordIndex}-reading`, itemId: item.id, category: "kanji", questionType: "reading in context", jlptLevel: item.jlptLevel, prompt: `How is ${word.word} read?`, ...readingChoices, explanation: `${word.word} is read ${word.reading} and means ${word.meaning}.` });
       if (wordIndex === 0) {
         const vocabulary = module.vocabulary.find((entry) => entry.writtenForm === word.word);

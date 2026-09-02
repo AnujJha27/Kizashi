@@ -61,7 +61,9 @@ function useActiveQuestions(fallback: PracticeQuestion[], targetLevel: TargetLev
 }
 
 export function LocalPractice({ allQuestions, mode, duration, focus, section, topic, targetLevel }: Readonly<{ allQuestions?: PracticeQuestion[]; mode: PracticeMode; duration: number; focus?: string; section?: string; topic?: string; targetLevel: TargetLevel }>) {
-  const fallbackQuestions = useMemo(() => allQuestions ?? getValidatedPracticeQuestions(), [allQuestions]);
+  // The browser receives the bounded learner module below; generating the full
+  // staged bank here freezes navigation before that module can arrive.
+  const fallbackQuestions = useMemo(() => allQuestions ?? [], [allQuestions]);
   const { questions: activeQuestions, module } = useActiveQuestions(fallbackQuestions, targetLevel);
   const [repair, setRepair] = useState("");
   useEffect(() => setRepair(new URLSearchParams(window.location.search).get("repair") ?? ""), []);

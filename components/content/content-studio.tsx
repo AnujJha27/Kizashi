@@ -292,10 +292,14 @@ function questionsForReview(raw: string, fallback: PracticeQuestion[]) {
   }
 }
 
+function needsQuestionReview(question: PracticeQuestion) {
+  return question.validationStatus === "generated" || (question.review?.status !== "approved" && question.review?.status === "draft");
+}
+
 function QuestionReview({ raw, fallback, onReview, onEdit }: Readonly<{ raw: string; fallback: PracticeQuestion[]; onReview?: (id: string, status: ExerciseValidationStatus, metadata: ReviewMetadata) => void; onEdit: () => void }>) {
   const [reviewers, setReviewers] = useState<Record<string, string>>({});
   const [notes, setNotes] = useState<Record<string, string>>({});
-  const allQuestions = questionsForReview(raw, fallback).filter((question) => question.validationStatus !== "rejected" && question.review?.status !== "approved");
+  const allQuestions = questionsForReview(raw, fallback).filter(needsQuestionReview);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(0);
   const questionPageSize = 20;
@@ -314,7 +318,7 @@ function QuestionReview({ raw, fallback, onReview, onEdit }: Readonly<{ raw: str
 
 export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, practiceCoverage, questions, knownItemIds, sources = contentSources }: Readonly<{ seed: N5Module; seedHealth: ContentValidationResult; questionHealth: ContentValidationResult; practiceCoverage: ReturnType<typeof getN5PracticeCoverage>; questions: PracticeQuestion[]; knownItemIds: string[]; sources?: ContentSource[] }>) {
   const [seed, setSeed] = useState(initialSeed);
-  const [raw, setRaw] = useState(() => JSON.stringify(seed, null, 2));
+  const [raw, setRaw] = useState("");
   const [result, setResult] = useState<ContentValidationResult>(seedHealth);
   const [questionRaw, setQuestionRaw] = useState(() => JSON.stringify(questions, null, 2));
   const [questionResult, setQuestionResult] = useState<ContentValidationResult>(questionHealth);
@@ -324,9 +328,15 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   const [editorKind, setEditorKind] = useState<EditableKind>("vocabulary");
   const [editorRecordId, setEditorRecordId] = useState("");
   const [questionView, setQuestionView] = useState<"review" | "edit">("review");
-  const parsedDraft = useMemo(() => parseAndValidateModule(raw), [raw]);
+  const parsedDraft = useMemo(() => raw ? parseAndValidateModule(raw) : { value: seed, result: seedHealth }, [raw, seed, seedHealth]);
   const coverageModule = useMemo(() => parsedDraft.value ?? parseModuleForReview(raw) ?? seed, [parsedDraft.value, raw, seed]);
   const currentOrSavedDraft = useMemo(() => parsedDraft.value ?? parseModuleForReview(raw) ?? readValidatedContentDraft(), [parsedDraft.value, raw]);
+  const ensureRaw = () => {
+    if (raw) return raw;
+    const next = JSON.stringify(seed, null, 2);
+    setRaw(next);
+    return next;
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -340,7 +350,6 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
       .then((next) => {
         if (cancelled) return;
         setSeed(next);
-        setRaw(JSON.stringify(next, null, 2));
         setResult(validateModule(next));
         setMessage("Loaded the full staged review package.");
       })
@@ -382,13 +391,11 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
           setShowContentIssues(false);
           setMessage("Loaded the in-progress review draft. Fix its issues before publishing.");
         } else {
-          setRaw(JSON.stringify(seed, null, 2));
           setResult(seedHealth);
           setShowContentIssues(false);
           setMessage("The saved draft was not a content package, so the bundled curriculum is shown.");
         }
       } else {
-        setRaw(JSON.stringify(seed, null, 2));
         setResult(seedHealth);
         setShowContentIssues(false);
         setMessage(savedIsSmaller ? "Kept the larger staged review package; the smaller draft was not deleted." : "Loaded the bundled curriculum.");
@@ -421,23 +428,24 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   }, [knownItemIds, questionHealth, questions, seed, seedHealth]);
 
   const validate = () => {
-    const next = parseAndValidateModule(raw).result;
+    const next = parseAndValidateModule(ensureRaw()).result;
     setResult(next);
     setShowContentIssues(true);
     setMessage(next.valid ? "Package is ready to save as a local draft." : "Fix the listed errors before saving.");
   };
 
   const saveDraft = async () => {
-    const parsed = parseAndValidateModule(raw);
+    const draftRaw = ensureRaw();
+    const parsed = parseAndValidateModule(draftRaw);
     const next = parsed.result;
     setResult(next);
     setShowContentIssues(true);
-    if (!parseModuleForReview(raw)) {
+    if (!parseModuleForReview(draftRaw)) {
       setMessage("Fix the JSON structure before saving this draft.");
       return;
     }
     try {
-      const storage = await writeContentDraft(raw);
+      const storage = await writeContentDraft(draftRaw);
       window.dispatchEvent(new Event("michi-content-draft-updated"));
       setMessage(next.valid ? `Saved on this device (${storage}).` : `Saved the in-progress review draft (${storage}). Publishing stays locked until it validates.`);
     } catch {
@@ -517,7 +525,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
 
   const updateContentStatus = (itemId: string, status: ContentReviewStatus) => {
     try {
-      const packageData = JSON.parse(raw) as Record<string, unknown>;
+      const packageData = JSON.parse(ensureRaw()) as Record<string, unknown>;
       for (const key of ["vocabulary", "kanji", "grammar", "readings", "listening"]) {
         const records = packageData[key];
         if (!Array.isArray(records)) continue;
@@ -568,7 +576,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
 
   const addTemplate = (category: DraftKind) => {
     try {
-      const packageData = JSON.parse(raw) as Record<string, unknown>;
+      const packageData = JSON.parse(ensureRaw()) as Record<string, unknown>;
       const id = `${category}-draft-${Date.now()}`;
       if (category === "lesson") {
         const course = packageData.course as Record<string, unknown> | undefined;
@@ -598,6 +606,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   };
 
   const openRecordEditor = (kind: EditableKind = editorKind, id = editorRecordId) => {
+    ensureRaw();
     setEditorKind(kind);
     setEditorRecordId(id);
     setContentView("form");
@@ -612,10 +621,10 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   };
 
   const resetDraft = () => {
-    const next = JSON.stringify(seed, null, 2);
+    const next = seed;
     void removeContentDraft().catch(() => setMessage("Reset this page, but the saved draft could not be cleared."));
     window.dispatchEvent(new Event("michi-content-draft-updated"));
-    setRaw(next);
+    setRaw(JSON.stringify(next, null, 2));
     setResult(seedHealth);
     setShowContentIssues(false);
     setContentView("review");
@@ -632,9 +641,9 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
     <section className="rounded-xl border border-[#3f3427] bg-[#211d18]/65 p-5 sm:p-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Curriculum package</p><h2 className="mt-1 text-xl font-medium text-[#f5f5f2]">Review the path, then edit it.</h2><p className="mt-1 max-w-2xl text-sm text-[#9297a1]">Scan readable cards first. Edit fields directly, or use Advanced JSON only for imports and bulk changes.</p></div><div className="flex flex-wrap gap-2"><button type="button" onClick={resetDraft} className="rounded-xl border border-white/10 px-4 py-3 text-sm font-semibold text-[#c3c7ce] hover:border-[#e5b85c] hover:text-[#f1cf7c]">Reset draft</button><label className="w-fit cursor-pointer rounded-xl border border-[#5d3936] px-4 py-3 text-sm font-semibold text-[#f5f5f2] hover:border-[#e34a3f]">Import JSON<input type="file" accept="application/json,.json" className="sr-only" onChange={(event) => void loadFile(event.target.files?.[0])} /></label></div></div>
       <div className="mt-5 flex flex-wrap gap-2"><span className="self-center text-xs text-[#9297a1]">New starter:</span>{draftKinds.map((category) => <button key={category} type="button" onClick={() => addTemplate(category)} className="rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce] hover:border-[#e5b85c] hover:text-[#f1cf7c]">{category === "grammarContrast" ? "grammar contrast" : category}</button>)}</div>
-      <div className="mt-5 flex flex-wrap gap-2 border-b border-white/10 pb-3"><button type="button" onClick={() => setContentView("review")} className={`rounded-lg px-3 py-2 text-xs ${contentView === "review" ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1]"}`}>Review cards</button><button type="button" onClick={() => setContentView("form")} className={`rounded-lg px-3 py-2 text-xs ${contentView === "form" ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1]"}`}>Edit records</button><button type="button" onClick={() => setContentView("json")} className={`rounded-lg px-3 py-2 text-xs ${contentView === "json" ? "bg-[#3a2023] text-[#f5f5f2]" : "border border-[#3f4652] text-[#9297a1]"}`}>Advanced JSON</button></div>
+      <div className="mt-5 flex flex-wrap gap-2 border-b border-white/10 pb-3"><button type="button" onClick={() => setContentView("review")} className={`rounded-lg px-3 py-2 text-xs ${contentView === "review" ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1]"}`}>Review cards</button><button type="button" onClick={() => { ensureRaw(); setContentView("form"); }} className={`rounded-lg px-3 py-2 text-xs ${contentView === "form" ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1]"}`}>Edit records</button><button type="button" onClick={() => { ensureRaw(); setContentView("json"); }} className={`rounded-lg px-3 py-2 text-xs ${contentView === "json" ? "bg-[#3a2023] text-[#f5f5f2]" : "border border-[#3f4652] text-[#9297a1]"}`}>Advanced JSON</button></div>
       {contentView === "form" ? <div className="mt-5"><ContentRecordEditor raw={raw} fallback={seed} preferredKind={editorKind} preferredId={editorRecordId} onChange={updateFormRaw} onAdd={addTemplate} sources={sources} /></div> : contentView === "json" ? <textarea value={raw} onChange={(event) => { setRaw(event.target.value); setShowContentIssues(false); }} spellCheck={false} aria-label="Content package JSON" className="mt-5 min-h-[28rem] w-full rounded-xl border border-[#3f4652] bg-[#0d1522]/90 p-4 font-mono text-xs leading-6 text-[#d8dde4] outline-none focus:border-[#e5b85c]" /> : <div className="mt-5"><ContentReview module={coverageModule} onEdit={openRecordEditor} onReview={updateContentStatus} /></div>}
-      <div className="mt-4 flex flex-wrap items-center gap-3"><button type="button" onClick={validate} className="rounded-xl bg-[#e34a3f] px-4 py-3 text-sm font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">Validate package</button><button type="button" onClick={saveDraft} disabled={!parseModuleForReview(raw)} title={!parseModuleForReview(raw) ? "Fix the JSON structure before saving" : "Save an in-progress local review draft"} className="rounded-xl border border-[#5d3936] px-4 py-3 text-sm font-semibold text-[#f5f5f2] enabled:hover:border-[#e34a3f] disabled:cursor-not-allowed disabled:opacity-40">Save local review draft</button><button type="button" onClick={() => downloadJson(raw, "kizashi-content-draft.json")} className="rounded-xl border border-white/10 px-4 py-3 text-sm text-[#9297a1] hover:text-[#f5f5f2]">Export JSON</button>{!parsedDraft.result.valid ? <span className="text-xs text-[#ef675d]">Saved drafts may be incomplete; validate before publishing.</span> : null}{message ? <span className="text-xs text-[#e5b85c]" role="status">{message}</span> : null}</div>
+      <div className="mt-4 flex flex-wrap items-center gap-3"><button type="button" onClick={validate} className="rounded-xl bg-[#e34a3f] px-4 py-3 text-sm font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">Validate package</button><button type="button" onClick={saveDraft} disabled={!raw && !seed} title="Save an in-progress local review draft" className="rounded-xl border border-[#5d3936] px-4 py-3 text-sm font-semibold text-[#f5f5f2] enabled:hover:border-[#e34a3f] disabled:cursor-not-allowed disabled:opacity-40">Save local review draft</button><button type="button" onClick={() => downloadJson(ensureRaw(), "kizashi-content-draft.json")} className="rounded-xl border border-white/10 px-4 py-3 text-sm text-[#9297a1] hover:text-[#f5f5f2]">Export JSON</button>{!parsedDraft.result.valid ? <span className="text-xs text-[#ef675d]">Saved drafts may be incomplete; validate before publishing.</span> : null}{message ? <span className="text-xs text-[#e5b85c]" role="status">{message}</span> : null}</div>
     </section>
 
     {showContentIssues ? <Issues result={result} /> : <section className="rounded-xl border border-[#3f4652] bg-[#101b2b]/70 p-5"><p className="eyebrow">Draft editing</p><p className="mt-2 text-sm leading-6 text-[#c3c7ce]">Review cards are for scanning. Use Edit records for normal changes; Advanced JSON is for imports and bulk edits.</p></section>}

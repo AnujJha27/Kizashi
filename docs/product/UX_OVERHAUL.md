@@ -70,8 +70,8 @@ verification, `[ ]` not implemented.
 - [~] Furigana preference support exists, while Immersion, Practice review, lessons, entries, and native reading now force verified readings; complete fading behavior across every surface is not finished.
 - [x] Quick practice favors unseen question variants while preserving stronger priority for mistakes, due reviews, and flagged ambiguity.
 - [x] Contextual actions connect items to practice, immersion, study-later, and repair flows.
-- [~] Card density and source/player separation have been reduced; Immersion reading/listening uses editorial separator rows and progressive loading, while the remaining source shelves still need the full visual refinement pass.
-- [x] Practice and Studio defer heavy package work, cache generated questions, and avoid the stale global scroll lock that previously stranded route scrolling; a complete mobile, accessibility, and performance audit remains.
+- [x] Card density and source/player separation have been reduced; Immersion reading/listening, real-life activities, and source detours use editorial separator rows and progressive loading, while dense admin review remains intentionally secondary.
+- [x] Practice and Studio defer heavy package work, avoid eager full-bank browser generation, show only pending question drafts in Studio, cache generated questions, and avoid the stale global scroll lock that previously stranded route scrolling; a complete mobile, accessibility, and performance audit remains.
 
 ### Delivery status by implementation phase
 
@@ -100,7 +100,7 @@ items intentionally remain visible until the remaining surfaces are finished.
 
 - [x] **Navigation shell** — `components/shell/app-shell.tsx`, `/journey`, `/practice`, `/immersion`, and `/library`; secondary destinations remain available through More.
 - [x] **Today/session orchestration** — `components/journey/daily-session.tsx`, `app/(main)/journey/page.tsx`, and `lib/exam-plan-core.js`; duration, next action, continue, and completion states are wired.
-- [x] **Practice IA and bounded loading** — `components/practice/practice-mode-tabs.tsx`, `components/practice/lazy-practice.tsx`, `components/practice/practice-player.tsx`, and `lib/questions.ts`; Quick/Focus/Weaknesses/Test group the existing modes and the question bank loads inside the practice panel.
+- [x] **Practice IA and bounded loading** — `components/practice/practice-mode-tabs.tsx`, `components/practice/lazy-practice.tsx`, `components/practice/practice-player.tsx`, and `lib/questions.ts`; Quick/Focus/Weaknesses/Test group the existing modes, the question bank loads inside the practice panel, and large choice pools are generated without repeated full-bank scans.
 - [x] **Original reading practice** — `data/original-reading-bank.json`, `scripts/generate_original_reading_bank.py`, and `lib/curriculum.ts`; N5/N4 original short, mid-length, and information-retrieval material is assigned to learner-facing reading lessons and flows through the existing PracticePlayer.
 - [x] **Original listening practice** — `data/original-listening-bank.json`, `scripts/generate_original_listening_bank.py`, and `lib/curriculum.ts`; N5/N4 original scenarios cover task-based, key-point, verbal-expression, and quick-response families and use the existing BrowserSpeechProvider fallback.
 - [x] **Lesson-first Learn flow** — `components/learning/local-lesson.tsx`, `components/learning/lesson-player.tsx`, and `app/(main)/learn/page.tsx`; active lesson selection and step progression are learner-facing.
@@ -116,8 +116,8 @@ items intentionally remain visible until the remaining surfaces are finished.
 - [x] **Reading/listening activity placement** — Immersion owns the source-hosted listening and reading shelves; `app/(main)/practice/page.tsx` owns the JLPT-style MCQ practice surface.
 - [x] **Integrated context practice** — `lib/integrated-exam-core.js` and the integrated Practice mode retain one primary item plus `targetItemIds` for multi-concept sets.
 - [~] **Furigana/scaffolding** — `components/learning/japanese-text.tsx`, `components/learning/reading-panel.tsx`, and practice renderers support `always`; Immersion, Practice review, lessons, entries, and Aozora now use it, while complete fading behavior remains partial.
-- [~] **Visual refinement/card density** — Immersion reading/listening now use separator-based activity lists and progressive banks; Tadoku, Aozora, and source-admin surfaces still need the full U65/U66/U70 pass.
-- [x] **Mobile/accessibility/performance** — responsive navigation, deferred module loading, bounded Practice questions, and scroll-safe overlays are in code; the final cross-surface audit remains a follow-up.
+- [~] **Visual refinement/card density** — Immersion reading/listening, Irodori activities, source detours, Tadoku, and Aozora use separator-based or compact shelf layouts; Content Studio still needs the final U65/U66/U70 pass.
+- [x] **Mobile/accessibility/performance** — responsive navigation, deferred module loading, bounded Practice questions, deferred Studio JSON, bounded question review, and scroll-safe overlays are in code; the final cross-surface audit remains a follow-up.
 - [~] **Persistence beyond the browser** — local resume/progress works through `lib/session.ts`; account-backed synchronization is opt-in and the current deploy/package persistence path still needs verification.
 - [x] **Verification** — strict package QA, `tsc --noEmit`, the production build, and all 19 direct Node test files pass.
 - [ ] **Not yet implemented** — complete fading scaffolding, full offline behavior, and the final all-surface accessibility/performance pass.
