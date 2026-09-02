@@ -4,7 +4,7 @@ export type KanaCard = { kana: string; romaji: string };
 
 export const kanaAliases: Record<string, string[]> = { "ぢ": ["di"], "づ": ["du"] };
 
-export const kanaRows: Array<[string, string[]]> = [
+export const kanaRows: Array<[string | string[], string[]]> = [
   ["あいうえお", ["a", "i", "u", "e", "o"]],
   ["かきくけこ", ["ka", "ki", "ku", "ke", "ko"]],
   ["さしすせそ", ["sa", "shi", "su", "se", "so"]],
@@ -20,20 +20,24 @@ export const kanaRows: Array<[string, string[]]> = [
   ["だぢづでど", ["da", "ji", "zu", "de", "do"]],
   ["ばびぶべぼ", ["ba", "bi", "bu", "be", "bo"]],
   ["ぱぴぷぺぽ", ["pa", "pi", "pu", "pe", "po"]],
-  ["きゃきゅきょ", ["kya", "kyu", "kyo"]],
-  ["しゃしゅしょ", ["sha", "shu", "sho"]],
-  ["ちゃちゅちょ", ["cha", "chu", "cho"]],
-  ["にゃにゅにょ", ["nya", "nyu", "nyo"]],
-  ["ひゃひゅひょ", ["hya", "hyu", "hyo"]],
-  ["みゃみゅみょ", ["mya", "myu", "myo"]],
-  ["りゃりゅりょ", ["rya", "ryu", "ryo"]],
-  ["ぎゃぎゅぎょ", ["gya", "gyu", "gyo"]],
-  ["じゃじゅじょ", ["ja", "ju", "jo"]],
-  ["びゃびゅびょ", ["bya", "byu", "byo"]],
-  ["ぴゃぴゅぴょ", ["pya", "pyu", "pyo"]],
+  [["きゃ", "きゅ", "きょ"], ["kya", "kyu", "kyo"]],
+  [["しゃ", "しゅ", "しょ"], ["sha", "shu", "sho"]],
+  [["ちゃ", "ちゅ", "ちょ"], ["cha", "chu", "cho"]],
+  [["にゃ", "にゅ", "にょ"], ["nya", "nyu", "nyo"]],
+  [["ひゃ", "ひゅ", "ひょ"], ["hya", "hyu", "hyo"]],
+  [["みゃ", "みゅ", "みょ"], ["mya", "myu", "myo"]],
+  [["りゃ", "りゅ", "りょ"], ["rya", "ryu", "ryo"]],
+  [["ぎゃ", "ぎゅ", "ぎょ"], ["gya", "gyu", "gyo"]],
+  [["じゃ", "じゅ", "じょ"], ["ja", "ju", "jo"]],
+  [["びゃ", "びゅ", "びょ"], ["bya", "byu", "byo"]],
+  [["ぴゃ", "ぴゅ", "ぴょ"], ["pya", "pyu", "pyo"]],
 ];
 
-export const hiraganaCards: KanaCard[] = kanaRows.flatMap(([characters, sounds]) => [...characters].map((kana, index) => ({ kana, romaji: sounds[index] })));
+export function kanaRowCharacters(characters: string | string[]) {
+  return Array.isArray(characters) ? characters : [...characters];
+}
+
+export const hiraganaCards: KanaCard[] = kanaRows.flatMap(([characters, sounds]) => kanaRowCharacters(characters).map((kana, index) => ({ kana, romaji: sounds[index] })));
 
 export function toKatakana(value: string) {
   return [...value].map((character) => {

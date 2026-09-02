@@ -2,7 +2,7 @@ import { mergeSyncSnapshots } from "@/lib/supabase/sync-core.js";
 import { CONTENT_FLAGS_STORAGE_KEY } from "@/lib/content-flags.js";
 import { buildRepairPlan } from "@/lib/repair-core.js";
 import { normalizeExamPlan } from "@/lib/exam-plan-core.js";
-import type { AnswerConfidence, CurrentLessonState, QuestionStats } from "@/lib/types";
+import type { AnswerConfidence, CurrentLessonState, QuestionStats, TargetLevel } from "@/lib/types";
 
 export type { QuestionStats } from "@/lib/types";
 
@@ -486,6 +486,10 @@ export function readExamPlanPreferences(): ExamPlanPreferences {
   } catch {
     return normalizeExamPlan({}) as ExamPlanPreferences;
   }
+}
+
+export function readTargetLevel(): TargetLevel {
+  return readExamPlanPreferences().targetLevel;
 }
 
 export function readRepairRecords(): RepairRecord[] {

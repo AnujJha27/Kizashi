@@ -16,7 +16,6 @@ import type { N5Module, PracticeMode, PracticeQuestion, TargetLevel } from "@/li
 
 function practiceModule(module: N5Module, targetLevel: TargetLevel) {
   const alwaysInclude = new Set([
-    ...(module.practiceQuestions ?? []).map((question) => question.itemId),
     ...Object.keys(readMistakes()),
   ]);
   const records = readReviewRecords();

@@ -7,8 +7,9 @@ import { getDueReviewIds, getTodayStudyMinutes, readDailyGoal, readExamAttempts,
 import { dailyGoalProgress } from "@/lib/study-core.js";
 import type { LessonContentItem } from "@/lib/curriculum";
 import { getN5Readiness } from "@/lib/jlpt";
+import type { TargetLevel } from "@/lib/types";
 
-export function DailySession({ lessonId, items, allItems = items }: Readonly<{ lessonId: string; items: LessonContentItem[]; allItems?: LessonContentItem[] }>) {
+export function DailySession({ lessonId, items, allItems = items, targetLevel = "N5" }: Readonly<{ lessonId: string; items: LessonContentItem[]; allItems?: LessonContentItem[]; targetLevel?: TargetLevel }>) {
   const [dueIds, setDueIds] = useState<string[] | null>(null);
   const [minutes, setMinutes] = useState<number | null>(null);
   const [goal, setGoal] = useState(10);
@@ -28,13 +29,14 @@ export function DailySession({ lessonId, items, allItems = items }: Readonly<{ l
   const dueItems = new Set(dueIds ?? []);
   const counts = ["vocabulary", "kanji", "grammar", "reading", "listening"].map((category) => ({ category, count: allItems.filter((item) => item.category === category && dueItems.has(item.id)).length }));
   const priorityLabels: Record<LessonContentItem["category"], string> = { vocabulary: "Vocabulary", kanji: "Kanji", grammar: "Grammar", reading: "Reading", listening: "Listening" };
-  const priorityHref = priority === "reading" || priority === "listening" ? "/immersion" : priority ? `/practice?mode=${priority}` : "/practice?mode=pass";
+  const levelQuery = `&level=${targetLevel}`;
+  const priorityHref = priority === "reading" || priority === "listening" ? "/immersion" : priority ? `/practice?mode=${priority}${levelQuery}` : `/practice?mode=pass${levelQuery}`;
   const progress = minutes === null ? null : dailyGoalProgress(minutes, goal);
-  const continueHref = due ? "/review" : `/learn?lesson=${lessonId}`;
+  const continueHref = due ? "/review" : `/learn?lesson=${lessonId}${targetLevel === "N4" ? "&level=N4" : ""}`;
   const continueLabel = due ? "Continue review" : "Continue lesson";
   const plan = [
     { step: "01", label: "Review", title: due === null ? "Checking…" : due ? `${due} due item${due === 1 ? "" : "s"}` : "You're clear", detail: due ? "Keep yesterday's work warm." : "Try a short immersion instead.", href: due ? "/review" : "/immersion" },
-    { step: "02", label: "Learn", title: "Continue the lesson", detail: items.length ? `${items.length} items · ${lessonId.replace(/^lesson-/, "").replaceAll("-", " ")}` : "Your next lesson", href: `/learn?lesson=${lessonId}` },
+    { step: "02", label: "Learn", title: "Continue the lesson", detail: items.length ? `${items.length} items · ${lessonId.replace(/^lesson-/, "").replaceAll("-", " ")}` : "Your next lesson", href: `/learn?lesson=${lessonId}${targetLevel === "N4" ? "&level=N4" : ""}` },
     { step: "03", label: "Practice", title: priority ? `Strengthen ${priorityLabels[priority]}` : "Mix the path", detail: "A focused pass based on recent signals.", href: priorityHref },
     { step: "04", label: "Immerse", title: "Hear Japanese in context", detail: "Short listening and reading detours.", href: "/immersion" },
   ];

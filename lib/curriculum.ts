@@ -7,7 +7,7 @@ import originalReadingData from "@/data/original-reading-bank.json";
 import originalListeningData from "@/data/original-listening-bank.json";
 
 import { contentSources } from "@/lib/jlpt";
-import type { GrammarItem, JourneyNode, KanjiItem, Lesson, ListeningItem, N5Module, ReadingItem, VocabularyItem } from "@/lib/types";
+import type { GrammarItem, JourneyNode, KanjiItem, Lesson, ListeningItem, N5Module, ReadingItem, TargetLevel, VocabularyItem } from "@/lib/types";
 
 const sourceAware = <T extends object>(items: T[]) => items.map((item) => ({ ...item, sourceIds: (item as { sourceIds?: string[] }).sourceIds ?? ["michi-curated-n5-seed"] }));
 
@@ -100,11 +100,34 @@ export function getLessonItems(lesson: Lesson): LessonContentItem[] {
   return getLessonItemsFromModule(n5Module, lesson);
 }
 
+export function getCurriculumForTarget(module: N5Module, targetLevel: TargetLevel): N5Module {
+  if (targetLevel === "N5") return module;
+  const allItems = [...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening];
+  const itemById = new Map(allItems.map((item) => [item.id, item]));
+  const targetIds = new Set(allItems.filter((item) => item.jlptLevel === targetLevel).map((item) => item.id));
+  const prerequisiteIds = new Set<string>();
+  const pending = [...targetIds];
+  while (pending.length) {
+    const item = itemById.get(pending.pop()!);
+    item?.prerequisiteIds.forEach((id) => {
+      if (!targetIds.has(id) && !prerequisiteIds.has(id) && itemById.has(id)) {
+        prerequisiteIds.add(id);
+        pending.push(id);
+      }
+    });
+  }
+  const includedIds = new Set([...targetIds, ...prerequisiteIds]);
+  const chapters = module.course.chapters.map((chapter) => ({ ...chapter, lessons: chapter.lessons.map((lesson) => ({ ...lesson, itemIds: lesson.itemIds.filter((id) => targetIds.has(id)) })).filter((lesson) => lesson.itemIds.length) })).filter((chapter) => chapter.lessons.length);
+  if (prerequisiteIds.size) chapters.unshift({ id: "chapter-n4-prerequisites", slug: "n4-prerequisites", title: "N4 foundations", description: "Review the N5 concepts this path uses most often.", region: "prerequisites", lessons: [{ id: "lesson-n4-prerequisites", slug: "n4-prerequisites", title: "Useful foundations", subtitle: "土台", description: "A short prerequisite pass before new N4 material.", estimatedMinutes: 10, itemIds: [...prerequisiteIds] }] });
+  const keep = <T extends { id: string }>(items: T[]) => items.filter((item) => includedIds.has(item.id));
+  return { ...module, course: { ...module.course, id: `${module.course.id}-n4`, slug: `${module.course.slug}-n4`, title: `${module.course.title} · N4`, description: "A dedicated N4 path built from the released source reservoir and original N4 practice.", jlptLevel: "N4", chapters }, vocabulary: keep(module.vocabulary), kanji: keep(module.kanji), grammar: keep(module.grammar), readings: keep(module.readings), listening: keep(module.listening), grammarContrasts: module.grammarContrasts.filter((contrast) => contrast.grammarPointIds.some((id) => includedIds.has(id))), practiceQuestions: module.practiceQuestions?.filter((question) => includedIds.has(question.itemId)) };
+}
+
 export function getCurrentLesson() {
   return n5Module.course.chapters.flatMap((chapter) => chapter.lessons).find((lesson) => lesson.id === currentLessonId) ?? null;
 }
 
-export function getJourneyNodesForModule(module: N5Module, activeLessonId?: string): JourneyNode[] {
+export function getJourneyNodesForModule(module: N5Module, activeLessonId?: string, targetLevel: TargetLevel = "N5"): JourneyNode[] {
   const currentId = activeLessonId ?? currentLessonId;
   const itemById = new Map([...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening].map((item) => [item.id, item]));
   const activeChapterIndex = module.course.chapters.findIndex((chapter) => chapter.lessons.some((lesson) => lesson.id === currentId));
@@ -136,7 +159,7 @@ export function getJourneyNodesForModule(module: N5Module, activeLessonId?: stri
         detail: lesson.subtitle,
         kind: "lesson",
         status: isCurrent ? "current" : chapterIndex < activeChapterIndex || (chapterIndex === activeChapterIndex && lessonIndex < activeLessonIndex) ? "learned" : chapterIndex === activeChapterIndex && lessonIndex === activeLessonIndex + 1 ? "available" : "locked",
-        href: `/learn?lesson=${lesson.id}`,
+        href: `/learn?lesson=${lesson.id}&level=${targetLevel}`,
         itemIds: lesson.itemIds,
         prerequisiteIds: [...new Set(lesson.itemIds.flatMap((itemId) => itemById.get(itemId)?.prerequisiteIds ?? []))].filter((itemId) => !lesson.itemIds.includes(itemId)),
       });

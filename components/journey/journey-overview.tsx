@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { useContentModule } from "@/components/content/use-content-module";
 import { DailySession } from "@/components/journey/daily-session";
@@ -10,8 +10,9 @@ import { InkField } from "@/components/journey/ink-field";
 import { JourneyMap } from "@/components/journey/journey-map";
 import { LessonProgress } from "@/components/journey/lesson-progress";
 import { RhythmBadge } from "@/components/journey/rhythm-badge";
-import { currentLessonId, getJourneyNodesForModule, getLessonItemsFromModule, getTopicCoverage, topicLabel, type LessonContentItem } from "@/lib/curriculum";
-import { readContinueState, readDisplayName, readLessonState, readReviewRecords, type ContinueState, type ReviewRecord } from "@/lib/session";
+import { currentLessonId, getCurriculumForTarget, getJourneyNodesForModule, getLessonItemsFromModule, getTopicCoverage, topicLabel, type LessonContentItem } from "@/lib/curriculum";
+import { readContinueState, readDisplayName, readExamPlanPreferences, readLessonState, readReviewRecords, type ContinueState, type ReviewRecord } from "@/lib/session";
+import type { TargetLevel } from "@/lib/types";
 
 type TopicProgress = { topic: string; held: number; total: number; counts: { vocabulary: number; kanji: number; grammar: number; reading: number; listening: number } };
 
@@ -21,7 +22,15 @@ function TopicProgressList({ topics }: Readonly<{ topics: TopicProgress[] }>) {
 
 export function JourneyOverview() {
   const module = useContentModule();
-  const lessons = module.course.chapters.flatMap((chapter) => chapter.lessons);
+  const [targetLevel, setTargetLevel] = useState<TargetLevel>("N5");
+  useEffect(() => {
+    const refresh = () => { const requested = new URLSearchParams(window.location.search).get("level"); setTargetLevel(requested === "N4" || requested === "N5" ? requested : readExamPlanPreferences().targetLevel); };
+    refresh();
+    window.addEventListener("michi-profile-updated", refresh);
+    return () => window.removeEventListener("michi-profile-updated", refresh);
+  }, []);
+  const targetModule = useMemo(() => getCurriculumForTarget(module, targetLevel), [module, targetLevel]);
+  const lessons = targetModule.course.chapters.flatMap((chapter) => chapter.lessons);
   const lessonIds = lessons.map((entry) => entry.id).join("|");
   const [activeLessonId, setActiveLessonId] = useState(currentLessonId);
   const [displayName, setDisplayName] = useState("");
@@ -64,12 +73,13 @@ export function JourneyOverview() {
 
   const lesson = lessons.find((entry) => entry.id === activeLessonId) ?? lessons[0] ?? null;
   const continuedLesson = continueState?.kind === "lesson" ? lessons.find((entry) => entry.id === continueState.referenceId) : undefined;
-  const continueHref = continueState?.href ?? (lesson ? `/learn?lesson=${lesson.id}` : "/practice");
-  const continueLabel = continueState ? `Continue · ${continueState.kind === "lesson" ? continuedLesson?.title ?? "lesson" : continueState.label}` : lesson ? "Continue today’s path" : "Continue";
-  const lessonItems = lesson ? getLessonItemsFromModule(module, lesson) : [];
-  const allItems: LessonContentItem[] = [...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening];
-  const nodes = getJourneyNodesForModule(module, lesson?.id);
-  const level = module.course.jlptLevel ?? "N5";
+  const activeContinue = continueState?.kind === "lesson" && !continuedLesson ? null : continueState;
+  const continueHref = activeContinue?.href ?? (lesson ? `/learn?lesson=${lesson.id}${targetLevel === "N4" ? "&level=N4" : ""}` : "/practice");
+  const continueLabel = activeContinue ? `Continue · ${activeContinue.kind === "lesson" ? continuedLesson?.title ?? "lesson" : activeContinue.label}` : lesson ? "Continue today’s path" : "Continue";
+  const lessonItems = lesson ? getLessonItemsFromModule(targetModule, lesson) : [];
+  const allItems: LessonContentItem[] = [...targetModule.vocabulary, ...targetModule.kanji, ...targetModule.grammar, ...targetModule.readings, ...targetModule.listening];
+  const nodes = getJourneyNodesForModule(targetModule, lesson?.id, targetLevel);
+  const level = targetLevel;
   const topics = getTopicCoverage(lessonItems, records).sort((left, right) => (left.held / Math.max(left.total, 1)) - (right.held / Math.max(right.total, 1)) || right.total - left.total);
   const lessonShape = { vocabulary: lessonItems.filter((item) => item.category === "vocabulary").length, kanji: lessonItems.filter((item) => item.category === "kanji").length, grammar: lessonItems.filter((item) => item.category === "grammar").length, contexts: lessonItems.filter((item) => item.category === "reading" || item.category === "listening").length };
 
@@ -83,7 +93,7 @@ export function JourneyOverview() {
           <p className="eyebrow mb-4">{greeting}{displayName ? ` · ${displayName}さん` : ""} · {level} path</p>
           <h1 className="max-w-2xl text-4xl leading-tight tracking-tight text-[#f5f5f2] sm:text-6xl">Continue your path<span className="text-[#e34a3f]">.</span></h1>
           <p className="mt-4 max-w-xl text-sm leading-7 text-[#9297a1]">One short session is enough. Your plan starts with {lesson?.title ?? "the next lesson"} and keeps the route moving.</p>
-          {lesson ? <Link href={continueHref} className="mt-7 inline-flex items-center gap-3 rounded-xl bg-[#e34a3f] px-5 py-3.5 text-sm font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">{continueLabel}<span aria-hidden="true">→</span></Link> : null}
+          <div className="mt-7 flex flex-wrap items-center gap-3">{lesson ? <Link href={continueHref} className="inline-flex items-center gap-3 rounded-xl bg-[#e34a3f] px-5 py-3.5 text-sm font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">{continueLabel}<span aria-hidden="true">→</span></Link> : null}<Link href={`/journey?level=${targetLevel === "N4" ? "N5" : "N4"}`} prefetch={false} onClick={() => setTargetLevel(targetLevel === "N4" ? "N5" : "N4")} className="rounded-xl border border-[#5d3936] px-4 py-3 text-sm text-[#f5f5f2] hover:border-[#e5b85c]">Switch to {targetLevel === "N4" ? "N5" : "N4"}</Link></div>
         </div>
         <div className="flex gap-8 border-t border-[#292b31] pt-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
           <div><p className="jp-serif text-lg text-[#e5b85c]">今日</p><p className="mt-1 text-[10px] uppercase tracking-[.14em] text-[#676c75]">{lesson?.estimatedMinutes ?? 0} min lesson</p></div>
@@ -92,14 +102,14 @@ export function JourneyOverview() {
       </div>
     </section>
 
-    {lesson ? <div className="mb-8"><DailySession lessonId={lesson.id} items={lessonItems} allItems={allItems} /></div> : null}
+    {lesson ? <div className="mb-8"><DailySession lessonId={lesson.id} items={lessonItems} allItems={allItems} targetLevel={targetLevel} /></div> : null}
 
     <div className="mb-8"><ExamCountdown /></div>
 
     <div className="grid gap-6 lg:grid-cols-[1.25fr_.75fr]">
       <section>
-        <div className="mb-4 flex items-end justify-between"><div><p className="eyebrow">Your route</p><h2 className="mt-1 text-xl font-medium">{module.course.title}</h2></div><span className="text-xs text-[#676c75]">{lessons.length} lesson{lessons.length === 1 ? "" : "s"}</span></div>
-        <JourneyMap nodes={nodes} focusLessonId={lesson?.id} />
+        <div className="mb-4 flex items-end justify-between"><div><p className="eyebrow">Your route</p><h2 className="mt-1 text-xl font-medium">{targetModule.course.title}</h2></div><span className="text-xs text-[#676c75]">{lessons.length} lesson{lessons.length === 1 ? "" : "s"}</span></div>
+        <JourneyMap nodes={nodes} focusLessonId={lesson?.id} targetLevel={targetLevel} />
       </section>
 
       <aside className="space-y-6">

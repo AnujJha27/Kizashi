@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import type { JourneyNode } from "@/lib/types";
+import type { JourneyNode, TargetLevel } from "@/lib/types";
 import { InkField } from "@/components/journey/ink-field";
 import { Landscape } from "@/components/journey/landscape";
 import { readReviewRecords, type ReviewRecord } from "@/lib/session";
@@ -22,7 +22,7 @@ function nodeStatusLabel(node: JourneyNode) {
   return statusLabel[node.status];
 }
 
-export function JourneyMap({ nodes, focusLessonId }: Readonly<{ nodes: JourneyNode[]; focusLessonId?: string }>) {
+export function JourneyMap({ nodes, focusLessonId, targetLevel = "N5" }: Readonly<{ nodes: JourneyNode[]; focusLessonId?: string; targetLevel?: TargetLevel }>) {
   const [records, setRecords] = useState<Record<string, ReviewRecord> | null>(null);
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export function JourneyMap({ nodes, focusLessonId }: Readonly<{ nodes: JourneyNo
       <div className="relative z-10 max-w-xl">
         <div className="mb-8 flex items-center justify-between">
           <div><p className="eyebrow">旅の道 · the path</p><p className="jp-serif mt-1 text-sm text-[#9297a1]">静かに、ひとつずつ</p></div>
-          <span className="seal" aria-label="N5 pass path"><span>N5</span><small>道</small></span>
+          <span className="seal" aria-label={`${targetLevel} pass path`}><span>{targetLevel}</span><small>道</small></span>
         </div>
         {lessonIndexes.length > shownLessons ? <p className="mb-4 text-xs text-[#676c75]">Showing the current lesson and up to three nearby lessons. <Link href="/learn" className="text-[#e5b85c] hover:text-[#f1cf7c]">View all lessons →</Link></p> : null}
         <div className="space-y-0">
