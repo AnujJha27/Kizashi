@@ -25,6 +25,7 @@ export function JourneyOverview() {
   const lessonIds = lessons.map((entry) => entry.id).join("|");
   const [activeLessonId, setActiveLessonId] = useState(currentLessonId);
   const [displayName, setDisplayName] = useState("");
+  const [greeting, setGreeting] = useState("こんにちは");
   const [records, setRecords] = useState<Record<string, ReviewRecord>>({});
 
   useEffect(() => {
@@ -39,6 +40,11 @@ export function JourneyOverview() {
     refresh();
     window.addEventListener("michi-profile-updated", refresh);
     return () => window.removeEventListener("michi-profile-updated", refresh);
+  }, []);
+
+  useEffect(() => {
+    const hour = new Date().getHours();
+    setGreeting(hour < 5 || hour >= 18 ? "こんばんは" : hour < 12 ? "おはようございます" : "こんにちは");
   }, []);
 
   useEffect(() => {
@@ -61,11 +67,11 @@ export function JourneyOverview() {
       <div className="quiet-grid pointer-events-none absolute inset-0 opacity-60" />
       <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
         <div>
-          <p className="jp-serif mb-3 text-2xl tracking-[.18em] text-[#e5b85c]">合格への道</p>
-          <p className="eyebrow mb-4">こんばんは{displayName ? ` · ${displayName}さん` : ""} · {level} path</p>
-          <h1 className="max-w-2xl text-4xl leading-tight tracking-tight text-[#f5f5f2] sm:text-6xl">One quiet step at a time<span className="text-[#e34a3f]">.</span></h1>
-          <p className="mt-4 max-w-xl text-sm leading-7 text-[#9297a1]">A small, steady path through Japanese. Today, continue with {lesson?.title ?? "your next lesson"} and let the route grow one useful step at a time.</p>
-          {lesson ? <Link href={`/learn?lesson=${lesson.id}`} className="mt-7 inline-flex items-center gap-3 rounded-xl bg-[#e34a3f] px-5 py-3.5 text-sm font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">Continue · {lesson.title}<span aria-hidden="true">→</span></Link> : null}
+          <p className="jp-serif mb-3 text-2xl tracking-[.18em] text-[#e5b85c]">今日の道</p>
+          <p className="eyebrow mb-4">{greeting}{displayName ? ` · ${displayName}さん` : ""} · {level} path</p>
+          <h1 className="max-w-2xl text-4xl leading-tight tracking-tight text-[#f5f5f2] sm:text-6xl">Continue your path<span className="text-[#e34a3f]">.</span></h1>
+          <p className="mt-4 max-w-xl text-sm leading-7 text-[#9297a1]">One short session is enough. Your plan starts with {lesson?.title ?? "the next lesson"} and keeps the route moving.</p>
+          {lesson ? <Link href={`/learn?lesson=${lesson.id}`} className="mt-7 inline-flex items-center gap-3 rounded-xl bg-[#e34a3f] px-5 py-3.5 text-sm font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">Continue today&apos;s path<span aria-hidden="true">→</span></Link> : null}
         </div>
         <div className="flex gap-8 border-t border-[#292b31] pt-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
           <div><p className="jp-serif text-lg text-[#e5b85c]">今日</p><p className="mt-1 text-[10px] uppercase tracking-[.14em] text-[#676c75]">{lesson?.estimatedMinutes ?? 0} min lesson</p></div>
