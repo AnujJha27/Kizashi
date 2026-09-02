@@ -69,7 +69,7 @@ grammar rule or replace a reliable explanation source.
 | Source | Best use | Kizashi delivery |
 | --- | --- | --- |
 | Browser Speech API | Vocabulary, kanji readings, grammar examples, and ordinary sentences | Default `BrowserSpeechProvider`; prefers voices whose language starts with `ja`; no blob storage. |
-| [Erin's Challenge](https://www.erin.jpf.go.jp/en/) | Beginner situational dialogue, scripts, and shadowing | Six N5-targeted launchers stream the provider-hosted MP4 directly in the native browser player; scripts, subtitles, and source controls remain on the Japan Foundation page. No blob is stored or proxied. |
+| [Erin's Challenge](https://www.erin.jpf.go.jp/en/) | Beginner-to-intermediate situational dialogue, scripts, and shadowing | The registry indexes all 25 Basic and 25 Advanced provider lesson pages. Six curated Basic entries additionally stream provider-hosted MP4 directly in the native browser player; scripts, subtitles, and source controls remain on the Japan Foundation page. No blob is stored or proxied. |
 | [Common Voice Japanese](https://mozilladatacollective.com/datasets/cmqim4lxy00tunr07cjkcupeg) | Human-speaker variation | Source-linked browsing only; no dataset upload, mirroring, or speaker identification. |
 | [Tatoeba audio](https://tatoeba.org/en/audio/index/jpn) | Short sentence recordings | The browse page is link-only because it sends `X-Frame-Options: Deny`; an individual external audio URL may be used only after its contributor license and attribution are recorded. |
 | [JSUT](https://sites.google.com/site/shinnosuketakamichi/publication/jsut) | Clean speech research/exposure | No full-corpus upload; any future subset needs a documented preservation reason and terms. |

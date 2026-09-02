@@ -40,7 +40,7 @@ coverage/verification, `[ ]` not implemented.
 - [~] Irodori now has seven source-hosted activity records with course/lesson/Can-do metadata and a dedicated Immersion real-life lane; the full Starter, Elementary 1/2, and Pre-Intermediate catalog is still incomplete.
 - [x] Aozora has a rights-filtered metadata shelf and dynamic reader; Tadoku has a provider-hosted graded-reading shelf with local opened progress.
 - [x] Tae Kim, Wikibooks, and Commons/Lingua Libre use the existing external-resource/audio/reference abstractions without copying third-party media into Supabase.
-- [~] Erin currently has six curated lesson launchers; the required 25 Basic and 25 Advanced index is not complete.
+- [x] Erin's registry now indexes all 25 Basic and 25 Advanced provider lesson pages; six curated Basic entries additionally have Kizashi target mappings and direct provider MP4 metadata.
 - [~] Original Kizashi reading and listening banks currently contain only 6 records each; substantial N5/N4 families are not complete.
 - [ ] Dynamic Tatoeba sentence-audio resolution is not implemented.
 - [ ] Japanese with Shun and Nihongo con Teppei are not yet in the learner-facing registry.
@@ -52,7 +52,7 @@ coverage/verification, `[ ]` not implemented.
 
 - [~] Priority 1 — Irodori grammar ingestion has provenance/course fields, but canonicalization and example-quality review remain.
 - [~] Priority 2 — the existing Irodori resource pipeline now emits activity types, course levels, categorized target IDs, and provenance, and seven activities are learner-visible; broader source coverage is still required.
-- [~] Priority 3 — Erin source indexing is limited to six curated Basic lessons.
+- [x] Priority 3 — all 25 Basic and 25 Advanced Erin skit pages are indexed; only the six curated Basic entries are currently mapped into Kizashi item context.
 - [ ] Priority 4 — Original N5/N4 reading generators and substantial banks.
 - [ ] Priority 5 — Original N5/N4 listening generators and substantial banks.
 - [ ] Priority 6 — Dynamic Tatoeba audio.
