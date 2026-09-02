@@ -39,7 +39,7 @@ Do not stop at:
 
 ## Code-backed implementation status
 
-Updated 2026-09-02. These checkboxes describe what is currently present in the
+Updated 2026-09-03. These checkboxes describe what is currently present in the
 repository; they are not a replacement for the requirements below.
 
 Legend: `[x]` implemented in code, `[~]` partially implemented or still needs
@@ -67,7 +67,7 @@ verification, `[ ]` not implemented.
 
 ### Adaptive support and presentation
 
-- [~] Furigana preference support exists, including an explicit `always` override in reading support; complete fading behavior across every surface is not finished.
+- [~] Furigana preference support exists, while Immersion, Practice review, lessons, entries, and native reading now force verified readings; complete fading behavior across every surface is not finished.
 - [x] Quick practice favors unseen question variants while preserving stronger priority for mistakes, due reviews, and flagged ambiguity.
 - [x] Contextual actions connect items to practice, immersion, study-later, and repair flows.
 - [~] Card density and source/player separation have been reduced; the full visual refinement pass is not finished.
@@ -115,7 +115,7 @@ items intentionally remain visible until the remaining surfaces are finished.
 - [x] **Book reader and personal notes** — `components/books/book-reader.tsx`, `components/books/drive-shelf.tsx`, and `components/books/handwritten-notes.tsx`; the reader and Drive viewer use the same equal-width side-by-side scratchpad, with local pages, colors, highlighter, and PDF export. Authenticated Drive lookup is the deployed-reader fallback when private storage parts are unavailable.
 - [x] **Reading/listening activity placement** — Immersion owns the source-hosted listening and reading shelves; `app/(main)/practice/page.tsx` owns the JLPT-style MCQ practice surface.
 - [x] **Integrated context practice** — `lib/integrated-exam-core.js` and the integrated Practice mode retain one primary item plus `targetItemIds` for multi-concept sets.
-- [~] **Furigana/scaffolding** — `components/learning/japanese-text.tsx`, `components/learning/reading-panel.tsx`, and practice renderers support `always`, but every immersion/question surface still needs a final consistency pass.
+- [~] **Furigana/scaffolding** — `components/learning/japanese-text.tsx`, `components/learning/reading-panel.tsx`, and practice renderers support `always`; Immersion, Practice review, lessons, entries, and Aozora now use it, while complete fading behavior remains partial.
 - [~] **Visual refinement/card density** — the affected cards use shared action rails and reduced nesting, but the full visual pass requested by U65/U66/U70 is not complete.
 - [~] **Mobile/accessibility/performance** — responsive navigation and bounded content loading exist, but a complete audit of every new shelf, player, and reader is still outstanding.
 - [~] **Persistence beyond the browser** — local resume/progress works through `lib/session.ts`; account-backed synchronization is opt-in and the current deploy/package persistence path still needs verification.

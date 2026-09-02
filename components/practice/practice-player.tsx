@@ -72,7 +72,7 @@ function CompletionReview({ questions, answers, signals, filter, onFilter, vocab
 }
 
 function LearningText({ text, vocabulary, kanji, examMode }: Readonly<{ text: string; vocabulary: VocabularyItem[]; kanji: KanjiItem[]; examMode: boolean }>) {
-  return examMode ? <>{text}</> : <JapaneseText text={text} vocabulary={vocabulary} kanji={kanji} />;
+  return examMode ? <>{text}</> : <JapaneseText text={text} vocabulary={vocabulary} kanji={kanji} always />;
 }
 
 export function PracticePlayer({ questions, vocabulary = [], kanji = [], items = [], grammarContrasts = [], examMode = false, targetLevel = "N5", examLabel = "N5 sampler", onComplete, onRestart, sessionId, timeLimitSeconds }: Readonly<{ questions: PracticeQuestion[]; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[]; items?: LearningItem[]; grammarContrasts?: GrammarContrast[]; examMode?: boolean; targetLevel?: TargetLevel; examLabel?: string; onComplete?: (result: CompletionResult) => void; onRestart?: () => void; sessionId?: string; timeLimitSeconds?: number }>) {

@@ -24,7 +24,7 @@ function passageParts(text: string, vocabulary: VocabularyItem[], kanji: KanjiIt
   return text.split(new RegExp(`(${keys.join("|")})`, "gu")).map((part) => ({ text: part, item: entries.get(part), reading: readings.get(part) ?? furigana[part] }));
 }
 
-export function ReadingPanel({ item, vocabulary = n5Module.vocabulary, kanji = n5Module.kanji }: Readonly<{ item: ReadingItem; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[] }>) {
+export function ReadingPanel({ item, vocabulary = n5Module.vocabulary, kanji = n5Module.kanji, always = false }: Readonly<{ item: ReadingItem; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[]; always?: boolean }>) {
   const [mode, setMode] = useState<ReadingMode>("guided");
   const [showTranslation, setShowTranslation] = useState(false);
   const [activeWord, setActiveWord] = useState<VocabularyItem | null>(null);
@@ -52,7 +52,9 @@ export function ReadingPanel({ item, vocabulary = n5Module.vocabulary, kanji = n
   useEffect(() => { setActiveWord(null); setActivePart(null); }, [item.id]);
 
   const showReading = (part: { text: string; item?: VocabularyItem; reading?: string }) => {
-    if (!part.reading || furiganaMode === "hide") return false;
+    if (!part.reading) return false;
+    if (always) return true;
+    if (furiganaMode === "hide") return false;
     if (furiganaMode === "always") return true;
     if (mode === "challenge") return false;
     if (mode === "normal" || furiganaMode === "tap") return activePart === part.text;
