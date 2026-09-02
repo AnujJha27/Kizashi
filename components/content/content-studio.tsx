@@ -189,7 +189,7 @@ function ContentReviewCard({ item, sourceById, onOpen }: Readonly<{
   const itemBand = getCurriculumBand(item);
   const provenance = sourceProvenance(item, sourceById);
 
-  return <article className="rounded-lg border border-white/10 bg-[#101b2b]/75 text-left transition hover:border-[#e5b85c]/60">
+  return <article className="border-b border-white/10 text-left transition last:border-b-0 hover:bg-[#101b2b]/55">
     <button type="button" onClick={() => onOpen(item)} className="block w-full p-3 text-left outline-none focus-visible:ring-2 focus-visible:ring-[#e5b85c]/60">
       <div className="flex items-start justify-between gap-3">
         <span className="jp-serif text-xl text-[#f5f5f2]">{preview.reading ? <ruby>{preview.japanese}<rt className="text-[.45em] text-[#e5b85c]">{preview.reading}</rt></ruby> : preview.japanese}</span>
@@ -279,7 +279,7 @@ function ContentReview({ module, onEdit, onReview }: Readonly<{ module: N5Module
         <span className="text-xs text-[#9297a1]">Page {page + 1} of {pageCount}</span>
         <button type="button" disabled={page === pageCount - 1} onClick={() => setPage((current) => current + 1)} className="rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce] enabled:hover:border-[#e5b85c] disabled:cursor-not-allowed disabled:opacity-40">Next</button>
       </div> : null}
-    </div><div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">{items.map((item) => <ContentReviewCard key={item.id} item={item} sourceById={sourceById} onOpen={setExpandedItem} />)}</div></>}{expandedItem ? <ContentReviewModal item={expandedItem} sourceById={sourceById} onClose={() => setExpandedItem(null)} onEdit={(kind, id) => { setExpandedItem(null); onEdit(kind, id); }} onReview={onReview} /> : null}
+    </div><div className="divide-y divide-white/10">{items.map((item) => <ContentReviewCard key={item.id} item={item} sourceById={sourceById} onOpen={setExpandedItem} />)}</div></>}{expandedItem ? <ContentReviewModal item={expandedItem} sourceById={sourceById} onClose={() => setExpandedItem(null)} onEdit={(kind, id) => { setExpandedItem(null); onEdit(kind, id); }} onReview={onReview} /> : null}
   </div>;
 }
 
