@@ -53,9 +53,9 @@ export function ReadingPanel({ item, vocabulary = n5Module.vocabulary, kanji = n
 
   const showReading = (part: { text: string; item?: VocabularyItem; reading?: string }) => {
     if (!part.reading || furiganaMode === "hide") return false;
-    if (mode === "challenge" && furiganaMode !== "always") return false;
-    if (mode === "normal" || furiganaMode === "tap") return activePart === part.text;
     if (furiganaMode === "always") return true;
+    if (mode === "challenge") return false;
+    if (mode === "normal" || furiganaMode === "tap") return activePart === part.text;
     const itemId = part.item?.id ?? masteryByWord.get(part.text);
     return !itemId || !["stable", "strong"].includes(records[itemId]?.masteryState ?? "");
   };
