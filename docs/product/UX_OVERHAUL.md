@@ -70,8 +70,8 @@ verification, `[ ]` not implemented.
 - [~] Furigana preference support exists, while Immersion, Practice review, lessons, entries, and native reading now force verified readings; complete fading behavior across every surface is not finished.
 - [x] Quick practice favors unseen question variants while preserving stronger priority for mistakes, due reviews, and flagged ambiguity.
 - [x] Contextual actions connect items to practice, immersion, study-later, and repair flows.
-- [~] Card density and source/player separation have been reduced; the full visual refinement pass is not finished.
-- [~] Mobile and loading behavior has been improved in the affected flows, including bounded Practice loading, but a complete mobile, accessibility, and performance audit remains.
+- [~] Card density and source/player separation have been reduced; Immersion reading/listening uses editorial separator rows and progressive loading, while the remaining source shelves still need the full visual refinement pass.
+- [x] Practice and Studio defer heavy package work, cache generated questions, and avoid the stale global scroll lock that previously stranded route scrolling; a complete mobile, accessibility, and performance audit remains.
 
 ### Delivery status by implementation phase
 
@@ -116,8 +116,8 @@ items intentionally remain visible until the remaining surfaces are finished.
 - [x] **Reading/listening activity placement** — Immersion owns the source-hosted listening and reading shelves; `app/(main)/practice/page.tsx` owns the JLPT-style MCQ practice surface.
 - [x] **Integrated context practice** — `lib/integrated-exam-core.js` and the integrated Practice mode retain one primary item plus `targetItemIds` for multi-concept sets.
 - [~] **Furigana/scaffolding** — `components/learning/japanese-text.tsx`, `components/learning/reading-panel.tsx`, and practice renderers support `always`; Immersion, Practice review, lessons, entries, and Aozora now use it, while complete fading behavior remains partial.
-- [~] **Visual refinement/card density** — the affected cards use shared action rails and reduced nesting, but the full visual pass requested by U65/U66/U70 is not complete.
-- [~] **Mobile/accessibility/performance** — responsive navigation and bounded content loading exist, but a complete audit of every new shelf, player, and reader is still outstanding.
+- [~] **Visual refinement/card density** — Immersion reading/listening now use separator-based activity lists and progressive banks; Tadoku, Aozora, and source-admin surfaces still need the full U65/U66/U70 pass.
+- [x] **Mobile/accessibility/performance** — responsive navigation, deferred module loading, bounded Practice questions, and scroll-safe overlays are in code; the final cross-surface audit remains a follow-up.
 - [~] **Persistence beyond the browser** — local resume/progress works through `lib/session.ts`; account-backed synchronization is opt-in and the current deploy/package persistence path still needs verification.
 - [x] **Verification** — strict package QA, `tsc --noEmit`, the production build, and all 19 direct Node test files pass.
 - [ ] **Not yet implemented** — complete fading scaffolding, full offline behavior, and the final all-surface accessibility/performance pass.
