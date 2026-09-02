@@ -99,6 +99,10 @@ N5_SHORT = [
     ("flower-shop", "花屋", "花屋は駅の近くです。母のために赤い花を三本買いました。", "The flower shop is near the station. I bought three red flowers for my mother.", "何本の花を買いましたか。", ["一本", "二本", "三本", "四本"], 2, "shopping"),
     ("lost-umbrella", "忘れた傘", "電車に傘を忘れました。駅の人に聞くと、傘は受付にありました。", "I left my umbrella on the train. When I asked a station worker, it was at the reception desk.", "傘はどこにありましたか。", ["電車の中", "受付", "学校", "店"], 1, "transport"),
     ("morning-bus", "朝のバス", "朝はバスで駅へ行きます。今日は道が混んでいたので、いつもより十分遅く着きました。", "I take the bus to the station in the morning. Today the roads were busy, so I arrived ten minutes later than usual.", "今日はいつもよりどうなりましたか。", ["早く着きました", "遅く着きました", "歩いて帰りました", "駅へ行きませんでした"], 1, "transport"),
+    ("library-return", "本を返す日", "図書館の本は金曜日までに返してください。私は木曜日の午後に図書館へ行きます。", "Please return the library book by Friday. I will go to the library on Thursday afternoon.", "本はいつまでに返しますか。", ["水曜日", "木曜日", "金曜日", "土曜日"], 2, "study"),
+    ("evening-message", "夜のメッセージ", "父からメッセージが来ました。仕事は七時に終わるので、駅で待っていてください。", "A message came from my father. Work ends at seven, so please wait at the station.", "どこで待ちますか。", ["家", "駅", "学校", "店"], 1, "communication"),
+    ("train-seat", "電車の席", "電車の中で、私は窓の近くの席に座りました。隣の席には男の人がいました。", "On the train, I sat in a seat near the window. A man was in the seat next to me.", "どこに座りましたか。", ["ドアの前", "窓の近く", "駅の外", "階段の下"], 1, "transport"),
+    ("weekend-plan", "週末の予定", "土曜日は家で掃除をします。日曜日は友達と映画を見に行く予定です。", "On Saturday I will clean at home. On Sunday I plan to go see a movie with a friend.", "日曜日、何をする予定ですか。", ["掃除をします", "学校へ行きます", "映画を見ます", "病院へ行きます"], 2, "plans"),
 ]
 
 N5_MID = [
@@ -116,6 +120,10 @@ N5_MID = [
     ("shopping-gift", "プレゼント", "妹の誕生日に、駅の店で青いかばんを買いました。家へ帰って、カードを書いてかばんと一緒に包みました。", "For my younger sister's birthday, I bought a blue bag at a shop near the station. I went home, wrote a card, and wrapped it with the bag.", "何色のかばんですか。", ["赤", "青", "白", "黒"], 1, "shopping"),
     ("class-change", "授業の変更", "先生からメールが来ました。明日の日本語の授業は午前ではなく、午後二時から始まります。教室はいつもの部屋です。", "The teacher sent an email. Tomorrow's Japanese class starts at two in the afternoon instead of the morning. The classroom is the usual one.", "授業は何時からですか。", ["午前九時", "午後一時", "午後二時", "午後四時"], 2, "school"),
     ("weekend-cooking", "週末の料理", "土曜日に母と買い物をして、野菜と肉を買いました。家へ帰ったあとで、二人でカレーを作りました。", "On Saturday I shopped with my mother and bought vegetables and meat. After returning home, we made curry together.", "だれとカレーを作りましたか。", ["父", "母", "先生", "友達"], 1, "food"),
+    ("morning-lesson", "朝の授業", "月曜日の朝、八時半から日本語の授業があります。授業の前に教室の窓を開けて、先生を待ちます。", "On Monday morning, Japanese class starts at 8:30. Before class, I open the classroom windows and wait for the teacher.", "授業の前に何をしますか。", ["窓を開けます", "本を返します", "駅へ行きます", "昼ご飯を食べます"], 0, "school"),
+    ("market-morning", "朝の市場", "母は朝早く市場へ行きました。魚を買ったあとで、八百屋で野菜も買ってから家へ帰りました。", "Mother went to the market early in the morning. After buying fish, she also bought vegetables at the greengrocer before returning home.", "魚を買ったあとで、何を買いましたか。", ["パン", "野菜", "靴", "薬"], 1, "shopping"),
+    ("rainy-umbrella", "雨の日の帰り", "学校を出るとき、雨が降っていました。傘を持っていなかったので、友達に電話して駅まで一緒に歩きました。", "It was raining when I left school. Since I did not have an umbrella, I called a friend and walked to the station together.", "だれと駅まで歩きましたか。", ["先生", "母", "友達", "店員"], 2, "weather"),
+    ("club-practice", "クラブの練習", "クラブの練習は午後三時に始まります。私は昼ご飯を食べてから、音楽室へ行って楽器を準備します。", "Club practice starts at three in the afternoon. After lunch, I go to the music room and prepare the instruments.", "楽器をどこで準備しますか。", ["教室", "音楽室", "図書館", "公園"], 1, "school"),
 ]
 
 N5_RETRIEVAL = [
@@ -128,6 +136,9 @@ N5_RETRIEVAL = [
     ("clinic-sheet", "病院の受付", "受付時間\n午前：9:00〜12:00\n午後：2:00〜5:00\n水曜日の午後と日曜日は休みです。", "Reception hours: 9–12 a.m. and 2–5 p.m. Wednesday afternoon and Sunday are closed.", "水曜日の午後に受付へ行けますか。", ["はい、いつでも行けます", "いいえ、休みです", "午前だけです", "日曜日だけです"], 1, "notice"),
     ("library-event", "図書館のイベント", "子どもの本の会\n六月十日（土）午後二時\n場所：図書館二階\n参加したい人は一時半までに来てください。", "Children's book event: June 10 Saturday at 2 p.m., second floor of the library. Those attending should come by 1:30.", "何時までに来てくださいと言っていますか。", ["一時", "一時半", "二時", "二時半"], 1, "event"),
     ("train-map", "駅の案内", "駅の出口\n東口：バス、タクシー\n西口：公園、ホテル\n切符売り場は中央口の近くです。", "Station exits: east for buses and taxis; west for the park and hotel. The ticket office is near the central exit.", "ホテルへ行くにはどの出口ですか。", ["東口", "西口", "中央口", "出口はありません"], 1, "directions"),
+    ("community-center", "市民センターのお知らせ", "市民センターのお知らせ\n料理教室：水曜日 午後六時\n日本語教室：木曜日 午後七時\n土曜日と日曜日は休みです。", "Community center notice: cooking class Wednesday at 6 p.m.; Japanese class Thursday at 7 p.m.; closed Saturday and Sunday.", "日本語教室はいつですか。", ["水曜日の午後六時", "木曜日の午後七時", "土曜日の午後", "日曜日の朝"], 1, "notice"),
+    ("restaurant-menu", "レストランのメニュー", "昼のメニュー\nA定食：700円\nB定食：600円\nカレー：500円\n昼の営業は午前十一時から午後二時までです。", "Lunch menu: set A 700 yen, set B 600 yen, curry 500 yen. Lunch service is from 11 a.m. to 2 p.m.", "一番安いものは何ですか。", ["A定食", "B定食", "カレー", "水"], 2, "menu"),
+    ("post-office-hours", "郵便局の時間", "郵便局は月曜日から金曜日まで開いています。午前九時から午後五時までですが、昼休みは十二時から一時です。", "The post office is open Monday through Friday from 9 a.m. to 5 p.m., with a lunch break from noon to one.", "郵便局が休みの日はいつですか。", ["月曜日", "水曜日", "金曜日", "土曜日と日曜日"], 3, "notice"),
 ]
 
 N4_SHORT = [
@@ -155,6 +166,8 @@ N4_SHORT = [
     ("office-meeting", "会社の会議", "会議は午後三時に始まります。資料を十部印刷して、始まる前に会議室の机へ置いておきます。", "The meeting starts at three in the afternoon. I will print ten copies of the materials and put them on the meeting-room table beforehand.", "資料を何部印刷しますか。", ["五部", "八部", "十部", "十五部"], 2, "work"),
     ("festival-food", "祭りの食べ物", "祭りでは、焼きそばを食べたり、友達と写真を撮ったりしました。最後に花火を見てから帰りました。", "At the festival, I ate yakisoba and took photos with friends. Finally, I watched fireworks before going home.", "最後に何を見ましたか。", ["映画", "花火", "電車", "写真"], 1, "event"),
     ("package-delivery", "荷物の配達", "荷物が届いたとき家にいなかったので、配達員に電話しました。明日の午後にもう一度来てもらうことになりました。", "I was not home when the package arrived, so I called the delivery person. We arranged for them to come again tomorrow afternoon.", "配達員はいつ来ますか。", ["今日の朝", "今日の夜", "明日の午後", "来週"], 2, "daily-life"),
+    ("work-schedule", "仕事の予定", "来週の予定\n月曜日：会議 午前10時\n火曜日：外出\n水曜日：休み\n木曜日：会議 午後2時", "Next week's schedule: Monday meeting at 10 a.m.; Tuesday out; Wednesday off; Thursday meeting at 2 p.m.", "休みの日はいつですか。", ["月曜日", "火曜日", "水曜日", "木曜日"], 2, "schedule"),
+    ("clinic-sign", "診療所の案内", "診療所は予約の人を先に診察します。予約をしていない人は、受付で名前を書いて待ってください。午後は二時から始まります。", "The clinic sees people with appointments first. People without appointments should write their name at reception and wait. Afternoon service starts at two.", "予約をしていない人はどうしますか。", ["電話を切ります", "名前を書いて待ちます", "すぐに帰ります", "薬を買います"], 1, "health"),
 ]
 
 N4_MID = [
