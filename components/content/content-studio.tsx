@@ -355,7 +355,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
       })
       .catch(() => {
         if (!cancelled) setMessage("The full review package could not load; the bundled curriculum is shown.");
-      }), 300);
+      }), 1500);
     return () => { cancelled = true; window.clearTimeout(timer); };
   }, []);
 
