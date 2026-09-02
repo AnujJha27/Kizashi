@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 
 import { AIGenerator } from "@/components/content/ai-generator";
 import { ContentRecordEditor, type EditableKind } from "@/components/content/content-record-editor";
@@ -324,13 +324,13 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   const [editorKind, setEditorKind] = useState<EditableKind>("vocabulary");
   const [editorRecordId, setEditorRecordId] = useState("");
   const [questionView, setQuestionView] = useState<"review" | "edit">("review");
-  const parsedDraft = parseAndValidateModule(raw);
-  const coverageModule = parsedDraft.value ?? parseModuleForReview(raw) ?? seed;
-  const currentOrSavedDraft = parsedDraft.value ?? parseModuleForReview(raw) ?? readValidatedContentDraft();
+  const parsedDraft = useMemo(() => parseAndValidateModule(raw), [raw]);
+  const coverageModule = useMemo(() => parsedDraft.value ?? parseModuleForReview(raw) ?? seed, [parsedDraft.value, raw, seed]);
+  const currentOrSavedDraft = useMemo(() => parsedDraft.value ?? parseModuleForReview(raw) ?? readValidatedContentDraft(), [parsedDraft.value, raw]);
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/content/review-package", { cache: "no-store" })
+    const timer = window.setTimeout(() => fetch("/api/content/review-package", { cache: "no-store" })
       .then(async (response) => {
         if (!response.ok) throw new Error("Review package request failed.");
         const next = parseModuleForReview(await response.text());
@@ -346,8 +346,8 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
       })
       .catch(() => {
         if (!cancelled) setMessage("The full review package could not load; the bundled curriculum is shown.");
-      });
-    return () => { cancelled = true; };
+      }), 300);
+    return () => { cancelled = true; window.clearTimeout(timer); };
   }, []);
 
   const questionIds = () => {
