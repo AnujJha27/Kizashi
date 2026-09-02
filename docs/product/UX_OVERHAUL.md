@@ -65,6 +65,7 @@ verification, `[ ]` not implemented.
 ### Adaptive support and presentation
 
 - [~] Furigana preference support exists, including an explicit `always` override in reading support; complete fading behavior across every surface is not finished.
+- [x] Quick practice favors unseen question variants while preserving stronger priority for mistakes, due reviews, and flagged ambiguity.
 - [x] Contextual actions connect items to practice, immersion, study-later, and repair flows.
 - [~] Card density and source/player separation have been reduced; the full visual refinement pass is not finished.
 - [~] Mobile and loading behavior has been improved in the affected flows, including bounded Practice loading, but a complete mobile, accessibility, and performance audit remains.

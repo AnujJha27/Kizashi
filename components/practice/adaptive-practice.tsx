@@ -30,7 +30,8 @@ function priority(question: PracticeQuestion, now: number, records: ReturnType<t
   const questionStats = stats[question.id];
   const accuracy = record ? record.correct / Math.max(record.attempts, 1) : 0;
   const passWeight = passMode ? ({ listening: 4, reading: 3, grammar: 2, kanji: 1, vocabulary: 0 }[question.category] ?? 0) + (question.jlptLevel === "N5" ? 1 : 0) : 0;
-  return (mistake?.count ?? 0) * 6 + (studyLater.has(question.itemId) ? 5 : 0) + (record && record.dueAt <= now ? 4 : 0) + (questionStats?.slowCount ?? 0) * 2 + (!record ? 2 : 0) + (record ? 1 - accuracy : 0) + stagePriority(question, record) + passWeight + ijasBoostForQuestion(question, items, aggregates) - (questionStats?.ambiguityReports ?? 0) * 4 - (questionStats?.attempts ?? 0) * 0.25;
+  // ponytail: favor unseen question variants; mistakes, due reviews, and ambiguity still outrank novelty.
+  return (mistake?.count ?? 0) * 6 + (studyLater.has(question.itemId) ? 5 : 0) + (record && record.dueAt <= now ? 4 : 0) + (questionStats?.slowCount ?? 0) * 2 + (!record ? 2 : 0) + (record ? 1 - accuracy : 0) + stagePriority(question, record) + passWeight + ijasBoostForQuestion(question, items, aggregates) - (questionStats?.ambiguityReports ?? 0) * 4 - (questionStats?.attempts ?? 0) * 3;
 }
 
 export function AdaptivePractice({ questions, vocabulary = [], kanji = [], items = [], learnerErrorAggregates = [], limit, passMode = false }: Readonly<{ questions: PracticeQuestion[]; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[]; items?: LearningItem[]; learnerErrorAggregates?: IjasAggregate[]; limit?: number; passMode?: boolean }>) {
