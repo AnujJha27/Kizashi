@@ -6,7 +6,7 @@ import { useEffect, useRef, useState, type TouchEvent } from "react";
 import { JapaneseText } from "@/components/learning/japanese-text";
 import { AudioControls } from "@/components/learning/audio-controls";
 import { ContentFlagButton } from "@/components/library/content-flag-button";
-import { clearPracticeSession, readAnswerLeniency, readAutoPlayAudio, readPracticeSession, recordExamAttempt, recordMistake, recordQuestionAmbiguity, recordQuestionAnswer, recordReview, recordStudyActivity, startRepair, writePracticeSession, type AnswerLeniency, type MasterySignal, type ReviewRating } from "@/lib/session";
+import { clearPracticeSession, readAnswerLeniency, readAutoPlayAudio, readPracticeSession, recordExamAttempt, recordMistake, recordQuestionAmbiguity, recordQuestionAnswer, recordReview, recordStudyActivity, startRepair, writeContinueState, writePracticeSession, type AnswerLeniency, type MasterySignal, type ReviewRating } from "@/lib/session";
 import { conceptBreakdown } from "@/lib/integrated-exam-core.js";
 import { normalizeAnswer, reviewRatingForConfidence } from "@/lib/mastery";
 import { preservePracticePosition } from "@/lib/practice-session-core.js";
@@ -157,7 +157,8 @@ export function PracticePlayer({ questions, vocabulary = [], kanji = [], items =
   useEffect(() => {
     if (!ready || !questions.length || complete) return;
     writePracticeSession({ sessionId: activeSessionId, questionIds, startedAt: sessionStartedAt || undefined, position, selected, typedAnswer, order, submitted, score, answerResults, confidence });
-  }, [activeSessionId, answerResults, complete, confidence, order, position, questionKey, ready, score, selected, sessionStartedAt, submitted, typedAnswer]);
+    writeContinueState({ kind: "practice", href: `${window.location.pathname}${window.location.search}`, label: examMode ? examLabel : "Practice", detail: `Question ${position + 1} of ${questions.length}`, referenceId: activeSessionId });
+  }, [activeSessionId, answerResults, complete, confidence, examLabel, examMode, order, position, questionKey, questions.length, ready, score, selected, sessionStartedAt, submitted, typedAnswer]);
 
   useEffect(() => {
     if (!ready || !timeLimitSeconds || examStartedAt === null || complete) return;

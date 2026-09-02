@@ -11,7 +11,7 @@ import { JourneyMap } from "@/components/journey/journey-map";
 import { LessonProgress } from "@/components/journey/lesson-progress";
 import { RhythmBadge } from "@/components/journey/rhythm-badge";
 import { currentLessonId, getJourneyNodesForModule, getLessonItemsFromModule, getTopicCoverage, topicLabel, type LessonContentItem } from "@/lib/curriculum";
-import { readDisplayName, readLessonState, readReviewRecords, type ReviewRecord } from "@/lib/session";
+import { readContinueState, readDisplayName, readLessonState, readReviewRecords, type ContinueState, type ReviewRecord } from "@/lib/session";
 
 type TopicProgress = { topic: string; held: number; total: number; counts: { vocabulary: number; kanji: number; grammar: number; reading: number; listening: number } };
 
@@ -27,6 +27,7 @@ export function JourneyOverview() {
   const [displayName, setDisplayName] = useState("");
   const [greeting, setGreeting] = useState("こんにちは");
   const [records, setRecords] = useState<Record<string, ReviewRecord>>({});
+  const [continueState, setContinueState] = useState<ContinueState | null>(null);
 
   useEffect(() => {
     const refresh = () => setActiveLessonId(lessons.find((entry) => readLessonState(entry.id).status !== "complete")?.id ?? lessons.at(-1)?.id ?? currentLessonId);
@@ -54,7 +55,17 @@ export function JourneyOverview() {
     return () => window.removeEventListener("michi-review-updated", refresh);
   }, []);
 
+  useEffect(() => {
+    const refresh = () => setContinueState(readContinueState());
+    refresh();
+    window.addEventListener("michi-continue-updated", refresh);
+    return () => window.removeEventListener("michi-continue-updated", refresh);
+  }, []);
+
   const lesson = lessons.find((entry) => entry.id === activeLessonId) ?? lessons[0] ?? null;
+  const continuedLesson = continueState?.kind === "lesson" ? lessons.find((entry) => entry.id === continueState.referenceId) : undefined;
+  const continueHref = continueState?.href ?? (lesson ? `/learn?lesson=${lesson.id}` : "/practice");
+  const continueLabel = continueState ? `Continue · ${continueState.kind === "lesson" ? continuedLesson?.title ?? "lesson" : continueState.label}` : lesson ? "Continue today’s path" : "Continue";
   const lessonItems = lesson ? getLessonItemsFromModule(module, lesson) : [];
   const allItems: LessonContentItem[] = [...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening];
   const nodes = getJourneyNodesForModule(module, lesson?.id);
@@ -71,7 +82,7 @@ export function JourneyOverview() {
           <p className="eyebrow mb-4">{greeting}{displayName ? ` · ${displayName}さん` : ""} · {level} path</p>
           <h1 className="max-w-2xl text-4xl leading-tight tracking-tight text-[#f5f5f2] sm:text-6xl">Continue your path<span className="text-[#e34a3f]">.</span></h1>
           <p className="mt-4 max-w-xl text-sm leading-7 text-[#9297a1]">One short session is enough. Your plan starts with {lesson?.title ?? "the next lesson"} and keeps the route moving.</p>
-          {lesson ? <Link href={`/learn?lesson=${lesson.id}`} className="mt-7 inline-flex items-center gap-3 rounded-xl bg-[#e34a3f] px-5 py-3.5 text-sm font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">Continue today&apos;s path<span aria-hidden="true">→</span></Link> : null}
+          {lesson ? <Link href={continueHref} className="mt-7 inline-flex items-center gap-3 rounded-xl bg-[#e34a3f] px-5 py-3.5 text-sm font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">{continueLabel}<span aria-hidden="true">→</span></Link> : null}
         </div>
         <div className="flex gap-8 border-t border-[#292b31] pt-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
           <div><p className="jp-serif text-lg text-[#e5b85c]">今日</p><p className="mt-1 text-[10px] uppercase tracking-[.14em] text-[#676c75]">{lesson?.estimatedMinutes ?? 0} min lesson</p></div>

@@ -24,8 +24,9 @@ export const BOOK_NOTES_STORAGE_KEY = "michi.book-notes";
 export const BOOK_SCREENSHOTS_STORAGE_KEY = "michi.book-screenshots";
 export const BOOK_SKETCHES_STORAGE_KEY = "michi.book-sketches";
 export const SYNC_ENABLED_STORAGE_KEY = "michi.sync-enabled";
+export const CONTINUE_STORAGE_KEY = "michi.continue";
 
-const BACKUP_KEYS = [CURRENT_LESSON_STORAGE_KEY, REVIEW_STORAGE_KEY, NOTES_STORAGE_KEY, MISTAKES_STORAGE_KEY, DIAGNOSTIC_STORAGE_KEY, QUESTION_STATS_STORAGE_KEY, STUDY_STATS_STORAGE_KEY, SAVED_SENTENCES_STORAGE_KEY, STUDY_LATER_STORAGE_KEY, PROFILE_PREFERENCES_STORAGE_KEY, EXAM_ATTEMPTS_STORAGE_KEY, REPAIR_STORAGE_KEY, CUSTOM_ENTRIES_STORAGE_KEY, BOOK_NOTES_STORAGE_KEY, BOOK_SCREENSHOTS_STORAGE_KEY, BOOK_SKETCHES_STORAGE_KEY, CONTENT_FLAGS_STORAGE_KEY, "michi.content-draft", "michi.question-draft"] as const;
+const BACKUP_KEYS = [CURRENT_LESSON_STORAGE_KEY, REVIEW_STORAGE_KEY, NOTES_STORAGE_KEY, MISTAKES_STORAGE_KEY, DIAGNOSTIC_STORAGE_KEY, QUESTION_STATS_STORAGE_KEY, STUDY_STATS_STORAGE_KEY, SAVED_SENTENCES_STORAGE_KEY, STUDY_LATER_STORAGE_KEY, PROFILE_PREFERENCES_STORAGE_KEY, EXAM_ATTEMPTS_STORAGE_KEY, REPAIR_STORAGE_KEY, CUSTOM_ENTRIES_STORAGE_KEY, BOOK_NOTES_STORAGE_KEY, BOOK_SCREENSHOTS_STORAGE_KEY, BOOK_SKETCHES_STORAGE_KEY, CONTENT_FLAGS_STORAGE_KEY, CONTINUE_STORAGE_KEY, "michi.content-draft", "michi.question-draft"] as const;
 
 function isBackupKey(key: string) {
   return BACKUP_KEYS.includes(key as (typeof BACKUP_KEYS)[number]) || key.startsWith(`${PRACTICE_SESSION_STORAGE_KEY}.`) || key.startsWith("michi.book-review.");
@@ -280,6 +281,37 @@ export interface PracticeSessionState {
   confidence: AnswerConfidence | null;
 }
 
+export type ContinueState = {
+  kind: "lesson" | "practice" | "immersion" | "reading";
+  href: string;
+  label: string;
+  detail: string;
+  referenceId?: string;
+  updatedAt: number;
+};
+
+export function readContinueState(): ContinueState | null {
+  const value = storedJson(CONTINUE_STORAGE_KEY);
+  if (typeof value !== "object" || value === null || Array.isArray(value)) return null;
+  const state = value as Partial<ContinueState>;
+  if (!["lesson", "practice", "immersion", "reading"].includes(state.kind ?? "") || typeof state.href !== "string" || typeof state.label !== "string" || typeof state.detail !== "string" || typeof state.updatedAt !== "number") return null;
+  return state as ContinueState;
+}
+
+export function writeContinueState(state: Omit<ContinueState, "updatedAt">) {
+  if (typeof window === "undefined") return;
+  window.localStorage.setItem(CONTINUE_STORAGE_KEY, JSON.stringify({ ...state, updatedAt: Date.now() }));
+  window.dispatchEvent(new Event("michi-continue-updated"));
+}
+
+export function clearContinueState(kind?: ContinueState["kind"], referenceId?: string) {
+  if (typeof window === "undefined") return;
+  const current = readContinueState();
+  if (!current || (kind && current.kind !== kind) || (referenceId && current.referenceId !== referenceId)) return;
+  window.localStorage.removeItem(CONTINUE_STORAGE_KEY);
+  window.dispatchEvent(new Event("michi-continue-updated"));
+}
+
 export const defaultLessonState: CurrentLessonState = {
   lessonId: "lesson-meeting-people",
   position: 0,
@@ -304,6 +336,8 @@ export function readLessonState(lessonId = defaultLessonState.lessonId): Current
 export function writeLessonState(state: CurrentLessonState) {
   if (typeof window !== "undefined") {
     window.localStorage.setItem(lessonStorageKey(state.lessonId), JSON.stringify(state));
+    if (state.status === "complete") clearContinueState("lesson", state.lessonId);
+    else writeContinueState({ kind: "lesson", href: `/learn?lesson=${encodeURIComponent(state.lessonId)}`, label: "Current lesson", detail: `Step ${state.position + 1}`, referenceId: state.lessonId });
     window.dispatchEvent(new Event("michi-lesson-updated"));
   }
 }
@@ -664,7 +698,7 @@ export function writePracticeSession(state: PracticeSessionState) {
 }
 
 export function clearPracticeSession(sessionId: string) {
-  if (typeof window !== "undefined") window.localStorage.removeItem(practiceSessionKey(sessionId));
+  if (typeof window !== "undefined") { window.localStorage.removeItem(practiceSessionKey(sessionId)); clearContinueState("practice", sessionId); }
 }
 
 export function readCustomEntries(): CustomEntry[] {

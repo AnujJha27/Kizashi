@@ -8,7 +8,7 @@ import { JapaneseText } from "@/components/learning/japanese-text";
 import { ReadingPanel } from "@/components/learning/reading-panel";
 import { readExternalSourceProgress } from "@/lib/external-source-progress.js";
 import { getImmersionReason, getEarWarmup, getListeningClipMetadata, selectImmersionClips } from "@/lib/immersion-core.js";
-import { readMistakes, readReviewRecords, type MistakeRecord, type ReviewRecord } from "@/lib/session";
+import { readMistakes, readReviewRecords, type MistakeRecord, type ReviewRecord, writeContinueState } from "@/lib/session";
 import type { ListeningItem, ListeningMode, ReadingItem } from "@/lib/types";
 
 function knownIds(records: Record<string, ReviewRecord>) {
@@ -59,6 +59,11 @@ export function ImmersionPlayer({ clipId, readingId, focus = "listen", startMode
   const phrases = clip?.transcript.split(/\n+/u).map((phrase) => phrase.trim()).filter(Boolean) ?? [];
   const phrase = phrases[phrasePosition] ?? phrases[0] ?? clip?.transcript ?? "";
   const transcriptVisible = mode === "guided" || showTranscript || shadowing;
+
+  useEffect(() => {
+    if (focus === "read" && reading) writeContinueState({ kind: "reading", href: "/immersion", label: reading.title, detail: "Reading activity", referenceId: reading.id });
+    if (focus === "listen" && clip) writeContinueState({ kind: "immersion", href: "/immersion", label: clip.title, detail: "Listening activity", referenceId: clip.id });
+  }, [clip?.id, clip?.title, focus, reading?.id, reading?.title]);
 
   useEffect(() => {
     const requestedClipPosition = initialClipId.current ? clips.findIndex((entry) => entry.id === initialClipId.current) : -1;
