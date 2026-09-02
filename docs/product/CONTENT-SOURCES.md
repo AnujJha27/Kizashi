@@ -12,11 +12,11 @@ decisions are in [SOURCE-EVALUATION.md](./SOURCE-EVALUATION.md).
 - The hosted project was last verified with 313 approved seeded `learning_items`.
   A current local SQL export is ready to publish every non-rejected staged row
   while preserving its pending/approved status.
-- The tracked source-review package contains 8,442 records: 47 approved
-  source-review records, 50 authored/curated records, 8,345 pending records,
-  and no rejected records. All 8,392 source-review records have real lesson
-  placement (71 core, 8,321 across 57 bounded expansion lessons). Pending rows
-  are learner-active and SQL-publishable with `humanReviewed: false` semantics.
+- The tracked source-review package contains 8,384 records: 50 approved,
+  8,334 pending, and no rejected records. Every record ID is assigned to a
+  Journey lesson; the package contains 57 bounded source-curriculum lessons
+  plus the review queue. Pending rows are learner-active and SQL-publishable
+  with `humanReviewed: false` semantics.
 - No third-party corpus audio, transcripts, annotations, or datasets are in
   GitHub or Supabase Storage. The supplied personal book files are kept in the
   private `books` bucket and are served only through the authenticated reader.

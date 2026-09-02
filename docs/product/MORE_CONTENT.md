@@ -35,7 +35,7 @@ coverage/verification, `[ ]` not implemented.
 
 ### Current evidence
 
-- [x] The staged package currently contains 7,387 vocabulary, 630 kanji, 413 grammar, 6 reading, and 6 listening records: 8,442 records across 64 lessons.
+- [x] The tracked staged package currently contains 7,329 vocabulary, 630 kanji, 413 grammar, 6 reading, and 6 listening records: 8,384 records across 64 lessons; 603 records carry N4 classification and every item is assigned to a Journey lesson.
 - [x] The existing three Irodori item ingestors remain in place and preserve source IDs, field-level provenance, course, and source-level metadata.
 - [~] Irodori now has seven source-hosted activity records with course/lesson/Can-do metadata and a dedicated Immersion real-life lane; the full Starter, Elementary 1/2, and Pre-Intermediate catalog is still incomplete.
 - [x] Aozora has a rights-filtered metadata shelf and dynamic reader; Tadoku has a provider-hosted graded-reading shelf with local opened progress.
@@ -44,7 +44,7 @@ coverage/verification, `[ ]` not implemented.
 - [~] Original Kizashi reading and listening banks currently contain only 6 records each; substantial N5/N4 families are not complete.
 - [x] Tatoeba has metadata-only exact-sentence audio resolution through the existing `AudioControls` fallback chain; per-recording license, contributor, sentence page, and remote URL are retained without mirroring audio.
 - [x] Japanese with Shun and Nihongo con Teppei are learner-facing provider-hosted listening entries in the shared registry and Immersion `寄り道` shelf; both retain a link fallback and store no media.
-- [ ] A real N4 curriculum/content package is not yet present.
+- [~] The shared staged package now includes 603 N4-classified records and N4 source evidence, but a dedicated authored N4 learning path and substantial N4 reading/listening bank are still missing.
 - [~] Content Studio has computed source coverage for current mappings, but the complete deficit dashboard from this milestone is not implemented.
 - [~] Mobile, external-frame, performance, and source-failure behavior have been improved in affected flows; a full end-to-end audit remains.
 
@@ -161,13 +161,13 @@ Before changing anything, independently recompute these numbers.
 The current staged package is expected to be approximately:
 
 ```text
-Vocabulary    7,387
+Vocabulary    7,329
 Kanji           630
 Grammar         413
 Reading           6
 Listening         6
 ────────────────────
-Total         8,442
+Total         8,384
 ```
 
 Do not assume these numbers remain exact if the repository has changed.
