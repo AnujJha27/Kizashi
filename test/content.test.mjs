@@ -241,8 +241,9 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.equal(frameRules[0].action.type, "modifyHeaders");
   assert.ok(frameRules[0].action.responseHeaders.some((header) => header.header === "x-frame-options" && header.operation === "remove"));
   assert.ok(frameRules[0].action.responseHeaders.some((header) => header.header === "content-security-policy" && header.operation === "remove"));
-  assert.match(shell, /\["\/journey", "\/learn", "\/practice", "\/immersion", "\/review", "\/profile"\]/);
-  assert.match(shell, /grid-cols-6/);
+  assert.match(shell, /const primaryNavItems = \[/);
+  assert.match(shell, /href: "\/library"/);
+  assert.match(shell, /grid-cols-5/);
   assert.match(library, /relative z-10/);
   assert.match(surface, /JapaneseText/);
   assert.match(surface, /always/);
