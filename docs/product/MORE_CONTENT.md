@@ -39,7 +39,7 @@ coverage/verification, `[ ]` not implemented.
 - [x] The learner release path exposes every non-rejected staged record immediately with automatic provenance, while merging bundled authored expansions so remote package loading does not hide original reading/listening lessons; pending remains a Studio status, not a learner gate.
 - [x] The existing three Irodori item ingestors remain in place and preserve source IDs, field-level provenance, course, and source-level metadata.
 - [x] Irodori sentence patterns now have a conservative generated map to 32 canonical Kizashi grammar concepts across 60 source-pattern references; source record IDs, course/level, source URL, attribution, and terms remain attached.
-- [~] Irodori now has seven source-hosted activity records with course/lesson/Can-do metadata and a dedicated Immersion real-life lane; the full Starter, Elementary 1/2, and Pre-Intermediate catalog is still incomplete.
+- [x] Irodori now indexes all 72 source-hosted audio lesson pages across Starter, Elementary 1, Elementary 2, and Pre-Intermediate with course/lesson/Can-do metadata in the dedicated Immersion real-life lane; seven curated overlap activities are retained and four currently have explicit Kizashi target mappings.
 - [x] Aozora has a rights-filtered metadata shelf and dynamic reader; Tadoku has a provider-hosted graded-reading shelf with local opened progress.
 - [x] Tae Kim, Wikibooks, and Commons/Lingua Libre use the existing external-resource/audio/reference abstractions without copying third-party media into Supabase.
 - [~] Shared furigana scaffolding now honors `Always`, `Unknown`, `Tap`, and `Hide` in learner text renderers, including Immersion passage previews; remaining raw/reference renderers still need the same treatment.
@@ -58,7 +58,7 @@ coverage/verification, `[ ]` not implemented.
 
 - [~] Priority 1 — Irodori grammar now has 32 canonical concept mappings and an audit-backed learner reference path; source-derived meanings, formations, and example translations remain pending review.
 - [x] A calculated `scripts/audit_irodori_grammar.py` report now measures Irodori source records by course/source level, canonical pattern matches, duplicate sets, relevance, review status, and learner-field completeness before further mapping work.
-- [~] Priority 2 — the existing Irodori resource pipeline now emits activity types, course levels, categorized target IDs, and provenance, and seven activities are learner-visible; broader source coverage is still required.
+- [x] Priority 2 — the existing Irodori resource pipeline emits activity types, course levels, lesson/Can-do metadata, categorized target IDs where reviewed, and provenance; all 72 official lesson activities are learner-visible progressively, while provider-hosted media remains remote.
 - [x] Priority 3 — all 25 Basic and 25 Advanced Erin skit pages are indexed; only the six curated Basic entries are currently mapped into Kizashi item context.
 - [~] Priority 4 — the deterministic original-reading generator and initial N5/N4 bank are implemented; constrained request parameters, broader review, and non-template expansion remain.
 - [~] Priority 5 — the deterministic original-listening generator and initial 80-scenario N5/N4 banks are implemented across task, key-point, verbal-expression, and quick-response families; constrained requests, richer dialogue variation, and review remain.
