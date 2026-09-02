@@ -67,10 +67,10 @@ verification, `[ ]` not implemented.
 
 ### Adaptive support and presentation
 
-- [~] Furigana preference support now honors `Always`, `Unknown`, `Tap`, and `Hide` in the shared `JapaneseText` and `ReadingPanel` renderers; `Tap` reveals the clicked word and challenge mode remains strict. Complete fading for every raw/reference renderer is not finished.
+- [~] Furigana preference support now honors `Always`, `Unknown`, `Tap`, and `Hide` in the shared `JapaneseText` and `ReadingPanel` renderers; Immersion list previews now use the same Japanese-aware renderer, `Tap` reveals the clicked word, and challenge mode remains strict. Complete fading for every raw/reference renderer is not finished.
 - [x] Quick practice favors unseen question variants while preserving stronger priority for mistakes, due reviews, and flagged ambiguity.
 - [x] Contextual actions connect items to practice, immersion, study-later, and repair flows.
-- [x] Card density and source/player separation have been reduced; Immersion activity navigation is now a compact scrollable tab row, while reading/listening, real-life activities, and source detours use editorial separator rows and progressive loading.
+- [x] Card density and source/player separation have been reduced; Immersion activity navigation is now a compact scrollable tab row, while reading/listening, real-life activities, source detours, and grammar references use editorial separator rows and progressive loading.
 - [x] Practice and Studio defer heavy package work, isolate persisted queues by mode/length/topic, switch Practice controls locally with an explicit loading state, show route loading feedback, defer Studio's large reading diagnostic to idle time, show only pending question drafts, cache generated questions, and avoid the stale global scroll lock that previously stranded route scrolling; a complete mobile, accessibility, and performance audit remains.
 
 ### Delivery status by implementation phase
@@ -117,7 +117,7 @@ items intentionally remain visible until the remaining surfaces are finished.
 - [x] **Reading/listening activity placement** — Immersion owns the source-hosted listening and reading shelves; `app/(main)/practice/page.tsx` owns the JLPT-style MCQ practice surface.
 - [x] **Immersion dictation** — `components/learning/dictation-activity.tsx` adds a focused hear-and-type activity to Immersion using the existing listening bank and audio fallback; it does not create a second Practice system.
 - [x] **Integrated context practice** — `lib/integrated-exam-core.js` and the integrated Practice mode retain one primary item plus `targetItemIds` for multi-concept sets.
-- [~] **Furigana/scaffolding** — `components/learning/japanese-text.tsx` and `components/learning/reading-panel.tsx` implement shared `Always`/`Unknown`/`Tap`/`Hide` behavior with per-word tap reveal; Immersion, Practice review, lessons, entries, and Aozora use verified readings, while complete fading behavior remains partial.
+- [~] **Furigana/scaffolding** — `components/learning/japanese-text.tsx` and `components/learning/reading-panel.tsx` implement shared `Always`/`Unknown`/`Tap`/`Hide` behavior with per-word tap reveal; Immersion previews, Practice review, lessons, entries, and Aozora use verified readings, while complete fading behavior remains partial.
 - [x] **Visual refinement/card density** — Immersion navigation plus reading/listening, Irodori activities, source detours, Tadoku, Aozora, and the Studio source/review queues use compact/editorial layouts without nested shelf-card grids; the final U65/U66/U70 accessibility pass remains.
 - [x] **Mobile/accessibility/performance** — responsive navigation, deferred module loading, bounded Practice questions, deferred Studio JSON, bounded question review, and scroll-safe overlays are in code; the final cross-surface audit remains a follow-up.
 - [~] **Persistence beyond the browser** — local resume/progress works through `lib/session.ts`; account-backed synchronization is opt-in and the current deploy/package persistence path still needs verification.
