@@ -53,12 +53,12 @@ export function ReadingPanel({ item, vocabulary = n5Module.vocabulary, kanji = n
 
   const showReading = (part: { text: string; item?: VocabularyItem; reading?: string }) => {
     if (!part.reading) return false;
-    if (always) return true;
-    if (furiganaMode === "hide") return false;
-    if (furiganaMode === "always") return true;
     if (mode === "challenge") return false;
-    if (mode === "normal" || furiganaMode === "tap") return activePart === part.text;
+    if (furiganaMode === "hide") return false;
+    if (furiganaMode === "tap") return activePart === part.text;
+    if (mode === "normal") return activePart === part.text;
     const itemId = part.item?.id ?? masteryByWord.get(part.text);
+    if (furiganaMode === "always" || (always && furiganaMode !== "unknown")) return true;
     return !itemId || !["stable", "strong"].includes(records[itemId]?.masteryState ?? "");
   };
 
