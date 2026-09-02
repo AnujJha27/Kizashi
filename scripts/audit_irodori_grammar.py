@@ -57,17 +57,27 @@ def canonical_grammar(paths: list[Path]) -> list[dict[str, Any]]:
     return result
 
 
-def audit(source: dict[str, Any], canonical: list[dict[str, Any]]) -> dict[str, Any]:
+def audit(source: dict[str, Any], canonical: list[dict[str, Any]], mapping: dict[str, Any] | None = None) -> dict[str, Any]:
     records = [item for item in source.get("records", {}).get("grammar", []) if isinstance(item, dict)]
     canonical_by_pattern = {normalize_pattern(item.get("pattern")): item for item in canonical if normalize_pattern(item.get("pattern"))}
+    mapped_by_record: dict[str, list[str]] = defaultdict(list)
+    for canonical_id, references in (mapping or {}).items():
+        if not isinstance(references, list):
+            continue
+        for reference in references:
+            if isinstance(reference, dict) and text(reference.get("sourceRecordId")):
+                mapped_by_record[text(reference["sourceRecordId"])].append(canonical_id)
     matches: dict[str, list[str]] = {}
     duplicate_groups: defaultdict[str, list[str]] = defaultdict(list)
     for item in records:
         pattern = normalize_pattern(item.get("pattern"))
         if pattern:
             duplicate_groups[pattern].append(text(item.get("id")))
+        mapped = mapped_by_record.get(text(item.get("id")))
         match = canonical_by_pattern.get(pattern)
-        if match:
+        if mapped:
+            matches[text(item.get("id"))] = sorted(set(mapped))
+        elif match:
             matches[text(item.get("id"))] = [text(match.get("id"))]
 
     completeness = {
@@ -134,9 +144,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", type=Path, default=Path("data/staging/irodori-grammar.json"))
     parser.add_argument("--canonical", type=Path, action="append", default=list(DEFAULT_CANONICAL))
+    parser.add_argument("--mapping", type=Path, default=Path("data/source-maps/irodori-grammar.json"))
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
-    result = audit(read_json(args.input), canonical_grammar(args.canonical))
+    mapping = read_json(args.mapping) if args.mapping.is_file() else None
+    result = audit(read_json(args.input), canonical_grammar(args.canonical), mapping)
     print(json.dumps(result, ensure_ascii=False, indent=2) if args.json else "")
     if not args.json:
         print_report(result)

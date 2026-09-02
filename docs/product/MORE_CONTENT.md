@@ -38,6 +38,7 @@ coverage/verification, `[ ]` not implemented.
 - [x] The tracked staged package currently contains 7,328 vocabulary, 630 kanji, 413 grammar, 6 reading, and 6 listening records: 8,383 records across 64 lessons; 603 records carry N4 classification and every item is assigned to a Journey lesson.
 - [x] The learner release path exposes every non-rejected staged record immediately with automatic provenance, while merging bundled authored expansions so remote package loading does not hide original reading/listening lessons; pending remains a Studio status, not a learner gate.
 - [x] The existing three Irodori item ingestors remain in place and preserve source IDs, field-level provenance, course, and source-level metadata.
+- [x] Irodori sentence patterns now have a conservative generated map to 32 canonical Kizashi grammar concepts across 60 source-pattern references; source record IDs, course/level, source URL, attribution, and terms remain attached.
 - [~] Irodori now has seven source-hosted activity records with course/lesson/Can-do metadata and a dedicated Immersion real-life lane; the full Starter, Elementary 1/2, and Pre-Intermediate catalog is still incomplete.
 - [x] Aozora has a rights-filtered metadata shelf and dynamic reader; Tadoku has a provider-hosted graded-reading shelf with local opened progress.
 - [x] Tae Kim, Wikibooks, and Commons/Lingua Libre use the existing external-resource/audio/reference abstractions without copying third-party media into Supabase.
@@ -52,7 +53,7 @@ coverage/verification, `[ ]` not implemented.
 
 ### Priority tracking
 
-- [~] Priority 1 — Irodori grammar ingestion has provenance/course fields, but canonicalization and example-quality review remain.
+- [~] Priority 1 — Irodori grammar now has 32 canonical concept mappings and an audit-backed learner reference path; source-derived meanings, formations, and example translations remain pending review.
 - [x] A calculated `scripts/audit_irodori_grammar.py` report now measures Irodori source records by course/source level, canonical pattern matches, duplicate sets, relevance, review status, and learner-field completeness before further mapping work.
 - [~] Priority 2 — the existing Irodori resource pipeline now emits activity types, course levels, categorized target IDs, and provenance, and seven activities are learner-visible; broader source coverage is still required.
 - [x] Priority 3 — all 25 Basic and 25 Advanced Erin skit pages are indexed; only the six curated Basic entries are currently mapped into Kizashi item context.

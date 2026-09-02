@@ -8,6 +8,7 @@ import { TopicCoverage } from "@/components/content/topic-coverage";
 import { SourceCoverage } from "@/components/content/source-coverage";
 import taeKimMappings from "@/data/source-maps/tae-kim.json";
 import wikibooksMappings from "@/data/source-maps/wikibooks.json";
+import irodoriGrammarMappings from "@/data/source-maps/irodori-grammar.json";
 import {
   getContentReviewStatus,
   getModuleItems,
@@ -124,6 +125,7 @@ function externalEvidence(item: LessonContentItem) {
   if (item.category === "grammar") {
     if (taeKimMappings[item.id as keyof typeof taeKimMappings]) evidence.push("Tae Kim · alternative explanation");
     if (wikibooksMappings[item.id as keyof typeof wikibooksMappings]) evidence.push("Wikibooks · reference");
+    if (irodoriGrammarMappings[item.id as keyof typeof irodoriGrammarMappings]?.length) evidence.push("Irodori · communicative sentence pattern");
   }
   if (item.category === "vocabulary" || item.category === "kanji") evidence.push("Wikimedia Commons / Lingua Libre · pronunciation on demand");
   if ((item.sourceIds ?? []).some((sourceId) => sourceId === "irodori" || sourceId.startsWith("irodori-"))) evidence.push("Irodori · practical source relation");
