@@ -18,45 +18,54 @@ function record(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
+function sentenceLike(text: string) {
+  return text.length >= 4 && /[。！？!?]/u.test(text);
+}
+
 export async function resolveHumanAudio(request: AudioRequest, reading?: string, enabled = false): Promise<AudioRequest> {
   if (!enabled || !request.text?.trim() || request.externalUrl || request.metadata?.externalUrl) return request;
-  try {
-    const params = new URLSearchParams({ text: request.text });
-    if (reading?.trim()) params.set("reading", reading.trim());
-    const response = await fetch(`/api/audio/commons?${params.toString()}`);
-    if (!response.ok) return request;
-    const payload: unknown = await response.json();
-    const payloadResult = record(payload) ? payload.result : undefined;
-    if (!record(payloadResult)) return request;
-    const result = payloadResult;
-    const remoteUrl = result && typeof result.url === "string" ? result.url : "";
-    if (!remoteUrl) return request;
-    const speaker = typeof result.speaker === "string" ? result.speaker : undefined;
-    const speakerId = typeof result.speakerId === "string" ? result.speakerId : undefined;
-    return {
-      ...request,
-      externalUrl: remoteUrl,
-      metadata: {
-        ...request.metadata,
-        sourceType: "remote",
+  const endpoints = ["/api/audio/commons", ...(sentenceLike(request.text) ? ["/api/audio/tatoeba"] : [])];
+  for (const endpoint of endpoints) {
+    try {
+      const params = new URLSearchParams({ text: request.text });
+      if (reading?.trim()) params.set("reading", reading.trim());
+      const response = await fetch(`${endpoint}?${params.toString()}`);
+      if (!response.ok) continue;
+      const payload: unknown = await response.json();
+      if (!record(payload) || !record(payload.result)) continue;
+      const result = payload.result;
+      const remoteUrl = result && typeof result.url === "string" ? result.url : "";
+      if (!remoteUrl) continue;
+      const speaker = typeof result.speaker === "string" ? result.speaker : undefined;
+      const speakerId = typeof result.speakerId === "string" ? result.speakerId : undefined;
+      const sourceId = typeof result.source === "string" ? result.source : "wikimedia-commons";
+      return {
+        ...request,
         externalUrl: remoteUrl,
-        ...(speaker ? { speaker } : {}),
-        ...(speakerId ? { speakerId } : {}),
-        isSynthetic: false,
-        ...(typeof result.license === "string" ? { license: result.license } : {}),
-        provenance: {
-          ...request.metadata?.provenance,
-          sourceId: "wikimedia-commons",
-          sourceUrl: typeof result.filePage === "string" ? result.filePage : undefined,
-          licenseUrl: typeof result.licenseUrl === "string" ? result.licenseUrl : undefined,
-          attribution: typeof result.attribution === "string" ? result.attribution : undefined,
-          collection: typeof result.collection === "string" ? result.collection : undefined,
+        metadata: {
+          ...request.metadata,
+          sourceType: "remote",
+          externalUrl: remoteUrl,
+          ...(speaker ? { speaker } : {}),
+          ...(speakerId ? { speakerId } : {}),
+          isSynthetic: false,
+          ...(typeof result.license === "string" ? { license: result.license } : {}),
+          provenance: {
+            ...request.metadata?.provenance,
+            sourceId,
+            sourceUrl: typeof result.filePage === "string" ? result.filePage : undefined,
+            licenseUrl: typeof result.licenseUrl === "string" ? result.licenseUrl : undefined,
+            attribution: typeof result.attribution === "string" ? result.attribution : undefined,
+            ...(typeof result.collection === "string" ? { collection: result.collection } : {}),
+            ...(Number.isInteger(result.sentenceId) ? { sentenceId: result.sentenceId } : {}),
+          },
         },
-      },
-    };
-  } catch {
-    return request;
+      };
+    } catch {
+      continue;
+    }
   }
+  return request;
 }
 
 export async function playAudioWithBrowserFallback(provider: AudioProvider, request: AudioRequest, rate?: number) {
