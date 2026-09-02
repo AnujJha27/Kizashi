@@ -16,7 +16,6 @@ import type { N5Module, PracticeMode, PracticeQuestion } from "@/lib/types";
 
 function practiceModule(module: N5Module) {
   const alwaysInclude = new Set([
-    ...module.course.chapters.flatMap((chapter) => chapter.lessons).filter((lesson) => lesson.id !== "lesson-openjlpt-review").flatMap((lesson) => lesson.itemIds),
     ...(module.practiceQuestions ?? []).map((question) => question.itemId),
     ...Object.keys(readMistakes()),
   ]);
@@ -63,7 +62,8 @@ function useActiveQuestions(fallback: PracticeQuestion[]) {
 }
 
 export function LocalPractice({ allQuestions, mode, duration, focus, section, topic }: Readonly<{ allQuestions?: PracticeQuestion[]; mode: PracticeMode; duration: number; focus?: string; section?: string; topic?: string }>) {
-  const { questions: activeQuestions, module } = useActiveQuestions(allQuestions ?? getValidatedPracticeQuestions());
+  const fallbackQuestions = useMemo(() => allQuestions ?? getValidatedPracticeQuestions(), [allQuestions]);
+  const { questions: activeQuestions, module } = useActiveQuestions(fallbackQuestions);
   const [repair, setRepair] = useState("");
   useEffect(() => setRepair(new URLSearchParams(window.location.search).get("repair") ?? ""), []);
   const topicIds = topic ? getTopicItemIds([...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening], topic) : null;

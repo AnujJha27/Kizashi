@@ -51,6 +51,7 @@ verification, `[ ]` not implemented.
 - [x] Mobile navigation uses the same primary destinations with an accessible More menu.
 - [x] Today/Journey has a time-aware greeting, current-path CTA, daily session plan, duration choices, and completion state.
 - [x] Practice is organized around Quick, Focus, Weaknesses, and Test while retaining compatible deep links for existing modes.
+- [x] Practice defers its question bank and bounds the live working catalog instead of retaining the full imported lesson corpus on every drill.
 - [x] Learn opens the active lesson directly with a compact lesson selector and step progression.
 - [x] Immersion is split into a recommendation feed and a focused activity player.
 - [x] Continue/resume state is shared across lessons, practice, immersion, and reading using the existing local session layer.
@@ -66,7 +67,7 @@ verification, `[ ]` not implemented.
 - [~] Furigana preference support exists, including an explicit `always` override in reading support; complete fading behavior across every surface is not finished.
 - [x] Contextual actions connect items to practice, immersion, study-later, and repair flows.
 - [~] Card density and source/player separation have been reduced; the full visual refinement pass is not finished.
-- [~] Mobile and loading behavior has been improved in the affected flows, but a complete mobile, accessibility, and performance audit remains.
+- [~] Mobile and loading behavior has been improved in the affected flows, including bounded Practice loading, but a complete mobile, accessibility, and performance audit remains.
 
 ### Delivery status by implementation phase
 
