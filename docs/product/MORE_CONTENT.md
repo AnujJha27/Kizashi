@@ -43,7 +43,7 @@ coverage/verification, `[ ]` not implemented.
 - [x] Erin's registry now indexes all 25 Basic and 25 Advanced provider lesson pages; six curated Basic entries additionally have Kizashi target mappings and direct provider MP4 metadata.
 - [~] Original Kizashi reading and listening banks currently contain only 6 records each; substantial N5/N4 families are not complete.
 - [x] Tatoeba has metadata-only exact-sentence audio resolution through the existing `AudioControls` fallback chain; per-recording license, contributor, sentence page, and remote URL are retained without mirroring audio.
-- [ ] Japanese with Shun and Nihongo con Teppei are not yet in the learner-facing registry.
+- [x] Japanese with Shun and Nihongo con Teppei are learner-facing provider-hosted listening entries in the shared registry and Immersion `寄り道` shelf; both retain a link fallback and store no media.
 - [ ] A real N4 curriculum/content package is not yet present.
 - [~] Content Studio has computed source coverage for current mappings, but the complete deficit dashboard from this milestone is not implemented.
 - [~] Mobile, external-frame, performance, and source-failure behavior have been improved in affected flows; a full end-to-end audit remains.
@@ -56,7 +56,7 @@ coverage/verification, `[ ]` not implemented.
 - [ ] Priority 4 — Original N5/N4 reading generators and substantial banks.
 - [ ] Priority 5 — Original N5/N4 listening generators and substantial banks.
 - [x] Priority 6 — dynamic Tatoeba audio is wired for exact sentence matches with reusable API-reported licenses; misses fall through to Browser Speech.
-- [ ] Priority 7 — Japanese with Shun and Nihongo con Teppei.
+- [x] Priority 7 — Japanese with Shun and Nihongo con Teppei are registered as provider-hosted video/podcast immersion.
 
 This status block must be refreshed whenever a milestone slice is implemented;
 unchecked requirements below remain active.

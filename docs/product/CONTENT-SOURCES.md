@@ -76,6 +76,8 @@ grammar rule or replace a reliable explanation source.
 | [VOICEVOX](https://voicevox.hiroshiba.jp/) | Future consistent mock-JLPT dialogue | Reserved `ServerTTSProvider`; selected voice-library terms and credits must be recorded first. |
 | Open JTalk | Future local pronunciation fallback | Not currently wired as a separate delivery source; terms and packaging must be checked first. |
 | [JapanesePod101](https://www.japanesepod101.com/lesson-library/level-1-japanese) | Polished learner listening | Original-provider shelf points to the Level 1 learning library; exact free-material terms still govern any deeper integration. |
+| [Japanese with Shun](https://www.youtube.com/@JapanesewithShun) | Easy N5–N4 video immersion and natural listening | The registry opens the provider's channel in the existing frame-or-link viewer; YouTube/provider-hosted media stays external and the channel link remains the fallback. |
+| [Nihongo con Teppei](https://teppei.nihongoconteppei.com/) | Beginner podcast immersion and daily listening habit | The registry opens the provider-hosted podcast site in the existing frame-or-link viewer; Kizashi stores only source metadata and opened progress. |
 | Remote human audio | A specifically cleared recording | `RemoteAudioProvider` streams the approved external URL and preserves provenance metadata. |
 
 The UI exposes play, replay, slow playback, and the existing optional autoplay

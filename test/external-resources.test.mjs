@@ -53,6 +53,8 @@ test("all registered source families expose their role and delivery boundary", (
     tatoeba: ["sentence-linked human audio", "frame-or-link"],
     jsut: ["controlled speech", "frame-or-link"],
     "japanese-pod101": ["polished learner listening", "frame-or-link"],
+    "japanese-with-shun": ["easy-Japanese video immersion", "frame-or-link"],
+    "nihongo-con-teppei": ["beginner podcast immersion", "frame-or-link"],
     "tae-kim": ["alternative grammar intuition", "reference"],
     "wikibooks-japanese": ["supplementary grammar reference", "reference"],
     "wikimedia-commons": ["dynamic human pronunciation", "dynamic"],
@@ -72,6 +74,8 @@ test("existing listening sources keep original URLs and can try the private fram
     tatoeba: "https://tatoeba.org/en/audio/index/jpn",
     jsut: "https://sites.google.com/site/shinnosuketakamichi/publication/jsut",
     "japanese-pod101": "https://www.japanesepod101.com/lesson-library/level-1-japanese",
+    "japanese-with-shun": "https://www.youtube.com/@JapanesewithShun",
+    "nihongo-con-teppei": "https://teppei.nihongoconteppei.com/",
   };
 
   for (const [id, url] of Object.entries(expected)) {
