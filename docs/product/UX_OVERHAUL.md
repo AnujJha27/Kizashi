@@ -70,7 +70,7 @@ verification, `[ ]` not implemented.
 - [~] Furigana preference support now honors `Always`, `Unknown`, `Tap`, and `Hide` in the shared `JapaneseText` and `ReadingPanel` renderers; `Tap` reveals the clicked word and challenge mode remains strict. Complete fading for every raw/reference renderer is not finished.
 - [x] Quick practice favors unseen question variants while preserving stronger priority for mistakes, due reviews, and flagged ambiguity.
 - [x] Contextual actions connect items to practice, immersion, study-later, and repair flows.
-- [x] Card density and source/player separation have been reduced; Immersion reading/listening, real-life activities, and source detours use editorial separator rows and progressive loading, while dense admin review remains intentionally secondary.
+- [x] Card density and source/player separation have been reduced; Immersion activity navigation is now a compact scrollable tab row, while reading/listening, real-life activities, and source detours use editorial separator rows and progressive loading.
 - [x] Practice and Studio defer heavy package work, avoid eager full-bank browser generation, show only pending question drafts in Studio, cache generated questions, and avoid the stale global scroll lock that previously stranded route scrolling; a complete mobile, accessibility, and performance audit remains.
 
 ### Delivery status by implementation phase
@@ -117,7 +117,7 @@ items intentionally remain visible until the remaining surfaces are finished.
 - [x] **Reading/listening activity placement** — Immersion owns the source-hosted listening and reading shelves; `app/(main)/practice/page.tsx` owns the JLPT-style MCQ practice surface.
 - [x] **Integrated context practice** — `lib/integrated-exam-core.js` and the integrated Practice mode retain one primary item plus `targetItemIds` for multi-concept sets.
 - [~] **Furigana/scaffolding** — `components/learning/japanese-text.tsx` and `components/learning/reading-panel.tsx` implement shared `Always`/`Unknown`/`Tap`/`Hide` behavior with per-word tap reveal; Immersion, Practice review, lessons, entries, and Aozora use verified readings, while complete fading behavior remains partial.
-- [~] **Visual refinement/card density** — Immersion reading/listening, Irodori activities, source detours, Tadoku, and Aozora use separator-based or compact shelf layouts; Content Studio still needs the final U65/U66/U70 pass.
+- [~] **Visual refinement/card density** — Immersion navigation plus reading/listening, Irodori activities, source detours, Tadoku, and Aozora use compact/editorial layouts; Content Studio still needs the final U65/U66/U70 pass.
 - [x] **Mobile/accessibility/performance** — responsive navigation, deferred module loading, bounded Practice questions, deferred Studio JSON, bounded question review, and scroll-safe overlays are in code; the final cross-surface audit remains a follow-up.
 - [~] **Persistence beyond the browser** — local resume/progress works through `lib/session.ts`; account-backed synchronization is opt-in and the current deploy/package persistence path still needs verification.
 - [x] **Verification** — strict package QA, `tsc --noEmit`, the production build, and all 19 direct Node test files pass.
