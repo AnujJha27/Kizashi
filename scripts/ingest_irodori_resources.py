@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a metadata-only Irodori lesson/resource manifest for review."""
+"""Build a metadata-only Irodori activity/resource manifest for review."""
 
 from __future__ import annotations
 
@@ -22,28 +22,59 @@ def text(value: Any) -> str:
     return value.strip() if isinstance(value, str) else ""
 
 
+def course_level(course: str) -> str:
+    return {
+        "入門": "A1",
+        "初級1": "A2",
+        "初級2": "A2",
+        "準中級": "B1",
+    }.get(course, "")
+
+
+def ids_by_prefix(ids: list[str], prefix: str) -> list[str]:
+    return [value for value in ids if value.startswith(prefix)]
+
+
 def resource(entry: dict[str, Any], retrieved_at: str) -> dict[str, Any]:
     audio = entry.get("audio") if isinstance(entry.get("audio"), dict) else {}
     terms = entry.get("terms") if isinstance(entry.get("terms"), dict) else {}
+    target_ids = [value.strip() for value in entry.get("targetItemIds", []) if isinstance(value, str) and value.strip()]
+    activity_types = [value.strip() for value in entry.get("activityTypes", []) if isinstance(value, str) and value.strip()]
+    if not activity_types:
+        activity_types = ["listening", "dialogue", "shadowing", "real-life-task"]
+    source_url = text(entry.get("url")) or DEFAULT_SOURCE_URL
     return {
         "id": text(entry.get("id")),
         "sourceId": SOURCE_ID,
+        "provider": SOURCE_ID,
         "course": text(entry.get("course")),
+        "courseLevel": course_level(text(entry.get("course"))),
         "lesson": text(entry.get("lesson")),
         "canDo": text(entry.get("canDo")),
-        "url": text(entry.get("url")) or DEFAULT_SOURCE_URL,
+        "sourcePageUrl": source_url,
+        "url": source_url,
+        "activityTypes": activity_types,
         "resourceTypes": [value.strip() for value in entry.get("resourceTypes", []) if isinstance(value, str) and value.strip()],
         "audio": {
             "available": bool(audio.get("available")),
             "delivery": "provider-hosted",
             **({"url": text(audio.get("url"))} if text(audio.get("url")) else {}),
         },
-        "targetItemIds": [value.strip() for value in entry.get("targetItemIds", []) if isinstance(value, str) and value.strip()],
+        "targetItemIds": target_ids,
+        "targetGrammarIds": ids_by_prefix(target_ids, "grammar-"),
+        "targetVocabularyIds": ids_by_prefix(target_ids, "vocab-"),
+        "targetKanjiIds": ids_by_prefix(target_ids, "kanji-"),
         "terms": {
             "url": text(terms.get("url")) or TERMS_URL,
             "retrievedAt": text(terms.get("retrievedAt")) or retrieved_at,
         },
         "reviewStatus": "pending",
+        "provenance": {
+            "sourceId": SOURCE_ID,
+            "sourceUrl": source_url,
+            "retrievedAt": retrieved_at,
+            "termsUrl": text(terms.get("url")) or TERMS_URL,
+        },
     }
 
 
@@ -81,4 +112,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

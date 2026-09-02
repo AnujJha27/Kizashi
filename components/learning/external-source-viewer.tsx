@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import { ExternalSourceLauncher, type ExternalSourceLink } from "@/components/learning/external-source-launcher";
 import { canEmbedExternalSource, canPlayExternalSourceMedia } from "@/lib/external-resources";
+import { markExternalSourceOpened } from "@/lib/external-source-progress.js";
 
 export function ExternalSourceFrame({ source }: Readonly<{ source: ExternalSourceLink }>) {
   const canFrame = canEmbedExternalSource(source.mediaDelivery);
@@ -17,6 +18,7 @@ export function ExternalSourceViewer({ source, open, onToggle }: Readonly<{ sour
   const isOpen = controlled ? open : internalOpen;
   const canRender = canEmbedExternalSource(source.mediaDelivery) || (canPlayExternalSourceMedia(source.mediaDelivery) && Boolean(source.mediaUrl));
   const toggle = () => {
+    markExternalSourceOpened(source.id);
     if (!controlled) setInternalOpen((value) => !value);
     onToggle?.();
   };

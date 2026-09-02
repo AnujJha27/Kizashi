@@ -16,6 +16,9 @@ export interface ExternalSourceLink {
   title?: string;
   level?: string;
   context?: string;
+  course?: string;
+  lesson?: string;
+  canDo?: string;
   targetSkills?: readonly string[];
   targetItemIds?: readonly string[];
   annotationStatus?: string;

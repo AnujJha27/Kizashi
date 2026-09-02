@@ -54,6 +54,7 @@ verification, `[ ]` not implemented.
 - [x] Practice defers its question bank and bounds the live working catalog instead of retaining the full imported lesson corpus on every drill.
 - [x] Learn opens the active lesson directly with a compact lesson selector and step progression.
 - [x] Immersion is split into a recommendation feed and a focused activity player.
+- [x] Immersion includes a dedicated `実際に使う` real-life lane for source-hosted Irodori activities, separate from the general source shelf.
 - [x] Continue/resume state is shared across lessons, practice, immersion, and reading using the existing local session layer.
 - [x] Mistakes acts as a Repair Center with modality-specific repair actions.
 - [x] Cmd/Ctrl-K searches Japanese content, lessons, reading, immersion, and references through the bounded search route.
