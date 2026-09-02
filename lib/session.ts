@@ -22,9 +22,10 @@ export const REPAIR_STORAGE_KEY = "michi.repair-records";
 export const CUSTOM_ENTRIES_STORAGE_KEY = "michi.custom-entries";
 export const BOOK_NOTES_STORAGE_KEY = "michi.book-notes";
 export const BOOK_SCREENSHOTS_STORAGE_KEY = "michi.book-screenshots";
+export const BOOK_SKETCHES_STORAGE_KEY = "michi.book-sketches";
 export const SYNC_ENABLED_STORAGE_KEY = "michi.sync-enabled";
 
-const BACKUP_KEYS = [CURRENT_LESSON_STORAGE_KEY, REVIEW_STORAGE_KEY, NOTES_STORAGE_KEY, MISTAKES_STORAGE_KEY, DIAGNOSTIC_STORAGE_KEY, QUESTION_STATS_STORAGE_KEY, STUDY_STATS_STORAGE_KEY, SAVED_SENTENCES_STORAGE_KEY, STUDY_LATER_STORAGE_KEY, PROFILE_PREFERENCES_STORAGE_KEY, EXAM_ATTEMPTS_STORAGE_KEY, REPAIR_STORAGE_KEY, CUSTOM_ENTRIES_STORAGE_KEY, BOOK_NOTES_STORAGE_KEY, BOOK_SCREENSHOTS_STORAGE_KEY, CONTENT_FLAGS_STORAGE_KEY, "michi.content-draft", "michi.question-draft"] as const;
+const BACKUP_KEYS = [CURRENT_LESSON_STORAGE_KEY, REVIEW_STORAGE_KEY, NOTES_STORAGE_KEY, MISTAKES_STORAGE_KEY, DIAGNOSTIC_STORAGE_KEY, QUESTION_STATS_STORAGE_KEY, STUDY_STATS_STORAGE_KEY, SAVED_SENTENCES_STORAGE_KEY, STUDY_LATER_STORAGE_KEY, PROFILE_PREFERENCES_STORAGE_KEY, EXAM_ATTEMPTS_STORAGE_KEY, REPAIR_STORAGE_KEY, CUSTOM_ENTRIES_STORAGE_KEY, BOOK_NOTES_STORAGE_KEY, BOOK_SCREENSHOTS_STORAGE_KEY, BOOK_SKETCHES_STORAGE_KEY, CONTENT_FLAGS_STORAGE_KEY, "michi.content-draft", "michi.question-draft"] as const;
 
 function isBackupKey(key: string) {
   return BACKUP_KEYS.includes(key as (typeof BACKUP_KEYS)[number]) || key.startsWith(`${PRACTICE_SESSION_STORAGE_KEY}.`) || key.startsWith("michi.book-review.");
@@ -746,4 +747,33 @@ export function clearBookScreenshot(bookId: string, page: number) {
   if (typeof value !== "object" || value === null || Array.isArray(value)) return;
   delete value[`${bookId}:${page}`];
   window.localStorage.setItem(BOOK_SCREENSHOTS_STORAGE_KEY, JSON.stringify(value));
+}
+
+export function readBookSketchPages(bookId: string) {
+  if (typeof window === "undefined") return [""];
+  try {
+    const value = JSON.parse(window.localStorage.getItem(BOOK_SKETCHES_STORAGE_KEY) ?? "{}");
+    const sketch = value?.[bookId];
+    if (Array.isArray(sketch) && sketch.every((page) => typeof page === "string")) return sketch.length ? sketch : [""];
+    return typeof sketch === "string" ? [sketch] : [""];
+  } catch {
+    return [""];
+  }
+}
+
+export function writeBookSketchPages(bookId: string, pages: string[]) {
+  if (typeof window === "undefined") return;
+  if (!pages.every((page) => !page || page.startsWith("data:image/")) || pages.some((page) => page.length > 1_500_000)) throw new Error("Handwritten note is too large. Clear it and try again.");
+  const value = JSON.parse(window.localStorage.getItem(BOOK_SKETCHES_STORAGE_KEY) ?? "{}");
+  const sketches = typeof value === "object" && value !== null && !Array.isArray(value) ? value : {};
+  sketches[bookId] = pages;
+  window.localStorage.setItem(BOOK_SKETCHES_STORAGE_KEY, JSON.stringify(sketches));
+}
+
+export function clearBookSketchPages(bookId: string) {
+  if (typeof window === "undefined") return;
+  const value = JSON.parse(window.localStorage.getItem(BOOK_SKETCHES_STORAGE_KEY) ?? "{}");
+  if (typeof value !== "object" || value === null || Array.isArray(value)) return;
+  delete value[bookId];
+  window.localStorage.setItem(BOOK_SKETCHES_STORAGE_KEY, JSON.stringify(value));
 }
