@@ -12,6 +12,7 @@ const modes: { value: PracticeMode; label: string; jp: string }[] = [
   { value: "vocabulary", label: "Vocabulary", jp: "ことば" },
   { value: "kanji", label: "Kanji", jp: "漢字" },
   { value: "grammar", label: "Grammar", jp: "文法" },
+  { value: "conjugation", label: "Conjugation", jp: "活用" },
   { value: "mixed", label: "Mixed", jp: "総合" },
   { value: "pass", label: "Pass N5", jp: "合格への道" },
   { value: "mini", label: "Mini test", jp: "小テスト" },

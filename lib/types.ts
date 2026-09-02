@@ -10,7 +10,7 @@ export type LearningCategory =
 
 export type ItemType = LearningCategory;
 
-export type PracticeMode = "quick" | "vocabulary" | "kanji" | "grammar" | "reading" | "listening" | "mixed" | "mock" | "mini" | "section" | "full" | "pass" | "weak" | "integrated";
+export type PracticeMode = "quick" | "vocabulary" | "kanji" | "grammar" | "conjugation" | "reading" | "listening" | "mixed" | "mock" | "mini" | "section" | "full" | "pass" | "weak" | "integrated";
 
 export type CurriculumBand = "core" | "extended" | "bridge";
 export type CurriculumConfidence = "high" | "medium" | "low";

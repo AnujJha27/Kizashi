@@ -108,6 +108,8 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
     questions.push({ id: `${item.id}-production`, itemId: item.id, category: "vocabulary", questionType: "Japanese recall", jlptLevel: item.jlptLevel, prompt: `Write the Japanese for: ${item.meanings[0]}.`, options: [], correctIndex: 0, answerMode: "text", acceptedAnswers: [item.writtenForm], answerPlaceholder: "Japanese", explanation: `The Japanese word is ${item.writtenForm} (${item.reading}).` });
     const audioChoices = rotateOptions(item.meanings[0], vocabularyMeanings, index + 3);
     questions.push({ id: `${item.id}-audio`, itemId: item.id, category: "vocabulary", questionType: "audio recognition", jlptLevel: item.jlptLevel, prompt: "Listen to the word. What does it mean?", ...audioChoices, explanation: `${item.reading} means ${item.meanings.join(" / ")}.`, audioText: item.reading, audioUrl: item.audioUrl });
+    const politeForm = politeForms[item.writtenForm];
+    if (politeForm) questions.push({ id: `${item.id}-conjugation-masu`, itemId: item.id, category: "vocabulary", questionType: "conjugation", jlptLevel: item.jlptLevel, prompt: `Write the polite ます-form of ${item.writtenForm} (${item.reading}).`, options: [], correctIndex: 0, answerMode: "text", acceptedAnswers: [politeForm], answerPlaceholder: "ます-form", explanation: `${item.writtenForm} becomes ${politeForm} in the polite present form.` });
   });
 
   module.kanji.forEach((item, index) => {
@@ -310,6 +312,7 @@ export function selectPracticeQuestions(mode: PracticeMode, questions = getValid
   if (mode === "mixed") return [...takeByQuestionTypes(targetQuestions, "vocabulary", ["kana recall", "Japanese recall", "orthography", "audio recognition", "meaning"], 3), ...takeByQuestionTypes(targetQuestions, "kanji", ["kana recall", "kanji in context", "reading in context", "orthography", "kanji reading"], 2), ...takeGrammar(targetQuestions, 3), ...takeByCategory(targetQuestions, "reading", 2), ...takeListening(targetQuestions, 2)];
   if (mode === "grammar") return takeGrammar(targetQuestions, 12);
   if (mode === "vocabulary") return takeByQuestionTypes(targetQuestions, "vocabulary", ["kana recall", "Japanese recall", "orthography", "audio recognition", "meaning", "contextual vocabulary", "paraphrase"], 12);
+  if (mode === "conjugation") return takeByQuestionTypes(targetQuestions, "vocabulary", ["conjugation"], 12);
   if (mode === "kanji") return takeByQuestionTypes(targetQuestions, "kanji", ["kana recall", "kanji in context", "reading in context", "kanji reading", "kanji meaning", "orthography", "word to kanji recall"], 12);
   if (mode === "weak") return [];
   return takeByCategory(targetQuestions, mode as PracticeQuestion["category"], 12);

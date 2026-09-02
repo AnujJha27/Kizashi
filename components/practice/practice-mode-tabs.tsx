@@ -15,7 +15,7 @@ const intents: Array<{ value: PracticeIntent; label: string; jp: string; detail:
   { value: "test", label: "Test", jp: "テスト", detail: "Mini, section, or full exam practice.", href: "/practice?mode=mini" },
 ];
 
-const focusValues = new Set<PracticeMode>(["vocabulary", "kanji", "grammar", "mixed"]);
+const focusValues = new Set<PracticeMode>(["vocabulary", "kanji", "grammar", "conjugation", "mixed"]);
 const testValues = new Set<PracticeMode>(["pass", "mini", "section", "full", "integrated", "mock"]);
 
 function activeIntent(mode: PracticeMode): PracticeIntent {

@@ -43,6 +43,7 @@ coverage/verification, `[ ]` not implemented.
 - [x] Aozora has a rights-filtered metadata shelf and dynamic reader; Tadoku has a provider-hosted graded-reading shelf with local opened progress.
 - [x] Tae Kim, Wikibooks, and Commons/Lingua Libre use the existing external-resource/audio/reference abstractions without copying third-party media into Supabase.
 - [~] Shared furigana scaffolding now honors `Always`, `Unknown`, `Tap`, and `Hide` in the learner text renderers; remaining raw/reference renderers still need the same treatment.
+- [x] Conjugation Lab is learner-visible as a Focus mode and reuses the existing PracticePlayer for reviewed vocabulary verb polite-form production prompts.
 - [x] Erin's registry now indexes all 25 Basic and 25 Advanced provider lesson pages; six curated Basic entries additionally have Kizashi target mappings and direct provider MP4 metadata.
 - [x] The learner curriculum contains the original reading target: 102 assets across N5/N4 short, mid-length, and information-retrieval families; the listening bank contains 160 N5/N4 scenarios across task-based, key-point, verbal-expression, and quick-response families. Immersion now exposes the full banks progressively instead of showing only the first eight.
 - [x] Tatoeba has metadata-only exact-sentence audio resolution through the existing `AudioControls` fallback chain; per-recording license, contributor, sentence page, and remote URL are retained without mirroring audio.
