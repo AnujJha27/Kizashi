@@ -346,6 +346,8 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   const [editorKind, setEditorKind] = useState<EditableKind>("vocabulary");
   const [editorRecordId, setEditorRecordId] = useState("");
   const [questionView, setQuestionView] = useState<"review" | "edit">("review");
+  const [loadingFullPackage, setLoadingFullPackage] = useState(false);
+  const [fullPackageLoaded, setFullPackageLoaded] = useState(false);
   const parsedDraft = useMemo(() => raw ? parseAndValidateModule(raw) : { value: seed, result: seedHealth }, [raw, seed, seedHealth]);
   const coverageModule = useMemo(() => parsedDraft.value ?? parseModuleForReview(raw) ?? seed, [parsedDraft.value, raw, seed]);
   const currentOrSavedDraft = useMemo(() => parsedDraft.value ?? parseModuleForReview(raw) ?? readValidatedContentDraft(), [parsedDraft.value, raw]);
@@ -357,26 +359,24 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
     return next;
   };
 
-  useEffect(() => {
-    let cancelled = false;
-    const timer = window.setTimeout(() => fetch("/api/content/review-package", { cache: "no-store" })
-      .then(async (response) => {
-        if (!response.ok) throw new Error("Review package request failed.");
-        const next = parseModuleForReview(await response.text());
-        if (!next) throw new Error("Review package is invalid.");
-        return next;
-      })
-      .then((next) => {
-        if (cancelled) return;
-        setSeed(next);
-        setResult(validateModule(next));
-        setMessage("Loaded the full staged review package.");
-      })
-      .catch(() => {
-        if (!cancelled) setMessage("The full review package could not load; the bundled curriculum is shown.");
-      }), 1500);
-    return () => { cancelled = true; window.clearTimeout(timer); };
-  }, []);
+  const loadFullPackage = async () => {
+    if (loadingFullPackage || fullPackageLoaded) return;
+    setLoadingFullPackage(true);
+    try {
+      const response = await fetch("/api/content/review-package", { cache: "no-store" });
+      if (!response.ok) throw new Error("Review package request failed.");
+      const next = parseModuleForReview(await response.text());
+      if (!next) throw new Error("Review package is invalid.");
+      setSeed(next);
+      setResult(validateModule(next));
+      setFullPackageLoaded(true);
+      setMessage("Loaded the full staged review package.");
+    } catch {
+      setMessage("The full review package could not load; the bundled curriculum is shown.");
+    } finally {
+      setLoadingFullPackage(false);
+    }
+  };
 
   const questionIds = () => {
     const draft = currentOrSavedDraft;
@@ -442,8 +442,10 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
         setMessage("The saved question draft was invalid, so the bundled question bank is shown. Reset questions to clear the old copy.");
       }
     };
-    void load();
-    return () => { cancelled = true; };
+    const cancel = typeof window.requestIdleCallback === "function"
+      ? (() => { const id = window.requestIdleCallback(() => { void load(); }, { timeout: 2000 }); return () => window.cancelIdleCallback(id); })()
+      : (() => { const id = window.setTimeout(() => { void load(); }, 100); return () => window.clearTimeout(id); })();
+    return () => { cancelled = true; cancel(); };
   }, [knownItemIds, questionHealth, questions, seed, seedHealth]);
 
   const validate = () => {
@@ -660,7 +662,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
     <section className="rounded-xl border border-[#3f3427] bg-[#211d18]/65 p-5 sm:p-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Curriculum package</p><h2 className="mt-1 text-xl font-medium text-[#f5f5f2]">Review the path, then edit it.</h2><p className="mt-1 max-w-2xl text-sm text-[#9297a1]">Scan readable cards first. Edit fields directly, or use Advanced JSON only for imports and bulk changes.</p></div><div className="flex flex-wrap gap-2"><button type="button" onClick={resetDraft} className="rounded-xl border border-white/10 px-4 py-3 text-sm font-semibold text-[#c3c7ce] hover:border-[#e5b85c] hover:text-[#f1cf7c]">Reset draft</button><label className="w-fit cursor-pointer rounded-xl border border-[#5d3936] px-4 py-3 text-sm font-semibold text-[#f5f5f2] hover:border-[#e34a3f]">Import JSON<input type="file" accept="application/json,.json" className="sr-only" onChange={(event) => void loadFile(event.target.files?.[0])} /></label></div></div>
       <div className="mt-5 flex flex-wrap gap-2"><span className="self-center text-xs text-[#9297a1]">New starter:</span>{draftKinds.map((category) => <button key={category} type="button" onClick={() => addTemplate(category)} className="rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce] hover:border-[#e5b85c] hover:text-[#f1cf7c]">{category === "grammarContrast" ? "grammar contrast" : category}</button>)}</div>
-      <div className="mt-5 flex flex-wrap gap-2 border-b border-white/10 pb-3"><button type="button" onClick={() => setContentView("review")} className={`rounded-lg px-3 py-2 text-xs ${contentView === "review" ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1]"}`}>Review cards</button><button type="button" onClick={() => { ensureRaw(); setContentView("form"); }} className={`rounded-lg px-3 py-2 text-xs ${contentView === "form" ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1]"}`}>Edit records</button><button type="button" onClick={() => { ensureRaw(); setContentView("json"); }} className={`rounded-lg px-3 py-2 text-xs ${contentView === "json" ? "bg-[#3a2023] text-[#f5f5f2]" : "border border-[#3f4652] text-[#9297a1]"}`}>Advanced JSON</button></div>
+      <div className="mt-5 flex flex-wrap items-center gap-2 border-b border-white/10 pb-3"><button type="button" onClick={() => setContentView("review")} className={`rounded-lg px-3 py-2 text-xs ${contentView === "review" ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1]"}`}>Review cards</button><button type="button" onClick={() => { ensureRaw(); setContentView("form"); }} className={`rounded-lg px-3 py-2 text-xs ${contentView === "form" ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1]"}`}>Edit records</button><button type="button" onClick={() => { ensureRaw(); setContentView("json"); }} className={`rounded-lg px-3 py-2 text-xs ${contentView === "json" ? "bg-[#3a2023] text-[#f5f5f2]" : "border border-[#3f4652] text-[#9297a1]"}`}>Advanced JSON</button><button type="button" onClick={() => void loadFullPackage()} disabled={loadingFullPackage || fullPackageLoaded} className="ml-auto rounded-lg border border-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#f1cf7c] enabled:hover:bg-[#302818] disabled:cursor-not-allowed disabled:opacity-50">{loadingFullPackage ? "Loading full package…" : fullPackageLoaded ? "Full package loaded" : "Load full review package"}</button></div>
       {contentView === "form" ? <div className="mt-5"><ContentRecordEditor raw={raw} fallback={seed} preferredKind={editorKind} preferredId={editorRecordId} onChange={updateFormRaw} onAdd={addTemplate} sources={sources} /></div> : contentView === "json" ? <textarea value={raw} onChange={(event) => { setRaw(event.target.value); setShowContentIssues(false); }} spellCheck={false} aria-label="Content package JSON" className="mt-5 min-h-[28rem] w-full rounded-xl border border-[#3f4652] bg-[#0d1522]/90 p-4 font-mono text-xs leading-6 text-[#d8dde4] outline-none focus:border-[#e5b85c]" /> : <div className="mt-5"><ContentReview module={coverageModule} onEdit={openRecordEditor} onReview={updateContentStatus} /></div>}
       <div className="mt-4 flex flex-wrap items-center gap-3"><button type="button" onClick={validate} className="rounded-xl bg-[#e34a3f] px-4 py-3 text-sm font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">Validate package</button><button type="button" onClick={saveDraft} disabled={!raw && !seed} title="Save an in-progress local review draft" className="rounded-xl border border-[#5d3936] px-4 py-3 text-sm font-semibold text-[#f5f5f2] enabled:hover:border-[#e34a3f] disabled:cursor-not-allowed disabled:opacity-40">Save local review draft</button><button type="button" onClick={() => downloadJson(ensureRaw(), "kizashi-content-draft.json")} className="rounded-xl border border-white/10 px-4 py-3 text-sm text-[#9297a1] hover:text-[#f5f5f2]">Export JSON</button>{!parsedDraft.result.valid ? <span className="text-xs text-[#ef675d]">Saved drafts may be incomplete; validate before publishing.</span> : null}{message ? <span className="text-xs text-[#e5b85c]" role="status">{message}</span> : null}</div>
     </section>
