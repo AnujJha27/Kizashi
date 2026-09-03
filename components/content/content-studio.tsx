@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 
 import { AIGenerator } from "@/components/content/ai-generator";
 import { ContentRecordEditor, type EditableKind } from "@/components/content/content-record-editor";
@@ -83,26 +83,59 @@ function ReadingDiagnostics({ module }: Readonly<{ module: N5Module }>) {
   const vocabulary = module.vocabulary;
   const kanji = module.kanji;
   const entries = useMemo(() => getJapaneseReadingEntries(vocabulary, kanji), [vocabulary, kanji]);
+  const items = useMemo(() => getModuleItems(module), [module]);
+  const entriesByInitial = useMemo(() => {
+    const grouped = new Map<string, Array<{ text: string; reading: string }>>();
+    entries.forEach(([text, reading]) => {
+      const initial = [...text][0];
+      if (!initial) return;
+      grouped.set(initial, [...(grouped.get(initial) ?? []), { text, reading }]);
+    });
+    return grouped;
+  }, [entries]);
   const [surfaces, setSurfaces] = useState<Array<{ item: LessonContentItem; text: string }>>([]);
-  const [scanning, setScanning] = useState(true);
+  const [scanning, setScanning] = useState(false);
+  const [scanned, setScanned] = useState(false);
+  const scanVersion = useRef(0);
   useEffect(() => {
-    let cancelled = false;
-    setScanning(true);
-    const scan = () => {
-      const unresolved = getModuleItems(module).flatMap((item) => {
-        const texts = item.category === "vocabulary" ? item.exampleSentences.map((example) => example.japanese) : item.category === "grammar" ? item.examples.map((example) => example.japanese) : item.category === "reading" ? [item.passage, ...(item.questions ?? []).map((question) => question.prompt)] : item.category === "listening" ? [item.transcript, ...(item.questions ?? []).map((question) => question.prompt)] : item.usefulWords.map((word) => word.word);
-        return texts.flatMap((text) => {
-          const firstCharacters = new Set([...text]);
-          const relevantEntries = entries.filter(([word]) => firstCharacters.has([...word][0] ?? "")).map(([word, reading]) => ({ text: word, reading }));
-          return getUnresolvedJapaneseSegments(text, relevantEntries).map((segment: { text: string }) => ({ item, text: segment.text }));
-        });
-      });
-      if (!cancelled) { setSurfaces(unresolved); setScanning(false); }
-    };
-    const cancel = typeof window.requestIdleCallback === "function" ? (() => { const id = window.requestIdleCallback(scan, { timeout: 1500 }); return () => window.cancelIdleCallback(id); })() : (() => { const id = window.setTimeout(scan, 0); return () => window.clearTimeout(id); })();
-    return () => { cancelled = true; cancel(); };
+    scanVersion.current += 1;
+    setSurfaces([]);
+    setScanned(false);
+    setScanning(false);
+    return () => { scanVersion.current += 1; };
   }, [entries, module]);
-  return <section className={`rounded-xl border p-4 ${surfaces.length ? "border-[#5d4c2c] bg-[#2b2418]/70" : "border-[#315d4b] bg-[#162b26]/70"}`}><div className="flex items-center justify-between gap-3"><p className="text-sm text-[#f5f5f2]">Japanese reading diagnostics</p><span className={scanning ? "text-[#e5b85c]" : surfaces.length ? "text-[#e5b85c]" : "text-[#6fb98f]"}>{scanning ? "Scanning…" : surfaces.length ? `${surfaces.length} unresolved` : "Clear"}</span></div><p className="mt-2 text-xs text-[#9297a1]">Development-only scan of learner-facing authored examples. Unresolved text is not silently assigned a reading.</p>{surfaces.length ? <ul className="mt-3 space-y-1 text-xs text-[#f1cf7c]">{surfaces.slice(0, 8).map((entry, index) => <li key={`${entry.item.id}-${entry.text}-${index}`}><span className="font-mono">{entry.item.id}</span> · {entry.text}</li>)}</ul> : null}</section>;
+  const scan = () => {
+    if (scanning) return;
+    const version = scanVersion.current + 1;
+    scanVersion.current = version;
+    setScanning(true);
+    setScanned(false);
+    const unresolved: Array<{ item: LessonContentItem; text: string }> = [];
+    let position = 0;
+    const runChunk = () => {
+      if (scanVersion.current !== version) return;
+      const end = Math.min(position + 80, items.length);
+      for (; position < end; position += 1) {
+        const item = items[position];
+        const texts = item.category === "vocabulary" ? item.exampleSentences.map((example) => example.japanese) : item.category === "grammar" ? item.examples.map((example) => example.japanese) : item.category === "reading" ? [item.passage, ...(item.questions ?? []).map((question) => question.prompt)] : item.category === "listening" ? [item.transcript, ...(item.questions ?? []).map((question) => question.prompt)] : item.usefulWords.map((word) => word.word);
+        texts.forEach((text) => {
+          const relevantEntries = [...new Set([...text].flatMap((character) => entriesByInitial.get(character) ?? []))];
+          getUnresolvedJapaneseSegments(text, relevantEntries).forEach((segment: { text: string }) => unresolved.push({ item, text: segment.text }));
+        });
+      }
+      if (position < items.length) {
+        window.setTimeout(runChunk, 0);
+        return;
+      }
+      if (scanVersion.current === version) {
+        setSurfaces(unresolved);
+        setScanned(true);
+        setScanning(false);
+      }
+    };
+    window.setTimeout(runChunk, 0);
+  };
+  return <section className={`rounded-xl border p-4 ${surfaces.length ? "border-[#5d4c2c] bg-[#2b2418]/70" : "border-[#315d4b] bg-[#162b26]/70"}`}><div className="flex flex-wrap items-center justify-between gap-3"><div><p className="text-sm text-[#f5f5f2]">Japanese reading diagnostics</p><p className="mt-1 text-xs text-[#9297a1]">Scan learner-facing authored examples when you want to audit unresolved readings.</p></div><div className="flex items-center gap-3"><span className={scanning ? "text-[#e5b85c]" : surfaces.length ? "text-[#e5b85c]" : "text-[#6fb98f]"}>{scanning ? "Scanning…" : scanned ? surfaces.length ? `${surfaces.length} unresolved` : "Clear" : "Not scanned"}</span><button type="button" onClick={scan} disabled={scanning} className="rounded-lg border border-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#f1cf7c] disabled:cursor-wait disabled:opacity-50">{scanning ? "Scanning…" : scanned ? "Scan again" : "Scan readings"}</button></div></div>{surfaces.length ? <ul className="mt-3 space-y-1 text-xs text-[#f1cf7c]">{surfaces.slice(0, 8).map((entry, index) => <li key={`${entry.item.id}-${entry.text}-${index}`}><span className="font-mono">{entry.item.id}</span> · {entry.text}</li>)}</ul> : null}</section>;
 }
 
 function Issues({ result }: Readonly<{ result: ContentValidationResult }>) {
@@ -687,7 +720,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><Health label="Last curriculum validation" result={result} /><Health label="Practice question bank" result={questionResult} /><CoverageHealth coverage={practiceCoverage} /></div>
     <ReadingDiagnostics module={coverageModule} />
     <SourceCoverage items={coverageItems} sources={sources} />
-    <TopicCoverage module={coverageModule} />
+    <TopicCoverage module={coverageModule} practiceQuestions={questionBank.length ? questionBank : null} />
     <AIGenerator items={coverageItems.filter((item) => getContentReviewStatus(item) === "approved")} onAdd={addGeneratedQuestion} />
 
     <section className="rounded-xl border border-[#3f3427] bg-[#211d18]/65 p-5 sm:p-6">

@@ -31,9 +31,11 @@ the deferred ServerTTS/audio-archive work.
   real lesson assignment: 71 in the six core lessons and 8,321 across 57
   bounded source-curriculum lessons.
 - Spoken-language handling is complete at the current boundary: CEJC aggregate
-  signals and I-JAS aggregate learner-error signals are wired; CSJ remains a
-  local review-only input. Raw corpus records, learner records, transcripts,
-  annotations, and corpus audio are not imported.
+  signals and I-JAS aggregate learner-error signals are wired. The workspace
+  owner has authorized CSJ-derived aggregate frequency values for the private
+  allowlisted package through `apply_spoken_frequency.py --publish-private`;
+  no raw corpus records, learner records, transcripts, annotations, or corpus
+  audio are imported.
 - Audio uses `BrowserSpeechProvider` by default, `RemoteAudioProvider` only for
   explicitly cleared external recordings, and a reserved unavailable
   `ServerTTSProvider`. Generated pronunciation blobs are not persisted. The

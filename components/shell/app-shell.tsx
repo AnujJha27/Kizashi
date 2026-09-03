@@ -128,7 +128,7 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
           </Link></div>
         </header>
 
-        <main className="relative z-10 min-w-0 overflow-x-clip safe-bottom min-h-[calc(100vh-4rem)] px-5 py-7 lg:px-10 lg:py-10">{children}<AccountSync visible={pathname === "/profile"} /></main>
+        <main className="relative z-10 min-w-0 overflow-x-clip overflow-y-visible safe-bottom min-h-[calc(100vh-4rem)] px-5 py-7 lg:px-10 lg:py-10">{children}<AccountSync visible={pathname === "/profile"} /></main>
 
         {secondaryOpen ? <button type="button" aria-label="Close more navigation" onClick={() => setSecondaryOpen(false)} className="fixed inset-0 z-30 bg-[#07080c]/45 lg:hidden" /> : null}
         {secondaryOpen ? <div id="mobile-secondary-navigation" className="fixed inset-x-3 bottom-[calc(4.75rem+env(safe-area-inset-bottom))] z-50 rounded-2xl border border-[#4b3a29] bg-[#111216]/95 p-2 shadow-2xl backdrop-blur-xl lg:hidden">{visibleSecondaryItems.map((item) => <Link key={item.href} prefetch={false} href={item.href} onClick={() => setSecondaryOpen(false)} className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm ${isActive(pathname, item.href) ? "bg-[#3a2023] text-[#f5f5f2]" : "text-[#c3c7ce] hover:bg-[#211d18] hover:text-[#f5f5f2]"}`}><span className="grid size-7 place-items-center rounded-lg bg-[#203747]/80 text-xs text-[#e5b85c]" aria-hidden="true">{item.mark}</span><span>{item.label}</span><span className="jp-serif ml-auto text-xs text-[#9db4bd]">{item.jpLabel}</span></Link>)}</div> : null}
