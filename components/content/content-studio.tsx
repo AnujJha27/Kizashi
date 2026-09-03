@@ -228,29 +228,32 @@ function ContentReviewCard({ item, sourceById, onOpen }: Readonly<{
 }
 
 function ContentReview({ module, onEdit, onReview }: Readonly<{ module: N5Module; onEdit: (kind?: EditableKind, id?: string) => void; onReview?: (id: string, status: ContentReviewStatus) => void }>) {
-  const [statusFilter, setStatusFilter] = useState<"pending" | "all">(() => getModuleItems(module).some((item) => getContentReviewStatus(item) === "pending") ? "pending" : "all");
+  const allItems = useMemo(() => getModuleItems(module), [module]);
+  const [statusFilter, setStatusFilter] = useState<"pending" | "all">(() => allItems.some((item) => getContentReviewStatus(item) === "pending") ? "pending" : "all");
   const [levelFilter, setLevelFilter] = useState<"all" | "N5" | "N4">("all");
   const [bandFilter, setBandFilter] = useState<"all" | "core" | "extended" | "bridge">("all");
   const [sourceFilter, setSourceFilter] = useState("all");
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(0);
   const [expandedItem, setExpandedItem] = useState<ReviewItem | null>(null);
-  const allItems = getModuleItems(module);
-  const pendingItems = allItems.filter((item) => getContentReviewStatus(item) === "pending");
-  const sourceOptions = [...new Set(allItems.flatMap((item) => item.sourceIds ?? []))].sort();
-  const filteredItems = allItems.filter((item) => {
-    if (statusFilter === "pending" && getContentReviewStatus(item) !== "pending") return false;
-    if (levelFilter !== "all" && item.jlptLevel !== levelFilter) return false;
-    if (bandFilter !== "all" && getCurriculumBand(item) !== bandFilter) return false;
-    if (sourceFilter !== "all" && !(item.sourceIds ?? []).includes(sourceFilter)) return false;
-    if (query.trim() && ![item.id, item.title, item.category, item.subcategory, ...(item.tags ?? [])].join(" ").toLocaleLowerCase().includes(query.trim().toLocaleLowerCase())) return false;
-    return true;
-  });
-  const rankedItems = rankContentCandidates(filteredItems, readReviewRecords(), readMistakes(), filteredItems.length) as Array<LessonContentItem & { reason: string }>;
+  const pendingItems = useMemo(() => allItems.filter((item) => getContentReviewStatus(item) === "pending"), [allItems]);
+  const sourceOptions = useMemo(() => [...new Set(allItems.flatMap((item) => item.sourceIds ?? []))].sort(), [allItems]);
+  const filteredItems = useMemo(() => {
+    const normalizedQuery = query.trim().toLocaleLowerCase();
+    return allItems.filter((item) => {
+      if (statusFilter === "pending" && getContentReviewStatus(item) !== "pending") return false;
+      if (levelFilter !== "all" && item.jlptLevel !== levelFilter) return false;
+      if (bandFilter !== "all" && getCurriculumBand(item) !== bandFilter) return false;
+      if (sourceFilter !== "all" && !(item.sourceIds ?? []).includes(sourceFilter)) return false;
+      if (normalizedQuery && ![item.id, item.title, item.category, item.subcategory, ...(item.tags ?? [])].join(" ").toLocaleLowerCase().includes(normalizedQuery)) return false;
+      return true;
+    });
+  }, [allItems, bandFilter, levelFilter, query, sourceFilter, statusFilter]);
+  const rankedItems = useMemo(() => rankContentCandidates(filteredItems, readReviewRecords(), readMistakes(), filteredItems.length) as Array<LessonContentItem & { reason: string }>, [filteredItems]);
   const pageSize = 60;
   const pageCount = Math.ceil(rankedItems.length / pageSize);
   const items = rankedItems.slice(page * pageSize, (page + 1) * pageSize);
-  const sourceById = new Map((module.sourceManifest ?? []).map((source) => [source.id, source]));
+  const sourceById = useMemo(() => new Map((module.sourceManifest ?? []).map((source) => [source.id, source])), [module.sourceManifest]);
   useEffect(() => { setPage(0); setExpandedItem(null); }, [statusFilter, levelFilter, bandFilter, sourceFilter, query]);
 
   return <div className="rounded-xl border border-white/10 bg-[#0d1522]/65 p-4">
@@ -346,6 +349,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   const parsedDraft = useMemo(() => raw ? parseAndValidateModule(raw) : { value: seed, result: seedHealth }, [raw, seed, seedHealth]);
   const coverageModule = useMemo(() => parsedDraft.value ?? parseModuleForReview(raw) ?? seed, [parsedDraft.value, raw, seed]);
   const currentOrSavedDraft = useMemo(() => parsedDraft.value ?? parseModuleForReview(raw) ?? readValidatedContentDraft(), [parsedDraft.value, raw]);
+  const coverageItems = useMemo(() => getModuleItems(coverageModule), [coverageModule]);
   const ensureRaw = () => {
     if (raw) return raw;
     const next = JSON.stringify(seed, null, 2);
@@ -649,9 +653,9 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   return <div className="space-y-7">
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><Health label="Last curriculum validation" result={result} /><Health label="Practice question bank" result={questionResult} /><CoverageHealth coverage={practiceCoverage} /></div>
     <ReadingDiagnostics module={coverageModule} />
-    <SourceCoverage items={getModuleItems(coverageModule)} sources={sources} />
+    <SourceCoverage items={coverageItems} sources={sources} />
     <TopicCoverage module={coverageModule} />
-    <AIGenerator items={getModuleItems(coverageModule).filter((item) => getContentReviewStatus(item) === "approved")} onAdd={addGeneratedQuestion} />
+    <AIGenerator items={coverageItems.filter((item) => getContentReviewStatus(item) === "approved")} onAdd={addGeneratedQuestion} />
 
     <section className="rounded-xl border border-[#3f3427] bg-[#211d18]/65 p-5 sm:p-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Curriculum package</p><h2 className="mt-1 text-xl font-medium text-[#f5f5f2]">Review the path, then edit it.</h2><p className="mt-1 max-w-2xl text-sm text-[#9297a1]">Scan readable cards first. Edit fields directly, or use Advanced JSON only for imports and bulk changes.</p></div><div className="flex flex-wrap gap-2"><button type="button" onClick={resetDraft} className="rounded-xl border border-white/10 px-4 py-3 text-sm font-semibold text-[#c3c7ce] hover:border-[#e5b85c] hover:text-[#f1cf7c]">Reset draft</button><label className="w-fit cursor-pointer rounded-xl border border-[#5d3936] px-4 py-3 text-sm font-semibold text-[#f5f5f2] hover:border-[#e34a3f]">Import JSON<input type="file" accept="application/json,.json" className="sr-only" onChange={(event) => void loadFile(event.target.files?.[0])} /></label></div></div>
