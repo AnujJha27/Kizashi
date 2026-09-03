@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import { getAllowedUser } from "@/lib/auth/guard";
 import { getStudyBook } from "@/lib/books";
-import { getBookStoragePartPaths, getBookStoragePath } from "@/lib/supabase/book-storage-core";
+import { getBookStoragePathSets } from "@/lib/supabase/book-storage-core";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 
@@ -19,7 +19,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ boo
   if (user.isDemo || !isSupabaseConfigured() || !(process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_SERVICE_KEY)) return NextResponse.json({ error: "Remote book storage is not configured." }, { status: 503 });
 
   const supabase = createSupabaseAdminClient();
-  const pathSets = [getBookStoragePartPaths(book), [getBookStoragePath(book)].filter((value): value is string => Boolean(value))];
+  const pathSets = getBookStoragePathSets(book);
   if (!supabase || !pathSets.some((paths) => paths.length)) return NextResponse.json({ error: "Book storage path is invalid." }, { status: 500 });
 
   let parts: string[] = [];

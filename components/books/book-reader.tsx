@@ -24,15 +24,16 @@ export function BookReader({ book }: Readonly<{ book: StudyBook }>) {
     setPdfUrl(null);
     setPdfError("");
     setPdfLoading(true);
+    const fetchBook = (input: RequestInfo | URL) => fetch(input, { cache: "no-store", signal: AbortSignal.timeout(90_000) });
     const loadPdf = async () => {
       try {
-        const manifest = await fetch(`/api/books/${book.id}/parts`, { cache: "no-store" });
+        const manifest = await fetchBook(`/api/books/${book.id}/parts`);
         let blob: Blob | null = null;
         if (manifest.ok) {
           try {
             const payload = await manifest.json() as { parts?: unknown };
             if (!Array.isArray(payload.parts) || !payload.parts.every((part): part is string => typeof part === "string")) throw new Error("Book parts are invalid.");
-            const responses = await Promise.all(payload.parts.map((part) => fetch(part)));
+            const responses = await Promise.all(payload.parts.map((part) => fetchBook(part)));
             if (responses.some((response) => !response.ok)) throw new Error("Book part unavailable.");
             blob = new Blob(await Promise.all(responses.map((response) => response.blob())), { type: "application/pdf" });
           } catch {
@@ -40,7 +41,7 @@ export function BookReader({ book }: Readonly<{ book: StudyBook }>) {
           }
         }
         if (!blob) {
-          const response = await fetch(`/api/books/${book.id}`, { cache: "no-store" });
+          const response = await fetchBook(`/api/books/${book.id}`);
           if (!response.ok) throw new Error("Book file unavailable.");
           blob = await response.blob();
         }

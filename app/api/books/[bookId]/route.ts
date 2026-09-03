@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 
 import { getAllowedUser } from "@/lib/auth/guard";
 import { getStudyBook } from "@/lib/books";
-import { getBookStoragePartPaths, getBookStoragePath } from "@/lib/supabase/book-storage-core";
+import { getBookStoragePathSets } from "@/lib/supabase/book-storage-core";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 
@@ -59,7 +59,7 @@ async function remoteBookResponse(book: NonNullable<ReturnType<typeof getStudyBo
   const supabase = createSupabaseAdminClient();
   if (!supabase) return new Response("Book storage is not configured.", { status: 503 });
 
-  const pathSets = [getBookStoragePartPaths(book), [getBookStoragePath(book)].filter((value): value is string => Boolean(value))];
+  const pathSets = getBookStoragePathSets(book);
   let signedUrls: string[] = [];
   for (const paths of pathSets) {
     if (!paths.length) continue;

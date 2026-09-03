@@ -1,4 +1,4 @@
-const CACHE = "kizashi-shell-v7";
+const CACHE = "kizashi-shell-v8";
 const SHELL = ["/offline", "/journey", "/learn", "/practice", "/practice/kana", "/practice/diagnostic", "/immersion", "/review", "/mistakes", "/library", "/progress", "/profile", "/studio", "/icon.svg", "/journey-hero.png", "/site-atmosphere.png"];
 
 self.addEventListener("install", (event) => {
