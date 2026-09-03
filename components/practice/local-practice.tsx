@@ -81,7 +81,7 @@ function useActiveQuestions(fallback: PracticeQuestion[], targetLevel: TargetLev
   return { questions, module, readingEntries, loaded };
 }
 
-export function LocalPractice({ allQuestions, mode, duration, focus, section, topic, targetLevel }: Readonly<{ allQuestions?: PracticeQuestion[]; mode: PracticeMode; duration: number; focus?: string; section?: string; topic?: string; targetLevel: TargetLevel }>) {
+export function LocalPractice({ allQuestions, mode, duration, focus, section, topic, targetLevel, onReady }: Readonly<{ allQuestions?: PracticeQuestion[]; mode: PracticeMode; duration: number; focus?: string; section?: string; topic?: string; targetLevel: TargetLevel; onReady?: () => void }>) {
   // The browser receives the bounded learner module below; generating the full
   // staged bank here freezes navigation before that module can arrive.
   const fallbackQuestions = useMemo(() => allQuestions ?? [], [allQuestions]);
@@ -100,6 +100,7 @@ export function LocalPractice({ allQuestions, mode, duration, focus, section, to
   const sessionId = `practice-${mode}-${targetLevel}-${duration}-${focus ?? "all"}-${section ?? "all"}-${topic ?? "all"}-${repair || "none"}`;
 
   const items = [...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening];
+  useEffect(() => { if (loaded) onReady?.(); }, [loaded, onReady]);
   if (!loaded) return <div className="min-h-80 animate-pulse rounded-xl bg-[#17181d]" aria-label="Loading practice questions" />;
   if (mode === "weak") return <WeakPractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} items={items} learnerErrorAggregates={module.learnerErrorAggregates} repairId={repair ? `repair-${repair}` : undefined} sessionId={sessionId} />;
   if (mode === "pass") return <AdaptivePractice questions={filterExamLevelQuestions(focusQuestions, targetLevel)} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} items={items} learnerErrorAggregates={module.learnerErrorAggregates} limit={13} passMode sessionId={sessionId} />;
@@ -108,7 +109,7 @@ export function LocalPractice({ allQuestions, mode, duration, focus, section, to
   return <PracticePlayer questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} examMode={examMode} targetLevel={targetLevel} examLabel={mode === "integrated" ? `${targetLevel} integrated context` : mode === "full" ? `${targetLevel} full mock` : mode === "section" ? `${targetLevel} section test` : mode === "mini" ? `${targetLevel} mini test` : `${targetLevel} sampler`} sessionId={examMode ? `${mode}-test-${targetLevel.toLowerCase()}` : sessionId} timeLimitSeconds={examMode ? Math.max(300, questions.length * 45) : undefined} />;
 }
 
-export function LocalDiagnostic({ allQuestions }: Readonly<{ allQuestions: PracticeQuestion[] }>) {
+export function LocalDiagnostic({ allQuestions = [] }: Readonly<{ allQuestions?: PracticeQuestion[] }>) {
   const { questions: activeQuestions, module, readingEntries } = useActiveQuestions(allQuestions, "N5");
   const questions = selectPracticeQuestions("mock", activeQuestions);
   return <PracticePlayer questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} examMode examLabel="N5 diagnostic" sessionId="diagnostic" timeLimitSeconds={Math.max(300, questions.length * 45)} onComplete={(result) => writeDiagnosticResult({ level: "N5", ...result, completedAt: Date.now() })} />;

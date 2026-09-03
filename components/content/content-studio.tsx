@@ -510,7 +510,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
       ? (() => { const id = window.requestIdleCallback(() => { void load(); }, { timeout: 2000 }); return () => window.cancelIdleCallback(id); })()
       : (() => { const id = window.setTimeout(() => { void load(); }, 100); return () => window.clearTimeout(id); })();
     return () => { cancelled = true; cancel(); };
-  }, [knownItemIds, questionBank, questionHealth, seed, seedHealth]);
+  }, [knownItemIds, questionHealth, seed, seedHealth]);
 
   const validate = () => {
     const next = parseAndValidateModule(ensureRaw()).result;

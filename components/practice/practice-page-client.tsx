@@ -31,6 +31,7 @@ export function PracticePageClient({ modes, initial }: Readonly<{ modes: ModeEnt
   const [practiceSelection, setPracticeSelection] = useState(initial);
   const [switching, setSwitching] = useState(false);
   const switchToken = useRef(0);
+  const pendingPracticeKey = useRef("");
   const navigate = (href: string) => {
     const next = fromHref(href, selection);
     window.history.replaceState({}, "", `/practice?${queryFor(next)}`);
@@ -38,13 +39,9 @@ export function PracticePageClient({ modes, initial }: Readonly<{ modes: ModeEnt
     setSwitching(true);
     const token = switchToken.current + 1;
     switchToken.current = token;
-    window.setTimeout(() => {
-      if (switchToken.current !== token) return;
-      setPracticeSelection(next);
-      window.requestAnimationFrame(() => {
-        if (switchToken.current === token) setSwitching(false);
-      });
-    }, 50);
+    pendingPracticeKey.current = `${next.targetLevel}:${next.mode}:${next.duration}:${next.focus ?? ""}:${next.section}:${next.topic ?? ""}`;
+    setPracticeSelection(next);
+    window.setTimeout(() => { if (switchToken.current === token) setSwitching(false); }, 12000);
   };
   const context = `${selection.targetLevel === "N4" ? "&level=N4" : ""}${selection.topic ? `&topic=${encodeURIComponent(selection.topic)}` : ""}`;
   const practiceKey = `${practiceSelection.targetLevel}:${practiceSelection.mode}:${practiceSelection.duration}:${practiceSelection.focus ?? ""}:${practiceSelection.section}:${practiceSelection.topic ?? ""}`;
@@ -54,6 +51,6 @@ export function PracticePageClient({ modes, initial }: Readonly<{ modes: ModeEnt
     <PracticeModeTabs modes={modes} activeMode={selection.mode} activeTopic={selection.topic} targetLevel={selection.targetLevel} onNavigate={navigate} />
     {selection.topic ? <div className="mb-6 flex items-center justify-between gap-3 rounded-xl border border-[#4b3a29] bg-[#211d18]/70 px-4 py-3 text-sm"><span>Topic focus · <span className="text-[#e5b85c]">{selection.topic.replace(/-/gu, " ")}</span></span><button type="button" onClick={() => navigate(`/practice?mode=${selection.mode}${selection.targetLevel === "N4" ? "&level=N4" : ""}`)} className="text-xs text-[#9297a1] hover:text-[#f5f5f2]">Clear focus</button></div> : null}
     {selection.mode === "section" ? <div className="mb-6 flex flex-wrap items-center gap-2"><span className="text-xs text-[#9297a1]">Section</span>{[["vocabulary", "Vocabulary + kanji"], ["grammar-reading", "Grammar + reading"], ["listening", "Listening"]].map(([value, label]) => <button key={value} type="button" onClick={() => navigate(`/practice?mode=section&section=${value}${context}`)} className={`rounded-lg px-3 py-2 text-xs ${selection.section === value ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1] hover:border-[#e5b85c]"}`}>{label}</button>)}</div> : selection.mode === "quick" ? <div className="mb-6 flex flex-wrap items-center gap-2"><span className="text-xs text-[#9297a1]">Session length</span>{[2, 5, 10, 20, 30].map((minutes) => <button key={minutes} type="button" onClick={() => navigate(`/practice?mode=quick&duration=${minutes}${context}`)} className={`rounded-lg px-3 py-2 text-xs ${selection.duration === minutes ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1] hover:border-[#e5b85c]"}`}>{minutes} min</button>)}</div> : null}
-    <section className="surface-panel relative overflow-hidden p-7 sm:p-10"><LazyPractice key={practiceKey} mode={practiceSelection.mode} duration={practiceSelection.duration} focus={practiceSelection.focus} section={practiceSelection.mode === "section" ? practiceSelection.section : undefined} topic={practiceSelection.topic} targetLevel={practiceSelection.targetLevel} />{switching ? <div className="absolute inset-0 z-10 grid place-items-center bg-[#0d1522]/80 p-6 backdrop-blur-sm" role="status"><div className="rounded-xl border border-[#e5b85c]/60 bg-[#111216] px-5 py-4 text-center shadow-2xl"><p className="text-sm font-semibold text-[#f5f5f2]">Switching practice</p><p className="mt-1 text-xs text-[#9297a1]">Loading a fresh question set…</p></div></div> : null}</section>
+    <section className="surface-panel relative overflow-hidden p-7 sm:p-10"><LazyPractice key={practiceKey} mode={practiceSelection.mode} duration={practiceSelection.duration} focus={practiceSelection.focus} section={practiceSelection.mode === "section" ? practiceSelection.section : undefined} topic={practiceSelection.topic} targetLevel={practiceSelection.targetLevel} onReady={() => { if (pendingPracticeKey.current === practiceKey) { pendingPracticeKey.current = ""; setSwitching(false); } }} />{switching ? <div className="absolute inset-0 z-10 grid place-items-center bg-[#0d1522]/80 p-6 backdrop-blur-sm" role="status"><div className="rounded-xl border border-[#e5b85c]/60 bg-[#111216] px-5 py-4 text-center shadow-2xl"><p className="text-sm font-semibold text-[#f5f5f2]">Switching practice</p><p className="mt-1 text-xs text-[#9297a1]">Loading a fresh question set…</p></div></div> : null}</section>
   </div>;
 }
