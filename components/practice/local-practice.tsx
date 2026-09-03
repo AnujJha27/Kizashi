@@ -14,7 +14,12 @@ import { readMistakes, readReviewRecords, writeDiagnosticResult } from "@/lib/se
 import { quickPracticeCount } from "@/lib/study-core.js";
 import type { N5Module, PracticeMode, PracticeQuestion, TargetLevel } from "@/lib/types";
 
+const practiceModuleCache = new WeakMap<N5Module, Map<TargetLevel, N5Module>>();
+
 function practiceModule(module: N5Module, targetLevel: TargetLevel) {
+  const cachedByLevel = practiceModuleCache.get(module) ?? new Map<TargetLevel, N5Module>();
+  const cached = cachedByLevel.get(targetLevel);
+  if (cached) return cached;
   const alwaysInclude = new Set([
     ...Object.keys(readMistakes()),
   ]);
@@ -30,7 +35,10 @@ function practiceModule(module: N5Module, targetLevel: TargetLevel) {
   const readings = keep(module.readings, 20);
   const listening = keep(module.listening, 20);
   const retainedIds = new Set([...vocabulary, ...kanji, ...grammar, ...readings, ...listening].map((item) => item.id));
-  return { ...module, vocabulary, kanji, grammar, readings, listening, grammarContrasts: module.grammarContrasts.filter((contrast) => contrast.grammarPointIds.some((id) => retainedIds.has(id))), practiceQuestions: module.practiceQuestions?.filter((question) => retainedIds.has(question.itemId)) };
+  const bounded = { ...module, vocabulary, kanji, grammar, readings, listening, grammarContrasts: module.grammarContrasts.filter((contrast) => contrast.grammarPointIds.some((id) => retainedIds.has(id))), practiceQuestions: module.practiceQuestions?.filter((question) => retainedIds.has(question.itemId)) };
+  cachedByLevel.set(targetLevel, bounded);
+  practiceModuleCache.set(module, cachedByLevel);
+  return bounded;
 }
 
 function useActiveQuestions(fallback: PracticeQuestion[], targetLevel: TargetLevel) {

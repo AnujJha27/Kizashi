@@ -71,7 +71,7 @@ verification, `[ ]` not implemented.
 - [x] Quick practice favors unseen question variants while preserving stronger priority for mistakes, due reviews, and flagged ambiguity.
 - [x] Contextual actions connect items to practice, immersion, study-later, and repair flows.
 - [x] Card density and source/player separation have been reduced; Immersion activity navigation is now a compact scrollable tab row, while reading/listening, real-life activities, source detours, and grammar references use editorial separator rows and progressive loading.
-- [x] Practice and Studio defer heavy package work, isolate persisted queues by mode/length/topic, switch Practice controls locally with an explicit loading state, show route loading feedback, defer Studio's large reading diagnostic to idle time, show only pending question drafts, cache generated questions, and avoid the stale global scroll lock that previously stranded route scrolling; a complete mobile, accessibility, and performance audit remains.
+- [x] Practice and Studio defer heavy package work, isolate persisted queues by mode/length/topic, switch Practice controls locally with an explicit loading state, show route loading feedback, defer Studio's large reading/topic diagnostics to idle time, keep AI target selection searchable instead of mounting thousands of options, show only pending question drafts, cache bounded generated questions across switches, and avoid the stale global scroll lock that previously stranded route scrolling; a complete mobile, accessibility, and performance audit remains.
 
 ### Delivery status by implementation phase
 

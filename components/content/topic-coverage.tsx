@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import { getValidatedPracticeQuestions } from "@/lib/questions";
 import { getTopicItemIds, type LessonContentItem } from "@/lib/curriculum";
 import { getCurriculumBand } from "@/lib/jlpt";
-import type { N5Module } from "@/lib/types";
+import type { N5Module, PracticeQuestion } from "@/lib/types";
 
 const topics = [
   ["people", "People", "人"],
@@ -29,7 +30,13 @@ const topics = [
 export function TopicCoverage({ module }: Readonly<{ module: N5Module }>) {
   const items = [...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening];
   const itemsById = new Map(items.map((item) => [item.id, item]));
-  const practiceQuestions = getValidatedPracticeQuestions(module);
+  const [practiceQuestions, setPracticeQuestions] = useState<PracticeQuestion[] | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    const scan = () => { const next = getValidatedPracticeQuestions(module); if (!cancelled) setPracticeQuestions(next); };
+    const cancel = typeof window.requestIdleCallback === "function" ? (() => { const id = window.requestIdleCallback(scan, { timeout: 1500 }); return () => window.cancelIdleCallback(id); })() : (() => { const id = window.setTimeout(scan, 0); return () => window.clearTimeout(id); })();
+    return () => { cancelled = true; cancel(); };
+  }, [module]);
   const bandCounts = items.reduce((counts, item) => ({ ...counts, [getCurriculumBand(item)]: counts[getCurriculumBand(item)] + 1 }), { core: 0, extended: 0, bridge: 0 });
   const coverage = topics.map(([id, label, jp]) => {
     const ids = { vocabulary: new Set<string>(), kanji: new Set<string>(), grammar: new Set<string>(), reading: new Set<string>(), listening: new Set<string>(), practice: new Set<string>() };
@@ -38,7 +45,7 @@ export function TopicCoverage({ module }: Readonly<{ module: N5Module }>) {
       if (!topicItemIds.has(item.id)) return;
       ids[item.category].add(item.id);
     });
-    practiceQuestions.forEach((question) => {
+    (practiceQuestions ?? []).forEach((question) => {
       const item = itemsById.get(question.itemId);
       if (item && topicItemIds.has(item.id)) ids.practice.add(question.id);
     });
@@ -50,5 +57,5 @@ export function TopicCoverage({ module }: Readonly<{ module: N5Module }>) {
   });
 
   const labels = { vocabulary: "words", kanji: "kanji", grammar: "grammar", reading: "reading", listening: "listening", practice: "drills" } as const;
-  return <section className="rounded-xl border border-white/10 bg-[#101b2b]/55 p-5 sm:p-6"><div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Topic coverage · 話題</p><h2 className="mt-1 text-xl font-medium text-[#f5f5f2]">Is each topic actually teachable?</h2><p className="mt-1 text-sm text-[#9297a1]">Ready means the topic has vocabulary, kanji, grammar, both context modes, and reusable practice.</p></div><span className="text-xs text-[#676c75]">Linked context counts too</span></div><div className="mb-5 grid grid-cols-3 gap-2">{(["core", "extended", "bridge"] as const).map((band) => <div key={band} className="rounded-lg border border-white/10 bg-[#17181d]/65 px-3 py-2"><div className="flex items-center justify-between gap-2"><span className="text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">{band}</span><span className="text-sm font-medium text-[#f5f5f2]">{bandCounts[band]}</span></div><p className="mt-1 text-[10px] text-[#676c75]">{Math.round((bandCounts[band] / Math.max(items.length, 1)) * 100)}% of path</p></div>)}</div><div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">{coverage.map(({ id, label, jp, counts, gaps, bandGaps, ready }) => <article key={id} className="rounded-lg border border-white/10 bg-[#17181d]/65 p-3"><div className="flex items-start justify-between gap-3"><div><h3 className="text-sm font-medium text-[#f5f5f2]">{label}</h3><p className="jp-serif text-xs text-[#e5b85c]">{jp}</p></div><span className={`text-[10px] uppercase tracking-[.12em] ${ready ? "text-[#6fb98f]" : "text-[#e5b85c]"}`}>{ready ? "Ready" : `${gaps.length} gaps`}</span></div><div className="mt-3 grid grid-cols-3 gap-1 text-center text-[10px] text-[#9297a1]">{(Object.keys(labels) as (keyof typeof labels)[]).map((key) => <span key={key} className="rounded bg-[#102536] px-1 py-1.5"><b className="block text-sm font-medium text-[#f5f5f2]">{counts[key]}</b>{labels[key]}</span>)}</div>{gaps.length ? <p className="mt-3 text-[10px] leading-4 text-[#e5b85c]">Add: {gaps.map((gap) => labels[gap]).join(" · ")}</p> : <p className="mt-3 text-[10px] leading-4 text-[#6fb98f]">All core study supports are present.</p>}{bandGaps.length ? <p className="mt-2 text-[10px] leading-4 text-[#9297a1]">Band gaps: {bandGaps.join(" · ")}</p> : null}<Link href={`/practice?mode=mixed&topic=${encodeURIComponent(id)}`} className="mt-3 inline-flex text-xs font-semibold text-[#e5b85c] hover:text-[#f1cf7c]">Practice this topic →</Link></article>)}</div></section>;
+  return <section className="rounded-xl border border-white/10 bg-[#101b2b]/55 p-5 sm:p-6"><div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Topic coverage · 話題</p><h2 className="mt-1 text-xl font-medium text-[#f5f5f2]">Is each topic actually teachable?</h2><p className="mt-1 text-sm text-[#9297a1]">Ready means the topic has vocabulary, kanji, grammar, both context modes, and reusable practice.</p></div><span className="text-xs text-[#676c75]">{practiceQuestions ? "Linked context counts too" : "Checking drills…"}</span></div><div className="mb-5 grid grid-cols-3 gap-2">{(["core", "extended", "bridge"] as const).map((band) => <div key={band} className="rounded-lg border border-white/10 bg-[#17181d]/65 px-3 py-2"><div className="flex items-center justify-between gap-2"><span className="text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">{band}</span><span className="text-sm font-medium text-[#f5f5f2]">{bandCounts[band]}</span></div><p className="mt-1 text-[10px] text-[#676c75]">{Math.round((bandCounts[band] / Math.max(items.length, 1)) * 100)}% of path</p></div>)}</div><div className="divide-y divide-white/10">{coverage.map(({ id, label, jp, counts, gaps, bandGaps, ready }) => <article key={id} className="flex flex-col gap-3 py-4 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between"><div className="min-w-0"><div className="flex items-baseline gap-2"><h3 className="text-sm font-medium text-[#f5f5f2]">{label}</h3><p className="jp-serif text-xs text-[#e5b85c]">{jp}</p><span className={`ml-auto text-[10px] uppercase tracking-[.12em] ${ready ? "text-[#6fb98f]" : "text-[#e5b85c]"}`}>{ready ? "Ready" : `${gaps.length} gaps`}</span></div><p className="mt-1 text-xs text-[#9297a1]">{counts.vocabulary} words · {counts.kanji} kanji · {counts.grammar} grammar · {counts.reading} reading · {counts.listening} listening · {practiceQuestions ? `${counts.practice} drills` : "drills checking…"}</p>{gaps.length ? <p className="mt-1 text-[10px] leading-4 text-[#e5b85c]">Add: {gaps.map((gap) => labels[gap]).join(" · ")}</p> : bandGaps.length ? <p className="mt-1 text-[10px] leading-4 text-[#9297a1]">Band gaps: {bandGaps.join(" · ")}</p> : null}</div><Link href={`/practice?mode=mixed&topic=${encodeURIComponent(id)}`} className="shrink-0 text-xs font-semibold text-[#e5b85c] hover:text-[#f1cf7c]">Practice this topic →</Link></article>)}</div></section>;
 }

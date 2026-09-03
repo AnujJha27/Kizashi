@@ -94,6 +94,10 @@ function playbackRate(rate: number | undefined, fallback = 0.9) {
   return Math.min(2, Math.max(0.4, value));
 }
 
+let activeBrowserProvider: AudioProvider | null = null;
+let browserPlaybackId = 0;
+let activeRemoteAudio: HTMLAudioElement | null = null;
+
 function japaneseVoice(synthesis: SpeechSynthesis) {
   const voices = synthesis.getVoices();
   const selected = preferredJapaneseVoice(voices);
@@ -123,9 +127,12 @@ export class BrowserSpeechProvider implements AudioProvider {
   async play(request: AudioRequest, rate?: number): Promise<AudioPlayResult> {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return { status: "unavailable", message: "Speech synthesis is unavailable on this device." };
     if (!request.text?.trim()) return { status: "error", message: "No Japanese text is available to play." };
+    if (activeBrowserProvider && activeBrowserProvider !== this) activeBrowserProvider.stop();
+    activeBrowserProvider = this;
+    const playbackId = ++browserPlaybackId;
     const requestId = ++this.requestId;
     const voice = await japaneseVoice(window.speechSynthesis);
-    if (requestId !== this.requestId) return { status: "error", message: "Audio playback was cancelled." };
+    if (requestId !== this.requestId || playbackId !== browserPlaybackId || activeBrowserProvider !== this) return { status: "unavailable", message: "Audio playback was cancelled." };
     if (!voice) return { status: "unavailable", message: "Japanese speech is unavailable on this device." };
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(request.text);
@@ -145,7 +152,11 @@ export class BrowserSpeechProvider implements AudioProvider {
 
   stop() {
     this.requestId += 1;
-    if (typeof window !== "undefined" && "speechSynthesis" in window) window.speechSynthesis.cancel();
+    if (activeBrowserProvider === this) {
+      activeBrowserProvider = null;
+      browserPlaybackId += 1;
+      if (typeof window !== "undefined" && "speechSynthesis" in window) window.speechSynthesis.cancel();
+    }
   }
 
   pause() {
@@ -170,8 +181,10 @@ export class RemoteAudioProvider implements AudioProvider {
     if (!url) return { status: "error", message: "No external audio is configured." };
     try {
       this.stop();
+      activeRemoteAudio?.pause();
       this.audio = new Audio(url);
       const audio = this.audio;
+      activeRemoteAudio = audio;
       audio.playbackRate = playbackRate(rate ?? request.metadata?.preferredRate);
       await audio.play();
       return await new Promise<AudioPlayResult>((resolve) => {
@@ -184,8 +197,10 @@ export class RemoteAudioProvider implements AudioProvider {
   }
 
   stop() {
-    this.audio?.pause();
-    if (this.audio) this.audio.currentTime = 0;
+    const audio = this.audio;
+    audio?.pause();
+    if (audio) audio.currentTime = 0;
+    if (activeRemoteAudio === audio) activeRemoteAudio = null;
     this.audio = null;
   }
 

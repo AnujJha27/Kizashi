@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import type { LessonContentItem } from "@/lib/curriculum";
 import type { PracticeQuestion } from "@/lib/types";
@@ -21,6 +21,7 @@ function answerLabel(question: PracticeQuestion) {
 
 export function AIGenerator({ items, onAdd }: Readonly<{ items: LessonContentItem[]; onAdd: (question: PracticeQuestion) => void }>) {
   const [targetId, setTargetId] = useState(items[0]?.id ?? "");
+  const [targetQuery, setTargetQuery] = useState("");
   const [questionType, setQuestionType] = useState(questionTypes[items[0]?.category ?? "vocabulary"][0]);
   const [draft, setDraft] = useState<PracticeQuestion | null>(null);
   const [sent, setSent] = useState(false);
@@ -28,6 +29,10 @@ export function AIGenerator({ items, onAdd }: Readonly<{ items: LessonContentIte
   const [error, setError] = useState("");
   const target = items.find((item) => item.id === targetId) ?? items[0];
   const types = target ? questionTypes[target.category] : questionTypes.vocabulary;
+  const visibleItems = useMemo(() => {
+    const query = targetQuery.trim().toLocaleLowerCase();
+    return items.filter((item) => !query || `${item.id} ${item.title} ${item.category}`.toLocaleLowerCase().includes(query)).slice(0, 120);
+  }, [items, targetQuery]);
 
   if (!items.length) return <section className="surface-panel-raised p-5 sm:p-6"><p className="eyebrow">Original draft generator</p><h2 className="mt-1 text-xl font-medium text-[#f5f5f2]">Approve source records before generating.</h2><p className="mt-2 text-sm text-[#9297a1]">AI drafts only use approved curriculum facts. Finish the source review queue, then return here.</p></section>;
 
@@ -52,7 +57,7 @@ export function AIGenerator({ items, onAdd }: Readonly<{ items: LessonContentIte
   return <section className="surface-panel-raised p-5 sm:p-6">
     <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Original draft generator</p><h2 className="mt-1 text-xl font-medium text-[#f5f5f2]">Generate one question to review.</h2><p className="mt-1 max-w-2xl text-sm text-[#9297a1]">The model only drafts against a known Kizashi item. Nothing is published or saved until you inspect it and send it to the review queue.</p></div><span className="rounded-full border border-[#5d4c2c] px-3 py-1 text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">draft only</span></div>
     <div className="mt-5 grid gap-3 sm:grid-cols-[1fr_auto_auto] sm:items-end">
-      <label className="block text-xs text-[#9297a1]">Curriculum target<select value={target?.id ?? ""} onChange={(event) => { const next = items.find((item) => item.id === event.target.value); setTargetId(event.target.value); setQuestionType(next ? questionTypes[next.category][0] : questionTypes.vocabulary[0]); setDraft(null); setSent(false); }} className="mt-2 w-full rounded-xl border border-[#3f4652] bg-[#101b2b] px-3 py-3 text-sm text-[#f5f5f2] focus:border-[#e5b85c] focus:outline-none">{items.map((item) => <option key={item.id} value={item.id}>{item.title} · {item.category}</option>)}</select></label>
+      <label className="block text-xs text-[#9297a1]">Find curriculum target<input value={targetQuery} onChange={(event) => setTargetQuery(event.target.value)} placeholder="Search title or ID…" className="mt-2 w-full rounded-xl border border-[#3f4652] bg-[#101b2b] px-3 py-3 text-sm text-[#f5f5f2] outline-none placeholder:text-[#676c75] focus:border-[#e5b85c]" /><select value={target?.id ?? ""} onChange={(event) => { const next = items.find((item) => item.id === event.target.value); setTargetId(event.target.value); setQuestionType(next ? questionTypes[next.category][0] : questionTypes.vocabulary[0]); setDraft(null); setSent(false); }} className="mt-2 w-full rounded-xl border border-[#3f4652] bg-[#101b2b] px-3 py-3 text-sm text-[#f5f5f2] focus:border-[#e5b85c] focus:outline-none">{visibleItems.map((item) => <option key={item.id} value={item.id}>{item.title} · {item.category}</option>)}</select><span className="mt-1 block text-[10px] text-[#676c75]">Showing {visibleItems.length} of {items.length} matches</span></label>
       <label className="block text-xs text-[#9297a1]">Question shape<select value={questionType} onChange={(event) => { setQuestionType(event.target.value); setDraft(null); setSent(false); }} className="mt-2 w-full rounded-xl border border-[#3f4652] bg-[#101b2b] px-3 py-3 text-sm text-[#f5f5f2] focus:border-[#e5b85c] focus:outline-none">{types.map((type) => <option key={type} value={type}>{type}</option>)}</select></label>
       <button type="button" disabled={!target || pending} onClick={() => void generate()} className="rounded-xl bg-[#e34a3f] px-4 py-3 text-sm font-semibold text-[#0b0b0d] disabled:cursor-wait disabled:opacity-50 hover:bg-[#ef675d]">{pending ? "Generating…" : "Generate draft"}</button>
     </div>
