@@ -99,7 +99,7 @@ export function BookReader({ book }: Readonly<{ book: StudyBook }>) {
         <form onSubmit={(event) => { event.preventDefault(); loadPageState(Math.max(1, Number.parseInt(pageInput, 10) || 1)); }} className="flex items-center gap-2"><label htmlFor="book-page" className="text-xs text-[#9297a1]">Page</label><input id="book-page" type="number" min="1" value={pageInput} onChange={(event) => setPageInput(event.target.value)} className="w-16 rounded-lg border border-[#3f4652] bg-[#101b2b]/90 px-2 py-2 text-center text-xs text-[#f5f5f2] outline-none focus:border-[#e5b85c]" /><button type="submit" className="rounded-lg border border-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#f1cf7c] hover:bg-[#302818]">Go</button></form>
       </div>
     </div>
-    <div className="mt-2 grid items-start gap-4 lg:grid-cols-2">
+    <div className="mt-2 grid items-start gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
       {pdfLoading ? <div className="grid h-[78vh] min-h-[42rem] place-items-center rounded-lg bg-[#f5f3e8] text-sm text-[#676c75]">Loading book…</div> : pdfUrl ? <iframe key={page} title={`${book.title} PDF · page ${page}`} src={`${pdfUrl}#page=${page}`} className="h-[78vh] min-h-[42rem] w-full rounded-lg bg-[#f5f3e8]" /> : <div className="grid h-[78vh] min-h-[42rem] place-items-center rounded-lg border border-[#713b37] bg-[#21191a] p-6 text-center text-sm text-[#ef675d]" role="alert">{pdfError || "This book could not be loaded."}</div>}
       <aside className="min-w-0 rounded-lg border border-[#4b3a29] bg-[#211d18]/70 p-4">
         <HandwrittenNotes bookId={book.id} />

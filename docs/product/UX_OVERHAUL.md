@@ -63,7 +63,7 @@ verification, `[ ]` not implemented.
 - [x] Progress leads with a weekly narrative, recent strengths, accuracy, and priority signals before detailed metrics.
 - [x] Library entries expose direct Practice and Immersion actions; Books, Reference, and saved sentences are reachable from Library.
 - [x] Journey visual hierarchy is reduced to the active lesson plus up to three nearby lessons, with learner-sized current-lesson totals.
-- [x] Shelf/card spacing uses bottom-aligned action rails so Aozora and Tadoku controls sit consistently across cards.
+- [x] Shelf/card spacing uses editorial action rows so the current Aozora/Tadoku controls stay readable; book readers give the PDF more width than the notes pane while retaining side-by-side notes on wide screens.
 
 ### Adaptive support and presentation
 

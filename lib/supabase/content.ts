@@ -2,6 +2,8 @@ import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 import { normalizeGrammarPracticeIds } from "@/lib/curriculum";
 import type { AudioMetadata, ContentReviewStatus, ContentSource, CurriculumClassification, ExampleSentence, GrammarContrast, GrammarItem, KanjiItem, LearningItem, ListeningItem, N5Module, PracticeQuestion, ReadingItem, VocabularyItem } from "@/lib/types";
 
+const CONTENT_QUERY_TIMEOUT_MS = 8_000;
+
 function examples(value: unknown, fallback: ExampleSentence[] = []) {
   return Array.isArray(value) ? value as ExampleSentence[] : fallback;
 }
@@ -61,7 +63,7 @@ export async function fetchSupabaseN5Module(seed: N5Module): Promise<N5Module | 
   const supabase = createSupabaseBrowserClient();
   if (!supabase) return null;
 
-  const [courseResult, chapterResult, lessonResult, itemResult, vocabularyResult, kanjiResult, grammarResult, contrastResult, readingResult, listeningResult, lessonItemResult, practiceQuestionResult, sourceLinkResult, classificationResult, learnerErrorAggregateResult, sourceResult] = await Promise.all([
+  const query = Promise.all([
     supabase.from("courses").select("*").eq("slug", seed.course.slug).maybeSingle(),
     supabase.from("chapters").select("*").order("sort_order"),
     supabase.from("lessons").select("*").order("sort_order"),
@@ -79,6 +81,8 @@ export async function fetchSupabaseN5Module(seed: N5Module): Promise<N5Module | 
     supabase.from("learner_error_aggregates").select("*").order("count", { ascending: false }),
     supabase.from("content_sources").select("*"),
   ]);
+  const timeout = new Promise<never>((_, reject) => setTimeout(() => reject(new Error("Supabase content query timed out.")), CONTENT_QUERY_TIMEOUT_MS));
+  const [courseResult, chapterResult, lessonResult, itemResult, vocabularyResult, kanjiResult, grammarResult, contrastResult, readingResult, listeningResult, lessonItemResult, practiceQuestionResult, sourceLinkResult, classificationResult, learnerErrorAggregateResult, sourceResult] = await Promise.race([query, timeout]);
 
   if ([courseResult, chapterResult, lessonResult, itemResult, vocabularyResult, kanjiResult, grammarResult, contrastResult, readingResult, listeningResult, lessonItemResult, practiceQuestionResult, sourceLinkResult, classificationResult].some((result) => result.error) || !courseResult.data) return null;
 
