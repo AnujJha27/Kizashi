@@ -16,7 +16,6 @@ import {
   parseModuleForReview,
   parseAndValidateModule,
   QUESTION_DRAFT_STORAGE_KEY,
-  readValidatedContentDraft,
   validateLearningItem,
   validateModule,
   validatePracticeQuestions,
@@ -359,7 +358,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   const [fullPackageLoaded, setFullPackageLoaded] = useState(false);
   const parsedDraft = useMemo(() => raw ? parseAndValidateModule(raw) : { value: seed, result: seedHealth }, [raw, seed, seedHealth]);
   const coverageModule = useMemo(() => parsedDraft.value ?? parseModuleForReview(raw) ?? seed, [parsedDraft.value, raw, seed]);
-  const currentOrSavedDraft = useMemo(() => parsedDraft.value ?? parseModuleForReview(raw) ?? readValidatedContentDraft(), [parsedDraft.value, raw]);
+  const currentOrSavedDraft = useMemo(() => parsedDraft.value ?? parseModuleForReview(raw) ?? coverageModule, [coverageModule, parsedDraft.value, raw]);
   const coverageItems = useMemo(() => getModuleItems(coverageModule), [coverageModule]);
   const ensureRaw = () => {
     if (raw) return raw;

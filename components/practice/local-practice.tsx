@@ -11,7 +11,7 @@ import { getModuleItems, readValidatedQuestionDraft } from "@/lib/content-valida
 import { getTopicItemIds } from "@/lib/curriculum";
 import { filterExamLevelQuestions } from "@/lib/jlpt-core.js";
 import { getValidatedPracticeQuestions, migrateLegacyQuestionPrompts, selectPracticeQuestions } from "@/lib/questions";
-import { readMistakes, readReviewRecords, writeDiagnosticResult } from "@/lib/session";
+import { readMistakes, writeDiagnosticResult } from "@/lib/session";
 import { quickPracticeCount } from "@/lib/study-core.js";
 import type { N5Module, PracticeMode, PracticeQuestion, TargetLevel } from "@/lib/types";
 
@@ -24,10 +24,10 @@ function practiceModule(module: N5Module, targetLevel: TargetLevel) {
   const alwaysInclude = new Set([
     ...Object.keys(readMistakes()),
   ]);
-  const records = readReviewRecords();
   const keep = <T extends { id: string; tags: string[]; jlptLevel: string | null }>(items: T[], limit: number) => {
-    const candidates = items.filter((item) => !alwaysInclude.has(item.id) && !item.tags.includes("personal")).sort((left, right) => (targetLevel === "N4" ? Number(right.jlptLevel === "N4") - Number(left.jlptLevel === "N4") : Number(right.jlptLevel === "N5") - Number(left.jlptLevel === "N5")) || (records[left.id]?.attempts ?? 0) - (records[right.id]?.attempts ?? 0) || left.id.localeCompare(right.id)).slice(0, limit);
-    const candidateIds = new Set(candidates.map((item) => item.id));
+    const candidates = items.filter((item) => !alwaysInclude.has(item.id) && !item.tags.includes("personal"));
+    const preferred = candidates.filter((item) => item.jlptLevel === targetLevel).slice(0, limit);
+    const candidateIds = new Set([...preferred, ...candidates.filter((item) => !preferred.includes(item)).slice(0, Math.max(0, limit - preferred.length))].map((item) => item.id));
     return items.filter((item) => alwaysInclude.has(item.id) || item.tags.includes("personal") || candidateIds.has(item.id));
   };
   const vocabulary = keep(module.vocabulary, 120);
@@ -44,6 +44,7 @@ function practiceModule(module: N5Module, targetLevel: TargetLevel) {
 
 function useActiveQuestions(fallback: PracticeQuestion[], targetLevel: TargetLevel) {
   const [questions, setQuestions] = useState(fallback);
+  const [loaded, setLoaded] = useState(Boolean(fallback.length));
   const loadedModule = useContentModule();
   const module = useMemo(() => practiceModule(loadedModule, targetLevel), [loadedModule, targetLevel]);
 
@@ -55,7 +56,10 @@ function useActiveQuestions(fallback: PracticeQuestion[], targetLevel: TargetLev
       const knownItemIds = new Set(moduleItems.map((item) => item.id));
       const knownItemCategories = new Map(moduleItems.map((item) => [item.id, item.category]));
       const saved = readValidatedQuestionDraft(knownItemIds, knownItemCategories);
-      setQuestions(saved ? migrateLegacyQuestionPrompts(saved, module) : active);
+      const merged = new Map(active.map((question) => [question.id, question]));
+      migrateLegacyQuestionPrompts(saved ?? [], module).forEach((question) => merged.set(question.id, question));
+      setQuestions([...merged.values()]);
+      setLoaded(true);
     };
     const cancel = typeof window.requestIdleCallback === "function"
       ? (() => { const id = window.requestIdleCallback(refresh, { timeout: 1200 }); return () => window.cancelIdleCallback(id); })()
@@ -74,14 +78,14 @@ function useActiveQuestions(fallback: PracticeQuestion[], targetLevel: TargetLev
     loadedModule.vocabulary,
     loadedModule.kanji,
   ), [loadedModule, questions]);
-  return { questions, module, readingEntries };
+  return { questions, module, readingEntries, loaded };
 }
 
 export function LocalPractice({ allQuestions, mode, duration, focus, section, topic, targetLevel }: Readonly<{ allQuestions?: PracticeQuestion[]; mode: PracticeMode; duration: number; focus?: string; section?: string; topic?: string; targetLevel: TargetLevel }>) {
   // The browser receives the bounded learner module below; generating the full
   // staged bank here freezes navigation before that module can arrive.
   const fallbackQuestions = useMemo(() => allQuestions ?? [], [allQuestions]);
-  const { questions: activeQuestions, module, readingEntries } = useActiveQuestions(fallbackQuestions, targetLevel);
+  const { questions: activeQuestions, module, readingEntries, loaded } = useActiveQuestions(fallbackQuestions, targetLevel);
   const [repair, setRepair] = useState("");
   useEffect(() => setRepair(new URLSearchParams(window.location.search).get("repair") ?? ""), []);
   const topicIds = topic ? getTopicItemIds([...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening], topic) : null;
@@ -96,6 +100,7 @@ export function LocalPractice({ allQuestions, mode, duration, focus, section, to
   const sessionId = `practice-${mode}-${targetLevel}-${duration}-${focus ?? "all"}-${section ?? "all"}-${topic ?? "all"}-${repair || "none"}`;
 
   const items = [...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening];
+  if (!loaded) return <div className="min-h-80 animate-pulse rounded-xl bg-[#17181d]" aria-label="Loading practice questions" />;
   if (mode === "weak") return <WeakPractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} items={items} learnerErrorAggregates={module.learnerErrorAggregates} repairId={repair ? `repair-${repair}` : undefined} sessionId={sessionId} />;
   if (mode === "pass") return <AdaptivePractice questions={filterExamLevelQuestions(focusQuestions, targetLevel)} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} items={items} learnerErrorAggregates={module.learnerErrorAggregates} limit={13} passMode sessionId={sessionId} />;
   if (mode === "quick") return <AdaptivePractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} items={items} learnerErrorAggregates={module.learnerErrorAggregates} limit={quickCount} sessionId={sessionId} />;

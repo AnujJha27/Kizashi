@@ -108,7 +108,7 @@ function loadSharedModule(seed: N5Module) {
 }
 
 export function useContentModule(seed: N5Module = n5Module) {
-  const [module, setModule] = useState(seed);
+  const [module, setModule] = useState(() => cachedModule ? stablePersonalizedModule(cachedModule) : seed);
 
   useEffect(() => {
     let cancelled = false;
