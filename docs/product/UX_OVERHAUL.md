@@ -122,7 +122,7 @@ items intentionally remain visible until the remaining surfaces are finished.
 - [x] **Mobile/accessibility/performance** — responsive navigation, deferred module loading, bounded Practice questions, a dedicated Studio route fallback, learner routes that fetch the released package without synchronously parsing the large local Studio draft, idle-scheduled Studio draft/question validation work, memoized 8k-item Studio scans, cached text-scoped furigana candidates over the full learner module, bounded question review, explicit document vertical scrolling with compatible horizontal clipping, and scroll-safe overlays are in code; the final cross-surface audit remains a follow-up.
 - [~] **Persistence beyond the browser** — local resume/progress works through `lib/session.ts`; account-backed synchronization is opt-in and the current deploy/package persistence path still needs verification.
 - [x] **Verification** — strict package QA, `tsc --noEmit`, the production build, and all 19 direct Node test files pass.
-- [~] **Remaining follow-up** — complete fading scaffolding, offline write/retry queues, and the final all-surface accessibility/performance pass. The service worker now caches the released learner package after first load; private review/admin and sync APIs remain online-only.
+- [~] **Remaining follow-up** — complete fading scaffolding, offline write/retry queues, and the final all-surface accessibility/performance pass. The service worker now caches the released learner package after first load and revisions are forced for deployed clients; private review/admin and sync APIs remain online-only.
 
 Inspect the current repository first, preserve working behavior, implement the UX changes end-to-end, and run existing tests/builds.
 
