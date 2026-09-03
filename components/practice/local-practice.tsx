@@ -73,11 +73,14 @@ function useActiveQuestions(fallback: PracticeQuestion[], targetLevel: TargetLev
     };
   }, [fallback, module]);
 
+  // Practice questions already come from the bounded working module. Building
+  // furigana from the full released package here makes every mode switch scan
+  // thousands of records before the new queue can paint.
   const readingEntries = useMemo(() => getReadingEntriesForTexts(
     questions.flatMap((question) => [question.prompt, question.contextText ?? "", question.audioText ?? "", ...(question.options ?? []), ...(question.tokens ?? []), ...(question.acceptedAnswers ?? [])]),
-    loadedModule.vocabulary,
-    loadedModule.kanji,
-  ), [loadedModule, questions]);
+    module.vocabulary,
+    module.kanji,
+  ), [module, questions]);
   return { questions, module, readingEntries, loaded };
 }
 

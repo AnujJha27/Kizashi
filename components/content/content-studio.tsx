@@ -292,6 +292,11 @@ function ContentReview({ module, onEdit, onReview }: Readonly<{ module: N5Module
   const pageItems = filteredItems.slice(page * pageSize, (page + 1) * pageSize);
   // ponytail: rank the visible page only; global ranking made Studio block on every filter.
   const items = useMemo(() => rankContentCandidates(pageItems, readReviewRecords(), readMistakes(), pageItems.length) as Array<LessonContentItem & { reason: string }>, [pageItems]);
+  // Review cards only need the current page's vocabulary/kanji for furigana.
+  // Passing the full released package to each card turns a 60-row page into
+  // repeated 8k-item map construction and can starve route scrolling.
+  const pageVocabulary = useMemo(() => items.filter((item): item is Extract<typeof items[number], { category: "vocabulary" }> => item.category === "vocabulary"), [items]);
+  const pageKanji = useMemo(() => items.filter((item): item is Extract<typeof items[number], { category: "kanji" }> => item.category === "kanji"), [items]);
   const sourceById = useMemo(() => new Map((module.sourceManifest ?? []).map((source) => [source.id, source])), [module.sourceManifest]);
   useEffect(() => { setPage(0); setExpandedItem(null); }, [statusFilter, levelFilter, bandFilter, sourceFilter, query]);
 
@@ -336,7 +341,7 @@ function ContentReview({ module, onEdit, onReview }: Readonly<{ module: N5Module
         <span className="text-xs text-[#9297a1]">Page {page + 1} of {pageCount}</span>
         <button type="button" disabled={page === pageCount - 1} onClick={() => setPage((current) => current + 1)} className="rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce] enabled:hover:border-[#e5b85c] disabled:cursor-not-allowed disabled:opacity-40">Next</button>
       </div> : null}
-    </div><div className="divide-y divide-white/10">{items.map((item) => <ContentReviewCard key={item.id} item={item} sourceById={sourceById} vocabulary={module.vocabulary} kanji={module.kanji} onOpen={setExpandedItem} />)}</div></>}{expandedItem ? <ContentReviewModal item={expandedItem} sourceById={sourceById} vocabulary={module.vocabulary} kanji={module.kanji} onClose={() => setExpandedItem(null)} onEdit={(kind, id) => { setExpandedItem(null); onEdit(kind, id); }} onReview={onReview} /> : null}
+    </div><div className="divide-y divide-white/10">{items.map((item) => <ContentReviewCard key={item.id} item={item} sourceById={sourceById} vocabulary={pageVocabulary} kanji={pageKanji} onOpen={setExpandedItem} />)}</div></>}{expandedItem ? <ContentReviewModal item={expandedItem} sourceById={sourceById} vocabulary={module.vocabulary} kanji={module.kanji} onClose={() => setExpandedItem(null)} onEdit={(kind, id) => { setExpandedItem(null); onEdit(kind, id); }} onReview={onReview} /> : null}
   </div>;
 }
 
