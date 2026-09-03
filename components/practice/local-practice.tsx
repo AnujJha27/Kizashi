@@ -23,6 +23,7 @@ function practiceModule(module: N5Module, targetLevel: TargetLevel) {
   if (cached) return cached;
   const alwaysInclude = new Set([
     ...Object.keys(readMistakes()),
+    "vocab-shichiji", "vocab-gohyaku-en", "grammar-counters", "vocab-getsuyoubi", "vocab-ashita", "vocab-gozen", "vocab-gogo", "kanji-ji", "kanji-en", "kanji-hito", "vocab-mainichi",
   ]);
   const keep = <T extends { id: string; tags: string[]; jlptLevel: string | null }>(items: T[], limit: number) => {
     const candidates = items.filter((item) => !alwaysInclude.has(item.id) && !item.tags.includes("personal"));

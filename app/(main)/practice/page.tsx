@@ -9,6 +9,7 @@ export const dynamic = "force-dynamic";
 
 const modes: { value: PracticeMode; label: string; jp: string }[] = [
   { value: "quick", label: "Quick drill", jp: "小さな練習" },
+  { value: "micro", label: "Micro skills", jp: "数字・時間" },
   { value: "vocabulary", label: "Vocabulary", jp: "ことば" },
   { value: "kanji", label: "Kanji", jp: "漢字" },
   { value: "grammar", label: "Grammar", jp: "文法" },

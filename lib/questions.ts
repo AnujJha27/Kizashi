@@ -47,6 +47,21 @@ function takeByQuestionTypes(questions: PracticeQuestion[], category: PracticeQu
 
 const listeningTypes = ["task-based response", "key point", "verbal expression", "quick response"];
 
+const microSkillQuestions: PracticeQuestion[] = [
+  { id: "micro-time-seven", itemId: "vocab-shichiji", category: "vocabulary", questionType: "micro-skill time", jlptLevel: "N5", prompt: "七時 is what time?", options: ["5:00", "6:00", "7:00", "8:00"], correctIndex: 2, explanation: "七時 is 7 o'clock." },
+  { id: "micro-price-five-hundred", itemId: "vocab-gohyaku-en", category: "vocabulary", questionType: "micro-skill price", jlptLevel: "N5", prompt: "五百円 is how much?", options: ["50 yen", "500 yen", "5,000 yen", "5 yen"], correctIndex: 1, explanation: "五百円 means 500 yen." },
+  { id: "micro-counter-books", itemId: "grammar-counters", category: "grammar", questionType: "micro-skill counter", jlptLevel: "N5", prompt: "本を三___買いました。 Choose the counter for books.", options: ["人", "冊", "枚", "円"], correctIndex: 1, explanation: "冊 counts bound books: 本を三冊買いました。" },
+  { id: "micro-day-monday", itemId: "vocab-getsuyoubi", category: "vocabulary", questionType: "micro-skill date", jlptLevel: "N5", prompt: "月曜日 is which day?", options: ["Monday", "Tuesday", "Thursday", "Sunday"], correctIndex: 0, explanation: "月曜日 means Monday." },
+  { id: "micro-date-tomorrow", itemId: "vocab-ashita", category: "vocabulary", questionType: "micro-skill date", jlptLevel: "N5", prompt: "明日 means…", options: ["yesterday", "today", "tomorrow", "every day"], correctIndex: 2, explanation: "明日 means tomorrow." },
+  { id: "micro-period-morning", itemId: "vocab-gozen", category: "vocabulary", questionType: "micro-skill time", jlptLevel: "N5", prompt: "午前 means…", options: ["before noon / a.m.", "after noon / p.m.", "midnight", "the weekend"], correctIndex: 0, explanation: "午前 is the morning or a.m. period." },
+  { id: "micro-period-afternoon", itemId: "vocab-gogo", category: "vocabulary", questionType: "micro-skill time", jlptLevel: "N5", prompt: "午後三時 is…", options: ["3 a.m.", "3 p.m.", "午前3時", "Sunday at 3"], correctIndex: 1, explanation: "午後 means p.m., so 午後三時 is 3 p.m." },
+  { id: "micro-kanji-hour", itemId: "kanji-ji", category: "kanji", questionType: "micro-skill time", jlptLevel: "N5", prompt: "What does 時 contribute in 三時?", options: ["day", "hour / o'clock", "yen", "person"], correctIndex: 1, explanation: "時 marks an hour or o'clock expression." },
+  { id: "micro-price-counter", itemId: "kanji-en", category: "kanji", questionType: "micro-skill price", jlptLevel: "N5", prompt: "Which kanji marks yen in 900円?", options: ["時", "日", "円", "人"], correctIndex: 2, explanation: "円 is the currency counter for yen." },
+  { id: "micro-people-counter", itemId: "kanji-hito", category: "kanji", questionType: "micro-skill counter", jlptLevel: "N5", prompt: "Which counter fits two people?", options: ["二冊", "二枚", "二人", "二円"], correctIndex: 2, explanation: "人 counts people; two people is 二人（ふたり）." },
+  { id: "micro-month-seven", itemId: "vocab-shichiji", category: "vocabulary", questionType: "micro-skill date", jlptLevel: "N5", prompt: "Which means July?", options: ["七月", "七日", "七時", "七人"], correctIndex: 0, explanation: "月 marks a month, so 七月 is July." },
+  { id: "micro-frequency-every-day", itemId: "vocab-mainichi", category: "vocabulary", questionType: "micro-skill date", jlptLevel: "N5", prompt: "毎日 means…", options: ["every day", "every month", "Monday", "tomorrow"], correctIndex: 0, explanation: "毎日 means every day." },
+];
+
 const practiceQuestionCache = new WeakMap<N5Module, PracticeQuestion[]>();
 const validatedPracticeCache = new WeakMap<N5Module, PracticeQuestion[]>();
 
@@ -246,7 +261,7 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
 
   const availableItemIds = new Set([...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening].map((item) => item.id));
   const integratedQuestions: PracticeQuestion[] = buildIntegratedExamSets([...availableItemIds]).flatMap((set) => set.questions) as PracticeQuestion[];
-  const generatedQuestions: PracticeQuestion[] = [...questions, ...integratedQuestions].map((question) => ({ ...question, validationStatus: question.validationStatus ?? "validated" as const, generatedBy: question.generatedBy ?? "michi-question-factory" })) as PracticeQuestion[];
+  const generatedQuestions: PracticeQuestion[] = [...questions, ...integratedQuestions, ...microSkillQuestions].map((question) => ({ ...question, validationStatus: question.validationStatus ?? "validated" as const, generatedBy: question.generatedBy ?? "michi-question-factory" })) as PracticeQuestion[];
   const remoteQuestions = module.practiceQuestions ?? [];
   if (!remoteQuestions.length) {
     practiceQuestionCache.set(module, generatedQuestions);
@@ -305,6 +320,7 @@ export function selectPracticeQuestions(mode: PracticeMode, questions = getValid
   const examQuestions = calibrated.length ? calibrated : targetQuestions;
   if (mode === "integrated") return selectIntegratedExamSet(examQuestions, new Date().getDate());
   if (mode === "quick") return takeQuick(targetQuestions);
+  if (mode === "micro") return targetQuestions.filter((question) => question.questionType.startsWith("micro-skill"));
   if (mode === "mini") return takeQuick(targetQuestions).slice(0, 10);
   if (mode === "section") return [...takeByQuestionTypes(examQuestions, "vocabulary", ["kana recall", "contextual vocabulary", "orthography", "paraphrase", "meaning"], 5), ...takeByQuestionTypes(examQuestions, "kanji", ["kana recall", "kanji in context", "reading in context", "orthography", "kanji reading"], 3), ...takeByQuestionTypes(examQuestions, "grammar", ["sentence composition", "sentence completion", "grammar in context", "text grammar", "sentence ordering", "meaning"], 5), ...takeByCategory(examQuestions, "reading", 3), ...takeListening(examQuestions, 3)];
   // ponytail: fixed exam counts fit the authored bank; increase them after the item bank is expanded and calibrated.
