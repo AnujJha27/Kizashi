@@ -8,6 +8,8 @@ import { getTopicCoverage, topicLabel, type LessonContentItem } from "@/lib/curr
 import { getCurriculumBand, getN5Readiness, n5ExamRequirements } from "@/lib/jlpt";
 import { getDueReviewIds, readExamAttempts, readMistakes, readReviewRecords, type ExamAttempt, type ReviewRecord } from "@/lib/session";
 import { KnowledgeMap } from "@/components/progress/knowledge-map";
+import { JapaneseText } from "@/components/learning/japanese-text";
+import type { KanjiItem, VocabularyItem } from "@/lib/types";
 
 const categories: LessonContentItem["category"][] = ["vocabulary", "kanji", "grammar", "reading", "listening"];
 const bands = ["core", "extended", "bridge"] as const;
@@ -56,6 +58,8 @@ export function ProgressDashboard({ items }: Readonly<{ items: LessonContentItem
   const recentAttempts = recent.reduce((total, item) => total + (records[item.id]?.attempts ?? 0), 0);
   const recentCorrect = recent.reduce((total, item) => total + (records[item.id]?.correct ?? 0), 0);
   const priorityLabel = label(summary.priority.skillType);
+  const vocabulary = catalog.filter((item): item is VocabularyItem => item.category === "vocabulary");
+  const kanji = catalog.filter((item): item is KanjiItem => item.category === "kanji");
 
   return (
     <div className="space-y-7">
@@ -88,7 +92,7 @@ export function ProgressDashboard({ items }: Readonly<{ items: LessonContentItem
 
       <section className="border-t border-[#292b31] pt-6"><p className="eyebrow mb-2">Curriculum bands</p><p className="mb-4 text-sm text-[#9297a1]">A conservative syllabus keeps essentials visible without pretending the unofficial JLPT lists are exact.</p><div className="grid gap-3 sm:grid-cols-3">{bands.map((band) => { const bandItems = catalog.filter((item) => getCurriculumBand(item) === band); const bandReviewed = bandItems.filter((item) => reviewedIds.has(item.id)).length; return <div key={band} className="rounded-xl border border-white/10 bg-[#101b2b]/70 p-4"><p className="eyebrow">{band}</p><p className="mt-2 text-2xl font-semibold text-[#f5f5f2]">{bandReviewed}<span className="ml-1 text-sm font-normal text-[#9297a1]">/ {bandItems.length}</span></p><p className="mt-1 text-xs text-[#9297a1]">{Math.round((bandReviewed / Math.max(bandItems.length, 1)) * 100)}% covered</p></div>; })}</div></section>
 
-      {recurring.length ? <section className="border-t border-[#292b31] pt-6"><p className="eyebrow mb-2">Mistake notebook</p><p className="mb-4 text-sm text-[#9297a1]">The items you have asked to see again most often.</p><div className="space-y-2">{recurring.map((item) => <div key={item.id} className="flex items-center justify-between rounded-lg bg-[#21191a]/70 px-3 py-3 text-sm"><span className="jp-serif text-lg text-[#f5f5f2]">{item.title}</span><span className="text-xs text-[#e5b85c]">{mistakes[item.id].count} again{mistakes[item.id].count === 1 ? "" : "s"}</span></div>)}</div></section> : null}
+      {recurring.length ? <section className="border-t border-[#292b31] pt-6"><p className="eyebrow mb-2">Mistake notebook</p><p className="mb-4 text-sm text-[#9297a1]">The items you have asked to see again most often.</p><div className="space-y-2">{recurring.map((item) => <div key={item.id} className="flex items-center justify-between rounded-lg bg-[#21191a]/70 px-3 py-3 text-sm"><span className="jp-serif text-lg text-[#f5f5f2]"><JapaneseText text={item.title} vocabulary={vocabulary} kanji={kanji} always inspect={false} /></span><span className="text-xs text-[#e5b85c]">{mistakes[item.id].count} again{mistakes[item.id].count === 1 ? "" : "s"}</span></div>)}</div></section> : null}
 
       <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[#292b31] pt-6"><p className="text-sm text-[#9297a1]">Priority: <span className="text-[#e5b85c]">{label(summary.priority.skillType)}</span>. Keep the rhythm small.</p><div className="flex gap-3"><Link href="/review" className="rounded-xl border border-[#5d3936] px-4 py-3 text-sm font-semibold text-[#f5f5f2] hover:border-[#e34a3f]">Review</Link><Link href={`/practice?mode=${practiceModes[summary.priority.skillType]}`} className="rounded-xl bg-[#e34a3f] px-4 py-3 text-sm font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">Strengthen {label(summary.priority.skillType)} <span className="ml-2" aria-hidden="true">→</span></Link></div></div>
     </div>
