@@ -94,7 +94,13 @@ export function getJapaneseReadingEntries(vocabulary: VocabularyItem[], kanji: K
   return [...entries.entries()].sort((left, right) => right[0].length - left[0].length);
 }
 
-export function JapaneseText({ text, vocabulary, kanji = [], className = "", always = false, inspect = true }: Readonly<{ text: string; vocabulary: VocabularyItem[]; kanji?: KanjiItem[]; className?: string; always?: boolean; inspect?: boolean }>) {
+export function getReadingEntriesForTexts(texts: string[], vocabulary: VocabularyItem[], kanji: KanjiItem[] = []) {
+  const corpus = texts.filter(Boolean).join("\n");
+  if (!corpus) return [] as [string, string][];
+  return getJapaneseReadingEntries(vocabulary, kanji).filter(([word]) => corpus.includes(word));
+}
+
+export function JapaneseText({ text, vocabulary, kanji = [], readingEntries = [], className = "", always = false, inspect = true }: Readonly<{ text: string; vocabulary: VocabularyItem[]; kanji?: KanjiItem[]; readingEntries?: [string, string][]; className?: string; always?: boolean; inspect?: boolean }>) {
   const [mode, setMode] = useState<FuriganaMode>("always");
   const [records, setRecords] = useState<Record<string, ReviewRecord>>({});
   const [tappedPart, setTappedPart] = useState<string | null>(null);
@@ -106,7 +112,7 @@ export function JapaneseText({ text, vocabulary, kanji = [], className = "", alw
     window.addEventListener("michi-review-updated", refresh);
     return () => { window.removeEventListener("michi-profile-updated", refresh); window.removeEventListener("michi-review-updated", refresh); };
   }, []);
-  const entries = getJapaneseReadingEntries(vocabulary, kanji);
+  const entries = [...readingEntries, ...getJapaneseReadingEntries(vocabulary, kanji)];
   const masteryByWord = new Map<string, string>();
   const itemsByWord = new Map<string, VocabularyItem | KanjiItem>();
   vocabulary.forEach((item) => masteryByWord.set(item.writtenForm, item.id));
