@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import { JapaneseText } from "@/components/learning/japanese-text";
 import { AudioControls } from "@/components/learning/audio-controls";
@@ -15,6 +16,7 @@ import { SourceReferencePanel } from "@/components/learning/source-reference-pan
 import { n5Module } from "@/lib/curriculum";
 import { classifyItem } from "@/lib/jlpt";
 import { toHiragana } from "@/lib/mastery";
+import { readReviewRecords } from "@/lib/session";
 import type { GrammarContrast, KanjiItem, ListeningItem, ReadingItem, VocabularyItem, GrammarItem } from "@/lib/types";
 
 type Entry = VocabularyItem | KanjiItem | GrammarItem | ReadingItem | ListeningItem;
@@ -43,12 +45,25 @@ function KanjiDetail({ item, vocabulary, kanji }: Readonly<{ item: KanjiItem; vo
 
 function GrammarDetail({ item, contrasts, vocabulary, kanji }: Readonly<{ item: GrammarItem; contrasts: GrammarContrast[]; vocabulary: VocabularyItem[]; kanji: KanjiItem[] }>) {
   const contrast = contrasts.find((entry) => item.contrastIds.includes(entry.id));
-  return <><p className="jp-serif text-3xl text-[#e5b85c]"><JapaneseText text={item.pattern} vocabulary={vocabulary} kanji={kanji} always /></p><AudioControls text={item.pattern} metadata={item.audio} className="mt-4" /><h2 className="mt-5 text-xl font-medium">{item.meaning}</h2><p className="mt-3 text-sm leading-7 text-[#9297a1]">{item.formation}</p><p className="mt-5 text-sm leading-7 text-[#c3a998]">{item.intuition}</p><div className="mt-7"><p className="eyebrow mb-3">Usage conditions</p><ul className="space-y-2 text-sm leading-6 text-[#c3c7ce]">{item.usageConditions.map((condition) => <li key={condition}>— {condition}</li>)}</ul></div><div className="mt-7 space-y-3">{item.examples.map((example) => <div key={example.japanese} className="rounded-xl bg-[#101b2b]/70 p-4"><p className="jp-serif text-lg text-[#e5b85c]"><JapaneseText text={example.japanese} vocabulary={vocabulary} kanji={kanji} always /></p><p className="mt-1 text-sm text-[#9297a1]">{example.translation}</p><AudioControls text={example.japanese} metadata={example.audio} className="mt-3" /><GrammarVisual sentence={example.japanese} vocabulary={vocabulary} kanji={kanji} /><SaveSentence sourceItemId={item.id} japanese={example.japanese} translation={example.translation} /></div>)}</div><div className="mt-7 rounded-xl border border-[#713b37]/70 bg-[#21191a]/60 p-4"><p className="eyebrow mb-2">Common mistake</p><p className="text-sm leading-6 text-[#c3c7ce]">{item.commonMistakes.join(" ")}</p></div>{contrast ? <div className="mt-7 border-l-2 border-[#e34a3f] pl-4"><p className="eyebrow">Contrast · {contrast.title}</p><p className="mt-2 text-sm leading-6 text-[#c3a998]">{contrast.explanation}</p></div> : null}<SourceReferencePanel grammarId={item.id} /></>;
+  const [showSupport, setShowSupport] = useState(true);
+  useEffect(() => {
+    const record = readReviewRecords()[item.id];
+    const experienced = Boolean(record && ((["stable", "strong"] as string[]).includes(record.masteryState ?? "") || (record.attempts ?? 0) >= 3));
+    setShowSupport(!experienced);
+  }, [item.id]);
+  return <><p className="jp-serif text-3xl text-[#e5b85c]"><JapaneseText text={item.pattern} vocabulary={vocabulary} kanji={kanji} always /></p><AudioControls text={item.pattern} metadata={item.audio} className="mt-4" /><h2 className="mt-5 text-xl font-medium">{item.meaning}</h2>{showSupport ? <><p className="mt-3 text-sm leading-7 text-[#9297a1]">{item.formation}</p><p className="mt-5 text-sm leading-7 text-[#c3a998]">{item.intuition}</p></> : <button type="button" onClick={() => setShowSupport(true)} className="mt-3 rounded-lg border border-[#3f4652] px-3 py-2 text-xs font-semibold text-[#c3c7ce] hover:border-[#e5b85c]">Show formation hint</button>}<div className="mt-7"><p className="eyebrow mb-3">Usage conditions</p><ul className="space-y-2 text-sm leading-6 text-[#c3c7ce]">{item.usageConditions.map((condition) => <li key={condition}>— {condition}</li>)}</ul></div><div className="mt-7 space-y-3">{item.examples.map((example) => <div key={example.japanese} className="rounded-xl bg-[#101b2b]/70 p-4"><p className="jp-serif text-lg text-[#e5b85c]"><JapaneseText text={example.japanese} vocabulary={vocabulary} kanji={kanji} always /></p><p className="mt-1 text-sm text-[#9297a1]">{example.translation}</p><AudioControls text={example.japanese} metadata={example.audio} className="mt-3" /><GrammarVisual sentence={example.japanese} vocabulary={vocabulary} kanji={kanji} /><SaveSentence sourceItemId={item.id} japanese={example.japanese} translation={example.translation} /></div>)}</div><div className="mt-7 rounded-xl border border-[#713b37]/70 bg-[#21191a]/60 p-4"><p className="eyebrow mb-2">Common mistake</p><p className="text-sm leading-6 text-[#c3c7ce]">{item.commonMistakes.join(" ")}</p></div>{contrast ? <div className="mt-7 border-l-2 border-[#e34a3f] pl-4"><p className="eyebrow">Contrast · {contrast.title}</p><p className="mt-2 text-sm leading-6 text-[#c3a998]">{contrast.explanation}</p></div> : null}<SourceReferencePanel grammarId={item.id} /></>;
 }
 
 function OtherDetail({ item, vocabulary, kanji }: Readonly<{ item: ReadingItem | ListeningItem; vocabulary: VocabularyItem[]; kanji: KanjiItem[] }>) {
+  const [showTranscript, setShowTranscript] = useState(true);
+  useEffect(() => {
+    if (item.category === "reading") return;
+    const record = readReviewRecords()[item.id];
+    const experienced = Boolean(record && ((["stable", "strong"] as string[]).includes(record.masteryState ?? "") || (record.attempts ?? 0) >= 3));
+    setShowTranscript(!experienced);
+  }, [item.category, item.id]);
   if (item.category === "reading") return <><AudioControls text={item.passage} metadata={item.audio} className="mt-6" /><ReadingPanel item={item} vocabulary={vocabulary} kanji={kanji} always /></>;
-  return <><p className="text-sm leading-7 text-[#9297a1]">{item.situation}</p><AudioControls text={item.transcript} externalUrl={item.audioUrl} metadata={item.audio} preferredRate={item.speed} className="mt-6" /><p className="jp-serif mt-6 whitespace-pre-line text-lg leading-8 text-[#f5f5f2]"><JapaneseText text={item.transcript} vocabulary={vocabulary} kanji={kanji} always /></p><p className="mt-6 text-sm text-[#9297a1]">{item.questions.length} listening questions ready in Practice.</p></>;
+  return <><p className="text-sm leading-7 text-[#9297a1]">{item.situation}</p><AudioControls text={item.transcript} externalUrl={item.audioUrl} metadata={item.audio} preferredRate={item.speed} className="mt-6" />{showTranscript ? <p className="jp-serif mt-6 whitespace-pre-line text-lg leading-8 text-[#f5f5f2]"><JapaneseText text={item.transcript} vocabulary={vocabulary} kanji={kanji} always /></p> : <button type="button" onClick={() => setShowTranscript(true)} className="mt-6 rounded-lg border border-[#3f4652] px-3 py-2 text-xs font-semibold text-[#c3c7ce] hover:border-[#e5b85c]">Show transcript</button>}<p className="mt-6 text-sm text-[#9297a1]">{item.questions.length} listening questions ready in Practice.</p></>;
 }
 
 export function EntryDetail({ item, contrasts, vocabulary = n5Module.vocabulary, kanji = n5Module.kanji }: Readonly<{ item: Entry; contrasts: GrammarContrast[]; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[] }>) {
