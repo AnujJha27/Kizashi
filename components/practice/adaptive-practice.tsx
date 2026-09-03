@@ -34,7 +34,7 @@ function priority(question: PracticeQuestion, now: number, records: ReturnType<t
   return (mistake?.count ?? 0) * 6 + (studyLater.has(question.itemId) ? 5 : 0) + (record && record.dueAt <= now ? 4 : 0) + (questionStats?.slowCount ?? 0) * 2 + (!record ? 2 : 0) + (record ? 1 - accuracy : 0) + stagePriority(question, record) + passWeight + ijasBoostForQuestion(question, items, aggregates) - (questionStats?.ambiguityReports ?? 0) * 4 - (questionStats?.attempts ?? 0) * 3;
 }
 
-export function AdaptivePractice({ questions, vocabulary = [], kanji = [], readingEntries = [], items = [], learnerErrorAggregates = [], limit, passMode = false, sessionId }: Readonly<{ questions: PracticeQuestion[]; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[]; readingEntries?: [string, string][]; items?: LearningItem[]; learnerErrorAggregates?: IjasAggregate[]; limit?: number; passMode?: boolean; sessionId?: string }>) {
+export function AdaptivePractice({ questions, vocabulary = [], kanji = [], readingEntries = [], items = [], learnerErrorAggregates = [], limit, passMode = false, sessionId, onComplete }: Readonly<{ questions: PracticeQuestion[]; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[]; readingEntries?: [string, string][]; items?: LearningItem[]; learnerErrorAggregates?: IjasAggregate[]; limit?: number; passMode?: boolean; sessionId?: string; onComplete?: () => void }>) {
   const [ordered, setOrdered] = useState<PracticeQuestion[] | null>(null);
   const [session, setSession] = useState(0);
   const recentQuestionIds = useRef<string[]>([]);
@@ -54,5 +54,5 @@ export function AdaptivePractice({ questions, vocabulary = [], kanji = [], readi
   }, [items, learnerErrorAggregates, limit, passMode, questions, session]);
 
   if (ordered === null) return <div className="min-h-80 animate-pulse rounded-xl bg-[#17181d]" aria-label="Building your practice queue" />;
-  return <PracticePlayer key={session} questions={ordered} vocabulary={vocabulary} kanji={kanji} readingEntries={readingEntries} sessionId={sessionId} onRestart={() => { if (limit) recentQuestionIds.current = [...recentQuestionIds.current, ...ordered.map((question) => question.id)].slice(-limit * 2); setSession((value) => value + 1); }} />;
+  return <PracticePlayer key={session} questions={ordered} vocabulary={vocabulary} kanji={kanji} readingEntries={readingEntries} sessionId={sessionId} onComplete={onComplete ? () => onComplete() : undefined} onRestart={() => { if (limit) recentQuestionIds.current = [...recentQuestionIds.current, ...ordered.map((question) => question.id)].slice(-limit * 2); setSession((value) => value + 1); }} />;
 }

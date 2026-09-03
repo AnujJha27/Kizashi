@@ -49,7 +49,7 @@ verification, `[ ]` not implemented.
 
 - [x] Primary navigation reduced to Today, Practice, Immersion, and Library; secondary destinations live behind More.
 - [x] Mobile navigation uses the same primary destinations with an accessible More menu.
-- [x] Today/Journey has a time-aware greeting, current-path CTA, daily session plan, duration choices, and completion state.
+- [x] Today/Journey has a time-aware greeting, current-path CTA, duration choices, and a resumable in-place session that advances through the existing review, lesson, quick-practice, listening, and reading components; short durations select a smaller coherent subset and longer durations add context blocks.
 - [x] Practice is organized around Quick, Focus, Weaknesses, and Test while retaining compatible deep links for existing modes.
 - [x] Practice defers its question bank and bounds the live working catalog instead of retaining the full imported lesson corpus on every drill.
 - [x] Learner content loading merges the released remote package with bundled authored expansions, so deployment does not drop bundled reading/listening lessons while waiting on review data.
@@ -99,7 +99,7 @@ item means the learner-facing path exists in the current repository; partial
 items intentionally remain visible until the remaining surfaces are finished.
 
 - [x] **Navigation shell** — `components/shell/app-shell.tsx`, `/journey`, `/practice`, `/immersion`, and `/library`; secondary destinations remain available through More.
-- [x] **Today/session orchestration** — `components/journey/daily-session.tsx`, `app/(main)/journey/page.tsx`, and `lib/exam-plan-core.js`; duration, next action, continue, and completion states are wired.
+- [x] **Today/session orchestration** — `components/journey/daily-session.tsx`, `app/(main)/journey/page.tsx`, `components/learning/lesson-player.tsx`, `components/practice/lazy-practice.tsx`, and `lib/exam-plan-core.js`; duration chooses a coherent stage sequence, the existing players run in-place, progress is saved by date/lesson/level, and completion has a stop point.
 - [x] **Practice IA and bounded loading** — `components/practice/practice-mode-tabs.tsx`, `components/practice/lazy-practice.tsx`, `components/practice/practice-player.tsx`, `components/content/use-content-module.ts`, and `lib/questions.ts`; Quick/Focus/Weaknesses/Test group the existing modes, the question bank loads inside the practice panel, and repeated mode switches reuse the stable bounded learner module instead of rebuilding the full pool.
 - [x] **Conjugation focus** — the existing PracticePlayer exposes bounded reviewed verb/adjective transformation prompts through `/practice?mode=conjugation`; it stays inside Focus while reading/listening drills remain in Immersion.
 - [x] **Original reading practice** — `data/original-reading-bank.json`, `scripts/generate_original_reading_bank.py`, and `lib/curriculum.ts`; N5/N4 original short, mid-length, and information-retrieval material is assigned to learner-facing reading lessons and flows through the existing PracticePlayer.

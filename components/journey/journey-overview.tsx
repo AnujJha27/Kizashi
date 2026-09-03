@@ -102,7 +102,7 @@ export function JourneyOverview() {
       </div>
     </section>
 
-    {lesson ? <div className="mb-8"><DailySession lessonId={lesson.id} items={lessonItems} allItems={allItems} targetLevel={targetLevel} /></div> : null}
+    {lesson ? <div className="mb-8"><DailySession lessonId={lesson.id} items={lessonItems} allItems={allItems} module={targetModule} targetLevel={targetLevel} /></div> : null}
 
     <div className="mb-8"><ExamCountdown /></div>
 
