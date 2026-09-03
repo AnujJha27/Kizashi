@@ -10,6 +10,7 @@ import type { KanjiItem, VocabularyItem } from "@/lib/types";
 
 const godanIRow: Record<string, [string, string]> = { "う": ["い", "い"], "く": ["き", "き"], "ぐ": ["ぎ", "ぎ"], "す": ["し", "し"], "つ": ["ち", "ち"], "ぬ": ["に", "に"], "ぶ": ["び", "び"], "む": ["み", "み"], "る": ["り", "り"] };
 const reviewedReadingHints: [string, string][] = [["お客さん", "おきゃくさん"], ["飲み物", "のみもの"], ["午後", "ごご"], ["午前", "ごぜん"], ["何時", "なんじ"], ["一人", "ひとり"], ["二人", "ふたり"], ["お願いします", "おねがいします"], ["読みます", "よみます"], ["会います", "あいます"], ["食べます", "たべます"], ["飲みます", "のみます"], ["行きます", "いきます"], ["来ます", "きます"]];
+const readingEntryCache = new WeakMap<object, WeakMap<object, [string, string][]>>();
 
 function verbAliases(item: VocabularyItem) {
   if (!/verb/u.test(item.partOfSpeech)) return [] as [string, string][];
@@ -80,6 +81,10 @@ function adjectiveAliases(item: VocabularyItem) {
 }
 
 export function getJapaneseReadingEntries(vocabulary: VocabularyItem[], kanji: KanjiItem[] = []) {
+  const kanjiKey = kanji.length ? kanji : emptyKanji;
+  const cachedByKanji = readingEntryCache.get(vocabulary);
+  const cached = cachedByKanji?.get(kanjiKey);
+  if (cached) return cached;
   const entries = new Map<string, string>();
   vocabulary.filter((item) => /[一-龯]/u.test(item.writtenForm)).forEach((item) => {
     entries.set(item.writtenForm, toHiragana(item.reading));
@@ -91,8 +96,14 @@ export function getJapaneseReadingEntries(vocabulary: VocabularyItem[], kanji: K
     if (readings.length === 1 && !entries.has(item.character)) entries.set(item.character, readings[0]);
   });
   reviewedReadingHints.forEach(([word, reading]) => { if (!entries.has(word)) entries.set(word, reading); });
-  return [...entries.entries()].sort((left, right) => right[0].length - left[0].length);
+  const result = [...entries.entries()].sort((left, right) => right[0].length - left[0].length);
+  const nextCache = cachedByKanji ?? new WeakMap<object, [string, string][]>();
+  nextCache.set(kanjiKey, result);
+  if (!cachedByKanji) readingEntryCache.set(vocabulary, nextCache);
+  return result;
 }
+
+const emptyKanji: KanjiItem[] = [];
 
 export function getReadingEntriesForTexts(texts: string[], vocabulary: VocabularyItem[], kanji: KanjiItem[] = []) {
   const corpus = texts.filter(Boolean).join("\n");
@@ -112,7 +123,10 @@ export function JapaneseText({ text, vocabulary, kanji = [], readingEntries = []
     window.addEventListener("michi-review-updated", refresh);
     return () => { window.removeEventListener("michi-profile-updated", refresh); window.removeEventListener("michi-review-updated", refresh); };
   }, []);
-  const entries = [...readingEntries, ...getJapaneseReadingEntries(vocabulary, kanji)];
+  const entriesByWord = new Map<string, string>();
+  readingEntries.forEach(([word, reading]) => entriesByWord.set(word, reading));
+  getReadingEntriesForTexts([text], vocabulary, kanji).forEach(([word, reading]) => { if (!entriesByWord.has(word)) entriesByWord.set(word, reading); });
+  const entries = [...entriesByWord.entries()];
   const masteryByWord = new Map<string, string>();
   const itemsByWord = new Map<string, VocabularyItem | KanjiItem>();
   vocabulary.forEach((item) => masteryByWord.set(item.writtenForm, item.id));
