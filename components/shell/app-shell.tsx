@@ -66,6 +66,7 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
             <Link
               key={item.href}
               href={item.href}
+              prefetch={false}
               className={`relative flex items-center gap-3 rounded-xl border-l-2 px-3 py-3 text-sm ${isActive(pathname, item.href) ? "border-[#e34a3f] bg-[#4a2e34]/80 text-[#f5f5f2] shadow-[0_8px_24px_rgba(227,74,63,.1)]" : "border-transparent text-[#c3c7ce] hover:bg-[#253747]/70 hover:text-[#f5f5f2]"}`}
               aria-current={isActive(pathname, item.href) ? "page" : undefined}
             >
@@ -82,7 +83,7 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
               <span>More</span>
               <span className="jp-serif ml-auto text-xs text-[#9db4bd]">その他</span>
             </button>
-            {secondaryOpen ? <div id="secondary-navigation" className="absolute left-0 right-0 top-full z-50 mt-1 rounded-2xl border border-[#4b3a29] bg-[#111216]/95 p-2 shadow-2xl backdrop-blur-xl">{visibleSecondaryItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setSecondaryOpen(false)} className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm ${isActive(pathname, item.href) ? "bg-[#3a2023] text-[#f5f5f2]" : "text-[#c3c7ce] hover:bg-[#211d18] hover:text-[#f5f5f2]"}`}><span className="grid size-7 place-items-center rounded-lg bg-[#203747]/80 text-xs text-[#e5b85c]" aria-hidden="true">{item.mark}</span><span>{item.label}</span><span className="jp-serif ml-auto text-xs text-[#9db4bd]">{item.jpLabel}</span></Link>)}</div> : null}
+            {secondaryOpen ? <div id="secondary-navigation" className="absolute left-0 right-0 top-full z-50 mt-1 rounded-2xl border border-[#4b3a29] bg-[#111216]/95 p-2 shadow-2xl backdrop-blur-xl">{visibleSecondaryItems.map((item) => <Link key={item.href} prefetch={false} href={item.href} onClick={() => setSecondaryOpen(false)} className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm ${isActive(pathname, item.href) ? "bg-[#3a2023] text-[#f5f5f2]" : "text-[#c3c7ce] hover:bg-[#211d18] hover:text-[#f5f5f2]"}`}><span className="grid size-7 place-items-center rounded-lg bg-[#203747]/80 text-xs text-[#e5b85c]" aria-hidden="true">{item.mark}</span><span>{item.label}</span><span className="jp-serif ml-auto text-xs text-[#9db4bd]">{item.jpLabel}</span></Link>)}</div> : null}
           </div>
         </nav>
 
@@ -92,7 +93,7 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
             <p className="mt-2 text-sm font-medium text-[#f5f5f2]">A small step is enough.</p>
             <p className="mt-1 text-xs leading-5 text-[#c3c7ce]">Keep the N5 path warm with a five-minute drill.</p>
             <div className="mt-3 h-1 overflow-hidden rounded-full bg-white/10"><span className="block h-full w-1/3 rounded-full bg-gradient-to-r from-[#e34a3f] to-[#e5b85c]" /></div>
-            <Link href="/practice?mode=quick&duration=5" className="mt-3 inline-flex text-xs font-semibold text-[#e5b85c] hover:text-[#f1cf7c]">Begin today&apos;s path <span className="ml-2" aria-hidden="true">→</span></Link>
+            <Link prefetch={false} href="/practice?mode=quick&duration=5" className="mt-3 inline-flex text-xs font-semibold text-[#e5b85c] hover:text-[#f1cf7c]">Begin today&apos;s path <span className="ml-2" aria-hidden="true">→</span></Link>
           </div>
           <div className="border-t border-[#292b31] px-2 pt-4"><p className="text-xs text-[#9297a1]">N5 foundations</p><p className="mt-1 text-[10px] uppercase tracking-[.14em] text-[#676c75]">learn · review · return</p></div>
         </div>
@@ -105,7 +106,7 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
             <span className="text-xs font-semibold tracking-[.2em]">KIZASHI</span>
           </div>
           <div className="hidden text-xs text-[#676c75] lg:block"><span className="jp-serif text-[#e5b85c]">はじまり</span><span className="px-2 text-[#292b31]">/</span>N5 Foundations</div>
-          <div className="ml-auto flex items-center gap-3"><CommandPalette isAdmin={isAdmin} /><Link href="/profile" className="flex items-center gap-2 rounded-full text-xs text-[#9297a1] hover:text-[#f5f5f2]" aria-label="Open profile">
+          <div className="ml-auto flex items-center gap-3"><CommandPalette isAdmin={isAdmin} /><Link prefetch={false} href="/profile" className="flex items-center gap-2 rounded-full text-xs text-[#9297a1] hover:text-[#f5f5f2]" aria-label="Open profile">
             <span className="grid size-8 place-items-center rounded-full border border-[#4b3a29] bg-[#211d18] text-[#e5b85c]">人</span>
             <span className="hidden max-w-36 truncate sm:block">{displayName || "Your path"}</span>
           </Link></div>
@@ -114,11 +115,11 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
         <main className="relative z-10 safe-bottom min-h-[calc(100vh-4rem)] px-5 py-7 lg:px-10 lg:py-10">{children}<AccountSync visible={pathname === "/profile"} /></main>
 
         {secondaryOpen ? <button type="button" aria-label="Close more navigation" onClick={() => setSecondaryOpen(false)} className="fixed inset-0 z-30 bg-[#07080c]/45 lg:hidden" /> : null}
-        {secondaryOpen ? <div id="mobile-secondary-navigation" className="fixed inset-x-3 bottom-[calc(4.75rem+env(safe-area-inset-bottom))] z-50 rounded-2xl border border-[#4b3a29] bg-[#111216]/95 p-2 shadow-2xl backdrop-blur-xl lg:hidden">{visibleSecondaryItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setSecondaryOpen(false)} className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm ${isActive(pathname, item.href) ? "bg-[#3a2023] text-[#f5f5f2]" : "text-[#c3c7ce] hover:bg-[#211d18] hover:text-[#f5f5f2]"}`}><span className="grid size-7 place-items-center rounded-lg bg-[#203747]/80 text-xs text-[#e5b85c]" aria-hidden="true">{item.mark}</span><span>{item.label}</span><span className="jp-serif ml-auto text-xs text-[#9db4bd]">{item.jpLabel}</span></Link>)}</div> : null}
+        {secondaryOpen ? <div id="mobile-secondary-navigation" className="fixed inset-x-3 bottom-[calc(4.75rem+env(safe-area-inset-bottom))] z-50 rounded-2xl border border-[#4b3a29] bg-[#111216]/95 p-2 shadow-2xl backdrop-blur-xl lg:hidden">{visibleSecondaryItems.map((item) => <Link key={item.href} prefetch={false} href={item.href} onClick={() => setSecondaryOpen(false)} className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm ${isActive(pathname, item.href) ? "bg-[#3a2023] text-[#f5f5f2]" : "text-[#c3c7ce] hover:bg-[#211d18] hover:text-[#f5f5f2]"}`}><span className="grid size-7 place-items-center rounded-lg bg-[#203747]/80 text-xs text-[#e5b85c]" aria-hidden="true">{item.mark}</span><span>{item.label}</span><span className="jp-serif ml-auto text-xs text-[#9db4bd]">{item.jpLabel}</span></Link>)}</div> : null}
         <nav aria-label="Mobile navigation" className="app-mobile-nav fixed inset-x-0 bottom-0 z-40 min-w-0 max-w-[100vw] overflow-x-hidden border-t border-[#292b31] px-1 pb-[env(safe-area-inset-bottom)] lg:hidden">
           <div className="mx-auto grid w-full max-w-lg min-w-0 grid-cols-5">
             {primaryNavItems.map((item) => (
-              <Link key={item.href} href={item.href} className={`flex min-h-16 min-w-0 flex-col items-center justify-center gap-1 overflow-hidden px-1 text-[10px] ${isActive(pathname, item.href) ? "text-[#f5f5f2]" : "text-[#676c75]"}`} aria-current={isActive(pathname, item.href) ? "page" : undefined}>
+              <Link key={item.href} prefetch={false} href={item.href} className={`flex min-h-16 min-w-0 flex-col items-center justify-center gap-1 overflow-hidden px-1 text-[10px] ${isActive(pathname, item.href) ? "text-[#f5f5f2]" : "text-[#676c75]"}`} aria-current={isActive(pathname, item.href) ? "page" : undefined}>
                 <span className={`grid size-7 place-items-center rounded-lg text-xs ${isActive(pathname, item.href) ? "bg-[#e34a3f] text-[#0b0b0d]" : "bg-[#1e2026]"}`} aria-hidden="true">{item.mark}</span>
                 <span className="max-w-full truncate jp-serif text-[11px]">{item.jpLabel}</span><span className="max-w-full truncate text-[9px]">{item.shortLabel}</span>
               </Link>
