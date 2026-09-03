@@ -254,10 +254,11 @@ function ContentReview({ module, onEdit, onReview }: Readonly<{ module: N5Module
       return true;
     });
   }, [allItems, bandFilter, levelFilter, query, sourceFilter, statusFilter]);
-  const rankedItems = useMemo(() => rankContentCandidates(filteredItems, readReviewRecords(), readMistakes(), filteredItems.length) as Array<LessonContentItem & { reason: string }>, [filteredItems]);
   const pageSize = 60;
-  const pageCount = Math.ceil(rankedItems.length / pageSize);
-  const items = rankedItems.slice(page * pageSize, (page + 1) * pageSize);
+  const pageCount = Math.ceil(filteredItems.length / pageSize);
+  const pageItems = filteredItems.slice(page * pageSize, (page + 1) * pageSize);
+  // ponytail: rank the visible page only; global ranking made Studio block on every filter.
+  const items = useMemo(() => rankContentCandidates(pageItems, readReviewRecords(), readMistakes(), pageItems.length) as Array<LessonContentItem & { reason: string }>, [pageItems]);
   const sourceById = useMemo(() => new Map((module.sourceManifest ?? []).map((source) => [source.id, source])), [module.sourceManifest]);
   useEffect(() => { setPage(0); setExpandedItem(null); }, [statusFilter, levelFilter, bandFilter, sourceFilter, query]);
 

@@ -15,12 +15,13 @@
 
 * { box-sizing: border-box; }
 
-html { background: var(--background); overflow-x: hidden; overflow-y: auto; }
+html { min-height: 100%; background: var(--background); overflow-x: clip; overflow-y: scroll; }
 
 body {
+  min-height: 100%;
   min-width: 320px;
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   overflow-y: auto;
   background: var(--background);
   color: var(--ink);
@@ -33,6 +34,7 @@ body {
 .app-shell {
   isolation: isolate;
   min-height: 100vh;
+  overflow-x: clip;
   position: relative;
   background:
     linear-gradient(90deg, rgba(8, 10, 16, .54) 0%, rgba(8, 10, 16, .34) 48%, rgba(8, 10, 16, .14) 100%),

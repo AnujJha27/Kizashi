@@ -12,7 +12,8 @@ export const dynamic = "force-dynamic";
 async function loadSourceRegister(fallback: ContentSource[]): Promise<ContentSource[]> {
   const supabase = await createSupabaseServerClient();
   if (!supabase) return fallback.length ? fallback : contentSources;
-  const { data, error } = await supabase.from("content_sources").select("*").order("name");
+  const timeout = new Promise<{ data: null; error: Error }>((resolve) => setTimeout(() => resolve({ data: null, error: new Error("Source register timed out") }), 2500));
+  const { data, error } = await Promise.race([supabase.from("content_sources").select("*").order("name"), timeout]);
   if (error || !data?.length) return fallback.length ? fallback : contentSources;
   const remote = data.map((row): ContentSource => ({ id: row.id, name: row.name, type: row.source_type, url: row.url ?? undefined, license: row.license ?? undefined, retrievedAt: row.retrieved_at ?? undefined, notes: row.notes ?? undefined, sha256: row.sha256 ?? undefined, localFilename: row.local_filename ?? undefined }));
   return [...new Map([...fallback, ...remote].map((source) => [source.id, source])).values()].sort((left, right) => left.name.localeCompare(right.name));

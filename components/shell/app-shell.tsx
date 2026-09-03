@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { CommandPalette } from "@/components/shell/command-palette";
 import { AccountSync } from "@/components/profile/account-sync";
 import { readDisplayName } from "@/lib/session";
@@ -32,6 +32,7 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
   const pathname = usePathname();
   const [displayName, setDisplayName] = useState("");
   const [secondaryOpen, setSecondaryOpen] = useState(false);
+  const [navigating, setNavigating] = useState(false);
   const visibleSecondaryItems = isAdmin ? secondaryNavItems : secondaryNavItems.filter((item) => item.href !== "/studio");
   const secondaryActive = visibleSecondaryItems.some((item) => isActive(pathname, item.href));
 
@@ -44,13 +45,28 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
 
   useEffect(() => {
     setSecondaryOpen(false);
+    setNavigating(false);
     const onKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") setSecondaryOpen(false); };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [pathname]);
 
+  useEffect(() => {
+    if (!navigating) return;
+    const timeout = window.setTimeout(() => setNavigating(false), 12000);
+    return () => window.clearTimeout(timeout);
+  }, [navigating]);
+
+  const showNavigationFeedback = (event: MouseEvent<HTMLDivElement>) => {
+    if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const link = (event.target as HTMLElement).closest("a");
+    const href = link?.getAttribute("href");
+    if (!link || !href || !href.startsWith("/") || link.target === "_blank") return;
+    if (new URL(href, window.location.origin).pathname !== pathname) setNavigating(true);
+  };
+
   return (
-    <div className="app-shell min-h-screen lg:flex">
+    <div className="app-shell min-h-screen lg:flex" onClickCapture={showNavigationFeedback}>
       <aside className="sticky top-0 hidden h-screen w-64 shrink-0 self-start overflow-y-auto flex-col border-r border-[#617486]/45 px-5 py-6 lg:flex">
         <div className="mb-8 flex items-center gap-3 rounded-2xl border border-white/10 bg-[#172b3a]/45 px-3 py-3 shadow-[0_14px_35px_rgba(5,12,20,.16)]">
           <div className="relative grid size-10 place-items-center rounded-xl bg-[#e34a3f] text-sm font-bold text-[#0b0b0d] shadow-[0_8px_24px_rgba(227,74,63,.22)]"><span>道</span><span className="absolute -right-1 -top-2 text-[10px] text-[#e5b85c]">✦</span></div>
@@ -112,7 +128,7 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
           </Link></div>
         </header>
 
-        <main className="relative z-10 safe-bottom min-h-[calc(100vh-4rem)] px-5 py-7 lg:px-10 lg:py-10">{children}<AccountSync visible={pathname === "/profile"} /></main>
+        <main className="relative z-10 min-w-0 overflow-x-clip safe-bottom min-h-[calc(100vh-4rem)] px-5 py-7 lg:px-10 lg:py-10">{children}<AccountSync visible={pathname === "/profile"} /></main>
 
         {secondaryOpen ? <button type="button" aria-label="Close more navigation" onClick={() => setSecondaryOpen(false)} className="fixed inset-0 z-30 bg-[#07080c]/45 lg:hidden" /> : null}
         {secondaryOpen ? <div id="mobile-secondary-navigation" className="fixed inset-x-3 bottom-[calc(4.75rem+env(safe-area-inset-bottom))] z-50 rounded-2xl border border-[#4b3a29] bg-[#111216]/95 p-2 shadow-2xl backdrop-blur-xl lg:hidden">{visibleSecondaryItems.map((item) => <Link key={item.href} prefetch={false} href={item.href} onClick={() => setSecondaryOpen(false)} className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm ${isActive(pathname, item.href) ? "bg-[#3a2023] text-[#f5f5f2]" : "text-[#c3c7ce] hover:bg-[#211d18] hover:text-[#f5f5f2]"}`}><span className="grid size-7 place-items-center rounded-lg bg-[#203747]/80 text-xs text-[#e5b85c]" aria-hidden="true">{item.mark}</span><span>{item.label}</span><span className="jp-serif ml-auto text-xs text-[#9db4bd]">{item.jpLabel}</span></Link>)}</div> : null}
@@ -131,6 +147,7 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
           </div>
         </nav>
       </div>
+      {navigating ? <div className="pointer-events-none fixed inset-x-0 top-0 z-[200] flex justify-center p-3" role="status" aria-live="polite"><div className="rounded-full border border-[#e5b85c]/60 bg-[#111216]/95 px-4 py-2 text-xs font-semibold text-[#f1cf7c] shadow-2xl backdrop-blur-xl">Loading the next stop…</div></div> : null}
     </div>
   );
 }
