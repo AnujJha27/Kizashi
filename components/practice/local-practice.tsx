@@ -57,10 +57,13 @@ function useActiveQuestions(fallback: PracticeQuestion[], targetLevel: TargetLev
       const saved = readValidatedQuestionDraft(knownItemIds, knownItemCategories);
       setQuestions(saved ? migrateLegacyQuestionPrompts(saved, module) : active);
     };
-    refresh();
+    const cancel = typeof window.requestIdleCallback === "function"
+      ? (() => { const id = window.requestIdleCallback(refresh, { timeout: 1200 }); return () => window.cancelIdleCallback(id); })()
+      : (() => { const id = window.setTimeout(refresh, 50); return () => window.clearTimeout(id); })();
     window.addEventListener("michi-content-draft-updated", refresh);
     window.addEventListener("michi-question-draft-updated", refresh);
     return () => {
+      cancel();
       window.removeEventListener("michi-content-draft-updated", refresh);
       window.removeEventListener("michi-question-draft-updated", refresh);
     };

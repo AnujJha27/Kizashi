@@ -45,7 +45,7 @@ function detail(item: LessonContentItem, vocabulary: VocabularyItem[], kanji: Ka
   if (item.category === "vocabulary") return <><p className="mt-2 text-sm text-[#f5f5f2]">{item.meanings.join(" · ")}</p><p className="mt-1 text-xs text-[#9297a1]">{item.partOfSpeech}</p></>;
   if (item.category === "kanji") return <p className="jp-serif text-3xl text-[#e5b85c]"><JapaneseText text={item.character} vocabulary={vocabulary} kanji={kanji} readingEntries={[[item.character, toHiragana(item.kunyomi[0] ?? item.onyomi[0] ?? "")]]} always inspect={false} /></p>;
   if (item.category === "grammar") return <><p className="jp-serif text-xl text-[#e5b85c]"><JapaneseText text={item.pattern} vocabulary={vocabulary} kanji={kanji} /></p><p className="mt-2 text-sm text-[#f5f5f2]">{item.meaning}</p></>;
-  return <p className="mt-2 line-clamp-2 text-sm leading-6 text-[#f5f5f2]">{item.category === "reading" ? item.passage : item.situation}</p>;
+  return item.category === "reading" ? <p className="jp-serif mt-2 line-clamp-2 text-sm leading-6 text-[#f5f5f2]"><JapaneseText text={item.passage} vocabulary={vocabulary} kanji={kanji} inspect={false} /></p> : <p className="mt-2 line-clamp-2 text-sm leading-6 text-[#f5f5f2]">{item.situation}</p>;
 }
 
 export function LibraryBrowser({ items, initialFilter = "all", initialQuery = "" }: Readonly<{ items: LessonContentItem[]; initialFilter?: LibraryFilter; initialQuery?: string }>) {
