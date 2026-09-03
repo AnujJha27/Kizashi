@@ -200,6 +200,63 @@ def package_source_id(package: dict[str, Any]) -> str:
     return "source-review"
 
 
+def curriculum_source(package: dict[str, Any]) -> tuple[str, dict[str, Any]]:
+    source = package.get("source") if isinstance(package.get("source"), dict) else {}
+    source_id = text(source.get("id")) or "michi-curated-n5-seed"
+    manifest = {
+        "id": source_id,
+        "name": text(source.get("role")) or "Kizashi authored curriculum",
+        "type": "curriculum",
+        "license": "Kizashi-authored content",
+        "attribution": "Kizashi",
+    }
+    return source_id, manifest
+
+
+def merge_curriculum_items(module: dict[str, Any], packages: list[tuple[str, dict[str, Any]]]) -> None:
+    for category in ("readings", "listening"):
+        existing = {text(item.get("id")): item for item in list_value(module.get(category)) if isinstance(item, dict) and text(item.get("id"))}
+        merged = [item for item in list_value(module.get(category)) if isinstance(item, dict)]
+        for source_id, package in packages:
+            for item in list_value(package.get(category)):
+                if not isinstance(item, dict) or not text(item.get("id")):
+                    continue
+                incoming = {**item, "sourceIds": unique([source_id, *strings(item.get("sourceIds"))])}
+                current = existing.get(text(item.get("id")))
+                if current is None:
+                    existing[text(item.get("id"))] = incoming
+                    merged.append(incoming)
+                else:
+                    current.update(incoming)
+        module[category] = merged
+
+
+def merge_curriculum_chapters(course: dict[str, Any], packages: list[tuple[str, dict[str, Any]]]) -> None:
+    chapters = [chapter for chapter in list_value(course.get("chapters")) if isinstance(chapter, dict)]
+    by_id = {text(chapter.get("id")): chapter for chapter in chapters if text(chapter.get("id"))}
+    for _source_id, package in packages:
+        package_course = package.get("course") if isinstance(package.get("course"), dict) else {}
+        for incoming in list_value(package_course.get("chapters")):
+            if not isinstance(incoming, dict) or not text(incoming.get("id")):
+                continue
+            current = by_id.get(text(incoming.get("id")))
+            if current is None:
+                by_id[text(incoming.get("id"))] = incoming
+                chapters.append(incoming)
+                continue
+            lessons = {text(lesson.get("id")): lesson for lesson in list_value(current.get("lessons")) if isinstance(lesson, dict) and text(lesson.get("id"))}
+            for lesson in list_value(incoming.get("lessons")):
+                if not isinstance(lesson, dict) or not text(lesson.get("id")):
+                    continue
+                existing_lesson = lessons.get(text(lesson.get("id")))
+                if existing_lesson is None:
+                    lessons[text(lesson.get("id"))] = lesson
+                else:
+                    existing_lesson["itemIds"] = unique([*strings(existing_lesson.get("itemIds")), *strings(lesson.get("itemIds"))])
+            current["lessons"] = list(lessons.values())
+    course["chapters"] = chapters
+
+
 def source_curriculum_chapter(items: list[dict[str, Any]], assigned: set[str], chunk_size: int = 150) -> dict[str, Any]:
     labels = {
         "vocabulary": ("Vocabulary expansion", "語彙を広げる"),
@@ -334,6 +391,7 @@ def main() -> int:
     parser.add_argument("--base", type=Path, default=Path("data/n5-foundations.json"))
     parser.add_argument("--staged", type=Path, default=Path("data/staging/openjlpt-n5.json"))
     parser.add_argument("--extra", action="append", type=Path, default=[], help="Additional staged source package; repeat for more sources.")
+    parser.add_argument("--curriculum", action="append", type=Path, default=[], help="Authored curriculum package with readings/listening and its lessons; repeat as needed.")
     parser.add_argument("--source-manifest", type=Path, help="Optional cache manifest whose artifacts should remain in package provenance.")
     parser.add_argument("--output", type=Path, default=Path("data/staging/kizashi-n5-source-review.json"))
     args = parser.parse_args()
@@ -347,11 +405,19 @@ def main() -> int:
     for path in args.extra:
         package = read_json(path)
         staged_packages.append((package_source_id(package), package))
+    curriculum_packages: list[tuple[str, dict[str, Any]]] = []
+    curriculum_manifests: list[dict[str, Any]] = []
+    for path in args.curriculum:
+        package = read_json(path)
+        source_id, manifest = curriculum_source(package)
+        curriculum_packages.append((source_id, package))
+        curriculum_manifests.append(manifest)
     vocabulary: list[dict[str, Any]] = []
     grammar: list[dict[str, Any]] = []
     raw_kanji: list[tuple[dict[str, Any], str]] = []
     source_manifest: list[dict[str, Any]] = [BASE_SOURCE]
     source_manifest.extend(entry for entry in list_value(module.get("sourceManifest")) if isinstance(entry, dict))
+    source_manifest.extend(curriculum_manifests)
     if args.source_manifest and args.source_manifest.exists():
         source_manifest.extend(read_source_manifest(args.source_manifest))
     for source_id, staged in staged_packages:
@@ -373,6 +439,8 @@ def main() -> int:
     course = module.get("course")
     if not isinstance(course, dict):
         raise ValueError("Base package has no course object.")
+    merge_curriculum_items(module, curriculum_packages)
+    merge_curriculum_chapters(course, curriculum_packages)
     chapters = [chapter for chapter in list_value(course.get("chapters")) if isinstance(chapter, dict) and chapter.get("id") not in {"chapter-openjlpt-review", "chapter-source-curriculum"}]
     assigned = {
         item_id
@@ -412,7 +480,11 @@ def main() -> int:
     module["status"] = "staged"
     module["level"] = module.get("level") or course.get("jlptLevel")
     module["sourcePolicy"] = "External records are imported for review only. Approve, enrich, and assign each record before publishing."
-    module["stagingStats"] = {"vocabulary": len(vocabulary), "kanji": len(kanji), "grammar": len(grammar), "total": len(imported)}
+    module["stagingStats"] = {
+        category: len(list_value(module.get(category)))
+        for category in ("vocabulary", "kanji", "grammar", "readings", "listening")
+    }
+    module["stagingStats"]["total"] = sum(module["stagingStats"].values())
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(module, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

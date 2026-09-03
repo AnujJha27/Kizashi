@@ -93,6 +93,8 @@ def main() -> int:
     merge_args = [
         "--staged",
         str(staged_openjlpt[0].relative_to(ROOT)),
+        "--curriculum", "data/original-reading-bank.json",
+        "--curriculum", "data/original-listening-bank.json",
         *extras,
         "--source-manifest",
         str(cache_dir / "manifest.json"),

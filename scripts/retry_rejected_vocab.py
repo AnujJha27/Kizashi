@@ -185,7 +185,7 @@ def main() -> int:
     stats = package.get("stagingStats") if isinstance(package.get("stagingStats"), dict) else {}
     if stats:
         stats["vocabulary"] = max(0, int(stats.get("vocabulary", 0)) - len(removed) + added)
-        stats["total"] = stats.get("vocabulary", 0) + stats.get("kanji", 0) + stats.get("grammar", 0)
+        stats["total"] = sum(int(stats.get(category, 0)) for category in ("vocabulary", "kanji", "grammar", "readings", "listening"))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(package, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"output": str(args.output), "processed": len(removed), "merged": merged, "added": added}, ensure_ascii=False))

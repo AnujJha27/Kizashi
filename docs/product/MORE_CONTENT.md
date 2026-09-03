@@ -35,7 +35,7 @@ coverage/verification, `[ ]` not implemented.
 
 ### Current evidence
 
-- [x] The tracked staged package currently contains 7,328 vocabulary, 630 kanji, 413 grammar, 6 reading, and 6 listening records: 8,383 records across 64 lessons; 603 records carry N4 classification and every item is assigned to a Journey lesson.
+- [x] The tracked staged package currently contains 7,328 vocabulary, 630 kanji, 413 grammar, 121 reading, and 166 listening records: 8,658 records across 74 lessons; 946 records carry N4 classification and every item is assigned to a Journey lesson. The authored 115-reading and 160-listening banks are now in the same released package as the source reservoir.
 - [x] The learner release path exposes every non-rejected staged record immediately with automatic provenance, while merging bundled authored expansions so remote package loading does not hide original reading/listening lessons; pending remains a Studio status, not a learner gate.
 - [x] The existing three Irodori item ingestors remain in place and preserve source IDs, field-level provenance, course, and source-level metadata.
 - [x] Irodori sentence patterns now have a conservative generated map to 32 canonical Kizashi grammar concepts across 60 source-pattern references; source record IDs, course/level, source URL, attribution, and terms remain attached.
@@ -52,7 +52,7 @@ coverage/verification, `[ ]` not implemented.
 - [x] Practice routing accepts an explicit N4 target and keeps N5 prerequisite questions available in the same existing PracticePlayer; N5 remains the default route.
 - [x] Content Studio has computed source coverage plus a live provenance-gap dashboard showing missing and unknown source IDs by content category from the current source manifest.
 - [x] Content Studio now reports computed modality coverage for examples, attached audio, reading/listening checks, and conjugation candidates alongside source coverage.
-- [x] The latest staging audit reports 8,383 records with 0 missing provenance, 0 unknown provenance IDs, 0 unlinked lessons, and 0 rejected records; strict package QA is `ready`. The release rule intentionally keeps the 8,333 pending records learner-visible while Studio remains the review workspace.
+- [x] The latest staging audit reports 8,658 records with 0 missing provenance, 0 unknown provenance IDs, 0 unlinked lessons, and 0 rejected records; strict package QA is `ready`. The release rule intentionally keeps the 8,333 pending records learner-visible while Studio remains the review workspace.
 - [x] Immersion's Real life lane includes four authored self-check activities: guided speaking, constrained writing with target forms, pragmatic interpretation, and natural-phrase completion. Model audio reuses the existing fallback, revealed attempts can be self-rated, and open writing is explicitly not auto-graded or counted as JLPT readiness.
 - [x] Practice includes a focused Micro skills mode for numbers, time, dates, prices, and counters, using canonical N5 vocabulary/kanji/grammar items and the existing MCQ player.
 - [x] Integrated context attempts now persist as integrated results even when the session carries its N5/N4 suffix, retaining the blended set and concept-level breakdown for review.
