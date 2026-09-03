@@ -38,12 +38,7 @@ export function getContentReviewStatus(item: { reviewStatus?: unknown; tags?: un
 }
 
 export function isLearnerReleased(item: { reviewStatus?: unknown; tags?: unknown; contentReview?: unknown }) {
-  const status = getContentReviewStatus(item);
-  if (status === "rejected") return false;
-  if (status === "approved") return true;
-  return isRecord(item.contentReview)
-    && item.contentReview.method === "automatic"
-    && item.contentReview.humanReviewed === false;
+  return getContentReviewStatus(item) !== "rejected";
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {

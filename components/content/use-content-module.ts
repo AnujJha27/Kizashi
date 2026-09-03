@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { getContentReviewStatus, getModuleItems, isLearnerReleased, parseAndValidateModule, parseModuleForReview, readValidatedContentDraft } from "@/lib/content-validation";
+import { isLearnerReleased, parseAndValidateModule, parseModuleForReview, readValidatedContentDraft } from "@/lib/content-validation";
 import { readContentDraft } from "@/lib/content-draft-storage.js";
 import { n5Module } from "@/lib/curriculum";
 import { fetchWithTimeout } from "@/lib/request-timeout.js";
@@ -94,7 +94,7 @@ function loadSharedModule(seed: N5Module) {
     if (draft) return learnerModule(draft);
     const storedRaw = await readContentDraft();
     const stored = storedRaw ? parseAndValidateModule(storedRaw).value : null;
-    if (stored && getModuleItems(stored).every((item) => getContentReviewStatus(item) !== "pending")) return learnerModule(stored);
+    if (stored) return learnerModule(stored);
     const learnerResponse = await fetchWithTimeout("/api/content/review-package?audience=learner", { cache: "no-store" }).catch(() => null);
     if (learnerResponse?.ok) {
       const learner = parseModuleForReview(await learnerResponse.text());
