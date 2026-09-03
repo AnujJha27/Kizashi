@@ -15,7 +15,7 @@ function Detail({ item, vocabulary, kanji }: Readonly<{ item: LessonContentItem;
   if (item.category === "vocabulary") return <><JapaneseText text={item.writtenForm} vocabulary={vocabulary} kanji={kanji} inspect={false} /> · {item.reading} · {item.meanings.join(" / ")}</>;
   if (item.category === "kanji") return <><JapaneseText text={item.character} vocabulary={vocabulary} kanji={kanji} inspect={false} /> · {item.meanings.join(" / ")}</>;
   if (item.category === "grammar") return <><JapaneseText text={item.pattern} vocabulary={vocabulary} kanji={kanji} inspect={false} /> · {item.meaning}</>;
-  return item.title;
+  return <JapaneseText text={item.title} vocabulary={vocabulary} kanji={kanji} always inspect={false} />;
 }
 
 function repairAction(record: MistakeRecord) {
