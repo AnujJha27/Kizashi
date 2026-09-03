@@ -15,7 +15,7 @@ type PassagePart = { text: string; item?: VocabularyItem; reading?: string };
 const furigana: Record<string, string> = { 毎朝: "まいあさ", 私: "わたし", 七時: "しちじ", 起きます: "おきます", 水: "みず", 飲んで: "のんで", 駅: "えき", 友達: "ともだち", 待ちます: "まちます", 電車: "でんしゃ", 大学: "だいがく", 行きます: "いきます" };
 
 function passageParts(text: string, vocabulary: VocabularyItem[], kanji: KanjiItem[]) {
-  const entries = new Map([...getReadingEntriesForTexts([text], vocabulary, kanji), ...Object.entries(furigana)]);
+  const entries = new Map([...Object.entries(furigana), ...getReadingEntriesForTexts([text], vocabulary, kanji)]);
   const items = new Map<string, VocabularyItem>();
   vocabulary.forEach((item) => items.set(item.writtenForm, item));
   return segmentJapaneseText(text, [...entries].map(([word, reading]) => ({ text: word, reading }))).map((part: { text: string; status: string; reading?: string }): PassagePart => ({

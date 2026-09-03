@@ -125,7 +125,7 @@ export function JapaneseText({ text, vocabulary, kanji = [], readingEntries = []
   }, []);
   const entriesByWord = new Map<string, string>();
   readingEntries.forEach(([word, reading]) => entriesByWord.set(word, reading));
-  getReadingEntriesForTexts([text], vocabulary, kanji).forEach(([word, reading]) => { if (!entriesByWord.has(word)) entriesByWord.set(word, reading); });
+  if (!readingEntries.length) getReadingEntriesForTexts([text], vocabulary, kanji).forEach(([word, reading]) => { if (!entriesByWord.has(word)) entriesByWord.set(word, reading); });
   const entries = [...entriesByWord.entries()];
   const masteryByWord = new Map<string, string>();
   const itemsByWord = new Map<string, VocabularyItem | KanjiItem>();
