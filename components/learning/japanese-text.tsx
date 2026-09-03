@@ -9,7 +9,7 @@ import { segmentJapaneseText } from "@/lib/japanese-text-core.js";
 import type { KanjiItem, VocabularyItem } from "@/lib/types";
 
 const godanIRow: Record<string, [string, string]> = { "う": ["い", "い"], "く": ["き", "き"], "ぐ": ["ぎ", "ぎ"], "す": ["し", "し"], "つ": ["ち", "ち"], "ぬ": ["に", "に"], "ぶ": ["び", "び"], "む": ["み", "み"], "る": ["り", "り"] };
-const reviewedReadingHints: [string, string][] = [["お客さん", "おきゃくさん"], ["飲み物", "のみもの"], ["午後", "ごご"], ["午前", "ごぜん"], ["何時", "なんじ"], ["一人", "ひとり"], ["二人", "ふたり"], ["お願いします", "おねがいします"], ["読みます", "よみます"], ["会います", "あいます"], ["食べます", "たべます"], ["飲みます", "のみます"], ["行きます", "いきます"], ["来ます", "きます"]];
+const reviewedReadingHints: [string, string][] = [["お客さん", "おきゃくさん"], ["飲み物", "のみもの"], ["午後", "ごご"], ["午前", "ごぜん"], ["何時", "なんじ"], ["一人", "ひとり"], ["二人", "ふたり"], ["お願いします", "おねがいします"], ["読みます", "よみます"], ["会います", "あいます"], ["食べます", "たべます"], ["飲みます", "のみます"], ["行きます", "いきます"], ["来ます", "きます"], ["水", "みず"], ["本", "ほん"], ["ご飯", "ごはん"], ["パン", "ぱん"], ["店", "みせ"], ["学校", "がっこう"], ["家", "いえ"], ["駅", "えき"]];
 const readingEntryCache = new WeakMap<object, WeakMap<object, [string, string][]>>();
 let sharedFuriganaMode: FuriganaMode | null = null;
 let sharedReviewRecords: Record<string, ReviewRecord> | null = null;

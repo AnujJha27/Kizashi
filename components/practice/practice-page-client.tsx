@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { startTransition, useRef, useState } from "react";
 
 import { LazyPractice } from "@/components/practice/lazy-practice";
 import { PracticeModeTabs } from "@/components/practice/practice-mode-tabs";
@@ -40,7 +40,7 @@ export function PracticePageClient({ modes, initial }: Readonly<{ modes: ModeEnt
     const token = switchToken.current + 1;
     switchToken.current = token;
     pendingPracticeKey.current = `${next.targetLevel}:${next.mode}:${next.duration}:${next.focus ?? ""}:${next.section}:${next.topic ?? ""}`;
-    setPracticeSelection(next);
+    startTransition(() => setPracticeSelection(next));
     window.setTimeout(() => { if (switchToken.current === token) setSwitching(false); }, 12000);
   };
   const context = `${selection.targetLevel === "N4" ? "&level=N4" : ""}${selection.topic ? `&topic=${encodeURIComponent(selection.topic)}` : ""}`;
