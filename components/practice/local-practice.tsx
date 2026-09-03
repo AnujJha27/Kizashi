@@ -93,7 +93,15 @@ export function LocalPractice({ allQuestions, mode, duration, focus, section, to
   const focusedIds = focus ? new Set(module.grammarContrasts.find((contrast) => contrast.id === focus)?.grammarPointIds ?? []) : null;
   const focusQuestions = focusedIds?.size ? scopedQuestions.filter((question) => focusedIds.has(question.itemId)) : scopedQuestions;
   const repairQuestions = repair ? focusQuestions.filter((question) => question.id === repair || question.itemId === repair || question.targetItemIds?.includes(repair)) : focusQuestions;
-  const quickPool = [...new Map([...selectPracticeQuestions("quick", focusQuestions, targetLevel), ...selectPracticeQuestions("mixed", focusQuestions, targetLevel)].map((question) => [question.id, question])).values()];
+  const quickPool = [...new Map([
+    ...selectPracticeQuestions("quick", focusQuestions, targetLevel),
+    ...selectPracticeQuestions("mixed", focusQuestions, targetLevel),
+    ...selectPracticeQuestions("vocabulary", focusQuestions, targetLevel).slice(0, 8),
+    ...selectPracticeQuestions("kanji", focusQuestions, targetLevel).slice(0, 4),
+    ...selectPracticeQuestions("grammar", focusQuestions, targetLevel).slice(0, 8),
+    ...selectPracticeQuestions("reading", focusQuestions, targetLevel).slice(0, 4),
+    ...selectPracticeQuestions("listening", focusQuestions, targetLevel).slice(0, 4),
+  ].map((question) => [question.id, question])).values()];
   const selected = mode === "weak" ? repairQuestions : mode === "quick" ? quickPool : mode === "section" && section === "vocabulary" ? [...selectPracticeQuestions("vocabulary", focusQuestions, targetLevel).slice(0, 8), ...selectPracticeQuestions("kanji", focusQuestions, targetLevel).slice(0, 4)] : mode === "section" && section === "grammar-reading" ? [...selectPracticeQuestions("grammar", focusQuestions, targetLevel).slice(0, 8), ...selectPracticeQuestions("reading", focusQuestions, targetLevel).slice(0, 6)] : mode === "section" && section === "listening" ? selectPracticeQuestions("listening", focusQuestions, targetLevel).slice(0, 10) : selectPracticeQuestions(mode, focusQuestions, targetLevel);
   const quickCount = quickPracticeCount(duration);
   const questions = selected;

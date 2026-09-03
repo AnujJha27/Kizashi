@@ -36,6 +36,7 @@ export function ImmersionSurface() {
   const [visibleClipCount, setVisibleClipCount] = useState(8);
   const [visibleReadingCount, setVisibleReadingCount] = useState(8);
   const [visibleIrodoriCount, setVisibleIrodoriCount] = useState(8);
+  const [rotation, setRotation] = useState(0);
   const [selectedClipId, setSelectedClipId] = useState<string | null>(null);
   const [selectedReadingId, setSelectedReadingId] = useState<string | null>(null);
 
@@ -48,10 +49,24 @@ export function ImmersionSurface() {
     return () => { window.removeEventListener("michi-review-updated", refresh); window.removeEventListener("michi-mistakes-updated", refresh); window.removeEventListener("michi-source-progress-updated", refresh); };
   }, []);
 
+  useEffect(() => {
+    const key = "michi.immersion-rotation";
+    const next = Number(window.sessionStorage.getItem(key) ?? 0) + 1;
+    window.sessionStorage.setItem(key, String(next));
+    setRotation(next * 8);
+  }, []);
+
   const known = useMemo(() => knownIds(records), [records]);
-  const clips = useMemo(() => selectImmersionClips(module.listening, "guided", known, visibleClipCount, { mistakes, sourceProgress }), [known, mistakes, module.listening, sourceProgress, visibleClipCount]);
+  const clips = useMemo(() => {
+    const ordered = selectImmersionClips(module.listening, "guided", known, module.listening.length, { mistakes, sourceProgress });
+    const offset = ordered.length ? rotation % ordered.length : 0;
+    return [...ordered.slice(offset), ...ordered.slice(0, offset)].slice(0, visibleClipCount);
+  }, [known, mistakes, module.listening, rotation, sourceProgress, visibleClipCount]);
   const itemMap = useMemo(() => new Map([...module.vocabulary, ...module.grammar, ...module.kanji].map((item) => [item.id, item])), [module.grammar, module.kanji, module.vocabulary]);
-  const readings = module.readings.slice(0, visibleReadingCount);
+  const readings = useMemo(() => {
+    const offset = module.readings.length ? rotation % module.readings.length : 0;
+    return [...module.readings.slice(offset), ...module.readings.slice(0, offset)].slice(0, visibleReadingCount);
+  }, [module.readings, rotation, visibleReadingCount]);
   const sources = useMemo(sourceCards, []);
   const irodoriActivities = useMemo(() => getExternalResources({ skill: "real-world-practice" }).filter((resource) => resource.sourceId === "irodori" && resource.id !== "irodori-practical-lessons").map(externalResourceToSourceLink), []);
   const visibleIrodoriActivities = irodoriActivities.slice(0, visibleIrodoriCount);
