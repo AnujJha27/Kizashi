@@ -67,7 +67,7 @@ verification, `[ ]` not implemented.
 
 ### Adaptive support and presentation
 
-- [~] Furigana preference support now honors `Always`, `Unknown`, `Tap`, and `Hide` in the shared `JapaneseText` and `ReadingPanel` renderers; Immersion list previews, Practice text, lesson prompts/answers, selected reading words, Library entries, Knowledge Map, learner-assistant output, and Content Studio review fields now use the same Japanese-aware renderer, `Tap` reveals the clicked word, and challenge mode remains strict. Complete fading for every raw/reference renderer is not finished.
+- [~] Furigana preference support now honors `Always`, `Unknown`, `Tap`, and `Hide` in the shared `JapaneseText` and `ReadingPanel` renderers; Immersion list/player titles and passages, Aozora/Tadoku titles, Practice text, lesson prompts/answers, selected reading words, Library entries, Knowledge Map, learner-assistant output, and Content Studio review fields now use the same Japanese-aware renderer, `Tap` reveals the clicked word, and challenge mode remains strict. Complete fading for every raw/reference renderer is not finished.
 - [x] Quick practice favors unseen question variants while preserving stronger priority for mistakes, due reviews, and flagged ambiguity.
 - [x] Contextual actions connect items to practice, immersion, study-later, and repair flows.
 - [x] Card density and source/player separation have been reduced; Immersion and Practice activity navigation are compact scrollable tab rows, while reading/listening, real-life activities, source detours, and grammar references use editorial separator rows and progressive loading.

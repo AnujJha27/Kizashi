@@ -25,7 +25,7 @@ function Prompt({ item, onReveal, vocabulary = [], kanji = [] }: Readonly<{ item
   if (item.category === "vocabulary") return <><p className="jp-serif text-6xl text-[#f5f5f2]"><JapaneseText text={item.writtenForm} vocabulary={vocabulary} kanji={kanji} readingEntries={[[item.writtenForm, item.reading]]} always inspect={false} /></p><AudioControls text={item.writtenForm} reading={item.reading} humanFirst /><TypedRecall item={item} onReveal={onReveal} /></>;
   if (item.category === "kanji") { const reading = item.kunyomi[0] ?? item.onyomi[0] ?? ""; return <><p className="jp-serif text-8xl text-[#f5f5f2]"><JapaneseText text={item.character} vocabulary={vocabulary} kanji={kanji} readingEntries={reading ? [[item.character, reading]] : []} always inspect={false} /></p><AudioControls text={item.character} humanFirst /><TypedRecall item={item} onReveal={onReveal} /></>; }
   if (item.category === "grammar") return <><p className="jp-serif text-4xl text-[#f5f5f2]"><JapaneseText text={item.pattern} vocabulary={vocabulary} kanji={kanji} always /></p><AudioControls text={item.pattern} /></>;
-  return <p className="jp-serif text-3xl text-[#f5f5f2]">{item.title}</p>;
+  return <p className="jp-serif text-3xl text-[#f5f5f2]"><JapaneseText text={item.title} vocabulary={vocabulary} kanji={kanji} always inspect={false} /></p>;
 }
 
 function Answer({ item, contrasts, vocabulary, kanji }: Readonly<{ item: LessonContentItem; contrasts: GrammarContrast[]; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[] }>) {
