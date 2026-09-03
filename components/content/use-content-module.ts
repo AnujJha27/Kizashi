@@ -107,23 +107,29 @@ function loadSharedModule(seed: N5Module) {
   return modulePromise;
 }
 
-export function useContentModule(seed: N5Module = n5Module) {
-  const [module, setModule] = useState(() => cachedModule ? stablePersonalizedModule(cachedModule) : seed);
+export function useContentModule(seed: N5Module = n5Module, options: Readonly<{ loadRemote?: boolean }> = {}) {
+  const loadRemote = options.loadRemote ?? true;
+  const [module, setModule] = useState(() => loadRemote && cachedModule ? stablePersonalizedModule(cachedModule) : seed);
 
   useEffect(() => {
     let cancelled = false;
     const refresh = async () => {
-      const loaded = await loadSharedModule(seed);
+      const loaded = loadRemote ? await loadSharedModule(seed) : seed;
       if (!cancelled) setModule(stablePersonalizedModule(loaded));
     };
     const onDraftUpdated = () => {
+      if (!loadRemote) {
+        void refresh();
+        return;
+      }
       cachedModule = null;
       modulePromise = null;
       personalizedSource = null;
       personalizedModule = null;
       void refresh();
     };
-    const cancelScheduledRefresh = typeof window.requestIdleCallback === "function"
+    const cancelScheduledRefresh = !loadRemote ? () => {}
+      : typeof window.requestIdleCallback === "function"
       ? (() => { const id = window.requestIdleCallback(() => { if (!cancelled) void refresh(); }, { timeout: 3000 }); return () => window.cancelIdleCallback(id); })()
       : (() => { const id = window.setTimeout(() => { if (!cancelled) void refresh(); }, 250); return () => window.clearTimeout(id); })();
     window.addEventListener("michi-content-draft-updated", onDraftUpdated);
@@ -134,7 +140,7 @@ export function useContentModule(seed: N5Module = n5Module) {
       window.removeEventListener("michi-content-draft-updated", onDraftUpdated);
       window.removeEventListener("michi-custom-entries-updated", onDraftUpdated);
     };
-  }, [seed]);
+  }, [loadRemote, seed]);
 
   return module;
 }

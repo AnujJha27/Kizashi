@@ -8,7 +8,7 @@ import { PracticePlayer } from "@/components/practice/practice-player";
 import { WeakPractice } from "@/components/practice/weak-practice";
 import { getReadingEntriesForTexts } from "@/components/learning/japanese-text";
 import { getModuleItems, readValidatedQuestionDraft } from "@/lib/content-validation";
-import { getTopicItemIds } from "@/lib/curriculum";
+import { getTopicItemIds, n5Module } from "@/lib/curriculum";
 import { filterExamLevelQuestions } from "@/lib/jlpt-core.js";
 import { getValidatedPracticeQuestions, migrateLegacyQuestionPrompts, selectPracticeQuestions } from "@/lib/questions";
 import { readMistakes, writeDiagnosticResult } from "@/lib/session";
@@ -46,7 +46,7 @@ function practiceModule(module: N5Module, targetLevel: TargetLevel) {
 function useActiveQuestions(fallback: PracticeQuestion[], targetLevel: TargetLevel) {
   const [questions, setQuestions] = useState(fallback);
   const [loaded, setLoaded] = useState(Boolean(fallback.length));
-  const loadedModule = useContentModule();
+  const loadedModule = useContentModule(n5Module, { loadRemote: false });
   const module = useMemo(() => practiceModule(loadedModule, targetLevel), [loadedModule, targetLevel]);
 
   useEffect(() => {
