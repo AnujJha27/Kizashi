@@ -8,12 +8,14 @@ BrowserSpeechProvider reads the transcript when a learner presses Play.
 from __future__ import annotations
 
 import json
+import argparse
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data" / "original-listening-bank.json"
 FAMILIES = ("task-based response", "key point", "verbal expression", "quick response")
+FAMILY_COUNTS = {"task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25}
 
 
 N5_SCENARIOS = [
@@ -37,6 +39,11 @@ N5_SCENARIOS = [
     ("映画館", "映画", "七時", "友達", "hobby", "映画を見て"),
     ("京都", "お寺", "来週", "家族", "travel", "お寺へ行って"),
     ("カレンダー", "日曜日", "休み", "田中さん", "routine", "休んで"),
+    ("銀行", "口座", "午後三時", "職員", "errands", "口座を確認して"),
+    ("薬局", "風邪の薬", "食後", "薬剤師", "health", "薬を買って"),
+    ("駅前", "自転車", "駐輪場", "係員", "transport", "自転車を止めて"),
+    ("八百屋", "りんご", "五個", "店員", "shopping", "りんごを選んで"),
+    ("公民館", "料理教室", "土曜日", "受付", "community", "申し込んで"),
 ]
 
 N4_SCENARIOS = [
@@ -60,6 +67,11 @@ N4_SCENARIOS = [
     ("電車", "遅れ", "雨のため", "車掌", "transport", "電車を待って"),
     ("レストラン", "窓側の席", "七時半", "店員", "food", "席を予約して"),
     ("市民プール", "利用時間", "水曜日以外", "受付", "routine", "プールで泳いで"),
+    ("市役所", "証明書", "平日の午後", "職員", "administration", "申請書を書いて"),
+    ("会社", "出張", "来月の三日", "上司", "work", "予定を確認して"),
+    ("病院", "診察券", "受付の前", "看護師", "health", "診察券を出して"),
+    ("駅", "定期券", "来週まで", "駅員", "transport", "定期券を更新して"),
+    ("地域センター", "講演会", "午後六時", "受付", "community", "講演会に参加して"),
 ]
 
 
@@ -103,7 +115,7 @@ def transcript(family: str, place: str, object_: str, detail: str, actor: str, a
     return f"A：{place}について教えてください。\nB：{object_}は{detail}です。\nA：分かりました。"
 
 
-def listening(level: str, family: str, number: int, values: tuple[str, str, str, str, str, str]) -> dict:
+def listening(level: str, family: str, number: int, values: tuple[str, str, str, str, str, str], constraints: dict[str, object] | None = None) -> dict:
     place, object_, detail, actor, tag, action = values
     prompt, answers, correct, explanation = make_question(family, place, object_, detail, actor, action, level)
     difficulty = 2 if level == "N5" else 4
@@ -126,20 +138,40 @@ def listening(level: str, family: str, number: int, values: tuple[str, str, str,
         "sourceType": "tts",
         "transcript": transcript(family, place, object_, detail, actor, action, level),
         "questions": [{"prompt": prompt, "answers": answers, "correctAnswer": correct, "questionType": family, "explanation": explanation}],
+        "generationConstraints": constraints or {"numberOfSpeakers": 2},
     }
 
 
-def build() -> dict:
+def build(levels: list[str] | None = None, families: list[str] | None = None, situations: list[str] | None = None, target_vocabulary: list[str] | None = None, forbidden_contexts: list[str] | None = None, constraints: dict[str, object] | None = None) -> dict:
     items = []
     lessons = []
+    selected_levels = levels or ["N5", "N4"]
+    selected_families = families or list(FAMILIES)
+    selected_situations = {value.casefold() for value in (situations or [])}
+    selected_vocabulary = {value.casefold() for value in (target_vocabulary or [])}
+    forbidden = {value.casefold() for value in (forbidden_contexts or [])}
     for level, scenarios in (("N5", N5_SCENARIOS), ("N4", N4_SCENARIOS)):
+        if level not in selected_levels:
+            continue
         for family_index, family in enumerate(FAMILIES):
+            if family not in selected_families:
+                continue
             ids = []
-            for scenario_index, values in enumerate(scenarios):
+            for scenario_index, values in enumerate(scenarios[:FAMILY_COUNTS[family]]):
+                place, object_, _detail, _actor, tag, _action = values
+                searchable = " ".join((place, object_, tag)).casefold()
+                if selected_situations and not any(value in searchable for value in selected_situations):
+                    continue
+                if selected_vocabulary and not any(value in searchable for value in selected_vocabulary):
+                    continue
+                if forbidden and any(value in searchable for value in forbidden):
+                    continue
                 number = (family_index * len(scenarios)) + scenario_index + 1
-                item = listening(level, family, number, values)
+                item = listening(level, family, number, values, constraints)
                 items.append(item)
                 ids.append(item["id"])
+            if not ids:
+                continue
             slug = f"original-{level.lower()}-{family_index + 1}"
             lessons.append({
                 "id": f"lesson-{slug}",
@@ -150,6 +182,8 @@ def build() -> dict:
                 "estimatedMinutes": 25,
                 "itemIds": ids,
             })
+    if not items:
+        raise ValueError("The requested listening constraints matched no scenarios.")
     return {
         "course": {"chapters": [{"id": "chapter-original-listening", "slug": "original-listening", "title": "Original listening practice", "description": "Original listening scenarios calibrated to N5 and N4 families.", "region": "assessment", "lessons": lessons}]},
         "listening": items,
@@ -158,10 +192,43 @@ def build() -> dict:
 
 
 def main() -> None:
-    payload = build()
-    OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--level", action="append", choices=("N5", "N4"), dest="levels")
+    parser.add_argument("--family", action="append", choices=FAMILIES)
+    parser.add_argument("--situation", action="append")
+    parser.add_argument("--number-of-speakers", type=int, choices=(1, 2), default=2)
+    parser.add_argument("--target-grammar", action="append", default=[])
+    parser.add_argument("--allowed-grammar", action="append", default=[])
+    parser.add_argument("--target-vocabulary", action="append", default=[])
+    parser.add_argument("--allowed-vocabulary", action="append", default=[])
+    parser.add_argument("--unknown-word-budget", type=int, default=0)
+    parser.add_argument("--desired-duration", type=int, default=30)
+    parser.add_argument("--question")
+    parser.add_argument("--answer-structure", default="four-choice")
+    parser.add_argument("--forbidden-context", action="append", default=[])
+    parser.add_argument("--output", type=Path, default=OUTPUT)
+    args = parser.parse_args()
+    constraints = {
+        "targetLevel": args.levels or ["N5", "N4"],
+        "families": args.family or list(FAMILIES),
+        "situations": args.situation or [],
+        "numberOfSpeakers": args.number_of_speakers,
+        "targetGrammar": args.target_grammar,
+        "allowedGrammar": args.allowed_grammar,
+        "targetVocabulary": args.target_vocabulary,
+        "allowedVocabulary": args.allowed_vocabulary,
+        "unknownWordBudget": args.unknown_word_budget,
+        "desiredDurationSeconds": args.desired_duration,
+        "question": args.question,
+        "answerStructure": args.answer_structure,
+        "forbiddenContexts": args.forbidden_context,
+    }
+    payload = build(args.levels, args.family, args.situation, args.target_vocabulary, args.forbidden_context, constraints)
+    output = args.output if args.output.is_absolute() else ROOT / args.output
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     from collections import Counter
-    print("Generated", OUTPUT.relative_to(ROOT), Counter((item["jlptLevel"], item["subcategory"]) for item in payload["listening"]))
+    print("Generated", output if output.is_absolute() and ROOT not in output.parents else output.relative_to(ROOT), Counter((item["jlptLevel"], item["subcategory"]) for item in payload["listening"]))
 
 
 if __name__ == "__main__":

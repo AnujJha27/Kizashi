@@ -46,11 +46,6 @@
             "description": "Practice the key point listening family with original N5 exchanges.",
             "estimatedMinutes": 25,
             "itemIds": [
-              "assessment-listening-n5-21",
-              "assessment-listening-n5-22",
-              "assessment-listening-n5-23",
-              "assessment-listening-n5-24",
-              "assessment-listening-n5-25",
               "assessment-listening-n5-26",
               "assessment-listening-n5-27",
               "assessment-listening-n5-28",
@@ -65,7 +60,12 @@
               "assessment-listening-n5-37",
               "assessment-listening-n5-38",
               "assessment-listening-n5-39",
-              "assessment-listening-n5-40"
+              "assessment-listening-n5-40",
+              "assessment-listening-n5-41",
+              "assessment-listening-n5-42",
+              "assessment-listening-n5-43",
+              "assessment-listening-n5-44",
+              "assessment-listening-n5-45"
             ]
           },
           {
@@ -76,16 +76,6 @@
             "description": "Practice the verbal expression listening family with original N5 exchanges.",
             "estimatedMinutes": 25,
             "itemIds": [
-              "assessment-listening-n5-41",
-              "assessment-listening-n5-42",
-              "assessment-listening-n5-43",
-              "assessment-listening-n5-44",
-              "assessment-listening-n5-45",
-              "assessment-listening-n5-46",
-              "assessment-listening-n5-47",
-              "assessment-listening-n5-48",
-              "assessment-listening-n5-49",
-              "assessment-listening-n5-50",
               "assessment-listening-n5-51",
               "assessment-listening-n5-52",
               "assessment-listening-n5-53",
@@ -95,7 +85,12 @@
               "assessment-listening-n5-57",
               "assessment-listening-n5-58",
               "assessment-listening-n5-59",
-              "assessment-listening-n5-60"
+              "assessment-listening-n5-60",
+              "assessment-listening-n5-61",
+              "assessment-listening-n5-62",
+              "assessment-listening-n5-63",
+              "assessment-listening-n5-64",
+              "assessment-listening-n5-65"
             ]
           },
           {
@@ -106,26 +101,31 @@
             "description": "Practice the quick response listening family with original N5 exchanges.",
             "estimatedMinutes": 25,
             "itemIds": [
-              "assessment-listening-n5-61",
-              "assessment-listening-n5-62",
-              "assessment-listening-n5-63",
-              "assessment-listening-n5-64",
-              "assessment-listening-n5-65",
-              "assessment-listening-n5-66",
-              "assessment-listening-n5-67",
-              "assessment-listening-n5-68",
-              "assessment-listening-n5-69",
-              "assessment-listening-n5-70",
-              "assessment-listening-n5-71",
-              "assessment-listening-n5-72",
-              "assessment-listening-n5-73",
-              "assessment-listening-n5-74",
-              "assessment-listening-n5-75",
               "assessment-listening-n5-76",
               "assessment-listening-n5-77",
               "assessment-listening-n5-78",
               "assessment-listening-n5-79",
-              "assessment-listening-n5-80"
+              "assessment-listening-n5-80",
+              "assessment-listening-n5-81",
+              "assessment-listening-n5-82",
+              "assessment-listening-n5-83",
+              "assessment-listening-n5-84",
+              "assessment-listening-n5-85",
+              "assessment-listening-n5-86",
+              "assessment-listening-n5-87",
+              "assessment-listening-n5-88",
+              "assessment-listening-n5-89",
+              "assessment-listening-n5-90",
+              "assessment-listening-n5-91",
+              "assessment-listening-n5-92",
+              "assessment-listening-n5-93",
+              "assessment-listening-n5-94",
+              "assessment-listening-n5-95",
+              "assessment-listening-n5-96",
+              "assessment-listening-n5-97",
+              "assessment-listening-n5-98",
+              "assessment-listening-n5-99",
+              "assessment-listening-n5-100"
             ]
           },
           {
@@ -166,11 +166,6 @@
             "description": "Practice the key point listening family with original N4 exchanges.",
             "estimatedMinutes": 25,
             "itemIds": [
-              "assessment-listening-n4-21",
-              "assessment-listening-n4-22",
-              "assessment-listening-n4-23",
-              "assessment-listening-n4-24",
-              "assessment-listening-n4-25",
               "assessment-listening-n4-26",
               "assessment-listening-n4-27",
               "assessment-listening-n4-28",
@@ -185,7 +180,12 @@
               "assessment-listening-n4-37",
               "assessment-listening-n4-38",
               "assessment-listening-n4-39",
-              "assessment-listening-n4-40"
+              "assessment-listening-n4-40",
+              "assessment-listening-n4-41",
+              "assessment-listening-n4-42",
+              "assessment-listening-n4-43",
+              "assessment-listening-n4-44",
+              "assessment-listening-n4-45"
             ]
           },
           {
@@ -196,16 +196,6 @@
             "description": "Practice the verbal expression listening family with original N4 exchanges.",
             "estimatedMinutes": 25,
             "itemIds": [
-              "assessment-listening-n4-41",
-              "assessment-listening-n4-42",
-              "assessment-listening-n4-43",
-              "assessment-listening-n4-44",
-              "assessment-listening-n4-45",
-              "assessment-listening-n4-46",
-              "assessment-listening-n4-47",
-              "assessment-listening-n4-48",
-              "assessment-listening-n4-49",
-              "assessment-listening-n4-50",
               "assessment-listening-n4-51",
               "assessment-listening-n4-52",
               "assessment-listening-n4-53",
@@ -215,7 +205,12 @@
               "assessment-listening-n4-57",
               "assessment-listening-n4-58",
               "assessment-listening-n4-59",
-              "assessment-listening-n4-60"
+              "assessment-listening-n4-60",
+              "assessment-listening-n4-61",
+              "assessment-listening-n4-62",
+              "assessment-listening-n4-63",
+              "assessment-listening-n4-64",
+              "assessment-listening-n4-65"
             ]
           },
           {
@@ -226,26 +221,31 @@
             "description": "Practice the quick response listening family with original N4 exchanges.",
             "estimatedMinutes": 25,
             "itemIds": [
-              "assessment-listening-n4-61",
-              "assessment-listening-n4-62",
-              "assessment-listening-n4-63",
-              "assessment-listening-n4-64",
-              "assessment-listening-n4-65",
-              "assessment-listening-n4-66",
-              "assessment-listening-n4-67",
-              "assessment-listening-n4-68",
-              "assessment-listening-n4-69",
-              "assessment-listening-n4-70",
-              "assessment-listening-n4-71",
-              "assessment-listening-n4-72",
-              "assessment-listening-n4-73",
-              "assessment-listening-n4-74",
-              "assessment-listening-n4-75",
               "assessment-listening-n4-76",
               "assessment-listening-n4-77",
               "assessment-listening-n4-78",
               "assessment-listening-n4-79",
-              "assessment-listening-n4-80"
+              "assessment-listening-n4-80",
+              "assessment-listening-n4-81",
+              "assessment-listening-n4-82",
+              "assessment-listening-n4-83",
+              "assessment-listening-n4-84",
+              "assessment-listening-n4-85",
+              "assessment-listening-n4-86",
+              "assessment-listening-n4-87",
+              "assessment-listening-n4-88",
+              "assessment-listening-n4-89",
+              "assessment-listening-n4-90",
+              "assessment-listening-n4-91",
+              "assessment-listening-n4-92",
+              "assessment-listening-n4-93",
+              "assessment-listening-n4-94",
+              "assessment-listening-n4-95",
+              "assessment-listening-n4-96",
+              "assessment-listening-n4-97",
+              "assessment-listening-n4-98",
+              "assessment-listening-n4-99",
+              "assessment-listening-n4-100"
             ]
           }
         ]
@@ -293,7 +293,30 @@
           "questionType": "task-based response",
           "explanation": "切符を買ってください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-02",
@@ -335,7 +358,30 @@
           "questionType": "task-based response",
           "explanation": "お茶を注文してください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-03",
@@ -377,7 +423,30 @@
           "questionType": "task-based response",
           "explanation": "本を読んでください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-04",
@@ -419,7 +488,30 @@
           "questionType": "task-based response",
           "explanation": "鍵を取ってください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-05",
@@ -461,7 +553,30 @@
           "questionType": "task-based response",
           "explanation": "牛乳を二本買ってください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-06",
@@ -503,7 +618,30 @@
           "questionType": "task-based response",
           "explanation": "友達を待ってください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-07",
@@ -545,7 +683,30 @@
           "questionType": "task-based response",
           "explanation": "予約を確認してください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-08",
@@ -587,7 +748,30 @@
           "questionType": "task-based response",
           "explanation": "バスに乗ってください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-09",
@@ -629,7 +813,30 @@
           "questionType": "task-based response",
           "explanation": "本を返してください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-10",
@@ -671,7 +878,30 @@
           "questionType": "task-based response",
           "explanation": "水を飲んでください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-11",
@@ -713,7 +943,30 @@
           "questionType": "task-based response",
           "explanation": "荷物を送ってください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-12",
@@ -755,7 +1008,30 @@
           "questionType": "task-based response",
           "explanation": "シャツを買ってください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-13",
@@ -797,7 +1073,30 @@
           "questionType": "task-based response",
           "explanation": "傘を持ってください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-14",
@@ -839,7 +1138,30 @@
           "questionType": "task-based response",
           "explanation": "宿題をしてください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-15",
@@ -881,7 +1203,30 @@
           "questionType": "task-based response",
           "explanation": "受付で手続きをしてください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-16",
@@ -923,7 +1268,30 @@
           "questionType": "task-based response",
           "explanation": "先生と話してください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-17",
@@ -965,7 +1333,30 @@
           "questionType": "task-based response",
           "explanation": "魚を食べてください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-18",
@@ -1007,7 +1398,30 @@
           "questionType": "task-based response",
           "explanation": "映画を見てください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-19",
@@ -1049,7 +1463,30 @@
           "questionType": "task-based response",
           "explanation": "お寺へ行ってください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n5-20",
@@ -1091,11 +1528,34 @@
           "questionType": "task-based response",
           "explanation": "休んでください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-21",
-      "slug": "assessment-listening-n5-21",
+      "id": "assessment-listening-n5-26",
+      "slug": "assessment-listening-n5-26",
       "title": "駅 · 切符",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1133,11 +1593,34 @@
           "questionType": "key point",
           "explanation": "駅で切符について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-22",
-      "slug": "assessment-listening-n5-22",
+      "id": "assessment-listening-n5-27",
+      "slug": "assessment-listening-n5-27",
       "title": "喫茶店 · お茶",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1175,11 +1658,34 @@
           "questionType": "key point",
           "explanation": "喫茶店でお茶について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-23",
-      "slug": "assessment-listening-n5-23",
+      "id": "assessment-listening-n5-28",
+      "slug": "assessment-listening-n5-28",
       "title": "教室 · 本",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1217,11 +1723,34 @@
           "questionType": "key point",
           "explanation": "教室で本について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-24",
-      "slug": "assessment-listening-n5-24",
+      "id": "assessment-listening-n5-29",
+      "slug": "assessment-listening-n5-29",
       "title": "家 · 鍵",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1259,11 +1788,34 @@
           "questionType": "key point",
           "explanation": "家で鍵について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-25",
-      "slug": "assessment-listening-n5-25",
+      "id": "assessment-listening-n5-30",
+      "slug": "assessment-listening-n5-30",
       "title": "スーパー · 牛乳",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1301,11 +1853,34 @@
           "questionType": "key point",
           "explanation": "スーパーで牛乳について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-26",
-      "slug": "assessment-listening-n5-26",
+      "id": "assessment-listening-n5-31",
+      "slug": "assessment-listening-n5-31",
       "title": "公園 · 友達",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1343,11 +1918,34 @@
           "questionType": "key point",
           "explanation": "公園で友達について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-27",
-      "slug": "assessment-listening-n5-27",
+      "id": "assessment-listening-n5-32",
+      "slug": "assessment-listening-n5-32",
       "title": "病院 · 予約",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1385,11 +1983,34 @@
           "questionType": "key point",
           "explanation": "病院で予約について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-28",
-      "slug": "assessment-listening-n5-28",
+      "id": "assessment-listening-n5-33",
+      "slug": "assessment-listening-n5-33",
       "title": "バス停 · バス",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1427,11 +2048,34 @@
           "questionType": "key point",
           "explanation": "バス停でバスについて話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-29",
-      "slug": "assessment-listening-n5-29",
+      "id": "assessment-listening-n5-34",
+      "slug": "assessment-listening-n5-34",
       "title": "図書館 · 本",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1469,11 +2113,34 @@
           "questionType": "key point",
           "explanation": "図書館で本について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-30",
-      "slug": "assessment-listening-n5-30",
+      "id": "assessment-listening-n5-35",
+      "slug": "assessment-listening-n5-35",
       "title": "レストラン · 水",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1511,11 +2178,34 @@
           "questionType": "key point",
           "explanation": "レストランで水について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-31",
-      "slug": "assessment-listening-n5-31",
+      "id": "assessment-listening-n5-36",
+      "slug": "assessment-listening-n5-36",
       "title": "郵便局 · 荷物",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1553,11 +2243,34 @@
           "questionType": "key point",
           "explanation": "郵便局で荷物について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-32",
-      "slug": "assessment-listening-n5-32",
+      "id": "assessment-listening-n5-37",
+      "slug": "assessment-listening-n5-37",
       "title": "服の店 · 赤いシャツ",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1595,11 +2308,34 @@
           "questionType": "key point",
           "explanation": "服の店で赤いシャツについて話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-33",
-      "slug": "assessment-listening-n5-33",
+      "id": "assessment-listening-n5-38",
+      "slug": "assessment-listening-n5-38",
       "title": "駅の出口 · 傘",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1637,11 +2373,34 @@
           "questionType": "key point",
           "explanation": "駅の出口で傘について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-34",
-      "slug": "assessment-listening-n5-34",
+      "id": "assessment-listening-n5-39",
+      "slug": "assessment-listening-n5-39",
       "title": "学校 · 宿題",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1679,11 +2438,34 @@
           "questionType": "key point",
           "explanation": "学校で宿題について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-35",
-      "slug": "assessment-listening-n5-35",
+      "id": "assessment-listening-n5-40",
+      "slug": "assessment-listening-n5-40",
       "title": "ホテル · 部屋",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1721,11 +2503,34 @@
           "questionType": "key point",
           "explanation": "ホテルで部屋について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-36",
-      "slug": "assessment-listening-n5-36",
+      "id": "assessment-listening-n5-41",
+      "slug": "assessment-listening-n5-41",
       "title": "電話 · 先生",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1763,11 +2568,34 @@
           "questionType": "key point",
           "explanation": "電話で先生について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-37",
-      "slug": "assessment-listening-n5-37",
+      "id": "assessment-listening-n5-42",
+      "slug": "assessment-listening-n5-42",
       "title": "家族の食事 · 魚",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1805,11 +2633,34 @@
           "questionType": "key point",
           "explanation": "家族の食事で魚について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-38",
-      "slug": "assessment-listening-n5-38",
+      "id": "assessment-listening-n5-43",
+      "slug": "assessment-listening-n5-43",
       "title": "映画館 · 映画",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1847,11 +2698,34 @@
           "questionType": "key point",
           "explanation": "映画館で映画について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-39",
-      "slug": "assessment-listening-n5-39",
+      "id": "assessment-listening-n5-44",
+      "slug": "assessment-listening-n5-44",
       "title": "京都 · お寺",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1889,11 +2763,34 @@
           "questionType": "key point",
           "explanation": "京都でお寺について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-40",
-      "slug": "assessment-listening-n5-40",
+      "id": "assessment-listening-n5-45",
+      "slug": "assessment-listening-n5-45",
       "title": "カレンダー · 日曜日",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1931,11 +2828,34 @@
           "questionType": "key point",
           "explanation": "カレンダーで日曜日について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-41",
-      "slug": "assessment-listening-n5-41",
+      "id": "assessment-listening-n5-51",
+      "slug": "assessment-listening-n5-51",
       "title": "駅 · 切符",
       "jlptLevel": "N5",
       "category": "listening",
@@ -1973,11 +2893,34 @@
           "questionType": "verbal expression",
           "explanation": "切符をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-42",
-      "slug": "assessment-listening-n5-42",
+      "id": "assessment-listening-n5-52",
+      "slug": "assessment-listening-n5-52",
       "title": "喫茶店 · お茶",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2015,11 +2958,34 @@
           "questionType": "verbal expression",
           "explanation": "お茶をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-43",
-      "slug": "assessment-listening-n5-43",
+      "id": "assessment-listening-n5-53",
+      "slug": "assessment-listening-n5-53",
       "title": "教室 · 本",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2057,11 +3023,34 @@
           "questionType": "verbal expression",
           "explanation": "本をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-44",
-      "slug": "assessment-listening-n5-44",
+      "id": "assessment-listening-n5-54",
+      "slug": "assessment-listening-n5-54",
       "title": "家 · 鍵",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2099,11 +3088,34 @@
           "questionType": "verbal expression",
           "explanation": "鍵をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-45",
-      "slug": "assessment-listening-n5-45",
+      "id": "assessment-listening-n5-55",
+      "slug": "assessment-listening-n5-55",
       "title": "スーパー · 牛乳",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2141,11 +3153,34 @@
           "questionType": "verbal expression",
           "explanation": "牛乳をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-46",
-      "slug": "assessment-listening-n5-46",
+      "id": "assessment-listening-n5-56",
+      "slug": "assessment-listening-n5-56",
       "title": "公園 · 友達",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2183,11 +3218,34 @@
           "questionType": "verbal expression",
           "explanation": "友達をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-47",
-      "slug": "assessment-listening-n5-47",
+      "id": "assessment-listening-n5-57",
+      "slug": "assessment-listening-n5-57",
       "title": "病院 · 予約",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2225,11 +3283,34 @@
           "questionType": "verbal expression",
           "explanation": "予約をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-48",
-      "slug": "assessment-listening-n5-48",
+      "id": "assessment-listening-n5-58",
+      "slug": "assessment-listening-n5-58",
       "title": "バス停 · バス",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2267,11 +3348,34 @@
           "questionType": "verbal expression",
           "explanation": "バスをお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-49",
-      "slug": "assessment-listening-n5-49",
+      "id": "assessment-listening-n5-59",
+      "slug": "assessment-listening-n5-59",
       "title": "図書館 · 本",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2309,11 +3413,34 @@
           "questionType": "verbal expression",
           "explanation": "本をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-50",
-      "slug": "assessment-listening-n5-50",
+      "id": "assessment-listening-n5-60",
+      "slug": "assessment-listening-n5-60",
       "title": "レストラン · 水",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2351,11 +3478,34 @@
           "questionType": "verbal expression",
           "explanation": "水をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-51",
-      "slug": "assessment-listening-n5-51",
+      "id": "assessment-listening-n5-61",
+      "slug": "assessment-listening-n5-61",
       "title": "郵便局 · 荷物",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2393,11 +3543,34 @@
           "questionType": "verbal expression",
           "explanation": "荷物をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-52",
-      "slug": "assessment-listening-n5-52",
+      "id": "assessment-listening-n5-62",
+      "slug": "assessment-listening-n5-62",
       "title": "服の店 · 赤いシャツ",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2435,11 +3608,34 @@
           "questionType": "verbal expression",
           "explanation": "赤いシャツをお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-53",
-      "slug": "assessment-listening-n5-53",
+      "id": "assessment-listening-n5-63",
+      "slug": "assessment-listening-n5-63",
       "title": "駅の出口 · 傘",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2477,11 +3673,34 @@
           "questionType": "verbal expression",
           "explanation": "傘をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-54",
-      "slug": "assessment-listening-n5-54",
+      "id": "assessment-listening-n5-64",
+      "slug": "assessment-listening-n5-64",
       "title": "学校 · 宿題",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2519,11 +3738,34 @@
           "questionType": "verbal expression",
           "explanation": "宿題をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-55",
-      "slug": "assessment-listening-n5-55",
+      "id": "assessment-listening-n5-65",
+      "slug": "assessment-listening-n5-65",
       "title": "ホテル · 部屋",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2561,221 +3803,34 @@
           "questionType": "verbal expression",
           "explanation": "部屋をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-56",
-      "slug": "assessment-listening-n5-56",
-      "title": "電話 · 先生",
-      "jlptLevel": "N5",
-      "category": "listening",
-      "subcategory": "verbal expression",
-      "difficulty": 2,
-      "prerequisiteIds": [
-        "grammar-wa",
-        "grammar-masu"
-      ],
-      "tags": [
-        "assessment",
-        "original",
-        "n5-listening",
-        "communication"
-      ],
-      "sourceIds": [
-        "michi-curated-n5-seed"
-      ],
-      "situation": "A N5 learner hears a short exchange about communication.",
-      "audioUrl": null,
-      "voice": "ja-JP BrowserSpeechProvider",
-      "speed": 0.86,
-      "sourceType": "tts",
-      "transcript": "A：電話で何と言いますか。\nB：先生をお願いします。\nA：はい、どうぞ。",
-      "questions": [
-        {
-          "prompt": "この場面で、自然な表現はどれですか。",
-          "answers": [
-            "先生をお願いします。",
-            "分かりませんでした。",
-            "おやすみなさい。",
-            "いただきません。"
-          ],
-          "correctAnswer": 0,
-          "questionType": "verbal expression",
-          "explanation": "先生をお願いします。"
-        }
-      ]
-    },
-    {
-      "id": "assessment-listening-n5-57",
-      "slug": "assessment-listening-n5-57",
-      "title": "家族の食事 · 魚",
-      "jlptLevel": "N5",
-      "category": "listening",
-      "subcategory": "verbal expression",
-      "difficulty": 2,
-      "prerequisiteIds": [
-        "grammar-wa",
-        "grammar-masu"
-      ],
-      "tags": [
-        "assessment",
-        "original",
-        "n5-listening",
-        "family"
-      ],
-      "sourceIds": [
-        "michi-curated-n5-seed"
-      ],
-      "situation": "A N5 learner hears a short exchange about family.",
-      "audioUrl": null,
-      "voice": "ja-JP BrowserSpeechProvider",
-      "speed": 0.86,
-      "sourceType": "tts",
-      "transcript": "A：家族の食事で何と言いますか。\nB：魚をお願いします。\nA：はい、どうぞ。",
-      "questions": [
-        {
-          "prompt": "この場面で、自然な表現はどれですか。",
-          "answers": [
-            "魚をお願いします。",
-            "分かりませんでした。",
-            "おやすみなさい。",
-            "いただきません。"
-          ],
-          "correctAnswer": 0,
-          "questionType": "verbal expression",
-          "explanation": "魚をお願いします。"
-        }
-      ]
-    },
-    {
-      "id": "assessment-listening-n5-58",
-      "slug": "assessment-listening-n5-58",
-      "title": "映画館 · 映画",
-      "jlptLevel": "N5",
-      "category": "listening",
-      "subcategory": "verbal expression",
-      "difficulty": 2,
-      "prerequisiteIds": [
-        "grammar-wa",
-        "grammar-masu"
-      ],
-      "tags": [
-        "assessment",
-        "original",
-        "n5-listening",
-        "hobby"
-      ],
-      "sourceIds": [
-        "michi-curated-n5-seed"
-      ],
-      "situation": "A N5 learner hears a short exchange about hobby.",
-      "audioUrl": null,
-      "voice": "ja-JP BrowserSpeechProvider",
-      "speed": 0.86,
-      "sourceType": "tts",
-      "transcript": "A：映画館で何と言いますか。\nB：映画をお願いします。\nA：はい、どうぞ。",
-      "questions": [
-        {
-          "prompt": "この場面で、自然な表現はどれですか。",
-          "answers": [
-            "映画をお願いします。",
-            "分かりませんでした。",
-            "おやすみなさい。",
-            "いただきません。"
-          ],
-          "correctAnswer": 0,
-          "questionType": "verbal expression",
-          "explanation": "映画をお願いします。"
-        }
-      ]
-    },
-    {
-      "id": "assessment-listening-n5-59",
-      "slug": "assessment-listening-n5-59",
-      "title": "京都 · お寺",
-      "jlptLevel": "N5",
-      "category": "listening",
-      "subcategory": "verbal expression",
-      "difficulty": 2,
-      "prerequisiteIds": [
-        "grammar-wa",
-        "grammar-masu"
-      ],
-      "tags": [
-        "assessment",
-        "original",
-        "n5-listening",
-        "travel"
-      ],
-      "sourceIds": [
-        "michi-curated-n5-seed"
-      ],
-      "situation": "A N5 learner hears a short exchange about travel.",
-      "audioUrl": null,
-      "voice": "ja-JP BrowserSpeechProvider",
-      "speed": 0.86,
-      "sourceType": "tts",
-      "transcript": "A：京都で何と言いますか。\nB：お寺をお願いします。\nA：はい、どうぞ。",
-      "questions": [
-        {
-          "prompt": "この場面で、自然な表現はどれですか。",
-          "answers": [
-            "お寺をお願いします。",
-            "分かりませんでした。",
-            "おやすみなさい。",
-            "いただきません。"
-          ],
-          "correctAnswer": 0,
-          "questionType": "verbal expression",
-          "explanation": "お寺をお願いします。"
-        }
-      ]
-    },
-    {
-      "id": "assessment-listening-n5-60",
-      "slug": "assessment-listening-n5-60",
-      "title": "カレンダー · 日曜日",
-      "jlptLevel": "N5",
-      "category": "listening",
-      "subcategory": "verbal expression",
-      "difficulty": 2,
-      "prerequisiteIds": [
-        "grammar-wa",
-        "grammar-masu"
-      ],
-      "tags": [
-        "assessment",
-        "original",
-        "n5-listening",
-        "routine"
-      ],
-      "sourceIds": [
-        "michi-curated-n5-seed"
-      ],
-      "situation": "A N5 learner hears a short exchange about routine.",
-      "audioUrl": null,
-      "voice": "ja-JP BrowserSpeechProvider",
-      "speed": 0.86,
-      "sourceType": "tts",
-      "transcript": "A：カレンダーで何と言いますか。\nB：日曜日をお願いします。\nA：はい、どうぞ。",
-      "questions": [
-        {
-          "prompt": "この場面で、自然な表現はどれですか。",
-          "answers": [
-            "日曜日をお願いします。",
-            "分かりませんでした。",
-            "おやすみなさい。",
-            "いただきません。"
-          ],
-          "correctAnswer": 0,
-          "questionType": "verbal expression",
-          "explanation": "日曜日をお願いします。"
-        }
-      ]
-    },
-    {
-      "id": "assessment-listening-n5-61",
-      "slug": "assessment-listening-n5-61",
+      "id": "assessment-listening-n5-76",
+      "slug": "assessment-listening-n5-76",
       "title": "駅 · 切符",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2813,11 +3868,34 @@
           "questionType": "quick response",
           "explanation": "三番線"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-62",
-      "slug": "assessment-listening-n5-62",
+      "id": "assessment-listening-n5-77",
+      "slug": "assessment-listening-n5-77",
       "title": "喫茶店 · お茶",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2855,11 +3933,34 @@
           "questionType": "quick response",
           "explanation": "三百円"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-63",
-      "slug": "assessment-listening-n5-63",
+      "id": "assessment-listening-n5-78",
+      "slug": "assessment-listening-n5-78",
       "title": "教室 · 本",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2897,11 +3998,34 @@
           "questionType": "quick response",
           "explanation": "机の上"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-64",
-      "slug": "assessment-listening-n5-64",
+      "id": "assessment-listening-n5-79",
+      "slug": "assessment-listening-n5-79",
       "title": "家 · 鍵",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2939,11 +4063,34 @@
           "questionType": "quick response",
           "explanation": "玄関"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-65",
-      "slug": "assessment-listening-n5-65",
+      "id": "assessment-listening-n5-80",
+      "slug": "assessment-listening-n5-80",
       "title": "スーパー · 牛乳",
       "jlptLevel": "N5",
       "category": "listening",
@@ -2981,11 +4128,34 @@
           "questionType": "quick response",
           "explanation": "二本"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-66",
-      "slug": "assessment-listening-n5-66",
+      "id": "assessment-listening-n5-81",
+      "slug": "assessment-listening-n5-81",
       "title": "公園 · 友達",
       "jlptLevel": "N5",
       "category": "listening",
@@ -3023,11 +4193,34 @@
           "questionType": "quick response",
           "explanation": "午後二時"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-67",
-      "slug": "assessment-listening-n5-67",
+      "id": "assessment-listening-n5-82",
+      "slug": "assessment-listening-n5-82",
       "title": "病院 · 予約",
       "jlptLevel": "N5",
       "category": "listening",
@@ -3065,11 +4258,34 @@
           "questionType": "quick response",
           "explanation": "午前十時"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-68",
-      "slug": "assessment-listening-n5-68",
+      "id": "assessment-listening-n5-83",
+      "slug": "assessment-listening-n5-83",
       "title": "バス停 · バス",
       "jlptLevel": "N5",
       "category": "listening",
@@ -3107,11 +4323,34 @@
           "questionType": "quick response",
           "explanation": "学校の右"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-69",
-      "slug": "assessment-listening-n5-69",
+      "id": "assessment-listening-n5-84",
+      "slug": "assessment-listening-n5-84",
       "title": "図書館 · 本",
       "jlptLevel": "N5",
       "category": "listening",
@@ -3149,11 +4388,34 @@
           "questionType": "quick response",
           "explanation": "来週の月曜日"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-70",
-      "slug": "assessment-listening-n5-70",
+      "id": "assessment-listening-n5-85",
+      "slug": "assessment-listening-n5-85",
       "title": "レストラン · 水",
       "jlptLevel": "N5",
       "category": "listening",
@@ -3191,11 +4453,34 @@
           "questionType": "quick response",
           "explanation": "テーブルの上"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-71",
-      "slug": "assessment-listening-n5-71",
+      "id": "assessment-listening-n5-86",
+      "slug": "assessment-listening-n5-86",
       "title": "郵便局 · 荷物",
       "jlptLevel": "N5",
       "category": "listening",
@@ -3233,11 +4518,34 @@
           "questionType": "quick response",
           "explanation": "明日の朝"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-72",
-      "slug": "assessment-listening-n5-72",
+      "id": "assessment-listening-n5-87",
+      "slug": "assessment-listening-n5-87",
       "title": "服の店 · 赤いシャツ",
       "jlptLevel": "N5",
       "category": "listening",
@@ -3275,11 +4583,34 @@
           "questionType": "quick response",
           "explanation": "二千円"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-73",
-      "slug": "assessment-listening-n5-73",
+      "id": "assessment-listening-n5-88",
+      "slug": "assessment-listening-n5-88",
       "title": "駅の出口 · 傘",
       "jlptLevel": "N5",
       "category": "listening",
@@ -3317,11 +4648,34 @@
           "questionType": "quick response",
           "explanation": "西口"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-74",
-      "slug": "assessment-listening-n5-74",
+      "id": "assessment-listening-n5-89",
+      "slug": "assessment-listening-n5-89",
       "title": "学校 · 宿題",
       "jlptLevel": "N5",
       "category": "listening",
@@ -3359,11 +4713,34 @@
           "questionType": "quick response",
           "explanation": "今日の夜"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-75",
-      "slug": "assessment-listening-n5-75",
+      "id": "assessment-listening-n5-90",
+      "slug": "assessment-listening-n5-90",
       "title": "ホテル · 部屋",
       "jlptLevel": "N5",
       "category": "listening",
@@ -3401,11 +4778,34 @@
           "questionType": "quick response",
           "explanation": "二階"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-76",
-      "slug": "assessment-listening-n5-76",
+      "id": "assessment-listening-n5-91",
+      "slug": "assessment-listening-n5-91",
       "title": "電話 · 先生",
       "jlptLevel": "N5",
       "category": "listening",
@@ -3443,11 +4843,34 @@
           "questionType": "quick response",
           "explanation": "午後五時"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-77",
-      "slug": "assessment-listening-n5-77",
+      "id": "assessment-listening-n5-92",
+      "slug": "assessment-listening-n5-92",
       "title": "家族の食事 · 魚",
       "jlptLevel": "N5",
       "category": "listening",
@@ -3485,11 +4908,34 @@
           "questionType": "quick response",
           "explanation": "日曜日"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-78",
-      "slug": "assessment-listening-n5-78",
+      "id": "assessment-listening-n5-93",
+      "slug": "assessment-listening-n5-93",
       "title": "映画館 · 映画",
       "jlptLevel": "N5",
       "category": "listening",
@@ -3527,11 +4973,34 @@
           "questionType": "quick response",
           "explanation": "七時"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-79",
-      "slug": "assessment-listening-n5-79",
+      "id": "assessment-listening-n5-94",
+      "slug": "assessment-listening-n5-94",
       "title": "京都 · お寺",
       "jlptLevel": "N5",
       "category": "listening",
@@ -3569,11 +5038,34 @@
           "questionType": "quick response",
           "explanation": "来週"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n5-80",
-      "slug": "assessment-listening-n5-80",
+      "id": "assessment-listening-n5-95",
+      "slug": "assessment-listening-n5-95",
       "title": "カレンダー · 日曜日",
       "jlptLevel": "N5",
       "category": "listening",
@@ -3611,7 +5103,355 @@
           "questionType": "quick response",
           "explanation": "休み"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
+    },
+    {
+      "id": "assessment-listening-n5-96",
+      "slug": "assessment-listening-n5-96",
+      "title": "銀行 · 口座",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "errands"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about errands.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：銀行について教えてください。\nB：口座は午後三時です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "午後三時",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "午後三時"
+        }
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
+    },
+    {
+      "id": "assessment-listening-n5-97",
+      "slug": "assessment-listening-n5-97",
+      "title": "薬局 · 風邪の薬",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about health.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：薬局について教えてください。\nB：風邪の薬は食後です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "食後",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "食後"
+        }
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
+    },
+    {
+      "id": "assessment-listening-n5-98",
+      "slug": "assessment-listening-n5-98",
+      "title": "駅前 · 自転車",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about transport.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：駅前について教えてください。\nB：自転車は駐輪場です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "駐輪場",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "駐輪場"
+        }
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
+    },
+    {
+      "id": "assessment-listening-n5-99",
+      "slug": "assessment-listening-n5-99",
+      "title": "八百屋 · りんご",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "shopping"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about shopping.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：八百屋について教えてください。\nB：りんごは五個です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "五個",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "五個"
+        }
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
+    },
+    {
+      "id": "assessment-listening-n5-100",
+      "slug": "assessment-listening-n5-100",
+      "title": "公民館 · 料理教室",
+      "jlptLevel": "N5",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 2,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-masu"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n5-listening",
+        "community"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N5 learner hears a short exchange about community.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.86,
+      "sourceType": "tts",
+      "transcript": "A：公民館について教えてください。\nB：料理教室は土曜日です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "土曜日",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "土曜日"
+        }
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-01",
@@ -3653,7 +5493,30 @@
           "questionType": "task-based response",
           "explanation": "住所変更の手続きをしてください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-02",
@@ -3695,7 +5558,30 @@
           "questionType": "task-based response",
           "explanation": "会議資料を印刷してください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-03",
@@ -3737,7 +5623,30 @@
           "questionType": "task-based response",
           "explanation": "薬を飲んでください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-04",
@@ -3779,7 +5688,30 @@
           "questionType": "task-based response",
           "explanation": "四番線へ移動してください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-05",
@@ -3821,7 +5753,30 @@
           "questionType": "task-based response",
           "explanation": "新聞を読んでください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-06",
@@ -3863,7 +5818,30 @@
           "questionType": "task-based response",
           "explanation": "野菜を切ってください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-07",
@@ -3905,7 +5883,30 @@
           "questionType": "task-based response",
           "explanation": "水道の修理を頼んでください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-08",
@@ -3947,7 +5948,30 @@
           "questionType": "task-based response",
           "explanation": "ホテルを予約してください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-09",
@@ -3989,7 +6013,30 @@
           "questionType": "task-based response",
           "explanation": "検査を受けてください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-10",
@@ -4031,7 +6078,30 @@
           "questionType": "task-based response",
           "explanation": "割引券を使ってください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-11",
@@ -4073,7 +6143,30 @@
           "questionType": "task-based response",
           "explanation": "発表を準備してください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-12",
@@ -4115,7 +6208,30 @@
           "questionType": "task-based response",
           "explanation": "花を植えてください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-13",
@@ -4157,7 +6273,30 @@
           "questionType": "task-based response",
           "explanation": "荷物を受け取ってください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-14",
@@ -4199,7 +6338,30 @@
           "questionType": "task-based response",
           "explanation": "一時間休んでください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-15",
@@ -4241,7 +6403,30 @@
           "questionType": "task-based response",
           "explanation": "映画を見てください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-16",
@@ -4283,7 +6468,30 @@
           "questionType": "task-based response",
           "explanation": "教室に参加してください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-17",
@@ -4325,7 +6533,30 @@
           "questionType": "task-based response",
           "explanation": "部屋を片付けてください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-18",
@@ -4367,7 +6598,30 @@
           "questionType": "task-based response",
           "explanation": "電車を待ってください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-19",
@@ -4409,7 +6663,30 @@
           "questionType": "task-based response",
           "explanation": "席を予約してください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
       "id": "assessment-listening-n4-20",
@@ -4451,11 +6728,34 @@
           "questionType": "task-based response",
           "explanation": "プールで泳いでください。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-21",
-      "slug": "assessment-listening-n4-21",
+      "id": "assessment-listening-n4-26",
+      "slug": "assessment-listening-n4-26",
       "title": "市役所 · 住所変更",
       "jlptLevel": "N4",
       "category": "listening",
@@ -4493,11 +6793,34 @@
           "questionType": "key point",
           "explanation": "市役所で住所変更について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-22",
-      "slug": "assessment-listening-n4-22",
+      "id": "assessment-listening-n4-27",
+      "slug": "assessment-listening-n4-27",
       "title": "会社 · 会議資料",
       "jlptLevel": "N4",
       "category": "listening",
@@ -4535,11 +6858,34 @@
           "questionType": "key point",
           "explanation": "会社で会議資料について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-23",
-      "slug": "assessment-listening-n4-23",
+      "id": "assessment-listening-n4-28",
+      "slug": "assessment-listening-n4-28",
       "title": "薬局 · 薬",
       "jlptLevel": "N4",
       "category": "listening",
@@ -4577,11 +6923,34 @@
           "questionType": "key point",
           "explanation": "薬局で薬について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-24",
-      "slug": "assessment-listening-n4-24",
+      "id": "assessment-listening-n4-29",
+      "slug": "assessment-listening-n4-29",
       "title": "駅 · 乗り換え",
       "jlptLevel": "N4",
       "category": "listening",
@@ -4619,11 +6988,34 @@
           "questionType": "key point",
           "explanation": "駅で乗り換えについて話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-25",
-      "slug": "assessment-listening-n4-25",
+      "id": "assessment-listening-n4-30",
+      "slug": "assessment-listening-n4-30",
       "title": "図書館 · 新聞",
       "jlptLevel": "N4",
       "category": "listening",
@@ -4661,11 +7053,34 @@
           "questionType": "key point",
           "explanation": "図書館で新聞について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-26",
-      "slug": "assessment-listening-n4-26",
+      "id": "assessment-listening-n4-31",
+      "slug": "assessment-listening-n4-31",
       "title": "料理教室 · 野菜",
       "jlptLevel": "N4",
       "category": "listening",
@@ -4703,11 +7118,34 @@
           "questionType": "key point",
           "explanation": "料理教室で野菜について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-27",
-      "slug": "assessment-listening-n4-27",
+      "id": "assessment-listening-n4-32",
+      "slug": "assessment-listening-n4-32",
       "title": "アパート · 水道",
       "jlptLevel": "N4",
       "category": "listening",
@@ -4745,11 +7183,34 @@
           "questionType": "key point",
           "explanation": "アパートで水道について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-28",
-      "slug": "assessment-listening-n4-28",
+      "id": "assessment-listening-n4-33",
+      "slug": "assessment-listening-n4-33",
       "title": "旅行会社 · ホテル",
       "jlptLevel": "N4",
       "category": "listening",
@@ -4787,11 +7248,34 @@
           "questionType": "key point",
           "explanation": "旅行会社でホテルについて話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-29",
-      "slug": "assessment-listening-n4-29",
+      "id": "assessment-listening-n4-34",
+      "slug": "assessment-listening-n4-34",
       "title": "病院 · 検査",
       "jlptLevel": "N4",
       "category": "listening",
@@ -4829,11 +7313,34 @@
           "questionType": "key point",
           "explanation": "病院で検査について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-30",
-      "slug": "assessment-listening-n4-30",
+      "id": "assessment-listening-n4-35",
+      "slug": "assessment-listening-n4-35",
       "title": "スーパー · 割引券",
       "jlptLevel": "N4",
       "category": "listening",
@@ -4871,11 +7378,34 @@
           "questionType": "key point",
           "explanation": "スーパーで割引券について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-31",
-      "slug": "assessment-listening-n4-31",
+      "id": "assessment-listening-n4-36",
+      "slug": "assessment-listening-n4-36",
       "title": "学校 · 発表",
       "jlptLevel": "N4",
       "category": "listening",
@@ -4913,11 +7443,34 @@
           "questionType": "key point",
           "explanation": "学校で発表について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-32",
-      "slug": "assessment-listening-n4-32",
+      "id": "assessment-listening-n4-37",
+      "slug": "assessment-listening-n4-37",
       "title": "公園 · 花",
       "jlptLevel": "N4",
       "category": "listening",
@@ -4955,11 +7508,34 @@
           "questionType": "key point",
           "explanation": "公園で花について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-33",
-      "slug": "assessment-listening-n4-33",
+      "id": "assessment-listening-n4-38",
+      "slug": "assessment-listening-n4-38",
       "title": "郵便局 · 再配達",
       "jlptLevel": "N4",
       "category": "listening",
@@ -4997,11 +7573,34 @@
           "questionType": "key point",
           "explanation": "郵便局で再配達について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-34",
-      "slug": "assessment-listening-n4-34",
+      "id": "assessment-listening-n4-39",
+      "slug": "assessment-listening-n4-39",
       "title": "会社 · 昼休み",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5039,11 +7638,34 @@
           "questionType": "key point",
           "explanation": "会社で昼休みについて話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-35",
-      "slug": "assessment-listening-n4-35",
+      "id": "assessment-listening-n4-40",
+      "slug": "assessment-listening-n4-40",
       "title": "映画館 · 上映時間",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5081,11 +7703,34 @@
           "questionType": "key point",
           "explanation": "映画館で上映時間について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-36",
-      "slug": "assessment-listening-n4-36",
+      "id": "assessment-listening-n4-41",
+      "slug": "assessment-listening-n4-41",
       "title": "町のセンター · 日本語教室",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5123,11 +7768,34 @@
           "questionType": "key point",
           "explanation": "町のセンターで日本語教室について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-37",
-      "slug": "assessment-listening-n4-37",
+      "id": "assessment-listening-n4-42",
+      "slug": "assessment-listening-n4-42",
       "title": "家 · 掃除",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5165,11 +7833,34 @@
           "questionType": "key point",
           "explanation": "家で掃除について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-38",
-      "slug": "assessment-listening-n4-38",
+      "id": "assessment-listening-n4-43",
+      "slug": "assessment-listening-n4-43",
       "title": "電車 · 遅れ",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5207,11 +7898,34 @@
           "questionType": "key point",
           "explanation": "電車で遅れについて話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-39",
-      "slug": "assessment-listening-n4-39",
+      "id": "assessment-listening-n4-44",
+      "slug": "assessment-listening-n4-44",
       "title": "レストラン · 窓側の席",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5249,11 +7963,34 @@
           "questionType": "key point",
           "explanation": "レストランで窓側の席について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-40",
-      "slug": "assessment-listening-n4-40",
+      "id": "assessment-listening-n4-45",
+      "slug": "assessment-listening-n4-45",
       "title": "市民プール · 利用時間",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5291,11 +8028,34 @@
           "questionType": "key point",
           "explanation": "市民プールで利用時間について話している。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-41",
-      "slug": "assessment-listening-n4-41",
+      "id": "assessment-listening-n4-51",
+      "slug": "assessment-listening-n4-51",
       "title": "市役所 · 住所変更",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5333,11 +8093,34 @@
           "questionType": "verbal expression",
           "explanation": "住所変更をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-42",
-      "slug": "assessment-listening-n4-42",
+      "id": "assessment-listening-n4-52",
+      "slug": "assessment-listening-n4-52",
       "title": "会社 · 会議資料",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5375,11 +8158,34 @@
           "questionType": "verbal expression",
           "explanation": "会議資料をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-43",
-      "slug": "assessment-listening-n4-43",
+      "id": "assessment-listening-n4-53",
+      "slug": "assessment-listening-n4-53",
       "title": "薬局 · 薬",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5417,11 +8223,34 @@
           "questionType": "verbal expression",
           "explanation": "薬をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-44",
-      "slug": "assessment-listening-n4-44",
+      "id": "assessment-listening-n4-54",
+      "slug": "assessment-listening-n4-54",
       "title": "駅 · 乗り換え",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5459,11 +8288,34 @@
           "questionType": "verbal expression",
           "explanation": "乗り換えをお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-45",
-      "slug": "assessment-listening-n4-45",
+      "id": "assessment-listening-n4-55",
+      "slug": "assessment-listening-n4-55",
       "title": "図書館 · 新聞",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5501,11 +8353,34 @@
           "questionType": "verbal expression",
           "explanation": "新聞をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-46",
-      "slug": "assessment-listening-n4-46",
+      "id": "assessment-listening-n4-56",
+      "slug": "assessment-listening-n4-56",
       "title": "料理教室 · 野菜",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5543,11 +8418,34 @@
           "questionType": "verbal expression",
           "explanation": "野菜をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-47",
-      "slug": "assessment-listening-n4-47",
+      "id": "assessment-listening-n4-57",
+      "slug": "assessment-listening-n4-57",
       "title": "アパート · 水道",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5585,11 +8483,34 @@
           "questionType": "verbal expression",
           "explanation": "水道をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-48",
-      "slug": "assessment-listening-n4-48",
+      "id": "assessment-listening-n4-58",
+      "slug": "assessment-listening-n4-58",
       "title": "旅行会社 · ホテル",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5627,11 +8548,34 @@
           "questionType": "verbal expression",
           "explanation": "ホテルをお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-49",
-      "slug": "assessment-listening-n4-49",
+      "id": "assessment-listening-n4-59",
+      "slug": "assessment-listening-n4-59",
       "title": "病院 · 検査",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5669,11 +8613,34 @@
           "questionType": "verbal expression",
           "explanation": "検査をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-50",
-      "slug": "assessment-listening-n4-50",
+      "id": "assessment-listening-n4-60",
+      "slug": "assessment-listening-n4-60",
       "title": "スーパー · 割引券",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5711,11 +8678,34 @@
           "questionType": "verbal expression",
           "explanation": "割引券をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-51",
-      "slug": "assessment-listening-n4-51",
+      "id": "assessment-listening-n4-61",
+      "slug": "assessment-listening-n4-61",
       "title": "学校 · 発表",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5753,11 +8743,34 @@
           "questionType": "verbal expression",
           "explanation": "発表をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-52",
-      "slug": "assessment-listening-n4-52",
+      "id": "assessment-listening-n4-62",
+      "slug": "assessment-listening-n4-62",
       "title": "公園 · 花",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5795,11 +8808,34 @@
           "questionType": "verbal expression",
           "explanation": "花をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-53",
-      "slug": "assessment-listening-n4-53",
+      "id": "assessment-listening-n4-63",
+      "slug": "assessment-listening-n4-63",
       "title": "郵便局 · 再配達",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5837,11 +8873,34 @@
           "questionType": "verbal expression",
           "explanation": "再配達をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-54",
-      "slug": "assessment-listening-n4-54",
+      "id": "assessment-listening-n4-64",
+      "slug": "assessment-listening-n4-64",
       "title": "会社 · 昼休み",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5879,11 +8938,34 @@
           "questionType": "verbal expression",
           "explanation": "昼休みをお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-55",
-      "slug": "assessment-listening-n4-55",
+      "id": "assessment-listening-n4-65",
+      "slug": "assessment-listening-n4-65",
       "title": "映画館 · 上映時間",
       "jlptLevel": "N4",
       "category": "listening",
@@ -5921,221 +9003,34 @@
           "questionType": "verbal expression",
           "explanation": "上映時間をお願いします。"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-56",
-      "slug": "assessment-listening-n4-56",
-      "title": "町のセンター · 日本語教室",
-      "jlptLevel": "N4",
-      "category": "listening",
-      "subcategory": "verbal expression",
-      "difficulty": 4,
-      "prerequisiteIds": [
-        "grammar-wa",
-        "grammar-te-form"
-      ],
-      "tags": [
-        "assessment",
-        "original",
-        "n4-listening",
-        "study"
-      ],
-      "sourceIds": [
-        "michi-curated-n5-seed"
-      ],
-      "situation": "A N4 learner hears a short exchange about study.",
-      "audioUrl": null,
-      "voice": "ja-JP BrowserSpeechProvider",
-      "speed": 0.82,
-      "sourceType": "tts",
-      "transcript": "A：町のセンターで何と言いますか。\nB：日本語教室をお願いします。\nA：はい、どうぞ。",
-      "questions": [
-        {
-          "prompt": "この場面で、自然な表現はどれですか。",
-          "answers": [
-            "日本語教室をお願いします。",
-            "分かりませんでした。",
-            "おやすみなさい。",
-            "いただきません。"
-          ],
-          "correctAnswer": 0,
-          "questionType": "verbal expression",
-          "explanation": "日本語教室をお願いします。"
-        }
-      ]
-    },
-    {
-      "id": "assessment-listening-n4-57",
-      "slug": "assessment-listening-n4-57",
-      "title": "家 · 掃除",
-      "jlptLevel": "N4",
-      "category": "listening",
-      "subcategory": "verbal expression",
-      "difficulty": 4,
-      "prerequisiteIds": [
-        "grammar-wa",
-        "grammar-te-form"
-      ],
-      "tags": [
-        "assessment",
-        "original",
-        "n4-listening",
-        "home"
-      ],
-      "sourceIds": [
-        "michi-curated-n5-seed"
-      ],
-      "situation": "A N4 learner hears a short exchange about home.",
-      "audioUrl": null,
-      "voice": "ja-JP BrowserSpeechProvider",
-      "speed": 0.82,
-      "sourceType": "tts",
-      "transcript": "A：家で何と言いますか。\nB：掃除をお願いします。\nA：はい、どうぞ。",
-      "questions": [
-        {
-          "prompt": "この場面で、自然な表現はどれですか。",
-          "answers": [
-            "掃除をお願いします。",
-            "分かりませんでした。",
-            "おやすみなさい。",
-            "いただきません。"
-          ],
-          "correctAnswer": 0,
-          "questionType": "verbal expression",
-          "explanation": "掃除をお願いします。"
-        }
-      ]
-    },
-    {
-      "id": "assessment-listening-n4-58",
-      "slug": "assessment-listening-n4-58",
-      "title": "電車 · 遅れ",
-      "jlptLevel": "N4",
-      "category": "listening",
-      "subcategory": "verbal expression",
-      "difficulty": 4,
-      "prerequisiteIds": [
-        "grammar-wa",
-        "grammar-te-form"
-      ],
-      "tags": [
-        "assessment",
-        "original",
-        "n4-listening",
-        "transport"
-      ],
-      "sourceIds": [
-        "michi-curated-n5-seed"
-      ],
-      "situation": "A N4 learner hears a short exchange about transport.",
-      "audioUrl": null,
-      "voice": "ja-JP BrowserSpeechProvider",
-      "speed": 0.82,
-      "sourceType": "tts",
-      "transcript": "A：電車で何と言いますか。\nB：遅れをお願いします。\nA：はい、どうぞ。",
-      "questions": [
-        {
-          "prompt": "この場面で、自然な表現はどれですか。",
-          "answers": [
-            "遅れをお願いします。",
-            "分かりませんでした。",
-            "おやすみなさい。",
-            "いただきません。"
-          ],
-          "correctAnswer": 0,
-          "questionType": "verbal expression",
-          "explanation": "遅れをお願いします。"
-        }
-      ]
-    },
-    {
-      "id": "assessment-listening-n4-59",
-      "slug": "assessment-listening-n4-59",
-      "title": "レストラン · 窓側の席",
-      "jlptLevel": "N4",
-      "category": "listening",
-      "subcategory": "verbal expression",
-      "difficulty": 4,
-      "prerequisiteIds": [
-        "grammar-wa",
-        "grammar-te-form"
-      ],
-      "tags": [
-        "assessment",
-        "original",
-        "n4-listening",
-        "food"
-      ],
-      "sourceIds": [
-        "michi-curated-n5-seed"
-      ],
-      "situation": "A N4 learner hears a short exchange about food.",
-      "audioUrl": null,
-      "voice": "ja-JP BrowserSpeechProvider",
-      "speed": 0.82,
-      "sourceType": "tts",
-      "transcript": "A：レストランで何と言いますか。\nB：窓側の席をお願いします。\nA：はい、どうぞ。",
-      "questions": [
-        {
-          "prompt": "この場面で、自然な表現はどれですか。",
-          "answers": [
-            "窓側の席をお願いします。",
-            "分かりませんでした。",
-            "おやすみなさい。",
-            "いただきません。"
-          ],
-          "correctAnswer": 0,
-          "questionType": "verbal expression",
-          "explanation": "窓側の席をお願いします。"
-        }
-      ]
-    },
-    {
-      "id": "assessment-listening-n4-60",
-      "slug": "assessment-listening-n4-60",
-      "title": "市民プール · 利用時間",
-      "jlptLevel": "N4",
-      "category": "listening",
-      "subcategory": "verbal expression",
-      "difficulty": 4,
-      "prerequisiteIds": [
-        "grammar-wa",
-        "grammar-te-form"
-      ],
-      "tags": [
-        "assessment",
-        "original",
-        "n4-listening",
-        "routine"
-      ],
-      "sourceIds": [
-        "michi-curated-n5-seed"
-      ],
-      "situation": "A N4 learner hears a short exchange about routine.",
-      "audioUrl": null,
-      "voice": "ja-JP BrowserSpeechProvider",
-      "speed": 0.82,
-      "sourceType": "tts",
-      "transcript": "A：市民プールで何と言いますか。\nB：利用時間をお願いします。\nA：はい、どうぞ。",
-      "questions": [
-        {
-          "prompt": "この場面で、自然な表現はどれですか。",
-          "answers": [
-            "利用時間をお願いします。",
-            "分かりませんでした。",
-            "おやすみなさい。",
-            "いただきません。"
-          ],
-          "correctAnswer": 0,
-          "questionType": "verbal expression",
-          "explanation": "利用時間をお願いします。"
-        }
-      ]
-    },
-    {
-      "id": "assessment-listening-n4-61",
-      "slug": "assessment-listening-n4-61",
+      "id": "assessment-listening-n4-76",
+      "slug": "assessment-listening-n4-76",
       "title": "市役所 · 住所変更",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6173,11 +9068,34 @@
           "questionType": "quick response",
           "explanation": "来週の火曜日"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-62",
-      "slug": "assessment-listening-n4-62",
+      "id": "assessment-listening-n4-77",
+      "slug": "assessment-listening-n4-77",
       "title": "会社 · 会議資料",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6215,11 +9133,34 @@
           "questionType": "quick response",
           "explanation": "午後三時"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-63",
-      "slug": "assessment-listening-n4-63",
+      "id": "assessment-listening-n4-78",
+      "slug": "assessment-listening-n4-78",
       "title": "薬局 · 薬",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6257,11 +9198,34 @@
           "questionType": "quick response",
           "explanation": "食事のあと"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-64",
-      "slug": "assessment-listening-n4-64",
+      "id": "assessment-listening-n4-79",
+      "slug": "assessment-listening-n4-79",
       "title": "駅 · 乗り換え",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6299,11 +9263,34 @@
           "questionType": "quick response",
           "explanation": "四番線"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-65",
-      "slug": "assessment-listening-n4-65",
+      "id": "assessment-listening-n4-80",
+      "slug": "assessment-listening-n4-80",
       "title": "図書館 · 新聞",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6341,11 +9328,34 @@
           "questionType": "quick response",
           "explanation": "毎週土曜日"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-66",
-      "slug": "assessment-listening-n4-66",
+      "id": "assessment-listening-n4-81",
+      "slug": "assessment-listening-n4-81",
       "title": "料理教室 · 野菜",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6383,11 +9393,34 @@
           "questionType": "quick response",
           "explanation": "最初に"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-67",
-      "slug": "assessment-listening-n4-67",
+      "id": "assessment-listening-n4-82",
+      "slug": "assessment-listening-n4-82",
       "title": "アパート · 水道",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6425,11 +9458,34 @@
           "questionType": "quick response",
           "explanation": "明日の午前"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-68",
-      "slug": "assessment-listening-n4-68",
+      "id": "assessment-listening-n4-83",
+      "slug": "assessment-listening-n4-83",
       "title": "旅行会社 · ホテル",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6467,11 +9523,34 @@
           "questionType": "quick response",
           "explanation": "二泊"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-69",
-      "slug": "assessment-listening-n4-69",
+      "id": "assessment-listening-n4-84",
+      "slug": "assessment-listening-n4-84",
       "title": "病院 · 検査",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6509,11 +9588,34 @@
           "questionType": "quick response",
           "explanation": "午後二時半"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-70",
-      "slug": "assessment-listening-n4-70",
+      "id": "assessment-listening-n4-85",
+      "slug": "assessment-listening-n4-85",
       "title": "スーパー · 割引券",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6551,11 +9653,34 @@
           "questionType": "quick response",
           "explanation": "今月末まで"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-71",
-      "slug": "assessment-listening-n4-71",
+      "id": "assessment-listening-n4-86",
+      "slug": "assessment-listening-n4-86",
       "title": "学校 · 発表",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6593,11 +9718,34 @@
           "questionType": "quick response",
           "explanation": "金曜日"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-72",
-      "slug": "assessment-listening-n4-72",
+      "id": "assessment-listening-n4-87",
+      "slug": "assessment-listening-n4-87",
       "title": "公園 · 花",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6635,11 +9783,34 @@
           "questionType": "quick response",
           "explanation": "雨が降る前"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-73",
-      "slug": "assessment-listening-n4-73",
+      "id": "assessment-listening-n4-88",
+      "slug": "assessment-listening-n4-88",
       "title": "郵便局 · 再配達",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6677,11 +9848,34 @@
           "questionType": "quick response",
           "explanation": "土曜日の午後"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-74",
-      "slug": "assessment-listening-n4-74",
+      "id": "assessment-listening-n4-89",
+      "slug": "assessment-listening-n4-89",
       "title": "会社 · 昼休み",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6719,11 +9913,34 @@
           "questionType": "quick response",
           "explanation": "一時間"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-75",
-      "slug": "assessment-listening-n4-75",
+      "id": "assessment-listening-n4-90",
+      "slug": "assessment-listening-n4-90",
       "title": "映画館 · 上映時間",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6761,11 +9978,34 @@
           "questionType": "quick response",
           "explanation": "午後八時"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-76",
-      "slug": "assessment-listening-n4-76",
+      "id": "assessment-listening-n4-91",
+      "slug": "assessment-listening-n4-91",
       "title": "町のセンター · 日本語教室",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6803,11 +10043,34 @@
           "questionType": "quick response",
           "explanation": "水曜日の夜"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-77",
-      "slug": "assessment-listening-n4-77",
+      "id": "assessment-listening-n4-92",
+      "slug": "assessment-listening-n4-92",
       "title": "家 · 掃除",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6845,11 +10108,34 @@
           "questionType": "quick response",
           "explanation": "客が来る前"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-78",
-      "slug": "assessment-listening-n4-78",
+      "id": "assessment-listening-n4-93",
+      "slug": "assessment-listening-n4-93",
       "title": "電車 · 遅れ",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6887,11 +10173,34 @@
           "questionType": "quick response",
           "explanation": "雨のため"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-79",
-      "slug": "assessment-listening-n4-79",
+      "id": "assessment-listening-n4-94",
+      "slug": "assessment-listening-n4-94",
       "title": "レストラン · 窓側の席",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6929,11 +10238,34 @@
           "questionType": "quick response",
           "explanation": "七時半"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     },
     {
-      "id": "assessment-listening-n4-80",
-      "slug": "assessment-listening-n4-80",
+      "id": "assessment-listening-n4-95",
+      "slug": "assessment-listening-n4-95",
       "title": "市民プール · 利用時間",
       "jlptLevel": "N4",
       "category": "listening",
@@ -6971,7 +10303,355 @@
           "questionType": "quick response",
           "explanation": "水曜日以外"
         }
-      ]
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
+    },
+    {
+      "id": "assessment-listening-n4-96",
+      "slug": "assessment-listening-n4-96",
+      "title": "市役所 · 証明書",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "administration"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about administration.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：市役所について教えてください。\nB：証明書は平日の午後です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "平日の午後",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "平日の午後"
+        }
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
+    },
+    {
+      "id": "assessment-listening-n4-97",
+      "slug": "assessment-listening-n4-97",
+      "title": "会社 · 出張",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "work"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about work.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：会社について教えてください。\nB：出張は来月の三日です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "来月の三日",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "来月の三日"
+        }
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
+    },
+    {
+      "id": "assessment-listening-n4-98",
+      "slug": "assessment-listening-n4-98",
+      "title": "病院 · 診察券",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "health"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about health.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：病院について教えてください。\nB：診察券は受付の前です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "受付の前",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "受付の前"
+        }
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
+    },
+    {
+      "id": "assessment-listening-n4-99",
+      "slug": "assessment-listening-n4-99",
+      "title": "駅 · 定期券",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "transport"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about transport.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：駅について教えてください。\nB：定期券は来週までです。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "来週まで",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "来週まで"
+        }
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
+    },
+    {
+      "id": "assessment-listening-n4-100",
+      "slug": "assessment-listening-n4-100",
+      "title": "地域センター · 講演会",
+      "jlptLevel": "N4",
+      "category": "listening",
+      "subcategory": "quick response",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-wa",
+        "grammar-te-form"
+      ],
+      "tags": [
+        "assessment",
+        "original",
+        "n4-listening",
+        "community"
+      ],
+      "sourceIds": [
+        "michi-curated-n5-seed"
+      ],
+      "situation": "A N4 learner hears a short exchange about community.",
+      "audioUrl": null,
+      "voice": "ja-JP BrowserSpeechProvider",
+      "speed": 0.82,
+      "sourceType": "tts",
+      "transcript": "A：地域センターについて教えてください。\nB：講演会は午後六時です。\nA：分かりました。",
+      "questions": [
+        {
+          "prompt": "話を聞いて、何について覚えておく必要がありますか。",
+          "answers": [
+            "午後六時",
+            "朝六時",
+            "来月の水曜日",
+            "まだ分かりません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "quick response",
+          "explanation": "午後六時"
+        }
+      ],
+      "generationConstraints": {
+        "targetLevel": [
+          "N5",
+          "N4"
+        ],
+        "families": [
+          "task-based response",
+          "key point",
+          "verbal expression",
+          "quick response"
+        ],
+        "situations": [],
+        "numberOfSpeakers": 2,
+        "targetGrammar": [],
+        "allowedGrammar": [],
+        "targetVocabulary": [],
+        "allowedVocabulary": [],
+        "unknownWordBudget": 0,
+        "desiredDurationSeconds": 30,
+        "question": null,
+        "answerStructure": "four-choice",
+        "forbiddenContexts": []
+      }
     }
   ],
   "source": {
