@@ -36,7 +36,7 @@ function formatTime(seconds: number) {
 function saveExamAttempt(sessionId: string, questions: PracticeQuestion[], answers: Record<string, boolean>, startedAt: number | null, level: TargetLevel) {
   if (startedAt === null) return;
   const result = completionResult(questions, answers);
-  const section = sessionId === "diagnostic" ? "diagnostic" : sessionId === "mini-test" ? "mini" : sessionId === "section-test" ? "section" : sessionId === "full-test" ? "full" : sessionId === "integrated-test" ? "integrated" : "sampler";
+  const section = sessionId === "diagnostic" ? "diagnostic" : sessionId?.startsWith("mini-test") ? "mini" : sessionId?.startsWith("section-test") ? "section" : sessionId?.startsWith("full-test") ? "full" : sessionId?.startsWith("integrated-test") ? "integrated" : "sampler";
   recordExamAttempt({ attemptId: `${sessionId}-${Date.now()}`, level, section, questionsAttempted: Object.keys(answers).length, correct: result.correct, duration: Math.round((Date.now() - startedAt) / 1000), categoryBreakdown: result.categoryBreakdown, weakTopics: Object.entries(result.categoryBreakdown).filter(([, score]) => score.correct / Math.max(score.total, 1) < 0.75).map(([category]) => category), ...(section === "integrated" ? { contextSetId: questions[0]?.contextSetId, conceptBreakdown: conceptBreakdown(questions, answers) } : {}), completedAt: Date.now() });
 }
 
