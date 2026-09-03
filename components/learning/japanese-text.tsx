@@ -11,6 +11,21 @@ import type { KanjiItem, VocabularyItem } from "@/lib/types";
 const godanIRow: Record<string, [string, string]> = { "う": ["い", "い"], "く": ["き", "き"], "ぐ": ["ぎ", "ぎ"], "す": ["し", "し"], "つ": ["ち", "ち"], "ぬ": ["に", "に"], "ぶ": ["び", "び"], "む": ["み", "み"], "る": ["り", "り"] };
 const reviewedReadingHints: [string, string][] = [["お客さん", "おきゃくさん"], ["飲み物", "のみもの"], ["午後", "ごご"], ["午前", "ごぜん"], ["何時", "なんじ"], ["一人", "ひとり"], ["二人", "ふたり"], ["お願いします", "おねがいします"], ["読みます", "よみます"], ["会います", "あいます"], ["食べます", "たべます"], ["飲みます", "のみます"], ["行きます", "いきます"], ["来ます", "きます"]];
 const readingEntryCache = new WeakMap<object, WeakMap<object, [string, string][]>>();
+let sharedFuriganaMode: FuriganaMode | null = null;
+let sharedReviewRecords: Record<string, ReviewRecord> | null = null;
+
+function invalidateSharedPreferences() {
+  sharedFuriganaMode = null;
+  sharedReviewRecords = null;
+}
+
+function readSharedFuriganaMode() {
+  return sharedFuriganaMode ??= readFuriganaMode();
+}
+
+function readSharedReviewRecords() {
+  return sharedReviewRecords ??= readReviewRecords();
+}
 
 function verbAliases(item: VocabularyItem) {
   if (!/verb/u.test(item.partOfSpeech)) return [] as [string, string][];
@@ -112,12 +127,12 @@ export function getReadingEntriesForTexts(texts: string[], vocabulary: Vocabular
 }
 
 export function JapaneseText({ text, vocabulary, kanji = [], readingEntries = [], className = "", always = false, inspect = true }: Readonly<{ text: string; vocabulary: VocabularyItem[]; kanji?: KanjiItem[]; readingEntries?: [string, string][]; className?: string; always?: boolean; inspect?: boolean }>) {
-  const [mode, setMode] = useState<FuriganaMode>("always");
-  const [records, setRecords] = useState<Record<string, ReviewRecord>>({});
+  const [mode, setMode] = useState<FuriganaMode>(() => readSharedFuriganaMode());
+  const [records, setRecords] = useState<Record<string, ReviewRecord>>(() => readSharedReviewRecords());
   const [tappedPart, setTappedPart] = useState<string | null>(null);
   const [inspected, setInspected] = useState<string | null>(null);
   useEffect(() => {
-    const refresh = () => { setMode(readFuriganaMode()); setRecords(readReviewRecords()); };
+    const refresh = () => { invalidateSharedPreferences(); setMode(readSharedFuriganaMode()); setRecords(readSharedReviewRecords()); };
     refresh();
     window.addEventListener("michi-profile-updated", refresh);
     window.addEventListener("michi-review-updated", refresh);
