@@ -1,14 +1,31 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { applyLocalSyncSnapshot, createLocalSyncSnapshot, readSyncEnabled, writeSyncEnabled } from "@/lib/session";
+
+const SYNC_OUTBOX_STORAGE_KEY = "michi.sync-outbox";
+
+function hasQueuedSync() {
+  return typeof window !== "undefined" && window.localStorage.getItem(SYNC_OUTBOX_STORAGE_KEY) !== null;
+}
+
+function queueSync(snapshot: ReturnType<typeof createLocalSyncSnapshot>) {
+  window.localStorage.setItem(SYNC_OUTBOX_STORAGE_KEY, JSON.stringify(snapshot));
+}
+
+function clearQueuedSync() {
+  window.localStorage.removeItem(SYNC_OUTBOX_STORAGE_KEY);
+}
 
 export function AccountSync({ visible = true }: Readonly<{ visible?: boolean }>) {
   const [enabled, setEnabled] = useState(false);
   const [message, setMessage] = useState("");
+  const syncing = useRef(false);
 
   const sync = async (pull = false) => {
+    if (syncing.current) return;
+    syncing.current = true;
     setMessage(pull ? "Pulling account state…" : "Syncing local state…");
     try {
       if (pull) {
@@ -18,13 +35,18 @@ export function AccountSync({ visible = true }: Readonly<{ visible?: boolean }>)
         const count = applyLocalSyncSnapshot(payload);
         setMessage(count ? `${count} local records refreshed.` : "Account state is already current.");
       } else {
-        const response = await fetch("/api/sync", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(createLocalSyncSnapshot()) });
+        const snapshot = createLocalSyncSnapshot();
+        const response = await fetch("/api/sync", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(snapshot) });
         const payload = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(payload.error ?? "Could not sync local state.");
+        clearQueuedSync();
         setMessage("Local state synced.");
       }
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Sync failed; local state is safe.");
+      if (!pull) queueSync(createLocalSyncSnapshot());
+      setMessage(error instanceof Error ? `${error.message} Retry queued locally.` : "Sync failed; retry queued locally.");
+    } finally {
+      syncing.current = false;
     }
   };
 
@@ -35,7 +57,7 @@ export function AccountSync({ visible = true }: Readonly<{ visible?: boolean }>)
       window.clearTimeout(timer);
       timer = window.setTimeout(() => { if (navigator.onLine) void sync(); }, 500);
     };
-    const retry = () => { if (navigator.onLine) schedule(); };
+    const retry = () => { if (navigator.onLine && hasQueuedSync()) schedule(); };
     const events = ["michi-review-updated", "michi-mistakes-updated", "michi-notes-updated", "michi-question-stats-updated", "michi-study-stats-updated", "michi-saved-sentences-updated", "michi-study-later-updated", "michi-practice-session-updated", "michi-lesson-updated", "michi-diagnostic-updated", "michi-exam-attempt-updated", "michi-custom-entries-updated", "michi-book-notes-updated", "michi-content-flagged-updated"];
     window.addEventListener("online", retry);
     events.forEach((eventName) => window.addEventListener(eventName, schedule));
@@ -45,7 +67,7 @@ export function AccountSync({ visible = true }: Readonly<{ visible?: boolean }>)
   useEffect(() => {
     const value = readSyncEnabled();
     setEnabled(value);
-    if (value) void sync(true);
+    if (value) void sync(true).then(() => { if (navigator.onLine && hasQueuedSync()) void sync(); });
   }, []);
 
   const toggle = (value: boolean) => {
