@@ -27,7 +27,7 @@ import type { LessonContentItem } from "@/lib/curriculum";
 import { contentSources, getCurriculumBand } from "@/lib/jlpt";
 import { readMistakes, readReviewRecords } from "@/lib/session";
 import { rankContentCandidates } from "@/lib/content-priority.js";
-import { getN5PracticeCoverage, migrateLegacyQuestionPrompts } from "@/lib/questions";
+import { getN5PracticeCoverage, getPracticeQuestions, migrateLegacyQuestionPrompts } from "@/lib/questions";
 import { getUnresolvedJapaneseSegments } from "@/lib/japanese-text-core.js";
 import { getJapaneseReadingEntries } from "@/components/learning/japanese-text";
 import type { ContentReviewStatus, ContentSource, ExampleSentence, ExerciseValidationStatus, KanjiItem, LearningCategory, N5Module, PracticeQuestion, VocabularyItem } from "@/lib/types";
@@ -75,7 +75,8 @@ function Health({ label, result }: Readonly<{ label: string; result: ContentVali
   return <div className="rounded-xl border border-white/10 bg-[#101b2b]/70 p-4"><div className="flex items-center justify-between gap-3"><p className="text-sm text-[#f5f5f2]">{label}</p><span className={result.valid ? "text-[#6fb98f]" : "text-[#e34a3f]"}>{result.valid ? result.warnings.length ? "Ready · review" : "Ready" : `${result.errors.length} errors`}</span></div><p className="mt-2 text-xs text-[#9297a1]">{result.checked} records checked{result.warnings.length ? ` · ${result.warnings.length} warnings` : ""}</p></div>;
 }
 
-function CoverageHealth({ coverage }: Readonly<{ coverage: ReturnType<typeof getN5PracticeCoverage> }>) {
+function CoverageHealth({ coverage }: Readonly<{ coverage: ReturnType<typeof getN5PracticeCoverage> | null }>) {
+  if (!coverage) return <div className="rounded-xl border border-white/10 bg-[#101b2b]/70 p-4"><div className="flex items-center justify-between gap-3"><p className="text-sm text-[#f5f5f2]">N5 practice coverage</p><span className="text-[#9297a1]">Deferred</span></div><p className="mt-2 text-xs text-[#9297a1]">Load the question bank when you need coverage; Studio stays responsive on first open.</p></div>;
   return <div className="rounded-xl border border-white/10 bg-[#101b2b]/70 p-4"><div className="flex items-center justify-between gap-3"><p className="text-sm text-[#f5f5f2]">N5 practice coverage</p><span className={coverage.complete ? "text-[#6fb98f]" : "text-[#e34a3f]"}>{coverage.complete ? "Complete" : "Needs work"}</span></div><p className="mt-2 text-xs text-[#9297a1]">{coverage.coveredItemCount} / {coverage.itemCount} items · {coverage.questionCount} active questions</p>{coverage.missingFamilies.length ? <p className="mt-1 text-[10px] text-[#ef675d]">Missing families: {coverage.missingFamilies.join(", ")}</p> : null}{coverage.uncoveredItemIds.length ? <p className="mt-1 truncate text-[10px] text-[#ef675d]" title={coverage.uncoveredItemIds.join(", ")}>Uncovered items: {coverage.uncoveredItemIds.join(", ")}</p> : null}</div>;
 }
 
@@ -339,12 +340,15 @@ function QuestionReview({ raw, fallback, vocabulary, kanji, onReview, onEdit }: 
   return <div className="rounded-xl border border-white/10 bg-[#0d1522]/65 p-4"><div className="mb-4 flex flex-wrap items-center justify-between gap-3"><div><p className="text-sm text-[#f5f5f2]">Pending question drafts</p><p className="mt-1 text-xs text-[#9297a1]">Approve good drafts to move them into the active pipeline, or reject them to keep them out.</p></div><button type="button" onClick={onEdit} className="rounded-lg border border-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#f1cf7c] hover:bg-[#302818]">Advanced JSON</button></div><div className="mb-3 flex flex-wrap items-center gap-2"><input aria-label="Search pending questions" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search question ID, prompt, or type…" className="min-w-0 flex-1 rounded-lg border border-[#3f4652] bg-[#101b2b]/90 px-3 py-2.5 text-xs text-[#f5f5f2] outline-none placeholder:text-[#676c75] focus:border-[#e5b85c]" /><span className="text-xs text-[#9297a1]">Showing {visibleQuestions.length ? safePage * questionPageSize + 1 : 0}–{safePage * questionPageSize + visibleQuestions.length} of {filteredQuestions.length} matching · {allQuestions.length} pending</span></div>{!filteredQuestions.length ? <p className="rounded-lg border border-white/10 bg-[#101b2b]/75 p-4 text-xs text-[#9297a1]">No pending questions match this search.</p> : <><div className="space-y-2">{visibleQuestions.map((question, index) => { const choices = Array.isArray(question.options) ? question.options : []; const isOrdering = question.questionType === "sentence ordering"; const answer = question.answerMode === "text" ? question.acceptedAnswers?.[0] : isOrdering && question.tokens && question.correctOrder ? question.correctOrder.map((tokenIndex) => question.tokens?.[tokenIndex]).join(" ") : choices[question.correctIndex]; const questionId = question.id; const reviewer = reviewers[questionId] ?? question.review?.reviewedBy ?? "owner"; const reviewNotes = notes[questionId] ?? question.review?.reviewNotes ?? ""; return <article key={question.id ?? index} className="rounded-lg border border-white/10 bg-[#101b2b]/75 p-4"><div className="flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-[.12em] text-[#e5b85c]"><span>{question.category ?? "unknown"}</span><span className="text-[#676c75]">{question.questionType ?? "question"}</span><span className="text-[#9297a1]">draft</span></div><p className="mt-2 whitespace-pre-line text-sm leading-6 text-[#f5f5f2]"><JapaneseText text={question.prompt ?? "Untitled question"} vocabulary={vocabulary} kanji={kanji} inspect={false} /></p>{choices.length && !isOrdering ? <div className="mt-3 grid gap-2 sm:grid-cols-2">{choices.map((choice, choiceIndex) => <span key={`${choice}-${choiceIndex}`} className={`rounded-md px-3 py-2 text-xs ${choiceIndex === question.correctIndex ? "bg-[#183225] text-[#8bcca6]" : "bg-[#17181d] text-[#9297a1]"}`}><JapaneseText text={choice} vocabulary={vocabulary} kanji={kanji} inspect={false} /></span>)}</div> : <p className="mt-3 text-xs text-[#8bcca6]">{isOrdering ? "Correct order: " : "Accepted: "}{answer ?? "not set"}</p>}<p className="mt-3 text-xs leading-5 text-[#9297a1]">{question.explanation ?? "No explanation yet."}</p>{onReview ? <div className="mt-4 grid gap-2 border-t border-white/10 pt-3 sm:grid-cols-2"><label className="text-[11px] text-[#9297a1]">Reviewed by<input value={reviewer} onChange={(event) => setReviewers((current) => ({ ...current, [questionId]: event.target.value }))} className="mt-1 w-full rounded-lg border border-[#3f4652] bg-[#101b2b] px-3 py-2 text-xs text-[#f5f5f2] outline-none focus:border-[#e5b85c]" /></label><label className="text-[11px] text-[#9297a1]">Review notes<textarea value={reviewNotes} onChange={(event) => setNotes((current) => ({ ...current, [questionId]: event.target.value }))} className="mt-1 min-h-10 w-full rounded-lg border border-[#3f4652] bg-[#101b2b] px-3 py-2 text-xs text-[#f5f5f2] outline-none focus:border-[#e5b85c]" /></label><div className="flex flex-wrap gap-2 sm:col-span-2"><button type="button" onClick={() => onReview(questionId, "validated", { reviewedBy: reviewer, reviewNotes })} className="rounded-lg bg-[#6fb98f] px-3 py-2 text-xs font-semibold text-[#0b0b0d]">Approve · add to pipeline</button><button type="button" onClick={() => onReview(questionId, "rejected", { reviewedBy: reviewer, reviewNotes })} className="rounded-lg border border-[#713b37] px-3 py-2 text-xs font-semibold text-[#ef675d]">Reject</button></div></div> : null}</article>; })}</div><div className="mt-3 flex items-center justify-between gap-3 border-t border-white/10 pt-3"><span className="text-xs text-[#9297a1]">Page {safePage + 1} of {questionPageCount}</span><div className="flex gap-2"><button type="button" disabled={safePage === 0} onClick={() => setPage((current) => current - 1)} className="rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce] enabled:hover:border-[#e5b85c] disabled:cursor-not-allowed disabled:opacity-40">Previous</button><button type="button" disabled={safePage >= questionPageCount - 1} onClick={() => setPage((current) => current + 1)} className="rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce] enabled:hover:border-[#e5b85c] disabled:cursor-not-allowed disabled:opacity-40">Next</button></div></div></>}</div>;
 }
 
-export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, practiceCoverage, questions, knownItemIds, sources = contentSources }: Readonly<{ seed: N5Module; seedHealth: ContentValidationResult; questionHealth: ContentValidationResult; practiceCoverage: ReturnType<typeof getN5PracticeCoverage>; questions: PracticeQuestion[]; knownItemIds: string[]; sources?: ContentSource[] }>) {
+export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, practiceCoverage: initialPracticeCoverage, questions: initialQuestions, knownItemIds, sources = contentSources }: Readonly<{ seed: N5Module; seedHealth: ContentValidationResult; questionHealth: ContentValidationResult; practiceCoverage: ReturnType<typeof getN5PracticeCoverage> | null; questions: PracticeQuestion[]; knownItemIds: string[]; sources?: ContentSource[] }>) {
   const [seed, setSeed] = useState(initialSeed);
   const [raw, setRaw] = useState("");
   const [result, setResult] = useState<ContentValidationResult>(seedHealth);
-  const [questionRaw, setQuestionRaw] = useState(() => JSON.stringify(questions, null, 2));
+  const [questionBank, setQuestionBank] = useState(initialQuestions);
+  const [questionRaw, setQuestionRaw] = useState(() => JSON.stringify(initialQuestions, null, 2));
   const [questionResult, setQuestionResult] = useState<ContentValidationResult>(questionHealth);
+  const [practiceCoverage, setPracticeCoverage] = useState(initialPracticeCoverage);
+  const [loadingQuestionBank, setLoadingQuestionBank] = useState(false);
   const [message, setMessage] = useState("");
   const [showContentIssues, setShowContentIssues] = useState(false);
   const [contentView, setContentView] = useState<"review" | "form" | "json">("review");
@@ -362,6 +366,28 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
     const next = JSON.stringify(seed, null, 2);
     setRaw(next);
     return next;
+  };
+
+  const loadQuestionBank = () => {
+    if (loadingQuestionBank || questionBank.length) return;
+    setLoadingQuestionBank(true);
+    const run = () => {
+      try {
+        const next = getPracticeQuestions(seed);
+        const items = getModuleItems(seed);
+        const ids = new Set(items.map((item) => item.id));
+        const categories = new Map(items.map((item) => [item.id, item.category]));
+        setQuestionBank(next);
+        setQuestionRaw(JSON.stringify(next, null, 2));
+        setQuestionResult(validatePracticeQuestions(next, ids, categories));
+        setPracticeCoverage(getN5PracticeCoverage(seed));
+        setMessage("Loaded the generated question bank and coverage.");
+      } finally {
+        setLoadingQuestionBank(false);
+      }
+    };
+    if (typeof window.requestIdleCallback === "function") window.requestIdleCallback(run, { timeout: 1500 });
+    else window.setTimeout(run, 0);
   };
 
   const loadFullPackage = async () => {
@@ -437,12 +463,12 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
           setQuestionRaw(JSON.stringify(migratedQuestions, null, 2));
           setQuestionResult(savedQuestionResult);
         } else {
-          setQuestionRaw(JSON.stringify(questions, null, 2));
+          setQuestionRaw(JSON.stringify(questionBank, null, 2));
           setQuestionResult(questionHealth);
           setMessage("The saved question draft was incomplete, so the bundled question bank is shown. Reset questions to clear the old copy.");
         }
       } catch {
-        setQuestionRaw(JSON.stringify(questions, null, 2));
+        setQuestionRaw(JSON.stringify(questionBank, null, 2));
         setQuestionResult(questionHealth);
         setMessage("The saved question draft was invalid, so the bundled question bank is shown. Reset questions to clear the old copy.");
       }
@@ -451,7 +477,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
       ? (() => { const id = window.requestIdleCallback(() => { void load(); }, { timeout: 2000 }); return () => window.cancelIdleCallback(id); })()
       : (() => { const id = window.setTimeout(() => { void load(); }, 100); return () => window.clearTimeout(id); })();
     return () => { cancelled = true; cancel(); };
-  }, [knownItemIds, questionHealth, questions, seed, seedHealth]);
+  }, [knownItemIds, questionBank, questionHealth, seed, seedHealth]);
 
   const validate = () => {
     const next = parseAndValidateModule(ensureRaw()).result;
@@ -502,7 +528,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   };
 
   const resetQuestions = () => {
-    setQuestionRaw(JSON.stringify(questions, null, 2));
+    setQuestionRaw(JSON.stringify(questionBank, null, 2));
     window.localStorage.removeItem(QUESTION_DRAFT_STORAGE_KEY);
     setQuestionResult(questionHealth);
     window.dispatchEvent(new Event("michi-question-draft-updated"));
@@ -674,7 +700,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
 
     {showContentIssues ? <Issues result={result} /> : <section className="rounded-xl border border-[#3f4652] bg-[#101b2b]/70 p-5"><p className="eyebrow">Draft editing</p><p className="mt-2 text-sm leading-6 text-[#c3c7ce]">Review cards are for scanning. Use Edit records for normal changes; Advanced JSON is for imports and bulk edits.</p></section>}
 
-    <section className="rounded-xl border border-[#3f3427] bg-[#211d18]/65 p-5 sm:p-6"><div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Question set</p><h2 className="mt-1 text-xl font-medium text-[#f5f5f2]">Review drills at a glance.</h2><p className="mt-1 max-w-2xl text-sm text-[#9297a1]">Generated drafts appear here for approval. Approved questions stay in the active pipeline.</p></div><button type="button" onClick={resetQuestions} className="w-fit rounded-xl border border-white/10 px-4 py-3 text-sm font-semibold text-[#c3c7ce] hover:border-[#e5b85c] hover:text-[#f1cf7c]">Reset questions</button></div><div className="mt-5 flex gap-2 border-b border-white/10 pb-3"><button type="button" onClick={() => setQuestionView("review")} className={`rounded-lg px-3 py-2 text-xs ${questionView === "review" ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1]"}`}>Review questions</button><button type="button" onClick={() => setQuestionView("edit")} className={`rounded-lg px-3 py-2 text-xs ${questionView === "edit" ? "bg-[#3a2023] text-[#f5f5f2]" : "border border-[#3f4652] text-[#9297a1]"}`}>Advanced JSON</button></div>{questionView === "edit" ? <textarea value={questionRaw} onChange={(event) => setQuestionRaw(event.target.value)} spellCheck={false} aria-label="Question set JSON" className="mt-5 min-h-[24rem] w-full rounded-xl border border-[#3f4652] bg-[#0d1522]/90 p-4 font-mono text-xs leading-6 text-[#d8dde4] outline-none focus:border-[#e5b85c]" /> : <div className="mt-5"><QuestionReview raw={questionRaw} fallback={questions} vocabulary={coverageModule.vocabulary} kanji={coverageModule.kanji} onReview={updateQuestionStatus} onEdit={() => setQuestionView("edit")} /></div>}<div className="mt-4 flex flex-wrap items-center gap-3"><button type="button" onClick={validateQuestions} className="rounded-xl bg-[#e34a3f] px-4 py-3 text-sm font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">Validate questions</button><button type="button" onClick={saveQuestionDraft} disabled={!questionResult.valid} title={!questionResult.valid ? "Fix question errors before saving" : undefined} className="rounded-xl border border-[#3f4652] px-4 py-3 text-sm font-semibold text-[#f5f5f2] enabled:hover:border-[#e34a3f] disabled:cursor-not-allowed disabled:opacity-40">Save question draft</button><button type="button" onClick={() => downloadJson(questionRaw, "kizashi-question-draft.json")} className="rounded-xl border border-white/10 px-4 py-3 text-sm text-[#9297a1] hover:text-[#f5f5f2]">Export questions</button>{!questionResult.valid ? <span className="text-xs text-[#ef675d]">Fix question errors, then validate to unlock saving.</span> : null}</div></section>
+    <section className="rounded-xl border border-[#3f3427] bg-[#211d18]/65 p-5 sm:p-6"><div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Question set</p><h2 className="mt-1 text-xl font-medium text-[#f5f5f2]">Review drills at a glance.</h2><p className="mt-1 max-w-2xl text-sm text-[#9297a1]">Generated drafts appear here for approval. Approved questions stay in the active pipeline.</p></div><div className="flex flex-wrap gap-2"><button type="button" onClick={loadQuestionBank} disabled={loadingQuestionBank || questionBank.length > 0} className="w-fit rounded-xl border border-[#e5b85c] px-4 py-3 text-sm font-semibold text-[#f1cf7c] enabled:hover:bg-[#302818] disabled:cursor-wait disabled:opacity-50">{loadingQuestionBank ? "Loading question bank…" : questionBank.length ? "Question bank loaded" : "Load question bank"}</button><button type="button" onClick={resetQuestions} className="w-fit rounded-xl border border-white/10 px-4 py-3 text-sm font-semibold text-[#c3c7ce] hover:border-[#e5b85c] hover:text-[#f1cf7c]">Reset questions</button></div></div><div className="mt-5 flex gap-2 border-b border-white/10 pb-3"><button type="button" onClick={() => setQuestionView("review")} className={`rounded-lg px-3 py-2 text-xs ${questionView === "review" ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1]"}`}>Review questions</button><button type="button" onClick={() => setQuestionView("edit")} className={`rounded-lg px-3 py-2 text-xs ${questionView === "edit" ? "bg-[#3a2023] text-[#f5f5f2]" : "border border-[#3f4652] text-[#9297a1]"}`}>Advanced JSON</button></div>{questionView === "edit" ? <textarea value={questionRaw} onChange={(event) => setQuestionRaw(event.target.value)} spellCheck={false} aria-label="Question set JSON" className="mt-5 min-h-[24rem] w-full rounded-xl border border-[#3f4652] bg-[#0d1522]/90 p-4 font-mono text-xs leading-6 text-[#d8dde4] outline-none focus:border-[#e5b85c]" /> : <div className="mt-5"><QuestionReview raw={questionRaw} fallback={questionBank} vocabulary={coverageModule.vocabulary} kanji={coverageModule.kanji} onReview={updateQuestionStatus} onEdit={() => setQuestionView("edit")} /></div>}<div className="mt-4 flex flex-wrap items-center gap-3"><button type="button" onClick={validateQuestions} className="rounded-xl bg-[#e34a3f] px-4 py-3 text-sm font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">Validate questions</button><button type="button" onClick={saveQuestionDraft} disabled={!questionResult.valid} title={!questionResult.valid ? "Fix question errors before saving" : undefined} className="rounded-xl border border-[#3f4652] px-4 py-3 text-sm font-semibold text-[#f5f5f2] enabled:hover:border-[#e34a3f] disabled:cursor-not-allowed disabled:opacity-40">Save question draft</button><button type="button" onClick={() => downloadJson(questionRaw, "kizashi-question-draft.json")} className="rounded-xl border border-white/10 px-4 py-3 text-sm text-[#9297a1] hover:text-[#f5f5f2]">Export questions</button>{!questionResult.valid ? <span className="text-xs text-[#ef675d]">Fix the question bank before saving.</span> : null}</div></section>
     <Issues result={questionResult} />
   </div>;
 }
