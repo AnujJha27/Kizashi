@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import gzip
 import json
 from collections import Counter
 from pathlib import Path
@@ -14,7 +15,9 @@ CATEGORIES = ("vocabulary", "kanji", "grammar", "readings", "listening")
 
 
 def read_package(path: Path) -> dict[str, Any]:
-    value = json.loads(path.read_text(encoding="utf-8"))
+    opener = gzip.open if path.suffix == ".gz" else open
+    with opener(path, "rt", encoding="utf-8") as stream:
+        value = json.load(stream)
     if not isinstance(value, dict):
         raise ValueError(f"Expected an object in {path}.")
     return value

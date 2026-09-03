@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import gzip
 import json
 from pathlib import Path
 from typing import Any
@@ -115,7 +116,9 @@ def main() -> int:
     parser.add_argument("--package", type=Path, required=True)
     parser.add_argument("--strict", action="store_true", help="Exit non-zero when any publish blocker exists.")
     args = parser.parse_args()
-    package = json.loads(args.package.read_text(encoding="utf-8"))
+    opener = gzip.open if args.package.suffix == ".gz" else open
+    with opener(args.package, "rt", encoding="utf-8") as stream:
+        package = json.load(stream)
     if not isinstance(package, dict):
         raise ValueError("Expected a package object.")
     value = report(package)
