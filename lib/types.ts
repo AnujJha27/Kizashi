@@ -235,6 +235,9 @@ export interface ExampleSentence {
 
 export interface GrammarItem extends LearningItem {
   category: "grammar";
+  sourceCourse?: string;
+  sourceLevel?: string;
+  sourceRecord?: { lesson?: string; lessonTitle?: string; sourceLevel?: string };
   pattern: string;
   meaning: string;
   formation: string;
