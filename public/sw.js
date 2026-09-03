@@ -1,4 +1,4 @@
-const CACHE = "kizashi-shell-v5";
+const CACHE = "kizashi-shell-v6";
 const SHELL = ["/offline", "/journey", "/learn", "/practice", "/practice/kana", "/practice/diagnostic", "/immersion", "/review", "/mistakes", "/library", "/progress", "/profile", "/studio", "/icon.svg", "/journey-hero.png", "/site-atmosphere.png"];
 
 self.addEventListener("install", (event) => {
@@ -24,6 +24,13 @@ self.addEventListener("fetch", (event) => {
   }
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
+  if (url.pathname === "/api/content/review-package" && url.searchParams.get("audience") === "learner") {
+    event.respondWith(fetch(event.request).then((response) => {
+      if (response.ok) caches.open(CACHE).then((cache) => cache.put(event.request, response.clone()));
+      return response;
+    }).catch(() => caches.match(event.request).then((response) => response || Response.error())));
+    return;
+  }
   if (event.request.destination === "document") {
     event.respondWith(fetch(event.request).then((response) => {
       if (response.ok) caches.open(CACHE).then((cache) => cache.put(event.request, response.clone()));
