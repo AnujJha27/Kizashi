@@ -46,7 +46,9 @@ export function AdaptivePractice({ questions, vocabulary = [], kanji = [], items
     const now = Date.now();
     const itemMap = new Map(items.map((item) => [item.id, item]));
     const ranked = [...questions].sort((left, right) => priority(right, now, records, mistakes, stats, studyLater, itemMap, learnerErrorAggregates, passMode) - priority(left, now, records, mistakes, stats, studyLater, itemMap, learnerErrorAggregates, passMode));
-    setOrdered(limit ? ranked.slice(0, limit) : ranked);
+    const offset = limit && ranked.length > limit ? (session * limit) % ranked.length : 0;
+    const rotated = offset ? [...ranked.slice(offset), ...ranked.slice(0, offset)] : ranked;
+    setOrdered(limit ? rotated.slice(0, limit) : ranked);
   }, [items, learnerErrorAggregates, limit, passMode, questions, session]);
 
   if (ordered === null) return <div className="min-h-80 animate-pulse rounded-xl bg-[#17181d]" aria-label="Building your practice queue" />;

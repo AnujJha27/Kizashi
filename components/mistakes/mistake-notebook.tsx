@@ -12,9 +12,9 @@ import { readMistakes, readRepairRecords, type MistakeRecord, type RepairRecord 
 import type { GrammarContrast, KanjiItem, VocabularyItem } from "@/lib/types";
 
 function Detail({ item, vocabulary, kanji }: Readonly<{ item: LessonContentItem; vocabulary: VocabularyItem[]; kanji: KanjiItem[] }>) {
-  if (item.category === "vocabulary") return <><JapaneseText text={item.writtenForm} vocabulary={vocabulary} kanji={kanji} /> · {item.reading} · {item.meanings.join(" / ")}</>;
-  if (item.category === "kanji") return <><JapaneseText text={item.character} vocabulary={vocabulary} kanji={kanji} /> · {item.meanings.join(" / ")}</>;
-  if (item.category === "grammar") return <><JapaneseText text={item.pattern} vocabulary={vocabulary} kanji={kanji} /> · {item.meaning}</>;
+  if (item.category === "vocabulary") return <><JapaneseText text={item.writtenForm} vocabulary={vocabulary} kanji={kanji} inspect={false} /> · {item.reading} · {item.meanings.join(" / ")}</>;
+  if (item.category === "kanji") return <><JapaneseText text={item.character} vocabulary={vocabulary} kanji={kanji} inspect={false} /> · {item.meanings.join(" / ")}</>;
+  if (item.category === "grammar") return <><JapaneseText text={item.pattern} vocabulary={vocabulary} kanji={kanji} inspect={false} /> · {item.meaning}</>;
   return item.title;
 }
 

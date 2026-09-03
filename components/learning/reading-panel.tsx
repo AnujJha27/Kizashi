@@ -3,25 +3,26 @@
 import { useEffect, useState } from "react";
 
 import { getJapaneseReadingEntries } from "@/components/learning/japanese-text";
+import { segmentJapaneseText } from "@/lib/japanese-text-core.js";
 import { n5Module } from "@/lib/curriculum";
 import { toHiragana } from "@/lib/mastery";
 import { readFuriganaMode, readReviewRecords, type FuriganaMode, type ReviewRecord } from "@/lib/session";
 import type { KanjiItem, ReadingItem, VocabularyItem } from "@/lib/types";
 
 type ReadingMode = "guided" | "normal" | "challenge";
+type PassagePart = { text: string; item?: VocabularyItem; reading?: string };
 
 const furigana: Record<string, string> = { 毎朝: "まいあさ", 私: "わたし", 七時: "しちじ", 起きます: "おきます", 水: "みず", 飲んで: "のんで", 駅: "えき", 友達: "ともだち", 待ちます: "まちます", 電車: "でんしゃ", 大学: "だいがく", 行きます: "いきます" };
 
-function escapeRegExp(value: string) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
 function passageParts(text: string, vocabulary: VocabularyItem[], kanji: KanjiItem[]) {
-  const entries = new Map(vocabulary.map((item) => [item.writtenForm, item]));
-  const readings = new Map(getJapaneseReadingEntries(vocabulary, kanji));
-  const keys = [...new Set([...Object.keys(furigana), ...readings.keys()])].sort((left, right) => right.length - left.length).map(escapeRegExp);
-  if (!keys.length) return [{ text, item: undefined, reading: undefined }];
-  return text.split(new RegExp(`(${keys.join("|")})`, "gu")).map((part) => ({ text: part, item: entries.get(part), reading: readings.get(part) ?? furigana[part] }));
+  const entries = new Map([...getJapaneseReadingEntries(vocabulary, kanji), ...Object.entries(furigana)]);
+  const items = new Map<string, VocabularyItem>();
+  vocabulary.forEach((item) => items.set(item.writtenForm, item));
+  return segmentJapaneseText(text, [...entries].map(([word, reading]) => ({ text: word, reading }))).map((part: { text: string; status: string; reading?: string }): PassagePart => ({
+    text: part.text,
+    item: items.get(part.text),
+    reading: part.status === "resolved" ? part.reading : undefined,
+  }));
 }
 
 export function ReadingPanel({ item, vocabulary = n5Module.vocabulary, kanji = n5Module.kanji, always = false }: Readonly<{ item: ReadingItem; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[]; always?: boolean }>) {
@@ -51,7 +52,7 @@ export function ReadingPanel({ item, vocabulary = n5Module.vocabulary, kanji = n
 
   useEffect(() => { setActiveWord(null); setActivePart(null); }, [item.id]);
 
-  const showReading = (part: { text: string; item?: VocabularyItem; reading?: string }) => {
+  const showReading = (part: PassagePart) => {
     if (!part.reading) return false;
     if (mode === "challenge") return false;
     if (furiganaMode === "hide") return false;
@@ -62,5 +63,5 @@ export function ReadingPanel({ item, vocabulary = n5Module.vocabulary, kanji = n
     return !itemId || !["stable", "strong"].includes(records[itemId]?.masteryState ?? "");
   };
 
-  return <div><div className="mb-5 flex flex-wrap items-center justify-between gap-3"><div className="flex flex-wrap gap-2" role="group" aria-label="Reading mode">{(["guided", "normal", "challenge"] as ReadingMode[]).map((value) => <button key={value} type="button" onClick={() => { setMode(value); setShowTranslation(false); setActiveWord(null); setActivePart(null); }} className={`rounded-lg px-3 py-2 text-xs capitalize ${mode === value ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1] hover:border-[#e5b85c]"}`}>{value}</button>)}</div><p className="text-xs text-[#9297a1]">{knownWords} / {linkedVocabulary.length} words held</p></div><p className="mb-5 text-xs text-[#676c75]">Passage coverage · {Math.round((knownWords / Math.max(linkedVocabulary.length, 1)) * 100)}% familiar</p><p className="whitespace-pre-line text-lg leading-8 text-[#f5f5f2]">{parts.map((part, index) => { const reading = toHiragana(part.item?.reading ?? part.reading ?? ""); const inspectable = Boolean(part.reading); const content = showReading(part) ? <ruby>{part.text}<rt className="text-xs text-[#e5b85c]">{reading}</rt></ruby> : part.text; if (!inspectable) return <span key={`${part.text}-${index}`}>{content}</span>; return <button key={`${part.text}-${index}`} type="button" onClick={() => { const nextPart = activePart === part.text ? null : part.text; setActivePart(nextPart); setActiveWord(nextPart && part.item ? part.item : null); }} className="rounded px-0.5 hover:bg-[#302818]" aria-label={`Inspect ${part.text}`}>{content}</button>; })}</p>{activeWord ? <div className="mt-5 rounded-xl border border-[#4b3a29] bg-[#211d18] p-4" role="status"><div className="flex items-baseline gap-3"><p className="jp-serif text-2xl text-[#e5b85c]">{activeWord.writtenForm}</p><p className="jp-serif text-base text-[#9297a1]">{toHiragana(activeWord.reading)}</p></div><p className="mt-2 text-sm text-[#f5f5f2]">{activeWord.meanings.join(" · ")}</p><p className="mt-1 text-xs text-[#9297a1]">{activeWord.partOfSpeech}</p></div> : null}<button type="button" onClick={() => setShowTranslation((value) => !value)} className="mt-6 text-sm font-semibold text-[#e5b85c] hover:text-[#f1cf7c]">{showTranslation ? "Hide translation" : mode === "challenge" ? "Reveal translation" : "Show translation"} <span aria-hidden="true">{showTranslation ? "↑" : "↓"}</span></button>{showTranslation ? <p className="mt-3 border-l-2 border-[#e34a3f] pl-4 text-sm leading-7 text-[#9297a1]">{item.translation}</p> : null}<p className="mt-6 text-xs text-[#676c75]">{mode === "guided" ? furiganaMode === "tap" ? "Tap a word to reveal its reading and meaning." : "Furigana follows your study setting. Tap a word for its meaning." : mode === "challenge" ? "No help until you ask for it. Linked words remain tappable." : "Read first, then reveal only what you need."}</p></div>;
+  return <div><div className="mb-5 flex flex-wrap items-center justify-between gap-3"><div className="flex flex-wrap gap-2" role="group" aria-label="Reading mode">{(["guided", "normal", "challenge"] as ReadingMode[]).map((value) => <button key={value} type="button" onClick={() => { setMode(value); setShowTranslation(false); setActiveWord(null); setActivePart(null); }} className={`rounded-lg px-3 py-2 text-xs capitalize ${mode === value ? "bg-[#e5b85c] text-[#0b0b0d]" : "border border-[#3f4652] text-[#9297a1] hover:border-[#e5b85c]"}`}>{value}</button>)}</div><p className="text-xs text-[#9297a1]">{knownWords} / {linkedVocabulary.length} words held</p></div><p className="mb-5 text-xs text-[#676c75]">Passage coverage · {Math.round((knownWords / Math.max(linkedVocabulary.length, 1)) * 100)}% familiar</p><p className="whitespace-pre-line text-lg leading-8 text-[#f5f5f2]">{parts.map((part: PassagePart, index: number) => { const reading = toHiragana(part.item?.reading ?? part.reading ?? ""); const inspectable = Boolean(part.reading); const content = showReading(part) ? <ruby>{part.text}<rt className="text-xs text-[#e5b85c]">{reading}</rt></ruby> : part.text; if (!inspectable) return <span key={`${part.text}-${index}`}>{content}</span>; return <button key={`${part.text}-${index}`} type="button" onClick={() => { const nextPart = activePart === part.text ? null : part.text; setActivePart(nextPart); setActiveWord(nextPart && part.item ? part.item : null); }} className="rounded px-0.5 hover:bg-[#302818]" aria-label={`Inspect ${part.text}`}>{content}</button>; })}</p>{activeWord ? <div className="mt-5 rounded-xl border border-[#4b3a29] bg-[#211d18] p-4" role="status"><div className="flex items-baseline gap-3"><p className="jp-serif text-2xl text-[#e5b85c]">{activeWord.writtenForm}</p><p className="jp-serif text-base text-[#9297a1]">{toHiragana(activeWord.reading)}</p></div><p className="mt-2 text-sm text-[#f5f5f2]">{activeWord.meanings.join(" · ")}</p><p className="mt-1 text-xs text-[#9297a1]">{activeWord.partOfSpeech}</p></div> : null}<button type="button" onClick={() => setShowTranslation((value) => !value)} className="mt-6 text-sm font-semibold text-[#e5b85c] hover:text-[#f1cf7c]">{showTranslation ? "Hide translation" : mode === "challenge" ? "Reveal translation" : "Show translation"} <span aria-hidden="true">{showTranslation ? "↑" : "↓"}</span></button>{showTranslation ? <p className="mt-3 border-l-2 border-[#e34a3f] pl-4 text-sm leading-7 text-[#9297a1]">{item.translation}</p> : null}<p className="mt-6 text-xs text-[#676c75]">{mode === "guided" ? furiganaMode === "tap" ? "Tap a word to reveal its reading and meaning." : "Furigana follows your study setting. Tap a word for its meaning." : mode === "challenge" ? "No help until you ask for it. Linked words remain tappable." : "Read first, then reveal only what you need."}</p></div>;
 }

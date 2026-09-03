@@ -28,7 +28,7 @@ function JapaneseWord({ written, reading, className = "" }: Readonly<{ written: 
 
 function Prompt({ item, onReveal, vocabulary = [], kanji = [] }: Readonly<{ item: LessonContentItem; onReveal: () => void; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[] }>) {
   if (item.category === "vocabulary") return <><p className="jp-serif text-6xl text-[#f5f5f2]"><JapaneseWord written={item.writtenForm} reading={item.reading} /></p><AudioControls text={item.writtenForm} reading={item.reading} humanFirst /><TypedRecall item={item} onReveal={onReveal} /></>;
-  if (item.category === "kanji") return <><p className="jp-serif text-8xl text-[#f5f5f2]">{item.character}</p><AudioControls text={item.character} humanFirst /><TypedRecall item={item} onReveal={onReveal} /></>;
+  if (item.category === "kanji") return <><p className="jp-serif text-8xl text-[#f5f5f2]"><ruby>{item.character}<rt className="text-[.3em] font-normal tracking-normal text-[#e5b85c]">{toHiragana(item.kunyomi[0] ?? item.onyomi[0] ?? "")}</rt></ruby></p><AudioControls text={item.character} humanFirst /><TypedRecall item={item} onReveal={onReveal} /></>;
   if (item.category === "grammar") return <><p className="jp-serif text-4xl text-[#f5f5f2]"><JapaneseText text={item.pattern} vocabulary={vocabulary} kanji={kanji} always /></p><AudioControls text={item.pattern} /></>;
   return <p className="jp-serif text-3xl text-[#f5f5f2]">{item.title}</p>;
 }
