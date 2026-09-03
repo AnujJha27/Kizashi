@@ -78,6 +78,10 @@ export function createLocalSyncSnapshot() {
     const value = storedJson(storageKey);
     if (value !== undefined) data[syncKey] = value;
   });
+  const currentLesson = storedJson(CURRENT_LESSON_STORAGE_KEY);
+  if (currentLesson !== undefined) data.currentLessonState = currentLesson;
+  const continueState = storedJson(CONTINUE_STORAGE_KEY);
+  if (continueState !== undefined) data.continueState = continueState;
   const practiceSessions: Record<string, unknown> = {};
   const lessonStates: Record<string, unknown> = {};
   for (let index = 0; index < window.localStorage.length; index += 1) {
@@ -111,6 +115,8 @@ export function applyLocalSyncSnapshot(snapshot: unknown) {
     customEntries: CUSTOM_ENTRIES_STORAGE_KEY,
     bookNotes: BOOK_NOTES_STORAGE_KEY,
     contentFlags: CONTENT_FLAGS_STORAGE_KEY,
+    currentLessonState: CURRENT_LESSON_STORAGE_KEY,
+    continueState: CONTINUE_STORAGE_KEY,
   };
   let restored = 0;
   Object.entries(storageKeys).forEach(([syncKey, storageKey]) => {
