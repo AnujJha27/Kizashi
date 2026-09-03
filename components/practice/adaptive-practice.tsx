@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { PracticePlayer } from "@/components/practice/practice-player";
 import { ijasBoostForQuestion } from "@/lib/ijas-core.js";
@@ -37,6 +37,7 @@ function priority(question: PracticeQuestion, now: number, records: ReturnType<t
 export function AdaptivePractice({ questions, vocabulary = [], kanji = [], readingEntries = [], items = [], learnerErrorAggregates = [], limit, passMode = false, sessionId }: Readonly<{ questions: PracticeQuestion[]; vocabulary?: VocabularyItem[]; kanji?: KanjiItem[]; readingEntries?: [string, string][]; items?: LearningItem[]; learnerErrorAggregates?: IjasAggregate[]; limit?: number; passMode?: boolean; sessionId?: string }>) {
   const [ordered, setOrdered] = useState<PracticeQuestion[] | null>(null);
   const [session, setSession] = useState(0);
+  const recentQuestionIds = useRef<string[]>([]);
 
   useEffect(() => {
     const records = readReviewRecords();
@@ -46,11 +47,12 @@ export function AdaptivePractice({ questions, vocabulary = [], kanji = [], readi
     const now = Date.now();
     const itemMap = new Map(items.map((item) => [item.id, item]));
     const ranked = [...questions].sort((left, right) => priority(right, now, records, mistakes, stats, studyLater, itemMap, learnerErrorAggregates, passMode) - priority(left, now, records, mistakes, stats, studyLater, itemMap, learnerErrorAggregates, passMode));
-    const offset = limit && ranked.length > limit ? (session * limit) % ranked.length : 0;
-    const rotated = offset ? [...ranked.slice(offset), ...ranked.slice(0, offset)] : ranked;
-    setOrdered(limit ? rotated.slice(0, limit) : ranked);
+    const recent = new Set(recentQuestionIds.current);
+    const fresh = ranked.filter((question) => !recent.has(question.id));
+    const available = [...fresh, ...ranked.filter((question) => recent.has(question.id))];
+    setOrdered(limit ? available.slice(0, limit) : ranked);
   }, [items, learnerErrorAggregates, limit, passMode, questions, session]);
 
   if (ordered === null) return <div className="min-h-80 animate-pulse rounded-xl bg-[#17181d]" aria-label="Building your practice queue" />;
-  return <PracticePlayer key={session} questions={ordered} vocabulary={vocabulary} kanji={kanji} readingEntries={readingEntries} sessionId={sessionId} onRestart={() => setSession((value) => value + 1)} />;
+  return <PracticePlayer key={session} questions={ordered} vocabulary={vocabulary} kanji={kanji} readingEntries={readingEntries} sessionId={sessionId} onRestart={() => { if (limit) recentQuestionIds.current = [...recentQuestionIds.current, ...ordered.map((question) => question.id)].slice(-limit * 2); setSession((value) => value + 1); }} />;
 }
