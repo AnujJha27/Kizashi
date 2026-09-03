@@ -92,12 +92,12 @@ export function LocalPractice({ allQuestions, mode, duration, focus, section, to
   const { questions: activeQuestions, module, readingEntries, loaded } = useActiveQuestions(fallbackQuestions, targetLevel);
   const [repair, setRepair] = useState("");
   useEffect(() => setRepair(new URLSearchParams(window.location.search).get("repair") ?? ""), []);
-  const topicIds = topic ? getTopicItemIds([...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening], topic) : null;
-  const scopedQuestions = topicIds ? activeQuestions.filter((question) => topicIds.has(question.itemId)) : activeQuestions;
-  const focusedIds = focus ? new Set(module.grammarContrasts.find((contrast) => contrast.id === focus)?.grammarPointIds ?? []) : null;
-  const focusQuestions = focusedIds?.size ? scopedQuestions.filter((question) => focusedIds.has(question.itemId)) : scopedQuestions;
-  const repairQuestions = repair ? focusQuestions.filter((question) => question.id === repair || question.itemId === repair || question.targetItemIds?.includes(repair)) : focusQuestions;
-  const quickPool = [...new Map([
+  const topicIds = useMemo(() => topic ? getTopicItemIds([...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening], topic) : null, [module, topic]);
+  const scopedQuestions = useMemo(() => topicIds ? activeQuestions.filter((question) => topicIds.has(question.itemId)) : activeQuestions, [activeQuestions, topicIds]);
+  const focusedIds = useMemo(() => focus ? new Set(module.grammarContrasts.find((contrast) => contrast.id === focus)?.grammarPointIds ?? []) : null, [focus, module]);
+  const focusQuestions = useMemo(() => focusedIds?.size ? scopedQuestions.filter((question) => focusedIds.has(question.itemId)) : scopedQuestions, [focusedIds, scopedQuestions]);
+  const repairQuestions = useMemo(() => repair ? focusQuestions.filter((question) => question.id === repair || question.itemId === repair || question.targetItemIds?.includes(repair)) : focusQuestions, [focusQuestions, repair]);
+  const quickPool = useMemo(() => [...new Map([
     ...selectPracticeQuestions("quick", focusQuestions, targetLevel),
     ...selectPracticeQuestions("mixed", focusQuestions, targetLevel),
     ...selectPracticeQuestions("vocabulary", focusQuestions, targetLevel).slice(0, 8),
@@ -105,13 +105,13 @@ export function LocalPractice({ allQuestions, mode, duration, focus, section, to
     ...selectPracticeQuestions("grammar", focusQuestions, targetLevel).slice(0, 8),
     ...selectPracticeQuestions("reading", focusQuestions, targetLevel).slice(0, 4),
     ...selectPracticeQuestions("listening", focusQuestions, targetLevel).slice(0, 4),
-  ].map((question) => [question.id, question])).values()];
-  const selected = mode === "weak" ? repairQuestions : mode === "quick" ? quickPool : mode === "section" && section === "vocabulary" ? [...selectPracticeQuestions("vocabulary", focusQuestions, targetLevel).slice(0, 8), ...selectPracticeQuestions("kanji", focusQuestions, targetLevel).slice(0, 4)] : mode === "section" && section === "grammar-reading" ? [...selectPracticeQuestions("grammar", focusQuestions, targetLevel).slice(0, 8), ...selectPracticeQuestions("reading", focusQuestions, targetLevel).slice(0, 6)] : mode === "section" && section === "listening" ? selectPracticeQuestions("listening", focusQuestions, targetLevel).slice(0, 10) : selectPracticeQuestions(mode, focusQuestions, targetLevel);
+  ].map((question) => [question.id, question])).values()], [focusQuestions, targetLevel]);
+  const selected = useMemo(() => mode === "weak" ? repairQuestions : mode === "quick" ? quickPool : mode === "section" && section === "vocabulary" ? [...selectPracticeQuestions("vocabulary", focusQuestions, targetLevel).slice(0, 8), ...selectPracticeQuestions("kanji", focusQuestions, targetLevel).slice(0, 4)] : mode === "section" && section === "grammar-reading" ? [...selectPracticeQuestions("grammar", focusQuestions, targetLevel).slice(0, 8), ...selectPracticeQuestions("reading", focusQuestions, targetLevel).slice(0, 6)] : mode === "section" && section === "listening" ? selectPracticeQuestions("listening", focusQuestions, targetLevel).slice(0, 10) : selectPracticeQuestions(mode, focusQuestions, targetLevel), [focusQuestions, mode, quickPool, repairQuestions, section, targetLevel]);
   const quickCount = quickPracticeCount(duration);
   const questions = selected;
   const sessionId = `practice-${mode}-${targetLevel}-${duration}-${focus ?? "all"}-${section ?? "all"}-${topic ?? "all"}-${repair || "none"}`;
 
-  const items = [...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening];
+  const items = useMemo(() => [...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening], [module]);
   useEffect(() => { if (loaded) onReady?.(); }, [loaded, onReady]);
   if (!loaded) return <div className="min-h-80 animate-pulse rounded-xl bg-[#17181d]" aria-label="Loading practice questions" />;
   if (mode === "weak") return <WeakPractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} items={items} learnerErrorAggregates={module.learnerErrorAggregates} repairId={repair ? `repair-${repair}` : undefined} sessionId={sessionId} />;
