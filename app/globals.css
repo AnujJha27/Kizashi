@@ -205,3 +205,14 @@ button, a, input { outline-color: var(--gold); outline-offset: 3px; }
   a, button { transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease; }
   a:hover, button:hover { transform: translateY(-1px); }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
