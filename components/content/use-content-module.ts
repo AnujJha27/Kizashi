@@ -76,6 +76,15 @@ function learnerModule(module: N5Module) {
 
 let cachedModule: N5Module | null = null;
 let modulePromise: Promise<N5Module> | null = null;
+let personalizedSource: N5Module | null = null;
+let personalizedModule: N5Module | null = null;
+
+function stablePersonalizedModule(module: N5Module) {
+  if (personalizedSource === module && personalizedModule) return personalizedModule;
+  personalizedSource = module;
+  personalizedModule = withPersonalVocabulary(module);
+  return personalizedModule;
+}
 
 function loadSharedModule(seed: N5Module) {
   if (cachedModule) return Promise.resolve(cachedModule);
@@ -111,11 +120,13 @@ export function useContentModule(seed: N5Module = n5Module) {
     let cancelled = false;
     const refresh = async () => {
       const loaded = await loadSharedModule(seed);
-      if (!cancelled) setModule(withPersonalVocabulary(loaded));
+      if (!cancelled) setModule(stablePersonalizedModule(loaded));
     };
     const onDraftUpdated = () => {
       cachedModule = null;
       modulePromise = null;
+      personalizedSource = null;
+      personalizedModule = null;
       void refresh();
     };
     const cancelScheduledRefresh = typeof window.requestIdleCallback === "function"
