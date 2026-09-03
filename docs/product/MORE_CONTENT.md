@@ -62,8 +62,8 @@ coverage/verification, `[ ]` not implemented.
 
 ### Priority tracking
 
-- [~] Priority 1 — Irodori grammar now has 32 canonical concept mappings and an audit-backed learner reference path; source-derived meanings, formations, and example translations remain pending review.
-- [~] The Irodori grammar audit currently finds 348 source patterns: 51 record-level canonical matches covering 32 concepts, 297 source-only records, 343 partial records, and 0 complete authored learning units. This is an explicit quality boundary, not a learner-content gate.
+- [~] Priority 1 — Irodori grammar now has 32 canonical concept mappings and an audit-backed learner reference path; source-only rows with no canonical meaning render as labeled Japanese pattern references in Learn and Library instead of blank grammar answers. Source-derived meanings, formations, and example translations remain pending review.
+- [~] The Irodori grammar audit currently finds 348 source patterns: 51 record-level canonical matches covering 32 concepts, 297 source-only records, 343 partial records, and 0 complete authored learning units. All non-rejected rows remain learner-visible; source-only rows are references rather than silently treated as Kizashi-authored grammar. This is an explicit quality boundary, not a learner-content gate.
 - [x] A calculated `scripts/audit_irodori_grammar.py` report now measures Irodori source records by course/source level, canonical pattern matches, duplicate sets, relevance, review status, and learner-field completeness before further mapping work.
 - [x] Priority 2 — the existing Irodori resource pipeline emits activity types, course levels, lesson/Can-do metadata, categorized target IDs where reviewed, and provenance; all 72 official lesson activities are learner-visible progressively, while provider-hosted media remains remote.
 - [x] Priority 3 — all 25 Basic and 25 Advanced Erin skit pages are indexed; only the six curated Basic entries are currently mapped into Kizashi item context.

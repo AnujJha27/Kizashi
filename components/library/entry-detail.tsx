@@ -13,6 +13,7 @@ import { SaveSentence } from "@/components/library/save-sentence";
 import { StudyLaterButton } from "@/components/library/study-later";
 import { ContentFlagButton } from "@/components/library/content-flag-button";
 import { SourceReferencePanel } from "@/components/learning/source-reference-panel";
+import { IrodoriPatternReference } from "@/components/learning/irodori-pattern-reference";
 import { n5Module } from "@/lib/curriculum";
 import { classifyItem } from "@/lib/jlpt";
 import { toHiragana } from "@/lib/mastery";
@@ -51,6 +52,7 @@ function GrammarDetail({ item, contrasts, vocabulary, kanji }: Readonly<{ item: 
     const experienced = Boolean(record && ((["stable", "strong"] as string[]).includes(record.masteryState ?? "") || (record.attempts ?? 0) >= 3));
     setShowSupport(!experienced);
   }, [item.id]);
+  if (!item.meaning.trim()) return <><p className="jp-serif text-3xl text-[#e5b85c]"><JapaneseText text={item.pattern} vocabulary={vocabulary} kanji={kanji} always /></p><IrodoriPatternReference item={item} vocabulary={vocabulary} kanji={kanji} /><SourceReferencePanel grammarId={item.id} /></>;
   return <><p className="jp-serif text-3xl text-[#e5b85c]"><JapaneseText text={item.pattern} vocabulary={vocabulary} kanji={kanji} always /></p><AudioControls text={item.pattern} metadata={item.audio} className="mt-4" /><h2 className="mt-5 text-xl font-medium">{item.meaning}</h2>{showSupport ? <><p className="mt-3 text-sm leading-7 text-[#9297a1]">{item.formation}</p><p className="mt-5 text-sm leading-7 text-[#c3a998]">{item.intuition}</p></> : <button type="button" onClick={() => setShowSupport(true)} className="mt-3 rounded-lg border border-[#3f4652] px-3 py-2 text-xs font-semibold text-[#c3c7ce] hover:border-[#e5b85c]">Show formation hint</button>}<div className="mt-7"><p className="eyebrow mb-3">Usage conditions</p><ul className="space-y-2 text-sm leading-6 text-[#c3c7ce]">{item.usageConditions.map((condition) => <li key={condition}>— {condition}</li>)}</ul></div><div className="mt-7 space-y-3">{item.examples.map((example) => <div key={example.japanese} className="rounded-xl bg-[#101b2b]/70 p-4"><p className="jp-serif text-lg text-[#e5b85c]"><JapaneseText text={example.japanese} vocabulary={vocabulary} kanji={kanji} always /></p><p className="mt-1 text-sm text-[#9297a1]">{example.translation}</p><AudioControls text={example.japanese} metadata={example.audio} className="mt-3" /><GrammarVisual sentence={example.japanese} vocabulary={vocabulary} kanji={kanji} /><SaveSentence sourceItemId={item.id} japanese={example.japanese} translation={example.translation} /></div>)}</div><div className="mt-7 rounded-xl border border-[#713b37]/70 bg-[#21191a]/60 p-4"><p className="eyebrow mb-2">Common mistake</p><p className="text-sm leading-6 text-[#c3c7ce]">{item.commonMistakes.join(" ")}</p></div>{contrast ? <div className="mt-7 border-l-2 border-[#e34a3f] pl-4"><p className="eyebrow">Contrast · {contrast.title}</p><p className="mt-2 text-sm leading-6 text-[#c3a998]">{contrast.explanation}</p></div> : null}<SourceReferencePanel grammarId={item.id} /></>;
 }
 

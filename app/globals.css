@@ -95,6 +95,11 @@ select {
 
 button, a, input { outline-color: var(--gold); outline-offset: 3px; }
 
+:where(button, a, input, select, textarea, summary):focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
 .jp-serif { font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif; }
 
 .japanese-text ruby { ruby-align: center; ruby-position: over; }
