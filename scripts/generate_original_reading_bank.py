@@ -46,6 +46,19 @@ SECONDARY_QUESTIONS = {
     "delivery-options": question("家にいない場合、何ができますか。", ["駅前のロッカーで受け取るか、土曜日に再配達を頼めます", "学校で荷物を受け取ります", "病院へ荷物を送ります", "何もできません"], 0, "task-based response"),
 }
 
+ADDITIONAL_QUESTIONS = {
+    "weather-change": [question("雨になって、公園へ行く予定をやめたのはなぜですか。", ["雨になったからです", "朝早く起きたからです", "友達に会ったからです", "駅へ行ったからです"], 0, "reason")],
+    "train-trip": [question("駅へ早く行くのはなぜですか。", ["朝の電車に乗るからです", "夜の映画を見るからです", "切符を買わないからです", "家で料理をするからです"], 0, "reason")],
+    "house-repair": [question("それまで隣の水道を使うのはなぜですか。", ["修理の人が明日の午前中に来るからです", "隣の家へ引っ越すからです", "水道を買うからです", "昨日料理をしたからです"], 0, "reason")],
+    "train-notice": [question("土曜日に隣町へ行く人は、どうしますか。", ["駅から代わりのバスを利用します", "午後二時まで駅で待ちます", "電車を二本予約します", "家で休みます"], 0, "appropriate action")],
+    "museum-ticket": [question("月曜日に博物館へ行く人は、何をしなければなりませんか。", ["予約をします", "入場料を二倍払います", "午後五時まで待ちます", "学生証を買います"], 0, "appropriate action")],
+    "post-office-hours": [question("昼休みの時間に郵便局へ行く人は、どうしますか。", ["十二時から一時を避けます", "土曜日に必ず行きます", "朝八時に行きます", "日曜日に電話します"], 0, "appropriate action")],
+    "reading-habit": [question("「そのほうが」は、何を指しますか。", ["本を読むこと", "スマートフォンを見ること", "電気を消すこと", "家へ帰ること"], 0, "reference")],
+    "travel-change": [question("「そのため」は、何を受けていますか。", ["週末は大雨になるという予報", "近くの博物館", "家族で山へ行く予定", "旅行を一週間後に延ばすこと"], 0, "reference")],
+    "weather-plan": [question("日曜日の午後に、外で活動してもよさそうですか。", ["いいえ、雨になるでしょう", "はい、晴れるでしょう", "はい、博物館が開くでしょう", "いいえ、土曜日が休みだからです"], 0, "simple inference")],
+    "health-routine": [question("この人は、朝歩くことを一か月続けてどうなりましたか。", ["前より元気になりました", "仕事をやめました", "駅が遠くなりました", "運動をしなくなりました"], 0, "simple inference")],
+}
+
 
 def reading(level: str, family: str, number: int, title: str, passage: str, translation: str, q: dict, tags: list[str]) -> dict:
     prefix = level.lower()
@@ -69,7 +82,7 @@ def reading(level: str, family: str, number: int, title: str, passage: str, tran
         "grammarIds": grammar,
         "kanjiIds": kanji,
         "estimatedDifficulty": difficulty,
-        "questions": [q, *([SECONDARY_QUESTIONS[tags[0]]] if tags[0] in SECONDARY_QUESTIONS else [])],
+        "questions": [q, *([SECONDARY_QUESTIONS[tags[0]]] if tags[0] in SECONDARY_QUESTIONS else []), *ADDITIONAL_QUESTIONS.get(tags[0], [])],
     }
     if family == "information-retrieval":
         result["visualFormat"] = tags[-1]
