@@ -11,12 +11,12 @@
       "levelDisagreements": 4
     },
     "N4": {
-      "rawPatterns": 158,
-      "canonicalConcepts": 40,
+      "rawPatterns": 162,
+      "canonicalConcepts": 44,
       "complete": 0,
-      "partial": 36,
-      "missing": 4,
-      "unresolved": 103,
+      "partial": 39,
+      "missing": 5,
+      "unresolved": 99,
       "levelDisagreements": 2
     }
   },
@@ -979,6 +979,48 @@
       "evidenceCount": 1,
       "status": "partial",
       "levelDisagreements": []
+    },
+    {
+      "id": "grammar-youni-naru",
+      "pattern": "〜ようになる",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-youni-suru",
+      "pattern": "〜ようにする",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 3,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-koto-ni-naru",
+      "pattern": "〜ことになる",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-yotei",
+      "pattern": "〜予定だ",
+      "level": "N4",
+      "sourceIds": [],
+      "evidenceCount": 0,
+      "status": "missing",
+      "levelDisagreements": []
     }
   ],
   "unresolved": [
@@ -1698,18 +1740,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-9fc20d5c3078",
-      "pattern": "V-るようにしています",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-e50a4e5f518d",
-      "pattern": "V-ないように しています",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-88594a4e30dc",
       "pattern": "V（普通形）＋N ②ケイ",
       "level": "N5"
@@ -1992,12 +2022,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-313d8d667b5d",
-      "pattern": "V-るように、～",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-6b9f40fb9be7",
       "pattern": "V-ないように、～",
       "level": "N4"
@@ -2166,12 +2190,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-c49814cbd061",
-      "pattern": "V-（られ）るように なりました",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-eebbc73bca11",
       "pattern": "V-るために、～",
       "level": "N4"
@@ -2198,12 +2216,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-bf8f4900cf3b",
       "pattern": "Nでしたっけ？",
-      "level": "Intermediate 1"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-6b90412b6e61",
-      "pattern": "V-ることになった",
       "level": "Intermediate 1"
     },
     {
@@ -2687,7 +2699,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 77
+      "references": 82
     },
     {
       "id": "tae-kim",

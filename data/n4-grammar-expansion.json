@@ -211,6 +211,31 @@
             "itemIds": ["grammar-te-aru", "grammar-te-ita"]
           }
         ]
+      },
+      {
+        "id": "chapter-n4-change-habit-decision",
+        "slug": "n4-change-habit-decision",
+        "title": "Change, habits, and decisions",
+        "description": "Separate changes that happen, habits you deliberately maintain, and plans or decisions about what will happen next.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-change-habit-decision",
+            "slug": "n4-change-habit-decision",
+            "title": "Change, habits, and decisions",
+            "subtitle": "変化と習慣と決定",
+            "description": "Compare ようになる, ようにする, ことになる, ことにする, 予定だ, and つもり in everyday plans and routines.",
+            "estimatedMinutes": 26,
+            "itemIds": [
+              "grammar-youni-naru",
+              "grammar-youni-suru",
+              "grammar-koto-ni-naru",
+              "grammar-koto-ni-suru",
+              "grammar-yotei",
+              "grammar-tsumori"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -260,7 +285,7 @@
         }
       ],
       "commonMistakes": ["Do not use ことにする for a plan that is only an intention; compare つもり.", "Keep the verb before ことにする in plain form."],
-      "contrastIds": [],
+      "contrastIds": ["contrast-n4-change-habit-decision"],
       "practiceQuestionIds": ["grammar-koto-ni-suru-1", "grammar-koto-ni-suru-2"],
       "sourceIds": [
         "openjlpt"
@@ -408,7 +433,7 @@
         }
       ],
       "commonMistakes": ["つもり describes an intention, not a completed action.", "Keep the verb before つもり in plain form."],
-      "contrastIds": [],
+      "contrastIds": ["contrast-n4-change-habit-decision"],
       "practiceQuestionIds": ["grammar-tsumori-1", "grammar-tsumori-2"],
       "sourceIds": [
         "openjlpt"
@@ -1552,6 +1577,127 @@
       "contrastIds": [],
       "practiceQuestionIds": ["grammar-te-ita-1", "grammar-te-ita-2"],
       "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-youni-naru",
+      "slug": "youni-naru",
+      "title": "ようになる",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "change and habits",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "change", "ability", "habit"],
+      "pattern": "〜ようになる",
+      "meaning": "come to; become able to; begin to",
+      "formation": "Verb plain form or negative form + ようになる; potential verbs commonly describe a new ability.",
+      "intuition": "ようになる presents a change that comes about, rather than a decision the subject directly makes.",
+      "usageConditions": [
+        "Use it for a new ability, a changed habit, or a state that has begun to hold.",
+        "Use the negative verb before ようになる when the change is toward no longer doing something.",
+        "Use ことになる instead when the focus is an arrangement or decision rather than a gradual change."
+      ],
+      "examples": [
+        {"japanese": "日本語のニュースが少し分かるようになりました。", "translation": "I have come to understand Japanese news a little."},
+        {"japanese": "最近、朝早く起きるようになりました。", "translation": "Recently, I have started getting up early."},
+        {"japanese": "毎日練習して、漢字が読めるようになりました。", "translation": "After practicing every day, I became able to read kanji."},
+        {"japanese": "健康のために、夜遅く食べないようになりました。", "translation": "For my health, I came to stop eating late at night."}
+      ],
+      "commonMistakes": ["Do not use ようになる for a deliberate personal resolution when ことにする is the intended decision form.", "Keep the plain verb or potential form before ようになる; do not insert the polite ます form."],
+      "contrastIds": ["contrast-n4-change-habit-decision"],
+      "practiceQuestionIds": ["grammar-youni-naru-1", "grammar-youni-naru-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-youni-suru",
+      "slug": "youni-suru",
+      "title": "ようにする",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "change and habits",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "habit", "effort", "purpose"],
+      "pattern": "〜ようにする",
+      "meaning": "make an effort to; make sure to",
+      "formation": "Verb plain form or negative form + ようにする; ようにしています describes an ongoing effort or habit.",
+      "intuition": "ようにする shows the subject deliberately arranging their behavior so that a result or habit is maintained.",
+      "usageConditions": [
+        "Use it for a conscious effort or rule the subject tries to follow.",
+        "Use ように、～ before another action when describing a purpose or desired result, not a habit.",
+        "Use ようになる when the change itself has come about rather than the effort to cause it."
+      ],
+      "examples": [
+        {"japanese": "できるだけ、野菜をたくさん食べるようにしています。", "translation": "I try to eat plenty of vegetables whenever possible."},
+        {"japanese": "健康のために、食べすぎないようにしています。", "translation": "For my health, I try not to eat too much."},
+        {"japanese": "忘れないように、予定を手帳に書きます。", "translation": "I write the schedule in my planner so I will not forget."},
+        {"japanese": "毎日、新しい言葉を三つ覚えるようにします。", "translation": "I will make an effort to learn three new words every day."}
+      ],
+      "commonMistakes": ["Do not use ようにする to report a change that happened without deliberate effort; use ようになる for that result.", "Use the plain or negative form before ようにする, not the polite ます form."],
+      "contrastIds": ["contrast-n4-change-habit-decision"],
+      "practiceQuestionIds": ["grammar-youni-suru-1", "grammar-youni-suru-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-koto-ni-naru",
+      "slug": "koto-ni-naru",
+      "title": "ことになる",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "change and decisions",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "decision", "arrangement", "change"],
+      "pattern": "〜ことになる",
+      "meaning": "it has been decided; it turns out that",
+      "formation": "Verb plain form + ことになる; negative plans use the plain negative form before ことになる.",
+      "intuition": "ことになる presents a decision or outcome as something settled by circumstances, a group, or another decision-maker.",
+      "usageConditions": [
+        "Use it when the arrangement is not framed as the speaker's personal decision.",
+        "Use past ことになった for a newly settled arrangement and present ことになっている for a current rule or schedule.",
+        "Contrast it with ことにする when the subject explicitly decides."
+      ],
+      "examples": [
+        {"japanese": "来月から、東京の支店で働くことになりました。", "translation": "It has been decided that I will work at the Tokyo branch from next month."},
+        {"japanese": "来週の会議はオンラインで行うことになりました。", "translation": "It has been decided that next week's meeting will be held online."},
+        {"japanese": "会社のルールで、名札をつけることになっています。", "translation": "Company rules require us to wear name tags."},
+        {"japanese": "雨のため、試合は中止することになりました。", "translation": "Because of the rain, it was decided that the match would be cancelled."}
+      ],
+      "commonMistakes": ["Do not use ことになる when you want to emphasize your own choice; use ことにする.", "Keep the verb in plain form before ことになる, including the plain negative form when needed."],
+      "contrastIds": ["contrast-n4-change-habit-decision"],
+      "practiceQuestionIds": ["grammar-koto-ni-naru-1", "grammar-koto-ni-naru-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-yotei",
+      "slug": "yotei",
+      "title": "予定だ",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "plans and schedules",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-desu", "grammar-dictionary-form"],
+      "tags": ["N4", "schedule", "plan", "decision"],
+      "pattern": "〜予定だ",
+      "meaning": "be scheduled or planned to",
+      "formation": "Verb dictionary form + 予定だ; noun + の予定だ. Polite speech uses 予定です.",
+      "intuition": "予定だ presents a concrete plan or scheduled event, often more fixed than a personal intention with つもり.",
+      "usageConditions": [
+        "Use it for a schedule or plan that has been arranged or recorded.",
+        "Use the dictionary form before 予定だ for a future action and の after a noun.",
+        "Contrast it with つもり when the speaker is only describing a personal intention."
+      ],
+      "examples": [
+        {"japanese": "来週、京都へ行く予定です。", "translation": "I am scheduled to go to Kyoto next week."},
+        {"japanese": "明日の午後は会議の予定です。", "translation": "There is a meeting scheduled for tomorrow afternoon."},
+        {"japanese": "夏休みに祖母の家へ帰る予定です。", "translation": "I plan to return to my grandmother's house during summer vacation."},
+        {"japanese": "電車は八時に出発する予定です。", "translation": "The train is scheduled to depart at eight."}
+      ],
+      "commonMistakes": ["Do not put the polite ます form directly before 予定だ; use the dictionary form such as 行く予定です.", "Use の予定 after a noun, as in 会議の予定, rather than attaching 予定 directly to the noun."],
+      "contrastIds": ["contrast-n4-change-habit-decision"],
+      "practiceQuestionIds": ["grammar-yotei-1", "grammar-yotei-2"],
+      "sourceIds": ["michi-authored-n4-grammar"],
+      "notes": "Original Kizashi bridge item for the documented 予定だ target; no direct cached source mapping is claimed yet."
     }
   ],
   "grammarContrasts": [
@@ -1723,6 +1869,33 @@
     "exercises": [
       "Choose the causative ending from the verb class before deciding whether the meaning is make or let.",
       "Identify the causer, causee, and embedded action before choosing に or を."
+    ]
+  },
+  {
+    "id": "contrast-n4-change-habit-decision",
+    "title": "Change, habits, plans, and decisions",
+    "grammarPointIds": [
+      "grammar-youni-naru",
+      "grammar-youni-suru",
+      "grammar-koto-ni-naru",
+      "grammar-koto-ni-suru",
+      "grammar-yotei",
+      "grammar-tsumori"
+    ],
+    "explanation": "ようになる describes a change that comes about, while ようにする describes deliberate effort. ことになる presents an arrangement as settled by circumstances or a group, while ことにする presents the speaker's own decision. 予定 describes a concrete schedule; つもり describes a personal intention.",
+    "examples": [
+      {
+        "japanese": "毎日練習して、漢字が読めるようになりました。",
+        "translation": "After practicing every day, I became able to read kanji."
+      },
+      {
+        "japanese": "来週、京都へ行く予定ですが、雨なら行かないつもりです。",
+        "translation": "I am scheduled to go to Kyoto next week, but I intend not to go if it rains."
+      }
+    ],
+    "exercises": [
+      "Choose ようになる for an ability or habit that has changed, and ようにする for the effort meant to cause or maintain it.",
+      "Choose ことになる for an externally settled arrangement, ことにする for a personal decision, 予定 for a concrete schedule, and つもり for an intention."
     ]
   }
 ],
