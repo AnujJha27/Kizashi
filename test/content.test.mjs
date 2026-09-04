@@ -249,14 +249,22 @@ test("information-retrieval readings carry visual formats", async () => {
   assert.equal(retrieval.length, 27);
   assert.ok(retrieval.every((item) => ["notice", "menu", "timetable", "schedule", "sale", "event", "directions", "hotel", "work", "health", "school", "home", "restaurant", "museum", "weather", "delivery", "transport"].includes(item.visualFormat)));
   assert.match(panel, /visualFormat/);
-  assert.match(panel, /learning-assets\/reading/);
+  assert.match(panel, /readingVisualAssets/);
   assert.doesNotMatch(panel, /<svg/);
 });
 
 test("visual listening contexts use generated raster assets", async () => {
   const scene = await readFile(new URL("../components/learning/listening-scene.tsx", import.meta.url), "utf8");
-  assert.match(scene, /learning-assets\/listening/);
+  assert.match(scene, /listeningVisualAsset/);
   assert.doesNotMatch(scene, /<svg/);
+});
+
+test("generated learning visuals have centralized provenance metadata", async () => {
+  const manifest = await readFile(new URL("../lib/learning-visual-assets.ts", import.meta.url), "utf8");
+  assert.match(manifest, /sourceType: "generated-raster"/);
+  assert.match(manifest, /license: "Kizashi project asset"/);
+  assert.match(manifest, /attribution: "Kizashi generated asset"/);
+  assert.match(manifest, /station-help\.png/);
 });
 
 test("quality audit keeps reading and listening families visible by level", () => {

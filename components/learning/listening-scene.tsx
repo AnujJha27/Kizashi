@@ -1,3 +1,5 @@
+import { listeningVisualAsset } from "@/lib/learning-visual-assets";
+
 const labels: Record<string, string> = {
   station: "station counter",
   "waiting-station": "waiting at a station",
@@ -30,40 +32,8 @@ const labels: Record<string, string> = {
   work: "workplace",
 };
 
-const sceneAssets: Record<string, string> = {
-  station: "/learning-assets/listening/station-help.png",
-  "waiting-station": "/learning-assets/listening/station-help.png",
-  directions: "/learning-assets/listening/station-help.png",
-  "asking-directions": "/learning-assets/listening/station-help.png",
-  travel: "/learning-assets/listening/station-help.png",
-  shop: "/learning-assets/listening/cafe-service.png",
-  counter: "/learning-assets/listening/cafe-service.png",
-  restaurant: "/learning-assets/listening/cafe-service.png",
-  "paying-shop": "/learning-assets/listening/cafe-service.png",
-  "ordering-food": "/learning-assets/listening/cafe-service.png",
-  "passing-object": "/learning-assets/listening/cafe-service.png",
-  room: "/learning-assets/listening/classroom.png",
-  "school-class": "/learning-assets/listening/classroom.png",
-  "entering-room": "/learning-assets/listening/classroom.png",
-  clinic: "/learning-assets/listening/classroom.png",
-  library: "/learning-assets/listening/classroom.png",
-  work: "/learning-assets/listening/classroom.png",
-  "asking-help": "/learning-assets/listening/classroom.png",
-  "using-elevator": "/learning-assets/listening/classroom.png",
-  "arriving-late": "/learning-assets/listening/classroom.png",
-  home: "/learning-assets/listening/home-arrival.png",
-  meal: "/learning-assets/listening/home-arrival.png",
-  "leaving-home": "/learning-assets/listening/home-arrival.png",
-  "returning-home": "/learning-assets/listening/home-arrival.png",
-  meeting: "/learning-assets/listening/cafe-service.png",
-  "meeting-someone": "/learning-assets/listening/cafe-service.png",
-  event: "/learning-assets/listening/cafe-service.png",
-  "offering-seat": "/learning-assets/listening/classroom.png",
-  "dropping-something": "/learning-assets/listening/home-arrival.png",
-};
-
 export function ListeningScene({ scene, description }: Readonly<{ scene: string; description?: string }>) {
   const label = labels[scene] ?? "everyday situation";
-  const asset = sceneAssets[scene] ?? "/learning-assets/listening/classroom.png";
+  const asset = listeningVisualAsset(scene);
   return <figure className="mt-5 overflow-hidden rounded-xl border border-[#3f4652] bg-[#101b2b]/70" aria-label={`Original visual context: ${description ?? label}`}><img src={asset} alt={description ?? `Original illustration of a ${label}`} className="h-36 w-full object-cover" loading="lazy" /><figcaption className="border-t border-white/10 px-3 py-2 text-[11px] leading-5 text-[#9297a1]">Visual context · {description ?? label}</figcaption></figure>;
 }
