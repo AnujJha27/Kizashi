@@ -69,6 +69,7 @@ test("completeness dashboard exposes grammar assessment families by level", asyn
   assert.match(dashboard, /grammarAssessment\.byLevel\.N5\.formSelectionContexts/);
   assert.match(dashboard, /grammarAssessment\.byLevel\.N4\.sentenceOrderingContexts/);
   assert.match(dashboard, /grammarAssessment\.byLevel\.N4\.textGrammarContexts/);
+  assert.match(dashboard, /grammarConsistency\.duplicateExampleItems/);
   assert.match(dashboard, /quality\.reading\.byLevel\.N5\.questionFamilies/);
   assert.match(dashboard, /quality\.listening\.byLevel\.N4\.nearDuplicateClusters/);
   assert.doesNotMatch(dashboard, /N5 \$\{report\.quality/);
