@@ -484,6 +484,7 @@ test("content completeness keeps grammar drafts out of approved assessment count
   assert.equal(report.grammarAssessment.questions, 0);
   assert.equal(report.grammarAssessment.pendingQuestions, 1);
   assert.deepEqual(report.grammarAssessment.pendingByLevel, { N5: 1, N4: 0 });
+  assert.deepEqual(report.grammarConsistency, { items: 0, duplicateExampleItems: 0, duplicateExampleCount: 0, conflictingTranslationExamples: 0, emptyExamples: 0 });
 });
 
 test("grammar contract reports aliases, context, and linked assessment coverage", () => {
@@ -492,6 +493,14 @@ test("grammar contract reports aliases, context, and linked assessment coverage"
     practiceQuestions: [{ itemId: "grammar-contract", category: "grammar", questionType: "sentence completion", prompt: "例___。", contextSetId: "contract-1", review: { status: "approved" } }, { itemId: "grammar-contract", category: "grammar", questionType: "sentence completion", prompt: "例___。", contextSetId: "contract-2", review: { status: "approved" } }],
   });
   assert.deepEqual(report.grammarContract, { total: 1, aliases: 1, contexts: 1, readingAppearances: 0, listeningAppearances: 0, practiceContexts: 1, contractReady: 1, byLevel: { N5: { total: 0, aliases: 0, contexts: 0, readingAppearances: 0, listeningAppearances: 0, practiceContexts: 0, contractReady: 0 }, N4: { total: 1, aliases: 1, contexts: 1, readingAppearances: 0, listeningAppearances: 0, practiceContexts: 1, contractReady: 1 } } });
+});
+
+test("grammar consistency catches duplicated or conflicting example prose", () => {
+  const report = getContentCompleteness({ grammar: [
+    { id: "grammar-one", category: "grammar", jlptLevel: "N5", examples: [{ japanese: "同じです。", translation: "It is the same." }, { japanese: "同じです。", translation: "It is identical." }] },
+    { id: "grammar-two", category: "grammar", jlptLevel: "N5", examples: [{ japanese: "同じです。", translation: "It is the same." }] },
+  ] });
+  assert.deepEqual(report.grammarConsistency, { items: 2, duplicateExampleItems: 1, duplicateExampleCount: 1, conflictingTranslationExamples: 1, emptyExamples: 0 });
 });
 
 test("grammar context metrics collapse variants sharing a context set", () => {

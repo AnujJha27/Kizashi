@@ -1112,6 +1112,10 @@ Author coherent Kizashi explanations.
 
 ---
 
+## Current implementation status (2026-09-04)
+
+- [~] The grammar consistency audit now checks all 116 authored grammar records for empty examples, duplicate Japanese examples within one item, and conflicting translations for the same Japanese example. The current baseline has 12 items / 14 rows with duplicate examples and 5 cross-item translation collisions; no empty examples. These are review findings, not silently normalized.
+
 # C28. GRAMMAR CLUSTERS
 
 Implement explicit grammar families/contrast groups.
