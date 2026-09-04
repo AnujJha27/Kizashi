@@ -1813,6 +1813,10 @@ Do NOT merely put plain text into a bordered paragraph.
 
 # C48. ORIGINAL VISUAL ASSETS
 
+## Current implementation status (2026-09-04)
+
+- [~] The shared `ReadingPanel` now renders Kizashi-original HTML layouts for the 27 practical reading assets, using declared format metadata, Japanese typography, simple iconography, and structured rows while keeping the accessible text passage intact. More realistic format-specific art direction, broader layout variety, and native review remain open.
+
 Create Kizashi-original layouts.
 
 Do not copy existing commercial posters or timetables.
