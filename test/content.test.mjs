@@ -504,6 +504,10 @@ test("grammar consistency catches duplicated or conflicting example prose", () =
   assert.deepEqual(report.grammarConsistency, { items: 2, duplicateExampleItems: 1, duplicateExampleCount: 1, conflictingTranslationExamples: 1, emptyExamples: 0 });
 });
 
+test("authored grammar examples pass the internal consistency audit", () => {
+  assert.deepEqual(getContentCompleteness(mergedModule).grammarConsistency, { items: 116, duplicateExampleItems: 0, duplicateExampleCount: 0, conflictingTranslationExamples: 0, emptyExamples: 0 });
+});
+
 test("grammar context metrics collapse variants sharing a context set", () => {
   const report = getContentCompleteness({ practiceQuestions: [
     { category: "grammar", questionType: "text grammar", jlptLevel: "N5", prompt: "駅で切符を買います。", contextSetId: "station-ticket" },
