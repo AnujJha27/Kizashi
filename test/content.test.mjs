@@ -657,6 +657,19 @@ test("grammar contract reports aliases, context, and linked assessment coverage"
   assert.deepEqual(report.grammarContract, { total: 1, aliases: 1, contexts: 1, readingAppearances: 0, listeningAppearances: 0, practiceContexts: 1, contractReady: 1, byLevel: { N5: { total: 0, aliases: 0, contexts: 0, readingAppearances: 0, listeningAppearances: 0, practiceContexts: 0, contractReady: 0 }, N4: { total: 1, aliases: 1, contexts: 1, readingAppearances: 0, listeningAppearances: 0, practiceContexts: 1, contractReady: 1 } } });
 });
 
+test("foundational grammar contract fields are explicit authored data", async () => {
+  const foundation = JSON.parse(await readFile(new URL("../data/n5-foundations.json", import.meta.url), "utf8"));
+  const fields = JSON.parse(await readFile(new URL("../data/grammar-contract-fields.json", import.meta.url), "utf8"));
+  const curriculum = await readFile(new URL("../lib/curriculum.ts", import.meta.url), "utf8");
+  assert.equal(Object.keys(fields).length, 27);
+  for (const item of foundation.grammar) {
+    assert.ok(fields[item.id]?.aliases?.length);
+    assert.match(fields[item.id]?.context?.japanese ?? "", /。/u);
+    assert.ok(fields[item.id]?.context?.translation);
+  }
+  assert.match(curriculum, /addGrammarContractFields/);
+});
+
 test("grammar consistency catches duplicated or conflicting example prose", () => {
   const report = getContentCompleteness({ grammar: [
     { id: "grammar-one", category: "grammar", jlptLevel: "N5", examples: [{ japanese: "同じです。", translation: "It is the same." }, { japanese: "同じです。", translation: "It is identical." }] },
