@@ -508,6 +508,16 @@ test("authored grammar examples pass the internal consistency audit", () => {
   assert.deepEqual(getContentCompleteness(mergedModule).grammarConsistency, { items: 116, duplicateExampleItems: 0, duplicateExampleCount: 0, conflictingTranslationExamples: 0, emptyExamples: 0 });
 });
 
+test("text grammar validation requires a persisted passage context", async () => {
+  const validation = await readFile(new URL("../lib/content-validation.ts", import.meta.url), "utf8");
+  const questions = await readFile(new URL("../lib/questions.ts", import.meta.url), "utf8");
+  assert.match(validation, /rawQuestion\.questionType === "text grammar"/);
+  assert.match(validation, /contextText/);
+  assert.match(validation, /contextSetId/);
+  assert.match(validation, /visible blank/);
+  assert.match(questions, /contextSetId: "grammar-masu-text"/);
+});
+
 test("grammar context metrics collapse variants sharing a context set", () => {
   const report = getContentCompleteness({ practiceQuestions: [
     { category: "grammar", questionType: "text grammar", jlptLevel: "N5", prompt: "駅で切符を買います。", contextSetId: "station-ticket" },

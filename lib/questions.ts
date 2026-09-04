@@ -244,7 +244,7 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
     if (secondExample && secondContextChoices.options.length > 1) questions.push({ id: `${item.id}-context-2`, itemId: item.id, category: "grammar", questionType: "grammar in context", jlptLevel: item.jlptLevel, prompt: `${secondExample.japanese}\nWhat does ${item.pattern} express here?`, ...secondContextChoices, explanation: `${item.pattern} expresses ${item.meaning}.` });
     if (item.id === "grammar-masu") {
       const textChoices = rotateOptions("ます", ["ました", "ません", "です"], index + 1);
-      questions.push({ id: "grammar-masu-text", itemId: item.id, category: "grammar", questionType: "text grammar", jlptLevel: item.jlptLevel, prompt: "毎日、本を読み___。それから、勉強します。", ...textChoices, explanation: "The text describes a regular present habit, so the polite non-past ending ます fits." });
+      questions.push({ id: "grammar-masu-text", itemId: item.id, category: "grammar", questionType: "text grammar", jlptLevel: item.jlptLevel, prompt: "毎日、本を読み___。それから、勉強します。", contextSetId: "grammar-masu-text", contextText: "毎日、本を読み___。それから、勉強します。", ...textChoices, explanation: "The text describes a regular present habit, so the polite non-past ending ます fits." });
     }
     if (item.id === "grammar-masu") questions.push({ id: "grammar-masu-order", itemId: item.id, category: "grammar", questionType: "sentence ordering", jlptLevel: item.jlptLevel, prompt: "Build the natural sentence.", options: ["昨日", "本を", "三冊", "買いました。"], correctIndex: 0, tokens: ["昨日", "本を", "三冊", "買いました。"], correctOrder: [0, 1, 2, 3], explanation: "昨日 sets the time, 本を is the object, 三冊 is the counter, and 買いました closes the sentence." });
     const ordering = orderingPrompts[item.id];

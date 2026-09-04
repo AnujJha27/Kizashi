@@ -531,6 +531,13 @@ export function validatePracticeQuestions(questions: unknown, knownItemIds: Set<
       uniqueNormalizedStrings(options, `${path}.options`, issues);
       if (typeof rawQuestion.correctIndex !== "number" || !Number.isInteger(rawQuestion.correctIndex) || rawQuestion.correctIndex < 0 || rawQuestion.correctIndex >= options.length) issues.push({ path: `${path}.correctIndex`, message: "Correct answer must point to one option.", severity: "error" });
     }
+    if (rawQuestion.questionType === "text grammar") {
+      const contextText = stringValue(rawQuestion.contextText, `${path}.contextText`, issues);
+      stringValue(rawQuestion.contextSetId, `${path}.contextSetId`, issues);
+      if (contextText && !contextText.includes("___")) issues.push({ path: `${path}.contextText`, message: "Text-grammar context must contain a visible blank.", severity: "error" });
+      if (contextText) qualityWarning(contextText.split(/[。！？]/u).filter(Boolean).length < 2, `${path}.contextText`, "Text-grammar context should contain a connected passage, not an isolated sentence.", issues);
+      if (answerMode === "choice" && Array.isArray(rawQuestion.options)) qualityWarning(rawQuestion.options.length < 4, `${path}.options`, "Text-grammar choices should include at least four plausible forms.", issues);
+    }
     if (rawQuestion.questionType === "sentence ordering") {
       const tokens = stringArray(rawQuestion.tokens, `${path}.tokens`, issues, 2);
       const order = Array.isArray(rawQuestion.correctOrder) ? rawQuestion.correctOrder : [];
