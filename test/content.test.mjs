@@ -266,7 +266,7 @@ test("generated learning visuals have centralized provenance metadata", async ()
   assert.match(manifest, /sourceType: "generated-raster"/);
   assert.match(manifest, /license: "Kizashi project asset"/);
   assert.match(manifest, /attribution: "Kizashi generated asset"/);
-  assert.match(manifest, /station-help\.png/);
+  assert.match(manifest, /station-help\.webp/);
 });
 
 test("quality audit keeps reading and listening families visible by level", () => {

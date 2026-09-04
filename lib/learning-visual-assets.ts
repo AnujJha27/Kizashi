@@ -1,30 +1,30 @@
 export type ReadingVisualFormat = "notice" | "menu" | "timetable" | "schedule" | "sale" | "event" | "directions" | "hotel" | "work" | "health" | "school" | "home" | "restaurant" | "museum" | "weather" | "delivery" | "transport";
 
 export const readingVisualAssets: Record<ReadingVisualFormat, string> = {
-  notice: "/learning-assets/reading/home-notice.png",
-  menu: "/learning-assets/reading/cafe-counter.png",
-  timetable: "/learning-assets/reading/station-schedule.png",
-  schedule: "/learning-assets/reading/station-schedule.png",
-  sale: "/learning-assets/reading/cafe-counter.png",
-  event: "/learning-assets/reading/classroom-notice.png",
-  directions: "/learning-assets/reading/station-schedule.png",
-  hotel: "/learning-assets/reading/home-notice.png",
-  work: "/learning-assets/reading/classroom-notice.png",
-  health: "/learning-assets/reading/classroom-notice.png",
-  school: "/learning-assets/reading/classroom-notice.png",
-  home: "/learning-assets/reading/home-notice.png",
-  restaurant: "/learning-assets/reading/cafe-counter.png",
-  museum: "/learning-assets/reading/classroom-notice.png",
-  weather: "/learning-assets/reading/home-notice.png",
-  delivery: "/learning-assets/reading/home-notice.png",
-  transport: "/learning-assets/reading/station-schedule.png",
+  notice: "/learning-assets/reading/home-notice.webp",
+  menu: "/learning-assets/reading/cafe-counter.webp",
+  timetable: "/learning-assets/reading/station-schedule.webp",
+  schedule: "/learning-assets/reading/station-schedule.webp",
+  sale: "/learning-assets/reading/cafe-counter.webp",
+  event: "/learning-assets/reading/classroom-notice.webp",
+  directions: "/learning-assets/reading/station-schedule.webp",
+  hotel: "/learning-assets/reading/home-notice.webp",
+  work: "/learning-assets/reading/classroom-notice.webp",
+  health: "/learning-assets/reading/classroom-notice.webp",
+  school: "/learning-assets/reading/classroom-notice.webp",
+  home: "/learning-assets/reading/home-notice.webp",
+  restaurant: "/learning-assets/reading/cafe-counter.webp",
+  museum: "/learning-assets/reading/classroom-notice.webp",
+  weather: "/learning-assets/reading/home-notice.webp",
+  delivery: "/learning-assets/reading/home-notice.webp",
+  transport: "/learning-assets/reading/station-schedule.webp",
 };
 
 const listeningVisualAssets = Object.freeze({
-  station: "/learning-assets/listening/station-help.png",
-  cafe: "/learning-assets/listening/cafe-service.png",
-  classroom: "/learning-assets/listening/classroom.png",
-  home: "/learning-assets/listening/home-arrival.png",
+  station: "/learning-assets/listening/station-help.webp",
+  cafe: "/learning-assets/listening/cafe-service.webp",
+  classroom: "/learning-assets/listening/classroom.webp",
+  home: "/learning-assets/listening/home-arrival.webp",
 });
 
 export function listeningVisualAsset(scene: string) {

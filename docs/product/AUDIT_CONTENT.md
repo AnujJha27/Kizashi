@@ -1769,7 +1769,7 @@ dominate.
 
 ## Current implementation status (2026-09-04)
 
-- [~] The 27 authored information-retrieval readings now carry explicit visual formats and render generated raster scene support plus Kizashi-owned accessible HTML reading aids for notices, menus, timetables, schedules, posters, directions, and other practical formats in `components/learning/reading-panel.tsx`. Japanese remains real text below the image/layout; generated images contain no learner-facing text, and source-backed realism, broader layout variety, and native review remain open.
+- [~] The 27 authored information-retrieval readings now carry explicit visual formats and render generated WebP scene support plus Kizashi-owned accessible HTML reading aids for notices, menus, timetables, schedules, posters, directions, and other practical formats in `components/learning/reading-panel.tsx`. Japanese remains real text below the image/layout; generated images contain no learner-facing text, intrinsic dimensions avoid layout shift, and source-backed realism, broader layout variety, and native review remain open.
 
 Create original visual assets for assessment reading.
 
@@ -1815,7 +1815,7 @@ Do NOT merely put plain text into a bordered paragraph.
 
 ## Current implementation status (2026-09-04)
 
-- [~] The shared `ReadingPanel` now renders four generated raster scene assets reused by format plus Kizashi-original HTML layouts for the 27 practical reading assets, using declared format metadata, compact notice cards, menu/sale grids, timetable/schedule tables, Japanese typography, and structured rows while keeping the accessible text passage intact. `lib/learning-visual-assets.ts` centralizes the generated-raster source/license/attribution metadata and both learner surfaces consume it. Images are atmospheric/no-text support; Japanese stays in HTML for accuracy and accessibility. Broader layout variety and native review remain open.
+- [~] The shared `ReadingPanel` now renders four generated WebP scene assets reused by format plus Kizashi-original HTML layouts for the 27 practical reading assets, using declared format metadata, compact notice cards, menu/sale grids, timetable/schedule tables, Japanese typography, and structured rows while keeping the accessible text passage intact. `lib/learning-visual-assets.ts` centralizes the generated-raster source/license/attribution metadata and both learner surfaces consume it. Images are atmospheric/no-text support, lazy-loaded with intrinsic dimensions; Japanese stays in HTML for accuracy and accessibility. Broader layout variety and native review remain open.
 
 Create Kizashi-original layouts.
 

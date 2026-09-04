@@ -35,5 +35,5 @@ const labels: Record<string, string> = {
 export function ListeningScene({ scene, description }: Readonly<{ scene: string; description?: string }>) {
   const label = labels[scene] ?? "everyday situation";
   const asset = listeningVisualAsset(scene);
-  return <figure className="mt-5 overflow-hidden rounded-xl border border-[#3f4652] bg-[#101b2b]/70" aria-label={`Original visual context: ${description ?? label}`}><img src={asset} alt={description ?? `Original illustration of a ${label}`} className="h-36 w-full object-cover" loading="lazy" /><figcaption className="border-t border-white/10 px-3 py-2 text-[11px] leading-5 text-[#9297a1]">Visual context · {description ?? label}</figcaption></figure>;
+  return <figure className="mt-5 overflow-hidden rounded-xl border border-[#3f4652] bg-[#101b2b]/70" aria-label={`Original visual context: ${description ?? label}`}><img src={asset} alt={description ?? `Original illustration of a ${label}`} width={1536} height={1024} className="h-36 w-full object-cover" loading="lazy" decoding="async" /><figcaption className="border-t border-white/10 px-3 py-2 text-[11px] leading-5 text-[#9297a1]">Visual context · {description ?? label}</figcaption></figure>;
 }
