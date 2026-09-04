@@ -71,6 +71,7 @@ test("completeness dashboard exposes grammar assessment families by level", asyn
   assert.match(dashboard, /grammarAssessment\.byLevel\.N4\.textGrammarContexts/);
   assert.match(dashboard, /grammarConsistency\.duplicateExampleItems/);
   assert.match(dashboard, /vocabularyContract\.contractReady/);
+  assert.match(dashboard, /collocationQuality\.duplicateRows/);
   assert.match(dashboard, /quality\.reading\.byLevel\.N5\.questionFamilies/);
   assert.match(dashboard, /quality\.listening\.byLevel\.N4\.nearDuplicateClusters/);
   assert.doesNotMatch(dashboard, /N5 \$\{report\.quality/);
@@ -500,6 +501,18 @@ test("vocabulary context audit reports the learner contract", () => {
 
 test("authored vocabulary context coverage remains visible", () => {
   assert.deepEqual(getContentCompleteness(mergedModule).vocabularyContract, { total: 169, examplesAtLeast2: 72, collocations: 169, relatedWords: 169, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, usageAssessments: 16, contractReady: 0, byLevel: { N5: { total: 153, examplesAtLeast2: 56, collocations: 153, relatedWords: 153, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, usageAssessments: 0, contractReady: 0 }, N4: { total: 16, examplesAtLeast2: 16, collocations: 16, relatedWords: 16, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, usageAssessments: 16, contractReady: 0 } } });
+});
+
+test("collocation quality audit flags repeated or isolated entries", () => {
+  const report = getContentCompleteness({ vocabulary: [
+    { id: "good", category: "vocabulary", jlptLevel: "N5", writtenForm: "駅", reading: "えき", collocations: ["駅に行く", "駅前"] },
+    { id: "weak", category: "vocabulary", jlptLevel: "N5", writtenForm: "本", reading: "ほん", collocations: ["本", "本"] },
+  ] });
+  assert.deepEqual(report.collocationQuality, { total: 2, populated: 2, withAtLeast2: 2, duplicateRows: 1, headwordOnly: 1, byLevel: { N5: { total: 2, populated: 2, withAtLeast2: 2, duplicateRows: 1, headwordOnly: 1 }, N4: { total: 0, populated: 0, withAtLeast2: 0, duplicateRows: 0, headwordOnly: 0 } } });
+});
+
+test("authored collocations pass the structural quality audit", () => {
+  assert.deepEqual(getContentCompleteness(mergedModule).collocationQuality, { total: 169, populated: 169, withAtLeast2: 169, duplicateRows: 0, headwordOnly: 0, byLevel: { N5: { total: 153, populated: 153, withAtLeast2: 153, duplicateRows: 0, headwordOnly: 0 }, N4: { total: 16, populated: 16, withAtLeast2: 16, duplicateRows: 0, headwordOnly: 0 } } });
 });
 
 test("grammar contract reports aliases, context, and linked assessment coverage", () => {

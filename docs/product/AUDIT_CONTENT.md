@@ -1503,6 +1503,10 @@ High-frequency words deserve more.
 
 # C39. COLLOCATION QUALITY
 
+## Current implementation status (2026-09-04)
+
+- [~] Content Studio now exposes a structural collocation audit: the current 169-record package has 169 populated records, 169 with at least two entries, 0 duplicate rows, and 0 headword-only entries. This catches isolated or repeated values; CEJC/BCCWJ/JMdict/Irodori/Marugoto source quality and native naturalness still require source-backed human review.
+
 Use the already available:
 
 ```text
