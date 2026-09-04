@@ -444,6 +444,13 @@ test("Studio exposes every pending question through a searchable paged review qu
   assert.doesNotMatch(studio, /questions\.slice\(0, 20\)/);
 });
 
+test("Studio shows persisted question context during review", async () => {
+  const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
+  assert.match(studio, /question\.contextSetId/);
+  assert.match(studio, /question\.contextText/);
+  assert.match(studio, /Context set/);
+});
+
 test("content review cards open a readable modal before approval", async () => {
   const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
   assert.match(studio, /<ContentReviewCard key=\{item\.id\}/);
