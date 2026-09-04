@@ -1582,6 +1582,10 @@ duplicate
 
 # C41. TEACH KANJI THROUGH WORDS
 
+## Current implementation status (2026-09-04)
+
+- [x] Authored kanji records carry useful words with readings and meanings; Learn/Library and Content Studio render those word-centered teaching sets, and the question generator derives word-to-reading, word-to-kanji, reading-in-context, and kanji-in-context prompts from them. Source-union depth and native example review remain open.
+
 Shift emphasis away from isolated abstract readings.
 
 A core kanji item should prioritize:
@@ -1605,6 +1609,10 @@ Do not require learners to memorize every possible reading.
 ---
 
 # C42. KANJI QUESTION MIX
+
+## Current implementation status (2026-09-04)
+
+- [x] The existing question generator includes kanji reading, kana recall, kanji meaning, orthography, word-to-kanji recall, reading-in-context, and kanji-in-context families; isolated reading prompts remain one part of the mix rather than the only interaction.
 
 Use:
 
@@ -1653,6 +1661,10 @@ The next task is QUALITY.
 
 # C44. READING QUALITY AUDIT
 
+## Current implementation status (2026-09-04)
+
+- [~] `lib/content-quality-core.js` now audits authored reading passages for normalized template uniqueness, near-duplicate clusters, question-family distribution, source type, and N5/N4 breakdown. The current 115-reading bank is 115/115 unique with 0 near-duplicate clusters; topic, grammar/vocabulary calibration, distractor plausibility, and native review remain open.
+
 Audit all original reading assets for:
 
 ```text
@@ -1682,6 +1694,10 @@ information-retrieval realism
 ---
 
 # C45. READING NEAR-DUPLICATE AUDIT
+
+## Current implementation status (2026-09-04)
+
+- [x] The quality core normalizes punctuation and numeric variation, compares compact character-bigram similarity, and exposes near-duplicate clusters globally and by level. The current reading bank reports 0 clusters; this remains a review signal rather than an automatic rejection.
 
 Flag assets differing only through:
 
