@@ -465,6 +465,8 @@ test("external sources use native media and safe framing fallbacks", async () =>
 test("Studio exposes every pending question through a searchable paged review queue", async () => {
   const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
   assert.match(studio, /Search pending questions/);
+  assert.match(studio, /Filter pending questions/);
+  assert.match(studio, /questionTypeFilter/);
   assert.match(studio, /questionPageSize/);
   assert.match(studio, /questionPageCount/);
   assert.doesNotMatch(studio, /questions\.slice\(0, 20\)/);
