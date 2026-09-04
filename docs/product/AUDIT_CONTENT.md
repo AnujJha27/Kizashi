@@ -1663,7 +1663,7 @@ The next task is QUALITY.
 
 ## Current implementation status (2026-09-04)
 
-- [~] `lib/content-quality-core.js` now audits authored reading passages for normalized template uniqueness, near-duplicate clusters, question-family distribution, source type, and N5/N4 breakdown. The current 115-reading bank is 115/115 unique with 0 near-duplicate clusters; topic, grammar/vocabulary calibration, distractor plausibility, and native review remain open.
+- [~] `lib/content-quality-core.js` now audits authored reading passages for normalized template uniqueness, near-duplicate clusters, question-family distribution, answer-choice presence/uniqueness/index validity, source type, and N5/N4 breakdown. The current 115-reading bank is 115/115 unique with 0 near-duplicate clusters and 0 structural answer-choice failures; topic, grammar/vocabulary calibration, distractor plausibility, and native review remain open.
 
 Audit all original reading assets for:
 
@@ -2569,7 +2569,7 @@ Do not make it required for N5/N4 progression.
 
 ## Current implementation status (2026-09-04)
 
-- [x] `components/content/completeness-dashboard.tsx` and `lib/content-completeness-core.js` expose live package metrics for quantity, N5/N4 counts, Journey lesson assignment, required learner-field completeness, review workflow status, unique reading/listening contexts, N5/N4 reading/listening question families and duplicate clusters, grammar assessment families/contexts, grammar prose consistency findings, vocabulary context-contract findings, and a grammar-depth gate (4 examples, 2 mistakes, and 2 reviewed practice links); the completeness core also computes the grammar lesson-contract audit. Visual listening-question count, the separate pronunciation bank (20 lessons / 60 discrimination items / 10 topics), derived dictation lanes/counts, and output-bank counts remain visible.
+- [x] `components/content/completeness-dashboard.tsx` and `lib/content-completeness-core.js` expose live package metrics for quantity, N5/N4 counts, Journey lesson assignment, required learner-field completeness, review workflow status, unique reading/listening contexts, N5/N4 reading/listening question families and duplicate clusters, reading answer-choice integrity, grammar assessment families/contexts, grammar prose consistency findings, vocabulary context-contract findings, and a grammar-depth gate (4 examples, 2 mistakes, and 2 reviewed practice links); the completeness core also computes the grammar lesson-contract audit. Visual listening-question count, the separate pronunciation bank (20 lessons / 60 discrimination items / 10 topics), derived dictation lanes/counts, and output-bank counts remain visible.
 - [~] The dashboard is an audit surface, not a substitute for linguistic review: source union coverage, naturalness, near-duplicate detection, and the remaining grammar/vocabulary/kanji quality work still require the deeper audits below.
 
 Extend Content Studio to report:

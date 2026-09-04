@@ -223,8 +223,15 @@ test("quality audit keeps reading and listening families visible by level", () =
   assert.equal(report.reading.byLevel.N4.questionFamilies["mid-length passage"], 1);
   assert.equal(report.listening.byLevel.N5.questionFamilies["quick response"], 1);
   assert.equal(report.listening.byLevel.N4.questionFamilies["key point"], 1);
+  assert.deepEqual(report.reading.answerQuality, { questions: 2, missingChoices: 2, duplicateChoiceSets: 0, invalidCorrectIndexes: 2 });
+  assert.deepEqual(report.listening.answerQuality, { questions: 2, missingChoices: 2, duplicateChoiceSets: 0, invalidCorrectIndexes: 2 });
   assert.equal(report.reading.byLevel.N5.nearDuplicateClusters.length, 0);
   assert.equal(report.listening.byLevel.N4.nearDuplicateClusters.length, 0);
+});
+
+test("answer quality audit catches duplicate and invalid choices", () => {
+  const report = buildContentQualityReport({ readings: [{ id: "reading", jlptLevel: "N5", passage: "駅です。", questions: [{ options: ["駅", "駅", "店"], correctAnswer: 3 }] }], listening: [] });
+  assert.deepEqual(report.reading.answerQuality, { questions: 1, missingChoices: 0, duplicateChoiceSets: 1, invalidCorrectIndexes: 1 });
 });
 
 test("the deployable Studio review package keeps the staged records", async () => {
