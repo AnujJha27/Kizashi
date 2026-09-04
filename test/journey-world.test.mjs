@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { access, readFile } from "node:fs/promises";
+import { access, readdir, readFile } from "node:fs/promises";
 
 import { getJourneyWorldState, getNextJourneyArea, journeyVisualManifest } from "../lib/journey-world-core.js";
 
@@ -45,15 +45,25 @@ test("world areas use distinct owned visual variants with role metadata", async 
   const areas = Object.values(journeyVisualManifest);
   assert.equal(new Set(areas.map((area) => area.visualAssets.hero)).size, areas.length);
   assert.ok(areas.every((area) => area.visualAssetMetadata.length === 6));
-  assert.ok(areas.flatMap((area) => area.visualAssetMetadata).every((asset) => asset.sourceType === "owned-svg" && asset.attribution && asset.focalPoint));
+  assert.ok(areas.flatMap((area) => area.visualAssetMetadata).every((asset) => asset.sourceType === "generated-raster" && asset.path.endsWith(".webp") && asset.attribution && asset.focalPoint));
   await Promise.all(areas.map((area) => access(new URL(`../public${area.visualAssets.hero}`, import.meta.url))));
+});
+
+test("Journey and profile scenery use raster images instead of SVG art", async () => {
+  const [landscape, portrait, worldFiles] = await Promise.all([
+    readFile(new URL("../components/journey/landscape.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/profile/study-portrait.tsx", import.meta.url), "utf8"),
+    readdir(new URL("../public/world", import.meta.url)),
+  ]);
+  assert.doesNotMatch(landscape, /<svg/);
+  assert.doesNotMatch(portrait, /<svg/);
+  assert.ok(worldFiles.every((file) => file.endsWith(".webp")));
 });
 
 test("the profile portrait consumes the resolved area visual", async () => {
   const portrait = await readFile(new URL("../components/profile/study-portrait.tsx", import.meta.url), "utf8");
   assert.match(portrait, /world\.area\.visualAssets\.portrait/);
-  assert.match(portrait, /environment === "station"/);
-  assert.match(portrait, /environment === "coast"/);
+  assert.match(portrait, /objectPosition: world\.area\.focalPoint\.desktop/);
   assert.match(portrait, /settled/);
 });
 
