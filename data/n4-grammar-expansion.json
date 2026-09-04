@@ -174,6 +174,25 @@
           }
         ]
       }
+      ,
+      {
+        "id": "chapter-n4-giving-receiving",
+        "slug": "n4-giving-receiving",
+        "title": "Giving and receiving",
+        "description": "Track the direction of a gift or favor from the giver's and receiver's perspective.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-giving-receiving",
+            "slug": "n4-giving-receiving",
+            "title": "Giving and receiving",
+            "subtitle": "授受の視点",
+            "description": "Use あげる, くれる, and もらう as one perspective system before extending it with て-form helpers.",
+            "estimatedMinutes": 16,
+            "itemIds": ["grammar-giving-receiving"]
+          }
+        ]
+      }
     ]
   },
   "vocabulary": [],
@@ -1427,6 +1446,35 @@
       "contrastIds": [],
       "practiceQuestionIds": ["grammar-volitional-1", "grammar-volitional-2"],
       "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-giving-receiving",
+      "slug": "giving-receiving",
+      "title": "あげる・くれる・もらう",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "giving and receiving",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-desu"],
+      "tags": ["N4", "giving", "receiving", "perspective"],
+      "pattern": "あげる／くれる／もらう",
+      "meaning": "give; receive; someone gives to me or my side",
+      "formation": "Use あげる when the subject gives, くれる when someone gives to the speaker's side, and もらう when the subject receives; mark the giver or receiver with に／が as the perspective requires.",
+      "intuition": "The three verbs describe one transfer from different viewpoints: outward from the giver, toward the speaker's side, or from the receiver's viewpoint.",
+      "usageConditions": [
+        "Use くれる for a gift coming to the speaker or someone in the speaker's group, not for a neutral third-party transfer.",
+        "Choose the verb from the sentence subject's perspective before choosing the particle for the other person."
+      ],
+      "examples": [
+        {"japanese": "私は友達にプレゼントをあげました。", "translation": "I gave my friend a present."},
+        {"japanese": "友達が私に本をくれました。", "translation": "My friend gave me a book."},
+        {"japanese": "私は先生に辞書をもらいました。", "translation": "I received a dictionary from my teacher."},
+        {"japanese": "姉に花をあげました。", "translation": "I gave flowers to my older sister."}
+      ],
+      "commonMistakes": ["Do not use くれる when the gift does not come to the speaker's side; use あげる for an outward transfer.", "Do not confuse the giver perspective of くれる with the receiver perspective of もらう."],
+      "contrastIds": ["contrast-n4-benefit-perspective"],
+      "practiceQuestionIds": ["grammar-giving-receiving-1", "grammar-giving-receiving-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
     }
   ],
   "grammarContrasts": [
@@ -1459,7 +1507,8 @@
     "grammarPointIds": [
       "grammar-te-ageru",
       "grammar-te-kureru",
-      "grammar-te-morau"
+      "grammar-te-morau",
+      "grammar-giving-receiving"
     ],
     "explanation": "The three forms describe the same kind of help from different viewpoints: offering a favor, receiving someone else's favor, or receiving the favor as the grammatical focus.",
     "examples": [

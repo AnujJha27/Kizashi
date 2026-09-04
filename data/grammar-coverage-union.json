@@ -7,17 +7,17 @@
       "complete": 16,
       "partial": 24,
       "missing": 6,
-      "unresolved": 114,
+      "unresolved": 112,
       "levelDisagreements": 4
     },
     "N4": {
-      "rawPatterns": 155,
-      "canonicalConcepts": 37,
+      "rawPatterns": 156,
+      "canonicalConcepts": 38,
       "complete": 0,
-      "partial": 33,
+      "partial": 34,
       "missing": 4,
-      "unresolved": 106,
-      "levelDisagreements": 1
+      "unresolved": 105,
+      "levelDisagreements": 2
     }
   },
   "canonical": [
@@ -944,6 +944,19 @@
       "evidenceCount": 1,
       "status": "partial",
       "levelDisagreements": []
+    },
+    {
+      "id": "grammar-giving-receiving",
+      "pattern": "あげる／くれる／もらう",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 3,
+      "status": "partial",
+      "levelDisagreements": [
+        "N5"
+      ]
     }
   ],
   "unresolved": [
@@ -1681,27 +1694,9 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-355e2090486d",
-      "pattern": "【人】に【物】をもらいますモノ",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-45d242ef2e7a",
-      "pattern": "【人】が【物】をくれますヒトモノ",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-58342b7afc62",
       "pattern": "S（普通形）そうですケイ",
       "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-d6dd375583ae",
-      "pattern": "【人】に【物】をあげますヒトモノ",
-      "level": "N5"
     },
     {
       "sourceId": "irodori-sentence-patterns",
@@ -2682,7 +2677,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 72
+      "references": 75
     },
     {
       "id": "tae-kim",
