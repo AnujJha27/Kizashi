@@ -7,17 +7,17 @@
       "complete": 16,
       "partial": 24,
       "missing": 6,
-      "unresolved": 108,
+      "unresolved": 105,
       "levelDisagreements": 4
     },
     "N4": {
-      "rawPatterns": 173,
-      "canonicalConcepts": 55,
+      "rawPatterns": 179,
+      "canonicalConcepts": 61,
       "complete": 3,
-      "partial": 47,
-      "missing": 5,
-      "unresolved": 94,
-      "levelDisagreements": 6
+      "partial": 52,
+      "missing": 6,
+      "unresolved": 89,
+      "levelDisagreements": 7
     }
   },
   "canonical": [
@@ -984,6 +984,72 @@
       "levelDisagreements": []
     },
     {
+      "id": "grammar-noni",
+      "pattern": "〜のに（逆接）",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-temo",
+      "pattern": "〜ても",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-shi",
+      "pattern": "〜し",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 2,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-sore-ni",
+      "pattern": "それに",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-soredemo",
+      "pattern": "それでも",
+      "level": "N4",
+      "sourceIds": [],
+      "evidenceCount": 0,
+      "status": "missing",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-keredomo",
+      "pattern": "〜けれども／〜けど",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 3,
+      "status": "partial",
+      "levelDisagreements": [
+        "N5"
+      ]
+    },
+    {
       "id": "grammar-koto-nominalization",
       "pattern": "〜こと",
       "level": "N4",
@@ -1446,12 +1512,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-bb48b832677b",
-      "pattern": "S1。それに、S2。",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-da2f44e8eeba",
       "pattern": "S1。でも、S2。",
       "level": "N5"
@@ -1556,24 +1616,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-92a0f3833ab7",
       "pattern": "Nで、～",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-9fd91c6d87fb",
-      "pattern": "イA-いけど、～",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-0005df09d508",
-      "pattern": "ナA-だけど、～",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-43b87b778689",
-      "pattern": "Nだけど、～",
       "level": "N5"
     },
     {
@@ -1896,12 +1938,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-56158d9a7256",
-      "pattern": "Sし、～",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-697b91ce1fb2",
       "pattern": "S1ので、S2",
       "level": "N4"
@@ -1994,12 +2030,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-9dbeea94e7c1",
       "pattern": "V-（られ）なくて、～",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-da0fcebc004d",
-      "pattern": "S1し、S2し、～",
       "level": "N4"
     },
     {
@@ -2252,12 +2282,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-17c64da62e60",
       "pattern": "V-（られ）なくなります",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-70add746d15e",
-      "pattern": "Sても、～",
       "level": "N4"
     },
     {
@@ -2610,12 +2634,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-675d0ef948d4",
-      "pattern": "S（普通形）のに、～",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-2bcae432bda6",
       "pattern": "Nのことで",
       "level": "N4"
@@ -2747,7 +2765,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 97
+      "references": 105
     },
     {
       "id": "tae-kim",

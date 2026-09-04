@@ -101,7 +101,7 @@ Do NOT spend this milestone adding another massive generic vocabulary or kanji d
 ## Current implementation status (2026-09-04)
 
 - [x] `scripts/build_grammar_coverage_registry.mjs` builds `data/grammar-coverage-union.json` from cached OpenJLPT grammar lists, staged Irodori sentence patterns, existing canonical grammar, and mapped Tae Kim/Wikibooks references; `components/content/grammar-coverage.tsx` exposes the report in Content Studio.
-- [~] The current registry reports N5 224 raw patterns / 46 canonical concepts (16 complete, 24 partial, 6 missing, 108 unresolved) and N4 173 raw patterns / 55 canonical concepts (3 complete, 47 partial, 5 missing, 94 unresolved). Fifty N4 concepts are authored in the dedicated expansion lessons, five additional N4 bridge concepts remain in the life module, and six N5 concepts are authored from exact OpenJLPT evidence; eleven explicit contrast clusters now connect direction, benefit perspective, inference/appearance, conditionals, potential ability, passive/potential, causative forms, change/habit/decision forms, modality/inference forms, quotation/thought forms, and nominalization/capability forms. The registry still keeps source-level disagreements and unresolved rows visible. It now includes 97 reviewed Irodori mapping references plus 21 curated OpenJLPT alias references and marks mapped source records resolved; level disagreements remain visible (N5 4, N4 6, including the Starter-level basic giving/receiving evidence and Elementary 1 quotation/thought and nominalization mappings). This is an honest coverage baseline, not a claim of grammar completeness.
+- [~] The current registry reports N5 224 raw patterns / 46 canonical concepts (16 complete, 24 partial, 6 missing, 105 unresolved) and N4 179 raw patterns / 61 canonical concepts (3 complete, 52 partial, 6 missing, 89 unresolved). Fifty-six N4 concepts are authored in the dedicated expansion lessons, five additional N4 bridge concepts remain in the life module, and six N5 concepts are authored from exact OpenJLPT evidence; twelve explicit contrast clusters now connect direction, benefit perspective, inference/appearance, conditionals, potential ability, passive/potential, causative forms, change/habit/decision forms, modality/inference forms, quotation/thought forms, nominalization/capability forms, and contrast/conjunction forms. The registry still keeps source-level disagreements and unresolved rows visible. It now includes 105 reviewed Irodori mapping references plus 21 curated OpenJLPT alias references and marks mapped source records resolved; level disagreements remain visible (N5 4, N4 7, including the Starter-level basic giving/receiving evidence, Elementary 1 quotation/thought and nominalization mappings, and related Elementary 1 けど patterns). This is an honest coverage baseline, not a claim of grammar completeness.
 
 This is the highest-priority content issue.
 
@@ -126,7 +126,7 @@ This is not acceptable as a final N5/N4 curriculum.
 
 The authored reading/listening quality audit is now implemented in `lib/content-quality-core.js` and exposed in Content Studio. It reports normalized template uniqueness, near-duplicate clusters, question-family distribution, and listening source type; the current generated banks report 115/115 unique reading templates and 160/160 unique listening templates with zero near-duplicate clusters, but it remains a review signal, not a substitute for native-speaker judgment.
 
-The first offline union is implemented and deliberately review-only. It currently uses OpenJLPT, Irodori sentence patterns plus the 97 reviewed Irodori mapping references, the existing Kizashi canonical package, and mapped Tae Kim/Wikibooks references; official JLPT remains blueprint evidence, while Bunpro/JLPT Sensei-style lesson prose is not mirrored. Remaining source acquisition and canonical review work stays visible in the registry's unresolved queue.
+The first offline union is implemented and deliberately review-only. It currently uses OpenJLPT, Irodori sentence patterns plus the 105 reviewed Irodori mapping references, the existing Kizashi canonical package, and mapped Tae Kim/Wikibooks references; official JLPT remains blueprint evidence, while Bunpro/JLPT Sensei-style lesson prose is not mirrored. Remaining source acquisition and canonical review work stays visible in the registry's unresolved queue.
 
 Create a grammar inventory from multiple independent sources.
 
@@ -968,6 +968,10 @@ Audit/include:
 ```
 
 and other reviewed N4 connectors.
+
+## Current implementation status (2026-09-04)
+
+- [x] A contrast/conjunction lesson now teaches のに, ても, し, それに, それでも, and けれども／けど with four examples, two common mistakes, and two authored drills per concept, plus a two-question contrast cluster. Five concepts carry eight reviewed Irodori mapping references; それでも remains explicitly authored with no direct cached source mapping yet.
 
 ---
 

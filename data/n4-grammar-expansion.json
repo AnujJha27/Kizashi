@@ -310,6 +310,31 @@
             ]
           }
         ]
+      },
+      {
+        "id": "chapter-n4-contrast-conjunction",
+        "slug": "n4-contrast-conjunction",
+        "title": "Contrast and connection",
+        "description": "Join reasons and descriptions while marking contrast, concession, added information, and alternative outcomes.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-contrast-conjunction",
+            "slug": "n4-contrast-conjunction",
+            "title": "Contrast and connection",
+            "subtitle": "逆接と接続",
+            "description": "Compare のに, ても, し, それに, それでも, and けれども／けど in short connected statements.",
+            "estimatedMinutes": 24,
+            "itemIds": [
+              "grammar-noni",
+              "grammar-temo",
+              "grammar-shi",
+              "grammar-sore-ni",
+              "grammar-soredemo",
+              "grammar-keredomo"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -1653,6 +1678,187 @@
       "sourceIds": ["irodori-sentence-patterns"]
     },
     {
+      "id": "grammar-noni",
+      "slug": "noni",
+      "title": "のに",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "contrast and conjunction",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "contrast", "concession", "conjunction"],
+      "pattern": "〜のに（逆接）",
+      "meaning": "although; even though; despite",
+      "formation": "Verb or adjective plain form + のに; nouns and な-adjectives use なのに.",
+      "intuition": "のに sets up an unexpected result: the first situation would normally suggest one outcome, but the next statement is different.",
+      "usageConditions": [
+        "Use it to connect a known fact or expectation with an unexpected result.",
+        "Use plain form before のに, including なのに after nouns and な-adjectives.",
+        "Do not confuse contrast のに with the purpose meaning in V-るのにいいです."
+      ],
+      "examples": [
+        {"japanese": "薬を飲んだのに、まだ熱があります。", "translation": "Even though I took medicine, I still have a fever."},
+        {"japanese": "今日は休みなのに、仕事をしなければなりません。", "translation": "Although today is a day off, I have to work."},
+        {"japanese": "駅は近いのに、道が分かりません。", "translation": "Although the station is close, I do not know the way."},
+        {"japanese": "たくさん勉強したのに、試験に落ちました。", "translation": "Even though I studied a lot, I failed the exam."}
+      ],
+      "commonMistakes": ["Use plain form before のに and なのに after a noun or な-adjective; do not insert the polite です／ます form.", "Do not use this contrast のに when the sentence means 'for doing'; check whether the following phrase describes an unexpected result or usefulness."],
+      "contrastIds": ["contrast-n4-contrast-conjunction"],
+      "practiceQuestionIds": ["grammar-noni-1", "grammar-noni-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-temo",
+      "slug": "temo",
+      "title": "ても",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "contrast and conjunction",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-te-form"],
+      "tags": ["N4", "concession", "condition", "contrast"],
+      "pattern": "〜ても",
+      "meaning": "even if; even though",
+      "formation": "Verb て-form + も; い-adjectives use くても, and nouns or な-adjectives use でも.",
+      "intuition": "ても says that the result remains the same even when the condition or obstacle is present.",
+      "usageConditions": [
+        "Use it for a condition that does not change the following result or decision.",
+        "Attach も to the correct conditional form: 読んでも, 高くても, and 静かでも.",
+        "Use たら, ば, or と instead when the sentence needs a different conditional relationship."
+      ],
+      "examples": [
+        {"japanese": "雨が降っても、試合をします。", "translation": "Even if it rains, we will play the match."},
+        {"japanese": "忙しくても、毎日少し日本語を勉強します。", "translation": "Even when I am busy, I study a little Japanese every day."},
+        {"japanese": "高くても、このかばんを買いたいです。", "translation": "Even if it is expensive, I want to buy this bag."},
+        {"japanese": "日曜日でも、店は開いています。", "translation": "Even on Sunday, the shop is open."}
+      ],
+      "commonMistakes": ["Use the て-form before も for verbs; do not attach も directly to the dictionary form.", "Do not confuse ても's concession with てもいい's permission; read the following clause to identify the function."],
+      "contrastIds": ["contrast-n4-contrast-conjunction"],
+      "practiceQuestionIds": ["grammar-temo-1", "grammar-temo-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-shi",
+      "slug": "shi",
+      "title": "し",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "contrast and conjunction",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "reasons", "addition", "conjunction"],
+      "pattern": "〜し",
+      "meaning": "and; besides; because",
+      "formation": "Plain-form clause + し; repeat し for multiple reasons or qualities, often followed by a conclusion.",
+      "intuition": "し adds one reason or description while suggesting that there are other relevant points too.",
+      "usageConditions": [
+        "Use it to list reasons, qualities, or supporting points.",
+        "Use plain form before し; nouns and な-adjectives use だし in plain clauses.",
+        "The final conclusion may be stated after one し or left understood after several points."
+      ],
+      "examples": [
+        {"japanese": "この店は安いし、おいしいです。", "translation": "This restaurant is inexpensive and delicious, among other good points."},
+        {"japanese": "今日は雨だし、家で映画を見ましょう。", "translation": "It is rainy today, among other reasons, so let's watch a movie at home."},
+        {"japanese": "駅に近いし、部屋も広いです。", "translation": "It is close to the station, and the room is spacious too."},
+        {"japanese": "明日は休みだし、少し遠くへ行きたいです。", "translation": "Tomorrow is a day off, among other reasons, so I want to go somewhere a little far away."}
+      ],
+      "commonMistakes": ["Use plain form before し, including だし after a noun or な-adjective; do not use ですし inside a plain listed clause.", "Do not read every し as a contrast marker; it adds supporting points rather than setting one expectation against another."],
+      "contrastIds": ["contrast-n4-contrast-conjunction"],
+      "practiceQuestionIds": ["grammar-shi-1", "grammar-shi-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-sore-ni",
+      "slug": "sore-ni",
+      "title": "それに",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "contrast and conjunction",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-desu"],
+      "tags": ["N4", "addition", "conjunction", "conversation"],
+      "pattern": "それに",
+      "meaning": "besides; moreover; in addition",
+      "formation": "Statement。 それに、statement。 Use it as a discourse connector between additive points.",
+      "intuition": "それに adds another point in the same direction as the statement before it.",
+      "usageConditions": [
+        "Use it to add information, a reason, or a supporting quality.",
+        "Place it at the start of the added sentence or clause and keep the two points semantically aligned.",
+        "Use それでも instead when the next statement goes against the first one."
+      ],
+      "examples": [
+        {"japanese": "このホテルは駅に近いです。それに、部屋もきれいです。", "translation": "This hotel is close to the station. Besides, the rooms are clean."},
+        {"japanese": "今日は気持ちよかったです。それに、景色もきれいでした。", "translation": "Today felt good. In addition, the scenery was beautiful."},
+        {"japanese": "この辞書は使いやすいです。それに、軽いです。", "translation": "This dictionary is easy to use. Moreover, it is light."},
+        {"japanese": "早く着きました。それに、予約もできました。", "translation": "We arrived early. Besides, we were able to make a reservation."}
+      ],
+      "commonMistakes": ["Use それに to add a compatible point, not to introduce an unexpected result; use それでも for that contrast.", "Keep the connector separate from the sentence it introduces and do not treat it as a replacement for the particle それに in a noun phrase."],
+      "contrastIds": ["contrast-n4-contrast-conjunction"],
+      "practiceQuestionIds": ["grammar-sore-ni-1", "grammar-sore-ni-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-soredemo",
+      "slug": "soredemo",
+      "title": "それでも",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "contrast and conjunction",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-desu"],
+      "tags": ["N4", "contrast", "concession", "discourse"],
+      "pattern": "それでも",
+      "meaning": "even so; nevertheless; despite that",
+      "formation": "Statement。 それでも、statement。 Use it to begin a result that remains true despite the previous fact.",
+      "intuition": "それでも acknowledges the previous situation and then turns against the result it might suggest.",
+      "usageConditions": [
+        "Use it between statements when the second action or judgment survives an obstacle.",
+        "Make the contrast clear in the first statement so それでも has a real point to push against.",
+        "Use それに for addition, not for a result that contradicts or resists the previous fact."
+      ],
+      "examples": [
+        {"japanese": "雨が強く降っています。それでも、出かけます。", "translation": "It is raining hard. Even so, I am going out."},
+        {"japanese": "道は遠いです。それでも、歩いて行きたいです。", "translation": "The way is far. Nevertheless, I want to walk there."},
+        {"japanese": "難しい試験でした。それでも、合格しました。", "translation": "It was a difficult exam. Even so, I passed."},
+        {"japanese": "時間がありません。それでも、最後までやります。", "translation": "There is no time. Despite that, I will finish it."}
+      ],
+      "commonMistakes": ["Do not use それでも when the second point simply adds information; use それに for addition.", "Keep the obstacle or contrary expectation in the previous sentence so the concessive meaning is recoverable from context."],
+      "contrastIds": ["contrast-n4-contrast-conjunction"],
+      "practiceQuestionIds": ["grammar-soredemo-1", "grammar-soredemo-2"],
+      "sourceIds": ["michi-authored-n4-grammar"],
+      "notes": "Original Kizashi bridge item for the documented それでも target; no direct cached source mapping is claimed yet."
+    },
+    {
+      "id": "grammar-keredomo",
+      "slug": "keredomo",
+      "title": "けれども／けど",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "contrast and conjunction",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-desu"],
+      "tags": ["N4", "contrast", "conjunction", "politeness"],
+      "pattern": "〜けれども／〜けど",
+      "meaning": "but; although; though",
+      "formation": "Clause + けれども; けど is the common shorter conversational form. The clause before it follows the required plain or polite style.",
+      "intuition": "けれども links a statement to a contrasting point and can also soften a transition or unfinished request.",
+      "usageConditions": [
+        "Use けれども in more careful speech and けど in casual conversation when the register calls for it.",
+        "Use it to connect a contrast or gently leave the next implication unstated.",
+        "Do not confuse it with し, which adds a supporting point rather than setting up a contrast."
+      ],
+      "examples": [
+        {"japanese": "この店は少し高いけれども、おいしいです。", "translation": "This restaurant is a little expensive, but it is delicious."},
+        {"japanese": "行きたいけど、今日は時間がありません。", "translation": "I want to go, but I do not have time today."},
+        {"japanese": "すみませんけれども、駅はどこですか。", "translation": "Excuse me, but where is the station?"},
+        {"japanese": "便利だけど、部屋が少し狭いです。", "translation": "It is convenient, but the room is a little small."}
+      ],
+      "commonMistakes": ["Choose けれども or けど according to register; do not assume the longer form changes the basic contrast meaning.", "Keep the adjective or verb form before the connector natural: 高いけれども, not 高くけれども."],
+      "contrastIds": ["contrast-n4-contrast-conjunction"],
+      "practiceQuestionIds": ["grammar-keredomo-1", "grammar-keredomo-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
       "id": "grammar-koto-nominalization",
       "slug": "koto-nominalization",
       "title": "こと（名詞化）",
@@ -2355,6 +2561,33 @@
     "exercises": [
       "Choose こと or の from the surrounding expression: general fact and rule patterns favor こと, while preference and concrete-action patterns commonly use の.",
       "Choose ことができる for ability, dictionary form + ことがある for occasional events, and たことがある for past experience."
+    ]
+  },
+  {
+    "id": "contrast-n4-contrast-conjunction",
+    "title": "Contrast, concession, and addition",
+    "grammarPointIds": [
+      "grammar-noni",
+      "grammar-temo",
+      "grammar-shi",
+      "grammar-sore-ni",
+      "grammar-soredemo",
+      "grammar-keredomo"
+    ],
+    "explanation": "のに and けれども／けど connect contrasting clauses, ても says the result remains even under a condition, それでも turns against an expected result across sentences, while し and それに add supporting points.",
+    "examples": [
+      {
+        "japanese": "薬を飲んだのに、まだ熱があります。",
+        "translation": "Even though I took medicine, I still have a fever."
+      },
+      {
+        "japanese": "雨が強く降っています。それでも、出かけます。",
+        "translation": "It is raining hard. Even so, I am going out."
+      }
+    ],
+    "exercises": [
+      "Choose のに or けれども／けど for clause-level contrast, and ても when the result holds even if the condition is true.",
+      "Choose し or それに to add aligned support, and それでも when the next statement resists the previous obstacle."
     ]
   }
 ],
