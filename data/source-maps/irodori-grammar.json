@@ -1246,5 +1246,117 @@
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
     }
+  ],
+  "grammar-sou-appearance": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-dbeb9e9d2cdf",
+      "sourceCourse": "初中級",
+      "sourceLevel": "Pre-Intermediate",
+      "pattern": "V-そうです",
+      "sectionTitle": "Sentence pattern · 初中級",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: V-そうです.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-sou-hearsay": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-58342b7afc62",
+      "sourceCourse": "初級2",
+      "sourceLevel": "Elementary 2",
+      "pattern": "S（普通形）そうです",
+      "sectionTitle": "Sentence pattern · 初級2",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: S（普通形）そうです.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-youda": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-5ca69e55178e",
+      "sourceCourse": "中級1",
+      "sourceLevel": "Intermediate 1",
+      "pattern": "S（普通形）ようだ",
+      "sectionTitle": "Sentence pattern · 中級1",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: S（普通形）ようだ.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-mitai": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-d5fa09a57e4d",
+      "sourceCourse": "中級1",
+      "sourceLevel": "Intermediate 1",
+      "pattern": "S（普通形）みたいだ",
+      "sectionTitle": "Sentence pattern · 中級1",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: S（普通形）みたいだ.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-rashii": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-23c80cb40750",
+      "sourceCourse": "中級1",
+      "sourceLevel": "Intermediate 1",
+      "pattern": "S（普通形）らしい",
+      "sectionTitle": "Sentence pattern · 中級1",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: S（普通形）らしい.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-kamoshirenai": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-cb5002146ddc",
+      "sourceCourse": "初級2",
+      "sourceLevel": "Elementary 2",
+      "pattern": "S（普通形）かもしれません",
+      "sectionTitle": "Sentence pattern · 初級2",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: S（普通形）かもしれません.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-hazu": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-de56a9c56a07",
+      "sourceCourse": "中級1",
+      "sourceLevel": "Intermediate 1",
+      "pattern": "S（普通形）はずだ",
+      "sectionTitle": "Sentence pattern · 中級1",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: S（普通形）はずだ.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
   ]
 }

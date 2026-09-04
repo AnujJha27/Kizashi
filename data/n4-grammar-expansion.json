@@ -236,6 +236,34 @@
             ]
           }
         ]
+      },
+      {
+        "id": "chapter-n4-modality-inference",
+        "slug": "n4-modality-inference",
+        "title": "Evidence and possibility",
+        "description": "Separate visible appearance, reported information, reasoned expectation, and open possibility.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-modality-inference",
+            "slug": "n4-modality-inference",
+            "title": "Evidence and possibility",
+            "subtitle": "推測と可能性",
+            "description": "Compare appearance and hearsay そうだ with ようだ, みたい, らしい, かもしれない, はず, and strong inference forms.",
+            "estimatedMinutes": 30,
+            "itemIds": [
+              "grammar-sou-appearance",
+              "grammar-sou-hearsay",
+              "grammar-youda",
+              "grammar-mitai",
+              "grammar-rashii",
+              "grammar-kamoshirenai",
+              "grammar-hazu",
+              "grammar-ni-chigai-nai",
+              "grammar-ni-kimatte-iru"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -384,7 +412,7 @@
         }
       ],
       "commonMistakes": ["Do not keep the final い in an い-adjective before appearance そうだ.", "Do not confuse appearance そうだ with reported information."],
-      "contrastIds": [],
+      "contrastIds": ["contrast-n4-inference"],
       "practiceQuestionIds": ["grammar-sou-appearance-1", "grammar-sou-appearance-2"],
       "sourceIds": [
         "openjlpt"
@@ -1579,6 +1607,126 @@
       "sourceIds": ["irodori-sentence-patterns"]
     },
     {
+      "id": "grammar-sou-hearsay",
+      "slug": "sou-hearsay",
+      "title": "そうだ（伝聞）",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "modality and inference",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "hearsay", "inference", "communication"],
+      "pattern": "〜そうだ（hearsay）",
+      "meaning": "I hear; it is said that",
+      "formation": "Verb or adjective plain form + そうだ; this reported-information そうだ follows the form being reported rather than an adjective stem.",
+      "intuition": "Hearsay そうだ passes information from another source to the listener; it does not describe what the speaker sees.",
+      "usageConditions": [
+        "Use it when the speaker is reporting information heard or learned from another source.",
+        "Use a plain form before そうだ, including past and negative forms.",
+        "Contrast it with appearance そうだ, which is based on the speaker's visible judgment."
+      ],
+      "examples": [
+        {"japanese": "天気予報によると、午後は雨が降るそうです。", "translation": "According to the weather forecast, I hear it will rain this afternoon."},
+        {"japanese": "友達は来月引っ越すそうです。", "translation": "I hear my friend is moving next month."},
+        {"japanese": "田中さんは新しい仕事を始めたそうです。", "translation": "I hear that Tanaka started a new job."},
+        {"japanese": "この店は駅の近くにあるそうです。", "translation": "I hear this shop is near the station."}
+      ],
+      "commonMistakes": ["Do not use the stem form before hearsay そうだ; 降るそうです reports information, while おいしそうです describes an appearance.", "Do not confuse hearsay そうだ with a speaker's direct strong conclusion; identify the information source first."],
+      "contrastIds": ["contrast-n4-inference"],
+      "practiceQuestionIds": ["grammar-sou-hearsay-1", "grammar-sou-hearsay-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-youda",
+      "slug": "youda",
+      "title": "ようだ",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "modality and inference",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "inference", "appearance", "comparison"],
+      "pattern": "〜ようだ",
+      "meaning": "seems; appears to be; looks like",
+      "formation": "Verb or adjective plain form + ようだ; nouns and な-adjectives use のようだ／なようだ according to the sentence structure.",
+      "intuition": "ようだ presents a reasoned impression from clues, often with a little more distance than a direct visual judgment.",
+      "usageConditions": [
+        "Use it when the surrounding evidence leads the speaker to an impression or conclusion.",
+        "Use ような before a noun and ように before a verb or adjective when the pattern is modifying another phrase.",
+        "Keep the evidence or clue in context so the listener can see why the impression is made."
+      ],
+      "examples": [
+        {"japanese": "窓が開いていて、誰かいるようです。", "translation": "The window is open, so it seems someone is here."},
+        {"japanese": "彼は少し疲れているようです。", "translation": "He seems a little tired."},
+        {"japanese": "この料理はカレーのような味がします。", "translation": "This dish tastes like curry."},
+        {"japanese": "雨が降ったようです。道がぬれています。", "translation": "It seems to have rained; the road is wet."}
+      ],
+      "commonMistakes": ["Do not attach ようだ without the required の after a noun when making a noun comparison, as in カレーのような味.", "Do not treat ようだ as a direct report from another person; use hearsay そうだ when the source is what someone said."],
+      "contrastIds": ["contrast-n4-inference"],
+      "practiceQuestionIds": ["grammar-youda-1", "grammar-youda-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-kamoshirenai",
+      "slug": "kamoshirenai",
+      "title": "かもしれない",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "modality and inference",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "possibility", "uncertainty"],
+      "pattern": "〜かもしれない",
+      "meaning": "might; may; perhaps",
+      "formation": "Verb or adjective plain form + かもしれない; polite speech uses かもしれません.",
+      "intuition": "かもしれない keeps more than one possibility open instead of presenting one conclusion as certain.",
+      "usageConditions": [
+        "Use it for a possibility the speaker considers plausible but cannot confirm.",
+        "Use a plain form before かもしれない, including a noun or な-adjective without だ in polite かもしれません sentences.",
+        "Use it when the speaker wants to avoid overstating certainty."
+      ],
+      "examples": [
+        {"japanese": "明日は雪が降るかもしれません。", "translation": "It might snow tomorrow."},
+        {"japanese": "電車が遅れるかもしれないので、早く出ます。", "translation": "The train might be late, so I will leave early."},
+        {"japanese": "その店はもう閉まっているかもしれません。", "translation": "That shop may already be closed."},
+        {"japanese": "彼は今日は忙しいかもしれない。", "translation": "He might be busy today."}
+      ],
+      "commonMistakes": ["Do not add だ before かもしれません in a polite sentence; say 静かかもしれません, not 静かだかもしれません.", "Do not use かもしれない when the context supports a firm conclusion; choose a stronger inference form when certainty is intended."],
+      "contrastIds": ["contrast-n4-inference"],
+      "practiceQuestionIds": ["grammar-kamoshirenai-1", "grammar-kamoshirenai-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-hazu",
+      "slug": "hazu",
+      "title": "はずだ",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "modality and inference",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "expectation", "inference", "certainty"],
+      "pattern": "〜はずだ",
+      "meaning": "should; be expected to; be supposed to",
+      "formation": "Verb or adjective plain form + はずだ; nouns and な-adjectives use のはずだ／なはずだ as appropriate.",
+      "intuition": "はずだ expresses an expectation based on a plan, rule, or reason the speaker believes is reliable.",
+      "usageConditions": [
+        "Use it when the speaker has a reason for expecting the statement to be true.",
+        "Use はずだった for an expectation that did not happen and はずがない for something the speaker considers impossible.",
+        "Keep the basis for the expectation distinct from a report or a vague possibility."
+      ],
+      "examples": [
+        {"japanese": "電車は八時に着くはずです。", "translation": "The train should arrive at eight."},
+        {"japanese": "田中さんはもう家にいるはずです。", "translation": "Tanaka should already be at home."},
+        {"japanese": "この道をまっすぐ行けば、駅が見えるはずです。", "translation": "If you go straight on this road, you should see the station."},
+        {"japanese": "問題はないはずですが、確認しましょう。", "translation": "There should not be a problem, but let's check."}
+      ],
+      "commonMistakes": ["Do not use はずだ for a possibility with little basis; use かもしれない when the speaker is unsure.", "Use the correct noun or な-adjective connection, such as 学生のはず and 静かなはず."],
+      "contrastIds": ["contrast-n4-inference"],
+      "practiceQuestionIds": ["grammar-hazu-1", "grammar-hazu-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
       "id": "grammar-youni-naru",
       "slug": "youni-naru",
       "title": "ようになる",
@@ -1756,7 +1904,12 @@
       "grammar-ni-chigai-nai",
       "grammar-ni-kimatte-iru",
       "grammar-mitai",
-      "grammar-rashii"
+      "grammar-rashii",
+      "grammar-sou-appearance",
+      "grammar-sou-hearsay",
+      "grammar-youda",
+      "grammar-kamoshirenai",
+      "grammar-hazu"
     ],
     "explanation": "に違いない and に決まっている make strong judgments. みたい and らしい can sound less definite and depend more on resemblance, appearance, hearsay, or typicality in context.",
     "examples": [

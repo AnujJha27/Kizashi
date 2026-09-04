@@ -11,12 +11,12 @@
       "levelDisagreements": 4
     },
     "N4": {
-      "rawPatterns": 162,
-      "canonicalConcepts": 44,
-      "complete": 0,
-      "partial": 39,
+      "rawPatterns": 166,
+      "canonicalConcepts": 48,
+      "complete": 3,
+      "partial": 40,
       "missing": 5,
-      "unresolved": 99,
+      "unresolved": 96,
       "levelDisagreements": 2
     }
   },
@@ -620,10 +620,11 @@
       "pattern": "〜そうだ（appearance）",
       "level": "N4",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
-      "status": "partial",
+      "evidenceCount": 2,
+      "status": "complete",
       "levelDisagreements": []
     },
     {
@@ -752,10 +753,11 @@
       "pattern": "〜みたい",
       "level": "N4",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
-      "status": "partial",
+      "evidenceCount": 2,
+      "status": "complete",
       "levelDisagreements": []
     },
     {
@@ -763,10 +765,11 @@
       "pattern": "〜らしい",
       "level": "N4",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
-      "status": "partial",
+      "evidenceCount": 2,
+      "status": "complete",
       "levelDisagreements": []
     },
     {
@@ -972,6 +975,50 @@
     {
       "id": "grammar-te-ita",
       "pattern": "〜ていた",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-sou-hearsay",
+      "pattern": "〜そうだ（hearsay）",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-youda",
+      "pattern": "〜ようだ",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-kamoshirenai",
+      "pattern": "〜かもしれない",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-hazu",
+      "pattern": "〜はずだ",
       "level": "N4",
       "sourceIds": [
         "irodori-sentence-patterns"
@@ -1650,12 +1697,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-dbeb9e9d2cdf",
-      "pattern": "V-そうです",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-1f73bb3753b0",
       "pattern": "V-たいとき、～",
       "level": "N5"
@@ -1743,12 +1784,6 @@
       "recordId": "irodori-grammar-88594a4e30dc",
       "pattern": "V（普通形）＋N ②ケイ",
       "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-58342b7afc62",
-      "pattern": "S（普通形）そうですケイ",
-      "level": "N4"
     },
     {
       "sourceId": "irodori-sentence-patterns",
@@ -2070,12 +2105,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-cb5002146ddc",
-      "pattern": "S（普通形）かもしれません　ケイ",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-a857b2330bf1",
       "pattern": "V-てしまいました",
       "level": "N4"
@@ -2280,12 +2309,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-d5fa09a57e4d",
-      "pattern": "S（普通形）みたいだ",
-      "level": "Intermediate 1"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-bee81420ade4",
       "pattern": "お＋N ／ ご＋N",
       "level": "Intermediate 1"
@@ -2478,12 +2501,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-5ca69e55178e",
-      "pattern": "S（普通形）ようだ",
-      "level": "Intermediate 1"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-b782925e4105",
       "pattern": "イA-がる",
       "level": "Intermediate 1"
@@ -2492,12 +2509,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-23157cb5ca53",
       "pattern": "V-ることにする",
-      "level": "Intermediate 1"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-23c80cb40750",
-      "pattern": "S（普通形）らしい",
       "level": "Intermediate 1"
     },
     {
@@ -2676,12 +2687,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-de56a9c56a07",
-      "pattern": "S（普通形）はずだ",
-      "level": "Intermediate 1"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-4dfdcb98caf3",
       "pattern": "尊敬語と謙譲語",
       "level": "Intermediate 1"
@@ -2699,7 +2704,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 82
+      "references": 89
     },
     {
       "id": "tae-kim",
