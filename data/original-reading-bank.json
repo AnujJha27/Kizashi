@@ -809,6 +809,18 @@
           "correctAnswer": 2,
           "questionType": "short passage detail",
           "explanation": "十時"
+        },
+        {
+          "prompt": "なぜ病院へ行きますか。",
+          "options": [
+            "頭が痛いからです",
+            "靴を買うからです",
+            "友達と会うからです",
+            "本を返すからです"
+          ],
+          "correctAnswer": 0,
+          "questionType": "reason",
+          "explanation": "頭が痛いので、病院へ行きます。"
         }
       ]
     },
@@ -2637,6 +2649,18 @@
           "correctAnswer": 2,
           "questionType": "mid-length passage",
           "explanation": "午後二時"
+        },
+        {
+          "prompt": "明日の授業に行く人は、どうしますか。",
+          "options": [
+            "午後二時にいつもの教室へ行きます",
+            "午前九時に駅へ行きます",
+            "午後二時に家で休みます",
+            "午後四時に店へ行きます"
+          ],
+          "correctAnswer": 0,
+          "questionType": "appropriate action",
+          "explanation": "授業は午後二時から、教室はいつもの部屋です。"
         }
       ]
     },
@@ -2861,6 +2885,18 @@
           "correctAnswer": 2,
           "questionType": "mid-length passage",
           "explanation": "友達"
+        },
+        {
+          "prompt": "なぜ友達に電話しましたか。",
+          "options": [
+            "傘を持っていなかったからです",
+            "電車に乗りたかったからです",
+            "学校が休みだったからです",
+            "本を借りたかったからです"
+          ],
+          "correctAnswer": 0,
+          "questionType": "reason",
+          "explanation": "傘を持っていなかったので、友達に電話しました。"
         }
       ]
     },
@@ -3372,6 +3408,18 @@
           "correctAnswer": 1,
           "questionType": "information retrieval",
           "explanation": "一時半"
+        },
+        {
+          "prompt": "参加したい人は、どうしますか。",
+          "options": [
+            "一時半までに図書館へ来ます",
+            "二時半に駅へ行きます",
+            "一時半までに家へ帰ります",
+            "六時に本を返します"
+          ],
+          "correctAnswer": 0,
+          "questionType": "appropriate action",
+          "explanation": "参加したい人は一時半までに図書館へ来ます。"
         }
       ],
       "visualFormat": "event"
@@ -4057,6 +4105,18 @@
           "correctAnswer": 2,
           "questionType": "short passage detail",
           "explanation": "五回"
+        },
+        {
+          "prompt": "漢字が分からないとき、どうしますか。",
+          "options": [
+            "先生に聞きます",
+            "毎晩五回書きます",
+            "店へ行きます",
+            "本を返します"
+          ],
+          "correctAnswer": 0,
+          "questionType": "appropriate action",
+          "explanation": "分からない漢字は先生に聞きます。"
         }
       ]
     },
@@ -5197,6 +5257,18 @@
           "correctAnswer": 2,
           "questionType": "mid-length passage",
           "explanation": "一週間後"
+        },
+        {
+          "prompt": "なぜ旅行を延ばしましたか。",
+          "options": [
+            "週末は大雨になるそうだからです",
+            "山が近くにないからです",
+            "博物館が休みだからです",
+            "家族が忙しいからです"
+          ],
+          "correctAnswer": 0,
+          "questionType": "reason",
+          "explanation": "週末は大雨になるそうなので、旅行を延ばしました。"
         }
       ]
     },
@@ -5710,6 +5782,18 @@
           "correctAnswer": 1,
           "questionType": "mid-length passage",
           "explanation": "電車に乗っている間"
+        },
+        {
+          "prompt": "「その間」は、何の時間ですか。",
+          "options": [
+            "電車に乗っている時間",
+            "駅に着いたあとの時間",
+            "仕事をしている時間",
+            "家で寝ている時間"
+          ],
+          "correctAnswer": 0,
+          "questionType": "reference",
+          "explanation": "「その間」は、電車に乗っている時間を指します。"
         }
       ]
     },
@@ -5824,6 +5908,18 @@
           "correctAnswer": 1,
           "questionType": "mid-length passage",
           "explanation": "新聞を読むため"
+        },
+        {
+          "prompt": "この人は、これから何ができるようになりたいですか。",
+          "options": [
+            "日本語の新聞を読めるようになりたいです",
+            "毎日仕事を休めるようになりたいです",
+            "新しい料理を作れるようになりたいです",
+            "週末に旅行できるようになりたいです"
+          ],
+          "correctAnswer": 0,
+          "questionType": "simple inference",
+          "explanation": "今年の目標は、日本語の新聞を読めるようになることです。"
         }
       ]
     },

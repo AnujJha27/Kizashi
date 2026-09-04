@@ -15,17 +15,25 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data" / "original-reading-bank.json"
 
 
-def question(prompt: str, options: list[str], correct: int, question_type: str) -> dict:
+def question(prompt: str, options: list[str], correct: int, question_type: str, explanation: str | None = None) -> dict:
     return {
         "prompt": prompt,
         "options": options,
         "correctAnswer": correct,
         "questionType": question_type,
-        "explanation": options[correct],
+        "explanation": explanation or options[correct],
     }
 
 
 SECONDARY_QUESTIONS = {
+    "doctor-note": question("なぜ病院へ行きますか。", ["頭が痛いからです", "靴を買うからです", "友達と会うからです", "本を返すからです"], 0, "reason", "頭が痛いので、病院へ行きます。"),
+    "class-change": question("明日の授業に行く人は、どうしますか。", ["午後二時にいつもの教室へ行きます", "午前九時に駅へ行きます", "午後二時に家で休みます", "午後四時に店へ行きます"], 0, "appropriate action", "授業は午後二時から、教室はいつもの部屋です。"),
+    "rainy-umbrella": question("なぜ友達に電話しましたか。", ["傘を持っていなかったからです", "電車に乗りたかったからです", "学校が休みだったからです", "本を借りたかったからです"], 0, "reason", "傘を持っていなかったので、友達に電話しました。"),
+    "library-event": question("参加したい人は、どうしますか。", ["一時半までに図書館へ来ます", "二時半に駅へ行きます", "一時半までに家へ帰ります", "六時に本を返します"], 0, "appropriate action", "参加したい人は一時半までに図書館へ来ます。"),
+    "study-method": question("漢字が分からないとき、どうしますか。", ["先生に聞きます", "毎晩五回書きます", "店へ行きます", "本を返します"], 0, "appropriate action", "分からない漢字は先生に聞きます。"),
+    "travel-change": question("なぜ旅行を延ばしましたか。", ["週末は大雨になるそうだからです", "山が近くにないからです", "博物館が休みだからです", "家族が忙しいからです"], 0, "reason", "週末は大雨になるそうなので、旅行を延ばしました。"),
+    "commute-book": question("「その間」は、何の時間ですか。", ["電車に乗っている時間", "駅に着いたあとの時間", "仕事をしている時間", "家で寝ている時間"], 0, "reference", "「その間」は、電車に乗っている時間を指します。"),
+    "language-goal": question("この人は、これから何ができるようになりたいですか。", ["日本語の新聞を読めるようになりたいです", "毎日仕事を休めるようになりたいです", "新しい料理を作れるようになりたいです", "週末に旅行できるようになりたいです"], 0, "simple inference", "今年の目標は、日本語の新聞を読めるようになることです。"),
     "class-note": question("田中さんの月曜日について正しいものはどれですか。", ["教室で日本語を勉強します", "病院で働きます", "駅で映画を見ます", "家で料理をします"], 0, "main idea"),
     "morning-message": question("朝ご飯のあとで、母は何をしますか。", ["寝ます", "駅へ行きます", "学校で勉強します", "買い物をします"], 1, "sequence"),
     "rain-coat": question("山田さんは雨の日にどうしますか。", ["傘を持って学校へ行きます", "本を読んで家にいます", "駅で切符を買います", "店で写真を撮ります"], 0, "main idea"),

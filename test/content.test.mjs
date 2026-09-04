@@ -229,7 +229,7 @@ test("authored listening items persist grammar links", () => {
 
 test("authored reading and listening banks expose diversity QA", () => {
   const report = buildContentQualityReport({ readings: originalReading.readings, listening: originalListening.listening });
-  assert.deepEqual(report.reading.byLevel, { N5: { total: 60, uniqueTemplates: 60, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 12, "mid-length passage": 18, "short passage detail": 30, "main idea": 5, sequence: 2 } }, N4: { total: 55, uniqueTemplates: 55, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 15, "mid-length passage": 14, "short passage detail": 26, "condition detail": 1, "main idea": 1, "task-based response": 1 } } });
+  assert.deepEqual(report.reading.byLevel, { N5: { total: 60, uniqueTemplates: 60, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 12, "mid-length passage": 18, "short passage detail": 30, "main idea": 5, sequence: 2, reason: 2, "appropriate action": 2 } }, N4: { total: 55, uniqueTemplates: 55, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 15, "mid-length passage": 14, "short passage detail": 26, "appropriate action": 1, reason: 1, reference: 1, "simple inference": 1, "condition detail": 1, "main idea": 1, "task-based response": 1 } } });
   assert.equal(report.reading.nearDuplicateClusters.length, 0);
   assert.deepEqual(report.listening.byLevel, { N5: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } }, N4: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } } });
   assert.equal(report.listening.uniqueTemplates, 160);
@@ -242,6 +242,7 @@ test("authored reading and listening banks expose diversity QA", () => {
   assert.equal(report.listening.complexity.byLevel.N4.cueItems, report.listening.complexity.byLevel.N4.total);
   assert.ok((report.reading.questionFamilies["main idea"] ?? 0) >= 4);
   assert.ok((report.reading.questionFamilies.sequence ?? 0) >= 2);
+  assert.ok(["reason", "reference", "simple inference", "appropriate action"].every((family) => (report.reading.questionFamilies[family] ?? 0) >= 1));
   assert.ok(report.reading.answerQuality.questions > report.reading.total);
 });
 

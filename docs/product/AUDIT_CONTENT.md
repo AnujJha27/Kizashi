@@ -124,7 +124,7 @@ This is not acceptable as a final N5/N4 curriculum.
 
 # C3. BUILD A COMPLETE GRAMMAR COVERAGE UNION
 
-The authored reading/listening quality audit is now implemented in `lib/content-quality-core.js` and exposed in Content Studio. It reports normalized template uniqueness, near-duplicate clusters, question-family distribution, and listening source type; the current generated banks report 115/115 unique reading passage templates with 125 questions and 160/160 unique listening templates, all with zero near-duplicate clusters, but it remains a review signal, not a substitute for native-speaker judgment.
+The authored reading/listening quality audit is now implemented in `lib/content-quality-core.js` and exposed in Content Studio. It reports normalized template uniqueness, near-duplicate clusters, question-family distribution, and listening source type; the current generated banks report 115/115 unique reading passage templates with 133 questions across 11 families and 160/160 unique listening templates, all with zero near-duplicate clusters, but it remains a review signal, not a substitute for native-speaker judgment.
 
 The first offline union is implemented and deliberately review-only. It currently uses OpenJLPT, Irodori sentence patterns plus the 111 reviewed Irodori mapping references, the existing Kizashi canonical package, and mapped Tae Kim/Wikibooks references; official JLPT remains blueprint evidence, while Bunpro/JLPT Sensei-style lesson prose is not mirrored. Remaining source acquisition and canonical review work stays visible in the registry's full unresolved queue, which Content Studio renders as a bounded scrollable review list.
 
@@ -1663,7 +1663,7 @@ The next task is QUALITY.
 
 ## Current implementation status (2026-09-04)
 
-- [~] `lib/content-quality-core.js` now audits authored reading passages for normalized template uniqueness, near-duplicate clusters, question-family distribution, answer-choice presence/uniqueness/index validity, source type, and N5/N4 breakdown. The current 115-passage bank provides 125 questions across seven families, is 115/115 unique with 0 near-duplicate clusters and 0 structural answer-choice failures; broader family balance, topic, grammar/vocabulary calibration, distractor plausibility, and native review remain open.
+- [~] `lib/content-quality-core.js` now audits authored reading passages for normalized template uniqueness, near-duplicate clusters, question-family distribution, answer-choice presence/uniqueness/index validity, source type, and N5/N4 breakdown. The current 115-passage bank provides 133 questions across 11 families, including reason, reference, simple inference, and appropriate action, is 115/115 unique with 0 near-duplicate clusters and 0 structural answer-choice failures; topic, grammar/vocabulary calibration, distractor plausibility, and native review remain open.
 
 Audit all original reading assets for:
 
@@ -1733,7 +1733,7 @@ Do not weaken the threshold simply to retain target counts.
 
 ## Current implementation status (2026-09-04)
 
-- [~] The authored reading bank now has 125 questions across 115 passages, adding main-idea, sequence, condition-detail, and task-based-response prompts to the existing short-detail, mid-length, and information-retrieval families. Structural answer-choice checks pass; broader family coverage, distractor plausibility, level calibration, and native review remain open.
+- [~] The authored reading bank now has 133 questions across 115 passages, adding main-idea, sequence, reason, reference, simple-inference, condition-detail, task-based-response, and appropriate-action prompts to the existing short-detail, mid-length, and information-retrieval families. Structural answer-choice checks pass; broader family coverage, distractor plausibility, level calibration, and native review remain open.
 
 Ensure substantial coverage of:
 
