@@ -659,13 +659,18 @@ test("grammar contract reports aliases, context, and linked assessment coverage"
 
 test("foundational grammar contract fields are explicit authored data", async () => {
   const foundation = JSON.parse(await readFile(new URL("../data/n5-foundations.json", import.meta.url), "utf8"));
+  const expansions = await Promise.all(["n5-conversation-expansion.json", "n5-practical-expansion.json", "n5-life-expansion.json", "n4-grammar-expansion.json"].map(async (file) => JSON.parse(await readFile(new URL(`../data/${file}`, import.meta.url), "utf8"))));
   const fields = JSON.parse(await readFile(new URL("../data/grammar-contract-fields.json", import.meta.url), "utf8"));
+  const practice = JSON.parse(await readFile(new URL("../data/n5-authored-practice.json", import.meta.url), "utf8"));
   const curriculum = await readFile(new URL("../lib/curriculum.ts", import.meta.url), "utf8");
-  assert.equal(Object.keys(fields).length, 27);
-  for (const item of foundation.grammar) {
+  assert.equal(Object.keys(fields).length, 116);
+  for (const item of [foundation, ...expansions].flatMap((module) => module.grammar)) {
     assert.ok(fields[item.id]?.aliases?.length);
     assert.match(fields[item.id]?.context?.japanese ?? "", /。/u);
     assert.ok(fields[item.id]?.context?.translation);
+  }
+  for (const id of ["grammar-ta-form", "grammar-mae-ni", "grammar-ato-de", "grammar-toki", "grammar-nagara"]) {
+    assert.ok(practice.filter((question) => question.itemId === id && question.contextSetId).length >= 2);
   }
   assert.match(curriculum, /addGrammarContractFields/);
 });

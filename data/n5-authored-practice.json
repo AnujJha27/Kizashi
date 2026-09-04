@@ -6,6 +6,8 @@
     "questionType": "meaning",
     "jlptLevel": "N4",
     "prompt": "What does Vた express?",
+    "contextSetId": "grammar-n4-ta-form-01",
+    "contextText": "昨日、映画を見た。",
     "options": [
       "a finished plain action",
       "a polite request",
@@ -39,6 +41,8 @@
     "questionType": "sentence completion",
     "jlptLevel": "N4",
     "prompt": "昨日、映画を見___。",
+    "contextSetId": "grammar-n4-ta-form-02",
+    "contextText": "先週、友達と映画を見た。",
     "options": [
       "た",
       "て",
@@ -73,6 +77,7 @@
     "jlptLevel": "N4",
     "prompt": "Build the natural sentence.",
     "contextText": "昨日、映画を見た。",
+    "contextSetId": "grammar-n4-ta-form-03",
     "options": [
       "昨日",
       "映画を",
@@ -115,6 +120,8 @@
     "questionType": "meaning",
     "jlptLevel": "N4",
     "prompt": "What does Vる前に express?",
+    "contextSetId": "grammar-n4-mae-ni-01",
+    "contextText": "寝る前に、本を読みます。",
     "options": [
       "before doing V",
       "after doing V",
@@ -148,6 +155,8 @@
     "questionType": "sentence completion",
     "jlptLevel": "N4",
     "prompt": "寝る___、本を読みます。",
+    "contextSetId": "grammar-n4-mae-ni-02",
+    "contextText": "出かける前に、窓を閉めます。",
     "options": [
       "前に",
       "あとで",
@@ -182,6 +191,7 @@
     "jlptLevel": "N4",
     "prompt": "Build the natural sentence.",
     "contextText": "寝る前に、本を読みます。",
+    "contextSetId": "grammar-n4-mae-ni-03",
     "options": [
       "寝る前に",
       "本を",
@@ -224,6 +234,8 @@
     "questionType": "meaning",
     "jlptLevel": "N4",
     "prompt": "What does Vたあとで express?",
+    "contextSetId": "grammar-n4-ato-de-01",
+    "contextText": "ご飯を食べたあとで、勉強します。",
     "options": [
       "after doing V",
       "before doing V",
@@ -257,6 +269,8 @@
     "questionType": "sentence completion",
     "jlptLevel": "N4",
     "prompt": "ご飯を食べた___、勉強します。",
+    "contextSetId": "grammar-n4-ato-de-02",
+    "contextText": "映画を見たあとで、友達と話しました。",
     "options": [
       "あとで",
       "前に",
@@ -291,6 +305,7 @@
     "jlptLevel": "N4",
     "prompt": "Build the natural sentence.",
     "contextText": "ご飯を食べたあとで、勉強します。",
+    "contextSetId": "grammar-n4-ato-de-03",
     "options": [
       "ご飯を食べたあとで",
       "勉強します。"
@@ -330,6 +345,8 @@
     "questionType": "meaning",
     "jlptLevel": "N4",
     "prompt": "What does とき do in Vとき?",
+    "contextSetId": "grammar-n4-toki-01",
+    "contextText": "寒いとき、家にいます。",
     "options": [
       "frames when a situation happens",
       "marks a direct object",
@@ -363,6 +380,8 @@
     "questionType": "sentence completion",
     "jlptLevel": "N4",
     "prompt": "寒い___、家にいます。",
+    "contextSetId": "grammar-n4-toki-02",
+    "contextText": "忙しいとき、簡単な料理を作ります。",
     "options": [
       "とき",
       "あとで",
@@ -397,6 +416,7 @@
     "jlptLevel": "N4",
     "prompt": "Build the natural sentence.",
     "contextText": "寒いとき、家にいます。",
+    "contextSetId": "grammar-n4-toki-03",
     "options": [
       "寒いとき",
       "家に",
@@ -439,6 +459,8 @@
     "questionType": "meaning",
     "jlptLevel": "N4",
     "prompt": "What does Vながら express?",
+    "contextSetId": "grammar-n4-nagara-01",
+    "contextText": "音楽を聞きながら、勉強します。",
     "options": [
       "while doing V",
       "before doing V",
@@ -472,6 +494,8 @@
     "questionType": "sentence completion",
     "jlptLevel": "N4",
     "prompt": "音楽を聞き___、勉強します。",
+    "contextSetId": "grammar-n4-nagara-02",
+    "contextText": "テレビを見ながら、ご飯を食べます。",
     "options": [
       "ながら",
       "とき",
@@ -506,6 +530,7 @@
     "jlptLevel": "N4",
     "prompt": "Build the natural sentence.",
     "contextText": "音楽を聞きながら、勉強します。",
+    "contextSetId": "grammar-n4-nagara-03",
     "options": [
       "音楽を聞きながら",
       "勉強します。"
