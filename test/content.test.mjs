@@ -141,8 +141,8 @@ test("the N5 module has meaningful, linked content", async () => {
   assert.ok(["grammar-koto-ni-suru", "grammar-zuni", "grammar-sou-appearance", "grammar-tsumori", "grammar-te-ageru", "grammar-te-oku", "grammar-te-kureru", "grammar-te-shimau", "grammar-te-miru", "grammar-te-morau", "grammar-te-iku", "grammar-te-kuru", "grammar-ni-chigai-nai", "grammar-ni-kimatte-iru", "grammar-mitai", "grammar-rashii", "grammar-wake-ni-wa-ikanai", "grammar-sugiru", "grammar-chu", "grammar-kata"].every((id) => mergedModule.grammar.some((item) => item.id === id)));
   const n4ExpansionGrammar = expansionData.find((data) => data.course.id === "n4-grammar-expansion").grammar;
   const n4ExpansionLessonIds = new Set(expansionData.find((data) => data.course.id === "n4-grammar-expansion").course.chapters.flatMap((chapter) => chapter.lessons).flatMap((lesson) => lesson.itemIds));
-  assert.equal(n4ExpansionGrammar.length, 43);
-  assert.ok(["grammar-to-conditional", "grammar-tara", "grammar-ba", "grammar-nara", "grammar-potential-godan", "grammar-potential-ichidan", "grammar-koto-ga-dekiru", "grammar-passive-godan", "grammar-passive-ichidan", "grammar-causative-godan", "grammar-causative-ichidan", "grammar-volitional", "grammar-giving-receiving", "grammar-te-aru", "grammar-te-ita", "grammar-youni-naru", "grammar-youni-suru", "grammar-koto-ni-naru", "grammar-yotei", "grammar-sou-hearsay", "grammar-youda", "grammar-kamoshirenai", "grammar-hazu"].every((id) => n4ExpansionGrammar.some((item) => item.id === id)));
+  assert.equal(n4ExpansionGrammar.length, 47);
+  assert.ok(["grammar-to-conditional", "grammar-tara", "grammar-ba", "grammar-nara", "grammar-potential-godan", "grammar-potential-ichidan", "grammar-koto-ga-dekiru", "grammar-passive-godan", "grammar-passive-ichidan", "grammar-causative-godan", "grammar-causative-ichidan", "grammar-volitional", "grammar-giving-receiving", "grammar-te-aru", "grammar-te-ita", "grammar-youni-naru", "grammar-youni-suru", "grammar-koto-ni-naru", "grammar-yotei", "grammar-sou-hearsay", "grammar-youda", "grammar-kamoshirenai", "grammar-hazu", "grammar-to-omou", "grammar-to-iu", "grammar-to-kiku", "grammar-to-iu-noun"].every((id) => n4ExpansionGrammar.some((item) => item.id === id)));
   assert.ok(n4ExpansionGrammar.every((item) => n4ExpansionLessonIds.has(item.id)));
   assert.ok(n4ExpansionGrammar.every((item) => item.examples.length >= 4 && item.examples.every((example) => typeof example.japanese === "string" && typeof example.translation === "string")));
   const authoredQuestionIds = new Set(authoredQuestions.map((question) => question.id));
@@ -160,7 +160,7 @@ test("the N5 module has meaningful, linked content", async () => {
   assert.ok(n4Vocabulary.every((item) => item.usageAssessment?.correct && item.usageAssessment.distractors.length === 3));
   const questionFactory = await readFile(new URL("../lib/questions.ts", import.meta.url), "utf8");
   assert.match(questionFactory, /questionType: "usage"/);
-  assert.ok(["contrast-n4-te-direction", "contrast-n4-benefit-perspective", "contrast-n4-inference", "contrast-n4-change-habit-decision"].every((id) => mergedModule.grammarContrasts.some((contrast) => contrast.id === id)));
+  assert.ok(["contrast-n4-te-direction", "contrast-n4-benefit-perspective", "contrast-n4-inference", "contrast-n4-change-habit-decision", "contrast-n4-quotation-thought"].every((id) => mergedModule.grammarContrasts.some((contrast) => contrast.id === id)));
   assert.ok(["grammar-te-iku", "grammar-te-kuru", "grammar-te-ageru", "grammar-te-kureru", "grammar-te-morau", "grammar-ni-chigai-nai", "grammar-ni-kimatte-iru", "grammar-mitai", "grammar-rashii"].every((id) => mergedModule.grammar.find((item) => item.id === id)?.contrastIds.length));
   assert.ok(mergedModule.readings.length >= 12);
   assert.ok(mergedModule.listening.length >= 12);
@@ -424,7 +424,7 @@ test("content completeness separates quantity, fields, review, and context cover
 });
 
 test("every persisted authored question has a semantic review decision", () => {
-  assert.equal(authoredQuestions.length, 204);
+  assert.equal(authoredQuestions.length, 214);
   assert.ok(authoredQuestions.every((question) => question.review?.status === "approved"));
   assert.ok(authoredQuestions.every((question) => question.review?.reviewedBy && question.review?.reviewedAt && question.review?.reviewNotes));
   assert.ok(authoredQuestions.every((question) => question.review?.targetItemIds?.includes(question.itemId)));
@@ -432,10 +432,10 @@ test("every persisted authored question has a semantic review decision", () => {
 
 test("reviewed grammar contrast questions use independent contexts", () => {
   const contrastQuestions = authoredQuestions.filter((question) => question.category === "grammar" && (question.targetItemIds?.length ?? 0) > 1);
-  assert.equal(contrastQuestions.length, 8);
-  assert.equal(new Set(contrastQuestions.map((question) => question.prompt)).size, 8);
+  assert.equal(contrastQuestions.length, 10);
+  assert.equal(new Set(contrastQuestions.map((question) => question.prompt)).size, 10);
   assert.ok(contrastQuestions.every((question) => question.questionType === "sentence completion" && question.contextSetId && question.contextText));
-  assert.deepEqual(new Set(contrastQuestions.flatMap((question) => question.targetItemIds ?? [])), new Set(["grammar-te-iku", "grammar-te-kuru", "grammar-te-ageru", "grammar-te-kureru", "grammar-te-morau", "grammar-ni-chigai-nai", "grammar-ni-kimatte-iru", "grammar-mitai", "grammar-rashii", "grammar-sou-appearance", "grammar-sou-hearsay", "grammar-youda", "grammar-kamoshirenai", "grammar-hazu"]));
+  assert.deepEqual(new Set(contrastQuestions.flatMap((question) => question.targetItemIds ?? [])), new Set(["grammar-te-iku", "grammar-te-kuru", "grammar-te-ageru", "grammar-te-kureru", "grammar-te-morau", "grammar-ni-chigai-nai", "grammar-ni-kimatte-iru", "grammar-mitai", "grammar-rashii", "grammar-sou-appearance", "grammar-sou-hearsay", "grammar-youda", "grammar-kamoshirenai", "grammar-hazu", "grammar-to-omou", "grammar-to-iu", "grammar-to-kiku", "grammar-to-iu-noun"]));
 });
 
 test("every N4 bridge grammar item has persisted practice contexts", () => {

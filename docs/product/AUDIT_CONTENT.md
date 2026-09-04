@@ -101,7 +101,7 @@ Do NOT spend this milestone adding another massive generic vocabulary or kanji d
 ## Current implementation status (2026-09-04)
 
 - [x] `scripts/build_grammar_coverage_registry.mjs` builds `data/grammar-coverage-union.json` from cached OpenJLPT grammar lists, staged Irodori sentence patterns, existing canonical grammar, and mapped Tae Kim/Wikibooks references; `components/content/grammar-coverage.tsx` exposes the report in Content Studio.
-- [~] The current registry reports N5 224 raw patterns / 46 canonical concepts (16 complete, 24 partial, 6 missing, 112 unresolved) and N4 166 raw patterns / 48 canonical concepts (3 complete, 40 partial, 5 missing, 96 unresolved). Forty-three N4 concepts are authored in the dedicated expansion lessons, five additional N4 bridge concepts remain in the life module, and six N5 concepts are authored from exact OpenJLPT evidence; nine explicit contrast clusters now connect direction, benefit perspective, inference/appearance, conditionals, potential ability, passive/potential, causative forms, change/habit/decision forms, and modality/inference forms. The registry still keeps source-level disagreements and unresolved rows visible. It now includes 89 reviewed Irodori mapping references plus 21 curated OpenJLPT alias references and marks mapped source records resolved; level disagreements remain visible (N5 4, N4 2, including the Starter-level basic giving/receiving evidence). This is an honest coverage baseline, not a claim of grammar completeness.
+- [~] The current registry reports N5 224 raw patterns / 46 canonical concepts (16 complete, 24 partial, 6 missing, 110 unresolved) and N4 170 raw patterns / 52 canonical concepts (3 complete, 44 partial, 5 missing, 94 unresolved). Forty-seven N4 concepts are authored in the dedicated expansion lessons, five additional N4 bridge concepts remain in the life module, and six N5 concepts are authored from exact OpenJLPT evidence; ten explicit contrast clusters now connect direction, benefit perspective, inference/appearance, conditionals, potential ability, passive/potential, causative forms, change/habit/decision forms, modality/inference forms, and quotation/thought forms. The registry still keeps source-level disagreements and unresolved rows visible. It now includes 93 reviewed Irodori mapping references plus 21 curated OpenJLPT alias references and marks mapped source records resolved; level disagreements remain visible (N5 4, N4 4, including the Starter-level basic giving/receiving evidence and Elementary 1 quotation/thought mappings). This is an honest coverage baseline, not a claim of grammar completeness.
 
 This is the highest-priority content issue.
 
@@ -126,7 +126,7 @@ This is not acceptable as a final N5/N4 curriculum.
 
 The authored reading/listening quality audit is now implemented in `lib/content-quality-core.js` and exposed in Content Studio. It reports normalized template uniqueness, near-duplicate clusters, question-family distribution, and listening source type; the current generated banks report 115/115 unique reading templates and 160/160 unique listening templates with zero near-duplicate clusters, but it remains a review signal, not a substitute for native-speaker judgment.
 
-The first offline union is implemented and deliberately review-only. It currently uses OpenJLPT, Irodori sentence patterns plus the 89 reviewed Irodori mapping references, the existing Kizashi canonical package, and mapped Tae Kim/Wikibooks references; official JLPT remains blueprint evidence, while Bunpro/JLPT Sensei-style lesson prose is not mirrored. Remaining source acquisition and canonical review work stays visible in the registry's unresolved queue.
+The first offline union is implemented and deliberately review-only. It currently uses OpenJLPT, Irodori sentence patterns plus the 93 reviewed Irodori mapping references, the existing Kizashi canonical package, and mapped Tae Kim/Wikibooks references; official JLPT remains blueprint evidence, while Bunpro/JLPT Sensei-style lesson prose is not mirrored. Remaining source acquisition and canonical review work stays visible in the registry's unresolved queue.
 
 Create a grammar inventory from multiple independent sources.
 
@@ -910,6 +910,10 @@ This needs strong contrast testing.
 ---
 
 # C20. QUOTATION / THOUGHT
+
+## Current implementation status (2026-09-04)
+
+- [x] A quotation/thought lesson now teaches と思う, と言う, と聞く, and という with four examples, two common mistakes, and two authored drills per concept, plus a two-question contrast cluster. Exact Irodori mappings cover each concept; the 思う and 言う records visibly retain their Elementary 1 source-level disagreement with the authored N4 placement.
 
 Audit/include:
 

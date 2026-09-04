@@ -7,17 +7,17 @@
       "complete": 16,
       "partial": 24,
       "missing": 6,
-      "unresolved": 112,
+      "unresolved": 110,
       "levelDisagreements": 4
     },
     "N4": {
-      "rawPatterns": 166,
-      "canonicalConcepts": 48,
+      "rawPatterns": 170,
+      "canonicalConcepts": 52,
       "complete": 3,
-      "partial": 40,
+      "partial": 44,
       "missing": 5,
-      "unresolved": 96,
-      "levelDisagreements": 2
+      "unresolved": 94,
+      "levelDisagreements": 4
     }
   },
   "canonical": [
@@ -984,6 +984,54 @@
       "levelDisagreements": []
     },
     {
+      "id": "grammar-to-omou",
+      "pattern": "〜と思う",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": [
+        "N5"
+      ]
+    },
+    {
+      "id": "grammar-to-iu",
+      "pattern": "〜と言う",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": [
+        "N5"
+      ]
+    },
+    {
+      "id": "grammar-to-kiku",
+      "pattern": "〜と聞く",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-to-iu-noun",
+      "pattern": "〜という",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
       "id": "grammar-sou-hearsay",
       "pattern": "〜そうだ（hearsay）",
       "level": "N4",
@@ -1787,24 +1835,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-5b7733a3ddda",
-      "pattern": "S（普通形）と言っていましたケイイ",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-003d2cb35530",
-      "pattern": "S（普通形）と思いますケイオモ",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-eb5066d3023b",
-      "pattern": "N1というN2",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-b098c8c9500b",
       "pattern": "V-たばかりです",
       "level": "Intermediate 2"
@@ -1903,12 +1933,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-554f881acc54",
       "pattern": "～ところ",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-f11c4d40a6f4",
-      "pattern": "S（普通形） って聞きました\nS（普通形） って言っていましたケイキ",
       "level": "N4"
     },
     {
@@ -2704,7 +2728,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 89
+      "references": 93
     },
     {
       "id": "tae-kim",

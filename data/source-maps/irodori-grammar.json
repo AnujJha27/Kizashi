@@ -1358,5 +1358,69 @@
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
     }
+  ],
+  "grammar-to-omou": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-003d2cb35530",
+      "sourceCourse": "初級1",
+      "sourceLevel": "Elementary 1",
+      "pattern": "S（普通形）と思います",
+      "sectionTitle": "Sentence pattern · 初級1",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: S（普通形）と思います.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-to-iu": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-5b7733a3ddda",
+      "sourceCourse": "初級1",
+      "sourceLevel": "Elementary 1",
+      "pattern": "S（普通形）と言っていました",
+      "sectionTitle": "Sentence pattern · 初級1",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: S（普通形）と言っていました.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-to-kiku": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-f11c4d40a6f4",
+      "sourceCourse": "初中級",
+      "sourceLevel": "Pre-Intermediate",
+      "pattern": "S（普通形）って聞きました",
+      "sectionTitle": "Sentence pattern · 初中級",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: S（普通形）って聞きました.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-to-iu-noun": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-eb5066d3023b",
+      "sourceCourse": "初級2",
+      "sourceLevel": "Elementary 2",
+      "pattern": "N1というN2",
+      "sectionTitle": "Sentence pattern · 初級2",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: N1というN2.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
   ]
 }

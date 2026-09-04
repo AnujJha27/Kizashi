@@ -264,6 +264,29 @@
             ]
           }
         ]
+      },
+      {
+        "id": "chapter-n4-quotation-thought",
+        "slug": "n4-quotation-thought",
+        "title": "Quoting thoughts and reports",
+        "description": "Connect plain-form statements to thoughts, speech, reports, and naming expressions.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-quotation-thought",
+            "slug": "n4-quotation-thought",
+            "title": "Quoting thoughts and reports",
+            "subtitle": "引用と思考",
+            "description": "Use と with 思う, 言う, and 聞く, then recognize という when explaining what a word or name means.",
+            "estimatedMinutes": 22,
+            "itemIds": [
+              "grammar-to-omou",
+              "grammar-to-iu",
+              "grammar-to-kiku",
+              "grammar-to-iu-noun"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -1607,6 +1630,126 @@
       "sourceIds": ["irodori-sentence-patterns"]
     },
     {
+      "id": "grammar-to-omou",
+      "slug": "to-omou",
+      "title": "と思う",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "quotation and thought",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "thought", "opinion", "quotation"],
+      "pattern": "〜と思う",
+      "meaning": "think that; feel that",
+      "formation": "Plain-form statement + と + 思う; polite speech commonly uses と思います.",
+      "intuition": "と思う places a thought or opinion after the statement being held in the speaker's mind.",
+      "usageConditions": [
+        "Use a plain form before と, including the plain negative and past forms.",
+        "Use it to soften an opinion or prediction rather than state it as an unquestionable fact.",
+        "Keep だ out before とと思います when the quoted part is an い-adjective or verb; nouns and な-adjectives may use だ in plain quotation."
+      ],
+      "examples": [
+        {"japanese": "明日は晴れると思います。", "translation": "I think it will be sunny tomorrow."},
+        {"japanese": "この本はおもしろいと思います。", "translation": "I think this book is interesting."},
+        {"japanese": "彼は今日は来ないと思います。", "translation": "I think he will not come today."},
+        {"japanese": "日本語の勉強は大切だと思います。", "translation": "I think studying Japanese is important."}
+      ],
+      "commonMistakes": ["Use the plain form before とと思う: 行くと思います, not 行きますと思います.", "Do not treat the opinion as a direct report from another person; use と言う or と聞く when the source is someone else's speech or information."],
+      "contrastIds": ["contrast-n4-quotation-thought"],
+      "practiceQuestionIds": ["grammar-to-omou-1", "grammar-to-omou-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-to-iu",
+      "slug": "to-iu",
+      "title": "と言う",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "quotation and thought",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "speech", "quotation", "report"],
+      "pattern": "〜と言う",
+      "meaning": "say that; quote someone",
+      "formation": "Quoted plain-form statement + と + 言う; the reporting verb changes tense and politeness for the surrounding sentence.",
+      "intuition": "と言う marks the words or message that a person says, making the speaker or quoted source explicit.",
+      "usageConditions": [
+        "Use と after the quoted statement and change 言う to 言いました／言っています as the context requires.",
+        "Use a plain form inside the quotation even when the reporting sentence is polite.",
+        "Use quotation marks when reproducing exact words, and a plain reported clause when summarizing content."
+      ],
+      "examples": [
+        {"japanese": "田中さんは明日来ると言いました。", "translation": "Tanaka said that he would come tomorrow."},
+        {"japanese": "先生は宿題を忘れないでと言いました。", "translation": "The teacher said, 'Don't forget your homework.'"},
+        {"japanese": "友達はその店がおいしいと言っています。", "translation": "My friend says that restaurant is delicious."},
+        {"japanese": "彼は行きたくないと言いました。", "translation": "He said that he did not want to go."}
+      ],
+      "commonMistakes": ["Do not use the polite ます form inside a plain quotation: 来ますと言いました is replaced by 来ると言いました.", "Keep the speaker as the subject of 言う and the quoted message before と; do not confuse it with a personal opinion using と思う."],
+      "contrastIds": ["contrast-n4-quotation-thought"],
+      "practiceQuestionIds": ["grammar-to-iu-1", "grammar-to-iu-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-to-kiku",
+      "slug": "to-kiku",
+      "title": "と聞く",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "quotation and thought",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "hearsay", "quotation", "listening"],
+      "pattern": "〜と聞く",
+      "meaning": "hear that; ask whether or what",
+      "formation": "Quoted plain-form statement + と + 聞く; って聞きました is a common conversational variant.",
+      "intuition": "と聞く identifies information the speaker received by hearing it or a question the speaker asks to learn an answer.",
+      "usageConditions": [
+        "Use it to report information heard from another person or source.",
+        "Use a plain form before と in a reported statement; って can replace と in casual speech.",
+        "Do not confuse a report with と思う, which presents the speaker's own thought."
+      ],
+      "examples": [
+        {"japanese": "来週、祭りがあると聞きました。", "translation": "I heard that there is a festival next week."},
+        {"japanese": "この駅で新幹線に乗れると聞いています。", "translation": "I have heard that you can board the bullet train at this station."},
+        {"japanese": "友達に、何時に始まるかと聞きました。", "translation": "I asked my friend what time it starts."},
+        {"japanese": "うどんがおいしいって聞きました。", "translation": "I heard that the udon is delicious."}
+      ],
+      "commonMistakes": ["Use と聞きました for information received from someone else, not と思います for the speaker's own guess.", "Keep the quoted clause in plain form before と聞く; do not attach the polite ます ending directly inside the report."],
+      "contrastIds": ["contrast-n4-quotation-thought"],
+      "practiceQuestionIds": ["grammar-to-kiku-1", "grammar-to-kiku-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-to-iu-noun",
+      "slug": "to-iu-noun",
+      "title": "という",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "quotation and thought",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-desu"],
+      "tags": ["N4", "naming", "quotation", "definition"],
+      "pattern": "〜という",
+      "meaning": "called; named; that is called",
+      "formation": "Name or quoted phrase + という + noun; the expression can also introduce what a word means or is called.",
+      "intuition": "という packages a name or phrase so the speaker can identify, define, or refer to it.",
+      "usageConditions": [
+        "Use it before a noun when identifying what something or someone is called.",
+        "Use a quoted word or phrase before という and keep the following noun explicit when the listener needs the category.",
+        "Distinguish naming という from the reporting verb と言う, which describes someone speaking."
+      ],
+      "examples": [
+        {"japanese": "これは「花」という意味です。", "translation": "This means 'flower.'"},
+        {"japanese": "駅の近くに、さくらという店があります。", "translation": "There is a shop called Sakura near the station."},
+        {"japanese": "田中さんという人から電話がありました。", "translation": "I received a call from a person named Tanaka."},
+        {"japanese": "「いただきます」という言葉を知っていますか。", "translation": "Do you know the expression itadakimasu?"}
+      ],
+      "commonMistakes": ["Use という before the following noun for a naming expression, as in さくらという店; do not confuse it with a complete reporting clause.", "Keep the quoted name or phrase before という and do not replace it with the dictionary form of the following noun."],
+      "contrastIds": ["contrast-n4-quotation-thought"],
+      "practiceQuestionIds": ["grammar-to-iu-noun-1", "grammar-to-iu-noun-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
       "id": "grammar-sou-hearsay",
       "slug": "sou-hearsay",
       "title": "そうだ（伝聞）",
@@ -2049,6 +2192,31 @@
     "exercises": [
       "Choose ようになる for an ability or habit that has changed, and ようにする for the effort meant to cause or maintain it.",
       "Choose ことになる for an externally settled arrangement, ことにする for a personal decision, 予定 for a concrete schedule, and つもり for an intention."
+    ]
+  },
+  {
+    "id": "contrast-n4-quotation-thought",
+    "title": "Thought, speech, reports, and names",
+    "grammarPointIds": [
+      "grammar-to-omou",
+      "grammar-to-iu",
+      "grammar-to-kiku",
+      "grammar-to-iu-noun"
+    ],
+    "explanation": "と思う presents the speaker's thought, と言う reports someone's words, と聞く reports received information or a question, and という packages a name or phrase for identification or definition.",
+    "examples": [
+      {
+        "japanese": "明日は晴れると思います。",
+        "translation": "I think it will be sunny tomorrow."
+      },
+      {
+        "japanese": "来週、祭りがあると聞きました。",
+        "translation": "I heard that there is a festival next week."
+      }
+    ],
+    "exercises": [
+      "Choose と思う for the speaker's own opinion, と言う for quoted speech, and と聞く for information received by hearing.",
+      "Choose という when a name or phrase is identifying or defining a following noun, not when a person is speaking."
     ]
   }
 ],
