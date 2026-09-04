@@ -133,6 +133,7 @@ const mergedModule = {
   grammarContrasts: [moduleData, ...expansionData].flatMap((module) => module.grammarContrasts),
   readings: [moduleData, ...expansionData].flatMap((module) => module.readings),
   listening: [moduleData, ...expansionData].flatMap((module) => module.listening),
+  practiceQuestions: [...authoredQuestions, ...grammarDrafts],
 };
 
 test("the N5 module has meaningful, linked content", async () => {
@@ -486,6 +487,18 @@ test("content completeness keeps grammar drafts out of approved assessment count
   assert.equal(report.grammarAssessment.pendingQuestions, 1);
   assert.deepEqual(report.grammarAssessment.pendingByLevel, { N5: 1, N4: 0 });
   assert.deepEqual(report.grammarConsistency, { items: 0, duplicateExampleItems: 0, duplicateExampleCount: 0, conflictingTranslationExamples: 0, emptyExamples: 0 });
+});
+
+test("vocabulary context audit reports the learner contract", () => {
+  const report = getContentCompleteness({
+    vocabulary: [{ id: "vocab-contract", category: "vocabulary", jlptLevel: "N4", exampleSentences: [{ japanese: "例です。", translation: "It is an example." }, { japanese: "もう一つです。", translation: "It is another one." }], collocations: ["例を使う"], relatedWords: ["練習"], usageAssessment: { correct: "例を使います。", distractors: ["例を食べます。", "例を歩きます。", "例を寝ます。"] } }],
+    practiceQuestions: [{ itemId: "vocab-contract", questionType: "contextual vocabulary" }, { itemId: "vocab-contract", questionType: "paraphrase" }],
+  });
+  assert.deepEqual(report.vocabularyContract, { total: 1, examplesAtLeast2: 1, collocations: 1, relatedWords: 1, audio: 0, contextualAssessments: 1, paraphraseAssessments: 1, usageAssessments: 1, contractReady: 1, byLevel: { N5: { total: 0, examplesAtLeast2: 0, collocations: 0, relatedWords: 0, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, usageAssessments: 0, contractReady: 0 }, N4: { total: 1, examplesAtLeast2: 1, collocations: 1, relatedWords: 1, audio: 0, contextualAssessments: 1, paraphraseAssessments: 1, usageAssessments: 1, contractReady: 1 } } });
+});
+
+test("authored vocabulary context coverage remains visible", () => {
+  assert.deepEqual(getContentCompleteness(mergedModule).vocabularyContract, { total: 169, examplesAtLeast2: 72, collocations: 169, relatedWords: 169, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, usageAssessments: 16, contractReady: 0, byLevel: { N5: { total: 153, examplesAtLeast2: 56, collocations: 153, relatedWords: 153, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, usageAssessments: 0, contractReady: 0 }, N4: { total: 16, examplesAtLeast2: 16, collocations: 16, relatedWords: 16, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, usageAssessments: 16, contractReady: 0 } } });
 });
 
 test("grammar contract reports aliases, context, and linked assessment coverage", () => {
