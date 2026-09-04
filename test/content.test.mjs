@@ -147,12 +147,13 @@ const expansionData = await Promise.all(["n5-conversation-expansion.json", "n5-p
 const authoredQuestions = JSON.parse(await readFile(new URL("../data/n5-authored-practice.json", import.meta.url), "utf8"));
 const grammarDrafts = JSON.parse(await readFile(new URL("../data/n5-grammar-assessment-drafts.json", import.meta.url), "utf8"));
 const vocabularyDrafts = JSON.parse(await readFile(new URL("../data/vocabulary-assessment-drafts.json", import.meta.url), "utf8"));
+const vocabularyExampleExpansions = JSON.parse(await readFile(new URL("../data/vocabulary-example-expansions.json", import.meta.url), "utf8"));
 const originalListening = JSON.parse(await readFile(new URL("../data/original-listening-bank.json", import.meta.url), "utf8"));
 const originalReading = JSON.parse(await readFile(new URL("../data/original-reading-bank.json", import.meta.url), "utf8"));
 const mergedModule = {
   ...moduleData,
   course: { ...moduleData.course, chapters: [moduleData, ...expansionData].flatMap((module) => module.course.chapters) },
-  vocabulary: [moduleData, ...expansionData].flatMap((module) => module.vocabulary),
+  vocabulary: [moduleData, ...expansionData].flatMap((module) => module.vocabulary).map((item) => ({ ...item, exampleSentences: [...item.exampleSentences, ...(vocabularyExampleExpansions[item.id] ?? [])] })),
   kanji: [moduleData, ...expansionData].flatMap((module) => module.kanji),
   grammar: [moduleData, ...expansionData].flatMap((module) => module.grammar),
   grammarContrasts: [moduleData, ...expansionData].flatMap((module) => module.grammarContrasts),
@@ -636,7 +637,7 @@ test("vocabulary context audit reports the learner contract", () => {
 });
 
 test("authored vocabulary context coverage remains visible", () => {
-  assert.deepEqual(getContentCompleteness(mergedModule).vocabularyContract, { total: 169, examplesAtLeast2: 72, collocations: 169, relatedWords: 169, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 16, contractReady: 0, byLevel: { N5: { total: 153, examplesAtLeast2: 56, collocations: 153, relatedWords: 153, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 0, contractReady: 0 }, N4: { total: 16, examplesAtLeast2: 16, collocations: 16, relatedWords: 16, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 16, contractReady: 0 } } });
+  assert.deepEqual(getContentCompleteness(mergedModule).vocabularyContract, { total: 169, examplesAtLeast2: 130, collocations: 169, relatedWords: 169, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 16, contractReady: 0, byLevel: { N5: { total: 153, examplesAtLeast2: 114, collocations: 153, relatedWords: 153, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 0, contractReady: 0 }, N4: { total: 16, examplesAtLeast2: 16, collocations: 16, relatedWords: 16, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 16, contractReady: 0 } } });
 });
 
 test("collocation quality audit flags repeated or isolated entries", () => {
@@ -675,6 +676,19 @@ test("foundational grammar contract fields are explicit authored data", async ()
     assert.ok(practice.filter((question) => question.itemId === id && question.contextSetId).length >= 2);
   }
   assert.match(curriculum, /addGrammarContractFields/);
+});
+
+test("foundational vocabulary has explicit authored second examples", async () => {
+  const foundation = JSON.parse(await readFile(new URL("../data/n5-foundations.json", import.meta.url), "utf8"));
+  const expansions = JSON.parse(await readFile(new URL("../data/vocabulary-example-expansions.json", import.meta.url), "utf8"));
+  const curriculum = await readFile(new URL("../lib/curriculum.ts", import.meta.url), "utf8");
+  assert.equal(Object.keys(expansions).length, foundation.vocabulary.length);
+  for (const item of foundation.vocabulary) {
+    assert.equal(expansions[item.id]?.length, 1);
+    assert.ok(expansions[item.id][0].japanese);
+    assert.ok(expansions[item.id][0].translation);
+  }
+  assert.match(curriculum, /addVocabularyExamples/);
 });
 
 test("grammar consistency catches duplicated or conflicting example prose", () => {

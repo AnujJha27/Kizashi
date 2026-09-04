@@ -4,6 +4,7 @@ import practicalExpansionData from "@/data/n5-practical-expansion.json";
 import lifeExpansionData from "@/data/n5-life-expansion.json";
 import n4GrammarExpansionData from "@/data/n4-grammar-expansion.json";
 import grammarContractFields from "@/data/grammar-contract-fields.json";
+import vocabularyExampleExpansions from "@/data/vocabulary-example-expansions.json";
 import authoredPracticeData from "@/data/n5-authored-practice.json";
 import grammarAssessmentDrafts from "@/data/n5-grammar-assessment-drafts.json";
 import vocabularyAssessmentDrafts from "@/data/vocabulary-assessment-drafts.json";
@@ -11,7 +12,7 @@ import originalReadingData from "@/data/original-reading-bank.json";
 import originalListeningData from "@/data/original-listening-bank.json";
 
 import { contentSources } from "@/lib/jlpt";
-import type { GrammarItem, JourneyNode, KanjiItem, Lesson, ListeningItem, N5Module, ReadingItem, TargetLevel, VocabularyItem } from "@/lib/types";
+import type { ExampleSentence, GrammarItem, JourneyNode, KanjiItem, Lesson, ListeningItem, N5Module, ReadingItem, TargetLevel, VocabularyItem } from "@/lib/types";
 
 const sourceAware = <T extends object>(items: T[]) => items.map((item) => ({ ...item, sourceIds: (item as { sourceIds?: string[] }).sourceIds ?? ["michi-curated-n5-seed"] }));
 
@@ -21,6 +22,7 @@ const foundationGrammar = moduleData.grammar as unknown as GrammarItem[];
 const foundationReadings = moduleData.readings as unknown as ReadingItem[];
 const foundationListening = moduleData.listening as unknown as ListeningItem[];
 const addGrammarContractFields = (items: GrammarItem[]) => items.map((item) => ({ ...item, ...(grammarContractFields as Record<string, Partial<GrammarItem>>)[item.id] }));
+const addVocabularyExamples = (items: VocabularyItem[]) => items.map((item) => ({ ...item, exampleSentences: [...item.exampleSentences, ...((vocabularyExampleExpansions as Record<string, ExampleSentence[]>)[item.id] ?? [])] }));
 
 export function normalizeGrammarPracticeIds(items: GrammarItem[]) {
   return items.map((item) => {
@@ -35,7 +37,7 @@ export function normalizeGrammarPracticeIds(items: GrammarItem[]) {
 export const n5Module = {
   ...moduleData,
   course: { ...moduleData.course, chapters: [...moduleData.course.chapters, ...expansionData.course.chapters, ...practicalExpansionData.course.chapters, ...lifeExpansionData.course.chapters, ...n4GrammarExpansionData.course.chapters, ...originalReadingData.course.chapters, ...originalListeningData.course.chapters] },
-  vocabulary: sourceAware([...foundationVocabulary, ...expansionData.vocabulary, ...practicalExpansionData.vocabulary, ...lifeExpansionData.vocabulary]),
+  vocabulary: sourceAware(addVocabularyExamples([...foundationVocabulary, ...expansionData.vocabulary, ...practicalExpansionData.vocabulary, ...lifeExpansionData.vocabulary] as VocabularyItem[])),
   kanji: sourceAware([...foundationKanji, ...expansionData.kanji, ...practicalExpansionData.kanji, ...lifeExpansionData.kanji]),
   grammar: sourceAware(normalizeGrammarPracticeIds(addGrammarContractFields([...foundationGrammar, ...expansionData.grammar, ...practicalExpansionData.grammar, ...lifeExpansionData.grammar, ...n4GrammarExpansionData.grammar] as GrammarItem[]))),
   grammarContrasts: [...moduleData.grammarContrasts, ...expansionData.grammarContrasts, ...practicalExpansionData.grammarContrasts, ...lifeExpansionData.grammarContrasts, ...n4GrammarExpansionData.grammarContrasts],
