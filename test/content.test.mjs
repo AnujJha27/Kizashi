@@ -74,6 +74,7 @@ test("completeness dashboard exposes grammar assessment families by level", asyn
   assert.match(dashboard, /collocationQuality\.duplicateRows/);
   assert.match(dashboard, /quality\.reading\.byLevel\.N5\.questionFamilies/);
   assert.match(dashboard, /quality\.listening\.contextTypes/);
+  assert.match(dashboard, /quality\.listening\.complexity/);
   assert.match(dashboard, /quality\.listening\.byLevel\.N4\.nearDuplicateClusters/);
   assert.doesNotMatch(dashboard, /N5 \$\{report\.quality/);
 });
@@ -229,6 +230,8 @@ test("authored reading and listening banks expose diversity QA", () => {
   assert.equal(report.listening.nearDuplicateClusters.length, 0);
   assert.ok(Object.keys(report.listening.contextTypes).length >= 15);
   assert.equal(Object.values(report.listening.contextTypes).reduce((total, count) => total + count, 0), 160);
+  assert.ok(report.listening.complexity.byLevel.N4.averageLines > report.listening.complexity.byLevel.N5.averageLines);
+  assert.equal(report.listening.complexity.byLevel.N4.cueItems, report.listening.complexity.byLevel.N4.total);
   assert.ok((report.reading.questionFamilies["main idea"] ?? 0) >= 4);
   assert.ok((report.reading.questionFamilies.sequence ?? 0) >= 2);
   assert.ok(report.reading.answerQuality.questions > report.reading.total);

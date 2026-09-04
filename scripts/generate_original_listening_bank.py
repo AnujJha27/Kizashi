@@ -149,6 +149,19 @@ def make_question(family: str, place: str, object_: str, detail: str, actor: str
 
 
 def transcript(family: str, place: str, object_: str, detail: str, actor: str, action: str, level: str, variation: int = 0) -> str:
+    if level == "N4":
+        action_phrase = action if action.endswith("お願いします") else f"{action}ください"
+        if family == "verbal expression":
+            return f"A：{actor}に{object_}をお願いしたいのですが、何と言えばいいですか。\nB：{place}では「{object_}をお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。"
+        if family == "task-based response":
+            return f"A：{place}では、何をしたらいいですか。\nB：予定では{detail}ですが、まず{action_phrase}。終わったら教えてください。\nA：はい、そのあと{object_}を確認します。\nB：では、そうしてください。"
+        if family == "key point":
+            return f"A：{place}の{object_}について確認したいです。\nB：{object_}は{detail}です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。"
+        if family == "quick response":
+            return f"A：{place}の{object_}について聞きたいです。\nB：{detail}です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。"
+        if variation == 1:
+            return f"A：{place}の{object_}について確認したいです。\nB：{detail}なので、先に{action_phrase}。\nA：分かりました。それが終わったら、もう一度確認します。\nB：はい、お願いします。"
+        return f"A：{place}について相談があります。\nB：予定では{detail}ですが、まず{action_phrase}。\nA：では、そうします。そのあと{object_}を確認します。\nB：分かりました。"
     if family == "task-based response":
         if variation == 1:
             return f"A：すみません、{place}で何をしたらいいですか。\nB：{action}。\nA：分かりました。そうします。"

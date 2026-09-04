@@ -5509,7 +5509,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、市役所で何をしたらいいですか。\nB：住所変更の手続きをして。\nA：分かりました。そうします。",
+      "transcript": "A：市役所では、何をしたらいいですか。\nB：予定では来週の火曜日ですが、まず住所変更の手続きをしてください。終わったら教えてください。\nA：はい、そのあと住所変更を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "市役所で、次に何をしたらいいですか。",
@@ -5574,7 +5574,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：会社では、先に何をしますか。\nB：会議資料を印刷して。\nA：はい、先にそれをします。",
+      "transcript": "A：会社では、何をしたらいいですか。\nB：予定では午後三時ですが、まず会議資料を印刷してください。終わったら教えてください。\nA：はい、そのあと会議資料を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "話を聞いて、先にすることは何ですか。",
@@ -5639,7 +5639,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、薬局では何をすればいいですか。\nB：まず薬を飲んでください。\nA：はい、分かりました。",
+      "transcript": "A：薬局では、何をしたらいいですか。\nB：予定では食事のあとですが、まず薬を飲んでください。終わったら教えてください。\nA：はい、そのあと薬を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "話を聞いて、次に何をしますか。",
@@ -5704,7 +5704,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、駅で何をしたらいいですか。\nB：四番線へ移動して。\nA：分かりました。そうします。",
+      "transcript": "A：駅では、何をしたらいいですか。\nB：予定では四番線ですが、まず四番線へ移動してください。終わったら教えてください。\nA：はい、そのあと乗り換えを確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "駅で、次に何をしたらいいですか。",
@@ -5769,7 +5769,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：市民センターでは、先に何をしますか。\nB：料理教室をお願いします。\nA：はい、先にそれをします。",
+      "transcript": "A：市民センターでは、何をしたらいいですか。\nB：予定では毎週土曜日ですが、まず料理教室をお願いします。終わったら教えてください。\nA：はい、そのあと料理教室を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "話を聞いて、先にすることは何ですか。",
@@ -5834,7 +5834,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、料理教室では何をすればいいですか。\nB：まず野菜を切ってください。\nA：はい、分かりました。",
+      "transcript": "A：料理教室では、何をしたらいいですか。\nB：予定では最初にですが、まず野菜を切ってください。終わったら教えてください。\nA：はい、そのあと野菜を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "話を聞いて、次に何をしますか。",
@@ -5899,7 +5899,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、アパートで何をしたらいいですか。\nB：水道の修理を頼んで。\nA：分かりました。そうします。",
+      "transcript": "A：アパートでは、何をしたらいいですか。\nB：予定では明日の午前ですが、まず水道の修理を頼んでください。終わったら教えてください。\nA：はい、そのあと水道を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "アパートで、次に何をしたらいいですか。",
@@ -5964,7 +5964,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：旅行会社では、先に何をしますか。\nB：ホテルを予約して。\nA：はい、先にそれをします。",
+      "transcript": "A：旅行会社では、何をしたらいいですか。\nB：予定では二泊ですが、まずホテルを予約してください。終わったら教えてください。\nA：はい、そのあとホテルを確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "話を聞いて、先にすることは何ですか。",
@@ -6029,7 +6029,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、病院では何をすればいいですか。\nB：まず検査を受けてください。\nA：はい、分かりました。",
+      "transcript": "A：病院では、何をしたらいいですか。\nB：予定では午後二時半ですが、まず検査を受けてください。終わったら教えてください。\nA：はい、そのあと検査を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "話を聞いて、次に何をしますか。",
@@ -6094,7 +6094,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、スーパーで何をしたらいいですか。\nB：割引券を使って。\nA：分かりました。そうします。",
+      "transcript": "A：スーパーでは、何をしたらいいですか。\nB：予定では今月末までですが、まず割引券を使ってください。終わったら教えてください。\nA：はい、そのあと割引券を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "スーパーで、次に何をしたらいいですか。",
@@ -6159,7 +6159,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：学校では、先に何をしますか。\nB：発表を準備して。\nA：はい、先にそれをします。",
+      "transcript": "A：学校では、何をしたらいいですか。\nB：予定では金曜日ですが、まず発表を準備してください。終わったら教えてください。\nA：はい、そのあと発表を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "話を聞いて、先にすることは何ですか。",
@@ -6224,7 +6224,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、公園では何をすればいいですか。\nB：まず花を植えてください。\nA：はい、分かりました。",
+      "transcript": "A：公園では、何をしたらいいですか。\nB：予定では雨が降る前ですが、まず花を植えてください。終わったら教えてください。\nA：はい、そのあと花を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "話を聞いて、次に何をしますか。",
@@ -6289,7 +6289,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、宅配便の営業所で何をしたらいいですか。\nB：荷物を受け取って。\nA：分かりました。そうします。",
+      "transcript": "A：宅配便の営業所では、何をしたらいいですか。\nB：予定では土曜日の午後ですが、まず荷物を受け取ってください。終わったら教えてください。\nA：はい、そのあと再配達を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "宅配便の営業所で、次に何をしたらいいですか。",
@@ -6354,7 +6354,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：会社では、先に何をしますか。\nB：一時間休んで。\nA：はい、先にそれをします。",
+      "transcript": "A：会社では、何をしたらいいですか。\nB：予定では一時間ですが、まず一時間休んでください。終わったら教えてください。\nA：はい、そのあと昼休みを確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "話を聞いて、先にすることは何ですか。",
@@ -6419,7 +6419,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、映画館では何をすればいいですか。\nB：まず映画を見てください。\nA：はい、分かりました。",
+      "transcript": "A：映画館では、何をしたらいいですか。\nB：予定では午後八時ですが、まず映画を見てください。終わったら教えてください。\nA：はい、そのあと上映時間を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "話を聞いて、次に何をしますか。",
@@ -6484,7 +6484,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、町のセンターで何をしたらいいですか。\nB：教室に参加して。\nA：分かりました。そうします。",
+      "transcript": "A：町のセンターでは、何をしたらいいですか。\nB：予定では水曜日の夜ですが、まず教室に参加してください。終わったら教えてください。\nA：はい、そのあと日本語教室を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "町のセンターで、次に何をしたらいいですか。",
@@ -6549,7 +6549,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：家では、先に何をしますか。\nB：部屋を片付けて。\nA：はい、先にそれをします。",
+      "transcript": "A：家では、何をしたらいいですか。\nB：予定では客が来る前ですが、まず部屋を片付けてください。終わったら教えてください。\nA：はい、そのあと掃除を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "話を聞いて、先にすることは何ですか。",
@@ -6614,7 +6614,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、電車では何をすればいいですか。\nB：まず電車を待ってください。\nA：はい、分かりました。",
+      "transcript": "A：電車では、何をしたらいいですか。\nB：予定では雨のためですが、まず電車を待ってください。終わったら教えてください。\nA：はい、そのあと遅れを確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "話を聞いて、次に何をしますか。",
@@ -6679,7 +6679,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、レストランで何をしたらいいですか。\nB：席を予約して。\nA：分かりました。そうします。",
+      "transcript": "A：レストランでは、何をしたらいいですか。\nB：予定では七時半ですが、まず席を予約してください。終わったら教えてください。\nA：はい、そのあと窓側の席を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "レストランで、次に何をしたらいいですか。",
@@ -6744,7 +6744,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：市民プールでは、先に何をしますか。\nB：プールで泳いで。\nA：はい、先にそれをします。",
+      "transcript": "A：市民プールでは、何をしたらいいですか。\nB：予定では水曜日以外ですが、まずプールで泳いでください。終わったら教えてください。\nA：はい、そのあと利用時間を確認します。\nB：では、そうしてください。",
       "questions": [
         {
           "prompt": "話を聞いて、先にすることは何ですか。",
@@ -6809,7 +6809,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：市役所について聞きました。\nB：はい、住所変更は来週の火曜日です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：市役所の住所変更について確認したいです。\nB：住所変更は来週の火曜日です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
@@ -6874,7 +6874,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：会社について聞きました。\nB：はい、会議資料は午後三時です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：会社の会議資料について確認したいです。\nB：会議資料は午後三時です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
@@ -6939,7 +6939,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：薬局について教えてください。\nB：薬のことですね。食事のあとです。\nA：分かりました。",
+      "transcript": "A：薬局の薬について確認したいです。\nB：薬は食事のあとです。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この話で確認したいことは何ですか。",
@@ -7004,7 +7004,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：駅について聞きました。\nB：はい、乗り換えは四番線です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：駅の乗り換えについて確認したいです。\nB：乗り換えは四番線です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
@@ -7069,7 +7069,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：市民センターについて聞きました。\nB：はい、料理教室は毎週土曜日です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：市民センターの料理教室について確認したいです。\nB：料理教室は毎週土曜日です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
@@ -7134,7 +7134,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：料理教室について教えてください。\nB：野菜のことですね。最初にです。\nA：分かりました。",
+      "transcript": "A：料理教室の野菜について確認したいです。\nB：野菜は最初にです。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この話で確認したいことは何ですか。",
@@ -7199,7 +7199,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：アパートについて聞きました。\nB：はい、水道は明日の午前です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：アパートの水道について確認したいです。\nB：水道は明日の午前です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
@@ -7264,7 +7264,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：旅行会社について聞きました。\nB：はい、ホテルは二泊です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：旅行会社のホテルについて確認したいです。\nB：ホテルは二泊です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
@@ -7329,7 +7329,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：病院について教えてください。\nB：検査のことですね。午後二時半です。\nA：分かりました。",
+      "transcript": "A：病院の検査について確認したいです。\nB：検査は午後二時半です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この話で確認したいことは何ですか。",
@@ -7394,7 +7394,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：スーパーについて聞きました。\nB：はい、割引券は今月末までです。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：スーパーの割引券について確認したいです。\nB：割引券は今月末までです。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
@@ -7459,7 +7459,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：学校について聞きました。\nB：はい、発表は金曜日です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：学校の発表について確認したいです。\nB：発表は金曜日です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
@@ -7524,7 +7524,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：公園について教えてください。\nB：花のことですね。雨が降る前です。\nA：分かりました。",
+      "transcript": "A：公園の花について確認したいです。\nB：花は雨が降る前です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この話で確認したいことは何ですか。",
@@ -7589,7 +7589,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：宅配便の営業所について聞きました。\nB：はい、再配達は土曜日の午後です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：宅配便の営業所の再配達について確認したいです。\nB：再配達は土曜日の午後です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
@@ -7654,7 +7654,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：会社について聞きました。\nB：はい、昼休みは一時間です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：会社の昼休みについて確認したいです。\nB：昼休みは一時間です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
@@ -7719,7 +7719,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：映画館について教えてください。\nB：上映時間のことですね。午後八時です。\nA：分かりました。",
+      "transcript": "A：映画館の上映時間について確認したいです。\nB：上映時間は午後八時です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この話で確認したいことは何ですか。",
@@ -7784,7 +7784,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：町のセンターについて聞きました。\nB：はい、日本語教室は水曜日の夜です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：町のセンターの日本語教室について確認したいです。\nB：日本語教室は水曜日の夜です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
@@ -7849,7 +7849,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：家について聞きました。\nB：はい、掃除は客が来る前です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：家の掃除について確認したいです。\nB：掃除は客が来る前です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
@@ -7914,7 +7914,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：電車について教えてください。\nB：遅れのことですね。雨のためです。\nA：分かりました。",
+      "transcript": "A：電車の遅れについて確認したいです。\nB：遅れは雨のためです。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この話で確認したいことは何ですか。",
@@ -7979,7 +7979,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：レストランについて聞きました。\nB：はい、窓側の席は七時半です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：レストランの窓側の席について確認したいです。\nB：窓側の席は七時半です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
@@ -8044,7 +8044,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：市民プールについて聞きました。\nB：はい、利用時間は水曜日以外です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：市民プールの利用時間について確認したいです。\nB：利用時間は水曜日以外です。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。それを覚えておきます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
@@ -8109,7 +8109,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：市役所で何と言いますか。\nB：住所変更をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：担当者に住所変更をお願いしたいのですが、何と言えばいいですか。\nB：市役所では「住所変更をお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8176,7 +8176,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：会社で、どう言えばいいですか。\nB：会議資料をお願いします。\nA：ありがとうございます。",
+      "transcript": "A：同僚に会議資料をお願いしたいのですが、何と言えばいいですか。\nB：会社では「会議資料をお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8243,7 +8243,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：薬局で何と言いますか。\nB：薬をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：薬剤師に薬をお願いしたいのですが、何と言えばいいですか。\nB：薬局では「薬をお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8310,7 +8310,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：駅で何と言いますか。\nB：乗り換えをお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：駅員に乗り換えをお願いしたいのですが、何と言えばいいですか。\nB：駅では「乗り換えをお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8377,7 +8377,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：市民センターで、どう言えばいいですか。\nB：料理教室をお願いします。\nA：ありがとうございます。",
+      "transcript": "A：受付に料理教室をお願いしたいのですが、何と言えばいいですか。\nB：市民センターでは「料理教室をお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8444,7 +8444,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：料理教室で何と言いますか。\nB：野菜をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：先生に野菜をお願いしたいのですが、何と言えばいいですか。\nB：料理教室では「野菜をお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8511,7 +8511,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：アパートで何と言いますか。\nB：水道をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：管理会社に水道をお願いしたいのですが、何と言えばいいですか。\nB：アパートでは「水道をお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8578,7 +8578,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：旅行会社で、どう言えばいいですか。\nB：ホテルをお願いします。\nA：ありがとうございます。",
+      "transcript": "A：係員にホテルをお願いしたいのですが、何と言えばいいですか。\nB：旅行会社では「ホテルをお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8645,7 +8645,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：病院で何と言いますか。\nB：検査をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：医者に検査をお願いしたいのですが、何と言えばいいですか。\nB：病院では「検査をお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8712,7 +8712,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：スーパーで何と言いますか。\nB：割引券をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：店員に割引券をお願いしたいのですが、何と言えばいいですか。\nB：スーパーでは「割引券をお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8779,7 +8779,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：学校で、どう言えばいいですか。\nB：発表をお願いします。\nA：ありがとうございます。",
+      "transcript": "A：クラスメートに発表をお願いしたいのですが、何と言えばいいですか。\nB：学校では「発表をお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8846,7 +8846,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：公園で何と言いますか。\nB：花をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：隣人に花をお願いしたいのですが、何と言えばいいですか。\nB：公園では「花をお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8913,7 +8913,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：宅配便の営業所で何と言いますか。\nB：再配達をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：配達員に再配達をお願いしたいのですが、何と言えばいいですか。\nB：宅配便の営業所では「再配達をお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8980,7 +8980,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：会社で、どう言えばいいですか。\nB：昼休みをお願いします。\nA：ありがとうございます。",
+      "transcript": "A：上司に昼休みをお願いしたいのですが、何と言えばいいですか。\nB：会社では「昼休みをお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -9047,7 +9047,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：映画館で何と言いますか。\nB：上映時間をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：友達に上映時間をお願いしたいのですが、何と言えばいいですか。\nB：映画館では「上映時間をお願いします」と伝えてください。ただ、予定が変わった場合は先に知らせてください。\nA：分かりました。そう伝えます。\nB：はい、お願いします。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -9114,7 +9114,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：市役所のことを覚えておきたいです。\nB：住所変更は来週の火曜日です。\nA：はい、覚えておきます。",
+      "transcript": "A：市役所の住所変更について聞きたいです。\nB：来週の火曜日です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9179,7 +9179,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：会社について教えてください。\nB：会議資料は午後三時です。\nA：分かりました。",
+      "transcript": "A：会社の会議資料について聞きたいです。\nB：午後三時です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9244,7 +9244,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：薬局について教えてください。\nB：薬は食事のあとです。\nA：分かりました。",
+      "transcript": "A：薬局の薬について聞きたいです。\nB：食事のあとです。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9309,7 +9309,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：駅のことを覚えておきたいです。\nB：乗り換えは四番線です。\nA：はい、覚えておきます。",
+      "transcript": "A：駅の乗り換えについて聞きたいです。\nB：四番線です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9374,7 +9374,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：市民センターについて教えてください。\nB：料理教室は毎週土曜日です。\nA：分かりました。",
+      "transcript": "A：市民センターの料理教室について聞きたいです。\nB：毎週土曜日です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9439,7 +9439,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：料理教室について教えてください。\nB：野菜は最初にです。\nA：分かりました。",
+      "transcript": "A：料理教室の野菜について聞きたいです。\nB：最初にです。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9504,7 +9504,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：アパートのことを覚えておきたいです。\nB：水道は明日の午前です。\nA：はい、覚えておきます。",
+      "transcript": "A：アパートの水道について聞きたいです。\nB：明日の午前です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9569,7 +9569,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：旅行会社について教えてください。\nB：ホテルは二泊です。\nA：分かりました。",
+      "transcript": "A：旅行会社のホテルについて聞きたいです。\nB：二泊です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9634,7 +9634,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：病院について教えてください。\nB：検査は午後二時半です。\nA：分かりました。",
+      "transcript": "A：病院の検査について聞きたいです。\nB：午後二時半です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9699,7 +9699,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：スーパーのことを覚えておきたいです。\nB：割引券は今月末までです。\nA：はい、覚えておきます。",
+      "transcript": "A：スーパーの割引券について聞きたいです。\nB：今月末までです。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9764,7 +9764,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：学校について教えてください。\nB：発表は金曜日です。\nA：分かりました。",
+      "transcript": "A：学校の発表について聞きたいです。\nB：金曜日です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9829,7 +9829,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：公園について教えてください。\nB：花は雨が降る前です。\nA：分かりました。",
+      "transcript": "A：公園の花について聞きたいです。\nB：雨が降る前です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9894,7 +9894,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：宅配便の営業所のことを覚えておきたいです。\nB：再配達は土曜日の午後です。\nA：はい、覚えておきます。",
+      "transcript": "A：宅配便の営業所の再配達について聞きたいです。\nB：土曜日の午後です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9959,7 +9959,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：会社について教えてください。\nB：昼休みは一時間です。\nA：分かりました。",
+      "transcript": "A：会社の昼休みについて聞きたいです。\nB：一時間です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -10024,7 +10024,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：映画館について教えてください。\nB：上映時間は午後八時です。\nA：分かりました。",
+      "transcript": "A：映画館の上映時間について聞きたいです。\nB：午後八時です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -10089,7 +10089,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：町のセンターのことを覚えておきたいです。\nB：日本語教室は水曜日の夜です。\nA：はい、覚えておきます。",
+      "transcript": "A：町のセンターの日本語教室について聞きたいです。\nB：水曜日の夜です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -10154,7 +10154,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：家について教えてください。\nB：掃除は客が来る前です。\nA：分かりました。",
+      "transcript": "A：家の掃除について聞きたいです。\nB：客が来る前です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -10219,7 +10219,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：電車について教えてください。\nB：遅れは雨のためです。\nA：分かりました。",
+      "transcript": "A：電車の遅れについて聞きたいです。\nB：雨のためです。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -10284,7 +10284,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：レストランのことを覚えておきたいです。\nB：窓側の席は七時半です。\nA：はい、覚えておきます。",
+      "transcript": "A：レストランの窓側の席について聞きたいです。\nB：七時半です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -10349,7 +10349,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：市民プールについて教えてください。\nB：利用時間は水曜日以外です。\nA：分かりました。",
+      "transcript": "A：市民プールの利用時間について聞きたいです。\nB：水曜日以外です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -10414,7 +10414,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：市役所について教えてください。\nB：証明書は平日の午後です。\nA：分かりました。",
+      "transcript": "A：市役所の証明書について聞きたいです。\nB：平日の午後です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -10479,7 +10479,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：会社のことを覚えておきたいです。\nB：出張は来月の三日です。\nA：はい、覚えておきます。",
+      "transcript": "A：会社の出張について聞きたいです。\nB：来月の三日です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -10544,7 +10544,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：病院について教えてください。\nB：診察券は受付の前です。\nA：分かりました。",
+      "transcript": "A：病院の診察券について聞きたいです。\nB：受付の前です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -10609,7 +10609,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：駅について教えてください。\nB：定期券は来週までです。\nA：分かりました。",
+      "transcript": "A：駅の定期券について聞きたいです。\nB：来週までです。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -10674,7 +10674,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：地域センターのことを覚えておきたいです。\nB：講演会は午後六時です。\nA：はい、覚えておきます。",
+      "transcript": "A：地域センターの講演会について聞きたいです。\nB：午後六時です。もし予定が変わったら、先に確認してください。\nA：では、そのことを覚えておきます。\nB：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",

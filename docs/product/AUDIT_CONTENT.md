@@ -1941,6 +1941,10 @@ Use more as appropriate.
 
 # C52. N4 LISTENING MUST FEEL QUALITATIVELY HARDER
 
+## Current implementation status (2026-09-04)
+
+- [~] The authored listening generator now gives N4 a distinct four-turn dialogue path with schedule/condition/sequence dependency cues, while N5 retains the shorter three-turn path. The current audit measures N5 at 3.0 lines / 44 characters on average and N4 at 4.0 lines / 94 characters, with cue markers in 80/80 N4 items; this is a structural difficulty signal, not a substitute for level calibration or native review.
+
 N4 difficulty should include more:
 
 ```text
