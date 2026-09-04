@@ -8,6 +8,11 @@ function examples(value: unknown, fallback: ExampleSentence[] = []) {
   return Array.isArray(value) ? value as ExampleSentence[] : fallback;
 }
 
+function example(value: unknown) {
+  if (typeof value !== "object" || value === null || Array.isArray(value)) return undefined;
+  return typeof (value as ExampleSentence).japanese === "string" && typeof (value as ExampleSentence).translation === "string" ? value as ExampleSentence : undefined;
+}
+
 function strings(value: unknown) {
   return Array.isArray(value) ? value.filter((entry): entry is string => typeof entry === "string") : [];
 }
@@ -101,12 +106,12 @@ export async function fetchSupabaseN5Module(seed: N5Module): Promise<N5Module | 
   }).filter((item): item is KanjiItem => Boolean(item));
   const grammar = normalizeGrammarPracticeIds((grammarResult.data ?? []).map((row): GrammarItem | null => {
     const base = items.get(row.item_id);
-    return base ? { ...baseItem(base, row.pattern, sourceIdsByItem, classificationsByItem), category: "grammar", pattern: row.pattern, meaning: row.meaning, formation: row.formation, intuition: row.intuition, usageConditions: row.usage_conditions, examples: examples(row.examples), commonMistakes: row.common_mistakes, contrastIds: row.contrast_ids, practiceQuestionIds: row.practice_question_ids } : null;
+    return base ? { ...baseItem(base, row.pattern, sourceIdsByItem, classificationsByItem), category: "grammar", pattern: row.pattern, meaning: row.meaning, formation: row.formation, intuition: row.intuition, usageConditions: row.usage_conditions, examples: examples(row.examples), commonMistakes: row.common_mistakes, contrastIds: row.contrast_ids, practiceQuestionIds: row.practice_question_ids, aliases: strings(row.aliases), context: example(row.context) } : null;
   }).filter((item): item is GrammarItem => Boolean(item)));
   const readings = (readingResult.data ?? []).map((row): ReadingItem | null => {
     const base = items.get(row.item_id);
     const fallback = seed.readings.find((item) => item.id === row.item_id);
-    return base ? { ...baseItem(base, row.title, sourceIdsByItem, classificationsByItem), category: "reading", title: row.title, passage: row.passage, translation: row.translation, vocabularyIds: row.vocabulary_ids, grammarIds: row.grammar_ids, kanjiIds: row.kanji_ids, estimatedDifficulty: row.estimated_difficulty, questions: fallback?.questions } : null;
+    return base ? { ...baseItem(base, row.title, sourceIdsByItem, classificationsByItem), category: "reading", title: row.title, passage: row.passage, translation: row.translation, vocabularyIds: row.vocabulary_ids, grammarIds: row.grammar_ids, kanjiIds: row.kanji_ids, estimatedDifficulty: row.estimated_difficulty, visualFormat: row.visual_format as ReadingItem["visualFormat"] ?? fallback?.visualFormat, questions: Array.isArray(row.questions) && row.questions.length ? row.questions as ReadingItem["questions"] : fallback?.questions } : null;
   }).filter((item): item is ReadingItem => Boolean(item));
   const listening = (listeningResult.data ?? []).map((row): ListeningItem | null => {
     const base = items.get(row.item_id);

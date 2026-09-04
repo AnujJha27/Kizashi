@@ -708,6 +708,22 @@ test("schema repair migration covers a stale migration history", async () => {
   assert.match(repair, /drop policy if exists "public read courses"/);
 });
 
+test("grammar context and reading practice data survive the Supabase boundary", async () => {
+  const migration = await readFile(new URL("../supabase/migrations/0020_learning_context_fields.sql", import.meta.url), "utf8");
+  const types = await readFile(new URL("../lib/types.ts", import.meta.url), "utf8");
+  const content = await readFile(new URL("../lib/supabase/content.ts", import.meta.url), "utf8");
+  const renderer = await readFile(new URL("../scripts/render_supabase_content_sql.py", import.meta.url), "utf8");
+  const seed = await readFile(new URL("../supabase/seed.sql", import.meta.url), "utf8");
+  for (const field of ["aliases", "context", "visual_format", "questions"]) {
+    assert.match(migration, new RegExp(`add column if not exists ${field}`));
+    assert.match(types, new RegExp(field));
+    assert.match(content, new RegExp(field));
+    assert.match(renderer, new RegExp(field));
+  }
+  assert.match(seed, /item\.aliases[\s\S]*item\.context/);
+  assert.match(seed, /item\."visualFormat"[\s\S]*item\.questions/);
+});
+
 test("audio metadata is persisted without an audio blob", async () => {
   const migration = await readFile(new URL("../supabase/migrations/0018_audio_metadata.sql", import.meta.url), "utf8");
   const types = await readFile(new URL("../lib/types.ts", import.meta.url), "utf8");

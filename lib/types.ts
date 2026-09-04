@@ -422,7 +422,7 @@ export interface Database {
         Relationships: [];
       };
       grammar_points: {
-        Row: { item_id: string; pattern: string; meaning: string; formation: string; intuition: string; usage_conditions: string[]; examples: unknown; common_mistakes: string[]; contrast_ids: string[]; practice_question_ids: string[] };
+        Row: { item_id: string; pattern: string; meaning: string; formation: string; intuition: string; usage_conditions: string[]; examples: unknown; common_mistakes: string[]; contrast_ids: string[]; practice_question_ids: string[]; aliases: string[]; context: unknown };
         Insert: Omit<Database["public"]["Tables"]["grammar_points"]["Row"], "item_id"> & { item_id: string };
         Update: Partial<Database["public"]["Tables"]["grammar_points"]["Row"]>;
         Relationships: [];
@@ -434,7 +434,7 @@ export interface Database {
         Relationships: [];
       };
       readings: {
-        Row: { item_id: string; title: string; passage: string; translation: string; vocabulary_ids: string[]; grammar_ids: string[]; kanji_ids: string[]; estimated_difficulty: number };
+        Row: { item_id: string; title: string; passage: string; translation: string; vocabulary_ids: string[]; grammar_ids: string[]; kanji_ids: string[]; estimated_difficulty: number; visual_format: string | null; questions: unknown };
         Insert: Omit<Database["public"]["Tables"]["readings"]["Row"], "item_id"> & { item_id: string };
         Update: Partial<Database["public"]["Tables"]["readings"]["Row"]>;
         Relationships: [];

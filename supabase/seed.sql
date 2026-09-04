@@ -315,15 +315,15 @@ begin
   insert into public.kanji (item_id, character, meanings, onyomi, kunyomi, stroke_count, grade, radical, nanori, components, mnemonic, stroke_order, useful_words)
   select item.id, item.character, item.meanings, item.onyomi, item.kunyomi, item."strokeCount", item.grade, item.radical, coalesce(item.nanori, '{}'), coalesce(item.components, '{}'), item.mnemonic, item."strokeOrder", item."usefulWords"
   from jsonb_to_recordset(payload->'kanji') as item(id text, character text, meanings text[], onyomi text[], kunyomi text[], "strokeCount" integer, grade integer, radical text, nanori text[], components text[], mnemonic text, "strokeOrder" text, "usefulWords" jsonb) on conflict (item_id) do nothing;
-  insert into public.grammar_points (item_id, pattern, meaning, formation, intuition, usage_conditions, examples, common_mistakes, contrast_ids, practice_question_ids)
-  select item.id, item.pattern, item.meaning, item.formation, item.intuition, item."usageConditions", item.examples, item."commonMistakes", item."contrastIds", item."practiceQuestionIds"
-  from jsonb_to_recordset(payload->'grammar') as item(id text, pattern text, meaning text, formation text, intuition text, "usageConditions" text[], examples jsonb, "commonMistakes" text[], "contrastIds" text[], "practiceQuestionIds" text[]) on conflict (item_id) do nothing;
+  insert into public.grammar_points (item_id, pattern, meaning, formation, intuition, usage_conditions, examples, common_mistakes, contrast_ids, practice_question_ids, aliases, context)
+  select item.id, item.pattern, item.meaning, item.formation, item.intuition, item."usageConditions", item.examples, item."commonMistakes", item."contrastIds", item."practiceQuestionIds", coalesce(item.aliases, array[]::text[]), coalesce(item.context, '{}'::jsonb)
+  from jsonb_to_recordset(payload->'grammar') as item(id text, pattern text, meaning text, formation text, intuition text, "usageConditions" text[], examples jsonb, "commonMistakes" text[], "contrastIds" text[], "practiceQuestionIds" text[], aliases text[], context jsonb) on conflict (item_id) do nothing;
   insert into public.grammar_contrasts (id, title, grammar_point_ids, explanation, examples, exercises)
   select item.id, item.title, item."grammarPointIds", item.explanation, item.examples, item.exercises
   from jsonb_to_recordset(payload->'grammarContrasts') as item(id text, title text, "grammarPointIds" text[], explanation text, examples jsonb, exercises text[]) on conflict (id) do nothing;
-  insert into public.readings (item_id, title, passage, translation, vocabulary_ids, grammar_ids, kanji_ids, estimated_difficulty)
-  select item.id, item.title, item.passage, item.translation, item."vocabularyIds", item."grammarIds", item."kanjiIds", item."estimatedDifficulty"
-  from jsonb_to_recordset(payload->'readings') as item(id text, title text, passage text, translation text, "vocabularyIds" text[], "grammarIds" text[], "kanjiIds" text[], "estimatedDifficulty" integer) on conflict (item_id) do nothing;
+  insert into public.readings (item_id, title, passage, translation, vocabulary_ids, grammar_ids, kanji_ids, estimated_difficulty, visual_format, questions)
+  select item.id, item.title, item.passage, item.translation, item."vocabularyIds", item."grammarIds", item."kanjiIds", item."estimatedDifficulty", item."visualFormat", coalesce(item.questions, '[]'::jsonb)
+  from jsonb_to_recordset(payload->'readings') as item(id text, title text, passage text, translation text, "vocabularyIds" text[], "grammarIds" text[], "kanjiIds" text[], "estimatedDifficulty" integer, "visualFormat" text, questions jsonb) on conflict (item_id) do nothing;
   insert into public.listening_exercises (item_id, title, situation, audio_url, voice, speed, source_type, transcript, questions)
   select item.id, item.title, item.situation, item."audioUrl", item.voice, item.speed, item."sourceType", item.transcript, item.questions
   from jsonb_to_recordset(payload->'listening') as item(id text, title text, situation text, "audioUrl" text, voice text, speed numeric, "sourceType" text, transcript text, questions jsonb) on conflict (item_id) do nothing;
