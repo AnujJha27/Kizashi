@@ -7,17 +7,17 @@
       "complete": 16,
       "partial": 24,
       "missing": 6,
-      "unresolved": 110,
+      "unresolved": 108,
       "levelDisagreements": 4
     },
     "N4": {
-      "rawPatterns": 170,
-      "canonicalConcepts": 52,
+      "rawPatterns": 173,
+      "canonicalConcepts": 55,
       "complete": 3,
-      "partial": 44,
+      "partial": 47,
       "missing": 5,
       "unresolved": 94,
-      "levelDisagreements": 4
+      "levelDisagreements": 6
     }
   },
   "canonical": [
@@ -984,6 +984,43 @@
       "levelDisagreements": []
     },
     {
+      "id": "grammar-koto-nominalization",
+      "pattern": "〜こと",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": [
+        "N5"
+      ]
+    },
+    {
+      "id": "grammar-no-nominalization",
+      "pattern": "〜の（名詞化）",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 2,
+      "status": "partial",
+      "levelDisagreements": [
+        "N5"
+      ]
+    },
+    {
+      "id": "grammar-koto-ga-aru",
+      "pattern": "〜ことがある（時々）",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
       "id": "grammar-to-omou",
       "pattern": "〜と思う",
       "level": "N4",
@@ -1439,12 +1476,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-a15be968c4c4",
-      "pattern": "V-ることです",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-14fa6f245c48",
       "pattern": "Nができます",
       "level": "N5"
@@ -1609,12 +1640,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-d2ed8fb00300",
       "pattern": "N1はN2がナA-です／イA-いです ①",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-14056c3e655d",
-      "pattern": "NはV-るのがナA-／イA-いです ①",
       "level": "N5"
     },
     {
@@ -2507,12 +2532,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-ff1fcd2ec1eb",
-      "pattern": "V-ることがある",
-      "level": "Intermediate 1"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-8c2cef903677",
       "pattern": "おVです ＜尊敬語③＞",
       "level": "Intermediate 2"
@@ -2728,7 +2747,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 93
+      "references": 97
     },
     {
       "id": "tae-kim",

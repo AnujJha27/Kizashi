@@ -287,6 +287,29 @@
             ]
           }
         ]
+      },
+      {
+        "id": "chapter-n4-nominalization-capability",
+        "slug": "n4-nominalization-capability",
+        "title": "Turning actions into ideas",
+        "description": "Use こと and の to treat actions as topics, preferences, and experiences, then connect them to ability and possibility.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-nominalization-capability",
+            "slug": "n4-nominalization-capability",
+            "title": "Turning actions into ideas",
+            "subtitle": "名詞化と可能性",
+            "description": "Compare verb nominalization with こと and の, then distinguish general ability from events that sometimes happen.",
+            "estimatedMinutes": 20,
+            "itemIds": [
+              "grammar-koto-nominalization",
+              "grammar-no-nominalization",
+              "grammar-koto-ga-dekiru",
+              "grammar-koto-ga-aru"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -1393,7 +1416,7 @@
         {"japanese": "ここで写真を撮ることができません。", "translation": "You cannot take photos here."}
       ],
       "commonMistakes": ["Do not use the ます-form before ことができる; use the dictionary form.", "Both potential verbs and ことができる express ability, but do not mix their formations in one sentence."],
-      "contrastIds": ["contrast-n4-potential-system"],
+      "contrastIds": ["contrast-n4-potential-system", "contrast-n4-nominalization-capability"],
       "practiceQuestionIds": ["grammar-koto-ga-dekiru-1", "grammar-koto-ga-dekiru-2"],
       "sourceIds": ["irodori-sentence-patterns"]
     },
@@ -1627,6 +1650,96 @@
       "commonMistakes": ["Do not use ていた for a completed single event when the ongoing or former-state meaning is not intended.", "Keep the past auxiliary いた／いました after the て-form; do not stop at ている for a past-time context."],
       "contrastIds": [],
       "practiceQuestionIds": ["grammar-te-ita-1", "grammar-te-ita-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-koto-nominalization",
+      "slug": "koto-nominalization",
+      "title": "こと（名詞化）",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "nominalization and capability",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "nominalization", "actions", "topics"],
+      "pattern": "〜こと",
+      "meaning": "the act or fact of doing",
+      "formation": "Verb plain form + こと; the resulting noun phrase can be followed by です, は, が, or another particle.",
+      "intuition": "こと turns an action or event into an idea that can be named, discussed, or evaluated.",
+      "usageConditions": [
+        "Use it when an action is being treated as a general topic, fact, rule, or skill.",
+        "Use a plain verb form before こと, including the plain negative or past form when the meaning requires it.",
+        "Prefer の in conversational patterns that focus on a concrete action or personal feeling, and compare the context rather than treating the two as interchangeable everywhere."
+      ],
+      "examples": [
+        {"japanese": "趣味は映画を見ることです。", "translation": "My hobby is watching movies."},
+        {"japanese": "毎朝歩くことは健康にいいです。", "translation": "Walking every morning is good for your health."},
+        {"japanese": "日本語を話すことが楽しいです。", "translation": "Speaking Japanese is fun."},
+        {"japanese": "大切なことは、毎日続けることです。", "translation": "The important thing is to continue every day."}
+      ],
+      "commonMistakes": ["Keep the verb in plain form before こと; do not use 見ますこと for the nominalized action.", "Do not confuse action nominalization with ことがある for occasional events or たことがある for past experience."],
+      "contrastIds": ["contrast-n4-nominalization-capability"],
+      "practiceQuestionIds": ["grammar-koto-nominalization-1", "grammar-koto-nominalization-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-no-nominalization",
+      "slug": "no-nominalization",
+      "title": "の（名詞化）",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "nominalization and capability",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "nominalization", "conversation", "preference"],
+      "pattern": "〜の（名詞化）",
+      "meaning": "doing; the act of doing",
+      "formation": "Verb plain form + の; the nominalized phrase commonly takes が／は／を in patterns about preference, difficulty, or stopping an action.",
+      "intuition": "の makes a concrete action feel like a thing the speaker can like, dislike, find difficult, or stop.",
+      "usageConditions": [
+        "Use it in conversational patterns such as V-るのが好き, V-るのは大変, and V-るのをやめる.",
+        "Use a plain verb form before の and choose the following particle from the larger expression.",
+        "Contrast it with こと when a general fact, rule, or more formal nominalized idea is intended."
+      ],
+      "examples": [
+        {"japanese": "ゲームをするのが好きです。", "translation": "I like playing games."},
+        {"japanese": "日本語を話すのは大変ですが、楽しいです。", "translation": "Speaking Japanese is difficult, but it is fun."},
+        {"japanese": "夜遅くまで働くのをやめました。", "translation": "I stopped working until late at night."},
+        {"japanese": "料理をするのが楽しいです。", "translation": "Cooking is enjoyable."}
+      ],
+      "commonMistakes": ["Do not use the polite ます form before nominalizing の; use 話すの, not 話しますの.", "Keep the particle required by the expression, such as のが好き or のをやめる; の alone is not the whole sentence pattern."],
+      "contrastIds": ["contrast-n4-nominalization-capability"],
+      "practiceQuestionIds": ["grammar-no-nominalization-1", "grammar-no-nominalization-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-koto-ga-aru",
+      "slug": "koto-ga-aru",
+      "title": "ことがある（時々）",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "nominalization and capability",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "frequency", "possibility", "events"],
+      "pattern": "〜ことがある（時々）",
+      "meaning": "sometimes do; there are times when",
+      "formation": "Verb dictionary or plain form + ことがある for occasional events; past experience uses た-form + ことがある instead.",
+      "intuition": "ことがある says that an event occurs on some occasions without saying it is happening now.",
+      "usageConditions": [
+        "Use the dictionary or plain non-past form for something that sometimes happens.",
+        "Use たことがある when the meaning is having done something at least once in the past.",
+        "Use frequency or situation context when the listener needs to know why the event is occasional."
+      ],
+      "examples": [
+        {"japanese": "休日に映画を見ることがあります。", "translation": "I sometimes watch movies on holidays."},
+        {"japanese": "仕事で東京へ行くことがあります。", "translation": "I sometimes go to Tokyo for work."},
+        {"japanese": "忙しい日は、朝ご飯を食べないことがあります。", "translation": "On busy days, I sometimes do not eat breakfast."},
+        {"japanese": "この道は冬に凍ることがあります。", "translation": "This road sometimes freezes in winter."}
+      ],
+      "commonMistakes": ["Do not use たことがある for a recurring event unless past experience is intended; compare 見ることがあります with 見たことがあります.", "Do not read ことがある as the event happening at this moment; it describes an occasional pattern."],
+      "contrastIds": ["contrast-n4-nominalization-capability"],
+      "practiceQuestionIds": ["grammar-koto-ga-aru-1", "grammar-koto-ga-aru-2"],
       "sourceIds": ["irodori-sentence-patterns"]
     },
     {
@@ -2217,6 +2330,31 @@
     "exercises": [
       "Choose と思う for the speaker's own opinion, と言う for quoted speech, and と聞く for information received by hearing.",
       "Choose という when a name or phrase is identifying or defining a following noun, not when a person is speaking."
+    ]
+  },
+  {
+    "id": "contrast-n4-nominalization-capability",
+    "title": "Nominalized actions, ability, and occasional events",
+    "grammarPointIds": [
+      "grammar-koto-nominalization",
+      "grammar-no-nominalization",
+      "grammar-koto-ga-dekiru",
+      "grammar-koto-ga-aru"
+    ],
+    "explanation": "こと and の turn an action into a noun-like idea, with こと often framing a general fact and の often focusing on a concrete conversational action. ことができる expresses ability, while dictionary form + ことがある expresses an occasional event; たことがある instead describes past experience.",
+    "examples": [
+      {
+        "japanese": "趣味は映画を見ることです。",
+        "translation": "My hobby is watching movies."
+      },
+      {
+        "japanese": "休日に映画を見ることがあります。",
+        "translation": "I sometimes watch movies on holidays."
+      }
+    ],
+    "exercises": [
+      "Choose こと or の from the surrounding expression: general fact and rule patterns favor こと, while preference and concrete-action patterns commonly use の.",
+      "Choose ことができる for ability, dictionary form + ことがある for occasional events, and たことがある for past experience."
     ]
   }
 ],
