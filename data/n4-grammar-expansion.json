@@ -335,6 +335,31 @@
             ]
           }
         ]
+      },
+      {
+        "id": "chapter-n4-time-aspect",
+        "slug": "n4-time-aspect",
+        "title": "Time and aspect",
+        "description": "Place actions inside a time window and distinguish what is about to happen, in progress, newly finished, or recently completed.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-time-aspect",
+            "slug": "n4-time-aspect",
+            "title": "Time and aspect",
+            "subtitle": "時間と相",
+            "description": "Compare 間, 間に, ところ, and ばかり for timing and action phase.",
+            "estimatedMinutes": 26,
+            "itemIds": [
+              "grammar-aida",
+              "grammar-aida-ni",
+              "grammar-tokoro",
+              "grammar-teiru-tokoro",
+              "grammar-ta-tokoro",
+              "grammar-bakari"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -2308,6 +2333,162 @@
       "practiceQuestionIds": ["grammar-yotei-1", "grammar-yotei-2"],
       "sourceIds": ["michi-authored-n4-grammar"],
       "notes": "Original Kizashi bridge item for the documented 予定だ target; no direct cached source mapping is claimed yet."
+    },
+    {
+      "id": "grammar-aida",
+      "slug": "aida",
+      "title": "間",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "time and aspect",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "time", "duration"],
+      "pattern": "Vる間",
+      "meaning": "while; during the time that",
+      "formation": "Plain form + 間; noun + の間.",
+      "intuition": "間 holds a second action inside the whole time span of the first situation.",
+      "usageConditions": ["Use it when the main action continues during a bounded period.", "Use の間 after a noun such as 休みの間."] ,
+      "examples": [
+        {"japanese": "夏休みの間、日本へ行きます。", "translation": "During summer vacation, I will go to Japan."},
+        {"japanese": "母が料理をしている間、宿題をします。", "translation": "While my mother is cooking, I do homework."},
+        {"japanese": "電車に乗っている間、本を読みました。", "translation": "While riding the train, I read a book."},
+        {"japanese": "先生が話している間、静かにしてください。", "translation": "Please be quiet while the teacher is speaking."}
+      ],
+      "commonMistakes": ["間 describes the whole span, not only a point within it.", "Use a plain clause before 間 and の after a noun."] ,
+      "contrastIds": ["contrast-n4-time-aspect"],
+      "practiceQuestionIds": ["grammar-aida-1", "grammar-aida-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-aida-ni",
+      "slug": "aida-ni",
+      "title": "間に",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "time and aspect",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "time", "opportunity"],
+      "pattern": "Vる間に",
+      "meaning": "while; before the time ends",
+      "formation": "Plain form + 間に; noun + の間に.",
+      "intuition": "間に marks an event that happens at some point inside a time window.",
+      "usageConditions": ["Use it for a bounded event that occurs during the interval.", "Contrast it with 間 when the second action continues across the whole interval."] ,
+      "examples": [
+        {"japanese": "電車を待っている間に、メールを送りました。", "translation": "While waiting for the train, I sent an email."},
+        {"japanese": "休みの間に、部屋を掃除します。", "translation": "During the break, I will clean my room."},
+        {"japanese": "寝ている間に、雨がやみました。", "translation": "While I was sleeping, the rain stopped."},
+        {"japanese": "母が買い物をしている間に、料理を作りました。", "translation": "While my mother was shopping, I cooked."}
+      ],
+      "commonMistakes": ["間に focuses on an event occurring within the window, not continuous overlap.", "Do not omit に when you mean a one-time event inside the interval."] ,
+      "contrastIds": ["contrast-n4-time-aspect"],
+      "practiceQuestionIds": ["grammar-aida-ni-1", "grammar-aida-ni-2"],
+      "sourceIds": ["michi-authored-n4-grammar"]
+    },
+    {
+      "id": "grammar-tokoro",
+      "slug": "tokoro",
+      "title": "ところ",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "time and aspect",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "time", "phase"],
+      "pattern": "Vるところ",
+      "meaning": "be about to do; be at the point of",
+      "formation": "Verb dictionary form + ところだ for an action about to begin.",
+      "intuition": "ところ zooms in on the exact phase of an action.",
+      "usageConditions": ["Use dictionary form for an action about to start.", "Use ているところ and たところ for the in-progress and just-finished phases."] ,
+      "examples": [
+        {"japanese": "今から昼ご飯を食べるところです。", "translation": "I am just about to eat lunch."},
+        {"japanese": "これから駅へ行くところです。", "translation": "I am just about to go to the station."},
+        {"japanese": "今、電話をかけるところです。", "translation": "I am just about to make a call."},
+        {"japanese": "会議が始まるところです。", "translation": "The meeting is just about to begin."}
+      ],
+      "commonMistakes": ["Dictionary form + ところ marks an action before it starts, not an action already in progress.", "Use ところだ for the phase, not simply a place meaning of ところ."] ,
+      "contrastIds": ["contrast-n4-time-aspect"],
+      "practiceQuestionIds": ["grammar-tokoro-1", "grammar-tokoro-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-teiru-tokoro",
+      "slug": "teiru-tokoro",
+      "title": "ているところ",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "time and aspect",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-te-form"],
+      "tags": ["N4", "time", "in-progress"],
+      "pattern": "Vているところ",
+      "meaning": "be in the middle of doing",
+      "formation": "Verb て-form + いるところだ.",
+      "intuition": "ているところ focuses attention on an action happening right now.",
+      "usageConditions": ["Use it for an action currently underway at the relevant moment.", "Use it when the exact progress phase matters, rather than for a general ongoing state."] ,
+      "examples": [
+        {"japanese": "今、夕食を作っているところです。", "translation": "I am in the middle of making dinner."},
+        {"japanese": "先生に質問しているところです。", "translation": "I am in the middle of asking the teacher a question."},
+        {"japanese": "弟は宿題をしているところです。", "translation": "My younger brother is in the middle of doing homework."},
+        {"japanese": "駅で友達を待っているところです。", "translation": "I am in the middle of waiting for a friend at the station."}
+      ],
+      "commonMistakes": ["Use ている before ところ, not dictionary form for an action already underway.", "Do not use it for every habitual action; it highlights the current phase."] ,
+      "contrastIds": ["contrast-n4-time-aspect"],
+      "practiceQuestionIds": ["grammar-teiru-tokoro-1", "grammar-teiru-tokoro-2"],
+      "sourceIds": ["michi-authored-n4-grammar"]
+    },
+    {
+      "id": "grammar-ta-tokoro",
+      "slug": "ta-tokoro",
+      "title": "たところ",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "time and aspect",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-ta-form"],
+      "tags": ["N4", "time", "completion"],
+      "pattern": "Vたところ",
+      "meaning": "have just done; just finished",
+      "formation": "Verb plain past form + ところだ.",
+      "intuition": "たところ marks the point immediately after an action finishes.",
+      "usageConditions": ["Use it for a result or report immediately following completion.", "Keep the verb in plain past form before ところ."] ,
+      "examples": [
+        {"japanese": "今、仕事が終わったところです。", "translation": "I have just finished work."},
+        {"japanese": "駅に着いたところです。", "translation": "I have just arrived at the station."},
+        {"japanese": "昼ご飯を食べたところです。", "translation": "I have just eaten lunch."},
+        {"japanese": "宿題を全部終えたところです。", "translation": "I have just finished all my homework."}
+      ],
+      "commonMistakes": ["たところ means just finished, not any past event.", "Use plain past form before ところ, not the polite ました form."] ,
+      "contrastIds": ["contrast-n4-time-aspect"],
+      "practiceQuestionIds": ["grammar-ta-tokoro-1", "grammar-ta-tokoro-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-bakari",
+      "slug": "bakari",
+      "title": "ばかり",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "time and aspect",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-ta-form"],
+      "tags": ["N4", "time", "recent"],
+      "pattern": "Vたばかり",
+      "meaning": "have just done; recently did",
+      "formation": "Verb plain past form + ばかりだ.",
+      "intuition": "たばかり presents an action as recent from the speaker's perspective, without requiring the exact immediate moment.",
+      "usageConditions": ["Use it for a completed action that still feels recent.", "The actual elapsed time depends on the speaker's perspective."] ,
+      "examples": [
+        {"japanese": "日本へ来たばかりです。", "translation": "I have just come to Japan."},
+        {"japanese": "この会社で働き始めたばかりです。", "translation": "I have only recently started working at this company."},
+        {"japanese": "さっき昼ご飯を食べたばかりです。", "translation": "I just ate lunch a little while ago."},
+        {"japanese": "新しい部屋に引っ越したばかりです。", "translation": "I have only recently moved into a new room."}
+      ],
+      "commonMistakes": ["ばかり is recent from the speaker's viewpoint; it does not always mean seconds ago.", "Use plain past form before ばかり, not dictionary form."] ,
+      "contrastIds": ["contrast-n4-time-aspect"],
+      "practiceQuestionIds": ["grammar-bakari-1", "grammar-bakari-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
     }
   ],
   "grammarContrasts": [
@@ -2588,6 +2769,33 @@
     "exercises": [
       "Choose のに or けれども／けど for clause-level contrast, and ても when the result holds even if the condition is true.",
       "Choose し or それに to add aligned support, and それでも when the next statement resists the previous obstacle."
+    ]
+  },
+  {
+    "id": "contrast-n4-time-aspect",
+    "title": "Time windows and action phases",
+    "grammarPointIds": [
+      "grammar-aida",
+      "grammar-aida-ni",
+      "grammar-tokoro",
+      "grammar-teiru-tokoro",
+      "grammar-ta-tokoro",
+      "grammar-bakari"
+    ],
+    "explanation": "間 describes an action across a whole time span, 間に marks an event inside that span, and ところ shows an action's exact phase: about to start, in progress, or just finished. たばかり marks a recent completion from the speaker's perspective.",
+    "examples": [
+      {
+        "japanese": "母が料理をしている間、宿題をします。",
+        "translation": "While my mother is cooking, I do homework."
+      },
+      {
+        "japanese": "今、夕食を作っているところです。",
+        "translation": "I am in the middle of making dinner."
+      }
+    ],
+    "exercises": [
+      "Choose 間 for an action spanning the whole window and 間に for an event that happens within it.",
+      "Choose ところ for the exact action phase and たばかり for a recent completion that need not be immediate."
     ]
   }
 ],

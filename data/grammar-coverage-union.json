@@ -11,12 +11,12 @@
       "levelDisagreements": 4
     },
     "N4": {
-      "rawPatterns": 179,
-      "canonicalConcepts": 61,
+      "rawPatterns": 185,
+      "canonicalConcepts": 67,
       "complete": 3,
-      "partial": 52,
-      "missing": 6,
-      "unresolved": 89,
+      "partial": 56,
+      "missing": 8,
+      "unresolved": 88,
       "levelDisagreements": 7
     }
   },
@@ -1219,6 +1219,68 @@
       "evidenceCount": 0,
       "status": "missing",
       "levelDisagreements": []
+    },
+    {
+      "id": "grammar-aida",
+      "pattern": "Vる間",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-aida-ni",
+      "pattern": "Vる間に",
+      "level": "N4",
+      "sourceIds": [],
+      "evidenceCount": 0,
+      "status": "missing",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-tokoro",
+      "pattern": "Vるところ",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-teiru-tokoro",
+      "pattern": "Vているところ",
+      "level": "N4",
+      "sourceIds": [],
+      "evidenceCount": 0,
+      "status": "missing",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-ta-tokoro",
+      "pattern": "Vたところ",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-bakari",
+      "pattern": "Vたばかり",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
     }
   ],
   "unresolved": [
@@ -1902,12 +1964,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-b098c8c9500b",
-      "pattern": "V-たばかりです",
-      "level": "Intermediate 2"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-2dd7211492ef",
       "pattern": "それ／そこ　＜文脈指示＞",
       "level": "N4"
@@ -1989,12 +2045,6 @@
       "recordId": "irodori-grammar-f4086f12db6c",
       "pattern": "S1が、S2",
       "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-554f881acc54",
-      "pattern": "～ところ",
-      "level": "N4"
     },
     {
       "sourceId": "irodori-sentence-patterns",
@@ -2490,12 +2540,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-23e77651d00e",
-      "pattern": "V-る間に、～",
-      "level": "Intermediate 2"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-29a5c064b88a",
       "pattern": "丁寧体・普通体②",
       "level": "N4"
@@ -2658,12 +2702,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-5bf74e1ce0fc",
-      "pattern": "V-たところだ",
-      "level": "Intermediate 1"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-af43742b35e0",
       "pattern": "V-てもらえますか？",
       "level": "Intermediate 2"
@@ -2765,7 +2803,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 105
+      "references": 109
     },
     {
       "id": "tae-kim",

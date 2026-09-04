@@ -1606,5 +1606,69 @@
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
     }
+  ],
+  "grammar-aida": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-23e77651d00e",
+      "sourceCourse": "中級2",
+      "sourceLevel": "Intermediate 2",
+      "pattern": "V-る間に、～",
+      "sectionTitle": "Sentence pattern · 中級2",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: V-る間に、～.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-tokoro": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-554f881acc54",
+      "sourceCourse": "初級2",
+      "sourceLevel": "Elementary 2",
+      "pattern": "～ところ",
+      "sectionTitle": "Sentence pattern · 初級2",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: ～ところ.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-ta-tokoro": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-5bf74e1ce0fc",
+      "sourceCourse": "中級1",
+      "sourceLevel": "Intermediate 1",
+      "pattern": "V-たところだ",
+      "sectionTitle": "Sentence pattern · 中級1",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: V-たところだ.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-bakari": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-b098c8c9500b",
+      "sourceCourse": "中級2",
+      "sourceLevel": "Intermediate 2",
+      "pattern": "V-たばかりです",
+      "sectionTitle": "Sentence pattern · 中級2",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: V-たばかりです.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
   ]
 }
