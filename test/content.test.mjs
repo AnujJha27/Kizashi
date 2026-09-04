@@ -141,8 +141,8 @@ test("the N5 module has meaningful, linked content", async () => {
   assert.ok(["grammar-koto-ni-suru", "grammar-zuni", "grammar-sou-appearance", "grammar-tsumori", "grammar-te-ageru", "grammar-te-oku", "grammar-te-kureru", "grammar-te-shimau", "grammar-te-miru", "grammar-te-morau", "grammar-te-iku", "grammar-te-kuru", "grammar-ni-chigai-nai", "grammar-ni-kimatte-iru", "grammar-mitai", "grammar-rashii", "grammar-wake-ni-wa-ikanai", "grammar-sugiru", "grammar-chu", "grammar-kata"].every((id) => mergedModule.grammar.some((item) => item.id === id)));
   const n4ExpansionGrammar = expansionData.find((data) => data.course.id === "n4-grammar-expansion").grammar;
   const n4ExpansionLessonIds = new Set(expansionData.find((data) => data.course.id === "n4-grammar-expansion").course.chapters.flatMap((chapter) => chapter.lessons).flatMap((lesson) => lesson.itemIds));
-  assert.equal(n4ExpansionGrammar.length, 27);
-  assert.ok(["grammar-to-conditional", "grammar-tara", "grammar-ba", "grammar-nara", "grammar-potential-godan", "grammar-potential-ichidan", "grammar-koto-ga-dekiru"].every((id) => n4ExpansionGrammar.some((item) => item.id === id)));
+  assert.equal(n4ExpansionGrammar.length, 29);
+  assert.ok(["grammar-to-conditional", "grammar-tara", "grammar-ba", "grammar-nara", "grammar-potential-godan", "grammar-potential-ichidan", "grammar-koto-ga-dekiru", "grammar-passive-godan", "grammar-passive-ichidan"].every((id) => n4ExpansionGrammar.some((item) => item.id === id)));
   assert.ok(n4ExpansionGrammar.every((item) => n4ExpansionLessonIds.has(item.id)));
   assert.ok(n4ExpansionGrammar.every((item) => item.examples.length >= 4 && item.examples.every((example) => typeof example.japanese === "string" && typeof example.translation === "string")));
   const authoredQuestionIds = new Set(authoredQuestions.map((question) => question.id));
@@ -424,7 +424,7 @@ test("content completeness separates quantity, fields, review, and context cover
 });
 
 test("every persisted authored question has a semantic review decision", () => {
-  assert.equal(authoredQuestions.length, 170);
+  assert.equal(authoredQuestions.length, 174);
   assert.ok(authoredQuestions.every((question) => question.review?.status === "approved"));
   assert.ok(authoredQuestions.every((question) => question.review?.reviewedBy && question.review?.reviewedAt && question.review?.reviewNotes));
   assert.ok(authoredQuestions.every((question) => question.review?.targetItemIds?.includes(question.itemId)));

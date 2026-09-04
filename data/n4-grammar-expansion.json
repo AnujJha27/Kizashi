@@ -111,6 +111,28 @@
           }
         ]
       }
+      ,
+      {
+        "id": "chapter-n4-passive",
+        "slug": "n4-passive",
+        "title": "Passive situations",
+        "description": "Describe who was affected by an action and distinguish passive meaning from ability.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-passive",
+            "slug": "n4-passive",
+            "title": "Passive situations",
+            "subtitle": "受身の場面",
+            "description": "Use basic passive forms with people and objects, while checking context against potential readings.",
+            "estimatedMinutes": 20,
+            "itemIds": [
+              "grammar-passive-godan",
+              "grammar-passive-ichidan"
+            ]
+          }
+        ]
+      }
     ]
   },
   "vocabulary": [],
@@ -1219,6 +1241,64 @@
       "contrastIds": ["contrast-n4-potential-system"],
       "practiceQuestionIds": ["grammar-koto-ga-dekiru-1", "grammar-koto-ga-dekiru-2"],
       "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-passive-godan",
+      "slug": "passive-godan",
+      "title": "受身形（五段）",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "passive",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-masu"],
+      "tags": ["N4", "passive", "affected-person"],
+      "pattern": "〜れる（五段）",
+      "meaning": "be done to; be affected by (godan verbs)",
+      "formation": "Change the final う-sound of a godan verb to the matching あ-sound and add れる: 書く → 書かれる, 読む → 読まれる.",
+      "intuition": "The passive form puts the affected person or thing in focus instead of the agent's action.",
+      "usageConditions": [
+        "Use に to mark the agent when naming who performed the action.",
+        "Use the passive when the subject is affected by an event; this is different from saying what the subject can do."
+      ],
+      "examples": [
+        {"japanese": "私は先生に名前を呼ばれました。", "translation": "My name was called by the teacher."},
+        {"japanese": "弟は母にしかられました。", "translation": "My younger brother was scolded by our mother."},
+        {"japanese": "この歌は多くの人に歌われています。", "translation": "This song is sung by many people."},
+        {"japanese": "電車の中で足を踏まれました。", "translation": "Someone stepped on my foot on the train."}
+      ],
+      "commonMistakes": ["Do not form godan passive with the え-sound used by potential: 書く becomes 書かれる, not 書けられる.", "Use に for the agent and は or が for the affected subject when the roles need to be clear."],
+      "contrastIds": ["contrast-n4-passive-potential"],
+      "practiceQuestionIds": ["grammar-passive-godan-1", "grammar-passive-godan-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-passive-ichidan",
+      "slug": "passive-ichidan",
+      "title": "受身形（一段）",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "passive",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-masu"],
+      "tags": ["N4", "passive", "affected-person"],
+      "pattern": "〜られる（一段）",
+      "meaning": "be done to; be affected by (ichidan verbs)",
+      "formation": "Remove る from an ichidan verb and add られる: 食べる → 食べられる, 見る → 見られる.",
+      "intuition": "Ichidan passive forms share their shape with potential forms, so the subject's role and the presence of an agent determine the meaning.",
+      "usageConditions": [
+        "Use に for the person or thing that performs the action when it matters.",
+        "Check whether the subject is affected or able: passive and potential readings cannot be separated by the ending alone."
+      ],
+      "examples": [
+        {"japanese": "私は友達に笑われました。", "translation": "I was laughed at by my friend."},
+        {"japanese": "その本は多くの人に読まれています。", "translation": "That book is read by many people."},
+        {"japanese": "子どもは先生にほめられました。", "translation": "The child was praised by the teacher."},
+        {"japanese": "私は弟にケーキを食べられました。", "translation": "My younger brother ate my cake, to my annoyance."}
+      ],
+      "commonMistakes": ["Do not interpret every られる form as ability; an explicit agent with に often signals passive meaning.", "Keep the affected subject as the sentence topic instead of treating the agent as the subject."],
+      "contrastIds": ["contrast-n4-passive-potential"],
+      "practiceQuestionIds": ["grammar-passive-ichidan-1", "grammar-passive-ichidan-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
     }
   ],
   "grammarContrasts": [
@@ -1341,6 +1421,31 @@
     "exercises": [
       "Choose the godan or ichidan potential formation based on the verb class.",
       "Choose ことができる when an explicit, uniform ability construction is the better fit."
+    ]
+  },
+  {
+    "id": "contrast-n4-passive-potential",
+    "title": "Passive and potential られる",
+    "grammarPointIds": [
+      "grammar-passive-godan",
+      "grammar-passive-ichidan",
+      "grammar-potential-godan",
+      "grammar-potential-ichidan"
+    ],
+    "explanation": "Godan passive uses the あ-sound plus れる while godan potential uses the え-sound plus る. Ichidan passive and potential share られる, so the subject's role, agent marker, and sentence meaning determine which reading is intended.",
+    "examples": [
+      {
+        "japanese": "先生に名前を呼ばれました。",
+        "translation": "My name was called by the teacher."
+      },
+      {
+        "japanese": "日本語が話せます。",
+        "translation": "I can speak Japanese."
+      }
+    ],
+    "exercises": [
+      "Choose passive when the subject is affected by an agent marked with に.",
+      "Choose potential when the subject's ability or possibility is the focus."
     ]
   }
 ],

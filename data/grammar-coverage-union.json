@@ -11,12 +11,12 @@
       "levelDisagreements": 4
     },
     "N4": {
-      "rawPatterns": 151,
-      "canonicalConcepts": 32,
+      "rawPatterns": 152,
+      "canonicalConcepts": 34,
       "complete": 0,
-      "partial": 28,
+      "partial": 30,
       "missing": 4,
-      "unresolved": 109,
+      "unresolved": 107,
       "levelDisagreements": 1
     }
   },
@@ -882,6 +882,28 @@
     {
       "id": "grammar-koto-ga-dekiru",
       "pattern": "〜ことができる",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-passive-godan",
+      "pattern": "〜れる（五段）",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-passive-ichidan",
+      "pattern": "〜られる（一段）",
       "level": "N4",
       "sourceIds": [
         "irodori-sentence-patterns"
@@ -1836,12 +1858,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-2675602ad8d8",
-      "pattern": "V-（ら）れます　＜受身①＞ウケミ",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-7244dc2912d2",
       "pattern": "V-（られ）ます　＜可能形②＞カノウケイ",
       "level": "N4"
@@ -1940,12 +1956,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-6b9f40fb9be7",
       "pattern": "V-ないように、～",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-f52cd3f0af58",
-      "pattern": "V-（ら）れます　＜受身②＞ウケミ",
       "level": "N4"
     },
     {
@@ -2657,7 +2667,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 67
+      "references": 69
     },
     {
       "id": "tae-kim",
