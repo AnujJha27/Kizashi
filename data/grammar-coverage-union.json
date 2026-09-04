@@ -11,12 +11,12 @@
       "levelDisagreements": 4
     },
     "N4": {
-      "rawPatterns": 185,
-      "canonicalConcepts": 67,
+      "rawPatterns": 188,
+      "canonicalConcepts": 70,
       "complete": 3,
-      "partial": 56,
-      "missing": 8,
-      "unresolved": 88,
+      "partial": 58,
+      "missing": 9,
+      "unresolved": 86,
       "levelDisagreements": 7
     }
   },
@@ -1281,6 +1281,37 @@
       "evidenceCount": 1,
       "status": "partial",
       "levelDisagreements": []
+    },
+    {
+      "id": "grammar-yasui",
+      "pattern": "Vやすい",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-nikui",
+      "pattern": "Vにくい",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-zurai",
+      "pattern": "Vづらい",
+      "level": "N4",
+      "sourceIds": [],
+      "evidenceCount": 0,
+      "status": "missing",
+      "levelDisagreements": []
     }
   ],
   "unresolved": [
@@ -2246,18 +2277,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-aa8f3d3bb086",
-      "pattern": "V-にくいです",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-e122748dcfce",
-      "pattern": "V-やすいです",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-48269cc7524f",
       "pattern": "N1とN2（と）、どちら／どっちが～か？",
       "level": "N4"
@@ -2803,7 +2822,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 109
+      "references": 111
     },
     {
       "id": "tae-kim",

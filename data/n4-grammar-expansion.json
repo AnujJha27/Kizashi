@@ -360,6 +360,24 @@
             ]
           }
         ]
+      },
+      {
+        "id": "chapter-n4-ease-difficulty",
+        "slug": "n4-ease-difficulty",
+        "title": "Ease and difficulty",
+        "description": "Describe how easy, difficult, or personally challenging an action feels to perform.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-ease-difficulty",
+            "slug": "n4-ease-difficulty",
+            "title": "Ease and difficulty",
+            "subtitle": "しやすさと難しさ",
+            "description": "Compare やすい, にくい, and づらい when describing an action's practical or personal difficulty.",
+            "estimatedMinutes": 18,
+            "itemIds": ["grammar-yasui", "grammar-nikui", "grammar-zurai"]
+          }
+        ]
       }
     ]
   },
@@ -2489,6 +2507,84 @@
       "contrastIds": ["contrast-n4-time-aspect"],
       "practiceQuestionIds": ["grammar-bakari-1", "grammar-bakari-2"],
       "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-yasui",
+      "slug": "yasui",
+      "title": "やすい",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "ease and difficulty",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-masu"],
+      "tags": ["N4", "ease", "actions"],
+      "pattern": "Vやすい",
+      "meaning": "easy to do",
+      "formation": "Verb stem + やすい; conjugate やすい as an い-adjective.",
+      "intuition": "やすい says an action is easy or convenient for someone to carry out.",
+      "usageConditions": ["Remove ます from the polite stem before adding やすい.", "Use it for the action's practical ease, not simply a speaker's preference."] ,
+      "examples": [
+        {"japanese": "このペンは書きやすいです。", "translation": "This pen is easy to write with."},
+        {"japanese": "この道は歩きやすいです。", "translation": "This road is easy to walk on."},
+        {"japanese": "この説明は分かりやすいです。", "translation": "This explanation is easy to understand."},
+        {"japanese": "駅に近くて住みやすい町です。", "translation": "It is a town that is easy to live in and close to the station."}
+      ],
+      "commonMistakes": ["Use the verb stem, such as 書きやすい, not the dictionary form 書くやすい.", "やすい describes ease of the action, not the low price of an object."] ,
+      "contrastIds": ["contrast-n4-ease-difficulty"],
+      "practiceQuestionIds": ["grammar-yasui-1", "grammar-yasui-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-nikui",
+      "slug": "nikui",
+      "title": "にくい",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "ease and difficulty",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-masu"],
+      "tags": ["N4", "difficulty", "actions"],
+      "pattern": "Vにくい",
+      "meaning": "difficult to do",
+      "formation": "Verb stem + にくい; conjugate にくい as an い-adjective.",
+      "intuition": "にくい says the action is difficult because of the object's or situation's qualities.",
+      "usageConditions": ["Remove ます from the polite stem before adding にくい.", "Use it for practical difficulty, such as a small text or hard-to-open lid."] ,
+      "examples": [
+        {"japanese": "この字は小さくて読みにくいです。", "translation": "These characters are small and difficult to read."},
+        {"japanese": "このふたは開けにくいです。", "translation": "This lid is difficult to open."},
+        {"japanese": "この道は車が多くて渡りにくいです。", "translation": "This road is difficult to cross because there are many cars."},
+        {"japanese": "この説明は分かりにくいです。", "translation": "This explanation is difficult to understand."}
+      ],
+      "commonMistakes": ["Use the verb stem, such as 読みにくい, not 読むにくい.", "にくい describes difficulty of the action, not dislike of doing it."] ,
+      "contrastIds": ["contrast-n4-ease-difficulty"],
+      "practiceQuestionIds": ["grammar-nikui-1", "grammar-nikui-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-zurai",
+      "slug": "zurai",
+      "title": "づらい",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "ease and difficulty",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-masu"],
+      "tags": ["N4", "difficulty", "personal"],
+      "pattern": "Vづらい",
+      "meaning": "hard to do; difficult for the person",
+      "formation": "Verb stem + づらい; conjugate づらい as an い-adjective.",
+      "intuition": "づらい often adds a personal, emotional, or physical burden to the difficulty of an action.",
+      "usageConditions": ["Use it when the speaker experiences the action as personally hard or uncomfortable.", "Use the verb stem before づらい and do not confuse it with the unrelated noun つらい."] ,
+      "examples": [
+        {"japanese": "先生には聞きづらい質問です。", "translation": "It is a question that is hard to ask the teacher."},
+        {"japanese": "この靴は歩きづらいです。", "translation": "These shoes are uncomfortable to walk in."},
+        {"japanese": "本当のことを言いづらいです。", "translation": "It is hard for me to tell the truth."},
+        {"japanese": "人が多くて話しづらい場所です。", "translation": "It is a place where it is difficult to talk because there are many people."}
+      ],
+      "commonMistakes": ["Use the verb stem, such as 言いづらい, before づらい.", "づらい often carries personal discomfort; use にくい for neutral practical difficulty."] ,
+      "contrastIds": ["contrast-n4-ease-difficulty"],
+      "practiceQuestionIds": ["grammar-zurai-1", "grammar-zurai-2"],
+      "sourceIds": ["michi-authored-n4-grammar"]
     }
   ],
   "grammarContrasts": [
@@ -2796,6 +2892,30 @@
     "exercises": [
       "Choose 間 for an action spanning the whole window and 間に for an event that happens within it.",
       "Choose ところ for the exact action phase and たばかり for a recent completion that need not be immediate."
+    ]
+  },
+  {
+    "id": "contrast-n4-ease-difficulty",
+    "title": "Ease, neutral difficulty, and personal difficulty",
+    "grammarPointIds": [
+      "grammar-yasui",
+      "grammar-nikui",
+      "grammar-zurai"
+    ],
+    "explanation": "やすい describes an action that is easy, にくい describes neutral practical difficulty, and づらい often adds the speaker's personal or physical discomfort.",
+    "examples": [
+      {
+        "japanese": "この説明は分かりやすいですが、この字は読みにくいです。",
+        "translation": "This explanation is easy to understand, but these characters are difficult to read."
+      },
+      {
+        "japanese": "先生には少し聞きづらい質問です。",
+        "translation": "It is a question that is a little hard for me to ask the teacher."
+      }
+    ],
+    "exercises": [
+      "Choose やすい or にくい for the practical ease or difficulty of an action.",
+      "Choose づらい when the action is personally uncomfortable or emotionally difficult."
     ]
   }
 ],
