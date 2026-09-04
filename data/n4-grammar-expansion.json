@@ -193,6 +193,25 @@
           }
         ]
       }
+      ,
+      {
+        "id": "chapter-n4-te-extensions",
+        "slug": "n4-te-extensions",
+        "title": "Resulting states and past continuity",
+        "description": "Use てある and ていた to describe prepared states and actions or states that held in the past.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-te-extensions",
+            "slug": "n4-te-extensions",
+            "title": "Resulting states and past continuity",
+            "subtitle": "状態と過去",
+            "description": "Extend the existing て-form family with intentional result states and past ongoing context.",
+            "estimatedMinutes": 18,
+            "itemIds": ["grammar-te-aru", "grammar-te-ita"]
+          }
+        ]
+      }
     ]
   },
   "vocabulary": [],
@@ -1474,6 +1493,64 @@
       "commonMistakes": ["Do not use くれる when the gift does not come to the speaker's side; use あげる for an outward transfer.", "Do not confuse the giver perspective of くれる with the receiver perspective of もらう."],
       "contrastIds": ["contrast-n4-benefit-perspective"],
       "practiceQuestionIds": ["grammar-giving-receiving-1", "grammar-giving-receiving-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-te-aru",
+      "slug": "te-aru",
+      "title": "てある",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "て-form extensions",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-te-form"],
+      "tags": ["N4", "te-form", "result-state", "preparation"],
+      "pattern": "〜てある",
+      "meaning": "has been done and remains that way",
+      "formation": "Transitive verb て-form + ある; the resulting state is described with the affected object as the topic or subject.",
+      "intuition": "てある highlights a deliberate action whose result has been left in place for a purpose.",
+      "usageConditions": [
+        "Use a transitive verb when someone intentionally creates the state.",
+        "Contrast it with ている when the focus is the resulting arrangement rather than the action or a natural state."
+      ],
+      "examples": [
+        {"japanese": "机の上に資料が置いてあります。", "translation": "The materials have been placed on the desk."},
+        {"japanese": "会議室のドアが開けてあります。", "translation": "The meeting-room door has been left open."},
+        {"japanese": "旅行の準備がしてあります。", "translation": "The preparations for the trip have been made."},
+        {"japanese": "壁に予定が書いてあります。", "translation": "The schedule has been written on the wall."}
+      ],
+      "commonMistakes": ["Do not use an intransitive verb for the deliberate arrangement pattern; choose the transitive action that created the state.", "Do not reduce てある to simple present location; it carries a remaining result and an intentional setup."],
+      "contrastIds": [],
+      "practiceQuestionIds": ["grammar-te-aru-1", "grammar-te-aru-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-te-ita",
+      "slug": "te-ita",
+      "title": "ていた",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "て-form extensions",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-teiru"],
+      "tags": ["N4", "te-form", "past", "continuation"],
+      "pattern": "〜ていた",
+      "meaning": "was doing; used to be; had been",
+      "formation": "Verb て-form + いた; polite speech uses ていました.",
+      "intuition": "ていた places an ongoing action, repeated habit, or state inside a past time frame.",
+      "usageConditions": [
+        "Use it for an action in progress at a past reference point or a past state that no longer holds.",
+        "Use surrounding time words and context to distinguish one ongoing event from a former habit."
+      ],
+      "examples": [
+        {"japanese": "昨日の午後、図書館で勉強していました。", "translation": "I was studying at the library yesterday afternoon."},
+        {"japanese": "子どものころ、よく川で遊んでいました。", "translation": "When I was a child, I often played by the river."},
+        {"japanese": "以前、この町に住んでいました。", "translation": "I used to live in this town."},
+        {"japanese": "電話したとき、彼は寝ていました。", "translation": "When I called, he was sleeping."}
+      ],
+      "commonMistakes": ["Do not use ていた for a completed single event when the ongoing or former-state meaning is not intended.", "Keep the past auxiliary いた／いました after the て-form; do not stop at ている for a past-time context."],
+      "contrastIds": [],
+      "practiceQuestionIds": ["grammar-te-ita-1", "grammar-te-ita-2"],
       "sourceIds": ["irodori-sentence-patterns"]
     }
   ],

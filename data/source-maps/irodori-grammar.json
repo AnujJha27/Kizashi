@@ -1138,5 +1138,37 @@
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
     }
+  ],
+  "grammar-te-aru": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-aa3edc5f9ae7",
+      "sourceCourse": "初級2",
+      "sourceLevel": "Elementary 2",
+      "pattern": "V-てあります",
+      "sectionTitle": "Sentence pattern · 初級2",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: V-てあります.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-te-ita": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-0338ec8cfd96",
+      "sourceCourse": "初級2",
+      "sourceLevel": "Elementary 2",
+      "pattern": "V-ていました",
+      "sectionTitle": "Sentence pattern · 初級2",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: V-ていました.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
   ]
 }

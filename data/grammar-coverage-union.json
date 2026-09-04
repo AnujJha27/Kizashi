@@ -11,12 +11,12 @@
       "levelDisagreements": 4
     },
     "N4": {
-      "rawPatterns": 156,
-      "canonicalConcepts": 38,
+      "rawPatterns": 158,
+      "canonicalConcepts": 40,
       "complete": 0,
-      "partial": 34,
+      "partial": 36,
       "missing": 4,
-      "unresolved": 105,
+      "unresolved": 103,
       "levelDisagreements": 2
     }
   },
@@ -957,6 +957,28 @@
       "levelDisagreements": [
         "N5"
       ]
+    },
+    {
+      "id": "grammar-te-aru",
+      "pattern": "〜てある",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-te-ita",
+      "pattern": "〜ていた",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
     }
   ],
   "unresolved": [
@@ -1724,12 +1746,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-0338ec8cfd96",
-      "pattern": "V-ていました",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-2dd7211492ef",
       "pattern": "それ／そこ　＜文脈指示＞",
       "level": "N4"
@@ -2074,12 +2090,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-d5d6fec0b8ac",
       "pattern": "V-（ら）れます　＜受身④＞ウケミ",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-aa3edc5f9ae7",
-      "pattern": "V-てあります",
       "level": "N4"
     },
     {
@@ -2677,7 +2687,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 75
+      "references": 77
     },
     {
       "id": "tae-kim",
