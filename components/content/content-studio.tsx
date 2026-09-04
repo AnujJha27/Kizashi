@@ -27,6 +27,7 @@ import type { LessonContentItem } from "@/lib/curriculum";
 import { contentSources, getCurriculumBand } from "@/lib/jlpt";
 import { readMistakes, readReviewRecords } from "@/lib/session";
 import { rankContentCandidates } from "@/lib/content-priority.js";
+import { buildContentQualityReport } from "@/lib/content-quality-core.js";
 import { getN5PracticeCoverage, getPracticeQuestions, migrateLegacyQuestionPrompts } from "@/lib/questions";
 import { getUnresolvedJapaneseSegments } from "@/lib/japanese-text-core.js";
 import { getJapaneseReadingEntries } from "@/components/learning/japanese-text";
@@ -78,6 +79,13 @@ function Health({ label, result }: Readonly<{ label: string; result: ContentVali
 function CoverageHealth({ coverage }: Readonly<{ coverage: ReturnType<typeof getN5PracticeCoverage> | null }>) {
   if (!coverage) return <div className="rounded-xl border border-white/10 bg-[#101b2b]/70 p-4"><div className="flex items-center justify-between gap-3"><p className="text-sm text-[#f5f5f2]">N5 practice coverage</p><span className="text-[#9297a1]">Deferred</span></div><p className="mt-2 text-xs text-[#9297a1]">Load the question bank when you need coverage; Studio stays responsive on first open.</p></div>;
   return <div className="rounded-xl border border-white/10 bg-[#101b2b]/70 p-4"><div className="flex items-center justify-between gap-3"><p className="text-sm text-[#f5f5f2]">N5 practice coverage</p><span className={coverage.complete ? "text-[#6fb98f]" : "text-[#e34a3f]"}>{coverage.complete ? "Complete" : "Needs work"}</span></div><p className="mt-2 text-xs text-[#9297a1]">{coverage.coveredItemCount} / {coverage.itemCount} items · {coverage.questionCount} active questions</p>{coverage.missingFamilies.length ? <p className="mt-1 text-[10px] text-[#ef675d]">Missing families: {coverage.missingFamilies.join(", ")}</p> : null}{coverage.uncoveredItemIds.length ? <p className="mt-1 truncate text-[10px] text-[#ef675d]" title={coverage.uncoveredItemIds.join(", ")}>Uncovered items: {coverage.uncoveredItemIds.join(", ")}</p> : null}</div>;
+}
+
+function ListeningStructureAudit({ module }: Readonly<{ module: N5Module }>) {
+  const structure = useMemo(() => buildContentQualityReport({ listening: module.listening }).listening.dialogueStructure, [module.listening]);
+  const turnProfiles = Object.entries(structure.turnProfiles).map(([label, count]) => `${label}: ${count}`).join(" · ");
+  const speakerPatterns = Object.entries(structure.speakerPatterns).map(([label, count]) => `${label}: ${count}`).join(" · ");
+  return <section className="rounded-xl border border-[#5d4c2c] bg-[#2b2418]/55 p-4 sm:p-5"><div className="flex flex-wrap items-end justify-between gap-2"><div><p className="eyebrow">Listening structure signals</p><h2 className="mt-1 text-lg font-medium text-[#f5f5f2]">See repetition before human review.</h2><p className="mt-1 text-xs leading-5 text-[#c3a96d]">Deterministic shape checks expose repeated turn patterns and answer echoes; they do not judge native naturalness.</p></div><span className="text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">automated signal</span></div><div className="mt-4 grid gap-3 text-xs sm:grid-cols-3"><div className="rounded-lg border border-white/10 bg-[#17181d]/55 p-3"><p className="text-[10px] uppercase tracking-[.12em] text-[#676c75]">Turn profiles</p><p className="mt-2 text-[#c3c7ce]">{turnProfiles || "None"}</p></div><div className="rounded-lg border border-white/10 bg-[#17181d]/55 p-3"><p className="text-[10px] uppercase tracking-[.12em] text-[#676c75]">Speaker patterns</p><p className="mt-2 text-[#c3c7ce]">{speakerPatterns || "None"}</p></div><div className="rounded-lg border border-white/10 bg-[#17181d]/55 p-3"><p className="text-[10px] uppercase tracking-[.12em] text-[#676c75]">Answer echoes</p><p className="mt-2 text-[#e5b85c]">{structure.answerEchoes} question answers repeat transcript wording</p></div></div></section>;
 }
 
 function missingGrammarContract(item: N5Module["grammar"][number]) {
@@ -740,6 +748,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   return <div className="space-y-7">
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><Health label="Last curriculum validation" result={result} /><Health label="Practice question bank" result={questionResult} /><CoverageHealth coverage={practiceCoverage} /></div>
     <CompletenessDashboard module={coverageModule} />
+    <ListeningStructureAudit module={coverageModule} />
     <ReadingDiagnostics module={coverageModule} />
     <SourceCoverage items={coverageItems} sources={sources} />
     <TopicCoverage module={coverageModule} practiceQuestions={questionBank.length ? questionBank : null} />

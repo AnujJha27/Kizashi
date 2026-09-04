@@ -1889,7 +1889,7 @@ N4 that merely feels like longer N5
 
 ## Current implementation status (2026-09-04)
 
-- [~] The quality report and Content Studio now count listening context tags separately from question families; the current 160-item authored bank covers 20 contexts, with all 160 records assigned a context tag. Coverage is visible, but situation balance, speaker relationships, distractor plausibility, and native naturalness review remain open.
+- [~] The quality report and Content Studio now count listening context tags separately from question families and expose deterministic dialogue-structure signals; the current 160-item authored bank covers 20 contexts, with all 160 records assigned a context tag, split into 80 three-turn `A-B-A` and 80 four-turn `A-B-A-B` profiles, with 92/160 correct answers repeating transcript wording. These are review signals for repeated structure and answer leakage, not automatic quality verdicts; situation balance, speaker relationships, distractor plausibility, and native naturalness review remain open.
 
 Ensure substantial variety:
 

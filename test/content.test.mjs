@@ -245,6 +245,9 @@ test("authored reading and listening banks expose diversity QA", () => {
   assert.ok(Object.keys(report.listening.visualSceneTypes).length >= 15);
   assert.ok(report.listening.complexity.byLevel.N4.averageLines > report.listening.complexity.byLevel.N5.averageLines);
   assert.equal(report.listening.complexity.byLevel.N4.cueItems, report.listening.complexity.byLevel.N4.total);
+  assert.deepEqual(report.listening.dialogueStructure.turnProfiles, { "3 turns / 2 speakers": 80, "4 turns / 2 speakers": 80 });
+  assert.deepEqual(report.listening.dialogueStructure.speakerPatterns, { "A-B-A": 80, "A-B-A-B": 80 });
+  assert.equal(report.listening.dialogueStructure.answerEchoes, 92);
   assert.ok((report.reading.questionFamilies["main idea"] ?? 0) >= 4);
   assert.ok((report.reading.questionFamilies.sequence ?? 0) >= 2);
   assert.ok((report.reading.questionFamilies.reason ?? 0) >= 5);
@@ -477,6 +480,7 @@ test("Studio exposes every pending question through a searchable paged review qu
   assert.match(studio, /questionTypeFilter/);
   assert.match(studio, /questionPageSize/);
   assert.match(studio, /questionPageCount/);
+  assert.match(studio, /Listening structure signals/);
   assert.doesNotMatch(studio, /questions\.slice\(0, 20\)/);
 });
 
