@@ -1663,7 +1663,7 @@ The next task is QUALITY.
 
 ## Current implementation status (2026-09-04)
 
-- [~] `lib/content-quality-core.js` now audits authored reading passages for normalized template uniqueness, near-duplicate clusters, question-family distribution, answer-choice presence/uniqueness/index validity, source type, and N5/N4 breakdown. The current 115-passage bank provides 143 questions across 11 families, including at least three each of reason, reference, simple inference, and appropriate action, is 115/115 unique with 0 near-duplicate clusters and 0 structural answer-choice failures; topic, grammar/vocabulary calibration, distractor plausibility, and native review remain open.
+- [~] `lib/content-quality-core.js` now audits authored reading passages for normalized template uniqueness, near-duplicate clusters, question-family distribution, answer-choice presence/uniqueness/index validity, linked vocabulary/grammar/kanji load ranges, structural distractor signals, source type, and N5/N4 breakdown. The current 115-passage bank provides 143 questions across 11 families, including at least three each of reason, reference, simple inference, and appropriate action, is 115/115 unique with 0 near-duplicate clusters and 0 structural answer-choice failures; topic, grammar/vocabulary calibration, distractor plausibility, and native review remain open.
 
 Audit all original reading assets for:
 

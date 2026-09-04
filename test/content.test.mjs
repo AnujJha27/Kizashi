@@ -74,6 +74,8 @@ test("completeness dashboard exposes grammar assessment families by level", asyn
   assert.match(dashboard, /vocabularyContract\.pendingContextualDrafts/);
   assert.match(dashboard, /collocationQuality\.duplicateRows/);
   assert.match(dashboard, /quality\.reading\.byLevel\.N5\.questionFamilies/);
+  assert.match(dashboard, /quality\.reading\.lexicalLoad/);
+  assert.match(dashboard, /quality\.reading\.distractorSignals/);
   assert.match(dashboard, /quality\.listening\.contextTypes/);
   assert.match(dashboard, /quality\.listening\.complexity/);
   assert.match(dashboard, /quality\.listening\.visualSceneTypes/);
@@ -314,6 +316,17 @@ test("quality audit keeps reading and listening families visible by level", () =
   assert.deepEqual(report.listening.answerQuality, { questions: 2, missingChoices: 2, duplicateChoiceSets: 0, invalidCorrectIndexes: 2 });
   assert.equal(report.reading.byLevel.N5.nearDuplicateClusters.length, 0);
   assert.equal(report.listening.byLevel.N4.nearDuplicateClusters.length, 0);
+});
+
+test("quality audit exposes lexical load and distractor structure", () => {
+  const report = buildContentQualityReport({
+    readings: [{ id: "reading", jlptLevel: "N5", passage: "駅です。", vocabularyIds: ["vocab-1", "vocab-2"], grammarIds: ["grammar-1"], kanjiIds: ["kanji-1", "kanji-2", "kanji-3"], questions: [{ options: ["駅", "店", "家", "本"], correctAnswer: 0 }] }],
+    listening: [],
+  });
+  assert.deepEqual(report.reading.lexicalLoad, { vocabulary: { linked: 1, missing: 0, average: 2, min: 2, max: 2 }, grammar: { linked: 1, missing: 0, average: 1, min: 1, max: 1 }, kanji: { linked: 1, missing: 0, average: 3, min: 3, max: 3 } });
+  assert.deepEqual(report.reading.distractorSignals, { questions: 1, setsWithBlankDistractors: 0, setsWithDuplicateDistractors: 0, setsWithFewerThan3Distractors: 0 });
+  const weak = buildContentQualityReport({ readings: [{ id: "weak-reading", jlptLevel: "N5", passage: "駅です。", questions: [{ options: ["駅", "", "店", "店"], correctAnswer: 0 }] }], listening: [] });
+  assert.deepEqual(weak.reading.distractorSignals, { questions: 1, setsWithBlankDistractors: 1, setsWithDuplicateDistractors: 1, setsWithFewerThan3Distractors: 0 });
 });
 
 test("answer quality audit catches duplicate and invalid choices", () => {
