@@ -126,7 +126,7 @@ This is not acceptable as a final N5/N4 curriculum.
 
 The authored reading/listening quality audit is now implemented in `lib/content-quality-core.js` and exposed in Content Studio. It reports normalized template uniqueness, near-duplicate clusters, question-family distribution, and listening source type; the current generated banks report 115/115 unique reading passage templates with 125 questions and 160/160 unique listening templates, all with zero near-duplicate clusters, but it remains a review signal, not a substitute for native-speaker judgment.
 
-The first offline union is implemented and deliberately review-only. It currently uses OpenJLPT, Irodori sentence patterns plus the 111 reviewed Irodori mapping references, the existing Kizashi canonical package, and mapped Tae Kim/Wikibooks references; official JLPT remains blueprint evidence, while Bunpro/JLPT Sensei-style lesson prose is not mirrored. Remaining source acquisition and canonical review work stays visible in the registry's unresolved queue.
+The first offline union is implemented and deliberately review-only. It currently uses OpenJLPT, Irodori sentence patterns plus the 111 reviewed Irodori mapping references, the existing Kizashi canonical package, and mapped Tae Kim/Wikibooks references; official JLPT remains blueprint evidence, while Bunpro/JLPT Sensei-style lesson prose is not mirrored. Remaining source acquisition and canonical review work stays visible in the registry's full unresolved queue, which Content Studio renders as a bounded scrollable review list.
 
 Create a grammar inventory from multiple independent sources.
 

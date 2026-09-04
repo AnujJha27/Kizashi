@@ -70,3 +70,9 @@ test("grammar coverage UI exposes evidence and disagreement context", async () =
   assert.match(ui, /item\.sourceIds/);
   assert.match(ui, /openjlpt.*references/);
 });
+
+test("grammar coverage UI exposes the full unresolved review queue", async () => {
+  const ui = await readFile(new URL("../components/content/grammar-coverage.tsx", import.meta.url), "utf8");
+  assert.match(ui, /coverage\.unresolved\.map/);
+  assert.doesNotMatch(ui, /coverage\.unresolved\.slice\(0, 16\)/);
+});
