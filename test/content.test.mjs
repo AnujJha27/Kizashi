@@ -73,6 +73,7 @@ test("completeness dashboard exposes grammar assessment families by level", asyn
   assert.match(dashboard, /vocabularyContract\.contractReady/);
   assert.match(dashboard, /collocationQuality\.duplicateRows/);
   assert.match(dashboard, /quality\.reading\.byLevel\.N5\.questionFamilies/);
+  assert.match(dashboard, /quality\.listening\.contextTypes/);
   assert.match(dashboard, /quality\.listening\.byLevel\.N4\.nearDuplicateClusters/);
   assert.doesNotMatch(dashboard, /N5 \$\{report\.quality/);
 });
@@ -226,6 +227,8 @@ test("authored reading and listening banks expose diversity QA", () => {
   assert.equal(report.listening.uniqueTemplates, 160);
   assert.equal(report.listening.sourceTypes.tts, 160);
   assert.equal(report.listening.nearDuplicateClusters.length, 0);
+  assert.ok(Object.keys(report.listening.contextTypes).length >= 15);
+  assert.equal(Object.values(report.listening.contextTypes).reduce((total, count) => total + count, 0), 160);
   assert.ok((report.reading.questionFamilies["main idea"] ?? 0) >= 4);
   assert.ok((report.reading.questionFamilies.sequence ?? 0) >= 2);
   assert.ok(report.reading.answerQuality.questions > report.reading.total);
@@ -248,6 +251,7 @@ test("quality audit keeps reading and listening families visible by level", () =
   assert.equal(report.reading.byLevel.N4.questionFamilies["mid-length passage"], 1);
   assert.equal(report.listening.byLevel.N5.questionFamilies["quick response"], 1);
   assert.equal(report.listening.byLevel.N4.questionFamilies["key point"], 1);
+  assert.deepEqual(report.listening.contextTypes, {});
   assert.deepEqual(report.reading.answerQuality, { questions: 2, missingChoices: 2, duplicateChoiceSets: 0, invalidCorrectIndexes: 2 });
   assert.deepEqual(report.listening.answerQuality, { questions: 2, missingChoices: 2, duplicateChoiceSets: 0, invalidCorrectIndexes: 2 });
   assert.equal(report.reading.byLevel.N5.nearDuplicateClusters.length, 0);
