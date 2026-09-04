@@ -1268,6 +1268,11 @@ Ensure exactly one natural intended order.
 
 This is currently severely underdeveloped.
 
+## Current implementation status (2026-09-04)
+
+- [x] `validatePracticeQuestions` now requires text-grammar questions to persist a context ID and passage, contain a visible blank, and provide at least four choices as a quality target; connected-passage shape is reported as a warning. The built-in fallback carries the same context metadata.
+- [~] The 125 authored text-grammar drafts remain review-only until each passage, distractor set, and answer key receives human linguistic review.
+
 Build a dedicated text-grammar corpus.
 
 A text-grammar asset contains:
@@ -1320,6 +1325,8 @@ Quality overrides count.
 # C34. GRAMMAR UNIQUE-CONTEXT METRIC
 
 Content Studio now reports the persisted authored grammar assessment bank separately: it currently has 92 approved N5 grammar questions across 92 normalized contexts and 55 approved N4 grammar questions across 55 normalized contexts (147 form-selection, 5 sentence-ordering, and 0 text-grammar contexts), including 6 contrast-cluster questions and 125 text-grammar drafts pending review in `data/n5-grammar-assessment-drafts.json` (50 N5 / 75 N4), each with persisted context IDs/text for review. The context metric prefers explicit `contextSetId`/`contextText` values, so variants of one passage can be collapsed instead of counted as new contexts; the aggregate and per-family counts use the same deduplication. Generated fallback drills and unreviewed drafts are not counted as learner-ready assessment coverage. The metric prevents question quantity from being mistaken for contextual depth; the documented N5/N4 text-grammar targets remain unapproved until review.
+
+The validator now enforces the persisted context contract for text-grammar questions before they can enter the validated practice path; it does not approve linguistic quality automatically.
 
 Content Studio must report:
 
