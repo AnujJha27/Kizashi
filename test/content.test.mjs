@@ -637,7 +637,8 @@ test("vocabulary context audit reports the learner contract", () => {
 });
 
 test("authored vocabulary context coverage remains visible", () => {
-  assert.deepEqual(getContentCompleteness(mergedModule).vocabularyContract, { total: 169, examplesAtLeast2: 130, collocations: 169, relatedWords: 169, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 16, contractReady: 0, byLevel: { N5: { total: 153, examplesAtLeast2: 114, collocations: 153, relatedWords: 153, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 0, contractReady: 0 }, N4: { total: 16, examplesAtLeast2: 16, collocations: 16, relatedWords: 16, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 16, contractReady: 0 } } });
+  assert.ok(mergedModule.vocabulary.every((item) => item.exampleSentences.length >= 2));
+  assert.deepEqual(getContentCompleteness(mergedModule).vocabularyContract, { total: 169, examplesAtLeast2: 169, collocations: 169, relatedWords: 169, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 16, contractReady: 0, byLevel: { N5: { total: 153, examplesAtLeast2: 153, collocations: 153, relatedWords: 153, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 0, contractReady: 0 }, N4: { total: 16, examplesAtLeast2: 16, collocations: 16, relatedWords: 16, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 16, contractReady: 0 } } });
 });
 
 test("collocation quality audit flags repeated or isolated entries", () => {
@@ -682,7 +683,7 @@ test("foundational vocabulary has explicit authored second examples", async () =
   const foundation = JSON.parse(await readFile(new URL("../data/n5-foundations.json", import.meta.url), "utf8"));
   const expansions = JSON.parse(await readFile(new URL("../data/vocabulary-example-expansions.json", import.meta.url), "utf8"));
   const curriculum = await readFile(new URL("../lib/curriculum.ts", import.meta.url), "utf8");
-  assert.equal(Object.keys(expansions).length, foundation.vocabulary.length);
+  assert.ok(Object.keys(expansions).length >= foundation.vocabulary.length);
   for (const item of foundation.vocabulary) {
     assert.equal(expansions[item.id]?.length, 1);
     assert.ok(expansions[item.id][0].japanese);
