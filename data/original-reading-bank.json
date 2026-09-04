@@ -201,6 +201,18 @@
           "correctAnswer": 0,
           "questionType": "short passage detail",
           "explanation": "日本語を勉強します"
+        },
+        {
+          "prompt": "田中さんの月曜日について正しいものはどれですか。",
+          "options": [
+            "教室で日本語を勉強します",
+            "病院で働きます",
+            "駅で映画を見ます",
+            "家で料理をします"
+          ],
+          "correctAnswer": 0,
+          "questionType": "main idea",
+          "explanation": "教室で日本語を勉強します"
         }
       ]
     },
@@ -257,6 +269,18 @@
           "correctAnswer": 1,
           "questionType": "short passage detail",
           "explanation": "六時"
+        },
+        {
+          "prompt": "朝ご飯のあとで、母は何をしますか。",
+          "options": [
+            "寝ます",
+            "駅へ行きます",
+            "学校で勉強します",
+            "買い物をします"
+          ],
+          "correctAnswer": 1,
+          "questionType": "sequence",
+          "explanation": "駅へ行きます"
         }
       ]
     },
@@ -369,6 +393,18 @@
           "correctAnswer": 1,
           "questionType": "short passage detail",
           "explanation": "傘"
+        },
+        {
+          "prompt": "山田さんは雨の日にどうしますか。",
+          "options": [
+            "傘を持って学校へ行きます",
+            "本を読んで家にいます",
+            "駅で切符を買います",
+            "店で写真を撮ります"
+          ],
+          "correctAnswer": 0,
+          "questionType": "main idea",
+          "explanation": "傘を持って学校へ行きます"
         }
       ]
     },
@@ -537,6 +573,18 @@
           "correctAnswer": 2,
           "questionType": "short passage detail",
           "explanation": "三番線"
+        },
+        {
+          "prompt": "この話は何についてですか。",
+          "options": [
+            "駅で電車に乗る予定",
+            "学校で歌を練習する予定",
+            "病院で予約をする予定",
+            "家で料理をする予定"
+          ],
+          "correctAnswer": 0,
+          "questionType": "main idea",
+          "explanation": "駅で電車に乗る予定"
         }
       ]
     },
@@ -2217,6 +2265,18 @@
           "correctAnswer": 2,
           "questionType": "mid-length passage",
           "explanation": "三冊"
+        },
+        {
+          "prompt": "図書館で大切なことは何ですか。",
+          "options": [
+            "静かにして、本は三冊まで借りられます",
+            "大きな声で話せます",
+            "日曜日も開いています",
+            "本を何冊でも借りられます"
+          ],
+          "correctAnswer": 0,
+          "questionType": "main idea",
+          "explanation": "静かにして、本は三冊まで借りられます"
         }
       ]
     },
@@ -2272,6 +2332,18 @@
           ],
           "correctAnswer": 2,
           "questionType": "mid-length passage",
+          "explanation": "家で料理をしました"
+        },
+        {
+          "prompt": "雨になって、公園へ行く予定をやめたあとで何をしましたか。",
+          "options": [
+            "家で料理をしました",
+            "駅へ行きました",
+            "学校で勉強しました",
+            "店で買い物をしました"
+          ],
+          "correctAnswer": 0,
+          "questionType": "sequence",
           "explanation": "家で料理をしました"
         }
       ]
@@ -2329,6 +2401,18 @@
           "correctAnswer": 1,
           "questionType": "mid-length passage",
           "explanation": "ドアの右"
+        },
+        {
+          "prompt": "新しい部屋について正しいものはどれですか。",
+          "options": [
+            "前の部屋より広く、机は窓の近くです",
+            "前の部屋より狭く、机はドアの外です",
+            "本棚は窓の左にあります",
+            "部屋には机がありません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "main idea",
+          "explanation": "前の部屋より広く、机は窓の近くです"
         }
       ]
     },
@@ -6298,6 +6382,18 @@
           "correctAnswer": 2,
           "questionType": "information retrieval",
           "explanation": "中止します"
+        },
+        {
+          "prompt": "校外学習の日に雨が降ったら、どうなりますか。",
+          "options": [
+            "中止します",
+            "予定どおり行きます",
+            "昼食だけ買います",
+            "駅で待ちます"
+          ],
+          "correctAnswer": 0,
+          "questionType": "condition detail",
+          "explanation": "中止します"
         }
       ]
     },
@@ -6526,6 +6622,18 @@
           "correctAnswer": 0,
           "questionType": "information retrieval",
           "explanation": "土曜日の午前中"
+        },
+        {
+          "prompt": "外で活動するなら、いつがよさそうですか。",
+          "options": [
+            "土曜日の午前中",
+            "土曜日の夜",
+            "日曜日の午後",
+            "日曜日の夜"
+          ],
+          "correctAnswer": 0,
+          "questionType": "main idea",
+          "explanation": "土曜日の午前中"
         }
       ]
     },
@@ -6583,6 +6691,18 @@
           "correctAnswer": 1,
           "questionType": "information retrieval",
           "explanation": "駅前のロッカー"
+        },
+        {
+          "prompt": "家にいない場合、何ができますか。",
+          "options": [
+            "駅前のロッカーで受け取るか、土曜日に再配達を頼めます",
+            "学校で荷物を受け取ります",
+            "病院へ荷物を送ります",
+            "何もできません"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "駅前のロッカーで受け取るか、土曜日に再配達を頼めます"
         }
       ]
     },

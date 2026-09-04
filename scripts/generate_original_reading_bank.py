@@ -25,6 +25,20 @@ def question(prompt: str, options: list[str], correct: int, question_type: str) 
     }
 
 
+SECONDARY_QUESTIONS = {
+    "class-note": question("田中さんの月曜日について正しいものはどれですか。", ["教室で日本語を勉強します", "病院で働きます", "駅で映画を見ます", "家で料理をします"], 0, "main idea"),
+    "morning-message": question("朝ご飯のあとで、母は何をしますか。", ["寝ます", "駅へ行きます", "学校で勉強します", "買い物をします"], 1, "sequence"),
+    "rain-coat": question("山田さんは雨の日にどうしますか。", ["傘を持って学校へ行きます", "本を読んで家にいます", "駅で切符を買います", "店で写真を撮ります"], 0, "main idea"),
+    "train-ticket": question("この話は何についてですか。", ["駅で電車に乗る予定", "学校で歌を練習する予定", "病院で予約をする予定", "家で料理をする予定"], 0, "main idea"),
+    "weather-change": question("雨になって、公園へ行く予定をやめたあとで何をしましたか。", ["家で料理をしました", "駅へ行きました", "学校で勉強しました", "店で買い物をしました"], 0, "sequence"),
+    "library-rule": question("図書館で大切なことは何ですか。", ["静かにして、本は三冊まで借りられます", "大きな声で話せます", "日曜日も開いています", "本を何冊でも借りられます"], 0, "main idea"),
+    "moving-room": question("新しい部屋について正しいものはどれですか。", ["前の部屋より広く、机は窓の近くです", "前の部屋より狭く、机はドアの外です", "本棚は窓の左にあります", "部屋には机がありません"], 0, "main idea"),
+    "weather-plan": question("外で活動するなら、いつがよさそうですか。", ["土曜日の午前中", "土曜日の夜", "日曜日の午後", "日曜日の夜"], 0, "main idea"),
+    "school-trip": question("校外学習の日に雨が降ったら、どうなりますか。", ["中止します", "予定どおり行きます", "昼食だけ買います", "駅で待ちます"], 0, "condition detail"),
+    "delivery-options": question("家にいない場合、何ができますか。", ["駅前のロッカーで受け取るか、土曜日に再配達を頼めます", "学校で荷物を受け取ります", "病院へ荷物を送ります", "何もできません"], 0, "task-based response"),
+}
+
+
 def reading(level: str, family: str, number: int, title: str, passage: str, translation: str, q: dict, tags: list[str]) -> dict:
     prefix = level.lower()
     difficulty = 2 if level == "N5" else 4
@@ -47,7 +61,7 @@ def reading(level: str, family: str, number: int, title: str, passage: str, tran
         "grammarIds": grammar,
         "kanjiIds": kanji,
         "estimatedDifficulty": difficulty,
-        "questions": [q],
+        "questions": [q, *([SECONDARY_QUESTIONS[tags[0]]] if tags[0] in SECONDARY_QUESTIONS else [])],
     }
 
 
