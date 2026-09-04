@@ -147,6 +147,9 @@ test("the N5 module has meaningful, linked content", async () => {
   assert.ok(n4ExpansionGrammar.every((item) => item.examples.length >= 4 && item.examples.every((example) => typeof example.japanese === "string" && typeof example.translation === "string")));
   const authoredQuestionIds = new Set(authoredQuestions.map((question) => question.id));
   assert.ok(n4ExpansionGrammar.every((item) => item.practiceQuestionIds.length >= 2 && item.practiceQuestionIds.every((id) => authoredQuestionIds.has(id))));
+  const transitivityIds = ["vocab-aku", "vocab-akeru", "vocab-shimaru", "vocab-shimeru", "vocab-hajimaru", "vocab-hajimeru", "vocab-tomaru", "vocab-tomeru"];
+  assert.ok(transitivityIds.every((id) => n4ExpansionLessonIds.has(id)));
+  assert.ok(transitivityIds.every((id) => /[自他]動詞/u.test(mergedModule.vocabulary.find((item) => item.id === id)?.notes ?? "") && mergedModule.vocabulary.find((item) => item.id === id)?.relatedWords.length === 1));
   const n4LifeGrammar = expansionData.find((data) => data.course.chapters.some((chapter) => chapter.id === "chapter-life-and-seasons")).grammar.filter((item) => item.jlptLevel === "N4");
   assert.equal(n4LifeGrammar.length, 5);
   assert.ok(n4LifeGrammar.every((item) => item.examples.length >= 4));
@@ -156,7 +159,7 @@ test("the N5 module has meaningful, linked content", async () => {
   assert.ok(["grammar-ga-but", "grammar-ta-koto", "grammar-deshita", "grammar-dewa-arimasen", "grammar-nakutemo-ii", "grammar-nakereba-naranai"].every((id) => n5Grammar.some((item) => item.id === id)));
   assert.ok(n5Grammar.every((item) => item.examples.length >= 4 && item.commonMistakes.length >= 2 && item.practiceQuestionIds.length >= 2 && item.practiceQuestionIds.every((id) => n5GrammarQuestionIds.has(id))));
   const n4Vocabulary = mergedModule.vocabulary.filter((item) => item.jlptLevel === "N4");
-  assert.equal(n4Vocabulary.length, 8);
+  assert.equal(n4Vocabulary.length, 16);
   assert.ok(n4Vocabulary.every((item) => item.usageAssessment?.correct && item.usageAssessment.distractors.length === 3));
   const questionFactory = await readFile(new URL("../lib/questions.ts", import.meta.url), "utf8");
   assert.match(questionFactory, /questionType: "usage"/);

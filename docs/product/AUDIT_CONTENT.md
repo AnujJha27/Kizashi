@@ -1041,6 +1041,10 @@ Example:
 ドアを開ける
 ```
 
+## Current implementation status (2026-09-04)
+
+- [x] A learner-facing transitivity lesson now pairs 開く／開ける, 閉まる／閉める, 始まる／始める, and 止まる／止める with natural examples, particles, and explicit 自動詞／他動詞 notes. The cluster uses eight authored N4 vocabulary records so the distinction is taught through useful lexical pairs rather than abstract labels.
+
 ---
 
 # C26. FULL GRAMMAR LESSON CONTRACT
