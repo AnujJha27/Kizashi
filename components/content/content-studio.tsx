@@ -80,6 +80,19 @@ function CoverageHealth({ coverage }: Readonly<{ coverage: ReturnType<typeof get
   return <div className="rounded-xl border border-white/10 bg-[#101b2b]/70 p-4"><div className="flex items-center justify-between gap-3"><p className="text-sm text-[#f5f5f2]">N5 practice coverage</p><span className={coverage.complete ? "text-[#6fb98f]" : "text-[#e34a3f]"}>{coverage.complete ? "Complete" : "Needs work"}</span></div><p className="mt-2 text-xs text-[#9297a1]">{coverage.coveredItemCount} / {coverage.itemCount} items · {coverage.questionCount} active questions</p>{coverage.missingFamilies.length ? <p className="mt-1 text-[10px] text-[#ef675d]">Missing families: {coverage.missingFamilies.join(", ")}</p> : null}{coverage.uncoveredItemIds.length ? <p className="mt-1 truncate text-[10px] text-[#ef675d]" title={coverage.uncoveredItemIds.join(", ")}>Uncovered items: {coverage.uncoveredItemIds.join(", ")}</p> : null}</div>;
 }
 
+function missingGrammarContract(item: N5Module["grammar"][number]) {
+  return [
+    !item.aliases?.length ? "aliases" : null,
+    !item.context?.japanese?.trim() || !item.context?.translation?.trim() ? "mini-context" : null,
+  ].filter((gap): gap is string => Boolean(gap));
+}
+
+function GrammarContractQueue({ module, onEdit }: Readonly<{ module: N5Module; onEdit: (kind: EditableKind, id: string) => void }>) {
+  const missing = module.grammar.filter((item) => missingGrammarContract(item).length > 0);
+  if (!missing.length) return null;
+  return <section className="rounded-xl border border-[#5d4c2c] bg-[#2b2418]/55 p-4 sm:p-5"><div className="flex flex-wrap items-end justify-between gap-2"><div><p className="eyebrow">Grammar contract queue</p><h2 className="mt-1 text-lg font-medium text-[#f5f5f2]">Finish the learner-facing context fields.</h2><p className="mt-1 text-xs leading-5 text-[#c3a96d]">{missing.length} grammar records still need aliases and/or a dedicated mini-context. Open one in the existing editor; no text is auto-filled.</p></div><span className="text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">review queue</span></div><div className="mt-4 max-h-80 overflow-y-auto rounded-lg border border-white/10 bg-[#17181d]/55"><div className="divide-y divide-white/10">{missing.map((item) => <button key={item.id} type="button" onClick={() => onEdit("grammar", item.id)} className="flex w-full items-center justify-between gap-3 px-3 py-3 text-left hover:bg-[#302818]"><span className="min-w-0"><span className="block truncate text-sm text-[#f5f5f2]">{item.title}</span><span className="mt-1 block truncate text-[10px] text-[#9297a1]">{item.pattern}</span></span><span className="flex shrink-0 flex-wrap justify-end gap-1">{missingGrammarContract(item).map((gap) => <span key={gap} className="rounded-full border border-[#5d4c2c] px-2 py-1 text-[9px] uppercase tracking-[.08em] text-[#e5b85c]">{gap}</span>)}</span></button>)}</div></div></section>;
+}
+
 function ReadingDiagnostics({ module }: Readonly<{ module: N5Module }>) {
   const vocabulary = module.vocabulary;
   const kanji = module.kanji;
@@ -728,6 +741,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
     <ReadingDiagnostics module={coverageModule} />
     <SourceCoverage items={coverageItems} sources={sources} />
     <TopicCoverage module={coverageModule} practiceQuestions={questionBank.length ? questionBank : null} />
+    <GrammarContractQueue module={coverageModule} onEdit={(kind, id) => openRecordEditor(kind, id)} />
     <AIGenerator items={coverageItems.filter((item) => getContentReviewStatus(item) === "approved")} onAdd={addGeneratedQuestion} />
 
     <section className="rounded-xl border border-[#3f3427] bg-[#211d18]/65 p-5 sm:p-6">

@@ -280,6 +280,13 @@ test("grammar contract fields are editable and reviewable", async () => {
   assert.match(studio, /item\.context/);
 });
 
+test("Studio exposes the grammar contract review queue", async () => {
+  const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
+  assert.match(studio, /Grammar contract queue/);
+  assert.match(studio, /missingGrammarContract/);
+  assert.match(studio, /onEdit\("grammar", item\.id\)/);
+});
+
 test("quality audit keeps reading and listening families visible by level", () => {
   const report = buildContentQualityReport({
     readings: [{ id: "reading-n5", jlptLevel: "N5", passage: "駅の案内です。", questions: [{ questionType: "information retrieval" }] }, { id: "reading-n4", jlptLevel: "N4", passage: "病院の案内です。", questions: [{ questionType: "mid-length passage" }] }],

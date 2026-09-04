@@ -1089,7 +1089,7 @@ Major/high-frequency concepts should receive more examples.
 
 ## Current implementation status (2026-09-04)
 
-- [~] `lib/content-completeness-core.js` now audits the full grammar contract alongside the existing depth gate, while `lib/content-validation.ts` warns on missing aliases and dedicated mini-contexts. Content Studio now exposes aliases and mini dialogue/context fields in both the editor and review modal. The current 116-item learner package has 15/116 records with persisted aliases and mini-contexts, 111/116 with two linked assessment contexts, 23 reading appearances, 4 listening appearances, and 15/116 contract-ready records. Authored listening records now persist their grammar links; the remaining alias/context work stays visible rather than being inferred from generic examples.
+- [~] `lib/content-completeness-core.js` now audits the full grammar contract alongside the existing depth gate, while `lib/content-validation.ts` warns on missing aliases and dedicated mini-contexts. Content Studio exposes aliases and mini dialogue/context fields in both the editor and review modal, plus a direct Grammar contract queue for the missing records. The current 116-item learner package has 15/116 records with persisted aliases and mini-contexts, 111/116 with two linked assessment contexts, 23 reading appearances, 4 listening appearances, and 15/116 contract-ready records. Authored listening records now persist their grammar links; the remaining alias/context work stays visible rather than being inferred from generic examples.
 
 ---
 
