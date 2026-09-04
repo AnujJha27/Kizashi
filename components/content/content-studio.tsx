@@ -88,6 +88,11 @@ function ListeningStructureAudit({ module }: Readonly<{ module: N5Module }>) {
   return <section className="rounded-xl border border-[#5d4c2c] bg-[#2b2418]/55 p-4 sm:p-5"><div className="flex flex-wrap items-end justify-between gap-2"><div><p className="eyebrow">Listening structure signals</p><h2 className="mt-1 text-lg font-medium text-[#f5f5f2]">See repetition before human review.</h2><p className="mt-1 text-xs leading-5 text-[#c3a96d]">Deterministic shape checks expose repeated turn patterns and answer echoes; they do not judge native naturalness.</p></div><span className="text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">automated signal</span></div><div className="mt-4 grid gap-3 text-xs sm:grid-cols-3"><div className="rounded-lg border border-white/10 bg-[#17181d]/55 p-3"><p className="text-[10px] uppercase tracking-[.12em] text-[#676c75]">Turn profiles</p><p className="mt-2 text-[#c3c7ce]">{turnProfiles || "None"}</p></div><div className="rounded-lg border border-white/10 bg-[#17181d]/55 p-3"><p className="text-[10px] uppercase tracking-[.12em] text-[#676c75]">Speaker patterns</p><p className="mt-2 text-[#c3c7ce]">{speakerPatterns || "None"}</p></div><div className="rounded-lg border border-white/10 bg-[#17181d]/55 p-3"><p className="text-[10px] uppercase tracking-[.12em] text-[#676c75]">Answer echoes</p><p className="mt-2 text-[#e5b85c]">{structure.answerEchoes} question answers repeat transcript wording</p></div></div></section>;
 }
 
+function ReadingAnswerAudit({ module }: Readonly<{ module: N5Module }>) {
+  const answerEchoes = useMemo(() => buildContentQualityReport({ readings: module.readings }).reading.questionSignals.answerEchoes, [module.readings]);
+  return <section className="rounded-xl border border-[#5d4c2c] bg-[#2b2418]/55 p-4 sm:p-5"><div className="flex flex-wrap items-end justify-between gap-2"><div><p className="eyebrow">Reading answer signals</p><h2 className="mt-1 text-lg font-medium text-[#f5f5f2]">Flag literal answer leakage.</h2><p className="mt-1 text-xs leading-5 text-[#c3a96d]">Exact answer text found in a passage is surfaced for distractor and question-design review; it is not automatically wrong.</p></div><span className="text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">automated signal</span></div><p className="mt-4 rounded-lg border border-white/10 bg-[#17181d]/55 p-3 text-xs text-[#e5b85c]">{answerEchoes} reading answers repeat passage wording</p></section>;
+}
+
 function missingGrammarContract(item: N5Module["grammar"][number]) {
   return [
     !item.aliases?.length ? "aliases" : null,
@@ -749,6 +754,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><Health label="Last curriculum validation" result={result} /><Health label="Practice question bank" result={questionResult} /><CoverageHealth coverage={practiceCoverage} /></div>
     <CompletenessDashboard module={coverageModule} />
     <ListeningStructureAudit module={coverageModule} />
+    <ReadingAnswerAudit module={coverageModule} />
     <ReadingDiagnostics module={coverageModule} />
     <SourceCoverage items={coverageItems} sources={sources} />
     <TopicCoverage module={coverageModule} practiceQuestions={questionBank.length ? questionBank : null} />

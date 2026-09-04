@@ -236,6 +236,7 @@ test("authored reading and listening banks expose diversity QA", () => {
   const report = buildContentQualityReport({ readings: originalReading.readings, listening: originalListening.listening });
   assert.deepEqual(report.reading.byLevel, { N5: { total: 60, uniqueTemplates: 60, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 12, "mid-length passage": 18, "short passage detail": 30, "main idea": 5, sequence: 2, reason: 4, "appropriate action": 3 } }, N4: { total: 55, uniqueTemplates: 55, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 15, "mid-length passage": 14, "short passage detail": 26, "appropriate action": 3, reference: 3, reason: 2, "simple inference": 3, "condition detail": 1, "main idea": 1, "task-based response": 1 } } });
   assert.equal(report.reading.nearDuplicateClusters.length, 0);
+  assert.equal(report.reading.questionSignals.answerEchoes, 104);
   assert.deepEqual(report.listening.byLevel, { N5: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } }, N4: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } } });
   assert.equal(report.listening.uniqueTemplates, 160);
   assert.equal(report.listening.sourceTypes.tts, 160);
@@ -481,6 +482,7 @@ test("Studio exposes every pending question through a searchable paged review qu
   assert.match(studio, /questionPageSize/);
   assert.match(studio, /questionPageCount/);
   assert.match(studio, /Listening structure signals/);
+  assert.match(studio, /Reading answer signals/);
   assert.doesNotMatch(studio, /questions\.slice\(0, 20\)/);
 });
 
