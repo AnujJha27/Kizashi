@@ -21,6 +21,10 @@ test("grammar coverage normalizes aliases without claiming them as canonical pro
   assert.deepEqual(report.summary.N5, { rawPatterns: 2, canonicalConcepts: 1, complete: 1, partial: 0, missing: 0, unresolved: 0, levelDisagreements: 0 });
   assert.deepEqual(report.summary.N4, { rawPatterns: 2, canonicalConcepts: 2, complete: 0, partial: 2, missing: 0, unresolved: 0, levelDisagreements: 1 });
   assert.equal(report.canonical.find((item) => item.id === "grammar-wa").status, "complete");
+  assert.deepEqual(report.canonical.find((item) => item.id === "grammar-wa").evidencePatterns, [
+    { sourceId: "openjlpt", recordId: "open-1", pattern: "NはNです", level: "N5" },
+    { sourceId: "irodori", recordId: "iro-1", pattern: "NはNです", level: "N5" },
+  ]);
   assert.deepEqual(report.canonical.find((item) => item.id === "grammar-te").levelDisagreements, ["N5"]);
   assert.equal(report.canonical.find((item) => item.id === "grammar-missing").status, "partial");
   assert.equal(report.aliasesMapped, 2);
@@ -67,6 +71,7 @@ test("high-confidence N5 source aliases are mapped into the coverage registry", 
 test("grammar coverage UI exposes evidence and disagreement context", async () => {
   const ui = await readFile(new URL("../components/content/grammar-coverage.tsx", import.meta.url), "utf8");
   assert.match(ui, /item\.evidenceCount/);
+  assert.match(ui, /item\.evidencePatterns/);
   assert.match(ui, /item\.sourceIds/);
   assert.match(ui, /openjlpt.*references/);
 });
