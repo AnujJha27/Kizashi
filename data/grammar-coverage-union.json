@@ -11,12 +11,12 @@
       "levelDisagreements": 4
     },
     "N4": {
-      "rawPatterns": 154,
-      "canonicalConcepts": 36,
+      "rawPatterns": 155,
+      "canonicalConcepts": 37,
       "complete": 0,
-      "partial": 32,
+      "partial": 33,
       "missing": 4,
-      "unresolved": 107,
+      "unresolved": 106,
       "levelDisagreements": 1
     }
   },
@@ -926,6 +926,17 @@
     {
       "id": "grammar-causative-ichidan",
       "pattern": "〜させる（一段）",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-volitional",
+      "pattern": "〜よう／〜おう",
       "level": "N4",
       "sourceIds": [
         "irodori-sentence-patterns"
@@ -2156,12 +2167,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-95703a3ced6f",
-      "pattern": "V-（よ）うと思います／思っています",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-eebbc73bca11",
       "pattern": "V-るために、～",
       "level": "N4"
@@ -2677,7 +2682,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 71
+      "references": 72
     },
     {
       "id": "tae-kim",

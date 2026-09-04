@@ -155,6 +155,25 @@
           }
         ]
       }
+      ,
+      {
+        "id": "chapter-n4-volitional",
+        "slug": "n4-volitional",
+        "title": "Plans and proposals",
+        "description": "Use volitional forms for decisions, proposals, and intentions about what to do next.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-volitional",
+            "slug": "n4-volitional",
+            "title": "Plans and proposals",
+            "subtitle": "意向と計画",
+            "description": "Form よう and おう, then connect the form to a clear plan or intention with と思います.",
+            "estimatedMinutes": 16,
+            "itemIds": ["grammar-volitional"]
+          }
+        ]
+      }
     ]
   },
   "vocabulary": [],
@@ -1378,6 +1397,35 @@
       "commonMistakes": ["Do not attach させる directly to the dictionary form of an ichidan verb; 食べる becomes 食べさせる.", "Keep the person who makes or allows the action as the subject, not the person who performs the embedded action."],
       "contrastIds": ["contrast-n4-causative-forms"],
       "practiceQuestionIds": ["grammar-causative-ichidan-1", "grammar-causative-ichidan-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-volitional",
+      "slug": "volitional",
+      "title": "意向形",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "plans and intentions",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-masu"],
+      "tags": ["N4", "volitional", "plans"],
+      "pattern": "〜よう／〜おう",
+      "meaning": "let's; shall; intend to",
+      "formation": "Godan verbs change the final う-sound to the お-sound and add う: 読む → 読もう. Ichidan verbs drop る and add よう: 食べる → 食べよう.",
+      "intuition": "The volitional form presents a proposal or the speaker's intention to act.",
+      "usageConditions": [
+        "Use it alone for an informal proposal or with と思います／と思っています for a stated intention.",
+        "Use the polite proposal ましょう when the situation calls for a more formal or direct invitation."
+      ],
+      "examples": [
+        {"japanese": "週末に映画を見ようと思います。", "translation": "I intend to watch a movie this weekend."},
+        {"japanese": "明日から毎日歩こうと思っています。", "translation": "I am planning to walk every day starting tomorrow."},
+        {"japanese": "一緒に昼ご飯を食べよう。", "translation": "Let's eat lunch together."},
+        {"japanese": "次の電車に乗ろうと思います。", "translation": "I think I will take the next train."}
+      ],
+      "commonMistakes": ["Do not use the godan お-sound change for ichidan verbs: 食べる becomes 食べよう, not 食べおう.", "Distinguish an immediate proposal よう from an intention softened or framed by と思います／と思っています."],
+      "contrastIds": [],
+      "practiceQuestionIds": ["grammar-volitional-1", "grammar-volitional-2"],
       "sourceIds": ["irodori-sentence-patterns"]
     }
   ],

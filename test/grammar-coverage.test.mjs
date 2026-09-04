@@ -48,10 +48,10 @@ test("grammar coverage reports source patterns with no canonical match", () => {
 test("checked-in grammar registry preserves the current evidence boundary", async () => {
   const registry = JSON.parse(await readFile(new URL("../data/grammar-coverage-union.json", import.meta.url), "utf8"));
   assert.deepEqual(registry.summary.N5, { rawPatterns: 224, canonicalConcepts: 46, complete: 16, partial: 24, missing: 6, unresolved: 114, levelDisagreements: 4 });
-  assert.deepEqual(registry.summary.N4, { rawPatterns: 154, canonicalConcepts: 36, complete: 0, partial: 32, missing: 4, unresolved: 107, levelDisagreements: 1 });
+  assert.deepEqual(registry.summary.N4, { rawPatterns: 155, canonicalConcepts: 37, complete: 0, partial: 33, missing: 4, unresolved: 106, levelDisagreements: 1 });
   assert.equal(registry.sourcePolicy.includes("review"), true);
   assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").rawRecords, 348);
-  assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").references, 71);
+  assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").references, 72);
 });
 
 test("high-confidence N5 source aliases are mapped into the coverage registry", async () => {
