@@ -966,5 +966,53 @@
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
     }
+  ],
+  "grammar-potential-godan": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-5906cbbbb696",
+      "sourceCourse": "初級2",
+      "sourceLevel": "Elementary 2",
+      "pattern": "V-れます　＜可能形③＞",
+      "sectionTitle": "Sentence pattern · 初級2",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: V-れます ＜可能形③＞.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-potential-ichidan": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-4b4fc3f5de33",
+      "sourceCourse": "初級2",
+      "sourceLevel": "Elementary 2",
+      "pattern": "V-（られ）ます　＜可能形①＞",
+      "sectionTitle": "Sentence pattern · 初級2",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: V-（られ）ます ＜可能形①＞.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-koto-ga-dekiru": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-15700bdff1b1",
+      "sourceCourse": "初中級",
+      "sourceLevel": "Pre-Intermediate",
+      "pattern": "V-ることができます",
+      "sectionTitle": "Sentence pattern · 初中級",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: V-ることができます.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
   ]
 }

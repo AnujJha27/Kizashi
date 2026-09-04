@@ -11,12 +11,12 @@
       "levelDisagreements": 4
     },
     "N4": {
-      "rawPatterns": 148,
-      "canonicalConcepts": 29,
+      "rawPatterns": 151,
+      "canonicalConcepts": 32,
       "complete": 0,
-      "partial": 25,
+      "partial": 28,
       "missing": 4,
-      "unresolved": 111,
+      "unresolved": 109,
       "levelDisagreements": 1
     }
   },
@@ -849,6 +849,39 @@
     {
       "id": "grammar-nara",
       "pattern": "〜なら、〜",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-potential-godan",
+      "pattern": "〜える／〜れる（五段）",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-potential-ichidan",
+      "pattern": "〜られる（一段）",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-koto-ga-dekiru",
+      "pattern": "〜ことができる",
       "level": "N4",
       "sourceIds": [
         "irodori-sentence-patterns"
@@ -1737,12 +1770,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-4b4fc3f5de33",
-      "pattern": "V-（られ）ます　＜可能形①＞カノウケイ",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-554f881acc54",
       "pattern": "～ところ",
       "level": "N4"
@@ -1865,12 +1892,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-0a821678d7b5",
       "pattern": "V-なくちゃならない",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-5906cbbbb696",
-      "pattern": "V-れます　＜可能形③＞カノウケイ",
       "level": "N4"
     },
     {
@@ -2636,7 +2657,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 64
+      "references": 67
     },
     {
       "id": "tae-kim",

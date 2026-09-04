@@ -88,6 +88,29 @@
           }
         ]
       }
+      ,
+      {
+        "id": "chapter-n4-ability",
+        "slug": "n4-ability",
+        "title": "Ability and possibility",
+        "description": "Say what you can do and compare compact potential forms with explicit ability expressions.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-ability",
+            "slug": "n4-ability",
+            "title": "Ability and possibility",
+            "subtitle": "可能と能力",
+            "description": "Use potential verbs and ことができる to describe practical ability without confusing potential and passive meanings.",
+            "estimatedMinutes": 22,
+            "itemIds": [
+              "grammar-potential-godan",
+              "grammar-potential-ichidan",
+              "grammar-koto-ga-dekiru"
+            ]
+          }
+        ]
+      }
     ]
   },
   "vocabulary": [],
@@ -1109,6 +1132,93 @@
       "contrastIds": ["contrast-n4-conditionals"],
       "practiceQuestionIds": ["grammar-nara-1", "grammar-nara-2"],
       "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-potential-godan",
+      "slug": "potential-godan",
+      "title": "可能形（五段）",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "ability",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-masu"],
+      "tags": ["N4", "ability", "potential"],
+      "pattern": "〜える／〜れる（五段）",
+      "meaning": "can do; be able to (godan verbs)",
+      "formation": "Change the final う-sound of a godan verb to the matching え-sound and add る: 書く → 書ける, 読む → 読める.",
+      "intuition": "The potential form turns an action into an ability or possibility available to the subject.",
+      "usageConditions": [
+        "Use it for what the subject can or cannot do, including situational possibility.",
+        "The former object is commonly marked with が in potential sentences, especially in careful teaching examples."
+      ],
+      "examples": [
+        {"japanese": "私は日本語が少し話せます。", "translation": "I can speak a little Japanese."},
+        {"japanese": "この店ではカードが使えます。", "translation": "You can use cards at this shop."},
+        {"japanese": "この漢字が読めますか。", "translation": "Can you read this kanji?"},
+        {"japanese": "週末なら、一時間泳げます。", "translation": "If it is the weekend, I can swim for an hour."}
+      ],
+      "commonMistakes": ["Do not use the え-sound change for ichidan verbs such as 食べる; use 食べられる.", "Do not confuse a potential form with a passive reading; use the surrounding subject and meaning to identify ability."],
+      "contrastIds": ["contrast-n4-potential-system"],
+      "practiceQuestionIds": ["grammar-potential-godan-1", "grammar-potential-godan-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-potential-ichidan",
+      "slug": "potential-ichidan",
+      "title": "可能形（一段）",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "ability",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-masu"],
+      "tags": ["N4", "ability", "potential"],
+      "pattern": "〜られる（一段）",
+      "meaning": "can do; be able to (ichidan verbs)",
+      "formation": "Remove る from an ichidan verb and add られる: 食べる → 食べられる, 見る → 見られる.",
+      "intuition": "Ichidan potential forms describe an ability or possibility while sharing their shape with some passive and honorific forms.",
+      "usageConditions": [
+        "Use the full られる form in the curriculum so it remains distinct from the passive form.",
+        "Interpret the form from its subject, object, and context rather than from the ending alone."
+      ],
+      "examples": [
+        {"japanese": "私は刺身が食べられます。", "translation": "I can eat sashimi."},
+        {"japanese": "ここから富士山が見られます。", "translation": "You can see Mount Fuji from here."},
+        {"japanese": "一人で着替えられます。", "translation": "I can change clothes by myself."},
+        {"japanese": "子どもはこの映画が見られません。", "translation": "Children cannot watch this movie."}
+      ],
+      "commonMistakes": ["Do not drop ら in formal potential practice: teach 食べられる and 見られる first.", "Do not assume every られる form means potential; passive and honorific readings require different context."],
+      "contrastIds": ["contrast-n4-potential-system"],
+      "practiceQuestionIds": ["grammar-potential-ichidan-1", "grammar-potential-ichidan-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-koto-ga-dekiru",
+      "slug": "koto-ga-dekiru",
+      "title": "ことができる",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "ability",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "ability", "possibility"],
+      "pattern": "〜ことができる",
+      "meaning": "can; be able to",
+      "formation": "Verb dictionary form + ことができる; negative ability uses ことができない.",
+      "intuition": "ことができる states ability or permission in an explicit, neutral construction that works across verb classes.",
+      "usageConditions": [
+        "Use it when a clear, explicit ability statement is more useful than a compact potential verb.",
+        "Keep the main verb in dictionary form before ことができる."
+      ],
+      "examples": [
+        {"japanese": "日本語でメールを書くことができます。", "translation": "I can write emails in Japanese."},
+        {"japanese": "この図書館で本を借りることができます。", "translation": "You can borrow books at this library."},
+        {"japanese": "オンラインで予約することができます。", "translation": "You can make a reservation online."},
+        {"japanese": "ここで写真を撮ることができません。", "translation": "You cannot take photos here."}
+      ],
+      "commonMistakes": ["Do not use the ます-form before ことができる; use the dictionary form.", "Both potential verbs and ことができる express ability, but do not mix their formations in one sentence."],
+      "contrastIds": ["contrast-n4-potential-system"],
+      "practiceQuestionIds": ["grammar-koto-ga-dekiru-1", "grammar-koto-ga-dekiru-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
     }
   ],
   "grammarContrasts": [
@@ -1207,6 +1317,30 @@
     "exercises": [
       "Choose と for a predictable or automatic result.",
       "Choose たら, ば, or なら when the context calls for a plan, requirement, or topic-based recommendation."
+    ]
+  },
+  {
+    "id": "contrast-n4-potential-system",
+    "title": "Potential verbs and ことができる",
+    "grammarPointIds": [
+      "grammar-potential-godan",
+      "grammar-potential-ichidan",
+      "grammar-koto-ga-dekiru"
+    ],
+    "explanation": "Godan verbs change to the え-sound, ichidan verbs use られる, and ことができる keeps the main verb in dictionary form. The potential verb is compact; ことができる is more explicit and works uniformly across verb classes.",
+    "examples": [
+      {
+        "japanese": "漢字が読めます。",
+        "translation": "I can read kanji."
+      },
+      {
+        "japanese": "漢字を読むことができます。",
+        "translation": "I can read kanji."
+      }
+    ],
+    "exercises": [
+      "Choose the godan or ichidan potential formation based on the verb class.",
+      "Choose ことができる when an explicit, uniform ability construction is the better fit."
     ]
   }
 ],
