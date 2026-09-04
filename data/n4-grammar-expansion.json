@@ -133,6 +133,28 @@
           }
         ]
       }
+      ,
+      {
+        "id": "chapter-n4-causative",
+        "slug": "n4-causative",
+        "title": "Causing and allowing",
+        "description": "Describe who makes or lets another person do an action in basic everyday situations.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-causative",
+            "slug": "n4-causative",
+            "title": "Causing and allowing",
+            "subtitle": "使役の場面",
+            "description": "Use basic godan and ichidan causative forms with clear causee roles and practical contexts.",
+            "estimatedMinutes": 20,
+            "itemIds": [
+              "grammar-causative-godan",
+              "grammar-causative-ichidan"
+            ]
+          }
+        ]
+      }
     ]
   },
   "vocabulary": [],
@@ -1299,6 +1321,64 @@
       "contrastIds": ["contrast-n4-passive-potential"],
       "practiceQuestionIds": ["grammar-passive-ichidan-1", "grammar-passive-ichidan-2"],
       "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-causative-godan",
+      "slug": "causative-godan",
+      "title": "使役形（五段）",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "causative",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-masu"],
+      "tags": ["N4", "causative", "permission"],
+      "pattern": "〜せる（五段）",
+      "meaning": "make or let someone do (godan verbs)",
+      "formation": "Change the final う-sound of a godan verb to the matching あ-sound and add せる: 読む → 読ませる, 書く → 書かせる.",
+      "intuition": "The causative form makes the subject responsible for causing or allowing another person to act.",
+      "usageConditions": [
+        "Mark the person caused to act with に for many transitive actions and with を for many intransitive actions.",
+        "Use context to distinguish making someone act from giving them permission to act."
+      ],
+      "examples": [
+        {"japanese": "先生は学生に本を読ませました。", "translation": "The teacher made the students read a book."},
+        {"japanese": "母は子どもに野菜を食べさせました。", "translation": "The mother made her child eat vegetables."},
+        {"japanese": "部長は私を駅まで行かせました。", "translation": "The manager made me go to the station."},
+        {"japanese": "先生は学生を早く帰らせました。", "translation": "The teacher let the students go home early."}
+      ],
+      "commonMistakes": ["Do not use the え-sound used by godan potential; 読む becomes 読ませる, not 読めさせる.", "Choose に or を according to the action's argument structure and keep the causer as the grammatical subject."],
+      "contrastIds": ["contrast-n4-causative-forms"],
+      "practiceQuestionIds": ["grammar-causative-godan-1", "grammar-causative-godan-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-causative-ichidan",
+      "slug": "causative-ichidan",
+      "title": "使役形（一段）",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "causative",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-masu"],
+      "tags": ["N4", "causative", "permission"],
+      "pattern": "〜させる（一段）",
+      "meaning": "make or let someone do (ichidan verbs)",
+      "formation": "Remove る from an ichidan verb and add させる: 食べる → 食べさせる, 見る → 見させる.",
+      "intuition": "The ichidan causative form keeps the causer in control while showing the other person's action or permission.",
+      "usageConditions": [
+        "Name the causee when it matters and use the polite or plain ending required by the sentence.",
+        "Do not confuse させる with passive or potential られる forms."
+      ],
+      "examples": [
+        {"japanese": "母は子どもに野菜を食べさせました。", "translation": "The mother made her child eat vegetables."},
+        {"japanese": "先生は学生に映画を見させました。", "translation": "The teacher made the students watch a movie."},
+        {"japanese": "父は私を早く起きさせました。", "translation": "My father made me get up early."},
+        {"japanese": "母は赤ちゃんを寝させました。", "translation": "The mother put the baby to sleep."}
+      ],
+      "commonMistakes": ["Do not attach させる directly to the dictionary form of an ichidan verb; 食べる becomes 食べさせる.", "Keep the person who makes or allows the action as the subject, not the person who performs the embedded action."],
+      "contrastIds": ["contrast-n4-causative-forms"],
+      "practiceQuestionIds": ["grammar-causative-ichidan-1", "grammar-causative-ichidan-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
     }
   ],
   "grammarContrasts": [
@@ -1446,6 +1526,29 @@
     "exercises": [
       "Choose passive when the subject is affected by an agent marked with に.",
       "Choose potential when the subject's ability or possibility is the focus."
+    ]
+  },
+  {
+    "id": "contrast-n4-causative-forms",
+    "title": "Causative godan and ichidan forms",
+    "grammarPointIds": [
+      "grammar-causative-godan",
+      "grammar-causative-ichidan"
+    ],
+    "explanation": "Godan verbs change to the あ-sound plus せる, while ichidan verbs drop る and take させる. Both forms make or allow another person to act, with the causee marked according to the embedded verb's argument structure.",
+    "examples": [
+      {
+        "japanese": "先生は学生に本を読ませました。",
+        "translation": "The teacher made the students read a book."
+      },
+      {
+        "japanese": "先生は学生に映画を見させました。",
+        "translation": "The teacher made the students watch a movie."
+      }
+    ],
+    "exercises": [
+      "Choose the causative ending from the verb class before deciding whether the meaning is make or let.",
+      "Identify the causer, causee, and embedded action before choosing に or を."
     ]
   }
 ],

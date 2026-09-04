@@ -1046,5 +1046,37 @@
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
     }
+  ],
+  "grammar-causative-godan": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-11806f5a7784",
+      "sourceCourse": "中級1",
+      "sourceLevel": "Intermediate 1",
+      "pattern": "V-（さ）せる＜使役①＞",
+      "sectionTitle": "Sentence pattern · 中級1",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: V-（さ）せる ＜使役①＞.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-causative-ichidan": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-735f1087edaa",
+      "sourceCourse": "中級1",
+      "sourceLevel": "Intermediate 1",
+      "pattern": "V-（さ）せる＜使役②＞",
+      "sectionTitle": "Sentence pattern · 中級1",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: V-（さ）せる ＜使役②＞.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
   ]
 }

@@ -11,10 +11,10 @@
       "levelDisagreements": 4
     },
     "N4": {
-      "rawPatterns": 152,
-      "canonicalConcepts": 34,
+      "rawPatterns": 154,
+      "canonicalConcepts": 36,
       "complete": 0,
-      "partial": 30,
+      "partial": 32,
       "missing": 4,
       "unresolved": 107,
       "levelDisagreements": 1
@@ -904,6 +904,28 @@
     {
       "id": "grammar-passive-ichidan",
       "pattern": "〜られる（一段）",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-causative-godan",
+      "pattern": "〜せる（五段）",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-causative-ichidan",
+      "pattern": "〜させる（一段）",
       "level": "N4",
       "sourceIds": [
         "irodori-sentence-patterns"
@@ -2338,12 +2360,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-11806f5a7784",
-      "pattern": "V-（さ）せる＜使役①＞",
-      "level": "Intermediate 1"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-d4f581beb4be",
       "pattern": "V-なくてもいいです",
       "level": "N4"
@@ -2448,12 +2464,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-b782925e4105",
       "pattern": "イA-がる",
-      "level": "Intermediate 1"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-735f1087edaa",
-      "pattern": "V-（さ）せる＜使役②＞",
       "level": "Intermediate 1"
     },
     {
@@ -2667,7 +2677,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 69
+      "references": 71
     },
     {
       "id": "tae-kim",
