@@ -60,6 +60,15 @@ test("Journey and profile scenery use raster images instead of SVG art", async (
   assert.ok(worldFiles.every((file) => file.endsWith(".webp")));
 });
 
+test("world imagery hides a failed asset without removing the surrounding UI", async () => {
+  const [landscape, portrait] = await Promise.all([
+    readFile(new URL("../components/journey/landscape.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/profile/study-portrait.tsx", import.meta.url), "utf8"),
+  ]);
+  assert.match(landscape, /onError=\{\(event\) => \{ event\.currentTarget\.hidden = true; \}\}/);
+  assert.match(portrait, /onError=\{\(event\) => \{ event\.currentTarget\.hidden = true; \}\}/);
+});
+
 test("the profile portrait consumes the resolved area visual", async () => {
   const portrait = await readFile(new URL("../components/profile/study-portrait.tsx", import.meta.url), "utf8");
   assert.match(portrait, /world\.area\.visualAssets\.portrait/);

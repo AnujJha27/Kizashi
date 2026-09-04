@@ -263,6 +263,15 @@ test("visual listening contexts use generated raster assets", async () => {
   assert.doesNotMatch(scene, /<svg/);
 });
 
+test("learning imagery hides failed assets while retaining accessible content", async () => {
+  const [scene, panel] = await Promise.all([
+    readFile(new URL("../components/learning/listening-scene.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/learning/reading-panel.tsx", import.meta.url), "utf8"),
+  ]);
+  assert.match(scene, /onError=\{\(event\) => \{ event\.currentTarget\.hidden = true; \}\}/);
+  assert.match(panel, /onError=\{\(event\) => \{ event\.currentTarget\.hidden = true; \}\}/);
+});
+
 test("generated learning visuals have centralized provenance metadata", async () => {
   const manifest = await readFile(new URL("../lib/learning-visual-assets.ts", import.meta.url), "utf8");
   assert.match(manifest, /sourceType: "generated-raster"/);
