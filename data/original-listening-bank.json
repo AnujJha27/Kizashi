@@ -275,6 +275,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about station.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -340,6 +345,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about cafe.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -405,6 +415,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about school.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -470,6 +485,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about home.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -535,6 +555,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about shopping.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -600,6 +625,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about people.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -665,6 +695,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about health.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -730,6 +765,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about transport.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -795,6 +835,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about study.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -860,6 +905,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about food.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -925,6 +975,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about errands.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -990,6 +1045,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about shopping.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -1055,6 +1115,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about weather.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -1120,6 +1185,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about school.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -1185,6 +1255,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about travel.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -1250,6 +1325,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about communication.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -1315,6 +1395,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about family.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -1380,6 +1465,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about hobby.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -1445,6 +1535,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about travel.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -1510,6 +1605,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about routine.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -1575,6 +1675,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about station.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -1640,6 +1745,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about cafe.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -1705,6 +1815,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about school.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -1770,6 +1885,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about home.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -1835,6 +1955,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about shopping.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -1900,6 +2025,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about people.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -1965,6 +2095,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about health.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -2030,6 +2165,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about transport.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -2095,6 +2235,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about study.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -2160,6 +2305,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about food.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -2225,6 +2375,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about errands.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -2290,6 +2445,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about shopping.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -2355,6 +2515,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about weather.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -2420,6 +2585,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about school.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -2485,6 +2655,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about travel.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -2550,6 +2725,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about communication.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -2615,6 +2795,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about family.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -2680,6 +2865,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about hobby.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -2745,6 +2935,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about travel.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -2810,6 +3005,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about routine.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -2875,6 +3075,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about station.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -2942,6 +3147,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about cafe.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -3009,6 +3219,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about school.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -3076,6 +3291,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about home.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -3143,6 +3363,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about shopping.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -3210,6 +3435,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about people.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -3277,6 +3507,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about health.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -3344,6 +3579,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about transport.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -3411,6 +3651,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about study.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -3478,6 +3723,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about food.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -3545,6 +3795,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about errands.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -3612,6 +3867,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about shopping.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -3679,6 +3939,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about weather.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -3746,6 +4011,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about school.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -3813,6 +4083,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about travel.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -3880,6 +4155,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about station.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -3945,6 +4225,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about cafe.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4010,6 +4295,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about school.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4075,6 +4365,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about home.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4140,6 +4435,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about shopping.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4205,6 +4505,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about people.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4270,6 +4575,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about health.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4335,6 +4645,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about transport.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4400,6 +4715,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about study.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4465,6 +4785,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about food.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4530,6 +4855,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about errands.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4595,6 +4925,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about shopping.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4660,6 +4995,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about weather.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4725,6 +5065,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about school.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4790,6 +5135,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about travel.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4855,6 +5205,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about communication.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4920,6 +5275,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about family.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -4985,6 +5345,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about hobby.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -5050,6 +5415,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about travel.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -5115,6 +5485,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about routine.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -5180,6 +5555,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about errands.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -5245,6 +5625,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about health.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -5310,6 +5695,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about transport.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -5375,6 +5765,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about shopping.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -5440,6 +5835,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N5 learner hears a short exchange about community.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-masu",
+        "grammar-ni"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
@@ -5505,6 +5905,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about administration.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -5570,6 +5975,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about work.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -5635,6 +6045,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about health.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -5700,6 +6115,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about transport.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -5765,6 +6185,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about community.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -5830,6 +6255,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about food.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -5895,6 +6325,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about home.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -5960,6 +6395,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about travel.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -6025,6 +6465,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about health.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -6090,6 +6535,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about shopping.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -6155,6 +6605,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about school.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -6220,6 +6675,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about community.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -6285,6 +6745,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about errands.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -6350,6 +6815,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about work.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -6415,6 +6885,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about hobby.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -6480,6 +6955,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about study.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -6545,6 +7025,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about home.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -6610,6 +7095,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about transport.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -6675,6 +7165,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about food.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -6740,6 +7235,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about routine.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -6805,6 +7305,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about administration.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -6870,6 +7375,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about work.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -6935,6 +7445,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about health.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7000,6 +7515,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about transport.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7065,6 +7585,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about community.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7130,6 +7655,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about food.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7195,6 +7725,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about home.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7260,6 +7795,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about travel.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7325,6 +7865,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about health.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7390,6 +7935,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about shopping.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7455,6 +8005,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about school.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7520,6 +8075,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about community.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7585,6 +8145,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about errands.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7650,6 +8215,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about work.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7715,6 +8285,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about hobby.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7780,6 +8355,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about study.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7845,6 +8425,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about home.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7910,6 +8495,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about transport.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -7975,6 +8565,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about food.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -8040,6 +8635,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about routine.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -8105,6 +8705,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about administration.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -8172,6 +8777,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about work.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -8239,6 +8849,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about health.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -8306,6 +8921,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about transport.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -8373,6 +8993,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about community.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -8440,6 +9065,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about food.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -8507,6 +9137,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about home.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -8574,6 +9209,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about travel.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -8641,6 +9281,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about health.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -8708,6 +9353,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about shopping.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -8775,6 +9425,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about school.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -8842,6 +9497,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about community.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -8909,6 +9569,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about errands.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -8976,6 +9641,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about work.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -9043,6 +9713,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about hobby.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -9110,6 +9785,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about administration.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -9175,6 +9855,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about work.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -9240,6 +9925,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about health.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -9305,6 +9995,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about transport.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -9370,6 +10065,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about community.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -9435,6 +10135,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about food.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -9500,6 +10205,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about home.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -9565,6 +10275,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about travel.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -9630,6 +10345,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about health.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -9695,6 +10415,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about shopping.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -9760,6 +10485,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about school.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -9825,6 +10555,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about community.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -9890,6 +10625,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about errands.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -9955,6 +10695,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about work.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -10020,6 +10765,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about hobby.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -10085,6 +10835,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about study.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -10150,6 +10905,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about home.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -10215,6 +10975,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about transport.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -10280,6 +11045,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about food.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -10345,6 +11115,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about routine.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -10410,6 +11185,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about administration.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -10475,6 +11255,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about work.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -10540,6 +11325,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about health.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -10605,6 +11395,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about transport.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
@@ -10670,6 +11465,11 @@
         "michi-curated-n5-seed"
       ],
       "situation": "A N4 learner hears a short exchange about community.",
+      "grammarIds": [
+        "grammar-wa",
+        "grammar-te-form",
+        "grammar-toki"
+      ],
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,

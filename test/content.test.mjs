@@ -221,6 +221,10 @@ test("original verbal-expression listening items carry visual context", () => {
   assert.ok(items.every((item) => item.questions.some((question) => question.visualContext)));
 });
 
+test("authored listening items persist grammar links", () => {
+  assert.ok(originalListening.listening.every((item) => Array.isArray(item.grammarIds) && item.grammarIds.length >= 3));
+});
+
 test("authored reading and listening banks expose diversity QA", () => {
   const report = buildContentQualityReport({ readings: originalReading.readings, listening: originalListening.listening });
   assert.deepEqual(report.reading.byLevel, { N5: { total: 60, uniqueTemplates: 60, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 12, "mid-length passage": 18, "short passage detail": 30, "main idea": 5, sequence: 2 } }, N4: { total: 55, uniqueTemplates: 55, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 15, "mid-length passage": 14, "short passage detail": 26, "condition detail": 1, "main idea": 1, "task-based response": 1 } } });
