@@ -1815,7 +1815,7 @@ Do NOT merely put plain text into a bordered paragraph.
 
 ## Current implementation status (2026-09-04)
 
-- [~] The shared `ReadingPanel` now renders four generated WebP scene assets reused by format plus Kizashi-original HTML layouts for the 27 practical reading assets, using declared format metadata, compact notice cards, menu/sale grids, timetable/schedule tables, Japanese typography, and structured rows while keeping the accessible text passage intact. `lib/learning-visual-assets.ts` centralizes the generated-raster source/license/attribution metadata and both learner surfaces consume it. Images are atmospheric/no-text support, lazy-loaded with intrinsic dimensions; Japanese stays in HTML for accuracy and accessibility. Broader layout variety and native review remain open.
+- [~] The shared `ReadingPanel` now renders eight generated WebP scene assets reused by format plus Kizashi-original HTML layouts for the 27 practical reading assets, using declared format metadata, compact notice cards, menu/sale grids, timetable/schedule tables, Japanese typography, and structured rows while keeping the accessible text passage intact. `lib/learning-visual-assets.ts` centralizes the generated-raster source/license/attribution metadata and both learner surfaces consume it. Images are atmospheric/no-text support, lazy-loaded with intrinsic dimensions; Japanese stays in HTML for accuracy and accessibility. Broader layout variety and native review remain open.
 
 Create Kizashi-original layouts.
 

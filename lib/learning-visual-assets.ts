@@ -7,17 +7,17 @@ export const readingVisualAssets: Record<ReadingVisualFormat, string> = {
   schedule: "/learning-assets/reading/station-schedule.webp",
   sale: "/learning-assets/reading/cafe-counter.webp",
   event: "/learning-assets/reading/classroom-notice.webp",
-  directions: "/learning-assets/reading/station-schedule.webp",
+  directions: "/learning-assets/reading/local-bus-stop.webp",
   hotel: "/learning-assets/reading/home-notice.webp",
   work: "/learning-assets/reading/classroom-notice.webp",
-  health: "/learning-assets/reading/classroom-notice.webp",
+  health: "/learning-assets/reading/clinic-reception.webp",
   school: "/learning-assets/reading/classroom-notice.webp",
   home: "/learning-assets/reading/home-notice.webp",
   restaurant: "/learning-assets/reading/cafe-counter.webp",
-  museum: "/learning-assets/reading/classroom-notice.webp",
+  museum: "/learning-assets/reading/local-museum.webp",
   weather: "/learning-assets/reading/home-notice.webp",
-  delivery: "/learning-assets/reading/home-notice.webp",
-  transport: "/learning-assets/reading/station-schedule.webp",
+  delivery: "/learning-assets/reading/neighborhood-post-office.webp",
+  transport: "/learning-assets/reading/local-bus-stop.webp",
 };
 
 const listeningVisualAssets = Object.freeze({

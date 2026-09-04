@@ -253,6 +253,7 @@ test("authored reading and listening banks expose diversity QA", () => {
 
 test("information-retrieval readings carry visual formats", async () => {
   const panel = await readFile(new URL("../components/learning/reading-panel.tsx", import.meta.url), "utf8");
+  const visualAssets = await readFile(new URL("../lib/learning-visual-assets.ts", import.meta.url), "utf8");
   const retrieval = originalReading.readings.filter((item) => item.subcategory === "information-retrieval");
   assert.equal(retrieval.length, 27);
   assert.ok(retrieval.every((item) => ["notice", "menu", "timetable", "schedule", "sale", "event", "directions", "hotel", "work", "health", "school", "home", "restaurant", "museum", "weather", "delivery", "transport"].includes(item.visualFormat)));
@@ -260,6 +261,10 @@ test("information-retrieval readings carry visual formats", async () => {
   assert.match(panel, /visualFormatLayouts/);
   assert.match(panel, /data-visual-format/);
   assert.match(panel, /readingVisualAssets/);
+  assert.match(visualAssets, /neighborhood-post-office\.webp/);
+  assert.match(visualAssets, /clinic-reception\.webp/);
+  assert.match(visualAssets, /local-museum\.webp/);
+  assert.match(visualAssets, /local-bus-stop\.webp/);
   assert.doesNotMatch(panel, /<svg/);
 });
 
