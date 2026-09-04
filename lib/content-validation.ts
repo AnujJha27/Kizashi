@@ -199,6 +199,9 @@ function validateItem(item: unknown, path: string, category: (typeof categories)
     const practiceQuestionIds = stringArray(item.practiceQuestionIds, `${path}.practiceQuestionIds`, issues, 0);
     uniqueStrings(practiceQuestionIds, `${path}.practiceQuestionIds`, issues);
     qualityWarning(practiceQuestionIds.length < 2, `${path}.practiceQuestionIds`, "Add at least two authored practice question IDs for a reusable grammar point.", issues);
+    qualityWarning(!Array.isArray(item.aliases) || item.aliases.length === 0, `${path}.aliases`, "Add explicit aliases so this grammar point can be found across source terminology.", issues);
+    const context = isRecord(item.context) ? item.context : null;
+    qualityWarning(!context || typeof context.japanese !== "string" || !context.japanese.trim() || typeof context.translation !== "string" || !context.translation.trim(), `${path}.context`, "Add one dedicated Japanese mini-context with a translation.", issues);
   }
 
   if (category === "reading") {

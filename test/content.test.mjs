@@ -90,6 +90,14 @@ test("vocabulary validation surfaces high-frequency example depth", async () => 
   assert.match(validation, /High-frequency vocabulary should have at least two example sentences/);
 });
 
+test("grammar validation surfaces missing lesson-contract fields", async () => {
+  const validation = await readFile(new URL("../lib/content-validation.ts", import.meta.url), "utf8");
+  assert.match(validation, /item\.aliases/);
+  assert.match(validation, /item\.context/);
+  assert.match(validation, /context\.japanese/);
+  assert.match(validation, /dedicated Japanese mini-context/);
+});
+
 test("practice defers the question bank until its panel loads", async () => {
   const page = await readFile(new URL("../app/(main)/practice/page.tsx", import.meta.url), "utf8");
   const lazyPractice = await readFile(new URL("../components/practice/lazy-practice.tsx", import.meta.url), "utf8");
