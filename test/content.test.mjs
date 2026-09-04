@@ -75,6 +75,7 @@ test("completeness dashboard exposes grammar assessment families by level", asyn
   assert.match(dashboard, /quality\.reading\.byLevel\.N5\.questionFamilies/);
   assert.match(dashboard, /quality\.listening\.contextTypes/);
   assert.match(dashboard, /quality\.listening\.complexity/);
+  assert.match(dashboard, /quality\.listening\.visualSceneTypes/);
   assert.match(dashboard, /quality\.listening\.byLevel\.N4\.nearDuplicateClusters/);
   assert.doesNotMatch(dashboard, /N5 \$\{report\.quality/);
 });
@@ -230,6 +231,7 @@ test("authored reading and listening banks expose diversity QA", () => {
   assert.equal(report.listening.nearDuplicateClusters.length, 0);
   assert.ok(Object.keys(report.listening.contextTypes).length >= 15);
   assert.equal(Object.values(report.listening.contextTypes).reduce((total, count) => total + count, 0), 160);
+  assert.ok(Object.keys(report.listening.visualSceneTypes).length >= 15);
   assert.ok(report.listening.complexity.byLevel.N4.averageLines > report.listening.complexity.byLevel.N5.averageLines);
   assert.equal(report.listening.complexity.byLevel.N4.cueItems, report.listening.complexity.byLevel.N4.total);
   assert.ok((report.reading.questionFamilies["main idea"] ?? 0) >= 4);
@@ -243,6 +245,14 @@ test("information-retrieval readings carry visual formats", async () => {
   assert.equal(retrieval.length, 27);
   assert.ok(retrieval.every((item) => ["notice", "menu", "timetable", "schedule", "sale", "event", "directions", "hotel", "work", "health", "school", "home", "restaurant", "museum", "weather", "delivery", "transport"].includes(item.visualFormat)));
   assert.match(panel, /visualFormat/);
+  assert.match(panel, /learning-assets\/reading/);
+  assert.doesNotMatch(panel, /<svg/);
+});
+
+test("visual listening contexts use generated raster assets", async () => {
+  const scene = await readFile(new URL("../components/learning/listening-scene.tsx", import.meta.url), "utf8");
+  assert.match(scene, /learning-assets\/listening/);
+  assert.doesNotMatch(scene, /<svg/);
 });
 
 test("quality audit keeps reading and listening families visible by level", () => {

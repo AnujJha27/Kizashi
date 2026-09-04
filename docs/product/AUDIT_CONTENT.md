@@ -1769,7 +1769,7 @@ dominate.
 
 ## Current implementation status (2026-09-04)
 
-- [~] The 27 authored information-retrieval readings now carry explicit visual formats and render Kizashi-owned, accessible HTML reading aids for notices, menus, timetables, schedules, posters, directions, and other practical formats in `components/learning/reading-panel.tsx`. Japanese remains real text below the visual aid; source-backed realism, broader layout variety, and native review remain open.
+- [~] The 27 authored information-retrieval readings now carry explicit visual formats and render generated raster scene support plus Kizashi-owned accessible HTML reading aids for notices, menus, timetables, schedules, posters, directions, and other practical formats in `components/learning/reading-panel.tsx`. Japanese remains real text below the image/layout; generated images contain no learner-facing text, and source-backed realism, broader layout variety, and native review remain open.
 
 Create original visual assets for assessment reading.
 
@@ -1815,7 +1815,7 @@ Do NOT merely put plain text into a bordered paragraph.
 
 ## Current implementation status (2026-09-04)
 
-- [~] The shared `ReadingPanel` now renders Kizashi-original HTML layouts for the 27 practical reading assets, using declared format metadata, Japanese typography, simple iconography, and structured rows while keeping the accessible text passage intact. More realistic format-specific art direction, broader layout variety, and native review remain open.
+- [~] The shared `ReadingPanel` now renders four generated raster scene assets reused by format plus Kizashi-original HTML layouts for the 27 practical reading assets, using declared format metadata, Japanese typography, and structured rows while keeping the accessible text passage intact. Images are atmospheric/no-text support; Japanese stays in HTML for accuracy and accessibility. More realistic format-specific art direction, broader layout variety, and native review remain open.
 
 Create Kizashi-original layouts.
 
@@ -2003,7 +2003,7 @@ Do not copy their scripts into original Kizashi assessment material unless the s
 
 ## Current implementation status (2026-09-04)
 
-- [x] The authored listening generator adds scene metadata to all verbal-expression items; Lesson and Practice render original inline SVG situation illustrations with accessible descriptions, while the audio/transcript remains the primary listening task.
+- [x] The authored listening generator adds scene metadata to all verbal-expression items; Lesson and Practice render four generated raster situation assets with accessible descriptions, while the audio/transcript remains the primary listening task.
 - [x] Pronunciation now has a learner-visible Immersion activity with 20 authored lessons (15 N5 foundation, 5 N4 reinforcement) and 60 discrimination exercises covering mora timing, long vowels, small っ, ん, contracted sounds, devoicing awareness, rhythm, segmentation, intonation, and pitch awareness; browser audio fallback and optional OJAD exploration are used without making pitch a JLPT gate.
 - [x] Dictation now derives 155 explicit activities from the authored listening bank: N5 has 15 word, 15 phrase, 30 sentence, 8 dialogue-gap, and 7 key-information tasks; N4 has 25 phrase, 35 sentence, 10 dialogue-gap, and 10 key-information tasks. It reuses audio, kana/formatting-tolerant normalization, mistake recording, and answer-difference feedback.
 - [x] Output now derives 80 speaking situations (40 N5 / 40 N4), 60 writing prompts (25 N5 / 35 N4), 119 pragmatic contexts, and 296 vocabulary collocations from the released package through `lib/output-core.js` and the Real life lane. It preserves source evidence, target levels, frequency fields, and self-check/model behavior; automatic open-response grading and inferred canonical grammar mappings remain out of scope.
