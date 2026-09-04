@@ -164,6 +164,7 @@ function validateItem(item: unknown, path: string, category: (typeof categories)
     stringArray(item.relatedWords, `${path}.relatedWords`, issues, 0);
     stringArray(item.antonyms, `${path}.antonyms`, issues, 0);
     qualityWarning(Array.isArray(item.collocations) && item.collocations.length === 0, `${path}.collocations`, "Add at least one useful collocation before treating this word as production-ready.", issues);
+    qualityWarning(typeof item.commonness === "number" && item.commonness >= 5 && Array.isArray(item.exampleSentences) && item.exampleSentences.length < 2, `${path}.exampleSentences`, "High-frequency vocabulary should have at least two example sentences before final review.", issues);
   }
 
   if (category === "kanji") {

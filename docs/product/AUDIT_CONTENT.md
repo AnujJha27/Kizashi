@@ -1475,7 +1475,7 @@ Do not make all N4 vocab practice translation MCQ.
 
 ## Current implementation status (2026-09-04)
 
-- [~] `lib/content-completeness-core.js` now reports the vocabulary context contract by level. The current 169-record package has 72 records with two examples, 169 with collocations and related words, 0 with persisted audio, 0 persisted contextual/paraphrase assessment links, 16 N4 usage assessments, and 0 records meeting the full audit contract; generated fallback questions are intentionally not counted as persisted coverage.
+- [~] `lib/content-completeness-core.js` now reports the vocabulary context contract by level, and `lib/content-validation.ts` warns when high-frequency (`commonness >= 5`) records have fewer than two examples. The current 169-record package has 72 records with two examples, 169 with collocations and related words, 0 with persisted audio, 0 persisted contextual/paraphrase assessment links, 16 N4 usage assessments, and 0 records meeting the full audit contract; generated fallback questions are intentionally not counted as persisted coverage. The current package leaves 96 high-frequency records for that warning queue.
 
 Important words should ideally have:
 
