@@ -71,6 +71,7 @@ test("completeness dashboard exposes grammar assessment families by level", asyn
   assert.match(dashboard, /grammarAssessment\.byLevel\.N4\.textGrammarContexts/);
   assert.match(dashboard, /grammarConsistency\.duplicateExampleItems/);
   assert.match(dashboard, /vocabularyContract\.contractReady/);
+  assert.match(dashboard, /vocabularyContract\.pendingContextualDrafts/);
   assert.match(dashboard, /collocationQuality\.duplicateRows/);
   assert.match(dashboard, /quality\.reading\.byLevel\.N5\.questionFamilies/);
   assert.match(dashboard, /quality\.listening\.contextTypes/);
@@ -141,6 +142,7 @@ const moduleData = JSON.parse(await readFile(new URL("../data/n5-foundations.jso
 const expansionData = await Promise.all(["n5-conversation-expansion.json", "n5-practical-expansion.json", "n5-life-expansion.json", "n4-grammar-expansion.json"].map(async (file) => JSON.parse(await readFile(new URL(`../data/${file}`, import.meta.url), "utf8"))));
 const authoredQuestions = JSON.parse(await readFile(new URL("../data/n5-authored-practice.json", import.meta.url), "utf8"));
 const grammarDrafts = JSON.parse(await readFile(new URL("../data/n5-grammar-assessment-drafts.json", import.meta.url), "utf8"));
+const vocabularyDrafts = JSON.parse(await readFile(new URL("../data/vocabulary-assessment-drafts.json", import.meta.url), "utf8"));
 const originalListening = JSON.parse(await readFile(new URL("../data/original-listening-bank.json", import.meta.url), "utf8"));
 const originalReading = JSON.parse(await readFile(new URL("../data/original-reading-bank.json", import.meta.url), "utf8"));
 const mergedModule = {
@@ -549,6 +551,19 @@ test("grammar assessment drafts are independent and review-only", async () => {
   assert.match(curriculum, /n4GrammarExpansionData\.grammarContrasts/);
 });
 
+test("vocabulary context drafts are independent and review-only", async () => {
+  const curriculum = await readFile(new URL("../lib/curriculum.ts", import.meta.url), "utf8");
+  assert.equal(vocabularyDrafts.length, 338);
+  assert.equal(new Set(vocabularyDrafts.map((question) => question.id)).size, vocabularyDrafts.length);
+  assert.equal(vocabularyDrafts.filter((question) => question.questionType === "contextual vocabulary").length, 169);
+  assert.equal(vocabularyDrafts.filter((question) => question.questionType === "paraphrase").length, 169);
+  assert.ok(vocabularyDrafts.every((question) => question.category === "vocabulary" && question.validationStatus === "generated" && question.review?.status === "draft"));
+  assert.ok(vocabularyDrafts.filter((question) => question.questionType === "contextual vocabulary").every((question) => question.contextSetId && question.contextText));
+  assert.ok(vocabularyDrafts.filter((question) => question.questionType === "contextual vocabulary").every((question) => !question.prompt.endsWith("\n＿＿")));
+  assert.ok(vocabularyDrafts.every((question) => question.options.length >= 2 && question.correctIndex >= 0 && question.correctIndex < question.options.length));
+  assert.match(curriculum, /vocabularyAssessmentDrafts/);
+});
+
 test("N4 grammar assessment drafts cover distinct bridge concepts", () => {
   const n4Drafts = grammarDrafts.filter((question) => question.jlptLevel === "N4");
   assert.equal(n4Drafts.length, 75);
@@ -568,11 +583,11 @@ test("vocabulary context audit reports the learner contract", () => {
     vocabulary: [{ id: "vocab-contract", category: "vocabulary", jlptLevel: "N4", exampleSentences: [{ japanese: "例です。", translation: "It is an example." }, { japanese: "もう一つです。", translation: "It is another one." }], collocations: ["例を使う"], relatedWords: ["練習"], usageAssessment: { correct: "例を使います。", distractors: ["例を食べます。", "例を歩きます。", "例を寝ます。"] } }],
     practiceQuestions: [{ itemId: "vocab-contract", questionType: "contextual vocabulary" }, { itemId: "vocab-contract", questionType: "paraphrase" }],
   });
-  assert.deepEqual(report.vocabularyContract, { total: 1, examplesAtLeast2: 1, collocations: 1, relatedWords: 1, audio: 0, contextualAssessments: 1, paraphraseAssessments: 1, usageAssessments: 1, contractReady: 1, byLevel: { N5: { total: 0, examplesAtLeast2: 0, collocations: 0, relatedWords: 0, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, usageAssessments: 0, contractReady: 0 }, N4: { total: 1, examplesAtLeast2: 1, collocations: 1, relatedWords: 1, audio: 0, contextualAssessments: 1, paraphraseAssessments: 1, usageAssessments: 1, contractReady: 1 } } });
+  assert.deepEqual(report.vocabularyContract, { total: 1, examplesAtLeast2: 1, collocations: 1, relatedWords: 1, audio: 0, contextualAssessments: 1, paraphraseAssessments: 1, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 1, contractReady: 1, byLevel: { N5: { total: 0, examplesAtLeast2: 0, collocations: 0, relatedWords: 0, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 0, contractReady: 0 }, N4: { total: 1, examplesAtLeast2: 1, collocations: 1, relatedWords: 1, audio: 0, contextualAssessments: 1, paraphraseAssessments: 1, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 1, contractReady: 1 } } });
 });
 
 test("authored vocabulary context coverage remains visible", () => {
-  assert.deepEqual(getContentCompleteness(mergedModule).vocabularyContract, { total: 169, examplesAtLeast2: 72, collocations: 169, relatedWords: 169, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, usageAssessments: 16, contractReady: 0, byLevel: { N5: { total: 153, examplesAtLeast2: 56, collocations: 153, relatedWords: 153, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, usageAssessments: 0, contractReady: 0 }, N4: { total: 16, examplesAtLeast2: 16, collocations: 16, relatedWords: 16, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, usageAssessments: 16, contractReady: 0 } } });
+  assert.deepEqual(getContentCompleteness(mergedModule).vocabularyContract, { total: 169, examplesAtLeast2: 72, collocations: 169, relatedWords: 169, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 16, contractReady: 0, byLevel: { N5: { total: 153, examplesAtLeast2: 56, collocations: 153, relatedWords: 153, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 0, contractReady: 0 }, N4: { total: 16, examplesAtLeast2: 16, collocations: 16, relatedWords: 16, audio: 0, contextualAssessments: 0, paraphraseAssessments: 0, pendingContextualDrafts: 0, pendingParaphraseDrafts: 0, usageAssessments: 16, contractReady: 0 } } });
 });
 
 test("collocation quality audit flags repeated or isolated entries", () => {

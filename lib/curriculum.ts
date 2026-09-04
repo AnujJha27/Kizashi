@@ -5,6 +5,7 @@ import lifeExpansionData from "@/data/n5-life-expansion.json";
 import n4GrammarExpansionData from "@/data/n4-grammar-expansion.json";
 import authoredPracticeData from "@/data/n5-authored-practice.json";
 import grammarAssessmentDrafts from "@/data/n5-grammar-assessment-drafts.json";
+import vocabularyAssessmentDrafts from "@/data/vocabulary-assessment-drafts.json";
 import originalReadingData from "@/data/original-reading-bank.json";
 import originalListeningData from "@/data/original-listening-bank.json";
 
@@ -38,7 +39,7 @@ export const n5Module = {
   grammarContrasts: [...moduleData.grammarContrasts, ...expansionData.grammarContrasts, ...practicalExpansionData.grammarContrasts, ...lifeExpansionData.grammarContrasts, ...n4GrammarExpansionData.grammarContrasts],
   readings: sourceAware([...foundationReadings, ...expansionData.readings, ...practicalExpansionData.readings, ...lifeExpansionData.readings, ...originalReadingData.readings]),
   listening: sourceAware([...foundationListening, ...expansionData.listening, ...practicalExpansionData.listening, ...lifeExpansionData.listening, ...originalListeningData.listening]),
-  practiceQuestions: [...authoredPracticeData, ...grammarAssessmentDrafts],
+  practiceQuestions: [...authoredPracticeData, ...grammarAssessmentDrafts, ...vocabularyAssessmentDrafts],
   sourceManifest: contentSources,
 } as unknown as N5Module;
 export const currentLessonId = "lesson-meeting-people";
