@@ -1271,7 +1271,7 @@ This is currently severely underdeveloped.
 ## Current implementation status (2026-09-04)
 
 - [x] `validatePracticeQuestions` now requires text-grammar questions to persist a context ID and passage, contain a visible blank, and provide at least four choices as a quality target; connected-passage shape is reported as a warning. The built-in fallback carries the same context metadata.
-- [~] The 125 authored text-grammar drafts remain review-only until each passage, distractor set, and answer key receives human linguistic review.
+- [~] The 125 authored text-grammar drafts remain review-only until each passage, distractor set, and answer key receives human linguistic review; `validatePracticeQuestions` now also blocks locally generated draft questions from activation unless approved reviewer and timestamp metadata are present.
 
 Build a dedicated text-grammar corpus.
 
@@ -1475,7 +1475,7 @@ Do not make all N4 vocab practice translation MCQ.
 
 ## Current implementation status (2026-09-04)
 
-- [~] `lib/content-completeness-core.js` now reports the vocabulary context contract by level, and `lib/content-validation.ts` warns when high-frequency (`commonness >= 5`) records have fewer than two examples. The current 169-record package has 169 records with two examples (153/153 N5 and 16/16 N4), 169 with collocations and related words, 0 with persisted audio, 0 approved contextual/paraphrase assessment links, 169 contextual and 169 paraphrase drafts staged for review in `data/vocabulary-assessment-drafts.json`, 16 N4 usage assessments, and 0 records meeting the full audit contract; generated drafts remain excluded from learner-ready coverage. Content Studio's pending question queue now filters these drafts by question family. The current package leaves 0 high-frequency records for that warning queue.
+- [~] `lib/content-completeness-core.js` now reports the vocabulary context contract by level, and `lib/content-validation.ts` warns when high-frequency (`commonness >= 5`) records have fewer than two examples. The current 169-record package has 169 records with two examples (153/153 N5 and 16/16 N4), 169 with collocations and related words, 0 with persisted audio, 0 approved contextual/paraphrase assessment links, 169 contextual and 169 paraphrase drafts staged for review in `data/vocabulary-assessment-drafts.json`, 16 N4 usage assessments, and 0 records meeting the full audit contract; generated drafts remain excluded from learner-ready coverage, and draft-generated questions cannot become active without explicit review metadata. Content Studio's pending question queue now filters these drafts by question family. The current package leaves 0 high-frequency records for that warning queue.
 
 Important words should ideally have:
 

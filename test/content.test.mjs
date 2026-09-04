@@ -628,6 +628,13 @@ test("content completeness keeps grammar drafts out of approved assessment count
   assert.deepEqual(report.grammarConsistency, { items: 0, duplicateExampleItems: 0, duplicateExampleCount: 0, conflictingTranslationExamples: 0, emptyExamples: 0 });
 });
 
+test("generated draft activation requires explicit review metadata", async () => {
+  const validation = await readFile(new URL("../lib/content-validation.ts", import.meta.url), "utf8");
+  assert.match(validation, /generatedBy\?\.includes\("draft"\)/);
+  assert.match(validation, /reviewedBy/);
+  assert.match(validation, /reviewedAt/);
+});
+
 test("vocabulary context audit reports the learner contract", () => {
   const report = getContentCompleteness({
     vocabulary: [{ id: "vocab-contract", category: "vocabulary", jlptLevel: "N4", exampleSentences: [{ japanese: "例です。", translation: "It is an example." }, { japanese: "もう一つです。", translation: "It is another one." }], collocations: ["例を使う"], relatedWords: ["練習"], usageAssessment: { correct: "例を使います。", distractors: ["例を食べます。", "例を歩きます。", "例を寝ます。"] } }],

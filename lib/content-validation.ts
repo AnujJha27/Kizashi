@@ -30,7 +30,7 @@ export const QUESTION_DRAFT_STORAGE_KEY = "michi.question-draft";
 
 export function isActivePracticeQuestion(question: Pick<PracticeQuestion, "validationStatus" | "generatedBy" | "review">) {
   if (question.validationStatus === "rejected" || question.validationStatus === "generated") return false;
-  if (question.generatedBy?.startsWith("openrouter:")) return question.review?.status === "approved";
+  if (question.generatedBy?.startsWith("openrouter:") || question.generatedBy?.includes("draft")) return question.review?.status === "approved" && Boolean(question.review.reviewedBy?.trim()) && Boolean(question.review.reviewedAt?.trim());
   return true;
 }
 
@@ -518,9 +518,9 @@ export function validatePracticeQuestions(questions: unknown, knownItemIds: Set<
     if (rawQuestion.validationStatus !== undefined && !["generated", "validated", "rejected"].includes(rawQuestion.validationStatus as string)) issues.push({ path: `${path}.validationStatus`, message: "Use generated, validated, or rejected.", severity: "error" });
     if (rawQuestion.generatedBy !== undefined) stringValue(rawQuestion.generatedBy, `${path}.generatedBy`, issues, false);
     if (rawQuestion.validationStatus === "validated" && typeof rawQuestion.generatedBy !== "string") issues.push({ path: `${path}.generatedBy`, message: "Validated questions need a provenance label.", severity: "error" });
-    if (rawQuestion.validationStatus === "validated" && typeof rawQuestion.generatedBy === "string" && rawQuestion.generatedBy.startsWith("openrouter:")) {
+    if (rawQuestion.validationStatus === "validated" && typeof rawQuestion.generatedBy === "string" && (rawQuestion.generatedBy.startsWith("openrouter:") || rawQuestion.generatedBy.includes("draft"))) {
       const review = rawQuestion.review;
-      if (!isRecord(review) || review.status !== "approved" || typeof review.reviewedBy !== "string" || !review.reviewedBy.trim() || typeof review.reviewedAt !== "string" || !review.reviewedAt.trim()) issues.push({ path: `${path}.review`, message: "AI questions need human approval, reviewer, and review timestamp before activation.", severity: "error" });
+      if (!isRecord(review) || review.status !== "approved" || typeof review.reviewedBy !== "string" || !review.reviewedBy.trim() || typeof review.reviewedAt !== "string" || !review.reviewedAt.trim()) issues.push({ path: `${path}.review`, message: "Generated questions need approval, reviewer, and review timestamp before activation.", severity: "error" });
     }
     const answerMode = rawQuestion.answerMode ?? "choice";
     if (answerMode !== "choice" && answerMode !== "text") issues.push({ path: `${path}.answerMode`, message: "Use choice or text.", severity: "error" });
