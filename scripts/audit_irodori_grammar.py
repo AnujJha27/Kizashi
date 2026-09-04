@@ -17,6 +17,7 @@ DEFAULT_CANONICAL = (
     Path("data/n5-conversation-expansion.json"),
     Path("data/n5-practical-expansion.json"),
     Path("data/n5-life-expansion.json"),
+    Path("data/n4-grammar-expansion.json"),
 )
 
 

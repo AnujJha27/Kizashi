@@ -1,0 +1,1215 @@
+{
+  "course": {
+    "id": "n4-grammar-expansion",
+    "slug": "n4-grammar-expansion",
+    "title": "N4 actions, views, and methods",
+    "description": "A source-grounded bridge into decisions, preparation, attempts, judgments, limits, and ways of doing things.",
+    "jlptLevel": "N4",
+    "chapters": [
+      {
+        "id": "chapter-n4-actions-and-intentions",
+        "slug": "n4-actions-and-intentions",
+        "title": "Actions and intentions",
+        "description": "Make plans, prepare, try, and describe help in everyday Japanese.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-actions-and-intentions",
+            "slug": "n4-actions-and-intentions",
+            "title": "Actions and intentions",
+            "subtitle": "行動と予定",
+            "description": "Use ten N4 patterns to talk about choices, preparation, attempts, and favors.",
+            "estimatedMinutes": 28,
+            "itemIds": [
+              "grammar-koto-ni-suru",
+              "grammar-zuni",
+              "grammar-sou-appearance",
+              "grammar-tsumori",
+              "grammar-te-ageru",
+              "grammar-te-oku",
+              "grammar-te-kureru",
+              "grammar-te-shimau",
+              "grammar-te-miru",
+              "grammar-te-morau"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chapter-n4-views-and-methods",
+        "slug": "n4-views-and-methods",
+        "title": "Views and methods",
+        "description": "Describe direction, certainty, appearance, limits, degree, and ways of doing things.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-views-and-methods",
+            "slug": "n4-views-and-methods",
+            "title": "Views and methods",
+            "subtitle": "見方と方法",
+            "description": "Use ten more N4 patterns to follow change, judge situations, and explain how to act.",
+            "estimatedMinutes": 28,
+            "itemIds": [
+              "grammar-te-iku",
+              "grammar-te-kuru",
+              "grammar-ni-chigai-nai",
+              "grammar-ni-kimatte-iru",
+              "grammar-mitai",
+              "grammar-rashii",
+              "grammar-wake-ni-wa-ikanai",
+              "grammar-sugiru",
+              "grammar-chu",
+              "grammar-kata"
+            ]
+          }
+        ]
+      }
+      ,
+      {
+        "id": "chapter-n4-conditionals",
+        "slug": "n4-conditionals",
+        "title": "Conditions and results",
+        "description": "Compare conditions, expected results, and advice in practical situations.",
+        "region": "station-district",
+        "lessons": [
+          {
+            "id": "lesson-n4-conditionals",
+            "slug": "n4-conditionals",
+            "title": "Conditions and results",
+            "subtitle": "条件と結果",
+            "description": "Use と、たら、ば、 and なら to connect conditions to natural results and advice.",
+            "estimatedMinutes": 24,
+            "itemIds": [
+              "grammar-to-conditional",
+              "grammar-tara",
+              "grammar-ba",
+              "grammar-nara"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [],
+  "kanji": [],
+  "grammar": [
+    {
+      "id": "grammar-koto-ni-suru",
+      "slug": "koto-ni-suru",
+      "title": "ことにする",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "actions and intentions",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-dictionary-form"
+      ],
+      "tags": [
+        "N4",
+        "actions",
+        "communication"
+      ],
+      "pattern": "〜ことにする",
+      "meaning": "decide to do",
+      "formation": "Verb plain form + ことにする.",
+      "intuition": "ことにする turns a decision into a chosen plan the speaker will carry out.",
+      "usageConditions": [
+        "Use it for a decision or resolution made by the subject.",
+        "Use the negative form when deciding not to do something."
+      ],
+      "examples": [
+        {
+          "japanese": "毎日、日本語を勉強することにしました。",
+          "translation": "I decided to study Japanese every day."
+        },
+        {
+          "japanese": "今日は電車で帰ることにします。",
+          "translation": "I will decide to go home by train today."
+        },
+        {
+          "japanese": "毎朝、早く起きることにしました。",
+          "translation": "I decided to get up early every morning."
+        },
+        {
+          "japanese": "会議には参加しないことにします。",
+          "translation": "I will decide not to attend the meeting."
+        }
+      ],
+      "commonMistakes": ["Do not use ことにする for a plan that is only an intention; compare つもり.", "Keep the verb before ことにする in plain form."],
+      "contrastIds": [],
+      "practiceQuestionIds": ["grammar-koto-ni-suru-1", "grammar-koto-ni-suru-2"],
+      "sourceIds": [
+        "openjlpt"
+      ]
+    },
+    {
+      "id": "grammar-zuni",
+      "slug": "zuni",
+      "title": "ずに",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "actions and intentions",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-nai-form"
+      ],
+      "tags": [
+        "N4",
+        "actions",
+        "communication"
+      ],
+      "pattern": "〜ずに",
+      "meaning": "without doing",
+      "formation": "Verb negative stem + ずに; する becomes せずに.",
+      "intuition": "ずに removes an action from the sequence while the main action still happens.",
+      "usageConditions": [
+        "Use it when the subject does one action without doing another.",
+        "する is irregular: 勉強する becomes 勉強せずに."
+      ],
+      "examples": [
+        {
+          "japanese": "朝ご飯を食べずに、家を出ました。",
+          "translation": "I left home without eating breakfast."
+        },
+        {
+          "japanese": "何も言わずに、部屋を出てください。",
+          "translation": "Please leave the room without saying anything."
+        },
+        {
+          "japanese": "コーヒーを飲まずに仕事を始めました。",
+          "translation": "I started work without drinking coffee."
+        },
+        {
+          "japanese": "辞書を使わずに読んでみます。",
+          "translation": "I will try reading without using a dictionary."
+        }
+      ],
+      "commonMistakes": ["Do not attach ずに directly to the dictionary form.", "Remember the irregular する → せずに change."],
+      "contrastIds": [],
+      "practiceQuestionIds": ["grammar-zuni-1", "grammar-zuni-2"],
+      "sourceIds": [
+        "openjlpt"
+      ]
+    },
+    {
+      "id": "grammar-sou-appearance",
+      "slug": "sou-appearance",
+      "title": "そうだ（様態）",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "actions and intentions",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-masu",
+        "grammar-i-adjective"
+      ],
+      "tags": [
+        "N4",
+        "actions",
+        "communication"
+      ],
+      "pattern": "〜そうだ（appearance）",
+      "meaning": "look like; seem about to",
+      "formation": "Verb stem or い-adjective stem + そうだ; remove い from い-adjectives.",
+      "intuition": "そうだ lets the speaker judge an appearance from what they can see.",
+      "usageConditions": [
+        "Use the appearance meaning, not the hearsay そうだ pattern.",
+        "いい changes to よさそう before そうだ."
+      ],
+      "examples": [
+        {
+          "japanese": "このケーキはおいしそうです。",
+          "translation": "This cake looks delicious."
+        },
+        {
+          "japanese": "雨が降りそうなので、傘を持って行きます。",
+          "translation": "It looks like it will rain, so I will take an umbrella."
+        },
+        {
+          "japanese": "彼は眠そうです。",
+          "translation": "He looks sleepy."
+        },
+        {
+          "japanese": "この荷物は重そうですね。",
+          "translation": "This luggage looks heavy."
+        }
+      ],
+      "commonMistakes": ["Do not keep the final い in an い-adjective before appearance そうだ.", "Do not confuse appearance そうだ with reported information."],
+      "contrastIds": [],
+      "practiceQuestionIds": ["grammar-sou-appearance-1", "grammar-sou-appearance-2"],
+      "sourceIds": [
+        "openjlpt"
+      ]
+    },
+    {
+      "id": "grammar-tsumori",
+      "slug": "tsumori",
+      "title": "つもり",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "actions and intentions",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-dictionary-form"
+      ],
+      "tags": [
+        "N4",
+        "actions",
+        "communication"
+      ],
+      "pattern": "〜つもり",
+      "meaning": "intend to; plan to",
+      "formation": "Verb plain form + つもり; negative plans use つもりはない.",
+      "intuition": "つもり presents an intention the speaker currently holds.",
+      "usageConditions": [
+        "Use it for a personal plan or intention.",
+        "Use はない to say that something is not planned."
+      ],
+      "examples": [
+        {
+          "japanese": "来年、日本へ行くつもりです。",
+          "translation": "I intend to go to Japan next year."
+        },
+        {
+          "japanese": "週末は何もしないつもりです。",
+          "translation": "I do not plan to do anything this weekend."
+        },
+        {
+          "japanese": "夏休みに京都へ行くつもりです。",
+          "translation": "I intend to go to Kyoto during summer vacation."
+        },
+        {
+          "japanese": "今日は出かけないつもりです。",
+          "translation": "I do not plan to go out today."
+        }
+      ],
+      "commonMistakes": ["つもり describes an intention, not a completed action.", "Keep the verb before つもり in plain form."],
+      "contrastIds": [],
+      "practiceQuestionIds": ["grammar-tsumori-1", "grammar-tsumori-2"],
+      "sourceIds": [
+        "openjlpt"
+      ]
+    },
+    {
+      "id": "grammar-te-ageru",
+      "slug": "te-ageru",
+      "title": "てあげる",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "actions and intentions",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-te-form"
+      ],
+      "tags": [
+        "N4",
+        "actions",
+        "communication"
+      ],
+      "pattern": "〜てあげる",
+      "meaning": "do something for someone",
+      "formation": "Verb て-form + あげる.",
+      "intuition": "てあげる frames an action as a favor offered to another person.",
+      "usageConditions": [
+        "Name the recipient with に when needed.",
+        "Use it carefully when the favor could sound self-congratulatory."
+      ],
+      "examples": [
+        {
+          "japanese": "友達に本を貸してあげました。",
+          "translation": "I lent a book to my friend."
+        },
+        {
+          "japanese": "母に花を買ってあげます。",
+          "translation": "I will buy flowers for my mother."
+        },
+        {
+          "japanese": "妹に宿題を教えてあげました。",
+          "translation": "I helped my younger sister with her homework."
+        },
+        {
+          "japanese": "駅まで送ってあげましょうか。",
+          "translation": "Shall I take you to the station?"
+        }
+      ],
+      "commonMistakes": ["Do not use the wrong verb form before あげる.", "Consider the relationship before presenting an action as a favor."],
+      "contrastIds": ["contrast-n4-benefit-perspective"],
+      "practiceQuestionIds": ["grammar-te-ageru-1", "grammar-te-benefit-contrast-2"],
+      "sourceIds": [
+        "openjlpt"
+      ]
+    },
+    {
+      "id": "grammar-te-oku",
+      "slug": "te-oku",
+      "title": "ておく",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "actions and intentions",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-te-form"
+      ],
+      "tags": [
+        "N4",
+        "actions",
+        "communication"
+      ],
+      "pattern": "〜ておく",
+      "meaning": "do in advance; leave prepared",
+      "formation": "Verb て-form + おく.",
+      "intuition": "ておく marks preparation done before a later need.",
+      "usageConditions": [
+        "Use it when the result is intentionally left ready.",
+        "In casual speech, ておく may contract to とく."
+      ],
+      "examples": [
+        {
+          "japanese": "旅行の前に、ホテルを予約しておきます。",
+          "translation": "I will reserve the hotel before the trip."
+        },
+        {
+          "japanese": "必要な資料を机の上に置いておきました。",
+          "translation": "I left the necessary documents on the desk."
+        },
+        {
+          "japanese": "出発する前に、切符を買っておきます。",
+          "translation": "I will buy the tickets in advance before departing."
+        },
+        {
+          "japanese": "名前を紙に書いておいてください。",
+          "translation": "Please write your name on the paper beforehand."
+        }
+      ],
+      "commonMistakes": ["Do not confuse preparation ておく with simple sequence て.", "The earlier action is done with a later situation in mind."],
+      "contrastIds": [],
+      "practiceQuestionIds": ["grammar-te-oku-1", "grammar-te-oku-2"],
+      "sourceIds": [
+        "openjlpt"
+      ]
+    },
+    {
+      "id": "grammar-te-kureru",
+      "slug": "te-kureru",
+      "title": "てくれる",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "actions and intentions",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-te-form"
+      ],
+      "tags": [
+        "N4",
+        "actions",
+        "communication"
+      ],
+      "pattern": "〜てくれる",
+      "meaning": "someone does something for me",
+      "formation": "Verb て-form + くれる.",
+      "intuition": "てくれる presents another person's action as a benefit received by the speaker or their group.",
+      "usageConditions": [
+        "Use it when the action benefits the speaker or someone close to them.",
+        "The helper is normally marked by が or は."
+      ],
+      "examples": [
+        {
+          "japanese": "先生が漢字を教えてくれました。",
+          "translation": "The teacher taught me kanji."
+        },
+        {
+          "japanese": "友達が駅まで案内してくれます。",
+          "translation": "My friend will guide me to the station."
+        },
+        {
+          "japanese": "友達が荷物を持ってくれました。",
+          "translation": "My friend carried my luggage for me."
+        },
+        {
+          "japanese": "母が駅まで迎えに来てくれます。",
+          "translation": "My mother will come to pick me up at the station."
+        }
+      ],
+      "commonMistakes": ["Do not swap the beneficiary perspective with てあげる.", "Keep the benefitting person clear from the context."],
+      "contrastIds": ["contrast-n4-benefit-perspective"],
+      "practiceQuestionIds": ["grammar-te-kureru-1", "grammar-te-benefit-contrast-1"],
+      "sourceIds": [
+        "openjlpt"
+      ]
+    },
+    {
+      "id": "grammar-te-shimau",
+      "slug": "te-shimau",
+      "title": "てしまう",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "actions and intentions",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-te-form"
+      ],
+      "tags": [
+        "N4",
+        "actions",
+        "communication"
+      ],
+      "pattern": "〜てしまう",
+      "meaning": "finish completely; unfortunately do",
+      "formation": "Verb て-form + しまう.",
+      "intuition": "てしまう highlights completion or an unwanted result the speaker regrets.",
+      "usageConditions": [
+        "Use it for a completed action when completion matters.",
+        "It can also signal regret or an accidental outcome."
+      ],
+      "examples": [
+        {
+          "japanese": "宿題を全部してしまいました。",
+          "translation": "I finished all the homework."
+        },
+        {
+          "japanese": "電車に傘を忘れてしまいました。",
+          "translation": "Unfortunately, I left my umbrella on the train."
+        },
+        {
+          "japanese": "電車の中で寝てしまいました。",
+          "translation": "I accidentally fell asleep on the train."
+        },
+        {
+          "japanese": "この本を今日中に読んでしまいます。",
+          "translation": "I will finish reading this book today."
+        }
+      ],
+      "commonMistakes": ["Do not assume every てしまう sentence is negative.", "Separate completion from regret using context."],
+      "contrastIds": [],
+      "practiceQuestionIds": ["grammar-te-shimau-1", "grammar-te-shimau-2"],
+      "sourceIds": [
+        "openjlpt"
+      ]
+    },
+    {
+      "id": "grammar-te-miru",
+      "slug": "te-miru",
+      "title": "てみる",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "actions and intentions",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-te-form"
+      ],
+      "tags": [
+        "N4",
+        "actions",
+        "communication"
+      ],
+      "pattern": "〜てみる",
+      "meaning": "try doing",
+      "formation": "Verb て-form + みる.",
+      "intuition": "てみる frames an action as an attempt or experiment.",
+      "usageConditions": [
+        "Use it when trying something new or checking what happens.",
+        "The main verb stays in て-form before みる."
+      ],
+      "examples": [
+        {
+          "japanese": "新しい料理を作ってみます。",
+          "translation": "I will try making a new dish."
+        },
+        {
+          "japanese": "分からない言葉を辞書で調べてみました。",
+          "translation": "I tried looking up the unknown word in a dictionary."
+        },
+        {
+          "japanese": "分からない漢字を聞いてみました。",
+          "translation": "I tried asking about the kanji I did not understand."
+        },
+        {
+          "japanese": "週末に新しい店へ行ってみます。",
+          "translation": "I will try going to a new shop this weekend."
+        }
+      ],
+      "commonMistakes": ["てみる is not the same as simply doing an action.", "Do not use the dictionary form directly before みる."],
+      "contrastIds": [],
+      "practiceQuestionIds": ["grammar-te-miru-1", "grammar-te-miru-2"],
+      "sourceIds": [
+        "openjlpt"
+      ]
+    },
+    {
+      "id": "grammar-te-morau",
+      "slug": "te-morau",
+      "title": "てもらう",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "actions and intentions",
+      "difficulty": 4,
+      "prerequisiteIds": [
+        "grammar-te-form"
+      ],
+      "tags": [
+        "N4",
+        "actions",
+        "communication"
+      ],
+      "pattern": "〜てもらう",
+      "meaning": "receive the favor of someone doing",
+      "formation": "Verb て-form + もらう.",
+      "intuition": "てもらう focuses on the speaker receiving help from another person.",
+      "usageConditions": [
+        "Mark the helper with に when needed.",
+        "Use it to describe requested or appreciated assistance."
+      ],
+      "examples": [
+        {
+          "japanese": "先生に作文を見てもらいました。",
+          "translation": "I had the teacher look over my composition."
+        },
+        {
+          "japanese": "友達に駅を教えてもらいます。",
+          "translation": "I will have my friend tell me the station."
+        },
+        {
+          "japanese": "友達に写真を撮ってもらいました。",
+          "translation": "I had my friend take a photo."
+        },
+        {
+          "japanese": "先生にもう一度説明してもらいます。",
+          "translation": "I will have the teacher explain it once more."
+        }
+      ],
+      "commonMistakes": ["Do not confuse the receiver perspective with てくれる.", "The person receiving the help is the grammatical focus."],
+      "contrastIds": ["contrast-n4-benefit-perspective"],
+      "practiceQuestionIds": ["grammar-te-morau-1", "grammar-te-morau-2"],
+      "sourceIds": [
+        "openjlpt"
+      ]
+    },
+    {
+      "id": "grammar-te-iku",
+      "slug": "te-iku",
+      "title": "ていく",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "views and methods",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-te-form"],
+      "tags": ["N4", "direction", "continuation"],
+      "pattern": "〜ていく",
+      "meaning": "go and do; continue from now on",
+      "formation": "Verb て-form + いく.",
+      "intuition": "ていく points an action or change away from the current point and into the future.",
+      "usageConditions": [
+        "Use it for an action done while going away or for a change that continues forward.",
+        "The continuing meaning is understood from the surrounding time and direction."
+      ],
+      "examples": [
+        {
+          "japanese": "明日、荷物を持っていきます。",
+          "translation": "I will take the luggage with me tomorrow."
+        },
+        {
+          "japanese": "これからも日本語を勉強していきます。",
+          "translation": "I will keep studying Japanese from now on."
+        },
+        {
+          "japanese": "町の景色は少しずつ変わっていきます。",
+          "translation": "The town scenery will gradually change."
+        },
+        {
+          "japanese": "この道をまっすぐ歩いていってください。",
+          "translation": "Please keep walking straight along this road."
+        }
+      ],
+      "commonMistakes": ["Confusing the future direction of ていく with the return or approach of てくる.", "Dropping the て-form before いく."],
+      "contrastIds": ["contrast-n4-te-direction"],
+      "practiceQuestionIds": ["grammar-te-direction-contrast-1", "grammar-te-iku-1"],
+      "sourceIds": ["openjlpt"]
+    },
+    {
+      "id": "grammar-te-kuru",
+      "slug": "te-kuru",
+      "title": "てくる",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "views and methods",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-te-form"],
+      "tags": ["N4", "direction", "change"],
+      "pattern": "〜てくる",
+      "meaning": "come and do; return after doing; begin to",
+      "formation": "Verb て-form + くる.",
+      "intuition": "てくる brings an action or change toward the current point or speaker.",
+      "usageConditions": [
+        "Use it for doing something and coming back or for a change that has begun to appear.",
+        "Context distinguishes physical return from change over time."
+      ],
+      "examples": [
+        {
+          "japanese": "ちょっと飲み物を買ってきます。",
+          "translation": "I will go buy a drink and come back."
+        },
+        {
+          "japanese": "だんだん寒くなってきました。",
+          "translation": "It has gradually started to get cold."
+        },
+        {
+          "japanese": "最近、日本語が少し分かってきました。",
+          "translation": "Recently, I have started to understand a little Japanese."
+        },
+        {
+          "japanese": "駅で友達を待ってきます。",
+          "translation": "I will go wait for my friend at the station and come back."
+        }
+      ],
+      "commonMistakes": ["Confusing an emerging change with the forward continuation of ていく.", "Dropping the て-form before くる."],
+      "contrastIds": ["contrast-n4-te-direction"],
+      "practiceQuestionIds": ["grammar-te-direction-contrast-2", "grammar-te-kuru-1"],
+      "sourceIds": ["openjlpt"]
+    },
+    {
+      "id": "grammar-ni-chigai-nai",
+      "slug": "ni-chigai-nai",
+      "title": "に違いない",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "views and methods",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "inference", "certainty"],
+      "pattern": "〜に違いない",
+      "meaning": "must be; no doubt",
+      "formation": "Plain form + に違いない.",
+      "intuition": "に違いない presents a strong conclusion based on the speaker's evidence or judgment.",
+      "usageConditions": [
+        "Use it when the speaker is highly confident in an inference.",
+        "Attach it to the plain form, including a noun or な-adjective without だ in formal writing when appropriate."
+      ],
+      "examples": [
+        {
+          "japanese": "彼はもう駅に着いたに違いありません。",
+          "translation": "He must have arrived at the station already."
+        },
+        {
+          "japanese": "この料理は人気があるに違いない。",
+          "translation": "This dish must be popular."
+        },
+        {
+          "japanese": "あの店はもう閉まったに違いありません。",
+          "translation": "That shop must already be closed."
+        },
+        {
+          "japanese": "彼はこの町をよく知っているに違いない。",
+          "translation": "He must know this town well."
+        }
+      ],
+      "commonMistakes": ["Using polite ます-form directly before に違いない.", "Using it when the speaker has no basis for strong confidence."],
+      "contrastIds": ["contrast-n4-inference"],
+      "practiceQuestionIds": ["grammar-inference-contrast-1", "grammar-ni-chigai-nai-1"],
+      "sourceIds": ["openjlpt"]
+    },
+    {
+      "id": "grammar-ni-kimatte-iru",
+      "slug": "ni-kimatte-iru",
+      "title": "に決まっている",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "views and methods",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "inference", "certainty"],
+      "pattern": "〜に決まっている",
+      "meaning": "certainly; must; no doubt",
+      "formation": "Plain form + に決まっている.",
+      "intuition": "に決まっている states the speaker's emphatic conviction that something is certain.",
+      "usageConditions": [
+        "Use it for a firm, often conversational judgment.",
+        "The strength can sound emphatic, so match it to the situation and relationship."
+      ],
+      "examples": [
+        {
+          "japanese": "あの人は合格するに決まっています。",
+          "translation": "That person is certain to pass."
+        },
+        {
+          "japanese": "この店の料理はおいしいに決まっている。",
+          "translation": "The food at this restaurant is definitely delicious."
+        },
+        {
+          "japanese": "そんな話は本当ではないに決まっています。",
+          "translation": "That story is definitely not true."
+        },
+        {
+          "japanese": "明日は忙しいに決まっている。",
+          "translation": "Tomorrow will certainly be busy."
+        }
+      ],
+      "commonMistakes": ["Treating に決まっている as a neutral probability statement.", "Attaching it to an inflected polite ending instead of the proposition."],
+      "contrastIds": ["contrast-n4-inference"],
+      "practiceQuestionIds": ["grammar-ni-kimatte-iru-1", "grammar-ni-kimatte-iru-2"],
+      "sourceIds": ["openjlpt"]
+    },
+    {
+      "id": "grammar-mitai",
+      "slug": "mitai",
+      "title": "みたい",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "views and methods",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "appearance", "similarity"],
+      "pattern": "〜みたい",
+      "meaning": "like; similar to; seems like",
+      "formation": "Noun + みたい; plain clause + みたい.",
+      "intuition": "みたい makes a comparison or a casual judgment about how something appears.",
+      "usageConditions": [
+        "Use it in conversational language for resemblance or an appearance-based impression.",
+        "When it modifies a noun, use みたいな before the noun."
+      ],
+      "examples": [
+        {
+          "japanese": "この雲は犬みたいです。",
+          "translation": "This cloud looks like a dog."
+        },
+        {
+          "japanese": "明日は雨みたいです。",
+          "translation": "It seems like it will rain tomorrow."
+        },
+        {
+          "japanese": "あの建物は学校みたいです。",
+          "translation": "That building looks like a school."
+        },
+        {
+          "japanese": "彼は先生みたいな話し方をします。",
+          "translation": "He speaks in a way that is like a teacher."
+        }
+      ],
+      "commonMistakes": ["Forgetting な before a following noun.", "Treating a casual appearance judgment as confirmed information."],
+      "contrastIds": ["contrast-n4-inference"],
+      "practiceQuestionIds": ["grammar-mitai-1", "grammar-mitai-2"],
+      "sourceIds": ["openjlpt"]
+    },
+    {
+      "id": "grammar-rashii",
+      "slug": "rashii",
+      "title": "らしい",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "views and methods",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "hearsay", "typicality"],
+      "pattern": "〜らしい",
+      "meaning": "seems like; I heard; typical of",
+      "formation": "Plain form or noun + らしい.",
+      "intuition": "らしい can mark reported or inferred information, and can also describe something characteristic of a type.",
+      "usageConditions": [
+        "Use context to distinguish hearsay or inference from the meaning of typicality.",
+        "Keep the clause before らしい in the plain form."
+      ],
+      "examples": [
+        {
+          "japanese": "田中さんは来週引っ越すらしいです。",
+          "translation": "I hear that Tanaka is moving next week."
+        },
+        {
+          "japanese": "今日は春らしい暖かい日です。",
+          "translation": "Today is a warm day typical of spring."
+        },
+        {
+          "japanese": "来週は雪が降るらしいです。",
+          "translation": "I hear it will snow next week."
+        },
+        {
+          "japanese": "今日は秋らしい涼しい朝です。",
+          "translation": "Today is a cool morning typical of autumn."
+        }
+      ],
+      "commonMistakes": ["Using らしい as if it always meant direct visual appearance.", "Forgetting that a noun can also be followed directly by らしい."],
+      "contrastIds": ["contrast-n4-inference"],
+      "practiceQuestionIds": ["grammar-inference-contrast-2", "grammar-rashii-1"],
+      "sourceIds": ["openjlpt"]
+    },
+    {
+      "id": "grammar-wake-ni-wa-ikanai",
+      "slug": "wake-ni-wa-ikanai",
+      "title": "わけにはいかない",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "views and methods",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-nai-form"],
+      "tags": ["N4", "obligation", "limits"],
+      "pattern": "〜わけにはいかない",
+      "meaning": "cannot afford to; must not",
+      "formation": "Verb dictionary form + わけにはいかない; negative form + わけにはいかない expresses cannot fail to.",
+      "intuition": "わけにはいかない says that circumstances, responsibility, or social expectations make an action impossible to accept.",
+      "usageConditions": [
+        "Use it for a practical or social constraint, not merely physical inability.",
+        "The exact meaning depends on whether the verb is positive or negative."
+      ],
+      "examples": [
+        {
+          "japanese": "明日は試験なので、遊んでいるわけにはいきません。",
+          "translation": "I cannot afford to spend time playing because I have an exam tomorrow."
+        },
+        {
+          "japanese": "大切な約束を忘れるわけにはいかない。",
+          "translation": "I cannot allow myself to forget an important promise."
+        },
+        {
+          "japanese": "約束したので、行かないわけにはいきません。",
+          "translation": "Because I made a promise, I cannot fail to go."
+        },
+        {
+          "japanese": "ここで大声で話すわけにはいかない。",
+          "translation": "I cannot speak loudly here."
+        }
+      ],
+      "commonMistakes": ["Using it as a plain synonym for できない.", "Missing the change in meaning when the verb is negative."],
+      "contrastIds": [],
+      "practiceQuestionIds": ["grammar-wake-ni-wa-ikanai-1", "grammar-wake-ni-wa-ikanai-2"],
+      "sourceIds": ["openjlpt"]
+    },
+    {
+      "id": "grammar-sugiru",
+      "slug": "sugiru",
+      "title": "すぎる",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "views and methods",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-masu", "grammar-i-adjective"],
+      "tags": ["N4", "degree", "evaluation"],
+      "pattern": "〜過ぎる",
+      "meaning": "too much; excessively",
+      "formation": "Verb stem, い-adjective stem, or な-adjective stem + すぎる.",
+      "intuition": "すぎる marks a degree that goes beyond what is appropriate or expected.",
+      "usageConditions": [
+        "Remove い from an い-adjective before adding すぎる.",
+        "For verbs, use the ます-stem rather than the full ます-form."
+      ],
+      "examples": [
+        {
+          "japanese": "昨日はお酒を飲みすぎました。",
+          "translation": "I drank too much alcohol yesterday."
+        },
+        {
+          "japanese": "このかばんは重すぎます。",
+          "translation": "This bag is too heavy."
+        },
+        {
+          "japanese": "この靴は小さすぎます。",
+          "translation": "These shoes are too small."
+        },
+        {
+          "japanese": "昨日は働きすぎました。",
+          "translation": "I worked too much yesterday."
+        }
+      ],
+      "commonMistakes": ["Keeping the full い-adjective ending before すぎる.", "Using the dictionary form of a verb instead of its stem."],
+      "contrastIds": [],
+      "practiceQuestionIds": ["grammar-sugiru-1", "grammar-sugiru-2"],
+      "sourceIds": ["openjlpt"]
+    },
+    {
+      "id": "grammar-chu",
+      "slug": "chu",
+      "title": "中",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "views and methods",
+      "difficulty": 4,
+      "prerequisiteIds": [],
+      "tags": ["N4", "aspect", "time"],
+      "pattern": "〜中",
+      "meaning": "in the middle of; during",
+      "formation": "Noun or verb stem + 中（ちゅう）.",
+      "intuition": "中 marks the period during which an activity or situation is in progress.",
+      "usageConditions": [
+        "Use it with an activity or period that is currently underway.",
+        "Reading and attachment depend on the word: for example, 会議中 and 勉強中."
+      ],
+      "examples": [
+        {
+          "japanese": "今、会議中です。",
+          "translation": "I am in a meeting now."
+        },
+        {
+          "japanese": "旅行中に写真をたくさん撮りました。",
+          "translation": "I took many photos during the trip."
+        },
+        {
+          "japanese": "授業中は携帯電話を使いません。",
+          "translation": "I do not use my phone during class."
+        },
+        {
+          "japanese": "準備中なので、少し待ってください。",
+          "translation": "We are preparing, so please wait a little."
+        }
+      ],
+      "commonMistakes": ["Attaching 中 to an unsuitable completed event.", "Ignoring the word-specific reading and usage."],
+      "contrastIds": [],
+      "practiceQuestionIds": ["grammar-chu-1", "grammar-chu-2"],
+      "sourceIds": ["openjlpt"]
+    },
+    {
+      "id": "grammar-kata",
+      "slug": "kata",
+      "title": "方",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "views and methods",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-masu"],
+      "tags": ["N4", "method", "how-to"],
+      "pattern": "〜方",
+      "meaning": "way of doing; how to",
+      "formation": "Verb ます-stem + 方（かた）.",
+      "intuition": "方 turns an action into a named method or way of doing it.",
+      "usageConditions": [
+        "Remove ます from the polite form before adding 方.",
+        "Use の when connecting the method noun to another noun where needed."
+      ],
+      "examples": [
+        {
+          "japanese": "この漢字の読み方を教えてください。",
+          "translation": "Please tell me how to read this kanji."
+        },
+        {
+          "japanese": "電車の乗り方が分かりません。",
+          "translation": "I do not know how to ride the train."
+        },
+        {
+          "japanese": "このアプリの使い方を教えてください。",
+          "translation": "Please tell me how to use this app."
+        },
+        {
+          "japanese": "漢字の書き方を練習します。",
+          "translation": "I practice how to write kanji."
+        }
+      ],
+      "commonMistakes": ["Keeping ます before 方.", "Confusing the method noun with a direct command to perform the verb."],
+      "contrastIds": [],
+      "practiceQuestionIds": ["grammar-kata-1", "grammar-kata-2"],
+      "sourceIds": ["openjlpt"]
+    },
+    {
+      "id": "grammar-to-conditional",
+      "slug": "to-conditional",
+      "title": "と（conditional）",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "conditionals",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-dictionary-form"],
+      "tags": ["N4", "conditionals", "results"],
+      "pattern": "〜と、〜",
+      "meaning": "when; whenever; if, then (automatic result)",
+      "formation": "Plain non-past form + と + result.",
+      "intuition": "と links a condition to a predictable, automatic, or regularly repeated result.",
+      "usageConditions": [
+        "Use it for natural laws, routines, instructions about what happens, or predictable results.",
+        "Do not normally use it when the result is a speaker's request, invitation, or intention."
+      ],
+      "examples": [
+        {"japanese": "春になると、桜が咲きます。", "translation": "When spring comes, the cherry blossoms bloom."},
+        {"japanese": "このボタンを押すと、ドアが開きます。", "translation": "When you press this button, the door opens."},
+        {"japanese": "冬になると、日が短くなります。", "translation": "When winter comes, the days get shorter."},
+        {"japanese": "この道をまっすぐ行くと、駅があります。", "translation": "If you go straight on this road, there is a station."}
+      ],
+      "commonMistakes": ["Do not use と for a one-time request or invitation in the result clause.", "Keep the condition in the plain non-past form before と."],
+      "contrastIds": ["contrast-n4-conditionals"],
+      "practiceQuestionIds": ["grammar-to-conditional-1", "grammar-to-conditional-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-tara",
+      "slug": "tara",
+      "title": "たら",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "conditionals",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-ta-form"],
+      "tags": ["N4", "conditionals", "plans"],
+      "pattern": "〜たら、〜",
+      "meaning": "if; when; after",
+      "formation": "Verb, adjective, or noun past form + ら.",
+      "intuition": "たら sets up a condition or completed point after which the next action or result is considered.",
+      "usageConditions": [
+        "Use it for hypothetical conditions, future plans, requests, and a condition that has been reached.",
+        "Use the past form before ら even when the condition is about the future."
+      ],
+      "examples": [
+        {"japanese": "雨が降ったら、家にいます。", "translation": "If it rains, I will stay home."},
+        {"japanese": "仕事が終わったら、連絡してください。", "translation": "When you finish work, please contact me."},
+        {"japanese": "時間があったら、映画を見ます。", "translation": "If I have time, I will watch a movie."},
+        {"japanese": "分からなかったら、先生に聞いてください。", "translation": "If you do not understand, please ask the teacher."}
+      ],
+      "commonMistakes": ["Do not replace the past form before ら with the dictionary form.", "Choose たら when the result is a one-time plan, request, or decision rather than an automatic result."],
+      "contrastIds": ["contrast-n4-conditionals"],
+      "practiceQuestionIds": ["grammar-tara-1", "grammar-tara-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-ba",
+      "slug": "ba",
+      "title": "ば",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "conditionals",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-nai-form"],
+      "tags": ["N4", "conditionals", "advice"],
+      "pattern": "〜ば、〜",
+      "meaning": "if; provided that",
+      "formation": "Verb 仮定形: う段 changes to え段 + ば; ichidan verbs use れば; する becomes すれば; くる becomes くれば.",
+      "intuition": "ば presents a condition as the requirement under which the result follows, often for advice or general reasoning.",
+      "usageConditions": [
+        "Use it for conditions, recommendations, and results framed as a requirement.",
+        "For a natural negative condition, use the negative form + ければ."
+      ],
+      "examples": [
+        {"japanese": "安ければ、買います。", "translation": "If it is cheap, I will buy it."},
+        {"japanese": "この薬を飲めば、元気になります。", "translation": "If you take this medicine, you will feel better."},
+        {"japanese": "分からなければ、もう一度説明します。", "translation": "If you do not understand, I will explain it once more."},
+        {"japanese": "駅へ行けば、すぐ分かります。", "translation": "If you go to the station, you will understand right away."}
+      ],
+      "commonMistakes": ["Do not form ば by adding it directly to the dictionary form.", "Remember that negative conditions use 〜なければ, not 〜ないば."],
+      "contrastIds": ["contrast-n4-conditionals"],
+      "practiceQuestionIds": ["grammar-ba-1", "grammar-ba-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    },
+    {
+      "id": "grammar-nara",
+      "slug": "nara",
+      "title": "なら",
+      "jlptLevel": "N4",
+      "category": "grammar",
+      "subcategory": "conditionals",
+      "difficulty": 4,
+      "prerequisiteIds": ["grammar-desu"],
+      "tags": ["N4", "conditionals", "advice"],
+      "pattern": "〜なら、〜",
+      "meaning": "if it is the case that; if you mean",
+      "formation": "Noun or plain clause + なら; な-adjectives use the adjective stem + なら.",
+      "intuition": "なら takes information already on the table and offers a response, judgment, or advice about that topic.",
+      "usageConditions": [
+        "Use it when reacting to a stated or assumed topic or situation.",
+        "It is especially natural for recommendations and advice based on the listener's situation."
+      ],
+      "examples": [
+        {"japanese": "京都へ行くなら、秋がおすすめです。", "translation": "If you are going to Kyoto, autumn is recommended."},
+        {"japanese": "時間があるなら、手伝ってください。", "translation": "If you have time, please help me."},
+        {"japanese": "日本料理なら、この店が有名です。", "translation": "If you mean Japanese food, this restaurant is famous."},
+        {"japanese": "明日なら、大丈夫です。", "translation": "If it is tomorrow, that is fine."}
+      ],
+      "commonMistakes": ["Do not treat なら as a neutral automatic-result conditional; it responds to a topic or premise.", "Use なら after the plain clause or noun phrase that sets the topic."],
+      "contrastIds": ["contrast-n4-conditionals"],
+      "practiceQuestionIds": ["grammar-nara-1", "grammar-nara-2"],
+      "sourceIds": ["irodori-sentence-patterns"]
+    }
+  ],
+  "grammarContrasts": [
+  {
+    "id": "contrast-n4-te-direction",
+    "title": "ていく and てくる",
+    "grammarPointIds": [
+      "grammar-te-iku",
+      "grammar-te-kuru"
+    ],
+    "explanation": "ていく points an action or change away from the present and forward. てくる brings an action back toward the speaker or marks a change that has begun to appear.",
+    "examples": [
+      {
+        "japanese": "これからも勉強していきます。",
+        "translation": "I will keep studying from now on."
+      },
+      {
+        "japanese": "最近、少し分かってきました。",
+        "translation": "Recently, I have started to understand a little."
+      }
+    ],
+    "exercises": [
+      "Choose ていく for a change continuing away from now.",
+      "Choose てくる for a change that has begun to reach the present."
+    ]
+  },
+  {
+    "id": "contrast-n4-benefit-perspective",
+    "title": "てあげる・てくれる・てもらう",
+    "grammarPointIds": [
+      "grammar-te-ageru",
+      "grammar-te-kureru",
+      "grammar-te-morau"
+    ],
+    "explanation": "The three forms describe the same kind of help from different viewpoints: offering a favor, receiving someone else's favor, or receiving the favor as the grammatical focus.",
+    "examples": [
+      {
+        "japanese": "友達に本を貸してあげました。",
+        "translation": "I lent a book to my friend as a favor."
+      },
+      {
+        "japanese": "先生に作文を見てもらいました。",
+        "translation": "I had the teacher look over my composition."
+      }
+    ],
+    "exercises": [
+      "Use てあげる when the subject offers the action to someone else.",
+      "Use てくれる or てもらう when the speaker's side receives the benefit."
+    ]
+  },
+  {
+    "id": "contrast-n4-inference",
+    "title": "Strong inference and appearance",
+    "grammarPointIds": [
+      "grammar-ni-chigai-nai",
+      "grammar-ni-kimatte-iru",
+      "grammar-mitai",
+      "grammar-rashii"
+    ],
+    "explanation": "に違いない and に決まっている make strong judgments. みたい and らしい can sound less definite and depend more on resemblance, appearance, hearsay, or typicality in context.",
+    "examples": [
+      {
+        "japanese": "彼は疲れているに違いない。",
+        "translation": "He must be tired."
+      },
+      {
+        "japanese": "雨が降るみたいです。",
+        "translation": "It seems like it will rain."
+      }
+    ],
+    "exercises": [
+      "Choose a strong-certainty form when the speaker makes an emphatic conclusion.",
+      "Choose みたい or らしい when the context signals appearance, hearsay, or typicality."
+    ]
+  },
+  {
+    "id": "contrast-n4-conditionals",
+    "title": "と・たら・ば・なら",
+    "grammarPointIds": [
+      "grammar-to-conditional",
+      "grammar-tara",
+      "grammar-ba",
+      "grammar-nara"
+    ],
+    "explanation": "と favors predictable or automatic results, たら handles hypothetical or completed conditions with plans and requests, ば frames a requirement or recommendation, and なら responds to an already stated topic or premise.",
+    "examples": [
+      {
+        "japanese": "春になると、桜が咲きます。",
+        "translation": "When spring comes, the cherry blossoms bloom."
+      },
+      {
+        "japanese": "京都へ行くなら、秋がおすすめです。",
+        "translation": "If you are going to Kyoto, autumn is recommended."
+      }
+    ],
+    "exercises": [
+      "Choose と for a predictable or automatic result.",
+      "Choose たら, ば, or なら when the context calls for a plan, requirement, or topic-based recommendation."
+    ]
+  }
+],
+  "readings": [],
+  "listening": []
+}

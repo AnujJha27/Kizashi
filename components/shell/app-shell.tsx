@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, type MouseEvent } from "react";
+import { useEffect, useState, type CSSProperties, type MouseEvent } from "react";
 import { CommandPalette } from "@/components/shell/command-palette";
 import { AccountSync } from "@/components/profile/account-sync";
-import { readDisplayName } from "@/lib/session";
+import { getJourneyWorldState } from "@/lib/journey-world-core.js";
+import { readDisplayName, readExamPlanPreferences, readLessonState, readReviewRecords } from "@/lib/session";
 
 const primaryNavItems = [
   { href: "/journey", label: "Today", shortLabel: "Today", jpLabel: "今日", mark: "◈" },
@@ -33,6 +34,7 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
   const [displayName, setDisplayName] = useState("");
   const [secondaryOpen, setSecondaryOpen] = useState(false);
   const [navigating, setNavigating] = useState(false);
+  const [worldState, setWorldState] = useState(() => getJourneyWorldState({ lessonId: "lesson-meeting-people" }));
   const visibleSecondaryItems = isAdmin ? secondaryNavItems : secondaryNavItems.filter((item) => item.href !== "/studio");
   const secondaryActive = visibleSecondaryItems.some((item) => isActive(pathname, item.href));
 
@@ -41,6 +43,15 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
     refresh();
     window.addEventListener("michi-profile-updated", refresh);
     return () => window.removeEventListener("michi-profile-updated", refresh);
+  }, []);
+
+  useEffect(() => {
+    const refresh = () => setWorldState(getJourneyWorldState({ lessonId: readLessonState().lessonId, records: readReviewRecords(), targetLevel: readExamPlanPreferences().targetLevel }));
+    refresh();
+    window.addEventListener("michi-lesson-updated", refresh);
+    window.addEventListener("michi-profile-updated", refresh);
+    window.addEventListener("michi-review-updated", refresh);
+    return () => { window.removeEventListener("michi-lesson-updated", refresh); window.removeEventListener("michi-profile-updated", refresh); window.removeEventListener("michi-review-updated", refresh); };
   }, []);
 
   useEffect(() => {
@@ -66,7 +77,7 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
   };
 
   return (
-    <div className="app-shell min-h-screen lg:flex" onClickCapture={showNavigationFeedback}>
+    <div className={`app-shell world-area-${worldState.area.id} world-stage-${worldState.stage.id} min-h-screen lg:flex`} data-world-area={worldState.area.id} data-world-stage={worldState.stage.id} onClickCapture={showNavigationFeedback} style={{ "--world-focal": worldState.area.focalPoint.desktop, "--world-focal-mobile": worldState.area.focalPoint.mobile, "--world-shell": `url(${worldState.area.visualAssets.shell})` } as CSSProperties}>
       <a href="#main-content" className="sr-only fixed left-3 top-3 z-[300] rounded-lg bg-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#0b0b0d] focus:not-sr-only">Skip to content</a>
       <aside className="sticky top-0 hidden h-screen w-64 shrink-0 self-start overflow-y-auto flex-col border-r border-[#617486]/45 px-5 py-6 lg:flex">
         <div className="mb-8 flex items-center gap-3 rounded-2xl border border-white/10 bg-[#172b3a]/45 px-3 py-3 shadow-[0_14px_35px_rgba(5,12,20,.16)]">
@@ -122,7 +133,7 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
             <div className="grid size-8 place-items-center rounded-lg bg-[#e34a3f] text-xs font-bold text-[#0b0b0d]">道</div>
             <span className="text-xs font-semibold tracking-[.2em]">KIZASHI</span>
           </div>
-          <div className="hidden text-xs text-[#676c75] lg:block"><span className="jp-serif text-[#e5b85c]">はじまり</span><span className="px-2 text-[#292b31]">/</span>N5 Foundations</div>
+          <div className="hidden text-xs text-[#676c75] lg:block"><span className="jp-serif text-[#e5b85c]">{worldState.area.japaneseTitle}</span><span className="px-2 text-[#292b31]">/</span>{worldState.area.title}</div>
           <div className="ml-auto flex items-center gap-3"><CommandPalette isAdmin={isAdmin} /><Link prefetch={false} href="/profile" className="flex items-center gap-2 rounded-full text-xs text-[#9297a1] hover:text-[#f5f5f2]" aria-label="Open profile">
             <span className="grid size-8 place-items-center rounded-full border border-[#4b3a29] bg-[#211d18] text-[#e5b85c]">人</span>
             <span className="hidden max-w-36 truncate sm:block">{displayName || "Your path"}</span>

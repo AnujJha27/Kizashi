@@ -15,6 +15,10 @@ type RuntimeSourceLink = {
   mediaDelivery: "original-site" | "remote-media" | "frame-or-link" | "link-only";
   mediaUrl?: string;
   posterUrl?: string;
+  frameUrl?: string;
+  videoCatalog?: ReadonlyArray<Readonly<{ id: string; title: string; level: string; publishedAt: string; url: string; frameUrl: string; posterUrl: string }>>;
+  videoCatalogFeed?: string;
+  podcastFeed?: string;
   annotationStatus?: string;
   reviewedAt?: string;
   transcriptAvailable?: boolean;

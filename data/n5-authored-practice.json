@@ -72,6 +72,7 @@
     "questionType": "sentence ordering",
     "jlptLevel": "N4",
     "prompt": "Build the natural sentence.",
+    "contextText": "昨日、映画を見た。",
     "options": [
       "昨日",
       "映画を",
@@ -180,6 +181,7 @@
     "questionType": "sentence ordering",
     "jlptLevel": "N4",
     "prompt": "Build the natural sentence.",
+    "contextText": "寝る前に、本を読みます。",
     "options": [
       "寝る前に",
       "本を",
@@ -288,6 +290,7 @@
     "questionType": "sentence ordering",
     "jlptLevel": "N4",
     "prompt": "Build the natural sentence.",
+    "contextText": "ご飯を食べたあとで、勉強します。",
     "options": [
       "ご飯を食べたあとで",
       "勉強します。"
@@ -393,6 +396,7 @@
     "questionType": "sentence ordering",
     "jlptLevel": "N4",
     "prompt": "Build the natural sentence.",
+    "contextText": "寒いとき、家にいます。",
     "options": [
       "寒いとき",
       "家に",
@@ -501,6 +505,7 @@
     "questionType": "sentence ordering",
     "jlptLevel": "N4",
     "prompt": "Build the natural sentence.",
+    "contextText": "音楽を聞きながら、勉強します。",
     "options": [
       "音楽を聞きながら",
       "勉強します。"
@@ -828,5 +833,1575 @@
       "reviewedAt": "2026-08-31T00:00:00Z",
       "reviewNotes": "Question answer and explanation checked against the audio text; N4 bridge difficulty is intentional."
     }
+  },
+  {
+    "id": "grammar-te-direction-contrast-1",
+    "itemId": "grammar-te-iku",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "これから、駅の周りはもっと便利になっ___。",
+    "options": ["ていきます", "てきます", "てみます", "ておきます"],
+    "correctIndex": 0,
+    "explanation": "これから先の変化が進むので、現在から離れていく方向の ていきます を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-contrast",
+    "targetItemIds": ["grammar-te-iku", "grammar-te-kuru"],
+    "contextSetId": "n4-contrast-te-direction-1",
+    "contextText": "A town changes from now into the future.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-contrast",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": ["grammar-te-iku", "grammar-te-kuru"],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Contrast direction, answer key, and distractors checked against the authored ていく / てくる explanation."
+    }
+  },
+  {
+    "id": "grammar-te-direction-contrast-2",
+    "itemId": "grammar-te-kuru",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "最近、朝は明るくなっ___。",
+    "options": ["てきました", "ていきました", "てみました", "ておきました"],
+    "correctIndex": 0,
+    "explanation": "最近までの変化が現在に近づいてきたので、てきました を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-contrast",
+    "targetItemIds": ["grammar-te-iku", "grammar-te-kuru"],
+    "contextSetId": "n4-contrast-te-direction-2",
+    "contextText": "Morning light changes toward the speaker's present.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-contrast",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": ["grammar-te-iku", "grammar-te-kuru"],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Contrast direction, answer key, and distractors checked against the authored ていく / てくる explanation."
+    }
+  },
+  {
+    "id": "grammar-te-benefit-contrast-1",
+    "itemId": "grammar-te-kureru",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "友達が重い荷物を持っ___ました。",
+    "options": ["てくれ", "てあげ", "てもらい", "ていき"],
+    "correctIndex": 0,
+    "explanation": "友達が私のためにしてくれた行為なので、てくれました を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-contrast",
+    "targetItemIds": ["grammar-te-ageru", "grammar-te-kureru", "grammar-te-morau"],
+    "contextSetId": "n4-contrast-te-benefit-1",
+    "contextText": "A friend helps the speaker with a heavy bag.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-contrast",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": ["grammar-te-ageru", "grammar-te-kureru", "grammar-te-morau"],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Perspective, answer key, and distractors checked against the authored giving/receiving contrast."
+    }
+  },
+  {
+    "id": "grammar-te-benefit-contrast-2",
+    "itemId": "grammar-te-ageru",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "私は妹に宿題を教え___。",
+    "options": ["てあげました", "てくれました", "てもらいました", "てきました"],
+    "correctIndex": 0,
+    "explanation": "私は妹のために教える側なので、てあげました を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-contrast",
+    "targetItemIds": ["grammar-te-ageru", "grammar-te-kureru", "grammar-te-morau"],
+    "contextSetId": "n4-contrast-te-benefit-2",
+    "contextText": "The speaker teaches a younger sister homework.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-contrast",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": ["grammar-te-ageru", "grammar-te-kureru", "grammar-te-morau"],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Perspective, answer key, and distractors checked against the authored giving/receiving contrast."
+    }
+  },
+  {
+    "id": "grammar-inference-contrast-1",
+    "itemId": "grammar-ni-chigai-nai",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "電気がついています。田中さんはもう帰っ___に違いありません。",
+    "options": ["た", "る", "ている", "ない"],
+    "correctIndex": 0,
+    "explanation": "見えている状況から強く判断するので、帰ったに違いありません が自然です。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-contrast",
+    "targetItemIds": ["grammar-ni-chigai-nai", "grammar-ni-kimatte-iru", "grammar-mitai", "grammar-rashii"],
+    "contextSetId": "n4-contrast-inference-1",
+    "contextText": "A light gives strong evidence that someone has returned home.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-contrast",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": ["grammar-ni-chigai-nai", "grammar-ni-kimatte-iru", "grammar-mitai", "grammar-rashii"],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Evidence strength, answer key, and distractors checked against the authored inference/appearance contrast."
+    }
+  },
+  {
+    "id": "grammar-inference-contrast-2",
+    "itemId": "grammar-rashii",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "天気予報によると、午後は雨___です。",
+    "options": ["らしい", "みたい", "に違いない", "に決まっている"],
+    "correctIndex": 0,
+    "explanation": "天気予報から聞いた情報を伝えるので、らしいです が自然です。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-contrast",
+    "targetItemIds": ["grammar-ni-chigai-nai", "grammar-ni-kimatte-iru", "grammar-mitai", "grammar-rashii"],
+    "contextSetId": "n4-contrast-inference-2",
+    "contextText": "A forecast is the source of a report about afternoon rain.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-contrast",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": ["grammar-ni-chigai-nai", "grammar-ni-kimatte-iru", "grammar-mitai", "grammar-rashii"],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Evidence source, answer key, and distractors checked against the authored inference/appearance contrast."
+    }
   }
+,
+  {
+    "id": "grammar-koto-ni-suru-1",
+    "itemId": "grammar-koto-ni-suru",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "来月から、毎朝30分日本語を勉強することにし___。",
+    "options": [
+      "ました",
+      "ます",
+      "ません",
+      "て"
+    ],
+    "correctIndex": 0,
+    "explanation": "自分で決めたことを表すので、ことにしました を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-koto-ni-suru"
+    ],
+    "contextSetId": "n4-koto-ni-suru-1",
+    "contextText": "A new daily study decision.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-koto-ni-suru"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-koto-ni-suru-2",
+    "itemId": "grammar-koto-ni-suru",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "健康のために、夜はコーヒーを飲まないことにし___。",
+    "options": [
+      "ました",
+      "ます",
+      "ません",
+      "て"
+    ],
+    "correctIndex": 0,
+    "explanation": "これからの習慣を自分で決めたので、飲まないことにしました が自然です。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-koto-ni-suru"
+    ],
+    "contextSetId": "n4-koto-ni-suru-2",
+    "contextText": "A decision to change an evening habit.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-koto-ni-suru"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-zuni-1",
+    "itemId": "grammar-zuni",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "必要な書類を提出せ___、申請することはできません。",
+    "options": [
+      "ずに",
+      "ないと",
+      "なくて",
+      "てから"
+    ],
+    "correctIndex": 0,
+    "explanation": "提出せずに means without submitting; する becomes せずに before this pattern.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-zuni"
+    ],
+    "contextSetId": "n4-zuni-1",
+    "contextText": "An application is attempted without submitting required documents.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-zuni"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-zuni-2",
+    "itemId": "grammar-zuni",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "何も言わ___、彼は部屋を出て行きました。",
+    "options": [
+      "ずに",
+      "ないと",
+      "なくて",
+      "てから"
+    ],
+    "correctIndex": 0,
+    "explanation": "言わずに means without saying anything, so the negative stem form is required.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-zuni"
+    ],
+    "contextSetId": "n4-zuni-2",
+    "contextText": "Someone leaves without saying anything.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-zuni"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-sou-appearance-1",
+    "itemId": "grammar-sou-appearance",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "このケーキはとてもおいし___です。",
+    "options": [
+      "そう",
+      "よう",
+      "らしい",
+      "みたい"
+    ],
+    "correctIndex": 0,
+    "explanation": "見た目から感じた印象を述べるので、おいしそうです を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-sou-appearance"
+    ],
+    "contextSetId": "n4-sou-appearance-1",
+    "contextText": "A cake looks delicious.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-sou-appearance"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-sou-appearance-2",
+    "itemId": "grammar-sou-appearance",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "空が暗いですね。雨が降り___です。",
+    "options": [
+      "そう",
+      "よう",
+      "らしい",
+      "みたい"
+    ],
+    "correctIndex": 0,
+    "explanation": "空の様子から雨が近いと判断しているので、降りそうです が自然です。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-sou-appearance"
+    ],
+    "contextSetId": "n4-sou-appearance-2",
+    "contextText": "Dark clouds suggest rain is about to fall.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-sou-appearance"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-tsumori-1",
+    "itemId": "grammar-tsumori",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "夏休みに京都へ行くつ___です。",
+    "options": [
+      "もり",
+      "よう",
+      "はず",
+      "らしい"
+    ],
+    "correctIndex": 0,
+    "explanation": "A plan or intention uses the dictionary form plus つもりです.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-tsumori"
+    ],
+    "contextSetId": "n4-tsumori-1",
+    "contextText": "A summer travel plan.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-tsumori"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-tsumori-2",
+    "itemId": "grammar-tsumori",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "今日は外食しないつ___です。",
+    "options": [
+      "もり",
+      "よう",
+      "はず",
+      "らしい"
+    ],
+    "correctIndex": 0,
+    "explanation": "A decision about what one intends not to do uses しないつもりです.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-tsumori"
+    ],
+    "contextSetId": "n4-tsumori-2",
+    "contextText": "An intention to stay in for dinner.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-tsumori"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  }
+,
+  {
+    "id": "grammar-te-ageru-1",
+    "itemId": "grammar-te-ageru",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "私は友達の引っ越しを手伝っ___。",
+    "options": [
+      "てあげました",
+      "てくれました",
+      "てもらいました",
+      "てきました"
+    ],
+    "correctIndex": 0,
+    "explanation": "私は友達のために手伝う側なので、てあげました を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-te-ageru"
+    ],
+    "contextSetId": "n4-te-ageru-1",
+    "contextText": "The speaker helps a friend move.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-te-ageru"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-te-oku-1",
+    "itemId": "grammar-te-oku",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "旅行の前に、ホテルを予約し___。",
+    "options": [
+      "ておきます",
+      "てみます",
+      "てしまいます",
+      "てきます"
+    ],
+    "correctIndex": 0,
+    "explanation": "将来のために前もって予約するので、ておきます を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-te-oku"
+    ],
+    "contextSetId": "n4-te-oku-1",
+    "contextText": "Booking a hotel in advance for a trip.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-te-oku"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-te-oku-2",
+    "itemId": "grammar-te-oku",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "会議の資料を先に印刷し___ください。",
+    "options": [
+      "ておいて",
+      "てみて",
+      "てしまって",
+      "てきて"
+    ],
+    "correctIndex": 0,
+    "explanation": "先に準備しておく依頼なので、印刷しておいてください が自然です。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-te-oku"
+    ],
+    "contextSetId": "n4-te-oku-2",
+    "contextText": "Preparing meeting documents ahead of time.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-te-oku"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-te-kureru-1",
+    "itemId": "grammar-te-kureru",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "先生が作文を直し___。",
+    "options": [
+      "てくれました",
+      "てあげました",
+      "てもらいました",
+      "ていきました"
+    ],
+    "correctIndex": 0,
+    "explanation": "先生が私のために直した行為なので、てくれました を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-te-kureru"
+    ],
+    "contextSetId": "n4-te-kureru-1",
+    "contextText": "A teacher corrects the speaker's composition.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-te-kureru"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-te-shimau-1",
+    "itemId": "grammar-te-shimau",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "電車で寝て、駅を通り過ぎ___。",
+    "options": [
+      "てしまいました",
+      "てみました",
+      "ておきました",
+      "てきました"
+    ],
+    "correctIndex": 0,
+    "explanation": "望ましくない結果が起きてしまったので、てしまいました を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-te-shimau"
+    ],
+    "contextSetId": "n4-te-shimau-1",
+    "contextText": "The speaker accidentally passes the station after falling asleep.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-te-shimau"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-te-shimau-2",
+    "itemId": "grammar-te-shimau",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "大切なメールを間違えて消し___。",
+    "options": [
+      "てしまいました",
+      "てみました",
+      "ておきました",
+      "てきました"
+    ],
+    "correctIndex": 0,
+    "explanation": "誤って消したことへの残念な結果を表すので、てしまいました が自然です。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-te-shimau"
+    ],
+    "contextSetId": "n4-te-shimau-2",
+    "contextText": "An important email is accidentally deleted.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-te-shimau"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  }
+,
+  {
+    "id": "grammar-te-miru-1",
+    "itemId": "grammar-te-miru",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "分からない言葉を辞書で調べ___。",
+    "options": [
+      "てみます",
+      "ておきます",
+      "てしまいます",
+      "ていきます"
+    ],
+    "correctIndex": 0,
+    "explanation": "試しに調べるという行為なので、てみます を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-te-miru"
+    ],
+    "contextSetId": "n4-te-miru-1",
+    "contextText": "Trying to look up an unfamiliar word.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-te-miru"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-te-miru-2",
+    "itemId": "grammar-te-miru",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "この薬を一週間飲ん___ください。",
+    "options": [
+      "でみて",
+      "でおいて",
+      "でしまって",
+      "できて"
+    ],
+    "correctIndex": 0,
+    "explanation": "試してみるように依頼するので、飲んでみてください が自然です。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-te-miru"
+    ],
+    "contextSetId": "n4-te-miru-2",
+    "contextText": "Trying a medicine for one week.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-te-miru"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-te-morau-1",
+    "itemId": "grammar-te-morau",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "友達に駅まで案内し___。",
+    "options": [
+      "てもらいました",
+      "てあげました",
+      "てくれました",
+      "ていきました"
+    ],
+    "correctIndex": 0,
+    "explanation": "友達に案内する行為をしてもらったので、てもらいました を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-te-morau"
+    ],
+    "contextSetId": "n4-te-morau-1",
+    "contextText": "The speaker receives directions from a friend.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-te-morau"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-te-morau-2",
+    "itemId": "grammar-te-morau",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "店員さんにサイズを確認し___。",
+    "options": [
+      "てもらいました",
+      "てあげました",
+      "てくれました",
+      "てきました"
+    ],
+    "correctIndex": 0,
+    "explanation": "店員さんに確認する行為をしてもらったので、てもらいました が自然です。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-te-morau"
+    ],
+    "contextSetId": "n4-te-morau-2",
+    "contextText": "A shop assistant checks a clothing size for the speaker.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-te-morau"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-te-iku-1",
+    "itemId": "grammar-te-iku",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "これから少しずつ漢字を覚え___。",
+    "options": [
+      "ていきます",
+      "てきます",
+      "てみます",
+      "ておきます"
+    ],
+    "correctIndex": 0,
+    "explanation": "これから先に進む学習の変化なので、覚えていきます を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-te-iku"
+    ],
+    "contextSetId": "n4-te-iku-1",
+    "contextText": "The speaker will continue learning kanji from now onward.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-te-iku"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-te-kuru-1",
+    "itemId": "grammar-te-kuru",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "日本の生活にもだんだん慣れ___。",
+    "options": [
+      "てきました",
+      "ていきました",
+      "てみました",
+      "ておきました"
+    ],
+    "correctIndex": 0,
+    "explanation": "過去から現在まで慣れる変化が近づいてきたので、慣れてきました を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-te-kuru"
+    ],
+    "contextSetId": "n4-te-kuru-1",
+    "contextText": "The speaker has gradually become accustomed to life in Japan.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-te-kuru"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-ni-chigai-nai-1",
+    "itemId": "grammar-ni-chigai-nai",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "あの店は電気が消えています。もう閉まっ___に違いありません。",
+    "options": [
+      "た",
+      "る",
+      "ている",
+      "ない"
+    ],
+    "correctIndex": 0,
+    "explanation": "見えている証拠から強く判断するので、閉まったに違いありません が自然です。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-ni-chigai-nai"
+    ],
+    "contextSetId": "n4-ni-chigai-nai-1",
+    "contextText": "A dark shop is almost certainly already closed.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-ni-chigai-nai"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-ni-kimatte-iru-1",
+    "itemId": "grammar-ni-kimatte-iru",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "こんなに練習したのだから、試験には合格する___。",
+    "options": [
+      "に決まっている",
+      "みたいだ",
+      "らしい",
+      "かもしれない"
+    ],
+    "correctIndex": 0,
+    "explanation": "話し手が強い確信を持って言うので、に決まっている を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-ni-kimatte-iru"
+    ],
+    "contextSetId": "n4-ni-kimatte-iru-1",
+    "contextText": "Confidence after extensive exam practice.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-ni-kimatte-iru"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-ni-kimatte-iru-2",
+    "itemId": "grammar-ni-kimatte-iru",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "この店の料理は新鮮だから、おいしい___。",
+    "options": [
+      "に決まっている",
+      "みたいだ",
+      "らしい",
+      "かもしれない"
+    ],
+    "correctIndex": 0,
+    "explanation": "理由をもとに話し手が強く確信しているので、に決まっている が自然です。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-ni-kimatte-iru"
+    ],
+    "contextSetId": "n4-ni-kimatte-iru-2",
+    "contextText": "Strong personal certainty about a restaurant's food.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-ni-kimatte-iru"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  }
+,
+  {
+    "id": "grammar-mitai-1",
+    "itemId": "grammar-mitai",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "あの雲は犬___です。",
+    "options": [
+      "みたい",
+      "らしい",
+      "そう",
+      "に違いない"
+    ],
+    "correctIndex": 0,
+    "explanation": "見た目が犬に似ているという印象なので、みたいです を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-mitai"
+    ],
+    "contextSetId": "n4-mitai-1",
+    "contextText": "A cloud looks like a dog.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-mitai"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-mitai-2",
+    "itemId": "grammar-mitai",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "彼は子ども___に笑っています。",
+    "options": [
+      "みたい",
+      "らしい",
+      "そう",
+      "に違いない"
+    ],
+    "correctIndex": 0,
+    "explanation": "子どものような様子で笑っているので、みたいに が自然です。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-mitai"
+    ],
+    "contextSetId": "n4-mitai-2",
+    "contextText": "An adult laughs in a childlike way.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-mitai"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-rashii-1",
+    "itemId": "grammar-rashii",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "友達の話では、駅前に新しい店ができた___です。",
+    "options": [
+      "らしい",
+      "みたい",
+      "そう",
+      "に違いない"
+    ],
+    "correctIndex": 0,
+    "explanation": "友達から聞いた情報を伝えているので、らしいです を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-rashii"
+    ],
+    "contextSetId": "n4-rashii-1",
+    "contextText": "A friend reports that a new shop opened by the station.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-rashii"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-wake-ni-wa-ikanai-1",
+    "itemId": "grammar-wake-ni-wa-ikanai",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "明日は試験だから、勉強しない___。",
+    "options": [
+      "わけにはいきません",
+      "みたいです",
+      "らしいです",
+      "ことにします"
+    ],
+    "correctIndex": 0,
+    "explanation": "事情があって勉強しないことはできないので、わけにはいきません を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-wake-ni-wa-ikanai"
+    ],
+    "contextSetId": "n4-wake-ni-wa-ikanai-1",
+    "contextText": "An exam makes skipping study impossible.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-wake-ni-wa-ikanai"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-wake-ni-wa-ikanai-2",
+    "itemId": "grammar-wake-ni-wa-ikanai",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "大切な会議なので、遅れる___。",
+    "options": [
+      "わけにはいきません",
+      "みたいです",
+      "らしいです",
+      "ことにします"
+    ],
+    "correctIndex": 0,
+    "explanation": "大切な会議に遅れることは許されないという制約を表します。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-wake-ni-wa-ikanai"
+    ],
+    "contextSetId": "n4-wake-ni-wa-ikanai-2",
+    "contextText": "Being late to an important meeting is not an option.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-wake-ni-wa-ikanai"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-sugiru-1",
+    "itemId": "grammar-sugiru",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "このかばんは大き___。",
+    "options": [
+      "すぎます",
+      "すぎました",
+      "すぎて",
+      "すぎる"
+    ],
+    "correctIndex": 0,
+    "explanation": "現在の程度が過剰だと述べるので、大きすぎます を使います。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-sugiru"
+    ],
+    "contextSetId": "n4-sugiru-1",
+    "contextText": "A bag is too large for the speaker.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-sugiru"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-sugiru-2",
+    "itemId": "grammar-sugiru",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "昨日は食べ___ました。",
+    "options": [
+      "すぎ",
+      "すぎて",
+      "すぎる",
+      "すぎな"
+    ],
+    "correctIndex": 0,
+    "explanation": "食べた量が過剰だった過去の出来事なので、食べすぎました が自然です。",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-sugiru"
+    ],
+    "contextSetId": "n4-sugiru-2",
+    "contextText": "The speaker ate too much yesterday.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-sugiru"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-chu-1",
+    "itemId": "grammar-chu",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "会議___は静かにしてください。",
+    "options": [
+      "中",
+      "前",
+      "後",
+      "間"
+    ],
+    "correctIndex": 0,
+    "explanation": "会議中 means during the meeting, so 中 marks the period in progress.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-chu"
+    ],
+    "contextSetId": "n4-chu-1",
+    "contextText": "A request for silence during a meeting.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-chu"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-chu-2",
+    "itemId": "grammar-chu",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "旅行___に撮った写真を整理しました。",
+    "options": [
+      "中",
+      "前",
+      "後",
+      "間"
+    ],
+    "correctIndex": 0,
+    "explanation": "旅行中に撮った写真 means photos taken while travelling, so 中 is required.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-chu"
+    ],
+    "contextSetId": "n4-chu-2",
+    "contextText": "Sorting photos taken during a trip.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-chu"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-kata-1",
+    "itemId": "grammar-kata",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "この漢字の読___を教えてください。",
+    "options": [
+      "み方",
+      "みたい",
+      "むこと",
+      "みながら"
+    ],
+    "correctIndex": 0,
+    "explanation": "読み方 means the way to read something, so 方 follows the verb stem 読み.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-kata"
+    ],
+    "contextSetId": "n4-kata-1",
+    "contextText": "Asking how to read a kanji.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-kata"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {
+    "id": "grammar-kata-2",
+    "itemId": "grammar-kata",
+    "category": "grammar",
+    "questionType": "sentence completion",
+    "jlptLevel": "N4",
+    "prompt": "アプリの使い___が分かりません。",
+    "options": [
+      "方",
+      "方に",
+      "方を",
+      "方で"
+    ],
+    "correctIndex": 0,
+    "explanation": "使い方 means the way of using an app, so 方 follows the verb stem 使い.",
+    "answerMode": "choice",
+    "acceptedAnswers": [],
+    "validationStatus": "validated",
+    "generatedBy": "michi-authored-n4-grammar",
+    "targetItemIds": [
+      "grammar-kata"
+    ],
+    "contextSetId": "n4-kata-2",
+    "contextText": "Asking how to use an app.",
+    "review": {
+      "status": "approved",
+      "generatedBy": "michi-authored-n4-grammar",
+      "model": "human-review",
+      "generatedAt": "2026-09-04T00:00:00Z",
+      "targetItemIds": [
+        "grammar-kata"
+      ],
+      "validationIssues": [],
+      "reviewedBy": "owner",
+      "reviewedAt": "2026-09-04T00:00:00Z",
+      "reviewNotes": "Answer key, distractors, context, and N4 bridge level checked against the authored grammar item."
+    }
+  },
+  {"id":"grammar-desu-1","itemId":"grammar-desu","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"私は学生___。","options":["です","ます","ますか","でした"],"correctIndex":0,"explanation":"This context uses desu in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-desu"],"contextSetId":"n5-grammar-desu-1","contextText":"Independent everyday desu context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-desu"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-desu-2","itemId":"grammar-desu","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"これは日本語の本___。","options":["です","ます","でした","ません"],"correctIndex":0,"explanation":"This context uses desu in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-desu"],"contextSetId":"n5-grammar-desu-2","contextText":"Independent everyday desu context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-desu"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-wa-1","itemId":"grammar-wa","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"私___東京に住んでいます。","options":["は","が","を","に"],"correctIndex":0,"explanation":"This context uses wa in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-wa"],"contextSetId":"n5-grammar-wa-1","contextText":"Independent everyday wa context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-wa"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-wa-2","itemId":"grammar-wa","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"この店___駅の近くです。","options":["は","を","で","と"],"correctIndex":0,"explanation":"This context uses wa in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-wa"],"contextSetId":"n5-grammar-wa-2","contextText":"Independent everyday wa context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-wa"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-ka-1","itemId":"grammar-ka","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"これは本___。","options":["ですか","です","ます","ました"],"correctIndex":0,"explanation":"This context uses ka in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-ka"],"contextSetId":"n5-grammar-ka-1","contextText":"Independent everyday ka context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-ka"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-ka-2","itemId":"grammar-ka","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"明日は学校へ行きます___。","options":["か","を","に","で"],"correctIndex":0,"explanation":"This context uses ka in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-ka"],"contextSetId":"n5-grammar-ka-2","contextText":"Independent everyday ka context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-ka"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-ni-1","itemId":"grammar-ni","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"七時___起きます。","options":["に","で","を","と"],"correctIndex":0,"explanation":"This context uses ni in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-ni"],"contextSetId":"n5-grammar-ni-1","contextText":"Independent everyday ni context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-ni"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-ni-2","itemId":"grammar-ni","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"学校___行きます。","options":["に","を","で","が"],"correctIndex":0,"explanation":"This context uses ni in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-ni"],"contextSetId":"n5-grammar-ni-2","contextText":"Independent everyday ni context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-ni"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-masu-1","itemId":"grammar-masu","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"毎朝、水を___。","options":["飲みます","飲みません","飲みました","飲む"],"correctIndex":0,"explanation":"This context uses masu in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-masu"],"contextSetId":"n5-grammar-masu-1","contextText":"Independent everyday masu context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-masu"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-masu-2","itemId":"grammar-masu","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"週末に映画を___。","options":["見ます","見ません","見ました","見る"],"correctIndex":0,"explanation":"This context uses masu in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-masu"],"contextSetId":"n5-grammar-masu-2","contextText":"Independent everyday masu context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-masu"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-masen-1","itemId":"grammar-masen","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"今日は学校へ行き___。","options":["ません","ます","ました","たいです"],"correctIndex":0,"explanation":"This context uses masen in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-masen"],"contextSetId":"n5-grammar-masen-1","contextText":"Independent everyday masen context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-masen"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-masen-2","itemId":"grammar-masen","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"朝ご飯を食べ___。","options":["ません","ます","ました","ましょう"],"correctIndex":0,"explanation":"This context uses masen in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-masen"],"contextSetId":"n5-grammar-masen-2","contextText":"Independent everyday masen context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-masen"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-mashita-1","itemId":"grammar-mashita","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"昨日、写真を撮り___。","options":["ました","ます","ません","たいです"],"correctIndex":0,"explanation":"This context uses mashita in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-mashita"],"contextSetId":"n5-grammar-mashita-1","contextText":"Independent everyday mashita context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-mashita"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-mashita-2","itemId":"grammar-mashita","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"先月、本を買い___。","options":["ました","ます","ません","ましょう"],"correctIndex":0,"explanation":"This context uses mashita in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-mashita"],"contextSetId":"n5-grammar-mashita-2","contextText":"Independent everyday mashita context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-mashita"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-suki-1","itemId":"grammar-suki","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"私は日本料理___好きです。","options":["が","を","に","で"],"correctIndex":0,"explanation":"This context uses suki in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-suki"],"contextSetId":"n5-grammar-suki-1","contextText":"Independent everyday suki context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-suki"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-suki-2","itemId":"grammar-suki","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"友達は犬___好きです。","options":["が","を","と","へ"],"correctIndex":0,"explanation":"This context uses suki in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-suki"],"contextSetId":"n5-grammar-suki-2","contextText":"Independent everyday suki context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-suki"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-hoshii-1","itemId":"grammar-hoshii","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"新しいかばん___欲しいです。","options":["が","を","に","で"],"correctIndex":0,"explanation":"This context uses hoshii in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-hoshii"],"contextSetId":"n5-grammar-hoshii-1","contextText":"Independent everyday hoshii context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-hoshii"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-hoshii-2","itemId":"grammar-hoshii","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"休み___欲しいです。","options":["が","を","と","へ"],"correctIndex":0,"explanation":"This context uses hoshii in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-hoshii"],"contextSetId":"n5-grammar-hoshii-2","contextText":"Independent everyday hoshii context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-hoshii"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-kudasai-1","itemId":"grammar-kudasai","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"水___ください。","options":["を","が","に","で"],"correctIndex":0,"explanation":"This context uses kudasai in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-kudasai"],"contextSetId":"n5-grammar-kudasai-1","contextText":"Independent everyday kudasai context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-kudasai"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-kudasai-2","itemId":"grammar-kudasai","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"このパン___ください。","options":["を","が","と","へ"],"correctIndex":0,"explanation":"This context uses kudasai in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-kudasai"],"contextSetId":"n5-grammar-kudasai-2","contextText":"Independent everyday kudasai context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-kudasai"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-arimasu-1","itemId":"grammar-arimasu","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"机の上___本があります。","options":["に","で","を","と"],"correctIndex":0,"explanation":"This context uses arimasu in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-arimasu"],"contextSetId":"n5-grammar-arimasu-1","contextText":"Independent everyday arimasu context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-arimasu"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-arimasu-2","itemId":"grammar-arimasu","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"駅の近く___コンビニがあります。","options":["に","で","へ","が"],"correctIndex":0,"explanation":"This context uses arimasu in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-arimasu"],"contextSetId":"n5-grammar-arimasu-2","contextText":"Independent everyday arimasu context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-arimasu"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-wo-1","itemId":"grammar-wo","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"毎朝、ご飯___食べます。","options":["を","が","に","で"],"correctIndex":0,"explanation":"This context uses wo in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-wo"],"contextSetId":"n5-grammar-wo-1","contextText":"Independent everyday wo context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-wo"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-wo-2","itemId":"grammar-wo","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"図書館で本___読みます。","options":["を","が","と","へ"],"correctIndex":0,"explanation":"This context uses wo in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-wo"],"contextSetId":"n5-grammar-wo-2","contextText":"Independent everyday wo context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-wo"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-de-1","itemId":"grammar-de","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"学校___日本語を勉強します。","options":["で","に","を","と"],"correctIndex":0,"explanation":"This context uses de in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-de"],"contextSetId":"n5-grammar-de-1","contextText":"Independent everyday de context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-de"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-de-2","itemId":"grammar-de","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"電車___駅へ行きます。","options":["で","に","を","が"],"correctIndex":0,"explanation":"This context uses de in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-de"],"contextSetId":"n5-grammar-de-2","contextText":"Independent everyday de context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-de"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-to-1","itemId":"grammar-to","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"友達___映画を見ます。","options":["と","を","に","で"],"correctIndex":0,"explanation":"This context uses to in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-to"],"contextSetId":"n5-grammar-to-1","contextText":"Independent everyday to context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-to"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-to-2","itemId":"grammar-to","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"先生___話します。","options":["と","を","へ","が"],"correctIndex":0,"explanation":"This context uses to in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-to"],"contextSetId":"n5-grammar-to-2","contextText":"Independent everyday to context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-to"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-no-1","itemId":"grammar-no","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"これは私___かばんです。","options":["の","は","を","に"],"correctIndex":0,"explanation":"This context uses no in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-no"],"contextSetId":"n5-grammar-no-1","contextText":"Independent everyday no context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-no"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-no-2","itemId":"grammar-no","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"駅___前にバス停があります。","options":["の","は","で","と"],"correctIndex":0,"explanation":"This context uses no in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-no"],"contextSetId":"n5-grammar-no-2","contextText":"Independent everyday no context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-no"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-mo-1","itemId":"grammar-mo","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"私は学生です。妹___学生です。","options":["も","は","を","に"],"correctIndex":0,"explanation":"This context uses mo in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-mo"],"contextSetId":"n5-grammar-mo-1","contextText":"Independent everyday mo context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-mo"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-mo-2","itemId":"grammar-mo","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"パンを買いました。牛乳___買いました。","options":["も","を","が","と"],"correctIndex":0,"explanation":"This context uses mo in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-mo"],"contextSetId":"n5-grammar-mo-2","contextText":"Independent everyday mo context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-mo"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-kore-1","itemId":"grammar-kore","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"___は私のかばんです。","options":["これは","ここは","これを","この"],"correctIndex":0,"explanation":"This context uses kore in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-kore"],"contextSetId":"n5-grammar-kore-1","contextText":"Independent everyday kore context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-kore"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-kore-2","itemId":"grammar-kore","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"これは本です。___は先生の机です。","options":["それ","そこ","その","それを"],"correctIndex":0,"explanation":"This context uses kore in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-kore"],"contextSetId":"n5-grammar-kore-2","contextText":"Independent everyday kore context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-kore"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-doko-1","itemId":"grammar-doko","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"駅は___ですか。","options":["どこ","だれ","何時","いくら"],"correctIndex":0,"explanation":"This context uses doko in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-doko"],"contextSetId":"n5-grammar-doko-1","contextText":"Independent everyday doko context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-doko"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-doko-2","itemId":"grammar-doko","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"トイレは___ですか。","options":["どこ","何","だれ","何冊"],"correctIndex":0,"explanation":"This context uses doko in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-doko"],"contextSetId":"n5-grammar-doko-2","contextText":"Independent everyday doko context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-doko"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-imasu-1","itemId":"grammar-imasu","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"教室___先生がいます。","options":["に","で","を","と"],"correctIndex":0,"explanation":"This context uses imasu in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-imasu"],"contextSetId":"n5-grammar-imasu-1","contextText":"Independent everyday imasu context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-imasu"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-imasu-2","itemId":"grammar-imasu","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"公園___犬がいます。","options":["に","で","が","を"],"correctIndex":0,"explanation":"This context uses imasu in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-imasu"],"contextSetId":"n5-grammar-imasu-2","contextText":"Independent everyday imasu context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-imasu"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-i-adjective-1","itemId":"grammar-i-adjective","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"このりんごは___です。","options":["おいしい","おいしく","おいしな","おいしでした"],"correctIndex":0,"explanation":"This context uses i-adjective in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-i-adjective"],"contextSetId":"n5-grammar-i-adjective-1","contextText":"Independent everyday i-adjective context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-i-adjective"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-i-adjective-2","itemId":"grammar-i-adjective","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"昨日は___です。","options":["寒かった","寒いかった","寒くない","寒いな"],"correctIndex":0,"explanation":"This context uses i-adjective in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-i-adjective"],"contextSetId":"n5-grammar-i-adjective-2","contextText":"Independent everyday i-adjective context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-i-adjective"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-dictionary-form-1","itemId":"grammar-dictionary-form","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"毎朝、六時に___。","options":["起きる","起きます","起きない","起きたい"],"correctIndex":0,"explanation":"This context uses dictionary-form in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-dictionary-form"],"contextSetId":"n5-grammar-dictionary-form-1","contextText":"Independent everyday dictionary-form context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-dictionary-form"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-dictionary-form-2","itemId":"grammar-dictionary-form","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"週末に図書館へ___。","options":["行く","行きます","行きました","行かない"],"correctIndex":0,"explanation":"This context uses dictionary-form in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-dictionary-form"],"contextSetId":"n5-grammar-dictionary-form-2","contextText":"Independent everyday dictionary-form context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-dictionary-form"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-te-form-1","itemId":"grammar-te-form","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"朝起き___、顔を洗います。","options":["て","た","ます","ない"],"correctIndex":0,"explanation":"This context uses te-form in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-te-form"],"contextSetId":"n5-grammar-te-form-1","contextText":"Independent everyday te-form context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-te-form"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-te-form-2","itemId":"grammar-te-form","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"本を読ん___、寝ます。","options":["で","て","だ","ます"],"correctIndex":0,"explanation":"This context uses te-form in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-te-form"],"contextSetId":"n5-grammar-te-form-2","contextText":"Independent everyday te-form context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-te-form"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-tai-1","itemId":"grammar-tai","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"日本へ行き___です。","options":["たい","たく","ます","ません"],"correctIndex":0,"explanation":"This context uses tai in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-tai"],"contextSetId":"n5-grammar-tai-1","contextText":"Independent everyday tai context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-tai"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-tai-2","itemId":"grammar-tai","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"この本を読み___です。","options":["たい","たく","ます","ました"],"correctIndex":0,"explanation":"This context uses tai in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-tai"],"contextSetId":"n5-grammar-tai-2","contextText":"Independent everyday tai context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-tai"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-counters-1","itemId":"grammar-counters","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"本を三___買いました。","options":["冊","人","枚","台"],"correctIndex":0,"explanation":"This context uses counters in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-counters"],"contextSetId":"n5-grammar-counters-1","contextText":"Independent everyday counters context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-counters"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-counters-2","itemId":"grammar-counters","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"友達が二___います。","options":["人","冊","枚","台"],"correctIndex":0,"explanation":"This context uses counters in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-counters"],"contextSetId":"n5-grammar-counters-2","contextText":"Independent everyday counters context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-counters"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-yori-1","itemId":"grammar-yori","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"電車はバス___速いです。","options":["より","から","まで","しか"],"correctIndex":0,"explanation":"This context uses yori in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-yori"],"contextSetId":"n5-grammar-yori-1","contextText":"Independent everyday yori context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-yori"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-yori-2","itemId":"grammar-yori","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"この本はあの本___面白いです。","options":["より","と","で","に"],"correctIndex":0,"explanation":"This context uses yori in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-yori"],"contextSetId":"n5-grammar-yori-2","contextText":"Independent everyday yori context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-yori"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-kara-1","itemId":"grammar-kara","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"雨です___、家にいます。","options":["から","まで","より","しか"],"correctIndex":0,"explanation":"This context uses kara in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-kara"],"contextSetId":"n5-grammar-kara-1","contextText":"Independent everyday kara context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-kara"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-kara-2","itemId":"grammar-kara","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"時間があります___、勉強します。","options":["から","まで","より","だけ"],"correctIndex":0,"explanation":"This context uses kara in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-kara"],"contextSetId":"n5-grammar-kara-2","contextText":"Independent everyday kara context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-kara"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-temoii-1","itemId":"grammar-temoii","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"ここで写真を撮っ___もいいですか。","options":["て","た","ます","ない"],"correctIndex":0,"explanation":"This context uses temoii in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-temoii"],"contextSetId":"n5-grammar-temoii-1","contextText":"Independent everyday temoii context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-temoii"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-temoii-2","itemId":"grammar-temoii","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"この本を読ん___もいいですか。","options":["で","て","だ","ます"],"correctIndex":0,"explanation":"This context uses temoii in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-temoii"],"contextSetId":"n5-grammar-temoii-2","contextText":"Independent everyday temoii context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-temoii"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-mashou-1","itemId":"grammar-mashou","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"一緒に勉強し___。","options":["ましょう","ません","ました","たいです"],"correctIndex":0,"explanation":"This context uses mashou in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-mashou"],"contextSetId":"n5-grammar-mashou-1","contextText":"Independent everyday mashou context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-mashou"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-mashou-2","itemId":"grammar-mashou","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"駅で会い___。","options":["ましょう","ませんか","ました","ます"],"correctIndex":0,"explanation":"This context uses mashou in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-mashou"],"contextSetId":"n5-grammar-mashou-2","contextText":"Independent everyday mashou context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-mashou"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-masenka-1","itemId":"grammar-masenka","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"一緒に昼ご飯を食べ___か。","options":["ません","ます","ました","ましょう"],"correctIndex":0,"explanation":"This context uses masenka in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-masenka"],"contextSetId":"n5-grammar-masenka-1","contextText":"Independent everyday masenka context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-masenka"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-masenka-2","itemId":"grammar-masenka","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"週末、映画を見___か。","options":["ません","ます","ました","たい"],"correctIndex":0,"explanation":"This context uses masenka in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-masenka"],"contextSetId":"n5-grammar-masenka-2","contextText":"Independent everyday masenka context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-masenka"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-kara-made-1","itemId":"grammar-kara-made","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"駅___学校まで歩きます。","options":["から","まで","より","で"],"correctIndex":0,"explanation":"This context uses kara-made in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-kara-made"],"contextSetId":"n5-grammar-kara-made-1","contextText":"Independent everyday kara-made context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-kara-made"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-kara-made-2","itemId":"grammar-kara-made","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"九時から五時___働きます。","options":["まで","から","より","に"],"correctIndex":0,"explanation":"This context uses kara-made in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-kara-made"],"contextSetId":"n5-grammar-kara-made-2","contextText":"Independent everyday kara-made context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-kara-made"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-ya-1","itemId":"grammar-ya","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"店でりんご___バナナを買いました。","options":["や","と","の","も"],"correctIndex":0,"explanation":"This context uses ya in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-ya"],"contextSetId":"n5-grammar-ya-1","contextText":"Independent everyday ya context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-ya"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-ya-2","itemId":"grammar-ya","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"机の上に本___ノートがあります。","options":["や","を","に","が"],"correctIndex":0,"explanation":"This context uses ya in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-ya"],"contextSetId":"n5-grammar-ya-2","contextText":"Independent everyday ya context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-ya"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-te-kudasai-1","itemId":"grammar-te-kudasai","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"ここに名前を書い___ください。","options":["て","た","ます","ない"],"correctIndex":0,"explanation":"This context uses te-kudasai in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-te-kudasai"],"contextSetId":"n5-grammar-te-kudasai-1","contextText":"Independent everyday te-kudasai context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-te-kudasai"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-te-kudasai-2","itemId":"grammar-te-kudasai","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"ドアを開け___ください。","options":["て","で","た","ます"],"correctIndex":0,"explanation":"This context uses te-kudasai in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-te-kudasai"],"contextSetId":"n5-grammar-te-kudasai-2","contextText":"Independent everyday te-kudasai context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-te-kudasai"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-adverb-totemo-1","itemId":"grammar-adverb-totemo","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"この町は___静かです。","options":["とても","あまり","まだ","しか"],"correctIndex":0,"explanation":"This context uses adverb-totemo in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-adverb-totemo"],"contextSetId":"n5-grammar-adverb-totemo-1","contextText":"Independent everyday adverb-totemo context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-adverb-totemo"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-adverb-totemo-2","itemId":"grammar-adverb-totemo","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"今日は___暑いです。","options":["とても","どこ","だれ","だけ"],"correctIndex":0,"explanation":"This context uses adverb-totemo in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-adverb-totemo"],"contextSetId":"n5-grammar-adverb-totemo-2","contextText":"Independent everyday adverb-totemo context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-adverb-totemo"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-na-adjective-1","itemId":"grammar-na-adjective","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"この町は___です。","options":["静か","静かな","静かい","静かく"],"correctIndex":0,"explanation":"This context uses na-adjective in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-na-adjective"],"contextSetId":"n5-grammar-na-adjective-1","contextText":"Independent everyday na-adjective context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-na-adjective"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-na-adjective-2","itemId":"grammar-na-adjective","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"___店で昼ご飯を食べます。","options":["便利な","便利","便利い","便利く"],"correctIndex":0,"explanation":"This context uses na-adjective in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-na-adjective"],"contextSetId":"n5-grammar-na-adjective-2","contextText":"Independent everyday na-adjective context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-na-adjective"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-i-adjective-negative-1","itemId":"grammar-i-adjective-negative","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"今日は寒___です。","options":["くない","いない","かった","くて"],"correctIndex":0,"explanation":"This context uses i-adjective-negative in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-i-adjective-negative"],"contextSetId":"n5-grammar-i-adjective-negative-1","contextText":"Independent everyday i-adjective-negative context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-i-adjective-negative"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-i-adjective-negative-2","itemId":"grammar-i-adjective-negative","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"この道は遠___です。","options":["くない","いない","かった","くて"],"correctIndex":0,"explanation":"This context uses i-adjective-negative in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-i-adjective-negative"],"contextSetId":"n5-grammar-i-adjective-negative-2","contextText":"Independent everyday i-adjective-negative context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-i-adjective-negative"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-i-adjective-past-1","itemId":"grammar-i-adjective-past","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"昨日は暑___です。","options":["かった","いかった","くない","くて"],"correctIndex":0,"explanation":"This context uses i-adjective-past in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-i-adjective-past"],"contextSetId":"n5-grammar-i-adjective-past-1","contextText":"Independent everyday i-adjective-past context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-i-adjective-past"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-i-adjective-past-2","itemId":"grammar-i-adjective-past","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"旅行は楽し___です。","options":["かった","いかった","くない","くて"],"correctIndex":0,"explanation":"This context uses i-adjective-past in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-i-adjective-past"],"contextSetId":"n5-grammar-i-adjective-past-2","contextText":"Independent everyday i-adjective-past context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-i-adjective-past"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-teiru-1","itemId":"grammar-teiru","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"今、本を読ん___います。","options":["で","て","だ","ます"],"correctIndex":0,"explanation":"This context uses teiru in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-teiru"],"contextSetId":"n5-grammar-teiru-1","contextText":"Independent everyday teiru context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-teiru"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-teiru-2","itemId":"grammar-teiru","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"母は台所で料理し___います。","options":["て","で","た","ます"],"correctIndex":0,"explanation":"This context uses teiru in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-teiru"],"contextSetId":"n5-grammar-teiru-2","contextText":"Independent everyday teiru context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-teiru"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-tewaikenai-1","itemId":"grammar-tewaikenai","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"ここで写真を撮っ___はいけません。","options":["て","た","ます","ない"],"correctIndex":0,"explanation":"This context uses tewaikenai in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-tewaikenai"],"contextSetId":"n5-grammar-tewaikenai-1","contextText":"Independent everyday tewaikenai context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-tewaikenai"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-tewaikenai-2","itemId":"grammar-tewaikenai","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"教室で走っ___はいけません。","options":["て","だ","ます","ない"],"correctIndex":0,"explanation":"This context uses tewaikenai in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-tewaikenai"],"contextSetId":"n5-grammar-tewaikenai-2","contextText":"Independent everyday tewaikenai context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-tewaikenai"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-naidekudasai-1","itemId":"grammar-naidekudasai","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"ここで話さ___ください。","options":["ないで","なくて","ません","ない"],"correctIndex":0,"explanation":"This context uses naidekudasai in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-naidekudasai"],"contextSetId":"n5-grammar-naidekudasai-1","contextText":"Independent everyday naidekudasai context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-naidekudasai"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-naidekudasai-2","itemId":"grammar-naidekudasai","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"窓を開け___ください。","options":["ないで","なくて","ません","ない"],"correctIndex":0,"explanation":"This context uses naidekudasai in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-naidekudasai"],"contextSetId":"n5-grammar-naidekudasai-2","contextText":"Independent everyday naidekudasai context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-naidekudasai"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-nai-form-1","itemId":"grammar-nai-form","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"今日は学校へ行か___。","options":["ない","ません","なかった","なくて"],"correctIndex":0,"explanation":"This context uses nai-form in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-nai-form"],"contextSetId":"n5-grammar-nai-form-1","contextText":"Independent everyday nai-form context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-nai-form"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+  {"id":"grammar-nai-form-2","itemId":"grammar-nai-form","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"肉を食べ___。","options":["ない","ません","なかった","なくて"],"correctIndex":0,"explanation":"This context uses nai-form in the intended N5 form.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-nai-form"],"contextSetId":"n5-grammar-nai-form-2","contextText":"Independent everyday nai-form context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-nai-form"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+{"id":"grammar-ga-but-1","itemId":"grammar-ga-but","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"この本は高い___、面白いです。","options":["ですが","ですから","ながら","まで"],"correctIndex":0,"explanation":"が connects two contrasting clauses.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-ga-but"],"contextSetId":"n5-grammar-ga-but-1","contextText":"Independent everyday ga-but context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-ga-but"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+{"id":"grammar-ga-but-2","itemId":"grammar-ga-but","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"今日は忙しい___、少し話せます。","options":["ですが","ですから","ませんか","だけ"],"correctIndex":0,"explanation":"が connects two contrasting clauses.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-ga-but"],"contextSetId":"n5-grammar-ga-but-2","contextText":"Independent everyday ga-but context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-ga-but"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+{"id":"grammar-ta-koto-1","itemId":"grammar-ta-koto","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"日本に行っ___があります。","options":["たこと","てこと","ますこと","ないこと"],"correctIndex":0,"explanation":"The plain past form connects to ことがあります for experience.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-ta-koto"],"contextSetId":"n5-grammar-ta-koto-1","contextText":"Independent everyday ta-koto context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-ta-koto"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+{"id":"grammar-ta-koto-2","itemId":"grammar-ta-koto","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"新幹線に乗っ___がありますか。","options":["たこと","てこと","ますこと","ないこと"],"correctIndex":0,"explanation":"The plain past form connects to ことがあります for experience.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-ta-koto"],"contextSetId":"n5-grammar-ta-koto-2","contextText":"Independent everyday ta-koto context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-ta-koto"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+{"id":"grammar-deshita-1","itemId":"grammar-deshita","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"昨日は日曜日___。","options":["でした","です","ます","ではありません"],"correctIndex":0,"explanation":"でした marks a polite noun description as past.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-deshita"],"contextSetId":"n5-grammar-deshita-1","contextText":"Independent everyday deshita context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-deshita"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+{"id":"grammar-deshita-2","itemId":"grammar-deshita","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"昔、ここは静か___。","options":["でした","ですか","ます","くないです"],"correctIndex":0,"explanation":"でした marks a polite na-adjective description as past.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-deshita"],"contextSetId":"n5-grammar-deshita-2","contextText":"Independent everyday deshita context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-deshita"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+{"id":"grammar-dewa-arimasen-1","itemId":"grammar-dewa-arimasen","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"私は先生___。","options":["ではありません","ではあります","くありません","ません"],"correctIndex":0,"explanation":"ではありません makes a polite noun description negative.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-dewa-arimasen"],"contextSetId":"n5-grammar-dewa-arimasen-1","contextText":"Independent everyday dewa-arimasen context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-dewa-arimasen"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+{"id":"grammar-dewa-arimasen-2","itemId":"grammar-dewa-arimasen","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"今日は休み___。","options":["ではありません","くありません","ませんでした","ないです"],"correctIndex":0,"explanation":"ではありません makes a polite noun description negative.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-dewa-arimasen"],"contextSetId":"n5-grammar-dewa-arimasen-2","contextText":"Independent everyday dewa-arimasen context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-dewa-arimasen"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+{"id":"grammar-nakutemo-ii-1","itemId":"grammar-nakutemo-ii","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"明日は学校へ行か___。","options":["なくてもいいです","なければなりません","ないでください","ませんでした"],"correctIndex":0,"explanation":"なくてもいいです removes the requirement to do the action.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-nakutemo-ii"],"contextSetId":"n5-grammar-nakutemo-ii-1","contextText":"Independent everyday nakutemo-ii context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-nakutemo-ii"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+{"id":"grammar-nakutemo-ii-2","itemId":"grammar-nakutemo-ii","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"全部食べ___。","options":["なくてもいいです","なければなりません","てはいけません","ませんか"],"correctIndex":0,"explanation":"なくてもいいです removes the requirement to do the action.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-nakutemo-ii"],"contextSetId":"n5-grammar-nakutemo-ii-2","contextText":"Independent everyday nakutemo-ii context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-nakutemo-ii"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+{"id":"grammar-nakereba-naranai-1","itemId":"grammar-nakereba-naranai","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"明日、早く起き___。","options":["なければなりません","なくてもいいです","ないでください","ませんでした"],"correctIndex":0,"explanation":"なければなりません marks the action as required.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-nakereba-naranai"],"contextSetId":"n5-grammar-nakereba-naranai-1","contextText":"Independent everyday nakereba-naranai context 1.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-nakereba-naranai"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+{"id":"grammar-nakereba-naranai-2","itemId":"grammar-nakereba-naranai","category":"grammar","questionType":"sentence completion","jlptLevel":"N5","prompt":"駅で切符を買わ___。","options":["なければなりません","なくてもいいです","てはいけません","ませんか"],"correctIndex":0,"explanation":"なければなりません marks the action as required.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n5-grammar","targetItemIds":["grammar-nakereba-naranai"],"contextSetId":"n5-grammar-nakereba-naranai-2","contextText":"Independent everyday nakereba-naranai context 2.","review":{"status":"approved","generatedBy":"michi-authored-n5-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-nakereba-naranai"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N5 grammar level checked against the authored grammar item."}},
+{"id":"grammar-to-conditional-1","itemId":"grammar-to-conditional","category":"grammar","questionType":"sentence completion","jlptLevel":"N4","prompt":"春になる___、桜が咲きます。","options":["と","たら","なら","ば"],"correctIndex":0,"explanation":"と marks a predictable seasonal result.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n4-grammar","targetItemIds":["grammar-to-conditional"],"contextSetId":"n4-conditionals-to-1","contextText":"A predictable seasonal result.","review":{"status":"approved","generatedBy":"michi-authored-n4-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-to-conditional"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N4 conditional distinction checked against the authored grammar item."}},
+{"id":"grammar-to-conditional-2","itemId":"grammar-to-conditional","category":"grammar","questionType":"sentence completion","jlptLevel":"N4","prompt":"この道をまっすぐ行く___、駅があります。","options":["と","たら","なら","ば"],"correctIndex":0,"explanation":"と introduces the predictable result of following the road.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n4-grammar","targetItemIds":["grammar-to-conditional"],"contextSetId":"n4-conditionals-to-2","contextText":"Directions with a predictable result.","review":{"status":"approved","generatedBy":"michi-authored-n4-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-to-conditional"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N4 conditional distinction checked against the authored grammar item."}},
+{"id":"grammar-tara-1","itemId":"grammar-tara","category":"grammar","questionType":"sentence completion","jlptLevel":"N4","prompt":"仕事が終わっ___、連絡してください。","options":["たら","と","ば","なら"],"correctIndex":0,"explanation":"たら allows a one-time condition followed by a request.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n4-grammar","targetItemIds":["grammar-tara"],"contextSetId":"n4-conditionals-tara-1","contextText":"A request after work is finished.","review":{"status":"approved","generatedBy":"michi-authored-n4-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-tara"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N4 conditional distinction checked against the authored grammar item."}},
+{"id":"grammar-tara-2","itemId":"grammar-tara","category":"grammar","questionType":"sentence completion","jlptLevel":"N4","prompt":"雨が降っ___、家にいます。","options":["たら","と","ば","なら"],"correctIndex":0,"explanation":"たら presents a hypothetical condition and a planned response.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n4-grammar","targetItemIds":["grammar-tara"],"contextSetId":"n4-conditionals-tara-2","contextText":"A plan for rainy weather.","review":{"status":"approved","generatedBy":"michi-authored-n4-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-tara"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N4 conditional distinction checked against the authored grammar item."}},
+{"id":"grammar-ba-1","itemId":"grammar-ba","category":"grammar","questionType":"sentence completion","jlptLevel":"N4","prompt":"安けれ___、買います。","options":["ば","と","たら","なら"],"correctIndex":0,"explanation":"The adjective conditional 安ければ frames the buying condition.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n4-grammar","targetItemIds":["grammar-ba"],"contextSetId":"n4-conditionals-ba-1","contextText":"A purchase condition based on price.","review":{"status":"approved","generatedBy":"michi-authored-n4-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-ba"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N4 conditional distinction checked against the authored grammar item."}},
+{"id":"grammar-ba-2","itemId":"grammar-ba","category":"grammar","questionType":"sentence completion","jlptLevel":"N4","prompt":"分からなけれ___、もう一度説明します。","options":["ば","と","たら","なら"],"correctIndex":0,"explanation":"なければ expresses a negative condition with ば.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n4-grammar","targetItemIds":["grammar-ba"],"contextSetId":"n4-conditionals-ba-2","contextText":"An offer to explain again if needed.","review":{"status":"approved","generatedBy":"michi-authored-n4-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-ba"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N4 conditional distinction checked against the authored grammar item."}},
+{"id":"grammar-nara-1","itemId":"grammar-nara","category":"grammar","questionType":"sentence completion","jlptLevel":"N4","prompt":"京都へ行く___、秋がおすすめです。","options":["なら","と","たら","ば"],"correctIndex":0,"explanation":"なら responds to the stated topic of going to Kyoto with a recommendation.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n4-grammar","targetItemIds":["grammar-nara"],"contextSetId":"n4-conditionals-nara-1","contextText":"A recommendation based on a travel topic.","review":{"status":"approved","generatedBy":"michi-authored-n4-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-nara"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N4 conditional distinction checked against the authored grammar item."}},
+{"id":"grammar-nara-2","itemId":"grammar-nara","category":"grammar","questionType":"sentence completion","jlptLevel":"N4","prompt":"時間がある___、手伝ってください。","options":["なら","と","たら","ば"],"correctIndex":0,"explanation":"なら takes the listener's stated or assumed situation as the topic for a request.","answerMode":"choice","acceptedAnswers":[],"validationStatus":"validated","generatedBy":"michi-authored-n4-grammar","targetItemIds":["grammar-nara"],"contextSetId":"n4-conditionals-nara-2","contextText":"A request based on available time.","review":{"status":"approved","generatedBy":"michi-authored-n4-grammar","model":"human-review","generatedAt":"2026-09-04T00:00:00Z","targetItemIds":["grammar-nara"],"validationIssues":[],"reviewedBy":"owner","reviewedAt":"2026-09-04T00:00:00Z","reviewNotes":"Answer key, distractors, context, and N4 conditional distinction checked against the authored grammar item."}}
 ]

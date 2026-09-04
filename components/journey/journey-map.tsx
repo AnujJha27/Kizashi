@@ -22,7 +22,7 @@ function nodeStatusLabel(node: JourneyNode) {
   return statusLabel[node.status];
 }
 
-export function JourneyMap({ nodes, focusLessonId, targetLevel = "N5" }: Readonly<{ nodes: JourneyNode[]; focusLessonId?: string; targetLevel?: TargetLevel }>) {
+export function JourneyMap({ nodes, focusLessonId, targetLevel = "N5", world }: Readonly<{ nodes: JourneyNode[]; focusLessonId?: string; targetLevel?: TargetLevel; world?: { area: { id: string; title: string; japaneseTitle: string }; stage: { id: string; label: string } } }>) {
   const [records, setRecords] = useState<Record<string, ReviewRecord> | null>(null);
 
   useEffect(() => {
@@ -72,12 +72,12 @@ export function JourneyMap({ nodes, focusLessonId, targetLevel = "N5" }: Readonl
   const shownLessons = routeNodes.filter((node) => node.kind === "lesson").length;
 
   return (
-    <div className="journey-map relative overflow-hidden rounded-2xl border border-[#292b31] px-5 py-8 sm:px-10">
+    <div className="journey-map relative overflow-hidden rounded-2xl border border-[#292b31] px-5 py-8 sm:px-10" data-world-area={world?.area.id} data-world-stage={world?.stage.id}>
       <InkField />
-      <Landscape />
+      <Landscape areaId={world?.area.id} stageId={world?.stage.id} />
       <div className="relative z-10 max-w-xl">
         <div className="mb-8 flex items-center justify-between">
-          <div><p className="eyebrow">旅の道 · the path</p><p className="jp-serif mt-1 text-sm text-[#9297a1]">静かに、ひとつずつ</p></div>
+          <div><p className="eyebrow">{world?.area.japaneseTitle ?? "旅の道"} · the path</p><p className="jp-serif mt-1 text-sm text-[#9297a1]">{world?.area.title ?? "静かに、ひとつずつ"} · {world?.stage.label ?? "Arrival"}</p></div>
           <span className="seal" aria-label={`${targetLevel} pass path`}><span>{targetLevel}</span><small>道</small></span>
         </div>
         {lessonIndexes.length > shownLessons ? <p className="mb-4 text-xs text-[#676c75]">Showing the current lesson and up to three nearby lessons. <Link href="/learn" className="text-[#e5b85c] hover:text-[#f1cf7c]">View all lessons →</Link></p> : null}

@@ -116,6 +116,10 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
     questions.push({ id: `${item.id}-context`, itemId: item.id, category: "vocabulary", questionType: "contextual vocabulary", jlptLevel: item.jlptLevel, prompt: `${example.translation}\n${contextTarget ? example.japanese.replace(contextTarget, "＿＿") : `${example.japanese}\nWhich word is being practiced?`}`, ...contextChoices, explanation: `${item.writtenForm} means ${item.meanings.join(" / ")} in this context.` });
     const paraphraseChoices = rotateOptions(item.meanings[0], vocabularyMeanings, index + 2);
     questions.push({ id: `${item.id}-paraphrase`, itemId: item.id, category: "vocabulary", questionType: "paraphrase", jlptLevel: item.jlptLevel, prompt: `Which expression is closest in meaning to ${item.writtenForm}?`, ...paraphraseChoices, explanation: `${item.writtenForm} means ${item.meanings.join(" / ")}.` });
+    if (item.jlptLevel === "N4" && item.usageAssessment) {
+      const usageChoices = rotateOptions(item.usageAssessment.correct, item.usageAssessment.distractors, index + 6);
+      questions.push({ id: `${item.id}-usage`, itemId: item.id, category: "vocabulary", questionType: "usage", jlptLevel: item.jlptLevel, prompt: `Which sentence uses ${item.writtenForm} naturally?`, ...usageChoices, explanation: `${item.writtenForm} is used naturally in the selected sentence.` });
+    }
     const orthographyChoices = rotateOptions(item.writtenForm, vocabularyWrittenForms, index + 4);
     questions.push({ id: `${item.id}-orthography`, itemId: item.id, category: "vocabulary", questionType: "orthography", jlptLevel: item.jlptLevel, prompt: `Which written form matches ${item.reading}?`, ...orthographyChoices, explanation: `${item.reading} is written ${item.writtenForm}.` });
     questions.push({ id: `${item.id}-reading-recall`, itemId: item.id, category: "vocabulary", questionType: "kana recall", jlptLevel: item.jlptLevel, prompt: `Type the reading for ${item.writtenForm}.`, options: [], correctIndex: 0, answerMode: "text", acceptedAnswers: [item.reading], answerPlaceholder: "ひらがな", explanation: `${item.writtenForm} is read ${item.reading}.` });
@@ -256,7 +260,7 @@ export function getPracticeQuestions(module: N5Module = n5Module) {
 
   module.listening.forEach((item) => {
     if (!item.transcript || !item.questions?.length) return;
-    item.questions.forEach((question, index) => questions.push({ id: `${item.id}-question-${index}`, itemId: item.id, category: "listening", questionType: question.questionType ?? (index === 0 ? "key point" : "quick response"), jlptLevel: item.jlptLevel, prompt: question.prompt, options: question.answers, correctIndex: question.correctAnswer, explanation: question.explanation ?? item.situation, audioUrl: item.audioUrl, audioText: item.transcript }));
+    item.questions.forEach((question, index) => questions.push({ id: `${item.id}-question-${index}`, itemId: item.id, category: "listening", questionType: question.questionType ?? (index === 0 ? "key point" : "quick response"), jlptLevel: item.jlptLevel, prompt: question.prompt, options: question.answers, correctIndex: question.correctAnswer, explanation: question.explanation ?? item.situation, audioUrl: item.audioUrl, audioText: item.transcript, visualScene: question.visualScene, visualContext: question.visualContext }));
   });
 
   const availableItemIds = new Set([...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening].map((item) => item.id));

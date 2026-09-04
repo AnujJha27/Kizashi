@@ -25,8 +25,9 @@ export const BOOK_SCREENSHOTS_STORAGE_KEY = "michi.book-screenshots";
 export const BOOK_SKETCHES_STORAGE_KEY = "michi.book-sketches";
 export const SYNC_ENABLED_STORAGE_KEY = "michi.sync-enabled";
 export const CONTINUE_STORAGE_KEY = "michi.continue";
+export const PRONUNCIATION_PROGRESS_STORAGE_KEY = "michi.pronunciation-progress";
 
-const BACKUP_KEYS = [CURRENT_LESSON_STORAGE_KEY, REVIEW_STORAGE_KEY, NOTES_STORAGE_KEY, MISTAKES_STORAGE_KEY, DIAGNOSTIC_STORAGE_KEY, QUESTION_STATS_STORAGE_KEY, STUDY_STATS_STORAGE_KEY, SAVED_SENTENCES_STORAGE_KEY, STUDY_LATER_STORAGE_KEY, PROFILE_PREFERENCES_STORAGE_KEY, EXAM_ATTEMPTS_STORAGE_KEY, REPAIR_STORAGE_KEY, CUSTOM_ENTRIES_STORAGE_KEY, BOOK_NOTES_STORAGE_KEY, BOOK_SCREENSHOTS_STORAGE_KEY, BOOK_SKETCHES_STORAGE_KEY, CONTENT_FLAGS_STORAGE_KEY, CONTINUE_STORAGE_KEY, "michi.content-draft", "michi.question-draft"] as const;
+const BACKUP_KEYS = [CURRENT_LESSON_STORAGE_KEY, REVIEW_STORAGE_KEY, NOTES_STORAGE_KEY, MISTAKES_STORAGE_KEY, DIAGNOSTIC_STORAGE_KEY, QUESTION_STATS_STORAGE_KEY, STUDY_STATS_STORAGE_KEY, SAVED_SENTENCES_STORAGE_KEY, STUDY_LATER_STORAGE_KEY, PROFILE_PREFERENCES_STORAGE_KEY, PRONUNCIATION_PROGRESS_STORAGE_KEY, EXAM_ATTEMPTS_STORAGE_KEY, REPAIR_STORAGE_KEY, CUSTOM_ENTRIES_STORAGE_KEY, BOOK_NOTES_STORAGE_KEY, BOOK_SCREENSHOTS_STORAGE_KEY, BOOK_SKETCHES_STORAGE_KEY, CONTENT_FLAGS_STORAGE_KEY, CONTINUE_STORAGE_KEY, "michi.content-draft", "michi.question-draft"] as const;
 
 function isBackupKey(key: string) {
   return BACKUP_KEYS.includes(key as (typeof BACKUP_KEYS)[number]) || key.startsWith(`${PRACTICE_SESSION_STORAGE_KEY}.`) || key.startsWith("michi.book-review.");
@@ -65,6 +66,7 @@ export function createLocalSyncSnapshot() {
     [QUESTION_STATS_STORAGE_KEY]: "questionStats",
     [STUDY_STATS_STORAGE_KEY]: "studyStats",
     [PROFILE_PREFERENCES_STORAGE_KEY]: "profilePreferences",
+    [PRONUNCIATION_PROGRESS_STORAGE_KEY]: "pronunciationProgress",
     [DIAGNOSTIC_STORAGE_KEY]: "diagnosticResult",
     [SAVED_SENTENCES_STORAGE_KEY]: "savedSentences",
     [STUDY_LATER_STORAGE_KEY]: "studyLaterIds",
@@ -107,6 +109,7 @@ export function applyLocalSyncSnapshot(snapshot: unknown) {
     questionStats: QUESTION_STATS_STORAGE_KEY,
     studyStats: STUDY_STATS_STORAGE_KEY,
     profilePreferences: PROFILE_PREFERENCES_STORAGE_KEY,
+    pronunciationProgress: PRONUNCIATION_PROGRESS_STORAGE_KEY,
     diagnosticResult: DIAGNOSTIC_STORAGE_KEY,
     savedSentences: SAVED_SENTENCES_STORAGE_KEY,
     studyLaterIds: STUDY_LATER_STORAGE_KEY,
@@ -126,7 +129,7 @@ export function applyLocalSyncSnapshot(snapshot: unknown) {
   });
   if (typeof values.practiceSessions === "object" && values.practiceSessions !== null && !Array.isArray(values.practiceSessions)) Object.entries(values.practiceSessions as Record<string, unknown>).forEach(([id, value]) => { window.localStorage.setItem(`${PRACTICE_SESSION_STORAGE_KEY}.${id}`, JSON.stringify(value)); restored += 1; });
   if (typeof values.lessonStates === "object" && values.lessonStates !== null && !Array.isArray(values.lessonStates)) Object.entries(values.lessonStates as Record<string, unknown>).forEach(([id, value]) => { window.localStorage.setItem(`${CURRENT_LESSON_STORAGE_KEY}.${id}`, JSON.stringify(value)); restored += 1; });
-  ["michi-profile-updated", "michi-review-updated", "michi-study-stats-updated", "michi-question-stats-updated", "michi-lesson-updated", "michi-custom-entries-updated", "michi-book-notes-updated", "michi-content-flagged-updated", "michi-repair-updated"].forEach((eventName) => window.dispatchEvent(new Event(eventName)));
+  ["michi-profile-updated", "michi-review-updated", "michi-study-stats-updated", "michi-question-stats-updated", "michi-pronunciation-updated", "michi-lesson-updated", "michi-custom-entries-updated", "michi-book-notes-updated", "michi-content-flagged-updated", "michi-repair-updated"].forEach((eventName) => window.dispatchEvent(new Event(eventName)));
   return restored;
 }
 
@@ -136,6 +139,22 @@ export function readSyncEnabled() {
 
 export function writeSyncEnabled(enabled: boolean) {
   if (typeof window !== "undefined") window.localStorage.setItem(SYNC_ENABLED_STORAGE_KEY, String(enabled));
+}
+
+export function readPronunciationProgress(): Record<string, string> {
+  if (typeof window === "undefined") return {};
+  try {
+    const value = JSON.parse(window.localStorage.getItem(PRONUNCIATION_PROGRESS_STORAGE_KEY) ?? "{}");
+    return typeof value === "object" && value !== null && !Array.isArray(value) ? value as Record<string, string> : {};
+  } catch {
+    return {};
+  }
+}
+
+export function writePronunciationProgress(progress: Record<string, string>) {
+  if (typeof window === "undefined") return;
+  window.localStorage.setItem(PRONUNCIATION_PROGRESS_STORAGE_KEY, JSON.stringify(progress));
+  window.dispatchEvent(new Event("michi-pronunciation-updated"));
 }
 
 export function restoreLocalBackup(raw: string) {
@@ -227,6 +246,7 @@ export interface ExamPlanPreferences {
   dailyMinutes: number;
   availableStudyDays: number[];
   restDays: number[];
+  interestTopics: string[];
 }
 
 export interface RepairRecord {
@@ -370,9 +390,9 @@ function masteryState(exposureCount: number, recognition: number, recall: number
   return "learning";
 }
 
-export function recordReview(itemId: string, rating: ReviewRating, signal: MasterySignal = "recall", questionType?: string, activityMinutes = 1) {
+export function recordReview(itemId: string, rating: ReviewRating, signal: MasterySignal = "recall", questionType?: string, activityMinutes = 1, trackMistake = true) {
   if (typeof window === "undefined") return;
-  if (rating === "again") recordMistake(itemId, questionType);
+  if (rating === "again" && trackMistake) recordMistake(itemId, questionType);
   const records = readReviewRecords();
   const previous = records[itemId] ?? { itemId, attempts: 0, correct: 0, streak: 0, dueAt: 0, lastReviewedAt: 0 };
   const now = Date.now();

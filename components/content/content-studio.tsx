@@ -6,6 +6,7 @@ import { AIGenerator } from "@/components/content/ai-generator";
 import { ContentRecordEditor, type EditableKind } from "@/components/content/content-record-editor";
 import { TopicCoverage } from "@/components/content/topic-coverage";
 import { SourceCoverage } from "@/components/content/source-coverage";
+import { CompletenessDashboard } from "@/components/content/completeness-dashboard";
 import { JapaneseText } from "@/components/learning/japanese-text";
 import taeKimMappings from "@/data/source-maps/tae-kim.json";
 import wikibooksMappings from "@/data/source-maps/wikibooks.json";
@@ -723,6 +724,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
 
   return <div className="space-y-7">
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><Health label="Last curriculum validation" result={result} /><Health label="Practice question bank" result={questionResult} /><CoverageHealth coverage={practiceCoverage} /></div>
+    <CompletenessDashboard module={coverageModule} />
     <ReadingDiagnostics module={coverageModule} />
     <SourceCoverage items={coverageItems} sources={sources} />
     <TopicCoverage module={coverageModule} practiceQuestions={questionBank.length ? questionBank : null} />

@@ -2,7 +2,9 @@ import moduleData from "@/data/n5-foundations.json";
 import expansionData from "@/data/n5-conversation-expansion.json";
 import practicalExpansionData from "@/data/n5-practical-expansion.json";
 import lifeExpansionData from "@/data/n5-life-expansion.json";
+import n4GrammarExpansionData from "@/data/n4-grammar-expansion.json";
 import authoredPracticeData from "@/data/n5-authored-practice.json";
+import grammarAssessmentDrafts from "@/data/n5-grammar-assessment-drafts.json";
 import originalReadingData from "@/data/original-reading-bank.json";
 import originalListeningData from "@/data/original-listening-bank.json";
 
@@ -29,14 +31,14 @@ export function normalizeGrammarPracticeIds(items: GrammarItem[]) {
 
 export const n5Module = {
   ...moduleData,
-  course: { ...moduleData.course, chapters: [...moduleData.course.chapters, ...expansionData.course.chapters, ...practicalExpansionData.course.chapters, ...lifeExpansionData.course.chapters, ...originalReadingData.course.chapters, ...originalListeningData.course.chapters] },
+  course: { ...moduleData.course, chapters: [...moduleData.course.chapters, ...expansionData.course.chapters, ...practicalExpansionData.course.chapters, ...lifeExpansionData.course.chapters, ...n4GrammarExpansionData.course.chapters, ...originalReadingData.course.chapters, ...originalListeningData.course.chapters] },
   vocabulary: sourceAware([...foundationVocabulary, ...expansionData.vocabulary, ...practicalExpansionData.vocabulary, ...lifeExpansionData.vocabulary]),
   kanji: sourceAware([...foundationKanji, ...expansionData.kanji, ...practicalExpansionData.kanji, ...lifeExpansionData.kanji]),
-  grammar: sourceAware(normalizeGrammarPracticeIds([...foundationGrammar, ...expansionData.grammar, ...practicalExpansionData.grammar, ...lifeExpansionData.grammar] as GrammarItem[])),
-  grammarContrasts: [...moduleData.grammarContrasts, ...expansionData.grammarContrasts, ...practicalExpansionData.grammarContrasts, ...lifeExpansionData.grammarContrasts],
+  grammar: sourceAware(normalizeGrammarPracticeIds([...foundationGrammar, ...expansionData.grammar, ...practicalExpansionData.grammar, ...lifeExpansionData.grammar, ...n4GrammarExpansionData.grammar] as GrammarItem[])),
+  grammarContrasts: [...moduleData.grammarContrasts, ...expansionData.grammarContrasts, ...practicalExpansionData.grammarContrasts, ...lifeExpansionData.grammarContrasts, ...n4GrammarExpansionData.grammarContrasts],
   readings: sourceAware([...foundationReadings, ...expansionData.readings, ...practicalExpansionData.readings, ...lifeExpansionData.readings, ...originalReadingData.readings]),
   listening: sourceAware([...foundationListening, ...expansionData.listening, ...practicalExpansionData.listening, ...lifeExpansionData.listening, ...originalListeningData.listening]),
-  practiceQuestions: authoredPracticeData,
+  practiceQuestions: [...authoredPracticeData, ...grammarAssessmentDrafts],
   sourceManifest: contentSources,
 } as unknown as N5Module;
 export const currentLessonId = "lesson-meeting-people";

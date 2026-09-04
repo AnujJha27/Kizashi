@@ -1,0 +1,3267 @@
+[
+  {
+    "id": "grammar-n5-text-kara-01",
+    "itemId": "grammar-kara",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N5",
+    "prompt": "今日は雨です。駅まで歩くつもりでした。___、バスで行きます。\n\nChoose the form that fits the flow of the passage.",
+    "options": ["ですから", "ですが", "ながら", "まで"],
+    "correctIndex": 0,
+    "explanation": "The rain is the reason for taking the bus, so ですから connects the reason and result.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-kara-01",
+    "contextText": "今日は雨です。駅まで歩くつもりでした。___、バスで行きます。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-kara"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n5-text-masen-01",
+    "itemId": "grammar-masen",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N5",
+    "prompt": "毎朝、七時に起きます。朝ご飯を食べて、学校へ行きます。今日は日曜日なので、学校へ行き___。\n\nChoose the form that fits the whole passage.",
+    "options": ["ません", "ます", "ました", "たいです"],
+    "correctIndex": 0,
+    "explanation": "The passage says today is Sunday, so the polite non-past negative 行きません fits.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-masen-01",
+    "contextText": "毎朝、七時に起きます。朝ご飯を食べて、学校へ行きます。今日は日曜日なので、学校へ行き___。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-masen"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n5-text-ni-01",
+    "itemId": "grammar-ni",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N5",
+    "prompt": "土曜日に駅へ行きました。駅___本屋があります。友達と本を見ました。\n\nChoose the particle that describes the bookstore's location.",
+    "options": ["に", "を", "で", "と"],
+    "correctIndex": 0,
+    "explanation": "に marks the place where a non-living thing exists: 駅に本屋があります.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-ni-01",
+    "contextText": "土曜日に駅へ行きました。駅___本屋があります。友達と本を見ました。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-ni"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n5-text-te-form-01",
+    "itemId": "grammar-te-form",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N5",
+    "prompt": "家に帰りました。手を洗っ___、晩ご飯を食べました。そのあとで宿題をしました。\n\nChoose the form that links the actions in order.",
+    "options": ["て", "た", "ます", "ない"],
+    "correctIndex": 0,
+    "explanation": "手を洗って、晩ご飯を食べました links the first action to the next action in sequence.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-te-form-01",
+    "contextText": "家に帰りました。手を洗っ___、晩ご飯を食べました。そのあとで宿題をしました。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-te-form"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n5-text-i-adjective-past-01",
+    "itemId": "grammar-i-adjective-past",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N5",
+    "prompt": "先週の旅行はどうでしたか。天気はよかったですか。いいえ、少し寒___です。でも、楽しかったです。\n\nChoose the form that completes the past description.",
+    "options": ["かった", "くない", "い", "くて"],
+    "correctIndex": 0,
+    "explanation": "The past description is 寒かったです, using the い-adjective past ending かった.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-i-adjective-past-01",
+    "contextText": "先週の旅行はどうでしたか。天気はよかったですか。いいえ、少し寒___です。でも、楽しかったです。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-i-adjective-past"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n4-text-ta-form-01",
+    "itemId": "grammar-ta-form",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N4",
+    "prompt": "週末に新しい店へ行きました。そこでラーメンを食べ___.\n\nChoose the plain past form that completes the report.",
+    "options": ["た", "て", "る", "ない"],
+    "correctIndex": 0,
+    "explanation": "The sentence reports a completed past action in plain style: 食べた.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ta-form-01",
+    "contextText": "週末に新しい店へ行きました。そこでラーメンを食べ___.",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-ta-form"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n4-text-mae-ni-01",
+    "itemId": "grammar-mae-ni",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N4",
+    "prompt": "明日は朝早く出かけます。寝る___、かばんと切符を準備しておきます。\n\nChoose the expression that places the preparation before sleeping.",
+    "options": ["前に", "あとで", "ながら", "とき"],
+    "correctIndex": 0,
+    "explanation": "寝る前に means before going to sleep, which matches the order of the preparation.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-mae-ni-01",
+    "contextText": "明日は朝早く出かけます。寝る___、かばんと切符を準備しておきます。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-mae-ni"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n4-text-ato-de-01",
+    "itemId": "grammar-ato-de",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N4",
+    "prompt": "駅に着きました。切符を買っ___、改札を通りました。\n\nChoose the expression that puts the gate entry after buying the ticket.",
+    "options": ["あとで", "前に", "ながら", "とき"],
+    "correctIndex": 0,
+    "explanation": "買ったあとで means after buying it, so it connects the two actions in the stated order.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ato-de-01",
+    "contextText": "駅に着きました。切符を買っ___、改札を通りました。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-ato-de"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n4-text-toki-01",
+    "itemId": "grammar-toki",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N4",
+    "prompt": "子どもの___、よく川で遊びました。今はその川の近くに新しい公園があります。\n\nChoose the expression that refers to the time of childhood.",
+    "options": ["とき", "あとで", "前に", "ながら"],
+    "correctIndex": 0,
+    "explanation": "子どものとき means when I was a child, which sets the time for the past habit.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-toki-01",
+    "contextText": "子どもの___、よく川で遊びました。今はその川の近くに新しい公園があります。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-toki"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n4-text-nagara-01",
+    "itemId": "grammar-nagara",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N4",
+    "prompt": "通勤の電車は毎朝混んでいます。私は音楽を聞き___、今日の予定を確認します。\n\nChoose the form that shows the two actions happen at the same time.",
+    "options": ["ながら", "たあとで", "前に", "とき"],
+    "correctIndex": 0,
+    "explanation": "聞きながら means while listening, so it links the simultaneous actions.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-nagara-01",
+    "contextText": "通勤の電車は毎朝混んでいます。私は音楽を聞き___、今日の予定を確認します。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-nagara"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n5-text-arimasu-01",
+    "itemId": "grammar-arimasu",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N5",
+    "prompt": "学校へ行く前に、机の上にかばん___あります。中に宿題を入れました。\n\nChoose the particle that marks the thing that exists.",
+    "options": ["が", "を", "で", "と"],
+    "correctIndex": 0,
+    "explanation": "が marks the thing that exists: かばんがあります.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-arimasu-01",
+    "contextText": "学校へ行く前に、机の上にかばん___あります。中に宿題を入れました。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-arimasu"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n5-text-imasu-01",
+    "itemId": "grammar-imasu",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N5",
+    "prompt": "公園へ行きました。ベンチの近くに子ども___います。みんなで楽しそうに遊んでいました。\n\nChoose the particle that marks the person who is present.",
+    "options": ["が", "を", "で", "と"],
+    "correctIndex": 0,
+    "explanation": "が marks the person who exists at the place: 子どもがいます.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-imasu-01",
+    "contextText": "公園へ行きました。ベンチの近くに子ども___います。みんなで楽しそうに遊んでいました。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-imasu"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n5-text-wo-01",
+    "itemId": "grammar-wo",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N5",
+    "prompt": "朝は時間がありません。パン___食べて、駅へ急ぎます。\n\nChoose the particle that marks the food being eaten.",
+    "options": ["を", "に", "で", "と"],
+    "correctIndex": 0,
+    "explanation": "を marks the direct object of 食べます: パンを食べます.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-wo-01",
+    "contextText": "朝は時間がありません。パン___食べて、駅へ急ぎます。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-wo"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n5-text-de-01",
+    "itemId": "grammar-de",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N5",
+    "prompt": "毎週土曜日、図書館___日本語を勉強します。静かなので、集中できます。\n\nChoose the particle that marks where the action happens.",
+    "options": ["で", "に", "を", "と"],
+    "correctIndex": 0,
+    "explanation": "で marks the place where an action happens: 図書館で勉強します.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-de-01",
+    "contextText": "毎週土曜日、図書館___日本語を勉強します。静かなので、集中できます。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-de"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n5-text-to-01",
+    "itemId": "grammar-to",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N5",
+    "prompt": "土曜日、友達___映画を見ました。終わってから、一緒に晩ご飯も食べました。\n\nChoose the particle that means together with the friend.",
+    "options": ["と", "に", "を", "で"],
+    "correctIndex": 0,
+    "explanation": "と marks the person you do an activity with: 友達と映画を見ました.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-to-01",
+    "contextText": "土曜日、友達___映画を見ました。終わってから、一緒に晩ご飯も食べました。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-to"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n4-text-ta-form-02",
+    "itemId": "grammar-ta-form",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N4",
+    "prompt": "会議のあと、同僚に内容を説明し___。帰る前にメモも送りました。\n\nChoose the plain past form that reports the completed explanation.",
+    "options": ["た", "て", "る", "ない"],
+    "correctIndex": 0,
+    "explanation": "説明した reports that the explanation was completed in the past.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ta-form-02",
+    "contextText": "会議のあと、同僚に内容を説明し___。帰る前にメモも送りました。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-ta-form"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n4-text-mae-ni-02",
+    "itemId": "grammar-mae-ni",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N4",
+    "prompt": "旅行に出発する___、天気と電車の時間を確認しました。準備ができたので、安心して家を出ました。\n\nChoose the expression that places checking before departure.",
+    "options": ["前に", "あとで", "ながら", "とき"],
+    "correctIndex": 0,
+    "explanation": "出発する前に means before departing, matching the sequence in the passage.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-mae-ni-02",
+    "contextText": "旅行に出発する___、天気と電車の時間を確認しました。準備ができたので、安心して家を出ました。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-mae-ni"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n4-text-ato-de-02",
+    "itemId": "grammar-ato-de",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N4",
+    "prompt": "授業が終わった___、先生に質問しました。分からなかったところをゆっくり説明してもらいました。\n\nChoose the expression that places the question after class.",
+    "options": ["あとで", "前に", "ながら", "とき"],
+    "correctIndex": 0,
+    "explanation": "終わったあとで means after class ended, which matches the order of events.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ato-de-02",
+    "contextText": "授業が終わった___、先生に質問しました。分からなかったところをゆっくり説明してもらいました。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-ato-de"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n4-text-toki-02",
+    "itemId": "grammar-toki",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N4",
+    "prompt": "忙しい___も、短い休憩を取ります。水を飲んでから、もう一度仕事を始めます。\n\nChoose the expression that refers to a busy time.",
+    "options": ["とき", "あとで", "前に", "ながら"],
+    "correctIndex": 0,
+    "explanation": "忙しいとき means when busy, setting the situation in which the break happens.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-toki-02",
+    "contextText": "忙しい___も、短い休憩を取ります。水を飲んでから、もう一度仕事を始めます。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-toki"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n4-text-nagara-02",
+    "itemId": "grammar-nagara",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N4",
+    "prompt": "弟は音楽を聞き___、部屋を掃除しています。終わったら、窓を開けるそうです。\n\nChoose the form that shows listening and cleaning happen together.",
+    "options": ["ながら", "たあとで", "前に", "とき"],
+    "correctIndex": 0,
+    "explanation": "聞きながら means while listening, so the two actions happen at the same time.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-nagara-02",
+    "contextText": "弟は音楽を聞き___、部屋を掃除しています。終わったら、窓を開けるそうです。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-nagara"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n5-text-suki-01",
+    "itemId": "grammar-suki",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N5",
+    "prompt": "姉は音楽___好きです。毎晩、好きな歌を聞いてから寝ます。\n\nChoose the particle used with 好きです.",
+    "options": ["が", "を", "で", "と"],
+    "correctIndex": 0,
+    "explanation": "が marks the thing someone likes: 音楽が好きです.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-suki-01",
+    "contextText": "姉は音楽___好きです。毎晩、好きな歌を聞いてから寝ます。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-suki"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n5-text-hoshii-01",
+    "itemId": "grammar-hoshii",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N5",
+    "prompt": "来月は私の誕生日です。新しい靴___ほしいです。毎日、駅まで歩くからです。\n\nChoose the particle used with ほしいです.",
+    "options": ["が", "を", "で", "と"],
+    "correctIndex": 0,
+    "explanation": "が marks the thing wanted: 新しい靴がほしいです.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-hoshii-01",
+    "contextText": "来月は私の誕生日です。新しい靴___ほしいです。毎日、駅まで歩くからです。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-hoshii"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n5-text-kudasai-01",
+    "itemId": "grammar-kudasai",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N5",
+    "prompt": "店に入って、店員に水___くださいと言いました。暑かったので、すぐ飲みたかったです。\n\nChoose the particle that marks what is requested.",
+    "options": ["を", "に", "で", "と"],
+    "correctIndex": 0,
+    "explanation": "を marks the thing requested with ください: 水をください.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-kudasai-01",
+    "contextText": "店に入って、店員に水___くださいと言いました。暑かったので、すぐ飲みたかったです。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-kudasai"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n5-text-mashou-01",
+    "itemId": "grammar-mashou",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N5",
+    "prompt": "雨がやみました。空も明るくなったので、公園へ行き___。\n\nChoose the polite form that makes a suggestion to go together.",
+    "options": ["ましょう", "ません", "ました", "たいです"],
+    "correctIndex": 0,
+    "explanation": "行きましょう is a polite suggestion meaning let's go.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-mashou-01",
+    "contextText": "雨がやみました。空も明るくなったので、公園へ行き___。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-mashou"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n5-text-masenka-01",
+    "itemId": "grammar-masenka",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N5",
+    "prompt": "日曜日は暇です。新しい映画が始まったので、一緒に見___。\n\nChoose the polite form that makes a soft invitation.",
+    "options": ["ませんか", "ましょう", "ました", "たいです"],
+    "correctIndex": 0,
+    "explanation": "見ませんか is a soft invitation meaning would you like to watch it?.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-masenka-01",
+    "contextText": "日曜日は暇です。新しい映画が始まったので、一緒に見___。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-masenka"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n4-text-ta-form-03",
+    "itemId": "grammar-ta-form",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N4",
+    "prompt": "去年の夏、北海道へ行き___。そのとき、涼しい風の中を長く歩きました。\n\nChoose the plain past form that completes the travel memory.",
+    "options": ["た", "て", "る", "ない"],
+    "correctIndex": 0,
+    "explanation": "行った reports the completed trip in the past plain form.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ta-form-03",
+    "contextText": "去年の夏、北海道へ行き___。そのとき、涼しい風の中を長く歩きました。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-ta-form"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n4-text-mae-ni-03",
+    "itemId": "grammar-mae-ni",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N4",
+    "prompt": "大切なメールを送る___、文章を読み直しました。間違いがないか確認してから送信しました。\n\nChoose the expression that places checking before sending.",
+    "options": ["前に", "あとで", "ながら", "とき"],
+    "correctIndex": 0,
+    "explanation": "送る前に means before sending, matching the order in the passage.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-mae-ni-03",
+    "contextText": "大切なメールを送る___、文章を読み直しました。間違いがないか確認してから送信しました。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-mae-ni"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n4-text-ato-de-03",
+    "itemId": "grammar-ato-de",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N4",
+    "prompt": "買い物をした___、近くの喫茶店で休みました。荷物が多かったので、少し座りたかったです。\n\nChoose the expression that places the break after shopping.",
+    "options": ["あとで", "前に", "ながら", "とき"],
+    "correctIndex": 0,
+    "explanation": "買い物をしたあとで means after shopping, which fits the sequence.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ato-de-03",
+    "contextText": "買い物をした___、近くの喫茶店で休みました。荷物が多かったので、少し座りたかったです。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-ato-de"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n4-text-toki-03",
+    "itemId": "grammar-toki",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N4",
+    "prompt": "困った___、まず先生に相談します。一人で考えても分からないときは、助けをお願いします。\n\nChoose the expression that describes the situation of needing help.",
+    "options": ["とき", "あとで", "前に", "ながら"],
+    "correctIndex": 0,
+    "explanation": "困ったとき means when I am in trouble, setting the situation for asking the teacher.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-toki-03",
+    "contextText": "困った___、まず先生に相談します。一人で考えても分からないときは、助けをお願いします。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-toki"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+  {
+    "id": "grammar-n4-text-nagara-03",
+    "itemId": "grammar-nagara",
+    "category": "grammar",
+    "questionType": "text grammar",
+    "jlptLevel": "N4",
+    "prompt": "母は夕食を作り___、今日あったことを話しています。私は野菜を洗いながら聞いています。\n\nChoose the form that shows cooking and talking happen together.",
+    "options": ["ながら", "たあとで", "前に", "とき"],
+    "correctIndex": 0,
+    "explanation": "作りながら means while cooking, so the actions happen at the same time.",
+    "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-nagara-03",
+    "contextText": "母は夕食を作り___、今日あったことを話しています。私は野菜を洗いながら聞いています。",
+    "validationStatus": "generated",
+    "generatedBy": "michi-authored-grammar-draft",
+    "review": { "status": "draft", "generatedBy": "michi-authored-grammar-draft", "targetItemIds": ["grammar-nagara"], "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval." }
+  },
+{
+  "id": "grammar-n5-text-kara-02",
+  "itemId": "grammar-kara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "今日は道が混んでいます。時間がありません。___、タクシーで行きます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "まで",
+    "ながら",
+    "だから",
+    "ですが"
+  ],
+  "correctIndex": 2,
+  "explanation": "There is no time because the road is busy, so だから connects the situation and decision.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-kara-02",
+    "contextText": "今日は道が混んでいます。時間がありません。___、タクシーで行きます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-kara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-kara-03",
+  "itemId": "grammar-kara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "この店は安いです。毎週ここで昼ご飯を食べます。安い___、学生にも人気があります。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ながら",
+    "から",
+    "けれど",
+    "まで"
+  ],
+  "correctIndex": 1,
+  "explanation": "The low price is the reason students also like the shop, so から fits.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-kara-03",
+    "contextText": "この店は安いです。毎週ここで昼ご飯を食べます。安い___、学生にも人気があります。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-kara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-kara-04",
+  "itemId": "grammar-kara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "明日は試験があります。今夜は遊びません。明日試験がある___、早く寝ます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "から",
+    "まで",
+    "ですが",
+    "ながら"
+  ],
+  "correctIndex": 0,
+  "explanation": "The upcoming test is the reason for going to bed early, so から is required.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-kara-04",
+    "contextText": "明日は試験があります。今夜は遊びません。明日試験がある___、早く寝ます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-kara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-kara-05",
+  "itemId": "grammar-kara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "雨が降っています。傘を持っていません。雨が降った___、コンビニで傘を買います。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "まで",
+    "ですが",
+    "ながら",
+    "から"
+  ],
+  "correctIndex": 3,
+  "explanation": "The rain gives the reason for buying an umbrella, so から fits the passage.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-kara-05",
+    "contextText": "雨が降っています。傘を持っていません。雨が降った___、コンビニで傘を買います。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-kara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-kara-06",
+  "itemId": "grammar-kara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "お腹がすきました。何か食べたいです。お腹がすいた___、おにぎりを買います。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "まで",
+    "ながら",
+    "から",
+    "ですが"
+  ],
+  "correctIndex": 2,
+  "explanation": "Hunger is the reason for buying a rice ball, so から connects the reason and action.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-kara-06",
+    "contextText": "お腹がすきました。何か食べたいです。お腹がすいた___、おにぎりを買います。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-kara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-masen-02",
+  "itemId": "grammar-masen",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "今日は日曜日です。学校へ行き___、家でゆっくりします。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ました",
+    "たいです",
+    "ません",
+    "ます"
+  ],
+  "correctIndex": 2,
+  "explanation": "Because it is Sunday, the polite negative 行きません fits.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-masen-02",
+    "contextText": "今日は日曜日です。学校へ行き___、家でゆっくりします。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-masen"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-masen-03",
+  "itemId": "grammar-masen",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "その映画は怖いです。私は見___。別の映画を選びます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "たいです",
+    "ません",
+    "ます",
+    "ました"
+  ],
+  "correctIndex": 1,
+  "explanation": "The speaker will not watch the scary film, so 見ません is correct.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-masen-03",
+    "contextText": "その映画は怖いです。私は見___。別の映画を選びます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-masen"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-masen-04",
+  "itemId": "grammar-masen",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "電車がとても混んでいます。今日は電車に乗り___、バスで行きます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ません",
+    "ます",
+    "ました",
+    "たいです"
+  ],
+  "correctIndex": 0,
+  "explanation": "The speaker chooses not to take the crowded train, so 乗りません fits.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-masen-04",
+    "contextText": "電車がとても混んでいます。今日は電車に乗り___、バスで行きます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-masen"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-masen-05",
+  "itemId": "grammar-masen",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "今はお金がありません。そのかばんを買い___。来月また見に来ます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ます",
+    "ました",
+    "たいです",
+    "ません"
+  ],
+  "correctIndex": 3,
+  "explanation": "Lack of money makes the polite negative 買いません appropriate.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-masen-05",
+    "contextText": "今はお金がありません。そのかばんを買い___。来月また見に来ます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-masen"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-masen-06",
+  "itemId": "grammar-masen",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "毎朝、牛乳を飲みます。今日はお茶を飲み___。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ました",
+    "たいです",
+    "ません",
+    "ます"
+  ],
+  "correctIndex": 2,
+  "explanation": "The passage contrasts today's drink, so 飲みません is the intended polite negative.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-masen-06",
+    "contextText": "毎朝、牛乳を飲みます。今日はお茶を飲み___。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-masen"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-ni-02",
+  "itemId": "grammar-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "毎朝、六時___起きます。朝ご飯を作ってから出かけます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "で",
+    "と",
+    "に",
+    "を"
+  ],
+  "correctIndex": 2,
+  "explanation": "に marks the specific time 六時.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-ni-02",
+    "contextText": "毎朝、六時___起きます。朝ご飯を作ってから出かけます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-ni-03",
+  "itemId": "grammar-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "週末、友達と駅___行きました。本を買いました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "と",
+    "に",
+    "で",
+    "を"
+  ],
+  "correctIndex": 1,
+  "explanation": "に marks the destination 駅.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-ni-03",
+    "contextText": "週末、友達と駅___行きました。本を買いました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-ni-04",
+  "itemId": "grammar-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "来週の月曜日___テストがあります。今日は復習をします。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "に",
+    "で",
+    "を",
+    "と"
+  ],
+  "correctIndex": 0,
+  "explanation": "に marks the specific day when the test occurs.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-ni-04",
+    "contextText": "来週の月曜日___テストがあります。今日は復習をします。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-ni-05",
+  "itemId": "grammar-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "机の上___かばんを置きました。これから授業を受けます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "で",
+    "を",
+    "と",
+    "に"
+  ],
+  "correctIndex": 3,
+  "explanation": "に marks the place where the bag is put.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-ni-05",
+    "contextText": "机の上___かばんを置きました。これから授業を受けます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-ni-06",
+  "itemId": "grammar-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "八時___映画が始まります。七時半に映画館へ行きます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "を",
+    "と",
+    "に",
+    "で"
+  ],
+  "correctIndex": 2,
+  "explanation": "に marks the starting time 八時.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-ni-06",
+    "contextText": "八時___映画が始まります。七時半に映画館へ行きます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-te-form-02",
+  "itemId": "grammar-te-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "顔を洗っ___、朝ご飯を食べます。朝はいつも忙しいです。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ます",
+    "ない",
+    "て",
+    "た"
+  ],
+  "correctIndex": 2,
+  "explanation": "て connects the first action to the following action.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-te-form-02",
+    "contextText": "顔を洗っ___、朝ご飯を食べます。朝はいつも忙しいです。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-te-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-te-form-03",
+  "itemId": "grammar-te-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "窓を開け___、部屋を掃除しました。空気がきれいになりました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ない",
+    "て",
+    "た",
+    "ます"
+  ],
+  "correctIndex": 1,
+  "explanation": "て links opening the window and cleaning the room in sequence.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-te-form-03",
+    "contextText": "窓を開け___、部屋を掃除しました。空気がきれいになりました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-te-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-te-form-04",
+  "itemId": "grammar-te-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "本を読ん___、寝ました。静かな夜でした。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "で",
+    "て",
+    "た",
+    "ます"
+  ],
+  "correctIndex": 0,
+  "explanation": "読む changes to 読んで before the next action.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-te-form-04",
+    "contextText": "本を読ん___、寝ました。静かな夜でした。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-te-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-te-form-05",
+  "itemId": "grammar-te-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "駅で切符を買っ___、電車に乗りました。友達も一緒でした。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "た",
+    "ます",
+    "ない",
+    "て"
+  ],
+  "correctIndex": 3,
+  "explanation": "て connects buying the ticket with boarding the train.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-te-form-05",
+    "contextText": "駅で切符を買っ___、電車に乗りました。友達も一緒でした。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-te-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-te-form-06",
+  "itemId": "grammar-te-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "電気を消し___、部屋を出ます。家族におやすみと言いました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ます",
+    "ない",
+    "て",
+    "た"
+  ],
+  "correctIndex": 2,
+  "explanation": "て connects turning off the light and leaving the room.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-te-form-06",
+    "contextText": "電気を消し___、部屋を出ます。家族におやすみと言いました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-te-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-i-adjective-past-02",
+  "itemId": "grammar-i-adjective-past",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "昨日の映画は面白___です。友達も喜びました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "い",
+    "くて",
+    "かった",
+    "くない"
+  ],
+  "correctIndex": 2,
+  "explanation": "The past form of 面白い is 面白かったです.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-i-adjective-past-02",
+    "contextText": "昨日の映画は面白___です。友達も喜びました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-i-adjective-past"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-i-adjective-past-03",
+  "itemId": "grammar-i-adjective-past",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "去年の夏は暑___です。毎日、水をたくさん飲みました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "くて",
+    "かった",
+    "くない",
+    "い"
+  ],
+  "correctIndex": 1,
+  "explanation": "The past description of 暑い is 暑かったです.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-i-adjective-past-03",
+    "contextText": "去年の夏は暑___です。毎日、水をたくさん飲みました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-i-adjective-past"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-i-adjective-past-04",
+  "itemId": "grammar-i-adjective-past",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "昨日の料理はおいし___です。家族からも好評でした。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "かった",
+    "くない",
+    "い",
+    "くて"
+  ],
+  "correctIndex": 0,
+  "explanation": "The past form of おいしい is おいしかったです.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-i-adjective-past-04",
+    "contextText": "昨日の料理はおいし___です。家族からも好評でした。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-i-adjective-past"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-i-adjective-past-05",
+  "itemId": "grammar-i-adjective-past",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "子どものころの毎日は楽しかっ___です。友達とよく遊びました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "くない",
+    "い",
+    "くて",
+    "た"
+  ],
+  "correctIndex": 3,
+  "explanation": "楽しかったです uses the past ending た after 楽しかっ.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-i-adjective-past-05",
+    "contextText": "子どものころの毎日は楽しかっ___です。友達とよく遊びました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-i-adjective-past"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-i-adjective-past-06",
+  "itemId": "grammar-i-adjective-past",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "先週の旅行は長___です。でも、とても楽しかったです。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "い",
+    "くて",
+    "かった",
+    "くない"
+  ],
+  "correctIndex": 2,
+  "explanation": "The past form of 長い is 長かったです.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-i-adjective-past-06",
+    "contextText": "先週の旅行は長___です。でも、とても楽しかったです。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-i-adjective-past"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-arimasu-02",
+  "itemId": "grammar-arimasu",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "机の下にかばんが___。中に本が入っています。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "です",
+    "します",
+    "あります",
+    "います"
+  ],
+  "correctIndex": 2,
+  "explanation": "A bag is a non-living thing, so あります is correct.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-arimasu-02",
+    "contextText": "机の下にかばんが___。中に本が入っています。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-arimasu"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-arimasu-03",
+  "itemId": "grammar-arimasu",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "駅の近くに大きな公園が___。春になると花が咲きます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "します",
+    "あります",
+    "います",
+    "です"
+  ],
+  "correctIndex": 1,
+  "explanation": "The existence of a park is expressed with あります.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-arimasu-03",
+    "contextText": "駅の近くに大きな公園が___。春になると花が咲きます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-arimasu"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-arimasu-04",
+  "itemId": "grammar-arimasu",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "冷蔵庫に牛乳が___。朝ご飯に飲みましょう。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "あります",
+    "います",
+    "です",
+    "します"
+  ],
+  "correctIndex": 0,
+  "explanation": "Milk is non-living, so あります fits.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-arimasu-04",
+    "contextText": "冷蔵庫に牛乳が___。朝ご飯に飲みましょう。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-arimasu"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-arimasu-05",
+  "itemId": "grammar-arimasu",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "教室に新しい時計が___。先生が買いました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "います",
+    "です",
+    "します",
+    "あります"
+  ],
+  "correctIndex": 3,
+  "explanation": "A clock is a non-living object, so あります is required.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-arimasu-05",
+    "contextText": "教室に新しい時計が___。先生が買いました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-arimasu"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-arimasu-06",
+  "itemId": "grammar-arimasu",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "この町には古い神社が___。観光客もよく来ます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "です",
+    "します",
+    "あります",
+    "います"
+  ],
+  "correctIndex": 2,
+  "explanation": "A shrine is a place/non-living thing, so あります is correct.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-arimasu-06",
+    "contextText": "この町には古い神社が___。観光客もよく来ます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-arimasu"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-imasu-02",
+  "itemId": "grammar-imasu",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "教室に先生が___。授業がもうすぐ始まります。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "です",
+    "します",
+    "います",
+    "あります"
+  ],
+  "correctIndex": 2,
+  "explanation": "A teacher is a person, so います expresses presence.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-imasu-02",
+    "contextText": "教室に先生が___。授業がもうすぐ始まります。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-imasu"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-imasu-03",
+  "itemId": "grammar-imasu",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "公園に子どもが___。みんなでボール遊びをしています。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "します",
+    "います",
+    "あります",
+    "です"
+  ],
+  "correctIndex": 1,
+  "explanation": "Children are living beings, so います is correct.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-imasu-03",
+    "contextText": "公園に子どもが___。みんなでボール遊びをしています。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-imasu"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-imasu-04",
+  "itemId": "grammar-imasu",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "駅に友達が___。改札の前で待っています。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "います",
+    "あります",
+    "です",
+    "します"
+  ],
+  "correctIndex": 0,
+  "explanation": "A friend is a person, so います fits the context.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-imasu-04",
+    "contextText": "駅に友達が___。改札の前で待っています。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-imasu"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-imasu-05",
+  "itemId": "grammar-imasu",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "家に猫が___。窓の近くで寝ています。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "あります",
+    "です",
+    "します",
+    "います"
+  ],
+  "correctIndex": 3,
+  "explanation": "A cat is a living being, so います is required.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-imasu-05",
+    "contextText": "家に猫が___。窓の近くで寝ています。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-imasu"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n5-text-imasu-06",
+  "itemId": "grammar-imasu",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N5",
+  "prompt": "バスの中に人が___。次の停留所で降ります。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "です",
+    "します",
+    "います",
+    "あります"
+  ],
+  "correctIndex": 2,
+  "explanation": "People are living beings, so います expresses their presence.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n5-text-imasu-06",
+    "contextText": "バスの中に人が___。次の停留所で降ります。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-imasu"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ta-form-04",
+  "itemId": "grammar-ta-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "週末に新しい店へ行きました。そこでラーメンを食べ___.\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "て",
+    "る",
+    "ない",
+    "た"
+  ],
+  "correctIndex": 3,
+  "explanation": "The report describes a completed action, so 食べた fits.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ta-form-04",
+    "contextText": "週末に新しい店へ行きました。そこでラーメンを食べ___.",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ta-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ta-form-05",
+  "itemId": "grammar-ta-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "昨日、公園で新しい靴を使っ___. 今日は少し足が痛いです。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "る",
+    "ない",
+    "た",
+    "て"
+  ],
+  "correctIndex": 2,
+  "explanation": "使った is the plain past form used for the completed action.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ta-form-05",
+    "contextText": "昨日、公園で新しい靴を使っ___. 今日は少し足が痛いです。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ta-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ta-form-06",
+  "itemId": "grammar-ta-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "先月、家族と夕食を作っ___. みんなで楽しく食べました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ない",
+    "た",
+    "て",
+    "る"
+  ],
+  "correctIndex": 1,
+  "explanation": "作った reports the completed cooking action.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ta-form-06",
+    "contextText": "先月、家族と夕食を作っ___. みんなで楽しく食べました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ta-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ta-form-07",
+  "itemId": "grammar-ta-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "さっき、友達と電話で話し___. これから宿題をします。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "た",
+    "て",
+    "る",
+    "ない"
+  ],
+  "correctIndex": 0,
+  "explanation": "話した is the plain past form for the earlier conversation.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ta-form-07",
+    "contextText": "さっき、友達と電話で話し___. これから宿題をします。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ta-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ta-form-08",
+  "itemId": "grammar-ta-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "今朝、六時に起き___. それから散歩をしました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "て",
+    "る",
+    "ない",
+    "た"
+  ],
+  "correctIndex": 3,
+  "explanation": "起きた marks the completed morning action.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ta-form-08",
+    "contextText": "今朝、六時に起き___. それから散歩をしました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ta-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ta-form-09",
+  "itemId": "grammar-ta-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "旅行でたくさん写真を撮っ___. 家に帰ってから整理します。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "る",
+    "ない",
+    "た",
+    "て"
+  ],
+  "correctIndex": 2,
+  "explanation": "撮った is the plain past form of 撮る.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ta-form-09",
+    "contextText": "旅行でたくさん写真を撮っ___. 家に帰ってから整理します。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ta-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ta-form-10",
+  "itemId": "grammar-ta-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "昨夜、家で映画を見___. そのあとすぐ寝ました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ない",
+    "た",
+    "て",
+    "る"
+  ],
+  "correctIndex": 1,
+  "explanation": "見た fits the completed action before sleeping.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ta-form-10",
+    "contextText": "昨夜、家で映画を見___. そのあとすぐ寝ました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ta-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ta-form-11",
+  "itemId": "grammar-ta-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "図書館で本を読ん___. 内容をノートに書きました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "だ",
+    "た",
+    "で",
+    "る"
+  ],
+  "correctIndex": 0,
+  "explanation": "読む changes to 読んだ in the plain past.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ta-form-11",
+    "contextText": "図書館で本を読ん___. 内容をノートに書きました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ta-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ta-form-12",
+  "itemId": "grammar-ta-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "スーパーで野菜を買っ___. 家で料理を始めます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "て",
+    "る",
+    "ない",
+    "た"
+  ],
+  "correctIndex": 3,
+  "explanation": "買った is the plain past form of 買う.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ta-form-12",
+    "contextText": "スーパーで野菜を買っ___. 家で料理を始めます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ta-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ta-form-13",
+  "itemId": "grammar-ta-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "友達から手紙をもらっ___. とてもうれしかったです。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "る",
+    "ない",
+    "た",
+    "て"
+  ],
+  "correctIndex": 2,
+  "explanation": "もらった describes receiving the letter as a completed event.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ta-form-13",
+    "contextText": "友達から手紙をもらっ___. とてもうれしかったです。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ta-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ta-form-14",
+  "itemId": "grammar-ta-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "昨日、部屋を掃除し___. 机の上もきれいになりました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ない",
+    "た",
+    "て",
+    "る"
+  ],
+  "correctIndex": 1,
+  "explanation": "掃除した is the plain past form of 掃除する.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ta-form-14",
+    "contextText": "昨日、部屋を掃除し___. 机の上もきれいになりました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ta-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ta-form-15",
+  "itemId": "grammar-ta-form",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "先生に分からない言葉を聞い___. すぐに説明してくれました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "た",
+    "て",
+    "る",
+    "ない"
+  ],
+  "correctIndex": 0,
+  "explanation": "聞いた describes the completed request to the teacher.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ta-form-15",
+    "contextText": "先生に分からない言葉を聞い___. すぐに説明してくれました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ta-form"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-mae-ni-04",
+  "itemId": "grammar-mae-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "明日は朝早く出かけます。出かける___、天気を確認します。忘れ物も見ます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "あとで",
+    "ながら",
+    "とき",
+    "前に"
+  ],
+  "correctIndex": 3,
+  "explanation": "前に places checking the weather before leaving.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-mae-ni-04",
+    "contextText": "明日は朝早く出かけます。出かける___、天気を確認します。忘れ物も見ます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-mae-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-mae-ni-05",
+  "itemId": "grammar-mae-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "毎晩、寝る___、歯を磨きます。健康のために続けています。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ながら",
+    "とき",
+    "前に",
+    "あとで"
+  ],
+  "correctIndex": 2,
+  "explanation": "歯を磨く happens before sleeping, so 前に fits.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-mae-ni-05",
+    "contextText": "毎晩、寝る___、歯を磨きます。健康のために続けています。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-mae-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-mae-ni-06",
+  "itemId": "grammar-mae-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "昼ご飯を食べる___、手を洗いました。家族も同じようにしました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "とき",
+    "前に",
+    "あとで",
+    "ながら"
+  ],
+  "correctIndex": 1,
+  "explanation": "The hand washing comes before eating, so 前に is correct.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-mae-ni-06",
+    "contextText": "昼ご飯を食べる___、手を洗いました。家族も同じようにしました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-mae-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-mae-ni-07",
+  "itemId": "grammar-mae-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "授業が始まる___、教室に入りました。先生はもう来ていました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "前に",
+    "あとで",
+    "ながら",
+    "とき"
+  ],
+  "correctIndex": 0,
+  "explanation": "Entering the room occurred before class started.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-mae-ni-07",
+    "contextText": "授業が始まる___、教室に入りました。先生はもう来ていました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-mae-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-mae-ni-08",
+  "itemId": "grammar-mae-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "旅行に行く___、ホテルを予約しました。予定を紙に書きました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "あとで",
+    "ながら",
+    "とき",
+    "前に"
+  ],
+  "correctIndex": 3,
+  "explanation": "The hotel was reserved before the trip, so 前に fits.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-mae-ni-08",
+    "contextText": "旅行に行く___、ホテルを予約しました。予定を紙に書きました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-mae-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-mae-ni-09",
+  "itemId": "grammar-mae-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "駅に着く___、切符を用意しました。改札へすぐ行けました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ながら",
+    "とき",
+    "前に",
+    "あとで"
+  ],
+  "correctIndex": 2,
+  "explanation": "Preparing the ticket came before arriving at the station.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-mae-ni-09",
+    "contextText": "駅に着く___、切符を用意しました。改札へすぐ行けました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-mae-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-mae-ni-10",
+  "itemId": "grammar-mae-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "料理をする___、材料を全部買いました。冷蔵庫に入れておきます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "とき",
+    "前に",
+    "あとで",
+    "ながら"
+  ],
+  "correctIndex": 1,
+  "explanation": "The ingredients were bought before cooking, so 前に is appropriate.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-mae-ni-10",
+    "contextText": "料理をする___、材料を全部買いました。冷蔵庫に入れておきます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-mae-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-mae-ni-11",
+  "itemId": "grammar-mae-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "友達に会う___、短いメールを送りました。時間を確認したかったのです。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "前に",
+    "あとで",
+    "ながら",
+    "とき"
+  ],
+  "correctIndex": 0,
+  "explanation": "The email was sent before meeting the friend.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-mae-ni-11",
+    "contextText": "友達に会う___、短いメールを送りました。時間を確認したかったのです。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-mae-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-mae-ni-12",
+  "itemId": "grammar-mae-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "映画を見る___、飲み物を買います。席に着いてからでは遅いです。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "あとで",
+    "ながら",
+    "とき",
+    "前に"
+  ],
+  "correctIndex": 3,
+  "explanation": "Buying a drink before the movie starts fits the passage.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-mae-ni-12",
+    "contextText": "映画を見る___、飲み物を買います。席に着いてからでは遅いです。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-mae-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-mae-ni-13",
+  "itemId": "grammar-mae-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "仕事を始める___、今日の予定を確認します。大事な連絡も読みます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ながら",
+    "とき",
+    "前に",
+    "あとで"
+  ],
+  "correctIndex": 2,
+  "explanation": "The schedule check comes before starting work.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-mae-ni-13",
+    "contextText": "仕事を始める___、今日の予定を確認します。大事な連絡も読みます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-mae-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-mae-ni-14",
+  "itemId": "grammar-mae-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "家を出る___、窓を閉めます。電気も消します。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "とき",
+    "前に",
+    "あとで",
+    "ながら"
+  ],
+  "correctIndex": 1,
+  "explanation": "Closing the windows before leaving is the intended sequence.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-mae-ni-14",
+    "contextText": "家を出る___、窓を閉めます。電気も消します。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-mae-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-mae-ni-15",
+  "itemId": "grammar-mae-ni",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "日本へ行く___、少し日本語を勉強します。駅の案内を読みたいです。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "前に",
+    "あとで",
+    "ながら",
+    "とき"
+  ],
+  "correctIndex": 0,
+  "explanation": "Studying before the trip is expressed with 前に.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-mae-ni-15",
+    "contextText": "日本へ行く___、少し日本語を勉強します。駅の案内を読みたいです。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-mae-ni"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ato-de-04",
+  "itemId": "grammar-ato-de",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "宿題を終えた___、ゲームをします。先に勉強を終わらせます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "前に",
+    "ながら",
+    "とき",
+    "あとで"
+  ],
+  "correctIndex": 3,
+  "explanation": "あとで places the game after finishing homework.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ato-de-04",
+    "contextText": "宿題を終えた___、ゲームをします。先に勉強を終わらせます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ato-de"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ato-de-05",
+  "itemId": "grammar-ato-de",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "駅で切符を買った___、電車に乗りました。窓の近くに座りました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ながら",
+    "とき",
+    "あとで",
+    "前に"
+  ],
+  "correctIndex": 2,
+  "explanation": "Boarding follows buying the ticket, so あとで fits.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ato-de-05",
+    "contextText": "駅で切符を買った___、電車に乗りました。窓の近くに座りました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ato-de"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ato-de-06",
+  "itemId": "grammar-ato-de",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "晩ご飯を食べた___、皿を洗います。家族にも手伝ってもらいます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "とき",
+    "あとで",
+    "前に",
+    "ながら"
+  ],
+  "correctIndex": 1,
+  "explanation": "The dishes are washed after dinner, so あとで is correct.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ato-de-06",
+    "contextText": "晩ご飯を食べた___、皿を洗います。家族にも手伝ってもらいます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ato-de"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ato-de-07",
+  "itemId": "grammar-ato-de",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "映画を見た___、友達と感想を話しました。面白い場面がありました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "あとで",
+    "前に",
+    "ながら",
+    "とき"
+  ],
+  "correctIndex": 0,
+  "explanation": "The discussion happened after watching the movie.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ato-de-07",
+    "contextText": "映画を見た___、友達と感想を話しました。面白い場面がありました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ato-de"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ato-de-08",
+  "itemId": "grammar-ato-de",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "買い物をした___、カフェで休みました。荷物が重くなりました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "前に",
+    "ながら",
+    "とき",
+    "あとで"
+  ],
+  "correctIndex": 3,
+  "explanation": "Resting at the cafe came after shopping.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ato-de-08",
+    "contextText": "買い物をした___、カフェで休みました。荷物が重くなりました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ato-de"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ato-de-09",
+  "itemId": "grammar-ato-de",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "仕事が終わった___、同僚と駅まで歩きました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ながら",
+    "とき",
+    "あとで",
+    "前に"
+  ],
+  "correctIndex": 2,
+  "explanation": "The walk happened after work ended.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ato-de-09",
+    "contextText": "仕事が終わった___、同僚と駅まで歩きました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ato-de"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ato-de-10",
+  "itemId": "grammar-ato-de",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "本を読んだ___、内容を家族に説明しました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "とき",
+    "あとで",
+    "前に",
+    "ながら"
+  ],
+  "correctIndex": 1,
+  "explanation": "Explaining the content follows reading the book.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ato-de-10",
+    "contextText": "本を読んだ___、内容を家族に説明しました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ato-de"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ato-de-11",
+  "itemId": "grammar-ato-de",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "友達に会った___、一緒に昼ご飯を食べました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "あとで",
+    "前に",
+    "ながら",
+    "とき"
+  ],
+  "correctIndex": 0,
+  "explanation": "The meal came after meeting the friend.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ato-de-11",
+    "contextText": "友達に会った___、一緒に昼ご飯を食べました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ato-de"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ato-de-12",
+  "itemId": "grammar-ato-de",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "旅行から帰った___、写真を整理しました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "前に",
+    "ながら",
+    "とき",
+    "あとで"
+  ],
+  "correctIndex": 3,
+  "explanation": "Photo organization happened after returning.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ato-de-12",
+    "contextText": "旅行から帰った___、写真を整理しました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ato-de"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ato-de-13",
+  "itemId": "grammar-ato-de",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "薬を飲んだ___、少し休みました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ながら",
+    "とき",
+    "あとで",
+    "前に"
+  ],
+  "correctIndex": 2,
+  "explanation": "Resting follows taking the medicine.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ato-de-13",
+    "contextText": "薬を飲んだ___、少し休みました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ato-de"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ato-de-14",
+  "itemId": "grammar-ato-de",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "部屋を掃除した___、窓を開けました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "とき",
+    "あとで",
+    "前に",
+    "ながら"
+  ],
+  "correctIndex": 1,
+  "explanation": "Opening the window happened after cleaning.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ato-de-14",
+    "contextText": "部屋を掃除した___、窓を開けました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ato-de"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-ato-de-15",
+  "itemId": "grammar-ato-de",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "先生に質問した___、ノートに答えを書きました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "あとで",
+    "前に",
+    "ながら",
+    "とき"
+  ],
+  "correctIndex": 0,
+  "explanation": "Writing the answer came after asking the teacher.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-ato-de-15",
+    "contextText": "先生に質問した___、ノートに答えを書きました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-ato-de"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-toki-04",
+  "itemId": "grammar-toki",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "暇な___、この本を読みます。毎週少しずつ進めています。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "あとで",
+    "前に",
+    "ながら",
+    "とき"
+  ],
+  "correctIndex": 3,
+  "explanation": "とき marks the situation or time when the speaker is free.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-toki-04",
+    "contextText": "暇な___、この本を読みます。毎週少しずつ進めています。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-toki"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-toki-05",
+  "itemId": "grammar-toki",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "忙しい___、昼ご飯を簡単にします。午後も仕事があります。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "前に",
+    "ながら",
+    "とき",
+    "あとで"
+  ],
+  "correctIndex": 2,
+  "explanation": "とき describes what happens when the speaker is busy.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-toki-05",
+    "contextText": "忙しい___、昼ご飯を簡単にします。午後も仕事があります。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-toki"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-toki-06",
+  "itemId": "grammar-toki",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "元気な___、朝にジョギングをします。雨の日は休みます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ながら",
+    "とき",
+    "あとで",
+    "前に"
+  ],
+  "correctIndex": 1,
+  "explanation": "とき connects the activity with the condition of being well.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-toki-06",
+    "contextText": "元気な___、朝にジョギングをします。雨の日は休みます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-toki"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-toki-07",
+  "itemId": "grammar-toki",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "困った___、先生に相談してください。一人で悩まないでください。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "とき",
+    "あとで",
+    "前に",
+    "ながら"
+  ],
+  "correctIndex": 0,
+  "explanation": "とき introduces the situation in which the advice applies.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-toki-07",
+    "contextText": "困った___、先生に相談してください。一人で悩まないでください。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-toki"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-toki-08",
+  "itemId": "grammar-toki",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "暑い___、この窓を開けてもいいです。部屋の空気を入れ替えます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "あとで",
+    "前に",
+    "ながら",
+    "とき"
+  ],
+  "correctIndex": 3,
+  "explanation": "とき expresses the time or condition of being hot.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-toki-08",
+    "contextText": "暑い___、この窓を開けてもいいです。部屋の空気を入れ替えます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-toki"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-toki-09",
+  "itemId": "grammar-toki",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "駅に着いた___、私に電話してください。出口で待っています。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "前に",
+    "ながら",
+    "とき",
+    "あとで"
+  ],
+  "correctIndex": 2,
+  "explanation": "とき means when you arrive at the station.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-toki-09",
+    "contextText": "駅に着いた___、私に電話してください。出口で待っています。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-toki"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-toki-10",
+  "itemId": "grammar-toki",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "学生だった___、よくこの図書館に来ました。今も好きな場所です。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ながら",
+    "とき",
+    "あとで",
+    "前に"
+  ],
+  "correctIndex": 1,
+  "explanation": "とき refers to the period when the speaker was a student.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-toki-10",
+    "contextText": "学生だった___、よくこの図書館に来ました。今も好きな場所です。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-toki"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-toki-11",
+  "itemId": "grammar-toki",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "分からない___、辞書で調べます。友達にも聞きます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "とき",
+    "あとで",
+    "前に",
+    "ながら"
+  ],
+  "correctIndex": 0,
+  "explanation": "とき introduces the situation of not understanding.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-toki-11",
+    "contextText": "分からない___、辞書で調べます。友達にも聞きます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-toki"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-toki-12",
+  "itemId": "grammar-toki",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "旅行中、時間がある___、町を歩きます。写真も撮ります。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "あとで",
+    "前に",
+    "ながら",
+    "とき"
+  ],
+  "correctIndex": 3,
+  "explanation": "とき marks the time when there is free time.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-toki-12",
+    "contextText": "旅行中、時間がある___、町を歩きます。写真も撮ります。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-toki"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-toki-13",
+  "itemId": "grammar-toki",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "家に帰った___、まず手を洗います。毎日の習慣です。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "前に",
+    "ながら",
+    "とき",
+    "あとで"
+  ],
+  "correctIndex": 2,
+  "explanation": "とき introduces the moment of returning home.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-toki-13",
+    "contextText": "家に帰った___、まず手を洗います。毎日の習慣です。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-toki"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-toki-14",
+  "itemId": "grammar-toki",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "新しい言葉を覚えた___、短い文を作ります。ノートに書きます。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ながら",
+    "とき",
+    "あとで",
+    "前に"
+  ],
+  "correctIndex": 1,
+  "explanation": "とき marks the time when a new word is learned.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-toki-14",
+    "contextText": "新しい言葉を覚えた___、短い文を作ります。ノートに書きます。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-toki"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-toki-15",
+  "itemId": "grammar-toki",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "友達が来る___、部屋を片付けました。楽しく話す準備をしました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "とき",
+    "あとで",
+    "前に",
+    "ながら"
+  ],
+  "correctIndex": 0,
+  "explanation": "とき marks the time related to the friend's arrival.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-toki-15",
+    "contextText": "友達が来る___、部屋を片付けました。楽しく話す準備をしました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-toki"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-nagara-04",
+  "itemId": "grammar-nagara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "音楽を聞き___、料理をします。好きな歌を選びました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "あとで",
+    "前に",
+    "とき",
+    "ながら"
+  ],
+  "correctIndex": 3,
+  "explanation": "ながら shows that listening and cooking happen at the same time.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-nagara-04",
+    "contextText": "音楽を聞き___、料理をします。好きな歌を選びました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-nagara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-nagara-05",
+  "itemId": "grammar-nagara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "歩き___、電話をしないでください。危ない道があります。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "前に",
+    "とき",
+    "ながら",
+    "あとで"
+  ],
+  "correctIndex": 2,
+  "explanation": "ながら connects walking with another simultaneous action.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-nagara-05",
+    "contextText": "歩き___、電話をしないでください。危ない道があります。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-nagara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-nagara-06",
+  "itemId": "grammar-nagara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "笑い___、話すので、内容がよく分かりません。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "とき",
+    "ながら",
+    "あとで",
+    "前に"
+  ],
+  "correctIndex": 1,
+  "explanation": "ながら expresses talking while laughing.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-nagara-06",
+    "contextText": "笑い___、話すので、内容がよく分かりません。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-nagara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-nagara-07",
+  "itemId": "grammar-nagara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "コーヒーを飲み___、新聞を読みました。朝の静かな時間です。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ながら",
+    "あとで",
+    "前に",
+    "とき"
+  ],
+  "correctIndex": 0,
+  "explanation": "ながら shows the two morning actions happen together.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-nagara-07",
+    "contextText": "コーヒーを飲み___、新聞を読みました。朝の静かな時間です。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-nagara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-nagara-08",
+  "itemId": "grammar-nagara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "テレビを見___、宿題をするのは難しいです。先にテレビを消します。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "あとで",
+    "前に",
+    "とき",
+    "ながら"
+  ],
+  "correctIndex": 3,
+  "explanation": "ながら links watching television and doing homework simultaneously.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-nagara-08",
+    "contextText": "テレビを見___、宿題をするのは難しいです。先にテレビを消します。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-nagara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-nagara-09",
+  "itemId": "grammar-nagara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "歌い___、掃除をしました。部屋がきれいになりました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "前に",
+    "とき",
+    "ながら",
+    "あとで"
+  ],
+  "correctIndex": 2,
+  "explanation": "ながら expresses cleaning while singing.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-nagara-09",
+    "contextText": "歌い___、掃除をしました。部屋がきれいになりました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-nagara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-nagara-10",
+  "itemId": "grammar-nagara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "友達と話し___、駅まで歩きました。すぐに着きました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "とき",
+    "ながら",
+    "あとで",
+    "前に"
+  ],
+  "correctIndex": 1,
+  "explanation": "ながら connects talking and walking at the same time.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-nagara-10",
+    "contextText": "友達と話し___、駅まで歩きました。すぐに着きました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-nagara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-nagara-11",
+  "itemId": "grammar-nagara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "考え___、ゆっくり答えてください。急がなくても大丈夫です。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ながら",
+    "あとで",
+    "前に",
+    "とき"
+  ],
+  "correctIndex": 0,
+  "explanation": "ながら asks the learner to answer while thinking.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-nagara-11",
+    "contextText": "考え___、ゆっくり答えてください。急がなくても大丈夫です。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-nagara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-nagara-12",
+  "itemId": "grammar-nagara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "窓の外を見___、電車に乗っていました。山がよく見えました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "あとで",
+    "前に",
+    "とき",
+    "ながら"
+  ],
+  "correctIndex": 3,
+  "explanation": "ながら describes looking outside while riding the train.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-nagara-12",
+    "contextText": "窓の外を見___、電車に乗っていました。山がよく見えました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-nagara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-nagara-13",
+  "itemId": "grammar-nagara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "メモを取り___、先生の説明を聞きました。大切な点を残せました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "前に",
+    "とき",
+    "ながら",
+    "あとで"
+  ],
+  "correctIndex": 2,
+  "explanation": "ながら links taking notes and listening simultaneously.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-nagara-13",
+    "contextText": "メモを取り___、先生の説明を聞きました。大切な点を残せました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-nagara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-nagara-14",
+  "itemId": "grammar-nagara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "子どもは歌を歌い___、絵を描いています。楽しそうです。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "とき",
+    "ながら",
+    "あとで",
+    "前に"
+  ],
+  "correctIndex": 1,
+  "explanation": "ながら describes singing while drawing.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-nagara-14",
+    "contextText": "子どもは歌を歌い___、絵を描いています。楽しそうです。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-nagara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+},
+{
+  "id": "grammar-n4-text-nagara-15",
+  "itemId": "grammar-nagara",
+  "category": "grammar",
+  "questionType": "text grammar",
+  "jlptLevel": "N4",
+  "prompt": "料理をし___、今日の予定を話しました。家族も聞いていました。\n\nChoose the form that fits the flow of the passage.",
+  "options": [
+    "ながら",
+    "あとで",
+    "前に",
+    "とき"
+  ],
+  "correctIndex": 0,
+  "explanation": "ながら shows cooking and talking happen together.",
+  "answerMode": "choice",
+    "contextSetId": "grammar-n4-text-nagara-15",
+    "contextText": "料理をし___、今日の予定を話しました。家族も聞いていました。",
+  "validationStatus": "generated",
+  "generatedBy": "michi-authored-grammar-draft",
+  "review": {
+    "status": "draft",
+    "generatedBy": "michi-authored-grammar-draft",
+    "targetItemIds": [
+      "grammar-nagara"
+    ],
+    "reviewNotes": "Review the context, distractor naturalness, level, and answer key before approval."
+  }
+}
+]

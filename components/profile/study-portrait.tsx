@@ -1,21 +1,42 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
+import { getJourneyWorldState } from "@/lib/journey-world-core.js";
+import { readExamPlanPreferences, readLessonState, readReviewRecords } from "@/lib/session";
+
 export function StudyPortrait({ level, rhythm }: Readonly<{ level: number; rhythm: number }>) {
+  const [world, setWorld] = useState(() => getJourneyWorldState());
   const safeLevel = Math.max(1, level);
   const chapter = Math.floor((safeLevel - 1) / 3) + 1;
   const chapterProgress = (((safeLevel - 1) % 3) + 1) / 3 * 100;
   const lanterns = Math.min(6, Math.max(1, Math.ceil(safeLevel / 2)));
   const lights = Math.min(8, Math.max(1, rhythm));
+  const environment = world.area.environment;
+  const livedIn = world.stage.id === "lived-in" || world.stage.id === "settled";
+  const settled = world.stage.id === "settled";
+
+  useEffect(() => {
+    const refresh = () => setWorld(getJourneyWorldState({ lessonId: readLessonState().lessonId, records: readReviewRecords(), targetLevel: readExamPlanPreferences().targetLevel }));
+    refresh();
+    window.addEventListener("michi-lesson-updated", refresh);
+    window.addEventListener("michi-profile-updated", refresh);
+    window.addEventListener("michi-review-updated", refresh);
+    return () => { window.removeEventListener("michi-lesson-updated", refresh); window.removeEventListener("michi-profile-updated", refresh); window.removeEventListener("michi-review-updated", refresh); };
+  }, []);
+
+  const sceneLabel = `${world.area.japaneseTitle} · ${world.area.title} · ${world.stage.label}`;
 
   return (
     <div className="study-portrait relative overflow-hidden rounded-2xl border border-[#617486]/55 bg-[#102536] shadow-[0_22px_55px_rgba(3,10,18,.24)]" aria-label={"Journey portrait, level " + safeLevel + ", " + rhythm + " day rhythm"}>
-      <svg viewBox="0 0 900 300" className="h-60 w-full" role="img" aria-label="A path through a quiet evening landscape">
+      <svg viewBox="0 0 900 300" className="h-60 w-full" role="img" aria-label={sceneLabel}>
         <defs>
           <linearGradient id="portrait-sky" x1="0" x2="0" y1="0" y2="1"><stop stopColor="#416b91" /><stop offset=".52" stopColor="#c18b76" /><stop offset="1" stopColor="#2b2944" /></linearGradient>
           <linearGradient id="portrait-ground" x1="0" x2="1"><stop stopColor="#172e42" /><stop offset="1" stopColor="#402938" /></linearGradient>
           <radialGradient id="portrait-glow"><stop stopColor="#f1cf7c" stopOpacity=".42" /><stop offset="1" stopColor="#f1cf7c" stopOpacity="0" /></radialGradient>
         </defs>
         <rect width="900" height="300" fill="url(#portrait-sky)" />
+        <image href={world.area.visualAssets.portrait} x="0" y="0" width="900" height="300" preserveAspectRatio="xMidYMid slice" opacity=".24" />
         <circle cx="704" cy="70" r="74" fill="url(#portrait-glow)" />
         <circle cx="704" cy="70" r="27" fill="#f1cf7c" opacity=".92" />
         <path d="M0 83 C92 54 144 78 223 61 C308 42 364 80 438 60 C522 38 590 67 660 53 C746 36 824 52 900 35 V145 H0Z" fill="#d9ae95" opacity=".18" />
@@ -26,6 +47,13 @@ export function StudyPortrait({ level, rhythm }: Readonly<{ level: number; rhyth
         <path d="M80 102 C145 78 193 91 232 111 C186 99 143 109 101 120 C91 120 84 113 80 102Z" fill="#fff2d1" opacity=".16" />
         <path d="M530 99 C588 76 634 87 674 105 C628 98 584 110 548 118 C539 117 534 110 530 99Z" fill="#fff2d1" opacity=".12" />
         <g fill="#081019" opacity=".94"><path d="M105 211 l19-72 19 72z" /><path d="M139 211 l27-98 27 98z" /><path d="M807 177 l18-68 18 68z" /><path d="M835 179 l22-88 22 88z" /></g>
+        {environment === "station" || environment === "train" ? <g fill="#101b2b" stroke="#d19a61" strokeWidth="1.5" opacity=".9"><path d="M575 190h166v7H575z" /><path d="M592 190l18-18h96l18 18z" /><path d="M604 197v30M716 197v30M575 232h166" /></g> : null}
+        {environment === "shopping-street" ? <g fill="#352a2d" stroke="#c58a5d" strokeWidth="1.4" opacity=".92"><path d="M106 225h86v-42h-86z" /><path d="M211 225h92v-51h-92z" /><path d="M99 183h100l-11-9h-78z" /><path d="M204 174h106l-11-9h-83z" /></g> : null}
+        {environment === "coast" ? <g fill="none" stroke="#6f9eae" strokeWidth="2" opacity=".7"><path d="M506 214c30-10 51 10 82 0s51 10 82 0 51 10 82 0" /><path d="M488 230c30-10 51 10 82 0s51 10 82 0 51 10 82 0" /></g> : null}
+        {environment === "library" ? <g fill="#17282e" stroke="#81958b" strokeWidth="1.2" opacity=".9"><path d="M570 224v-51h100v51z" /><path d="M584 173v51M611 173v51M638 173v51M655 184h15" /></g> : null}
+        {environment === "garden" || environment === "neighborhood" ? <g fill="#14251f" stroke="#6f937b" strokeWidth="1" opacity=".9"><path d="M76 225l20-58 20 58z" /><path d="M52 225l14-39 14 39z" /><path d="M735 210l18-53 18 53z" /></g> : null}
+        {livedIn ? <g fill="#e5b85c" opacity=".75"><circle cx="620" cy="211" r="2" /><circle cx="635" cy="211" r="1.5" /><circle cx="650" cy="211" r="2" /></g> : null}
+        {settled ? <g fill="#f1cf7c" opacity=".9"><circle cx="420" cy="222" r="2" /><circle cx="438" cy="216" r="1.5" /><circle cx="456" cy="220" r="2" /><path d="M405 236c20-8 40-8 60 0" fill="none" stroke="#f1cf7c" strokeWidth="1" /></g> : null}
         <g fill="#f1cf7c" opacity=".95">{Array.from({ length: lights }, (_, index) => <circle key={index} cx={180 + index * 75} cy={247 - index * 6} r={index % 3 === 0 ? 2.5 : 1.5} />)}</g>
         <g fill="#e34a3f" opacity=".92">{Array.from({ length: lanterns }, (_, index) => <g key={index} transform={"translate(" + (265 + index * 76) + " " + (192 - index * 7) + ")"}><path d="M-4 0h8l-1 18h-6z" /><circle cy="8" r="2.5" fill="#f1cf7c" /></g>)}</g>
       </svg>
@@ -33,13 +61,13 @@ export function StudyPortrait({ level, rhythm }: Readonly<{ level: number; rhyth
       <div className="absolute inset-x-0 top-0 flex items-start justify-between gap-3 p-4 sm:p-5">
         <div className="rounded-xl border border-white/15 bg-[#102536]/40 px-3 py-2 backdrop-blur-sm">
           <p className="eyebrow">Current scenery · 現在地</p>
-          <p className="jp-serif mt-1 text-2xl tracking-[.12em] text-[#f5f5f2]">旅の景色</p>
+          <p className="jp-serif mt-1 text-2xl tracking-[.12em] text-[#f5f5f2]">{world.area.japaneseTitle}</p>
         </div>
         <span className="rounded-full border border-[#f1cf7c]/35 bg-[#102536]/65 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[.14em] text-[#f1cf7c]">level {safeLevel}</span>
       </div>
       <div className="absolute left-4 top-1/2 grid size-10 -translate-y-1/2 place-items-center rounded-full border border-[#f1cf7c]/45 bg-[#162b3b]/70 font-serif text-lg text-[#f1cf7c] shadow-lg backdrop-blur-sm">道</div>
       <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-5 p-4 sm:p-5">
-        <div><p className="jp-serif text-lg text-[#f5f5f2]">静かな道</p><p className="mt-1 text-xs text-[#d8dde4]">Every session changes the horizon.</p></div>
+        <div><p className="jp-serif text-lg text-[#f5f5f2]">{world.area.title}</p><p className="mt-1 text-xs text-[#d8dde4]">{world.stage.label} · Every session changes the horizon.</p></div>
         <div className="w-36 shrink-0">
           <div className="h-1.5 overflow-hidden rounded-full bg-white/20"><span className="block h-full rounded-full bg-[#f1cf7c]" style={{ width: chapterProgress + "%" }} /></div>
           <div className="mt-2 flex justify-between text-[10px] uppercase tracking-[.12em] text-[#d8dde4]"><span>Chapter {chapter}</span><span>{rhythm} day rhythm</span></div>

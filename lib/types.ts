@@ -153,6 +153,8 @@ export interface PracticeQuestion {
   contextText?: string;
   targetItemIds?: string[];
   testedSkills?: string[];
+  visualScene?: string;
+  visualContext?: string;
 }
 
 export type JourneyNodeStatus = "locked" | "available" | "current" | "learned" | "mastered";
@@ -201,6 +203,7 @@ export interface VocabularyItem extends LearningItem {
   collocations: string[];
   relatedWords: string[];
   antonyms: string[];
+  usageAssessment?: { correct: string; distractors: string[] };
   notes?: string;
   audioUrl?: string | null;
 }
@@ -328,6 +331,8 @@ export interface ListeningQuestion {
   correctAnswer: number;
   questionType?: string;
   explanation?: string;
+  visualScene?: string;
+  visualContext?: string;
 }
 
 export interface N5Module {

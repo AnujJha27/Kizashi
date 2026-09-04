@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 
 import { markExternalSourceOpened, readExternalSourceProgress } from "@/lib/external-source-progress.js";
 import { externalResourceToSourceLink as adaptExternalResource } from "@/lib/external-resources";
-import type { ExternalResource } from "@/lib/external-resources";
+import type { ExternalResource, ExternalResourceCatalogEntry } from "@/lib/external-resources";
 
 export type ExternalSourceDelivery = "original-site" | "remote-media" | "frame-or-link" | "link-only";
 
@@ -29,6 +29,11 @@ export interface ExternalSourceLink {
   mediaDelivery: ExternalSourceDelivery;
   mediaUrl?: string;
   posterUrl?: string;
+  frameUrl?: string;
+  videoCatalog?: readonly { id: string; title: string; level: string; publishedAt: string; url: string; frameUrl: string; posterUrl: string }[];
+  videoCatalogFeed?: string;
+  podcastFeed?: string;
+  catalog?: readonly ExternalResourceCatalogEntry[];
   description: string;
   url: string;
   license?: string;

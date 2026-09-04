@@ -344,19 +344,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：すみません、喫茶店では何をすればいいですか。\nB：まずお茶を注文してください。\nA：はい、分かりました。",
+      "transcript": "A：すみません、喫茶店で何をしたらいいですか。\nB：お茶を注文して。\nA：分かりました。そうします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "喫茶店で、次に何をしたらいいですか。",
           "answers": [
-            "お茶を注文してください。",
-            "喫茶店へ帰る。",
+            "お茶を注文して。",
+            "喫茶店を閉める。",
             "友達に電話する。",
             "何もしない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "お茶を注文してください。"
+          "explanation": "お茶を注文して。"
         }
       ],
       "generationConstraints": {
@@ -409,19 +409,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：すみません、教室では何をすればいいですか。\nB：まず本を読んでください。\nA：はい、分かりました。",
+      "transcript": "A：教室では、先に何をしますか。\nB：本を読んで。\nA：はい、先にそれをします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "話を聞いて、先にすることは何ですか。",
           "answers": [
-            "本を読んでください。",
+            "本を読んで。",
             "教室へ帰る。",
-            "友達に電話する。",
-            "何もしない。"
+            "新しい店を探す。",
+            "まだ決めない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "本を読んでください。"
+          "explanation": "本を読んで。"
         }
       ],
       "generationConstraints": {
@@ -539,19 +539,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：すみません、スーパーでは何をすればいいですか。\nB：まず牛乳を二本買ってください。\nA：はい、分かりました。",
+      "transcript": "A：すみません、スーパーで何をしたらいいですか。\nB：牛乳を二本買って。\nA：分かりました。そうします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "スーパーで、次に何をしたらいいですか。",
           "answers": [
-            "牛乳を二本買ってください。",
-            "スーパーへ帰る。",
+            "牛乳を二本買って。",
+            "スーパーを閉める。",
             "友達に電話する。",
             "何もしない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "牛乳を二本買ってください。"
+          "explanation": "牛乳を二本買って。"
         }
       ],
       "generationConstraints": {
@@ -604,19 +604,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：すみません、公園では何をすればいいですか。\nB：まず友達を待ってください。\nA：はい、分かりました。",
+      "transcript": "A：公園では、先に何をしますか。\nB：友達を待って。\nA：はい、先にそれをします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "話を聞いて、先にすることは何ですか。",
           "answers": [
-            "友達を待ってください。",
+            "友達を待って。",
             "公園へ帰る。",
-            "友達に電話する。",
-            "何もしない。"
+            "新しい店を探す。",
+            "まだ決めない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "友達を待ってください。"
+          "explanation": "友達を待って。"
         }
       ],
       "generationConstraints": {
@@ -734,19 +734,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：すみません、バス停では何をすればいいですか。\nB：まずバスに乗ってください。\nA：はい、分かりました。",
+      "transcript": "A：すみません、バス停で何をしたらいいですか。\nB：バスに乗って。\nA：分かりました。そうします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "バス停で、次に何をしたらいいですか。",
           "answers": [
-            "バスに乗ってください。",
-            "バス停へ帰る。",
+            "バスに乗って。",
+            "バス停を閉める。",
             "友達に電話する。",
             "何もしない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "バスに乗ってください。"
+          "explanation": "バスに乗って。"
         }
       ],
       "generationConstraints": {
@@ -799,19 +799,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：すみません、図書館では何をすればいいですか。\nB：まず本を返してください。\nA：はい、分かりました。",
+      "transcript": "A：図書館では、先に何をしますか。\nB：本を返して。\nA：はい、先にそれをします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "話を聞いて、先にすることは何ですか。",
           "answers": [
-            "本を返してください。",
+            "本を返して。",
             "図書館へ帰る。",
-            "友達に電話する。",
-            "何もしない。"
+            "新しい店を探す。",
+            "まだ決めない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "本を返してください。"
+          "explanation": "本を返して。"
         }
       ],
       "generationConstraints": {
@@ -929,19 +929,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：すみません、郵便局では何をすればいいですか。\nB：まず荷物を送ってください。\nA：はい、分かりました。",
+      "transcript": "A：すみません、郵便局で何をしたらいいですか。\nB：荷物を送って。\nA：分かりました。そうします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "郵便局で、次に何をしたらいいですか。",
           "answers": [
-            "荷物を送ってください。",
-            "郵便局へ帰る。",
+            "荷物を送って。",
+            "郵便局を閉める。",
             "友達に電話する。",
             "何もしない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "荷物を送ってください。"
+          "explanation": "荷物を送って。"
         }
       ],
       "generationConstraints": {
@@ -994,19 +994,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：すみません、服の店では何をすればいいですか。\nB：まずシャツを買ってください。\nA：はい、分かりました。",
+      "transcript": "A：服の店では、先に何をしますか。\nB：シャツを買って。\nA：はい、先にそれをします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "話を聞いて、先にすることは何ですか。",
           "answers": [
-            "シャツを買ってください。",
+            "シャツを買って。",
             "服の店へ帰る。",
-            "友達に電話する。",
-            "何もしない。"
+            "新しい店を探す。",
+            "まだ決めない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "シャツを買ってください。"
+          "explanation": "シャツを買って。"
         }
       ],
       "generationConstraints": {
@@ -1124,19 +1124,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：すみません、学校では何をすればいいですか。\nB：まず宿題をしてください。\nA：はい、分かりました。",
+      "transcript": "A：すみません、学校で何をしたらいいですか。\nB：宿題をして。\nA：分かりました。そうします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "学校で、次に何をしたらいいですか。",
           "answers": [
-            "宿題をしてください。",
-            "学校へ帰る。",
+            "宿題をして。",
+            "学校を閉める。",
             "友達に電話する。",
             "何もしない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "宿題をしてください。"
+          "explanation": "宿題をして。"
         }
       ],
       "generationConstraints": {
@@ -1189,19 +1189,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：すみません、ホテルでは何をすればいいですか。\nB：まず受付で手続きをしてください。\nA：はい、分かりました。",
+      "transcript": "A：ホテルでは、先に何をしますか。\nB：受付で手続きをして。\nA：はい、先にそれをします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "話を聞いて、先にすることは何ですか。",
           "answers": [
-            "受付で手続きをしてください。",
+            "受付で手続きをして。",
             "ホテルへ帰る。",
-            "友達に電話する。",
-            "何もしない。"
+            "新しい店を探す。",
+            "まだ決めない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "受付で手続きをしてください。"
+          "explanation": "受付で手続きをして。"
         }
       ],
       "generationConstraints": {
@@ -1319,19 +1319,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：すみません、家族の食事では何をすればいいですか。\nB：まず魚を食べてください。\nA：はい、分かりました。",
+      "transcript": "A：すみません、家族の食事で何をしたらいいですか。\nB：魚を食べて。\nA：分かりました。そうします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "家族の食事で、次に何をしたらいいですか。",
           "answers": [
-            "魚を食べてください。",
-            "家族の食事へ帰る。",
+            "魚を食べて。",
+            "家族の食事を閉める。",
             "友達に電話する。",
             "何もしない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "魚を食べてください。"
+          "explanation": "魚を食べて。"
         }
       ],
       "generationConstraints": {
@@ -1384,19 +1384,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：すみません、映画館では何をすればいいですか。\nB：まず映画を見てください。\nA：はい、分かりました。",
+      "transcript": "A：映画館では、先に何をしますか。\nB：映画を見て。\nA：はい、先にそれをします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "話を聞いて、先にすることは何ですか。",
           "answers": [
-            "映画を見てください。",
+            "映画を見て。",
             "映画館へ帰る。",
-            "友達に電話する。",
-            "何もしない。"
+            "新しい店を探す。",
+            "まだ決めない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "映画を見てください。"
+          "explanation": "映画を見て。"
         }
       ],
       "generationConstraints": {
@@ -1514,19 +1514,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：すみません、カレンダーでは何をすればいいですか。\nB：まず休んでください。\nA：はい、分かりました。",
+      "transcript": "A：すみません、カレンダーで何をしたらいいですか。\nB：休んで。\nA：分かりました。そうします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "カレンダーで、次に何をしたらいいですか。",
           "answers": [
-            "休んでください。",
-            "カレンダーへ帰る。",
+            "休んで。",
+            "カレンダーを閉める。",
             "友達に電話する。",
             "何もしない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "休んでください。"
+          "explanation": "休んで。"
         }
       ],
       "generationConstraints": {
@@ -1579,19 +1579,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：駅について聞きました。\nB：はい、切符は三番線です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：駅について教えてください。\nB：切符のことですね。三番線です。\nA：分かりました。",
       "questions": [
         {
-          "prompt": "話の大切な点は何ですか。",
+          "prompt": "この話で確認したいことは何ですか。",
           "answers": [
-            "駅で切符について話している。",
-            "明日は休みになる。",
-            "新しい店ができる。",
-            "電車がありません。"
+            "切符についての情報。",
+            "明日の天気だけ。",
+            "新しい店の場所。",
+            "電車の運休。"
           ],
           "correctAnswer": 0,
           "questionType": "key point",
-          "explanation": "駅で切符について話している。"
+          "explanation": "切符についての情報。"
         }
       ],
       "generationConstraints": {
@@ -1774,19 +1774,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：家について聞きました。\nB：はい、鍵は玄関です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：家について教えてください。\nB：鍵のことですね。玄関です。\nA：分かりました。",
       "questions": [
         {
-          "prompt": "話の大切な点は何ですか。",
+          "prompt": "この話で確認したいことは何ですか。",
           "answers": [
-            "家で鍵について話している。",
-            "明日は休みになる。",
-            "新しい店ができる。",
-            "電車がありません。"
+            "鍵についての情報。",
+            "明日の天気だけ。",
+            "新しい店の場所。",
+            "電車の運休。"
           ],
           "correctAnswer": 0,
           "questionType": "key point",
-          "explanation": "家で鍵について話している。"
+          "explanation": "鍵についての情報。"
         }
       ],
       "generationConstraints": {
@@ -1969,19 +1969,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：病院について聞きました。\nB：はい、予約は午前十時です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：病院について教えてください。\nB：予約のことですね。午前十時です。\nA：分かりました。",
       "questions": [
         {
-          "prompt": "話の大切な点は何ですか。",
+          "prompt": "この話で確認したいことは何ですか。",
           "answers": [
-            "病院で予約について話している。",
-            "明日は休みになる。",
-            "新しい店ができる。",
-            "電車がありません。"
+            "予約についての情報。",
+            "明日の天気だけ。",
+            "新しい店の場所。",
+            "電車の運休。"
           ],
           "correctAnswer": 0,
           "questionType": "key point",
-          "explanation": "病院で予約について話している。"
+          "explanation": "予約についての情報。"
         }
       ],
       "generationConstraints": {
@@ -2164,19 +2164,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：レストランについて聞きました。\nB：はい、水はテーブルの上です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：レストランについて教えてください。\nB：水のことですね。テーブルの上です。\nA：分かりました。",
       "questions": [
         {
-          "prompt": "話の大切な点は何ですか。",
+          "prompt": "この話で確認したいことは何ですか。",
           "answers": [
-            "レストランで水について話している。",
-            "明日は休みになる。",
-            "新しい店ができる。",
-            "電車がありません。"
+            "水についての情報。",
+            "明日の天気だけ。",
+            "新しい店の場所。",
+            "電車の運休。"
           ],
           "correctAnswer": 0,
           "questionType": "key point",
-          "explanation": "レストランで水について話している。"
+          "explanation": "水についての情報。"
         }
       ],
       "generationConstraints": {
@@ -2359,19 +2359,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：駅の出口について聞きました。\nB：はい、傘は西口です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：駅の出口について教えてください。\nB：傘のことですね。西口です。\nA：分かりました。",
       "questions": [
         {
-          "prompt": "話の大切な点は何ですか。",
+          "prompt": "この話で確認したいことは何ですか。",
           "answers": [
-            "駅の出口で傘について話している。",
-            "明日は休みになる。",
-            "新しい店ができる。",
-            "電車がありません。"
+            "傘についての情報。",
+            "明日の天気だけ。",
+            "新しい店の場所。",
+            "電車の運休。"
           ],
           "correctAnswer": 0,
           "questionType": "key point",
-          "explanation": "駅の出口で傘について話している。"
+          "explanation": "傘についての情報。"
         }
       ],
       "generationConstraints": {
@@ -2554,19 +2554,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：電話について聞きました。\nB：はい、先生は午後五時です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：電話について教えてください。\nB：先生のことですね。午後五時です。\nA：分かりました。",
       "questions": [
         {
-          "prompt": "話の大切な点は何ですか。",
+          "prompt": "この話で確認したいことは何ですか。",
           "answers": [
-            "電話で先生について話している。",
-            "明日は休みになる。",
-            "新しい店ができる。",
-            "電車がありません。"
+            "先生についての情報。",
+            "明日の天気だけ。",
+            "新しい店の場所。",
+            "電車の運休。"
           ],
           "correctAnswer": 0,
           "questionType": "key point",
-          "explanation": "電話で先生について話している。"
+          "explanation": "先生についての情報。"
         }
       ],
       "generationConstraints": {
@@ -2749,19 +2749,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：京都について聞きました。\nB：はい、お寺は来週です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：京都について教えてください。\nB：お寺のことですね。来週です。\nA：分かりました。",
       "questions": [
         {
-          "prompt": "話の大切な点は何ですか。",
+          "prompt": "この話で確認したいことは何ですか。",
           "answers": [
-            "京都でお寺について話している。",
-            "明日は休みになる。",
-            "新しい店ができる。",
-            "電車がありません。"
+            "お寺についての情報。",
+            "明日の天気だけ。",
+            "新しい店の場所。",
+            "電車の運休。"
           ],
           "correctAnswer": 0,
           "questionType": "key point",
-          "explanation": "京都でお寺について話している。"
+          "explanation": "お寺についての情報。"
         }
       ],
       "generationConstraints": {
@@ -2891,7 +2891,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "切符をお願いします。"
+          "explanation": "切符をお願いします。",
+          "visualScene": "station",
+          "visualContext": "A traveler is speaking with station staff at a ticket counter."
         }
       ],
       "generationConstraints": {
@@ -2956,7 +2958,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "お茶をお願いします。"
+          "explanation": "お茶をお願いします。",
+          "visualScene": "counter",
+          "visualContext": "A customer is speaking with a café server at the counter."
         }
       ],
       "generationConstraints": {
@@ -3009,7 +3013,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：教室で何と言いますか。\nB：本をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：教室で、どう言えばいいですか。\nB：本をお願いします。\nA：ありがとうございます。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -3021,7 +3025,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "本をお願いします。"
+          "explanation": "本をお願いします。",
+          "visualScene": "room",
+          "visualContext": "A student is speaking with a teacher in a classroom."
         }
       ],
       "generationConstraints": {
@@ -3086,7 +3092,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "鍵をお願いします。"
+          "explanation": "鍵をお願いします。",
+          "visualScene": "home",
+          "visualContext": "A family member is speaking near the entrance of a home."
         }
       ],
       "generationConstraints": {
@@ -3151,7 +3159,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "牛乳をお願いします。"
+          "explanation": "牛乳をお願いします。",
+          "visualScene": "shop",
+          "visualContext": "A customer is speaking with staff in a shop."
         }
       ],
       "generationConstraints": {
@@ -3204,7 +3214,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：公園で何と言いますか。\nB：友達をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：公園で、どう言えばいいですか。\nB：友達をお願いします。\nA：ありがとうございます。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -3216,7 +3226,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "友達をお願いします。"
+          "explanation": "友達をお願いします。",
+          "visualScene": "meeting",
+          "visualContext": "Two people are meeting and choosing what to say."
         }
       ],
       "generationConstraints": {
@@ -3281,7 +3293,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "予約をお願いします。"
+          "explanation": "予約をお願いします。",
+          "visualScene": "clinic",
+          "visualContext": "A patient is speaking with staff at a clinic."
         }
       ],
       "generationConstraints": {
@@ -3346,7 +3360,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "バスをお願いします。"
+          "explanation": "バスをお願いします。",
+          "visualScene": "directions",
+          "visualContext": "A traveler is asking for help near local transport."
         }
       ],
       "generationConstraints": {
@@ -3399,7 +3415,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：図書館で何と言いますか。\nB：本をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：図書館で、どう言えばいいですか。\nB：本をお願いします。\nA：ありがとうございます。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -3411,7 +3427,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "本をお願いします。"
+          "explanation": "本をお願いします。",
+          "visualScene": "library",
+          "visualContext": "A learner is speaking with staff in a quiet library."
         }
       ],
       "generationConstraints": {
@@ -3476,7 +3494,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "水をお願いします。"
+          "explanation": "水をお願いします。",
+          "visualScene": "restaurant",
+          "visualContext": "A customer is speaking with restaurant staff."
         }
       ],
       "generationConstraints": {
@@ -3541,7 +3561,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "荷物をお願いします。"
+          "explanation": "荷物をお願いします。",
+          "visualScene": "counter",
+          "visualContext": "A customer is speaking with staff at a service counter."
         }
       ],
       "generationConstraints": {
@@ -3594,7 +3616,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：服の店で何と言いますか。\nB：赤いシャツをお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：服の店で、どう言えばいいですか。\nB：赤いシャツをお願いします。\nA：ありがとうございます。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -3606,7 +3628,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "赤いシャツをお願いします。"
+          "explanation": "赤いシャツをお願いします。",
+          "visualScene": "shop",
+          "visualContext": "A customer is speaking with staff in a shop."
         }
       ],
       "generationConstraints": {
@@ -3671,7 +3695,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "傘をお願いします。"
+          "explanation": "傘をお願いします。",
+          "visualScene": "meeting",
+          "visualContext": "Two people are speaking outside while preparing for the weather."
         }
       ],
       "generationConstraints": {
@@ -3736,7 +3762,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "宿題をお願いします。"
+          "explanation": "宿題をお願いします。",
+          "visualScene": "room",
+          "visualContext": "A student is speaking with a teacher in a classroom."
         }
       ],
       "generationConstraints": {
@@ -3789,7 +3817,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：ホテルで何と言いますか。\nB：部屋をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：ホテルで、どう言えばいいですか。\nB：部屋をお願いします。\nA：ありがとうございます。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -3801,7 +3829,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "部屋をお願いします。"
+          "explanation": "部屋をお願いします。",
+          "visualScene": "travel",
+          "visualContext": "A traveler is speaking with staff while making travel plans."
         }
       ],
       "generationConstraints": {
@@ -3919,7 +3949,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：喫茶店について教えてください。\nB：お茶は三百円です。\nA：分かりました。",
+      "transcript": "A：喫茶店のことを覚えておきたいです。\nB：お茶は三百円です。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -4114,7 +4144,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：スーパーについて教えてください。\nB：牛乳は二本です。\nA：分かりました。",
+      "transcript": "A：スーパーのことを覚えておきたいです。\nB：牛乳は二本です。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -4309,7 +4339,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：バス停について教えてください。\nB：バスは学校の右です。\nA：分かりました。",
+      "transcript": "A：バス停のことを覚えておきたいです。\nB：バスは学校の右です。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -4504,7 +4534,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：郵便局について教えてください。\nB：荷物は明日の朝です。\nA：分かりました。",
+      "transcript": "A：郵便局のことを覚えておきたいです。\nB：荷物は明日の朝です。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -4699,7 +4729,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：学校について教えてください。\nB：宿題は今日の夜です。\nA：分かりました。",
+      "transcript": "A：学校のことを覚えておきたいです。\nB：宿題は今日の夜です。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -4894,7 +4924,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：家族の食事について教えてください。\nB：魚は日曜日です。\nA：分かりました。",
+      "transcript": "A：家族の食事のことを覚えておきたいです。\nB：魚は日曜日です。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -5089,7 +5119,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：カレンダーについて教えてください。\nB：日曜日は休みです。\nA：分かりました。",
+      "transcript": "A：カレンダーのことを覚えておきたいです。\nB：日曜日は休みです。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -5284,7 +5314,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.86,
       "sourceType": "tts",
-      "transcript": "A：駅前について教えてください。\nB：自転車は駐輪場です。\nA：分かりました。",
+      "transcript": "A：駅前のことを覚えておきたいです。\nB：自転車は駐輪場です。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -5479,19 +5509,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、市役所では何をすればいいですか。\nB：まず住所変更の手続きをしてください。\nA：はい、分かりました。",
+      "transcript": "A：すみません、市役所で何をしたらいいですか。\nB：住所変更の手続きをして。\nA：分かりました。そうします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "市役所で、次に何をしたらいいですか。",
           "answers": [
-            "住所変更の手続きをしてください。",
-            "市役所へ帰る。",
+            "住所変更の手続きをして。",
+            "市役所を閉める。",
             "友達に電話する。",
             "何もしない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "住所変更の手続きをしてください。"
+          "explanation": "住所変更の手続きをして。"
         }
       ],
       "generationConstraints": {
@@ -5544,19 +5574,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、会社では何をすればいいですか。\nB：まず会議資料を印刷してください。\nA：はい、分かりました。",
+      "transcript": "A：会社では、先に何をしますか。\nB：会議資料を印刷して。\nA：はい、先にそれをします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "話を聞いて、先にすることは何ですか。",
           "answers": [
-            "会議資料を印刷してください。",
+            "会議資料を印刷して。",
             "会社へ帰る。",
-            "友達に電話する。",
-            "何もしない。"
+            "新しい店を探す。",
+            "まだ決めない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "会議資料を印刷してください。"
+          "explanation": "会議資料を印刷して。"
         }
       ],
       "generationConstraints": {
@@ -5674,19 +5704,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、駅では何をすればいいですか。\nB：まず四番線へ移動してください。\nA：はい、分かりました。",
+      "transcript": "A：すみません、駅で何をしたらいいですか。\nB：四番線へ移動して。\nA：分かりました。そうします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "駅で、次に何をしたらいいですか。",
           "answers": [
-            "四番線へ移動してください。",
-            "駅へ帰る。",
+            "四番線へ移動して。",
+            "駅を閉める。",
             "友達に電話する。",
             "何もしない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "四番線へ移動してください。"
+          "explanation": "四番線へ移動して。"
         }
       ],
       "generationConstraints": {
@@ -5716,7 +5746,7 @@
     {
       "id": "assessment-listening-n4-05",
       "slug": "assessment-listening-n4-05",
-      "title": "図書館 · 新聞",
+      "title": "市民センター · 料理教室",
       "jlptLevel": "N4",
       "category": "listening",
       "subcategory": "task-based response",
@@ -5729,29 +5759,29 @@
         "assessment",
         "original",
         "n4-listening",
-        "study"
+        "community"
       ],
       "sourceIds": [
         "michi-curated-n5-seed"
       ],
-      "situation": "A N4 learner hears a short exchange about study.",
+      "situation": "A N4 learner hears a short exchange about community.",
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、図書館では何をすればいいですか。\nB：まず新聞を読んでください。\nA：はい、分かりました。",
+      "transcript": "A：市民センターでは、先に何をしますか。\nB：料理教室をお願いします。\nA：はい、先にそれをします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "話を聞いて、先にすることは何ですか。",
           "answers": [
-            "新聞を読んでください。",
-            "図書館へ帰る。",
-            "友達に電話する。",
-            "何もしない。"
+            "料理教室をお願いします。",
+            "市民センターへ帰る。",
+            "新しい店を探す。",
+            "まだ決めない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "新聞を読んでください。"
+          "explanation": "料理教室をお願いします。"
         }
       ],
       "generationConstraints": {
@@ -5869,19 +5899,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、アパートでは何をすればいいですか。\nB：まず水道の修理を頼んでください。\nA：はい、分かりました。",
+      "transcript": "A：すみません、アパートで何をしたらいいですか。\nB：水道の修理を頼んで。\nA：分かりました。そうします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "アパートで、次に何をしたらいいですか。",
           "answers": [
-            "水道の修理を頼んでください。",
-            "アパートへ帰る。",
+            "水道の修理を頼んで。",
+            "アパートを閉める。",
             "友達に電話する。",
             "何もしない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "水道の修理を頼んでください。"
+          "explanation": "水道の修理を頼んで。"
         }
       ],
       "generationConstraints": {
@@ -5934,19 +5964,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、旅行会社では何をすればいいですか。\nB：まずホテルを予約してください。\nA：はい、分かりました。",
+      "transcript": "A：旅行会社では、先に何をしますか。\nB：ホテルを予約して。\nA：はい、先にそれをします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "話を聞いて、先にすることは何ですか。",
           "answers": [
-            "ホテルを予約してください。",
+            "ホテルを予約して。",
             "旅行会社へ帰る。",
-            "友達に電話する。",
-            "何もしない。"
+            "新しい店を探す。",
+            "まだ決めない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "ホテルを予約してください。"
+          "explanation": "ホテルを予約して。"
         }
       ],
       "generationConstraints": {
@@ -6064,19 +6094,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、スーパーでは何をすればいいですか。\nB：まず割引券を使ってください。\nA：はい、分かりました。",
+      "transcript": "A：すみません、スーパーで何をしたらいいですか。\nB：割引券を使って。\nA：分かりました。そうします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "スーパーで、次に何をしたらいいですか。",
           "answers": [
-            "割引券を使ってください。",
-            "スーパーへ帰る。",
+            "割引券を使って。",
+            "スーパーを閉める。",
             "友達に電話する。",
             "何もしない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "割引券を使ってください。"
+          "explanation": "割引券を使って。"
         }
       ],
       "generationConstraints": {
@@ -6129,19 +6159,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、学校では何をすればいいですか。\nB：まず発表を準備してください。\nA：はい、分かりました。",
+      "transcript": "A：学校では、先に何をしますか。\nB：発表を準備して。\nA：はい、先にそれをします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "話を聞いて、先にすることは何ですか。",
           "answers": [
-            "発表を準備してください。",
+            "発表を準備して。",
             "学校へ帰る。",
-            "友達に電話する。",
-            "何もしない。"
+            "新しい店を探す。",
+            "まだ決めない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "発表を準備してください。"
+          "explanation": "発表を準備して。"
         }
       ],
       "generationConstraints": {
@@ -6236,7 +6266,7 @@
     {
       "id": "assessment-listening-n4-13",
       "slug": "assessment-listening-n4-13",
-      "title": "郵便局 · 再配達",
+      "title": "宅配便の営業所 · 再配達",
       "jlptLevel": "N4",
       "category": "listening",
       "subcategory": "task-based response",
@@ -6259,19 +6289,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、郵便局では何をすればいいですか。\nB：まず荷物を受け取ってください。\nA：はい、分かりました。",
+      "transcript": "A：すみません、宅配便の営業所で何をしたらいいですか。\nB：荷物を受け取って。\nA：分かりました。そうします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "宅配便の営業所で、次に何をしたらいいですか。",
           "answers": [
-            "荷物を受け取ってください。",
-            "郵便局へ帰る。",
+            "荷物を受け取って。",
+            "宅配便の営業所を閉める。",
             "友達に電話する。",
             "何もしない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "荷物を受け取ってください。"
+          "explanation": "荷物を受け取って。"
         }
       ],
       "generationConstraints": {
@@ -6324,19 +6354,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、会社では何をすればいいですか。\nB：まず一時間休んでください。\nA：はい、分かりました。",
+      "transcript": "A：会社では、先に何をしますか。\nB：一時間休んで。\nA：はい、先にそれをします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "話を聞いて、先にすることは何ですか。",
           "answers": [
-            "一時間休んでください。",
+            "一時間休んで。",
             "会社へ帰る。",
-            "友達に電話する。",
-            "何もしない。"
+            "新しい店を探す。",
+            "まだ決めない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "一時間休んでください。"
+          "explanation": "一時間休んで。"
         }
       ],
       "generationConstraints": {
@@ -6454,19 +6484,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、町のセンターでは何をすればいいですか。\nB：まず教室に参加してください。\nA：はい、分かりました。",
+      "transcript": "A：すみません、町のセンターで何をしたらいいですか。\nB：教室に参加して。\nA：分かりました。そうします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "町のセンターで、次に何をしたらいいですか。",
           "answers": [
-            "教室に参加してください。",
-            "町のセンターへ帰る。",
+            "教室に参加して。",
+            "町のセンターを閉める。",
             "友達に電話する。",
             "何もしない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "教室に参加してください。"
+          "explanation": "教室に参加して。"
         }
       ],
       "generationConstraints": {
@@ -6519,19 +6549,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、家では何をすればいいですか。\nB：まず部屋を片付けてください。\nA：はい、分かりました。",
+      "transcript": "A：家では、先に何をしますか。\nB：部屋を片付けて。\nA：はい、先にそれをします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "話を聞いて、先にすることは何ですか。",
           "answers": [
-            "部屋を片付けてください。",
+            "部屋を片付けて。",
             "家へ帰る。",
-            "友達に電話する。",
-            "何もしない。"
+            "新しい店を探す。",
+            "まだ決めない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "部屋を片付けてください。"
+          "explanation": "部屋を片付けて。"
         }
       ],
       "generationConstraints": {
@@ -6649,19 +6679,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、レストランでは何をすればいいですか。\nB：まず席を予約してください。\nA：はい、分かりました。",
+      "transcript": "A：すみません、レストランで何をしたらいいですか。\nB：席を予約して。\nA：分かりました。そうします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "レストランで、次に何をしたらいいですか。",
           "answers": [
-            "席を予約してください。",
-            "レストランへ帰る。",
+            "席を予約して。",
+            "レストランを閉める。",
             "友達に電話する。",
             "何もしない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "席を予約してください。"
+          "explanation": "席を予約して。"
         }
       ],
       "generationConstraints": {
@@ -6714,19 +6744,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：すみません、市民プールでは何をすればいいですか。\nB：まずプールで泳いでください。\nA：はい、分かりました。",
+      "transcript": "A：市民プールでは、先に何をしますか。\nB：プールで泳いで。\nA：はい、先にそれをします。",
       "questions": [
         {
-          "prompt": "話を聞いて、次に何をしますか。",
+          "prompt": "話を聞いて、先にすることは何ですか。",
           "answers": [
-            "プールで泳いでください。",
+            "プールで泳いで。",
             "市民プールへ帰る。",
-            "友達に電話する。",
-            "何もしない。"
+            "新しい店を探す。",
+            "まだ決めない。"
           ],
           "correctAnswer": 0,
           "questionType": "task-based response",
-          "explanation": "プールで泳いでください。"
+          "explanation": "プールで泳いで。"
         }
       ],
       "generationConstraints": {
@@ -6909,19 +6939,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：薬局について聞きました。\nB：はい、薬は食事のあとです。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：薬局について教えてください。\nB：薬のことですね。食事のあとです。\nA：分かりました。",
       "questions": [
         {
-          "prompt": "話の大切な点は何ですか。",
+          "prompt": "この話で確認したいことは何ですか。",
           "answers": [
-            "薬局で薬について話している。",
-            "明日は休みになる。",
-            "新しい店ができる。",
-            "電車がありません。"
+            "薬についての情報。",
+            "明日の天気だけ。",
+            "新しい店の場所。",
+            "電車の運休。"
           ],
           "correctAnswer": 0,
           "questionType": "key point",
-          "explanation": "薬局で薬について話している。"
+          "explanation": "薬についての情報。"
         }
       ],
       "generationConstraints": {
@@ -7016,7 +7046,7 @@
     {
       "id": "assessment-listening-n4-30",
       "slug": "assessment-listening-n4-30",
-      "title": "図書館 · 新聞",
+      "title": "市民センター · 料理教室",
       "jlptLevel": "N4",
       "category": "listening",
       "subcategory": "key point",
@@ -7029,29 +7059,29 @@
         "assessment",
         "original",
         "n4-listening",
-        "study"
+        "community"
       ],
       "sourceIds": [
         "michi-curated-n5-seed"
       ],
-      "situation": "A N4 learner hears a short exchange about study.",
+      "situation": "A N4 learner hears a short exchange about community.",
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：図書館について聞きました。\nB：はい、新聞は毎週土曜日です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：市民センターについて聞きました。\nB：はい、料理教室は毎週土曜日です。\nA：そうですか。ありがとうございます。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
           "answers": [
-            "図書館で新聞について話している。",
+            "市民センターで料理教室について話している。",
             "明日は休みになる。",
             "新しい店ができる。",
             "電車がありません。"
           ],
           "correctAnswer": 0,
           "questionType": "key point",
-          "explanation": "図書館で新聞について話している。"
+          "explanation": "市民センターで料理教室について話している。"
         }
       ],
       "generationConstraints": {
@@ -7104,19 +7134,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：料理教室について聞きました。\nB：はい、野菜は最初にです。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：料理教室について教えてください。\nB：野菜のことですね。最初にです。\nA：分かりました。",
       "questions": [
         {
-          "prompt": "話の大切な点は何ですか。",
+          "prompt": "この話で確認したいことは何ですか。",
           "answers": [
-            "料理教室で野菜について話している。",
-            "明日は休みになる。",
-            "新しい店ができる。",
-            "電車がありません。"
+            "野菜についての情報。",
+            "明日の天気だけ。",
+            "新しい店の場所。",
+            "電車の運休。"
           ],
           "correctAnswer": 0,
           "questionType": "key point",
-          "explanation": "料理教室で野菜について話している。"
+          "explanation": "野菜についての情報。"
         }
       ],
       "generationConstraints": {
@@ -7299,19 +7329,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：病院について聞きました。\nB：はい、検査は午後二時半です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：病院について教えてください。\nB：検査のことですね。午後二時半です。\nA：分かりました。",
       "questions": [
         {
-          "prompt": "話の大切な点は何ですか。",
+          "prompt": "この話で確認したいことは何ですか。",
           "answers": [
-            "病院で検査について話している。",
-            "明日は休みになる。",
-            "新しい店ができる。",
-            "電車がありません。"
+            "検査についての情報。",
+            "明日の天気だけ。",
+            "新しい店の場所。",
+            "電車の運休。"
           ],
           "correctAnswer": 0,
           "questionType": "key point",
-          "explanation": "病院で検査について話している。"
+          "explanation": "検査についての情報。"
         }
       ],
       "generationConstraints": {
@@ -7494,19 +7524,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：公園について聞きました。\nB：はい、花は雨が降る前です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：公園について教えてください。\nB：花のことですね。雨が降る前です。\nA：分かりました。",
       "questions": [
         {
-          "prompt": "話の大切な点は何ですか。",
+          "prompt": "この話で確認したいことは何ですか。",
           "answers": [
-            "公園で花について話している。",
-            "明日は休みになる。",
-            "新しい店ができる。",
-            "電車がありません。"
+            "花についての情報。",
+            "明日の天気だけ。",
+            "新しい店の場所。",
+            "電車の運休。"
           ],
           "correctAnswer": 0,
           "questionType": "key point",
-          "explanation": "公園で花について話している。"
+          "explanation": "花についての情報。"
         }
       ],
       "generationConstraints": {
@@ -7536,7 +7566,7 @@
     {
       "id": "assessment-listening-n4-38",
       "slug": "assessment-listening-n4-38",
-      "title": "郵便局 · 再配達",
+      "title": "宅配便の営業所 · 再配達",
       "jlptLevel": "N4",
       "category": "listening",
       "subcategory": "key point",
@@ -7559,19 +7589,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：郵便局について聞きました。\nB：はい、再配達は土曜日の午後です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：宅配便の営業所について聞きました。\nB：はい、再配達は土曜日の午後です。\nA：そうですか。ありがとうございます。",
       "questions": [
         {
           "prompt": "話の大切な点は何ですか。",
           "answers": [
-            "郵便局で再配達について話している。",
+            "宅配便の営業所で再配達について話している。",
             "明日は休みになる。",
             "新しい店ができる。",
             "電車がありません。"
           ],
           "correctAnswer": 0,
           "questionType": "key point",
-          "explanation": "郵便局で再配達について話している。"
+          "explanation": "宅配便の営業所で再配達について話している。"
         }
       ],
       "generationConstraints": {
@@ -7689,19 +7719,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：映画館について聞きました。\nB：はい、上映時間は午後八時です。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：映画館について教えてください。\nB：上映時間のことですね。午後八時です。\nA：分かりました。",
       "questions": [
         {
-          "prompt": "話の大切な点は何ですか。",
+          "prompt": "この話で確認したいことは何ですか。",
           "answers": [
-            "映画館で上映時間について話している。",
-            "明日は休みになる。",
-            "新しい店ができる。",
-            "電車がありません。"
+            "上映時間についての情報。",
+            "明日の天気だけ。",
+            "新しい店の場所。",
+            "電車の運休。"
           ],
           "correctAnswer": 0,
           "questionType": "key point",
-          "explanation": "映画館で上映時間について話している。"
+          "explanation": "上映時間についての情報。"
         }
       ],
       "generationConstraints": {
@@ -7884,19 +7914,19 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：電車について聞きました。\nB：はい、遅れは雨のためです。\nA：そうですか。ありがとうございます。",
+      "transcript": "A：電車について教えてください。\nB：遅れのことですね。雨のためです。\nA：分かりました。",
       "questions": [
         {
-          "prompt": "話の大切な点は何ですか。",
+          "prompt": "この話で確認したいことは何ですか。",
           "answers": [
-            "電車で遅れについて話している。",
-            "明日は休みになる。",
-            "新しい店ができる。",
-            "電車がありません。"
+            "遅れについての情報。",
+            "明日の天気だけ。",
+            "新しい店の場所。",
+            "電車の運休。"
           ],
           "correctAnswer": 0,
           "questionType": "key point",
-          "explanation": "電車で遅れについて話している。"
+          "explanation": "遅れについての情報。"
         }
       ],
       "generationConstraints": {
@@ -8091,7 +8121,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "住所変更をお願いします。"
+          "explanation": "住所変更をお願いします。",
+          "visualScene": "counter",
+          "visualContext": "A visitor is speaking with staff at a public service counter."
         }
       ],
       "generationConstraints": {
@@ -8144,7 +8176,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：会社で何と言いますか。\nB：会議資料をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：会社で、どう言えばいいですか。\nB：会議資料をお願いします。\nA：ありがとうございます。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8156,7 +8188,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "会議資料をお願いします。"
+          "explanation": "会議資料をお願いします。",
+          "visualScene": "work",
+          "visualContext": "Two coworkers are speaking in a workplace."
         }
       ],
       "generationConstraints": {
@@ -8221,7 +8255,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "薬をお願いします。"
+          "explanation": "薬をお願いします。",
+          "visualScene": "clinic",
+          "visualContext": "A patient is speaking with staff at a clinic."
         }
       ],
       "generationConstraints": {
@@ -8286,7 +8322,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "乗り換えをお願いします。"
+          "explanation": "乗り換えをお願いします。",
+          "visualScene": "directions",
+          "visualContext": "A traveler is asking for help near local transport."
         }
       ],
       "generationConstraints": {
@@ -8316,7 +8354,7 @@
     {
       "id": "assessment-listening-n4-55",
       "slug": "assessment-listening-n4-55",
-      "title": "図書館 · 新聞",
+      "title": "市民センター · 料理教室",
       "jlptLevel": "N4",
       "category": "listening",
       "subcategory": "verbal expression",
@@ -8329,29 +8367,31 @@
         "assessment",
         "original",
         "n4-listening",
-        "study"
+        "community"
       ],
       "sourceIds": [
         "michi-curated-n5-seed"
       ],
-      "situation": "A N4 learner hears a short exchange about study.",
+      "situation": "A N4 learner hears a short exchange about community.",
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：図書館で何と言いますか。\nB：新聞をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：市民センターで、どう言えばいいですか。\nB：料理教室をお願いします。\nA：ありがとうございます。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
           "answers": [
-            "新聞をお願いします。",
+            "料理教室をお願いします。",
             "分かりませんでした。",
             "おやすみなさい。",
             "いただきません。"
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "新聞をお願いします。"
+          "explanation": "料理教室をお願いします。",
+          "visualScene": "meeting",
+          "visualContext": "A visitor is speaking with staff at a community event."
         }
       ],
       "generationConstraints": {
@@ -8416,7 +8456,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "野菜をお願いします。"
+          "explanation": "野菜をお願いします。",
+          "visualScene": "restaurant",
+          "visualContext": "A customer is speaking with restaurant staff."
         }
       ],
       "generationConstraints": {
@@ -8481,7 +8523,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "水道をお願いします。"
+          "explanation": "水道をお願いします。",
+          "visualScene": "home",
+          "visualContext": "A family member is speaking near the entrance of a home."
         }
       ],
       "generationConstraints": {
@@ -8534,7 +8578,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：旅行会社で何と言いますか。\nB：ホテルをお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：旅行会社で、どう言えばいいですか。\nB：ホテルをお願いします。\nA：ありがとうございます。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8546,7 +8590,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "ホテルをお願いします。"
+          "explanation": "ホテルをお願いします。",
+          "visualScene": "travel",
+          "visualContext": "A traveler is speaking with staff while making travel plans."
         }
       ],
       "generationConstraints": {
@@ -8611,7 +8657,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "検査をお願いします。"
+          "explanation": "検査をお願いします。",
+          "visualScene": "clinic",
+          "visualContext": "A patient is speaking with staff at a clinic."
         }
       ],
       "generationConstraints": {
@@ -8676,7 +8724,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "割引券をお願いします。"
+          "explanation": "割引券をお願いします。",
+          "visualScene": "shop",
+          "visualContext": "A customer is speaking with staff in a shop."
         }
       ],
       "generationConstraints": {
@@ -8729,7 +8779,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：学校で何と言いますか。\nB：発表をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：学校で、どう言えばいいですか。\nB：発表をお願いします。\nA：ありがとうございます。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8741,7 +8791,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "発表をお願いします。"
+          "explanation": "発表をお願いします。",
+          "visualScene": "room",
+          "visualContext": "A student is speaking with a teacher in a classroom."
         }
       ],
       "generationConstraints": {
@@ -8806,7 +8858,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "花をお願いします。"
+          "explanation": "花をお願いします。",
+          "visualScene": "meeting",
+          "visualContext": "A visitor is speaking with staff at a community event."
         }
       ],
       "generationConstraints": {
@@ -8836,7 +8890,7 @@
     {
       "id": "assessment-listening-n4-63",
       "slug": "assessment-listening-n4-63",
-      "title": "郵便局 · 再配達",
+      "title": "宅配便の営業所 · 再配達",
       "jlptLevel": "N4",
       "category": "listening",
       "subcategory": "verbal expression",
@@ -8859,7 +8913,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：郵便局で何と言いますか。\nB：再配達をお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：宅配便の営業所で何と言いますか。\nB：再配達をお願いします。\nA：はい、どうぞ。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8871,7 +8925,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "再配達をお願いします。"
+          "explanation": "再配達をお願いします。",
+          "visualScene": "counter",
+          "visualContext": "A customer is speaking with staff at a service counter."
         }
       ],
       "generationConstraints": {
@@ -8924,7 +8980,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：会社で何と言いますか。\nB：昼休みをお願いします。\nA：はい、どうぞ。",
+      "transcript": "A：会社で、どう言えばいいですか。\nB：昼休みをお願いします。\nA：ありがとうございます。",
       "questions": [
         {
           "prompt": "この場面で、自然な表現はどれですか。",
@@ -8936,7 +8992,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "昼休みをお願いします。"
+          "explanation": "昼休みをお願いします。",
+          "visualScene": "work",
+          "visualContext": "Two coworkers are speaking in a workplace."
         }
       ],
       "generationConstraints": {
@@ -9001,7 +9059,9 @@
           ],
           "correctAnswer": 0,
           "questionType": "verbal expression",
-          "explanation": "上映時間をお願いします。"
+          "explanation": "上映時間をお願いします。",
+          "visualScene": "event",
+          "visualContext": "Two friends are speaking while making plans for an activity."
         }
       ],
       "generationConstraints": {
@@ -9054,7 +9114,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：市役所について教えてください。\nB：住所変更は来週の火曜日です。\nA：分かりました。",
+      "transcript": "A：市役所のことを覚えておきたいです。\nB：住所変更は来週の火曜日です。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9249,7 +9309,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：駅について教えてください。\nB：乗り換えは四番線です。\nA：分かりました。",
+      "transcript": "A：駅のことを覚えておきたいです。\nB：乗り換えは四番線です。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9291,7 +9351,7 @@
     {
       "id": "assessment-listening-n4-80",
       "slug": "assessment-listening-n4-80",
-      "title": "図書館 · 新聞",
+      "title": "市民センター · 料理教室",
       "jlptLevel": "N4",
       "category": "listening",
       "subcategory": "quick response",
@@ -9304,17 +9364,17 @@
         "assessment",
         "original",
         "n4-listening",
-        "study"
+        "community"
       ],
       "sourceIds": [
         "michi-curated-n5-seed"
       ],
-      "situation": "A N4 learner hears a short exchange about study.",
+      "situation": "A N4 learner hears a short exchange about community.",
       "audioUrl": null,
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：図書館について教えてください。\nB：新聞は毎週土曜日です。\nA：分かりました。",
+      "transcript": "A：市民センターについて教えてください。\nB：料理教室は毎週土曜日です。\nA：分かりました。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9444,7 +9504,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：アパートについて教えてください。\nB：水道は明日の午前です。\nA：分かりました。",
+      "transcript": "A：アパートのことを覚えておきたいです。\nB：水道は明日の午前です。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9639,7 +9699,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：スーパーについて教えてください。\nB：割引券は今月末までです。\nA：分かりました。",
+      "transcript": "A：スーパーのことを覚えておきたいです。\nB：割引券は今月末までです。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -9811,7 +9871,7 @@
     {
       "id": "assessment-listening-n4-88",
       "slug": "assessment-listening-n4-88",
-      "title": "郵便局 · 再配達",
+      "title": "宅配便の営業所 · 再配達",
       "jlptLevel": "N4",
       "category": "listening",
       "subcategory": "quick response",
@@ -9834,7 +9894,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：郵便局について教えてください。\nB：再配達は土曜日の午後です。\nA：分かりました。",
+      "transcript": "A：宅配便の営業所のことを覚えておきたいです。\nB：再配達は土曜日の午後です。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -10029,7 +10089,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：町のセンターについて教えてください。\nB：日本語教室は水曜日の夜です。\nA：分かりました。",
+      "transcript": "A：町のセンターのことを覚えておきたいです。\nB：日本語教室は水曜日の夜です。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -10224,7 +10284,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：レストランについて教えてください。\nB：窓側の席は七時半です。\nA：分かりました。",
+      "transcript": "A：レストランのことを覚えておきたいです。\nB：窓側の席は七時半です。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -10419,7 +10479,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：会社について教えてください。\nB：出張は来月の三日です。\nA：分かりました。",
+      "transcript": "A：会社のことを覚えておきたいです。\nB：出張は来月の三日です。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",
@@ -10614,7 +10674,7 @@
       "voice": "ja-JP BrowserSpeechProvider",
       "speed": 0.82,
       "sourceType": "tts",
-      "transcript": "A：地域センターについて教えてください。\nB：講演会は午後六時です。\nA：分かりました。",
+      "transcript": "A：地域センターのことを覚えておきたいです。\nB：講演会は午後六時です。\nA：はい、覚えておきます。",
       "questions": [
         {
           "prompt": "話を聞いて、何について覚えておく必要がありますか。",

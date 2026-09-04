@@ -65,6 +65,7 @@ test("sync payloads are bounded and never echo a client user id", () => {
     data: {
       reviewRecords: { "item-1": { attempts: 1, correct: 1 } },
       profilePreferences: { dailyMinutes: 10 },
+      pronunciationProgress: { "pronunciation-n5-mora": "discriminates" },
       customEntries: [{ id: "custom-1", writtenForm: "猫", meaning: "cat" }],
       bookNotes: { "genki-i:38": "Check this page." },
     },
@@ -76,6 +77,7 @@ test("sync payloads are bounded and never echo a client user id", () => {
     data: {
       reviewRecords: { "item-1": { attempts: 1, correct: 1 } },
       profilePreferences: { dailyMinutes: 10 },
+      pronunciationProgress: { "pronunciation-n5-mora": "discriminates" },
       customEntries: [{ id: "custom-1", writtenForm: "猫", meaning: "cat" }],
       bookNotes: { "genki-i:38": "Check this page." },
     },

@@ -1,0 +1,2652 @@
+{
+  "generatedAt": "2026-09-04",
+  "summary": {
+    "N5": {
+      "rawPatterns": 224,
+      "canonicalConcepts": 46,
+      "complete": 16,
+      "partial": 24,
+      "missing": 6,
+      "unresolved": 114,
+      "levelDisagreements": 4
+    },
+    "N4": {
+      "rawPatterns": 148,
+      "canonicalConcepts": 29,
+      "complete": 0,
+      "partial": 25,
+      "missing": 4,
+      "unresolved": 111,
+      "levelDisagreements": 1
+    }
+  },
+  "canonical": [
+    {
+      "id": "grammar-desu",
+      "pattern": "Noun は Noun です",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 2,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-wa",
+      "pattern": "Topic は comment",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns",
+        "tae-kim",
+        "wikibooks-japanese"
+      ],
+      "evidenceCount": 4,
+      "status": "complete",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-ka",
+      "pattern": "Statement か",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 2,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-ni",
+      "pattern": "Place/time に verb",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt",
+        "irodori-sentence-patterns",
+        "tae-kim"
+      ],
+      "evidenceCount": 6,
+      "status": "complete",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-masu",
+      "pattern": "Verb stem + ます",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 2,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-masen",
+      "pattern": "Verb stem + ません",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-mashita",
+      "pattern": "Verb stem + ました",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 3,
+      "status": "partial",
+      "levelDisagreements": [
+        "N4"
+      ]
+    },
+    {
+      "id": "grammar-suki",
+      "pattern": "N が 好きです",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt",
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 3,
+      "status": "complete",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-hoshii",
+      "pattern": "N が 欲しいです",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-kudasai",
+      "pattern": "N を ください",
+      "level": "N5",
+      "sourceIds": [],
+      "evidenceCount": 0,
+      "status": "missing",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-arimasu",
+      "pattern": "Place に thing があります",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt",
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 5,
+      "status": "complete",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-wo",
+      "pattern": "N を verb",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt",
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 2,
+      "status": "complete",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-de",
+      "pattern": "Place / means で verb",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt",
+        "irodori-sentence-patterns",
+        "tae-kim"
+      ],
+      "evidenceCount": 4,
+      "status": "complete",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-to",
+      "pattern": "Person と verb",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt",
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 2,
+      "status": "complete",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-no",
+      "pattern": "N の N",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-mo",
+      "pattern": "N も",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 3,
+      "status": "partial",
+      "levelDisagreements": [
+        "N4"
+      ]
+    },
+    {
+      "id": "grammar-kore",
+      "pattern": "これ / それ / あれ は N です",
+      "level": "N5",
+      "sourceIds": [],
+      "evidenceCount": 0,
+      "status": "missing",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-doko",
+      "pattern": "N は どこですか",
+      "level": "N5",
+      "sourceIds": [],
+      "evidenceCount": 0,
+      "status": "missing",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-imasu",
+      "pattern": "Place に person が います",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-i-adjective",
+      "pattern": "い-adjective です / くないです / かったです",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns",
+        "wikibooks-japanese"
+      ],
+      "evidenceCount": 2,
+      "status": "complete",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-dictionary-form",
+      "pattern": "Verb dictionary form",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns",
+        "wikibooks-japanese"
+      ],
+      "evidenceCount": 3,
+      "status": "complete",
+      "levelDisagreements": [
+        "N4"
+      ]
+    },
+    {
+      "id": "grammar-te-form",
+      "pattern": "Vて、V",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns",
+        "tae-kim",
+        "wikibooks-japanese"
+      ],
+      "evidenceCount": 4,
+      "status": "complete",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-tai",
+      "pattern": "Verb stem + たいです",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt",
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 3,
+      "status": "complete",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-counters",
+      "pattern": "Number + counter",
+      "level": "N5",
+      "sourceIds": [
+        "wikibooks-japanese"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-yori",
+      "pattern": "A は B より adjective です",
+      "level": "N5",
+      "sourceIds": [],
+      "evidenceCount": 0,
+      "status": "missing",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-kara",
+      "pattern": "Reason から, result",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-temoii",
+      "pattern": "Vてもいいですか",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt",
+        "irodori-sentence-patterns",
+        "tae-kim"
+      ],
+      "evidenceCount": 4,
+      "status": "complete",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-mashou",
+      "pattern": "Vましょう",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt",
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 3,
+      "status": "complete",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-masenka",
+      "pattern": "Vませんか",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt",
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 3,
+      "status": "complete",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-kara-made",
+      "pattern": "Nから Nまで",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 2,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-ya",
+      "pattern": "NやN",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-te-kudasai",
+      "pattern": "Vてください",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt",
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 2,
+      "status": "complete",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-adverb-totemo",
+      "pattern": "とても + adjective",
+      "level": "N5",
+      "sourceIds": [],
+      "evidenceCount": 0,
+      "status": "missing",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-na-adjective",
+      "pattern": "な-adjective + です",
+      "level": "N5",
+      "sourceIds": [],
+      "evidenceCount": 0,
+      "status": "missing",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-i-adjective-negative",
+      "pattern": "いAくないです",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-i-adjective-past",
+      "pattern": "いAかったです",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-teiru",
+      "pattern": "Vています",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt",
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 4,
+      "status": "complete",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-tewaikenai",
+      "pattern": "Vてはいけません",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-naidekudasai",
+      "pattern": "Vないでください",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-nai-form",
+      "pattern": "Vない",
+      "level": "N5",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 2,
+      "status": "partial",
+      "levelDisagreements": [
+        "N4"
+      ]
+    },
+    {
+      "id": "grammar-ga-but",
+      "pattern": "Clause A が、Clause B",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-ta-koto",
+      "pattern": "Vたことがあります",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-deshita",
+      "pattern": "Noun / な-adjective + でした",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-dewa-arimasen",
+      "pattern": "Noun / な-adjective + ではありません",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-nakutemo-ii",
+      "pattern": "Vなくてもいいです",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-nakereba-naranai",
+      "pattern": "Vなければなりません",
+      "level": "N5",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-ta-form",
+      "pattern": "Vた",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 2,
+      "status": "partial",
+      "levelDisagreements": [
+        "N5"
+      ]
+    },
+    {
+      "id": "grammar-mae-ni",
+      "pattern": "Vる前に",
+      "level": "N4",
+      "sourceIds": [],
+      "evidenceCount": 0,
+      "status": "missing",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-ato-de",
+      "pattern": "Vたあとで",
+      "level": "N4",
+      "sourceIds": [],
+      "evidenceCount": 0,
+      "status": "missing",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-toki",
+      "pattern": "Vとき / Aとき",
+      "level": "N4",
+      "sourceIds": [],
+      "evidenceCount": 0,
+      "status": "missing",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-nagara",
+      "pattern": "Vながら",
+      "level": "N4",
+      "sourceIds": [],
+      "evidenceCount": 0,
+      "status": "missing",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-koto-ni-suru",
+      "pattern": "〜ことにする",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-zuni",
+      "pattern": "〜ずに",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-sou-appearance",
+      "pattern": "〜そうだ（appearance）",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-tsumori",
+      "pattern": "〜つもり",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-te-ageru",
+      "pattern": "〜てあげる",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-te-oku",
+      "pattern": "〜ておく",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-te-kureru",
+      "pattern": "〜てくれる",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-te-shimau",
+      "pattern": "〜てしまう",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-te-miru",
+      "pattern": "〜てみる",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-te-morau",
+      "pattern": "〜てもらう",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-te-iku",
+      "pattern": "〜ていく",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-te-kuru",
+      "pattern": "〜てくる",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-ni-chigai-nai",
+      "pattern": "〜に違いない",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-ni-kimatte-iru",
+      "pattern": "〜に決まっている",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-mitai",
+      "pattern": "〜みたい",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-rashii",
+      "pattern": "〜らしい",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-wake-ni-wa-ikanai",
+      "pattern": "〜わけにはいかない",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-sugiru",
+      "pattern": "〜過ぎる",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-chu",
+      "pattern": "〜中",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-kata",
+      "pattern": "〜方",
+      "level": "N4",
+      "sourceIds": [
+        "openjlpt"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-to-conditional",
+      "pattern": "〜と、〜",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-tara",
+      "pattern": "〜たら、〜",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-ba",
+      "pattern": "〜ば、〜",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    },
+    {
+      "id": "grammar-nara",
+      "pattern": "〜なら、〜",
+      "level": "N4",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "status": "partial",
+      "levelDisagreements": []
+    }
+  ],
+  "unresolved": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-e6079d03225f",
+      "pattern": "【場所】から来ましたバショキ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-d59394c9a338",
+      "pattern": "Nじゃないです",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-4c216d05d98b",
+      "pattern": "N1とN2",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-d46d6f57c3bd",
+      "pattern": "Nはちょっと…",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-2e83651503ca",
+      "pattern": "あまりV-ません ＜頻度＞",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-e24d9875968f",
+      "pattern": "N、お願いします\nN、くださいネガ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-a9e012a50040",
+      "pattern": "Nにします",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-10e4b48e1ce7",
+      "pattern": "N、【数】お願いします\nN、【数】くださいスウネガ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-004b7ccce258",
+      "pattern": "ここは【場所】です",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-f51b1098d170",
+      "pattern": "（Nは）ありません／ないです",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-0d4b9649da37",
+      "pattern": "【人】は【場所】にいますヒトバショ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-7ea4f8523ad8",
+      "pattern": "（【人】は)いません／いないですヒト",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-5c2554b52a26",
+      "pattern": "【もの】は【ここ／そこ／あそこ】にあります",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-4d74ad9a3267",
+      "pattern": "Nの【位置】にありますイチ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-8f79f9ed0b5d",
+      "pattern": "【時間】に／ごろV-ますジカン",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-28f2a47590ac",
+      "pattern": "【日時】がいいですニチジ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-6e1369865cf7",
+      "pattern": "V-てくれる？",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-cfe684f4658a",
+      "pattern": "Nですね　＜確認＞カクニン",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-bd06fc8ed1c9",
+      "pattern": "N、貸してくださいカ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-3b9262e1f979",
+      "pattern": "N、借りてもいいですか？カ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-14335fccee81",
+      "pattern": "N、いいですか？",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-3673e2f4d19e",
+      "pattern": "N、ありますか？",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-dc352c5aeda5",
+      "pattern": "Nは何ですか？ナニ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-8da24125cb87",
+      "pattern": "どんなN",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-6b4c591a83b1",
+      "pattern": "あまりナA-じゃないです／イA-くないです　＜程度＞テイド",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-95dcc68abf03",
+      "pattern": "【いつも／たいてい／よく／ときどき】V-ます　＜頻度＞ヒンド",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-ca611b615178",
+      "pattern": "【あまり／ぜんぜん】V-ません　＜頻度＞",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-eb2aa1e53a2b",
+      "pattern": "【人】と／【場所】でV-ますヒト",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-20c1f839c000",
+      "pattern": "【日時】に【場所】で【イベント】がありますニチジ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-3b1134fd02fd",
+      "pattern": "V-に行きますイ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-45f1d69df49a",
+      "pattern": "この【乗り物】は【場所】に行きますか？ノモノバショイ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-7265839c1f4d",
+      "pattern": "ここは【場所】ですか？バショ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-c0391eba346e",
+      "pattern": "【乗り物】で来ますノモノキ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-ef679c7a08da",
+      "pattern": "【時間／期間】かかりますジカンキカン",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-9da2e6846be6",
+      "pattern": "【場所】で【乗り物】に乗ります\n【場所】で【乗り物】を降りますバショノモノノオ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-6c3ed7975a7d",
+      "pattern": "Nの【位置】にいますイチ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-5785295aacea",
+      "pattern": "ナA-なNですね\nイA-いNですね",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-6742530625f6",
+      "pattern": "ナA-ですね\nイA-いですね\nナA！\nイA-い!",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-d59a07b1d5f9",
+      "pattern": "【これ／それ／あれ】（は）いくらですか？",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-0eb0ff132738",
+      "pattern": "【この／その／あの】N",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-00301914af25",
+      "pattern": "【数量】ずつカズリョウ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-c8f16667e56f",
+      "pattern": "何もV-ませんでした\nどこにもV-ませんでしたナニ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-f87e7e84de03",
+      "pattern": "ナA-でした",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-4e9f2d2a15b1",
+      "pattern": "N-じゃなかったです\nナA-じゃなかったです\nイA-くなかったです",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-ddfd6c9fefdd",
+      "pattern": "どこかV-ます",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-2f3b710ae638",
+      "pattern": "S1。あと、S2。",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-22b8e3c2a2e0",
+      "pattern": "【場所】へ行きますバショイ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-0076562bc781",
+      "pattern": "S1。それから、S2。",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-bb48b832677b",
+      "pattern": "S1。それに、S2。",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-da2f44e8eeba",
+      "pattern": "S1。でも、S2。",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-b44900738b88",
+      "pattern": "丁寧体・普通体",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-7e8ec95a74c8",
+      "pattern": "【期間】になります キカン",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-be7865fd5800",
+      "pattern": "【時点】（に）来ましたジテンキ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-a15be968c4c4",
+      "pattern": "V-ることです",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-14fa6f245c48",
+      "pattern": "Nができます",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-47096fa6a08d",
+      "pattern": "Nに／ナA-に／イA-く　なります",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-e7a8f46ee800",
+      "pattern": "いちばん　ナA-です／イA-いです",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-6dd2cd8586d9",
+      "pattern": "イA-い のが 好きですス",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-2d0cdbb3757d",
+      "pattern": "イA-い のが 苦手ですニガテ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-229e3ea870dc",
+      "pattern": "ナA-です／イA-いです から",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-c1286a9ff491",
+      "pattern": "S1から、S2",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-b41e11e6d6ec",
+      "pattern": "N1とか（N2とか）",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-d137162effe6",
+      "pattern": "Sね　＜共感＞キョウカン",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-2218c1764f22",
+      "pattern": "非過去・過去ヒカコカコ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-e41b1e6a51ff",
+      "pattern": "N／ナA-／イA-い／V-る　でしょう",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-dab08c4459b8",
+      "pattern": "イA-くて、～",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-fbdd25717fa0",
+      "pattern": "ナA-で、～",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-92a0f3833ab7",
+      "pattern": "Nで、～",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-9fd91c6d87fb",
+      "pattern": "イA-いけど、～",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-0005df09d508",
+      "pattern": "ナA-だけど、～",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-43b87b778689",
+      "pattern": "Nだけど、～",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-2682adf69206",
+      "pattern": "V-て、～",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-498ef4d30d35",
+      "pattern": "N1じゃなくて、N2",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-a80f037b5c13",
+      "pattern": "Nはどうですか？",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-4805429d1bf7",
+      "pattern": "Nでもいいですか？",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-47e18b36790a",
+      "pattern": "Nで、～　＜原因・理由＞",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-610aea01fc0a",
+      "pattern": "V-て、～　＜原因・理由＞",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-6b9d22688082",
+      "pattern": "Nの前に、～マエ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-b1e80844fe6d",
+      "pattern": "Nのあと（で）、～",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-e5d6919b7218",
+      "pattern": "V-たいんですが…",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-b565cec496ca",
+      "pattern": "Nで　＜手段＞シュダン",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-d2ed8fb00300",
+      "pattern": "N1はN2がナA-です／イA-いです ①",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-14056c3e655d",
+      "pattern": "NはV-るのがナA-／イA-いです ①",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-92cc44c1455a",
+      "pattern": "N1は、～。（でも、）N2は、～。　＜対比＞タイヒ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-23cb48684289",
+      "pattern": "V-てもらえませんか？",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-734603eaef1a",
+      "pattern": "V-方カタ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-ce2c725f1906",
+      "pattern": "V-てみたいんですが…",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-b3dccb48328d",
+      "pattern": "【期間】（に）～回 キカンカイ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-0d29e7289ce5",
+      "pattern": "聞き返しキカエ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-978fe9951b0a",
+      "pattern": "Nのとき、～",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-f449d09bf7f2",
+      "pattern": "イA-いとき、～",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-afd823b6836f",
+      "pattern": "ナA-なとき、～",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-e43e0e7b5b3f",
+      "pattern": "V-て行きますイ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-e8d9da2b8db7",
+      "pattern": "V-て来ますキ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-ff4cac0b6e25",
+      "pattern": "N1とN2（と）、どっちがいいですか？\nS。どれがいいですか？",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-cbc5688f6c24",
+      "pattern": "Nのほうがいいです",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-97e1f6a4fdec",
+      "pattern": "【疑問詞】でもいいですギモンシ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-c460ebcd38bb",
+      "pattern": "ナA-／イA- そうです",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-5da8c9465e20",
+      "pattern": "ナA-／イA- そうなN",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-8b86aa62c3d6",
+      "pattern": "イA-くて、～\nイA-くなくて、～",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-0b06a4a8f5a4",
+      "pattern": "V-てみます",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-12450e2fc292",
+      "pattern": "自動詞\n他動詞ジドウシタドウシ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-96f4c8e04d0c",
+      "pattern": "イA-くないですか？",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-4d7e56f39060",
+      "pattern": "～んですが…",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-dbeb9e9d2cdf",
+      "pattern": "V-そうです",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-1f73bb3753b0",
+      "pattern": "V-たいとき、～",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-6e766b1cafe4",
+      "pattern": "はい、【否定文】／いいえ、【肯定文】ヒテイブンコウテイブン",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-03f903b0d37f",
+      "pattern": "Nで、～／ナA-で、～／イA-くて、～／V-て、～　＜原因・理由＞ゲンインリユウ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-8d601fa8a794",
+      "pattern": "S1。それで、S2",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-29d937ad003e",
+      "pattern": "V-なければなりません",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-309c071cbfd2",
+      "pattern": "～んです ①",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-f00ae41a5a54",
+      "pattern": "～んです ②",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-d0a2500f4a1c",
+      "pattern": "V（普通形）＋N ①ケイ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-7f74160bce61",
+      "pattern": "V-る前に、～マエ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-34e58b8aca95",
+      "pattern": "V-たあと、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-ec4b654ad140",
+      "pattern": "～とき（に）、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-6a011c1f3eeb",
+      "pattern": "V-るといいです（よ）",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-4eed2d34b5b3",
+      "pattern": "V-すぎます",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-b2884f3b8fd9",
+      "pattern": "V1-たり、V2-たり（します）",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-9fc20d5c3078",
+      "pattern": "V-るようにしています",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-e50a4e5f518d",
+      "pattern": "V-ないように しています",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-88594a4e30dc",
+      "pattern": "V（普通形）＋N ②ケイ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-355e2090486d",
+      "pattern": "【人】に【物】をもらいますモノ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-45d242ef2e7a",
+      "pattern": "【人】が【物】をくれますヒトモノ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-58342b7afc62",
+      "pattern": "S（普通形）そうですケイ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-d6dd375583ae",
+      "pattern": "【人】に【物】をあげますヒトモノ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-5b7733a3ddda",
+      "pattern": "S（普通形）と言っていましたケイイ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-003d2cb35530",
+      "pattern": "S（普通形）と思いますケイオモ",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-eb5066d3023b",
+      "pattern": "N1というN2",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-b098c8c9500b",
+      "pattern": "V-たばかりです",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-0338ec8cfd96",
+      "pattern": "V-ていました",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-2dd7211492ef",
+      "pattern": "それ／そこ　＜文脈指示＞",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-c4a5077d64a8",
+      "pattern": "～て、～\n～から、～\n～けど、～\n＜2つの文を1つにする＞",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-b47a27cc45f1",
+      "pattern": "N1はN2が ナA-です／イA-いです　②",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-829ecf25fecf",
+      "pattern": "V-ている＋人ヒト",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-3db17f3f8347",
+      "pattern": "Sよ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-56158d9a7256",
+      "pattern": "Sし、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-697b91ce1fb2",
+      "pattern": "S1ので、S2",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-fe161c9ca4bb",
+      "pattern": "Sよね",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-dbe0c74ae9a2",
+      "pattern": "Nで～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-fdb4d46a24ff",
+      "pattern": "ナA-な／イA-い／V-る のは、Nです",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-8fef38d5f618",
+      "pattern": "V-て、～　＜方法＞",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-3af7f3a12260",
+      "pattern": "V-ないで、～　＜方法＞ホウホウ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-5d9e85b295ff",
+      "pattern": "V-ちゃだめです",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-dd3821d44b9f",
+      "pattern": "V-てから、 ～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-f4086f12db6c",
+      "pattern": "S1が、S2",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-4b4fc3f5de33",
+      "pattern": "V-（られ）ます　＜可能形①＞カノウケイ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-554f881acc54",
+      "pattern": "～ところ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-f11c4d40a6f4",
+      "pattern": "S（普通形） って聞きました\nS（普通形） って言っていましたケイキ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-5c9ff0cb6e44",
+      "pattern": "【疑問詞】V-たらいいですか？ギモンシ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-5a11ff1172b2",
+      "pattern": "V-たほうがいいです",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-609bdba6251c",
+      "pattern": "V-ないほうがいいです",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-7bfec26dd549",
+      "pattern": "V-るつもりです",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-504f6d779748",
+      "pattern": "V-（られ）て、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-9dbeea94e7c1",
+      "pattern": "V-（られ）なくて、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-da0fcebc004d",
+      "pattern": "S1し、S2し、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-06efacfa8da4",
+      "pattern": "V-る／V-ている／V-た とき、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-63bd7ac48ab9",
+      "pattern": "【人】と【人数】で",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-2675602ad8d8",
+      "pattern": "V-（ら）れます　＜受身①＞ウケミ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-7244dc2912d2",
+      "pattern": "V-（られ）ます　＜可能形②＞カノウケイ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-1024a6438578",
+      "pattern": "まだV-て（い）ません",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-f59d35bda488",
+      "pattern": "まだV-ます",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-334394e773ed",
+      "pattern": "【疑問詞】＋S（普通形）か、～ギモンシケイ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-8f7560ab2fd6",
+      "pattern": "～んですか？",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-f975c672912e",
+      "pattern": "Nしか+否定文ヒテイブン",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-f83aa53450db",
+      "pattern": "Nだけ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-abdcf53ec657",
+      "pattern": "V-たりして、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-0a821678d7b5",
+      "pattern": "V-なくちゃならない",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-5906cbbbb696",
+      "pattern": "V-れます　＜可能形③＞カノウケイ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-ef3ebfe4437d",
+      "pattern": "S（普通形）+人が～\nS（普通形）+人も～フツウケイヒト",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-d4eff7ccee1a",
+      "pattern": "V-ながら、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-7fee20d57054",
+      "pattern": "Nによって",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-f52ed1033864",
+      "pattern": "【疑問詞】V-ばいいですか？ギモンシ",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-7e6a70d3561b",
+      "pattern": "V-てはいけません／だめです\nVちゃいけません／だめです",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-2d80703ce1d5",
+      "pattern": "V-なくちゃ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-313d8d667b5d",
+      "pattern": "V-るように、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-6b9f40fb9be7",
+      "pattern": "V-ないように、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-f52cd3f0af58",
+      "pattern": "V-（ら）れます　＜受身②＞ウケミ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-baeddf707ac2",
+      "pattern": "S（普通形）の？フツウケイ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-c763626dbd4e",
+      "pattern": "V-なきゃ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-ded9387f5759",
+      "pattern": "V-てみてもいいですか？",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-257e4881184e",
+      "pattern": "ナA-／イA- すぎます",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-d974e7d14b40",
+      "pattern": "イA-すぎます",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-4747de6949f0",
+      "pattern": "ナA-な／イA-い の",
+      "level": "N5"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-1951b267d2ce",
+      "pattern": "NをV-(ら)れます　＜受身③＞ウケミ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-cb5002146ddc",
+      "pattern": "S（普通形）かもしれません　ケイ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-a857b2330bf1",
+      "pattern": "V-てしまいました",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-3d98b1bf47a0",
+      "pattern": "V-るまで、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-aa8f3d3bb086",
+      "pattern": "V-にくいです",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-e122748dcfce",
+      "pattern": "V-やすいです",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-48269cc7524f",
+      "pattern": "N1とN2（と）、どちら／どっちが～か？",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-168b650db019",
+      "pattern": "（N1より）N2のほうが～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-d5d6fec0b8ac",
+      "pattern": "V-（ら）れます　＜受身④＞ウケミ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-aa3edc5f9ae7",
+      "pattern": "V-てあります",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-f3589880a0b9",
+      "pattern": "N1だけじゃなくて、N2も～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-b763ae7e4532",
+      "pattern": "Nなら、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-077e368e8b05",
+      "pattern": "【疑問詞】V-ても、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-f25ba482ad52",
+      "pattern": "ナA-に／イA-く V",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-ff00e50d92a4",
+      "pattern": "Nのために、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-e7988341d11d",
+      "pattern": "V-たままです",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-e24ffe857514",
+      "pattern": "V-るのにいいです",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-1d80fb773520",
+      "pattern": "V(命令形）　\nV-るな（禁止の命令形）メイレイケイキンシメイレイケイ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-761790e1f91b",
+      "pattern": "V-ないようにしてください",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-17c64da62e60",
+      "pattern": "V-（られ）なくなります",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-70add746d15e",
+      "pattern": "Sても、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-87b728f385ce",
+      "pattern": "V（普通形）かどうか、～フツウケイ",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-c49814cbd061",
+      "pattern": "V-（られ）るように なりました",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-95703a3ced6f",
+      "pattern": "V-（よ）うと思います／思っています",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-eebbc73bca11",
+      "pattern": "V-るために、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-0178e49f0683",
+      "pattern": "V-てあげます",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-133c2a2adc1b",
+      "pattern": "V-てもらいます",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-5a5482b0bd8e",
+      "pattern": "V-てくれます",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-bf8f4900cf3b",
+      "pattern": "Nでしたっけ？",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-6b90412b6e61",
+      "pattern": "V-ることになった",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-e63a1963ef11",
+      "pattern": "V-てくれませんか？",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-c39439c60764",
+      "pattern": "S（普通形）でしょう？",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-af03f8bfe69c",
+      "pattern": "S（普通形）気がする",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-f90810c36cc9",
+      "pattern": "S（普通形）ってN",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-eec2d74c7608",
+      "pattern": "接続の表現",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-5f0456534c0f",
+      "pattern": "S（普通形）なら、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-73eaa49b0897",
+      "pattern": "Nっぽい",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-48dc0f4c4576",
+      "pattern": "V-てもらえたら、ありがたいです",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-377bf8d9691a",
+      "pattern": "V-てもらえたら、助かります",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-0302948533e3",
+      "pattern": "V-てもらえたら、うれしいです",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-d5fa09a57e4d",
+      "pattern": "S（普通形）みたいだ",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-bee81420ade4",
+      "pattern": "お＋N ／ ご＋N",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-596c3e9b25d5",
+      "pattern": "おVください",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-79b301af0c5f",
+      "pattern": "ごVください",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-fa8b45572fc1",
+      "pattern": "V-（ら）れる＜受身⑤：迷惑の受身＞",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-a6f04b32f7ab",
+      "pattern": "N1みたいなN2",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-585e54ed88fa",
+      "pattern": "ナA-さ／イA-さ",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-a99c5255dbeb",
+      "pattern": "S（普通形）やつ",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-31503745548e",
+      "pattern": "V-ておく",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-bfff1f54692e",
+      "pattern": "Vがち",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-483481adcd92",
+      "pattern": "S（普通形）じゃないですか",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-2c3e121fcd06",
+      "pattern": "V-ているうちに、～",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-5dc8492b1b83",
+      "pattern": "V-ばと思っています",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-0ff2cbf17ead",
+      "pattern": "V-ばうれしいです",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-940426303e58",
+      "pattern": "V-ばいいなと思います",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-600c4e9eefe3",
+      "pattern": "Vなさい",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-cc5731598ee7",
+      "pattern": "尊敬の動詞 ＜尊敬語①＞",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-11806f5a7784",
+      "pattern": "V-（さ）せる＜使役①＞",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-d4f581beb4be",
+      "pattern": "V-なくてもいいです",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-2f3ae3103124",
+      "pattern": "V-なくてもだいじょうぶです",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-23e77651d00e",
+      "pattern": "V-る間に、～",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-29a5c064b88a",
+      "pattern": "丁寧体・普通体②",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-82a7bdbc622d",
+      "pattern": "Vはじめる",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-71438a4a779b",
+      "pattern": "希望を言うときの表現",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-b20ded251950",
+      "pattern": "V（普通形）＋N ③",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-98685e9a6896",
+      "pattern": "名詞で終わる言い方",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-618b2cd11a93",
+      "pattern": "V-てくる",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-247be4fe97e8",
+      "pattern": "V-てほしいんですが",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-a32411440ef8",
+      "pattern": "Nになっている",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-1c4c152fa901",
+      "pattern": "V-ていただけますか？",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-878f228a2ce7",
+      "pattern": "おVになる ＜尊敬語②＞",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-ff1fcd2ec1eb",
+      "pattern": "V-ることがある",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-8c2cef903677",
+      "pattern": "おVです ＜尊敬語③＞",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-d9200930b4e7",
+      "pattern": "V-（ら）れる ＜尊敬語④＞",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-5ca69e55178e",
+      "pattern": "S（普通形）ようだ",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-b782925e4105",
+      "pattern": "イA-がる",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-735f1087edaa",
+      "pattern": "V-（さ）せる＜使役②＞",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-23157cb5ca53",
+      "pattern": "V-ることにする",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-23c80cb40750",
+      "pattern": "S（普通形）らしい",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-1301650fc848",
+      "pattern": "V-（よ）うと思うんですが",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-1fae4a58db55",
+      "pattern": "Nとか、いいんじゃないですか？",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-08a1a2b5dcc7",
+      "pattern": "S（普通形）のがいいんじゃないですか？",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-2a425837de68",
+      "pattern": "V-てくださる",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-deff9d33fba3",
+      "pattern": "V-ていただく",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-ac8cb6e4955d",
+      "pattern": "V-（さ）せていただく",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-a8e96fc81eab",
+      "pattern": "Nにとって",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-a9642e23e9cf",
+      "pattern": "ナA-な ところがある",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-841098541893",
+      "pattern": "イA-い ところがある",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-675d0ef948d4",
+      "pattern": "S（普通形）のに、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-2bcae432bda6",
+      "pattern": "Nのことで",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-09b97ea835ff",
+      "pattern": "連用中止",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-d0b4635f259b",
+      "pattern": "N1＋助詞＋のN2",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-fc68d757bd2b",
+      "pattern": "もしSば、～",
+      "level": "N4"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-5bf74e1ce0fc",
+      "pattern": "V-たところだ",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-af43742b35e0",
+      "pattern": "V-てもらえますか？",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-b4e149287bc5",
+      "pattern": "V-てもらってもいいですか？",
+      "level": "Intermediate 2"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-aced7bc20bb7",
+      "pattern": "V-ていただけませんか？",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-0b7c12b2477f",
+      "pattern": "Nになります",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-91529d85ec89",
+      "pattern": "謙譲の動詞 ＜謙譲語①＞",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-a7df5112d1eb",
+      "pattern": "おVする＜謙譲語②＞",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-3773bb766137",
+      "pattern": "ごVする＜謙譲語②＞",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-2f2166ac0113",
+      "pattern": "V-さ（せら）れる＜使役受身＞シエキウケミ",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-54f06b0ef74e",
+      "pattern": "Nでございます",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-9c6d6f982636",
+      "pattern": "V-ること",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-a4e519bcf16a",
+      "pattern": "V-ないこと",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-053344125fa6",
+      "pattern": "V-ていただければと思います",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-bafb319396d1",
+      "pattern": "V-ていただければありがたいと思います",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-dc2f1f728ede",
+      "pattern": "V-ていた",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-de56a9c56a07",
+      "pattern": "S（普通形）はずだ",
+      "level": "Intermediate 1"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "recordId": "irodori-grammar-4dfdcb98caf3",
+      "pattern": "尊敬語と謙譲語",
+      "level": "Intermediate 1"
+    }
+  ],
+  "aliasesMapped": 1,
+  "duplicateFamiliesCollapsed": 2,
+  "sourcePolicy": "Coverage evidence only; source records do not become learner lessons without review.",
+  "sources": [
+    {
+      "id": "openjlpt",
+      "rawRecords": 40,
+      "references": 21
+    },
+    {
+      "id": "irodori-sentence-patterns",
+      "rawRecords": 348,
+      "references": 64
+    },
+    {
+      "id": "tae-kim",
+      "rawRecords": 0,
+      "references": 6
+    },
+    {
+      "id": "wikibooks-japanese",
+      "rawRecords": 0,
+      "references": 6
+    }
+  ]
+}

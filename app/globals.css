@@ -40,10 +40,19 @@ body {
   position: relative;
   background:
     linear-gradient(90deg, rgba(8, 10, 16, .54) 0%, rgba(8, 10, 16, .34) 48%, rgba(8, 10, 16, .14) 100%),
-    linear-gradient(180deg, rgba(10, 12, 20, .08), rgba(7, 8, 12, .56)),
-    url("/site-atmosphere.png") center 42% / cover fixed no-repeat;
+    linear-gradient(180deg, var(--world-wash, rgba(10, 12, 20, .08)), rgba(7, 8, 12, .56)),
+    var(--world-shell, url("/site-atmosphere.png")) var(--world-focal, center 42%) / cover fixed no-repeat;
   background-attachment: fixed;
 }
+
+.app-shell[data-world-area="neighborhood"] { --world-wash: rgba(115, 82, 57, .16); }
+.app-shell[data-world-area="station"] { --world-wash: rgba(53, 92, 117, .2); }
+.app-shell[data-world-area="shopping-street"] { --world-wash: rgba(129, 77, 48, .18); }
+.app-shell[data-world-area="riverside"] { --world-wash: rgba(52, 92, 101, .18); }
+.app-shell[data-world-area="garden"] { --world-wash: rgba(66, 92, 69, .18); }
+.app-shell[data-world-area="market"] { --world-wash: rgba(125, 76, 57, .18); }
+.app-shell[data-world-area="wide-station"] { --world-wash: rgba(57, 78, 112, .22); }
+.app-shell[data-world-stage="settled"] { --world-wash: color-mix(in srgb, var(--world-wash, rgba(10, 12, 20, .08)) 150%, transparent); }
 
 @media (max-width: 1023px) {
   .app-shell,
@@ -53,11 +62,15 @@ body {
   }
 }
 
+@media (max-width: 639px) {
+  .app-shell { background-position: var(--world-focal-mobile, var(--world-focal, center 42%)); }
+}
+
 .app-shell aside,
 .app-header {
   background:
     linear-gradient(180deg, rgba(20, 39, 57, .72), rgba(18, 24, 34, .68)),
-    url("/site-atmosphere.png") left 42% / cover fixed no-repeat;
+    var(--world-shell, url("/site-atmosphere.png")) left 42% / cover fixed no-repeat;
   backdrop-filter: blur(20px) saturate(120%);
 }
 
@@ -141,13 +154,31 @@ button, a, input { outline-color: var(--gold); outline-offset: 3px; }
   backdrop-filter: blur(9px) saturate(120%);
 }
 
+.journey-map[data-world-area="station"] { background: radial-gradient(circle at 80% 18%, rgba(113, 152, 168, .2), transparent 28%), rgba(13, 23, 31, .52); }
+.journey-map[data-world-area="shopping-street"] { background: radial-gradient(circle at 80% 18%, rgba(196, 142, 88, .18), transparent 28%), rgba(30, 22, 18, .5); }
+.journey-map[data-world-area="riverside"] { background: radial-gradient(circle at 80% 18%, rgba(114, 151, 160, .18), transparent 28%), rgba(13, 25, 29, .5); }
+.journey-map[data-world-area="garden"] { background: radial-gradient(circle at 80% 18%, rgba(125, 154, 125, .18), transparent 28%), rgba(17, 25, 19, .5); }
+.journey-map[data-world-area="wide-station"] { background: radial-gradient(circle at 80% 18%, rgba(117, 149, 173, .22), transparent 28%), rgba(17, 24, 37, .54); }
+.journey-map[data-world-stage="settled"] .ink-field { opacity: .98; }
+
 .journey-hero {
   min-height: 330px;
   background:
     linear-gradient(90deg, rgba(11, 11, 13, .62) 0%, rgba(11, 11, 13, .38) 53%, rgba(11, 11, 13, .1) 100%),
     linear-gradient(180deg, rgba(12, 14, 23, .08), rgba(6, 8, 12, .38)),
-    url("/journey-hero.png") center 44% / cover no-repeat;
+    url("/journey-hero.png") var(--world-focal, center 44%) / cover no-repeat;
   box-shadow: 0 24px 80px rgba(0, 0, 0, .25);
+}
+
+.world-transition,
+.today-hero,
+.lesson-opening { background-position: var(--world-focal, center); }
+
+@media (max-width: 639px) {
+  .journey-hero,
+  .world-transition,
+  .today-hero,
+  .lesson-opening { background-position: var(--world-focal-mobile, var(--world-focal, center)); }
 }
 
 .journey-hero-ink { opacity: .2; }
@@ -189,6 +220,13 @@ button, a, input { outline-color: var(--gold); outline-offset: 3px; }
 
 .journey-marker { box-shadow: 0 0 0 5px rgba(227, 74, 63, .12), 0 8px 24px rgba(227, 74, 63, .2); }
 
+.area-completion { animation: area-completion-in 260ms ease-out both; }
+
+@keyframes area-completion-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .safe-bottom { padding-bottom: max(5.5rem, env(safe-area-inset-bottom)); }
 
 [aria-label="Study activity over the last 28 days"] {
@@ -215,4 +253,6 @@ button, a, input { outline-color: var(--gold); outline-offset: 3px; }
     scroll-behavior: auto !important;
     transition-duration: .01ms !important;
   }
+
+  .area-completion { animation: none; }
 }

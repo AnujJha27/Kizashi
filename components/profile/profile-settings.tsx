@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { PROFILE_PREFERENCES_STORAGE_KEY, type AnswerLeniency, type FuriganaMode } from "@/lib/session";
+import { interestOptions, normalizeInterestTopics } from "@/lib/interest-core.js";
 
 const STORAGE_KEY = PROFILE_PREFERENCES_STORAGE_KEY;
 
@@ -17,9 +18,10 @@ interface Preferences {
   autoPlayAudio: boolean;
   availableStudyDays: number[];
   restDays: number[];
+  interestTopics: string[];
 }
 
-const defaultPreferences: Preferences = { displayName: "", targetLevel: "N5", dailyMinutes: "10", examDate: "", paused: false, furiganaMode: "always", answerLeniency: "kana", autoPlayAudio: false, availableStudyDays: [1, 2, 3, 4, 5], restDays: [] };
+const defaultPreferences: Preferences = { displayName: "", targetLevel: "N5", dailyMinutes: "10", examDate: "", paused: false, furiganaMode: "always", answerLeniency: "kana", autoPlayAudio: false, availableStudyDays: [1, 2, 3, 4, 5], restDays: [], interestTopics: [] };
 const days = [[1, "Mon"], [2, "Tue"], [3, "Wed"], [4, "Thu"], [5, "Fri"], [6, "Sat"], [0, "Sun"]] as const;
 
 export function ProfileSettings() {
@@ -29,7 +31,7 @@ export function ProfileSettings() {
   useEffect(() => {
     try {
       const value = window.localStorage.getItem(STORAGE_KEY);
-      if (value) setPreferences({ ...defaultPreferences, ...JSON.parse(value) });
+      if (value) { const parsed = JSON.parse(value) as Partial<Preferences>; setPreferences({ ...defaultPreferences, ...parsed, interestTopics: normalizeInterestTopics(parsed.interestTopics) }); }
     } catch {
       setPreferences(defaultPreferences);
     }
@@ -109,6 +111,11 @@ export function ProfileSettings() {
             <span><span className="block text-[#f5f5f2]">Pause exam plan</span><span className="mt-1 block text-xs leading-5 text-[#9297a1]">Pause countdown recommendations without deleting your learning progress.</span></span>
           </label>
         </div>
+        <fieldset className="mt-7 border-t border-[#292b31] pt-5">
+          <legend className="text-sm text-[#9297a1]">Interests for immersion</legend>
+          <p className="mt-1 text-xs leading-5 text-[#676c75]">Optional · helps rank free listening and reading without changing your JLPT path. Choose up to three.</p>
+          <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label="Immersion interests">{interestOptions.map((option) => <label key={option.value} className="flex items-center gap-2 rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce]"><input type="checkbox" checked={preferences.interestTopics.includes(option.value)} disabled={!preferences.interestTopics.includes(option.value) && preferences.interestTopics.length >= 3} onChange={() => { setSaved(false); setPreferences((current) => ({ ...current, interestTopics: current.interestTopics.includes(option.value) ? current.interestTopics.filter((value) => value !== option.value) : [...current.interestTopics, option.value] })); }} className="accent-[#e34a3f]" />{option.label}</label>)}</div>
+        </fieldset>
         <div className="mt-7 flex items-center justify-between gap-4 border-t border-[#292b31] pt-5">
           <p className="text-sm text-[#6fb98f]" role="status">{saved ? "Saved. Your path will use these preferences." : ""}</p>
           <button type="button" onClick={save} className="rounded-xl bg-[#e34a3f] px-4 py-3 text-sm font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">Save settings</button>

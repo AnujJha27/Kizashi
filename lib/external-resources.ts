@@ -12,6 +12,24 @@ import {
 export type ExternalResourceMode = "reference" | "remote-media" | "frame-or-link" | "link-only" | "dynamic" | "import";
 export type ExternalResourceType = "grammar-reference" | "pronunciation" | "graded-reader" | "native-reading" | "lesson" | "listening" | "reference";
 
+export interface ExternalResourceCatalogEntry {
+  readonly id: string;
+  readonly title: string;
+  readonly sourceLevel?: string;
+  readonly topic: string;
+  readonly activityType: string;
+  readonly url: string;
+  readonly audioAvailable?: boolean;
+  readonly videoAvailable?: boolean;
+  readonly length?: string;
+  readonly progress?: string;
+  readonly targetItemIds?: readonly string[];
+  readonly targetSkills?: readonly string[];
+  readonly communicativeFunction?: string;
+  readonly jlptRelevance: string;
+  readonly provenance: string;
+}
+
 export interface ExternalResourceMetadata {
   readonly role?: string;
   readonly rightsBehavior?: string;
@@ -29,9 +47,14 @@ export interface ExternalResourceMetadata {
   readonly reviewedAt?: string;
   readonly transcriptAvailable?: boolean;
   readonly translationAvailable?: boolean;
-  readonly mediaDelivery?: "original-site";
+  readonly mediaDelivery?: "original-site" | "remote-media";
   readonly mediaUrl?: string;
   readonly posterUrl?: string;
+  readonly frameUrl?: string;
+  readonly videoCatalogFeed?: string;
+  readonly videoCatalogChannelId?: string;
+  readonly podcastFeed?: string;
+  readonly catalog?: readonly ExternalResourceCatalogEntry[];
 }
 
 export interface ExternalResource {

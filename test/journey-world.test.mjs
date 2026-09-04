@@ -1,0 +1,64 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { access, readFile } from "node:fs/promises";
+
+import { getJourneyWorldState, getNextJourneyArea, journeyVisualManifest } from "../lib/journey-world-core.js";
+
+const lessons = [
+  { id: "lesson-food-and-routines", itemIds: ["word-1", "word-2"] },
+  { id: "lesson-weather-and-shopping", itemIds: ["word-3"] },
+];
+
+test("world state follows the active lesson and area progress", () => {
+  assert.equal(getJourneyWorldState({ lessonId: "lesson-food-and-routines", lessons }).area.id, "station");
+  assert.equal(getJourneyWorldState({ lessonId: "lesson-food-and-routines", lessons }).stage.id, "arrival");
+  assert.equal(getJourneyWorldState({ lessonId: "lesson-weather-and-shopping", lessons, records: { "word-1": {}, "word-2": {} } }).stage.id, "lived-in");
+  assert.equal(getJourneyWorldState({ lessonId: "lesson-weather-and-shopping", lessons, records: { "word-1": {}, "word-2": {}, "word-3": {} } }).stage.id, "settled");
+});
+
+test("callers without a full curriculum still receive area progression", () => {
+  assert.equal(getJourneyWorldState({ lessonId: "lesson-morning-route" }).area.id, "neighborhood");
+  assert.equal(getJourneyWorldState({ lessonId: "lesson-morning-route" }).stage.id, "lived-in");
+  assert.equal(getJourneyWorldState({ lessonId: "lesson-original-n4-2", targetLevel: "N4" }).area.id, "wide-station");
+});
+
+test("N4 assessment work opens the wider-world transition", () => {
+  const state = getJourneyWorldState({ lessonId: "lesson-original-n4-1", targetLevel: "N4" });
+  assert.equal(state.area.id, "wide-station");
+  assert.equal(state.area.level, "N4");
+  assert.equal(state.stage.id, "arrival");
+});
+
+test("the generated N4 prerequisite stop also opens the wider station", () => {
+  assert.equal(getJourneyWorldState({ lessonId: "lesson-n4-prerequisites", targetLevel: "N4" }).area.id, "wide-station");
+});
+
+test("world areas carry deliberate desktop and mobile focal points", () => {
+  for (const area of Object.values(journeyVisualManifest)) {
+    assert.match(area.focalPoint.desktop, /^\w+ \d+%$/);
+    assert.match(area.focalPoint.mobile, /^\w+ \d+%$/);
+  }
+  assert.notEqual(journeyVisualManifest.station.focalPoint.mobile, journeyVisualManifest["shopping-street"].focalPoint.mobile);
+});
+
+test("world areas use distinct owned visual variants with role metadata", async () => {
+  const areas = Object.values(journeyVisualManifest);
+  assert.equal(new Set(areas.map((area) => area.visualAssets.hero)).size, areas.length);
+  assert.ok(areas.every((area) => area.visualAssetMetadata.length === 6));
+  assert.ok(areas.flatMap((area) => area.visualAssetMetadata).every((asset) => asset.sourceType === "owned-svg" && asset.attribution && asset.focalPoint));
+  await Promise.all(areas.map((area) => access(new URL(`../public${area.visualAssets.hero}`, import.meta.url))));
+});
+
+test("the profile portrait consumes the resolved area visual", async () => {
+  const portrait = await readFile(new URL("../components/profile/study-portrait.tsx", import.meta.url), "utf8");
+  assert.match(portrait, /world\.area\.visualAssets\.portrait/);
+  assert.match(portrait, /environment === "station"/);
+  assert.match(portrait, /environment === "coast"/);
+  assert.match(portrait, /settled/);
+});
+
+test("finishing an area points to the next mapped place", () => {
+  const next = getNextJourneyArea({ lessonId: "lesson-weather-and-shopping", lessons: [...lessons, { id: "lesson-home-and-directions", itemIds: ["word-4"] }] });
+  assert.equal(next.id, "shopping-street");
+  assert.equal(next.japaneseTitle, "商店街");
+});

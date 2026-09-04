@@ -29,7 +29,9 @@ const practiceQuestionTypes: Record<Category, readonly string[]> = {
 export const QUESTION_DRAFT_STORAGE_KEY = "michi.question-draft";
 
 export function isActivePracticeQuestion(question: Pick<PracticeQuestion, "validationStatus" | "generatedBy" | "review">) {
-  return question.validationStatus !== "rejected";
+  if (question.validationStatus === "rejected" || question.validationStatus === "generated") return false;
+  if (question.generatedBy?.startsWith("openrouter:")) return question.review?.status === "approved";
+  return true;
 }
 
 export function getContentReviewStatus(item: { reviewStatus?: unknown; tags?: unknown }): ContentReviewStatus {
@@ -223,6 +225,8 @@ function validateItem(item: unknown, path: string, category: (typeof categories)
         if (typeof question.correctAnswer !== "number" || !Number.isInteger(question.correctAnswer) || question.correctAnswer < 0 || question.correctAnswer >= options.length) issues.push({ path: `${questionPath}.correctAnswer`, message: "Correct answer must point to one option.", severity: "error" });
         stringValue(question.questionType, `${questionPath}.questionType`, issues, false);
         stringValue(question.explanation, `${questionPath}.explanation`, issues, false);
+        stringValue(question.visualScene, `${questionPath}.visualScene`, issues, false);
+        stringValue(question.visualContext, `${questionPath}.visualContext`, issues, false);
       });
     }
   }
@@ -248,6 +252,8 @@ function validateItem(item: unknown, path: string, category: (typeof categories)
         if (typeof question.correctAnswer !== "number" || !Number.isInteger(question.correctAnswer) || question.correctAnswer < 0 || question.correctAnswer >= answers.length) issues.push({ path: `${path}.questions[${index}].correctAnswer`, message: "Correct answer must point to one answer.", severity: "error" });
         stringValue(question.questionType, `${path}.questions[${index}].questionType`, issues, false);
         stringValue(question.explanation, `${path}.questions[${index}].explanation`, issues, false);
+        stringValue(question.visualScene, `${path}.questions[${index}].visualScene`, issues, false);
+        stringValue(question.visualContext, `${path}.questions[${index}].visualContext`, issues, false);
       });
     }
   }

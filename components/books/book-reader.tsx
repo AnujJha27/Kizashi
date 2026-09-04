@@ -100,7 +100,7 @@ export function BookReader({ book }: Readonly<{ book: StudyBook }>) {
       </div>
     </div>
     <div className="mt-2 grid items-start gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
-      {pdfLoading ? <div className="grid h-[78vh] min-h-[42rem] place-items-center rounded-lg bg-[#f5f3e8] text-sm text-[#676c75]">Loading book…</div> : pdfUrl ? <iframe key={page} title={`${book.title} PDF · page ${page}`} src={`${pdfUrl}#page=${page}`} className="h-[78vh] min-h-[42rem] w-full rounded-lg bg-[#f5f3e8]" /> : <div className="grid h-[78vh] min-h-[42rem] place-items-center rounded-lg border border-[#713b37] bg-[#21191a] p-6 text-center text-sm text-[#ef675d]" role="alert">{pdfError || "This book could not be loaded."}</div>}
+      {pdfLoading ? <div className="grid h-[86vh] min-h-[48rem] place-items-center rounded-lg bg-[#f5f3e8] text-sm text-[#676c75]">Loading book…</div> : pdfUrl ? <iframe key={page} title={`${book.title} PDF · page ${page}`} src={`${pdfUrl}#page=${page}`} className="h-[86vh] min-h-[48rem] w-full rounded-lg bg-[#f5f3e8]" /> : <div className="grid h-[86vh] min-h-[48rem] place-items-center rounded-lg border border-[#713b37] bg-[#21191a] p-6 text-center text-sm text-[#ef675d]" role="alert">{pdfError || "This book could not be loaded."}</div>}
       <aside className="min-w-0 rounded-lg border border-[#4b3a29] bg-[#211d18]/70 p-4">
         <HandwrittenNotes bookId={book.id} />
         <p className="eyebrow">Review beside page</p><p className="mt-2 text-xs leading-5 text-[#9297a1]">{book.description}</p>

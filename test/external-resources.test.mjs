@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 
 import {
   externalResources,
@@ -11,11 +12,12 @@ import {
   canEmbedExternalSource,
   canPlayExternalSourceMedia,
 } from "../lib/external-resources-runtime.js";
+import { parseShunVideoFeed, rotateCatalog } from "../lib/shun-catalog-core.js";
 
 test("registry filters resources and returns an empty result for missing matches", () => {
   assert.deepEqual(getExternalResources({ type: "grammar-reference" }).map((resource) => resource.sourceId), ["tae-kim"]);
-  assert.deepEqual(getExternalResources({ type: "lesson" }).map((resource) => resource.id), ["erin", "irodori-practical-lessons"]);
-  assert.deepEqual(getExternalResources({ itemId: "grammar-wa" }).map((resource) => resource.id), ["erin-01"]);
+  assert.deepEqual(getExternalResources({ type: "lesson" }).map((resource) => resource.id), ["erin", "irodori-practical-lessons", "marugoto-plus", "hirogaru"]);
+  assert.deepEqual(getExternalResources({ itemId: "grammar-wa" }).map((resource) => resource.id), ["erin-01", "marugoto-plus"]);
   assert.deepEqual(getExternalResources({ skill: "location question" }).map((resource) => resource.id), ["erin-04"]);
   assert.deepEqual(getExternalResources({ tag: "situational-japanese" }).map((resource) => resource.id), ["erin"]);
   assert.deepEqual(getExternalResources({ skill: "does-not-exist" }), []);
@@ -60,10 +62,31 @@ test("all registered source families expose their role and delivery boundary", (
     "wikimedia-commons": ["dynamic human pronunciation", "dynamic"],
     "aozora-bunko": ["native reading", "dynamic"],
     tadoku: ["graded extensive-reading", "frame-or-link"],
+    marugoto: ["can-do conversation and pronunciation reinforcement", "frame-or-link"],
+    "jfs-reading": ["practical reading and information retrieval", "frame-or-link"],
+    "kc-yom-yom": ["extensive reading", "frame-or-link"],
+    hirogaru: ["interest-driven reading and listening", "frame-or-link"],
+    ojad: ["optional pronunciation and prosody reference", "frame-or-link"],
     irodori: ["practical situational practice", "frame-or-link"],
   };
 
   assert.deepEqual(Object.fromEntries(getExternalResources().map((resource) => [resource.sourceId, [resource.metadata.role, resource.deliveryMode]])), expected);
+});
+
+test("provider entries expose bounded activity metadata without collapsing source levels into JLPT", async () => {
+  const providers = ["marugoto-plus", "jfs-reading-activities", "kc-yom-yom", "hirogaru", "ojad"].map((id) => getExternalResourceById(id));
+  assert.ok(providers.every((provider) => provider.metadata.catalog.length >= 2));
+  assert.ok(providers.flatMap((provider) => provider.metadata.catalog).every((entry) => entry.id && entry.title && entry.topic && entry.activityType && entry.url && entry.provenance));
+  const marugoto = getExternalResourceById("marugoto-plus").metadata.catalog[0];
+  assert.equal(marugoto.sourceLevel, "A1");
+  assert.match(marugoto.jlptRelevance, /N5/);
+  assert.ok(marugoto.targetItemIds.length > 0);
+  assert.notEqual(marugoto.sourceLevel, marugoto.jlptRelevance);
+  const link = externalResourceToSourceLink(getExternalResourceById("jfs-reading-activities"));
+  assert.equal(link.catalog.length, getExternalResourceById("jfs-reading-activities").metadata.catalog.length);
+  const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
+  assert.match(surface, /Activity map/);
+  assert.match(surface, /source\.catalog\.map/);
 });
 
 test("existing listening sources keep original URLs and can try the private frame helper", () => {
@@ -75,7 +98,7 @@ test("existing listening sources keep original URLs and can try the private fram
     jsut: "https://sites.google.com/site/shinnosuketakamichi/publication/jsut",
     "japanese-pod101": "https://www.japanesepod101.com/lesson-library/level-1-japanese",
     "japanese-with-shun": "https://www.youtube.com/@JapanesewithShun",
-    "nihongo-con-teppei": "https://teppei.nihongoconteppei.com/",
+    "nihongo-con-teppei": "https://nihongoconteppei.com/",
   };
 
   for (const [id, url] of Object.entries(expected)) {
@@ -83,6 +106,22 @@ test("existing listening sources keep original URLs and can try the private fram
     assert.equal(resource.deliveryMode, "frame-or-link");
     assert.equal(resource.url, url);
   }
+  const shun = getExternalResourceById("japanese-with-shun");
+  assert.equal(typeof shun.metadata.videoCatalogFeed, "string");
+  assert.equal(typeof shun.metadata.videoCatalogChannelId, "string");
+  const teppei = getExternalResourceById("nihongo-con-teppei");
+  assert.equal(teppei.metadata.mediaDelivery, "remote-media");
+  assert.equal(teppei.metadata.podcastFeed, "https://nihongoconteppei.com/feed/");
+});
+
+test("Shun catalog entries become selectable provider-hosted source links", () => {
+  const catalog = parseShunVideoFeed(`<feed><entry><id>yt:video:K5RfTVZH-1g</id><yt:videoId>K5RfTVZH-1g</yt:videoId><title>A Day &amp; Japan (N5-N4)</title><published>2026-02-28T00:00:00Z</published></entry><entry><yt:videoId>6K3Yby5-iq0</yt:videoId><title>Japanese listening practice</title><published>2025-06-20T00:00:00Z</published></entry></feed>`);
+  assert.equal(catalog.length, 2);
+  assert.equal(catalog[0].title, "A Day & Japan (N5-N4)");
+  assert.equal(catalog[0].url, "https://www.youtube.com/watch?v=K5RfTVZH-1g");
+  assert.equal(catalog[0].frameUrl, "https://www.youtube-nocookie.com/embed/K5RfTVZH-1g?rel=0");
+  assert.equal(rotateCatalog(catalog, 1)[0].id, "6K3Yby5-iq0");
+  assert.equal(getExternalResourceById("japanese-with-shun").metadata.videoCatalogFeed.includes("feeds/videos.xml"), true);
 });
 
 test("Erin is one shelf family with canonical lesson records and media", () => {

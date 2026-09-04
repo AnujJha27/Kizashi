@@ -12,6 +12,8 @@ import { selectWeakPracticeQuestions } from "../lib/weak-practice.js";
 import { releaseForLearners } from "../lib/content-release.js";
 import { fetchWithTimeout } from "../lib/request-timeout.js";
 import { preservePracticePosition } from "../lib/practice-session-core.js";
+import { getContentCompleteness } from "../lib/content-completeness-core.js";
+import { buildContentQualityReport } from "../lib/content-quality-core.js";
 
 const execFileAsync = promisify(execFile);
 
@@ -55,6 +57,30 @@ test("practice navigation reuses validated questions and restores the active tab
   assert.match(tabs, /aria-label="Practice modes"/);
 });
 
+test("practice review names grammar contrast clusters", async () => {
+  const player = await readFile(new URL("../components/practice/practice-player.tsx", import.meta.url), "utf8");
+  assert.match(player, /const contrastLabel = \(question: PracticeQuestion\)/);
+  assert.match(player, /Contrast: \{contrastLabel\(question\)\}/);
+  assert.doesNotMatch(player, /void grammarContrasts/);
+});
+
+test("completeness dashboard exposes grammar assessment families by level", async () => {
+  const dashboard = await readFile(new URL("../components/content/completeness-dashboard.tsx", import.meta.url), "utf8");
+  assert.match(dashboard, /grammarAssessment\.byLevel\.N5\.formSelectionContexts/);
+  assert.match(dashboard, /grammarAssessment\.byLevel\.N4\.sentenceOrderingContexts/);
+  assert.match(dashboard, /grammarAssessment\.byLevel\.N4\.textGrammarContexts/);
+  assert.match(dashboard, /quality\.reading\.byLevel\.N5\.questionFamilies/);
+  assert.match(dashboard, /quality\.listening\.byLevel\.N4\.nearDuplicateClusters/);
+  assert.doesNotMatch(dashboard, /N5 \$\{report\.quality/);
+});
+
+test("question drafts stay out of learner queues until approved", async () => {
+  const validation = await readFile(new URL("../lib/content-validation.ts", import.meta.url), "utf8");
+  assert.match(validation, /validationStatus === "generated"/);
+  assert.match(validation, /generatedBy\?\.startsWith\("openrouter:"\)/);
+  assert.match(validation, /review\?\.status === "approved"/);
+});
+
 test("practice defers the question bank until its panel loads", async () => {
   const page = await readFile(new URL("../app/(main)/practice/page.tsx", import.meta.url), "utf8");
   const lazyPractice = await readFile(new URL("../components/practice/lazy-practice.tsx", import.meta.url), "utf8");
@@ -84,9 +110,19 @@ test("opted-in account sync stays mounted across route changes", async () => {
   assert.doesNotMatch(profile, /AccountSync/);
 });
 
+test("shell background follows the resolved Journey visual asset", async () => {
+  const shell = await readFile(new URL("../components/shell/app-shell.tsx", import.meta.url), "utf8");
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.match(shell, /--world-shell.*visualAssets\.shell/);
+  assert.match(css, /var\(--world-shell, url\("\/site-atmosphere\.png"\)\)/);
+});
+
 const moduleData = JSON.parse(await readFile(new URL("../data/n5-foundations.json", import.meta.url), "utf8"));
-const expansionData = await Promise.all(["n5-conversation-expansion.json", "n5-practical-expansion.json", "n5-life-expansion.json"].map(async (file) => JSON.parse(await readFile(new URL(`../data/${file}`, import.meta.url), "utf8"))));
+const expansionData = await Promise.all(["n5-conversation-expansion.json", "n5-practical-expansion.json", "n5-life-expansion.json", "n4-grammar-expansion.json"].map(async (file) => JSON.parse(await readFile(new URL(`../data/${file}`, import.meta.url), "utf8"))));
 const authoredQuestions = JSON.parse(await readFile(new URL("../data/n5-authored-practice.json", import.meta.url), "utf8"));
+const grammarDrafts = JSON.parse(await readFile(new URL("../data/n5-grammar-assessment-drafts.json", import.meta.url), "utf8"));
+const originalListening = JSON.parse(await readFile(new URL("../data/original-listening-bank.json", import.meta.url), "utf8"));
+const originalReading = JSON.parse(await readFile(new URL("../data/original-reading-bank.json", import.meta.url), "utf8"));
 const mergedModule = {
   ...moduleData,
   course: { ...moduleData.course, chapters: [moduleData, ...expansionData].flatMap((module) => module.course.chapters) },
@@ -98,10 +134,34 @@ const mergedModule = {
   listening: [moduleData, ...expansionData].flatMap((module) => module.listening),
 };
 
-test("the N5 module has meaningful, linked content", () => {
+test("the N5 module has meaningful, linked content", async () => {
   assert.ok(mergedModule.vocabulary.length >= 150);
   assert.ok(mergedModule.kanji.length >= 80);
-  assert.ok(mergedModule.grammar.length >= 40);
+  assert.ok(mergedModule.grammar.length >= 50);
+  assert.ok(["grammar-koto-ni-suru", "grammar-zuni", "grammar-sou-appearance", "grammar-tsumori", "grammar-te-ageru", "grammar-te-oku", "grammar-te-kureru", "grammar-te-shimau", "grammar-te-miru", "grammar-te-morau", "grammar-te-iku", "grammar-te-kuru", "grammar-ni-chigai-nai", "grammar-ni-kimatte-iru", "grammar-mitai", "grammar-rashii", "grammar-wake-ni-wa-ikanai", "grammar-sugiru", "grammar-chu", "grammar-kata"].every((id) => mergedModule.grammar.some((item) => item.id === id)));
+  const n4ExpansionGrammar = expansionData.find((data) => data.course.id === "n4-grammar-expansion").grammar;
+  const n4ExpansionLessonIds = new Set(expansionData.find((data) => data.course.id === "n4-grammar-expansion").course.chapters.flatMap((chapter) => chapter.lessons).flatMap((lesson) => lesson.itemIds));
+  assert.equal(n4ExpansionGrammar.length, 24);
+  assert.ok(["grammar-to-conditional", "grammar-tara", "grammar-ba", "grammar-nara"].every((id) => n4ExpansionGrammar.some((item) => item.id === id)));
+  assert.ok(n4ExpansionGrammar.every((item) => n4ExpansionLessonIds.has(item.id)));
+  assert.ok(n4ExpansionGrammar.every((item) => item.examples.length >= 4 && item.examples.every((example) => typeof example.japanese === "string" && typeof example.translation === "string")));
+  const authoredQuestionIds = new Set(authoredQuestions.map((question) => question.id));
+  assert.ok(n4ExpansionGrammar.every((item) => item.practiceQuestionIds.length >= 2 && item.practiceQuestionIds.every((id) => authoredQuestionIds.has(id))));
+  const n4LifeGrammar = expansionData.find((data) => data.course.chapters.some((chapter) => chapter.id === "chapter-life-and-seasons")).grammar.filter((item) => item.jlptLevel === "N4");
+  assert.equal(n4LifeGrammar.length, 5);
+  assert.ok(n4LifeGrammar.every((item) => item.examples.length >= 4));
+  const n5Grammar = mergedModule.grammar.filter((item) => item.jlptLevel === "N5");
+  const n5GrammarQuestionIds = new Set(authoredQuestions.filter((question) => question.category === "grammar" && question.jlptLevel === "N5").map((question) => question.id));
+  assert.equal(n5Grammar.length, 46);
+  assert.ok(["grammar-ga-but", "grammar-ta-koto", "grammar-deshita", "grammar-dewa-arimasen", "grammar-nakutemo-ii", "grammar-nakereba-naranai"].every((id) => n5Grammar.some((item) => item.id === id)));
+  assert.ok(n5Grammar.every((item) => item.examples.length >= 4 && item.commonMistakes.length >= 2 && item.practiceQuestionIds.length >= 2 && item.practiceQuestionIds.every((id) => n5GrammarQuestionIds.has(id))));
+  const n4Vocabulary = mergedModule.vocabulary.filter((item) => item.jlptLevel === "N4");
+  assert.equal(n4Vocabulary.length, 8);
+  assert.ok(n4Vocabulary.every((item) => item.usageAssessment?.correct && item.usageAssessment.distractors.length === 3));
+  const questionFactory = await readFile(new URL("../lib/questions.ts", import.meta.url), "utf8");
+  assert.match(questionFactory, /questionType: "usage"/);
+  assert.ok(["contrast-n4-te-direction", "contrast-n4-benefit-perspective", "contrast-n4-inference"].every((id) => mergedModule.grammarContrasts.some((contrast) => contrast.id === id)));
+  assert.ok(["grammar-te-iku", "grammar-te-kuru", "grammar-te-ageru", "grammar-te-kureru", "grammar-te-morau", "grammar-ni-chigai-nai", "grammar-ni-kimatte-iru", "grammar-mitai", "grammar-rashii"].every((id) => mergedModule.grammar.find((item) => item.id === id)?.contrastIds.length));
   assert.ok(mergedModule.readings.length >= 12);
   assert.ok(mergedModule.listening.length >= 12);
 
@@ -113,16 +173,51 @@ test("the N5 module has meaningful, linked content", () => {
     ...mergedModule.listening.map((item) => item.id),
   ]);
   const lessonIds = mergedModule.course.chapters.flatMap((chapter) => chapter.lessons.flatMap((lesson) => lesson.itemIds));
+  const n4GrammarIds = mergedModule.grammar.filter((item) => item.jlptLevel === "N4" && item.id.startsWith("grammar-") && !["grammar-ta-form", "grammar-mae-ni", "grammar-ato-de", "grammar-toki", "grammar-nagara"].includes(item.id)).map((item) => item.id);
 
   assert.equal(itemIds.size, ["vocabulary", "kanji", "grammar", "readings", "listening"].reduce((total, category) => total + mergedModule[category].length, 0));
   assert.ok(lessonIds.every((id) => itemIds.has(id)));
+  assert.ok(n4GrammarIds.every((id) => lessonIds.includes(id)));
+  assert.ok(mergedModule.grammar.filter((item) => n4GrammarIds.includes(item.id)).every((item) => item.sourceIds?.some((sourceId) => ["openjlpt", "irodori-sentence-patterns"].includes(sourceId))));
   assert.ok([...mergedModule.grammar, ...mergedModule.readings, ...mergedModule.listening].every((item) => item.prerequisiteIds.every((id) => itemIds.has(id))));
   assert.ok(mergedModule.grammar.every((item) => item.meaning && item.formation && item.intuition && item.examples.length >= 2 && item.commonMistakes.length >= 2));
   assert.ok(mergedModule.kanji.every((item) => item.usefulWords.length >= 1));
   assert.ok(mergedModule.vocabulary.every((item) => item.exampleSentences.length >= 1 && item.collocations.length >= 1));
+  const authoredN5Kanji = mergedModule.kanji.filter((item) => item.jlptLevel === "N5");
+  assert.equal(authoredN5Kanji.length, 81);
+  assert.ok(authoredN5Kanji.every((item) => item.usefulWords.length >= 3), "Every authored N5 kanji needs a 3-word teaching set.");
   assert.ok(mergedModule.grammarContrasts.every((contrast) => contrast.grammarPointIds.length >= 1 && contrast.examples.length >= 2));
   const listeningTypes = new Set(mergedModule.listening.flatMap((item) => item.questions.map((question) => question.questionType)));
   assert.ok(["task-based response", "key point", "verbal expression", "quick response"].every((type) => listeningTypes.has(type)));
+});
+
+test("original verbal-expression listening items carry visual context", () => {
+  const items = originalListening.listening.filter((item) => item.subcategory === "verbal expression");
+  assert.ok(items.length >= 4);
+  assert.ok(items.every((item) => item.questions.some((question) => question.visualContext)));
+});
+
+test("authored reading and listening banks expose diversity QA", () => {
+  const report = buildContentQualityReport({ readings: originalReading.readings, listening: originalListening.listening });
+  assert.deepEqual(report.reading.byLevel, { N5: { total: 60, uniqueTemplates: 60, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 12, "mid-length passage": 18, "short passage detail": 30 } }, N4: { total: 55, uniqueTemplates: 55, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 15, "mid-length passage": 14, "short passage detail": 26 } } });
+  assert.equal(report.reading.nearDuplicateClusters.length, 0);
+  assert.deepEqual(report.listening.byLevel, { N5: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } }, N4: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } } });
+  assert.equal(report.listening.uniqueTemplates, 160);
+  assert.equal(report.listening.sourceTypes.tts, 160);
+  assert.equal(report.listening.nearDuplicateClusters.length, 0);
+});
+
+test("quality audit keeps reading and listening families visible by level", () => {
+  const report = buildContentQualityReport({
+    readings: [{ id: "reading-n5", jlptLevel: "N5", passage: "駅の案内です。", questions: [{ questionType: "information retrieval" }] }, { id: "reading-n4", jlptLevel: "N4", passage: "病院の案内です。", questions: [{ questionType: "mid-length passage" }] }],
+    listening: [{ id: "listen-n5", jlptLevel: "N5", transcript: "駅の案内です。", questions: [{ questionType: "quick response" }] }, { id: "listen-n4", jlptLevel: "N4", transcript: "店の案内です。", questions: [{ questionType: "key point" }] }],
+  });
+  assert.equal(report.reading.byLevel.N5.questionFamilies["information retrieval"], 1);
+  assert.equal(report.reading.byLevel.N4.questionFamilies["mid-length passage"], 1);
+  assert.equal(report.listening.byLevel.N5.questionFamilies["quick response"], 1);
+  assert.equal(report.listening.byLevel.N4.questionFamilies["key point"], 1);
+  assert.equal(report.reading.byLevel.N5.nearDuplicateClusters.length, 0);
+  assert.equal(report.listening.byLevel.N4.nearDuplicateClusters.length, 0);
 });
 
 test("the deployable Studio review package keeps the staged records", async () => {
@@ -273,6 +368,13 @@ test("content review cards open a readable modal before approval", async () => {
   assert.match(studio, /Edit record/);
 });
 
+test("lesson completion uses the area transition language", async () => {
+  const lesson = await readFile(new URL("../components/learning/local-lesson.tsx", import.meta.url), "utf8");
+  assert.match(lesson, /data-world-transition="area-complete"/);
+  assert.match(lesson, /You can now/);
+  assert.match(lesson, /Next stop/);
+});
+
 test("kanji orthography prompts test the reading instead of visual matching", async () => {
   const questions = await readFile(new URL("../lib/questions.ts", import.meta.url), "utf8");
   assert.match(questions, /Which word is read \$\{word\.reading\}\?/);
@@ -291,11 +393,103 @@ test("original context coverage is long enough and stays linked", () => {
   assert.ok(authoredQuestions.every((question) => itemIds.has(question.itemId)));
 });
 
+test("content completeness separates quantity, fields, review, and context coverage", () => {
+  const report = getContentCompleteness({
+    course: { chapters: [{ lessons: [{ itemIds: ["vocab-1", "reading-1"] }] }] },
+    vocabulary: [{ id: "vocab-1", category: "vocabulary", jlptLevel: "N5", writtenForm: "駅", reading: "えき", meanings: ["station"], exampleSentences: [{}], collocations: ["駅前"] }],
+    kanji: [],
+    grammar: [{ id: "grammar-1", category: "grammar", jlptLevel: "N4", pattern: "〜", meaning: "pattern", formation: "〜", intuition: "pattern", usageConditions: [], examples: [], reviewStatus: "pending" }],
+    readings: [{ id: "reading-1", category: "reading", jlptLevel: "N5", title: "Notice", subcategory: "notice", passage: "お知らせ", translation: "Notice", vocabularyIds: [], grammarIds: [], kanjiIds: [], questions: [{ questionType: "visual detail" }] }],
+    listening: [{ id: "listen-1", category: "listening", jlptLevel: "N5", situation: "station announcement", transcript: "電車が来ます", questions: [{ questionType: "visual verbal expression" }] }],
+    practiceQuestions: [
+      { category: "grammar", questionType: "sentence completion", prompt: "雨が降ったので、出かけませんでした。" },
+      { category: "grammar", questionType: "sentence ordering", prompt: "Build the natural sentence." },
+      { category: "grammar", questionType: "text grammar", prompt: "昨日は雨でした。___、家にいました。" },
+      { category: "grammar", questionType: "meaning", prompt: "これは何を表しますか。" },
+    ],
+  });
+  assert.deepEqual(report.levels, { N5: 3, N4: 1 });
+  assert.deepEqual(report.review, { approved: 3, pending: 1, rejected: 0 });
+  assert.equal(report.lessonAssignment, 2);
+  assert.equal(report.fieldComplete, 2);
+  assert.equal(report.uniqueContexts, 2);
+  assert.equal(report.visualListeningQuestions, 1);
+  assert.deepEqual(report.pronunciation, { lessons: 20, n5Lessons: 15, n4Lessons: 5, discriminationItems: 60, topics: 10 });
+  assert.deepEqual(report.dictation, { total: 1, N5: 1, N4: 0, byMode: { word: 1, phrase: 0, sentence: 0, "dialogue-gap": 0, "key-information": 0 } });
+  assert.deepEqual(report.output, { speaking: 1, writing: 1, pragmatics: 0, chunks: 1 });
+  assert.deepEqual(report.grammarDepth, { total: 1, examplesAtLeast4: 0, mistakesAtLeast2: 0, practiceCovered: 0, contractReady: 0, byLevel: { N5: { total: 0, examplesAtLeast4: 0, mistakesAtLeast2: 0, practiceCovered: 0, contractReady: 0 }, N4: { total: 1, examplesAtLeast4: 0, mistakesAtLeast2: 0, practiceCovered: 0, contractReady: 0 } } });
+  assert.deepEqual(report.grammarAssessment, { questions: 4, uniqueContexts: 4, formSelectionContexts: 1, sentenceCompositionContexts: 0, sentenceOrderingContexts: 1, textGrammarContexts: 1, contrastClusterQuestions: 0, pendingQuestions: 0, pendingByLevel: { N5: 0, N4: 0 }, byType: { "sentence completion": 1, "sentence ordering": 1, "text grammar": 1, meaning: 1 }, byLevel: { N5: { questions: 0, uniqueContexts: 0, formSelectionContexts: 0, sentenceOrderingContexts: 0, textGrammarContexts: 0 }, N4: { questions: 0, uniqueContexts: 0, formSelectionContexts: 0, sentenceOrderingContexts: 0, textGrammarContexts: 0 } } });
+  assert.equal(report.byCategory.vocabulary.lessonLinked, 1);
+  assert.equal(report.byCategory.grammar.fieldComplete, 0);
+});
+
 test("every persisted authored question has a semantic review decision", () => {
-  assert.equal(authoredQuestions.length, 24);
+  assert.equal(authoredQuestions.length, 164);
   assert.ok(authoredQuestions.every((question) => question.review?.status === "approved"));
   assert.ok(authoredQuestions.every((question) => question.review?.reviewedBy && question.review?.reviewedAt && question.review?.reviewNotes));
   assert.ok(authoredQuestions.every((question) => question.review?.targetItemIds?.includes(question.itemId)));
+});
+
+test("reviewed grammar contrast questions use independent contexts", () => {
+  const contrastQuestions = authoredQuestions.filter((question) => question.category === "grammar" && (question.targetItemIds?.length ?? 0) > 1);
+  assert.equal(contrastQuestions.length, 6);
+  assert.equal(new Set(contrastQuestions.map((question) => question.prompt)).size, 6);
+  assert.ok(contrastQuestions.every((question) => question.questionType === "sentence completion" && question.contextSetId && question.contextText));
+  assert.deepEqual(new Set(contrastQuestions.flatMap((question) => question.targetItemIds ?? [])), new Set(["grammar-te-iku", "grammar-te-kuru", "grammar-te-ageru", "grammar-te-kureru", "grammar-te-morau", "grammar-ni-chigai-nai", "grammar-ni-kimatte-iru", "grammar-mitai", "grammar-rashii"]));
+});
+
+test("every N4 bridge grammar item has persisted practice contexts", () => {
+  const n4Ids = expansionData.find((data) => data.course.id === "n4-grammar-expansion").grammar.map((item) => item.id);
+  const counts = new Map(n4Ids.map((id) => [id, 0]));
+  authoredQuestions.filter((question) => question.category === "grammar" && n4Ids.includes(question.itemId)).forEach((question) => counts.set(question.itemId, (counts.get(question.itemId) ?? 0) + 1));
+  assert.ok(n4Ids.every((id) => (counts.get(id) ?? 0) >= 2), JSON.stringify(Object.fromEntries(counts)));
+});
+
+test("authored sentence-ordering prompts identify their context", () => {
+  const ordering = authoredQuestions.filter((question) => question.category === "grammar" && question.questionType === "sentence ordering");
+  assert.equal(ordering.length, 5);
+  assert.ok(ordering.every((question) => question.contextText));
+  assert.equal(new Set(ordering.map((question) => question.contextText)).size, ordering.length);
+});
+
+test("grammar assessment drafts are independent and review-only", async () => {
+  const curriculum = await readFile(new URL("../lib/curriculum.ts", import.meta.url), "utf8");
+  assert.equal(grammarDrafts.length, 125);
+  assert.equal(new Set(grammarDrafts.map((question) => question.prompt)).size, grammarDrafts.length);
+  assert.equal(grammarDrafts.filter((question) => question.jlptLevel === "N5").length, 50);
+  assert.equal(grammarDrafts.filter((question) => question.jlptLevel === "N4").length, 75);
+  assert.ok(grammarDrafts.every((question) => question.category === "grammar" && question.questionType === "text grammar"));
+  assert.ok(grammarDrafts.every((question) => question.validationStatus === "generated" && question.review?.status === "draft"));
+  assert.ok(grammarDrafts.every((question) => question.prompt.includes("\n\n")));
+  assert.ok(grammarDrafts.every((question) => question.contextSetId && question.contextText));
+  assert.equal(new Set(grammarDrafts.map((question) => question.contextSetId)).size, grammarDrafts.length);
+  const grammarIds = new Set(mergedModule.grammar.map((item) => item.id));
+  assert.ok(grammarDrafts.every((question) => grammarIds.has(question.itemId) && question.options.length >= 4 && question.correctIndex >= 0 && question.correctIndex < question.options.length));
+  assert.match(curriculum, /grammarAssessmentDrafts/);
+  assert.match(curriculum, /n4GrammarExpansionData\.grammarContrasts/);
+});
+
+test("N4 grammar assessment drafts cover distinct bridge concepts", () => {
+  const n4Drafts = grammarDrafts.filter((question) => question.jlptLevel === "N4");
+  assert.equal(n4Drafts.length, 75);
+  assert.deepEqual(new Set(n4Drafts.map((question) => question.itemId)), new Set(["grammar-ta-form", "grammar-mae-ni", "grammar-ato-de", "grammar-toki", "grammar-nagara"]));
+});
+
+test("content completeness keeps grammar drafts out of approved assessment counts", () => {
+  const report = getContentCompleteness({ practiceQuestions: [{ category: "grammar", questionType: "text grammar", jlptLevel: "N5", prompt: "雨です。___、家にいます。", validationStatus: "generated", review: { status: "draft" } }] });
+  assert.equal(report.grammarAssessment.questions, 0);
+  assert.equal(report.grammarAssessment.pendingQuestions, 1);
+  assert.deepEqual(report.grammarAssessment.pendingByLevel, { N5: 1, N4: 0 });
+});
+
+test("grammar context metrics collapse variants sharing a context set", () => {
+  const report = getContentCompleteness({ practiceQuestions: [
+    { category: "grammar", questionType: "text grammar", jlptLevel: "N5", prompt: "駅で切符を買います。", contextSetId: "station-ticket" },
+    { category: "grammar", questionType: "text grammar", jlptLevel: "N5", prompt: "店でパンを買います。", contextSetId: "station-ticket" },
+  ] });
+  assert.equal(report.grammarAssessment.uniqueContexts, 1);
+  assert.equal(report.grammarAssessment.textGrammarContexts, 1);
+  assert.equal(report.grammarAssessment.byLevel.N5.textGrammarContexts, 1);
 });
 
 test("database seed includes RLS and all user-owned foundations", async () => {
@@ -392,7 +586,7 @@ test("seed creates the curated source before provenance references it", async ()
   assert.match(seed.slice(sourceInsert, firstReference), /michi-curated-n5-seed/);
 });
 
-test("AI content generation stays allowlisted and rate-limited while drafts are learner-active", async () => {
+test("AI content generation stays allowlisted and rate-limited while drafts remain review-only", async () => {
   const route = await readFile(new URL("../app/api/content/generate/route.ts", import.meta.url), "utf8");
   const validation = await readFile(new URL("../lib/content-validation.ts", import.meta.url), "utf8");
   assert.match(route, /const user = await getAllowedUser\(\);\s+if \(!user\).*status: 401/s);
@@ -403,7 +597,8 @@ test("AI content generation stays allowlisted and rate-limited while drafts are 
   assert.match(route, /validationStatus: "generated"/);
   assert.match(route, /generatedReview\(model, item\.id\)/);
   assert.match(validation, /generatedBy.*openrouter/);
-  assert.match(validation, /validationStatus !== "rejected"/);
+  assert.match(validation, /validationStatus === "generated"/);
+  assert.match(validation, /review\?\.status === "approved"/);
 });
 
 test("practice coverage checks every item and normalizes JLPT family aliases", async () => {
@@ -414,6 +609,7 @@ test("practice coverage checks every item and normalizes JLPT family aliases", a
   assert.match(questions, /sentence completion.*sentence composition/);
   assert.match(validation, /practiceQuestionTypes/);
   assert.match(studio, /N5 practice coverage/);
+  assert.match(studio, /CompletenessDashboard/);
 });
 
 test("ranks incomplete high-value source records before complete low-value records", () => {
