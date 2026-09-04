@@ -269,6 +269,15 @@ test("generated learning visuals have centralized provenance metadata", async ()
   assert.match(manifest, /station-help\.webp/);
 });
 
+test("grammar contract fields are editable and reviewable", async () => {
+  const editor = await readFile(new URL("../components/content/content-record-editor.tsx", import.meta.url), "utf8");
+  const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
+  assert.match(editor, /Aliases \/ variants/);
+  assert.match(editor, /Mini dialogue\/context/);
+  assert.match(studio, /item\.aliases/);
+  assert.match(studio, /item\.context/);
+});
+
 test("quality audit keeps reading and listening families visible by level", () => {
   const report = buildContentQualityReport({
     readings: [{ id: "reading-n5", jlptLevel: "N5", passage: "駅の案内です。", questions: [{ questionType: "information retrieval" }] }, { id: "reading-n4", jlptLevel: "N4", passage: "病院の案内です。", questions: [{ questionType: "mid-length passage" }] }],
