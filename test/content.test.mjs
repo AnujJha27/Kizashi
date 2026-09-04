@@ -249,6 +249,8 @@ test("information-retrieval readings carry visual formats", async () => {
   assert.equal(retrieval.length, 27);
   assert.ok(retrieval.every((item) => ["notice", "menu", "timetable", "schedule", "sale", "event", "directions", "hotel", "work", "health", "school", "home", "restaurant", "museum", "weather", "delivery", "transport"].includes(item.visualFormat)));
   assert.match(panel, /visualFormat/);
+  assert.match(panel, /visualFormatLayouts/);
+  assert.match(panel, /data-visual-format/);
   assert.match(panel, /readingVisualAssets/);
   assert.doesNotMatch(panel, /<svg/);
 });
