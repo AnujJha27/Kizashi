@@ -421,6 +421,7 @@ test("content completeness separates quantity, fields, review, and context cover
   assert.deepEqual(report.dictation, { total: 1, N5: 1, N4: 0, byMode: { word: 1, phrase: 0, sentence: 0, "dialogue-gap": 0, "key-information": 0 } });
   assert.deepEqual(report.output, { speaking: 1, writing: 1, pragmatics: 0, chunks: 1 });
   assert.deepEqual(report.grammarDepth, { total: 1, examplesAtLeast4: 0, mistakesAtLeast2: 0, practiceCovered: 0, contractReady: 0, byLevel: { N5: { total: 0, examplesAtLeast4: 0, mistakesAtLeast2: 0, practiceCovered: 0, contractReady: 0 }, N4: { total: 1, examplesAtLeast4: 0, mistakesAtLeast2: 0, practiceCovered: 0, contractReady: 0 } } });
+  assert.deepEqual(report.grammarContract, { total: 1, aliases: 0, contexts: 0, readingAppearances: 0, listeningAppearances: 0, practiceContexts: 0, contractReady: 0, byLevel: { N5: { total: 0, aliases: 0, contexts: 0, readingAppearances: 0, listeningAppearances: 0, practiceContexts: 0, contractReady: 0 }, N4: { total: 1, aliases: 0, contexts: 0, readingAppearances: 0, listeningAppearances: 0, practiceContexts: 0, contractReady: 0 } } });
   assert.deepEqual(report.grammarAssessment, { questions: 4, uniqueContexts: 4, formSelectionContexts: 1, sentenceCompositionContexts: 0, sentenceOrderingContexts: 1, textGrammarContexts: 1, contrastClusterQuestions: 0, pendingQuestions: 0, pendingByLevel: { N5: 0, N4: 0 }, byType: { "sentence completion": 1, "sentence ordering": 1, "text grammar": 1, meaning: 1 }, byLevel: { N5: { questions: 0, uniqueContexts: 0, formSelectionContexts: 0, sentenceOrderingContexts: 0, textGrammarContexts: 0 }, N4: { questions: 0, uniqueContexts: 0, formSelectionContexts: 0, sentenceOrderingContexts: 0, textGrammarContexts: 0 } } });
   assert.equal(report.byCategory.vocabulary.lessonLinked, 1);
   assert.equal(report.byCategory.grammar.fieldComplete, 0);
@@ -483,6 +484,14 @@ test("content completeness keeps grammar drafts out of approved assessment count
   assert.equal(report.grammarAssessment.questions, 0);
   assert.equal(report.grammarAssessment.pendingQuestions, 1);
   assert.deepEqual(report.grammarAssessment.pendingByLevel, { N5: 1, N4: 0 });
+});
+
+test("grammar contract reports aliases, context, and linked assessment coverage", () => {
+  const report = getContentCompleteness({
+    grammar: [{ id: "grammar-contract", category: "grammar", jlptLevel: "N4", pattern: "〜", meaning: "pattern", formation: "〜", intuition: "pattern", usageConditions: ["condition"], examples: [{ japanese: "例です。", translation: "It is an example." }], commonMistakes: ["mistake"], contrastIds: [], practiceQuestionIds: [], aliases: ["〜"], context: { japanese: "例です。", translation: "It is an example." } }],
+    practiceQuestions: [{ itemId: "grammar-contract", category: "grammar", questionType: "sentence completion", prompt: "例___。", contextSetId: "contract-1", review: { status: "approved" } }, { itemId: "grammar-contract", category: "grammar", questionType: "sentence completion", prompt: "例___。", contextSetId: "contract-2", review: { status: "approved" } }],
+  });
+  assert.deepEqual(report.grammarContract, { total: 1, aliases: 1, contexts: 1, readingAppearances: 0, listeningAppearances: 0, practiceContexts: 1, contractReady: 1, byLevel: { N5: { total: 0, aliases: 0, contexts: 0, readingAppearances: 0, listeningAppearances: 0, practiceContexts: 0, contractReady: 0 }, N4: { total: 1, aliases: 1, contexts: 1, readingAppearances: 0, listeningAppearances: 0, practiceContexts: 1, contractReady: 1 } } });
 });
 
 test("grammar context metrics collapse variants sharing a context set", () => {

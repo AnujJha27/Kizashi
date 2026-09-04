@@ -1087,6 +1087,10 @@ assessment contexts
 
 Major/high-frequency concepts should receive more examples.
 
+## Current implementation status (2026-09-04)
+
+- [~] `lib/content-completeness-core.js` now audits the full grammar contract alongside the existing depth gate. The current 116-item learner package has 15/116 records with persisted aliases and mini-contexts, 111/116 with two linked assessment contexts, 23 reading appearances, 0 listening appearances, and 15/116 contract-ready records. The remaining alias/context work stays visible rather than being inferred from generic examples.
+
 ---
 
 # C27. ORIGINAL KIZASHI GRAMMAR CONTENT
@@ -2530,7 +2534,7 @@ Do not make it required for N5/N4 progression.
 
 ## Current implementation status (2026-09-04)
 
-- [x] `components/content/completeness-dashboard.tsx` and `lib/content-completeness-core.js` expose live package metrics for quantity, N5/N4 counts, Journey lesson assignment, required learner-field completeness, review workflow status, unique reading/listening contexts, N5/N4 reading/listening question families and duplicate clusters, grammar assessment families/contexts, a grammar-depth gate (4 examples, 2 mistakes, and 2 reviewed practice links), visual listening-question count, the separate pronunciation bank (20 lessons / 60 discrimination items / 10 topics), derived dictation lanes/counts, and output-bank counts.
+- [x] `components/content/completeness-dashboard.tsx` and `lib/content-completeness-core.js` expose live package metrics for quantity, N5/N4 counts, Journey lesson assignment, required learner-field completeness, review workflow status, unique reading/listening contexts, N5/N4 reading/listening question families and duplicate clusters, grammar assessment families/contexts, and a grammar-depth gate (4 examples, 2 mistakes, and 2 reviewed practice links); the completeness core also computes the grammar lesson-contract audit. Visual listening-question count, the separate pronunciation bank (20 lessons / 60 discrimination items / 10 topics), derived dictation lanes/counts, and output-bank counts remain visible.
 - [~] The dashboard is an audit surface, not a substitute for linguistic review: source union coverage, naturalness, near-duplicate detection, and the remaining grammar/vocabulary/kanji quality work still require the deeper audits below.
 
 Extend Content Studio to report:
@@ -2620,7 +2624,7 @@ missing
 
 # C80. GRAMMAR ASSESSMENT PANEL
 
-The dashboard now reports form-selection, sentence-ordering, text-grammar, contrast-cluster, and unique-context counts, including N5/N4 question totals, plus a separate grammar-depth gate that only counts reviewed practice links. All 71 authored N5/N4 grammar items now meet the 4-example, 2-mistake, and 2-practice-link gate, and text-grammar remains pending review.
+The dashboard now reports form-selection, sentence-ordering, text-grammar, contrast-cluster, and unique-context counts, including N5/N4 question totals, plus a separate grammar-depth gate that only counts reviewed practice links. All 116 learner-ready N5/N4 grammar items now meet the 4-example, 2-mistake, and 2-practice-link gate, while the broader lesson-contract audit remains partial and text-grammar remains pending review.
 
 Show:
 

@@ -1943,6 +1943,8 @@
       "commonMistakes": ["Use plain form before のに and なのに after a noun or な-adjective; do not insert the polite です／ます form.", "Do not use this contrast のに when the sentence means 'for doing'; check whether the following phrase describes an unexpected result or usefulness."],
       "contrastIds": ["contrast-n4-contrast-conjunction"],
       "practiceQuestionIds": ["grammar-noni-1", "grammar-noni-2"],
+      "aliases": ["のに", "なのに"],
+      "context": {"japanese": "薬を飲んだのに、まだ熱があります。", "translation": "Even though I took medicine, I still have a fever."},
       "sourceIds": ["irodori-sentence-patterns"]
     },
     {
@@ -1973,6 +1975,8 @@
       "commonMistakes": ["Use the て-form before も for verbs; do not attach も directly to the dictionary form.", "Do not confuse ても's concession with てもいい's permission; read the following clause to identify the function."],
       "contrastIds": ["contrast-n4-contrast-conjunction"],
       "practiceQuestionIds": ["grammar-temo-1", "grammar-temo-2"],
+      "aliases": ["ても", "であっても"],
+      "context": {"japanese": "雨が降っても、試合をします。", "translation": "Even if it rains, we will play the match."},
       "sourceIds": ["irodori-sentence-patterns"]
     },
     {
@@ -2003,6 +2007,8 @@
       "commonMistakes": ["Use plain form before し, including だし after a noun or な-adjective; do not use ですし inside a plain listed clause.", "Do not read every し as a contrast marker; it adds supporting points rather than setting one expectation against another."],
       "contrastIds": ["contrast-n4-contrast-conjunction"],
       "practiceQuestionIds": ["grammar-shi-1", "grammar-shi-2"],
+      "aliases": ["し", "だし"],
+      "context": {"japanese": "この店は安いし、おいしいです。", "translation": "This restaurant is inexpensive and delicious."},
       "sourceIds": ["irodori-sentence-patterns"]
     },
     {
@@ -2033,6 +2039,8 @@
       "commonMistakes": ["Use それに to add a compatible point, not to introduce an unexpected result; use それでも for that contrast.", "Keep the connector separate from the sentence it introduces and do not treat it as a replacement for the particle それに in a noun phrase."],
       "contrastIds": ["contrast-n4-contrast-conjunction"],
       "practiceQuestionIds": ["grammar-sore-ni-1", "grammar-sore-ni-2"],
+      "aliases": ["それに"],
+      "context": {"japanese": "駅に近いです。それに、部屋もきれいです。", "translation": "It is close to the station. Moreover, the room is clean."},
       "sourceIds": ["irodori-sentence-patterns"]
     },
     {
@@ -2063,6 +2071,8 @@
       "commonMistakes": ["Do not use それでも when the second point simply adds information; use それに for addition.", "Keep the obstacle or contrary expectation in the previous sentence so the concessive meaning is recoverable from context."],
       "contrastIds": ["contrast-n4-contrast-conjunction"],
       "practiceQuestionIds": ["grammar-soredemo-1", "grammar-soredemo-2"],
+      "aliases": ["それでも"],
+      "context": {"japanese": "雨が強く降っています。それでも、出かけます。", "translation": "It is raining hard. Even so, I am going out."},
       "sourceIds": ["michi-authored-n4-grammar"],
       "notes": "Original Kizashi bridge item for the documented それでも target; no direct cached source mapping is claimed yet."
     },
@@ -2094,6 +2104,8 @@
       "commonMistakes": ["Choose けれども or けど according to register; do not assume the longer form changes the basic contrast meaning.", "Keep the adjective or verb form before the connector natural: 高いけれども, not 高くけれども."],
       "contrastIds": ["contrast-n4-contrast-conjunction"],
       "practiceQuestionIds": ["grammar-keredomo-1", "grammar-keredomo-2"],
+      "aliases": ["けれども", "けど"],
+      "context": {"japanese": "この店は少し高いけれども、おいしいです。", "translation": "This restaurant is a little expensive, but it is delicious."},
       "sourceIds": ["irodori-sentence-patterns"]
     },
     {
@@ -2571,6 +2583,8 @@
       "commonMistakes": ["間 describes the whole span, not only a point within it.", "Use a plain clause before 間 and の after a noun."] ,
       "contrastIds": ["contrast-n4-time-aspect"],
       "practiceQuestionIds": ["grammar-aida-1", "grammar-aida-2"],
+      "aliases": ["間", "Nの間"],
+      "context": {"japanese": "母が料理をしている間、宿題をします。", "translation": "While my mother is cooking, I do homework."},
       "sourceIds": ["irodori-sentence-patterns"]
     },
     {
@@ -2597,6 +2611,8 @@
       "commonMistakes": ["間に focuses on an event occurring within the window, not continuous overlap.", "Do not omit に when you mean a one-time event inside the interval."] ,
       "contrastIds": ["contrast-n4-time-aspect"],
       "practiceQuestionIds": ["grammar-aida-ni-1", "grammar-aida-ni-2"],
+      "aliases": ["間に", "Nの間に"],
+      "context": {"japanese": "電車を待っている間に、メールを送りました。", "translation": "While waiting for the train, I sent an email."},
       "sourceIds": ["michi-authored-n4-grammar"]
     },
     {
@@ -2623,6 +2639,8 @@
       "commonMistakes": ["Dictionary form + ところ marks an action before it starts, not an action already in progress.", "Use ところだ for the phase, not simply a place meaning of ところ."] ,
       "contrastIds": ["contrast-n4-time-aspect"],
       "practiceQuestionIds": ["grammar-tokoro-1", "grammar-tokoro-2"],
+      "aliases": ["ところだ", "Vるところ"],
+      "context": {"japanese": "今から昼ご飯を食べるところです。", "translation": "I am just about to eat lunch."},
       "sourceIds": ["irodori-sentence-patterns"]
     },
     {
@@ -2649,6 +2667,8 @@
       "commonMistakes": ["Use ている before ところ, not dictionary form for an action already underway.", "Do not use it for every habitual action; it highlights the current phase."] ,
       "contrastIds": ["contrast-n4-time-aspect"],
       "practiceQuestionIds": ["grammar-teiru-tokoro-1", "grammar-teiru-tokoro-2"],
+      "aliases": ["ているところだ", "Vているところ"],
+      "context": {"japanese": "今、夕食を作っているところです。", "translation": "I am in the middle of making dinner."},
       "sourceIds": ["michi-authored-n4-grammar"]
     },
     {
@@ -2675,6 +2695,8 @@
       "commonMistakes": ["たところ means just finished, not any past event.", "Use plain past form before ところ, not the polite ました form."] ,
       "contrastIds": ["contrast-n4-time-aspect"],
       "practiceQuestionIds": ["grammar-ta-tokoro-1", "grammar-ta-tokoro-2"],
+      "aliases": ["たところだ", "Vたところ"],
+      "context": {"japanese": "今、仕事が終わったところです。", "translation": "I have just finished work."},
       "sourceIds": ["irodori-sentence-patterns"]
     },
     {
@@ -2701,6 +2723,8 @@
       "commonMistakes": ["ばかり is recent from the speaker's viewpoint; it does not always mean seconds ago.", "Use plain past form before ばかり, not dictionary form."] ,
       "contrastIds": ["contrast-n4-time-aspect"],
       "practiceQuestionIds": ["grammar-bakari-1", "grammar-bakari-2"],
+      "aliases": ["たばかり", "たばかりだ"],
+      "context": {"japanese": "日本へ来たばかりです。", "translation": "I have just come to Japan."},
       "sourceIds": ["irodori-sentence-patterns"]
     },
     {
@@ -2727,6 +2751,8 @@
       "commonMistakes": ["Use the verb stem, such as 書きやすい, not the dictionary form 書くやすい.", "やすい describes ease of the action, not the low price of an object."] ,
       "contrastIds": ["contrast-n4-ease-difficulty"],
       "practiceQuestionIds": ["grammar-yasui-1", "grammar-yasui-2"],
+      "aliases": ["やすい", "Vやすい"],
+      "context": {"japanese": "このペンは書きやすいです。", "translation": "This pen is easy to write with."},
       "sourceIds": ["irodori-sentence-patterns"]
     },
     {
@@ -2753,6 +2779,8 @@
       "commonMistakes": ["Use the verb stem, such as 読みにくい, not 読むにくい.", "にくい describes difficulty of the action, not dislike of doing it."] ,
       "contrastIds": ["contrast-n4-ease-difficulty"],
       "practiceQuestionIds": ["grammar-nikui-1", "grammar-nikui-2"],
+      "aliases": ["にくい", "Vにくい"],
+      "context": {"japanese": "この字は小さくて読みにくいです。", "translation": "These characters are small and difficult to read."},
       "sourceIds": ["irodori-sentence-patterns"]
     },
     {
@@ -2779,6 +2807,8 @@
       "commonMistakes": ["Use the verb stem, such as 言いづらい, before づらい.", "づらい often carries personal discomfort; use にくい for neutral practical difficulty."] ,
       "contrastIds": ["contrast-n4-ease-difficulty"],
       "practiceQuestionIds": ["grammar-zurai-1", "grammar-zurai-2"],
+      "aliases": ["づらい", "Vづらい"],
+      "context": {"japanese": "先生には聞きづらい質問です。", "translation": "It is a question that is hard to ask the teacher."},
       "sourceIds": ["michi-authored-n4-grammar"]
     }
   ],

@@ -250,6 +250,8 @@ export interface GrammarItem extends LearningItem {
   commonMistakes: string[];
   contrastIds: string[];
   practiceQuestionIds: string[];
+  aliases?: string[];
+  context?: ExampleSentence;
   audio?: AudioMetadata;
 }
 
