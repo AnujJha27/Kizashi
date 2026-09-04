@@ -72,8 +72,20 @@ test("world imagery hides a failed asset without removing the surrounding UI", a
 test("the profile portrait consumes the resolved area visual", async () => {
   const portrait = await readFile(new URL("../components/profile/study-portrait.tsx", import.meta.url), "utf8");
   assert.match(portrait, /world\.area\.visualAssets\.portrait/);
-  assert.match(portrait, /objectPosition: world\.area\.focalPoint\.desktop/);
+  assert.match(portrait, /"--world-focal": world\.area\.focalPoint\.desktop/);
   assert.match(portrait, /settled/);
+});
+
+test("image scenery carries both responsive focal points", async () => {
+  const [landscape, portrait, css] = await Promise.all([
+    readFile(new URL("../components/journey/landscape.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/profile/study-portrait.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+  ]);
+  assert.match(landscape, /focalPoint\.mobile/);
+  assert.match(portrait, /focalPoint\.mobile/);
+  assert.match(css, /\.world-scene-image/);
+  assert.match(css, /world-focal-mobile/);
 });
 
 test("finishing an area points to the next mapped place", () => {

@@ -183,6 +183,12 @@ button, a, input { outline-color: var(--gold); outline-offset: 3px; }
 
 .journey-hero-ink { opacity: .2; }
 
+.world-scene-image { object-position: var(--world-focal, center); }
+
+@media (max-width: 639px) {
+  .world-scene-image { object-position: var(--world-focal-mobile, var(--world-focal, center)); }
+}
+
 .journey-page .surface-panel {
   background: linear-gradient(135deg, rgba(24, 37, 51, .75), rgba(46, 27, 39, .62));
 }
