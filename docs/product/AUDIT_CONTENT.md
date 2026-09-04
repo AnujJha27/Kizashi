@@ -1441,7 +1441,7 @@ ambiguous
 
 ## Current implementation status (2026-09-04)
 
-- [x] The eight authored N4 vocabulary bridge items now carry one explicit natural-usage assessment each: a complete Japanese sentence plus three authored distractors. `lib/questions.ts` emits these as `usage` questions; the broader staged N4 vocabulary reservoir still needs the same reviewed treatment.
+- [x] The sixteen authored N4 vocabulary bridge items now carry one explicit natural-usage assessment each: a complete Japanese sentence plus three authored distractors. `lib/questions.ts` emits these as `usage` questions; the broader staged N4 vocabulary reservoir still needs the same reviewed treatment.
 
 N4 vocabulary assessment should include:
 
