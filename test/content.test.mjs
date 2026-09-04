@@ -41,6 +41,8 @@ test("tab content loading is bounded and shared", async () => {
   ]);
   assert.match(hook, /fetchWithTimeout/);
   assert.match(hook, /modulePromise/);
+  assert.match(hook, /mergeGrammar/);
+  assert.match(hook, /aliases: item\.aliases\?\.length \? item\.aliases : fallbackItem\.aliases/);
   assert.match(worker, /_next\//);
   assert.match(worker, /\/api\//);
   assert.ok(supabaseFiles.every((source) => /fetchWithTimeout/u.test(source)));

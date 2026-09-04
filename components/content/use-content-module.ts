@@ -7,7 +7,7 @@ import { n5Module } from "@/lib/curriculum";
 import { fetchWithTimeout } from "@/lib/request-timeout.js";
 import { readCustomEntries } from "@/lib/session";
 import { fetchSupabaseN5Module } from "@/lib/supabase/content";
-import type { N5Module, VocabularyItem } from "@/lib/types";
+import type { GrammarItem, N5Module, VocabularyItem } from "@/lib/types";
 
 function customVocabulary(): VocabularyItem[] {
   return readCustomEntries().map((entry) => ({ id: entry.id, slug: entry.id, title: entry.writtenForm, jlptLevel: null, category: "vocabulary", subcategory: "personal shelf", difficulty: 2, prerequisiteIds: [], tags: ["personal", "custom"], sourceIds: ["user-draft"], writtenForm: entry.writtenForm, reading: entry.reading || entry.writtenForm, meanings: [entry.meaning], partOfSpeech: "personal entry", exampleSentences: entry.sentence ? [{ japanese: entry.sentence, translation: "Personal example" }] : [{ japanese: entry.writtenForm, translation: entry.meaning }], collocations: [], relatedWords: [], antonyms: [] }));
@@ -22,6 +22,14 @@ function mergeById<T extends { id: string }>(preferred: T[], fallback: T[]) {
   const merged = new Map(fallback.map((item) => [item.id, item]));
   preferred.forEach((item) => merged.set(item.id, item));
   return [...merged.values()];
+}
+
+function mergeGrammar(preferred: GrammarItem[], fallback: GrammarItem[]) {
+  const fallbackById = new Map(fallback.map((item) => [item.id, item]));
+  return mergeById(preferred.map((item) => {
+    const fallbackItem = fallbackById.get(item.id);
+    return fallbackItem ? { ...fallbackItem, ...item, aliases: item.aliases?.length ? item.aliases : fallbackItem.aliases, context: item.context?.japanese && item.context.translation ? item.context : fallbackItem.context } : item;
+  }), fallback);
 }
 
 function mergeModules(preferred: N5Module, fallback: N5Module): N5Module {
@@ -43,7 +51,7 @@ function mergeModules(preferred: N5Module, fallback: N5Module): N5Module {
     course: { ...fallback.course, ...preferred.course, chapters },
     vocabulary: mergeById(preferred.vocabulary, fallback.vocabulary),
     kanji: mergeById(preferred.kanji, fallback.kanji),
-    grammar: mergeById(preferred.grammar, fallback.grammar),
+    grammar: mergeGrammar(preferred.grammar, fallback.grammar),
     readings: mergeById(preferred.readings, fallback.readings),
     listening: mergeById(preferred.listening, fallback.listening),
     grammarContrasts: mergeById(preferred.grammarContrasts, fallback.grammarContrasts),
