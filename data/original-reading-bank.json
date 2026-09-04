@@ -2974,7 +2974,8 @@
           "questionType": "information retrieval",
           "explanation": "月曜日"
         }
-      ]
+      ],
+      "visualFormat": "notice"
     },
     {
       "id": "assessment-reading-n5-information-retrieval-02",
@@ -3030,7 +3031,8 @@
           "questionType": "information retrieval",
           "explanation": "お茶"
         }
-      ]
+      ],
+      "visualFormat": "menu"
     },
     {
       "id": "assessment-reading-n5-information-retrieval-03",
@@ -3086,7 +3088,8 @@
           "questionType": "information retrieval",
           "explanation": "一時"
         }
-      ]
+      ],
+      "visualFormat": "timetable"
     },
     {
       "id": "assessment-reading-n5-information-retrieval-04",
@@ -3142,7 +3145,8 @@
           "questionType": "information retrieval",
           "explanation": "水曜日"
         }
-      ]
+      ],
+      "visualFormat": "notice"
     },
     {
       "id": "assessment-reading-n5-information-retrieval-05",
@@ -3198,7 +3202,8 @@
           "questionType": "information retrieval",
           "explanation": "数学と音楽"
         }
-      ]
+      ],
+      "visualFormat": "schedule"
     },
     {
       "id": "assessment-reading-n5-information-retrieval-06",
@@ -3254,7 +3259,8 @@
           "questionType": "information retrieval",
           "explanation": "靴"
         }
-      ]
+      ],
+      "visualFormat": "sale"
     },
     {
       "id": "assessment-reading-n5-information-retrieval-07",
@@ -3310,7 +3316,8 @@
           "questionType": "information retrieval",
           "explanation": "いいえ、休みです"
         }
-      ]
+      ],
+      "visualFormat": "notice"
     },
     {
       "id": "assessment-reading-n5-information-retrieval-08",
@@ -3366,7 +3373,8 @@
           "questionType": "information retrieval",
           "explanation": "一時半"
         }
-      ]
+      ],
+      "visualFormat": "event"
     },
     {
       "id": "assessment-reading-n5-information-retrieval-09",
@@ -3422,7 +3430,8 @@
           "questionType": "information retrieval",
           "explanation": "西口"
         }
-      ]
+      ],
+      "visualFormat": "directions"
     },
     {
       "id": "assessment-reading-n5-information-retrieval-10",
@@ -3478,7 +3487,8 @@
           "questionType": "information retrieval",
           "explanation": "木曜日の午後七時"
         }
-      ]
+      ],
+      "visualFormat": "notice"
     },
     {
       "id": "assessment-reading-n5-information-retrieval-11",
@@ -3534,7 +3544,8 @@
           "questionType": "information retrieval",
           "explanation": "カレー"
         }
-      ]
+      ],
+      "visualFormat": "menu"
     },
     {
       "id": "assessment-reading-n5-information-retrieval-12",
@@ -3590,7 +3601,8 @@
           "questionType": "information retrieval",
           "explanation": "土曜日と日曜日"
         }
-      ]
+      ],
+      "visualFormat": "notice"
     },
     {
       "id": "assessment-reading-n4-short-01",
@@ -5927,7 +5939,8 @@
           "questionType": "information retrieval",
           "explanation": "午後二時"
         }
-      ]
+      ],
+      "visualFormat": "notice"
     },
     {
       "id": "assessment-reading-n4-information-retrieval-02",
@@ -5984,7 +5997,8 @@
           "questionType": "information retrieval",
           "explanation": "午後五時"
         }
-      ]
+      ],
+      "visualFormat": "notice"
     },
     {
       "id": "assessment-reading-n4-information-retrieval-03",
@@ -6041,7 +6055,8 @@
           "questionType": "information retrieval",
           "explanation": "一階"
         }
-      ]
+      ],
+      "visualFormat": "hotel"
     },
     {
       "id": "assessment-reading-n4-information-retrieval-04",
@@ -6098,7 +6113,8 @@
           "questionType": "information retrieval",
           "explanation": "いいえ、休みです"
         }
-      ]
+      ],
+      "visualFormat": "schedule"
     },
     {
       "id": "assessment-reading-n4-information-retrieval-05",
@@ -6155,7 +6171,8 @@
           "questionType": "information retrieval",
           "explanation": "カメラとノート"
         }
-      ]
+      ],
+      "visualFormat": "event"
     },
     {
       "id": "assessment-reading-n4-information-retrieval-06",
@@ -6212,7 +6229,8 @@
           "questionType": "information retrieval",
           "explanation": "入口の左"
         }
-      ]
+      ],
+      "visualFormat": "directions"
     },
     {
       "id": "assessment-reading-n4-information-retrieval-07",
@@ -6269,7 +6287,8 @@
           "questionType": "information retrieval",
           "explanation": "工場を見学します"
         }
-      ]
+      ],
+      "visualFormat": "work"
     },
     {
       "id": "assessment-reading-n4-information-retrieval-08",
@@ -6326,7 +6345,8 @@
           "questionType": "information retrieval",
           "explanation": "前日の午後六時"
         }
-      ]
+      ],
+      "visualFormat": "health"
     },
     {
       "id": "assessment-reading-n4-information-retrieval-09",
@@ -6395,7 +6415,8 @@
           "questionType": "condition detail",
           "explanation": "中止します"
         }
-      ]
+      ],
+      "visualFormat": "school"
     },
     {
       "id": "assessment-reading-n4-information-retrieval-10",
@@ -6452,7 +6473,8 @@
           "questionType": "information retrieval",
           "explanation": "建物の後ろ"
         }
-      ]
+      ],
+      "visualFormat": "home"
     },
     {
       "id": "assessment-reading-n4-information-retrieval-11",
@@ -6509,7 +6531,8 @@
           "questionType": "information retrieval",
           "explanation": "七時半"
         }
-      ]
+      ],
+      "visualFormat": "restaurant"
     },
     {
       "id": "assessment-reading-n4-information-retrieval-12",
@@ -6566,7 +6589,8 @@
           "questionType": "information retrieval",
           "explanation": "500円"
         }
-      ]
+      ],
+      "visualFormat": "museum"
     },
     {
       "id": "assessment-reading-n4-information-retrieval-13",
@@ -6635,7 +6659,8 @@
           "questionType": "main idea",
           "explanation": "土曜日の午前中"
         }
-      ]
+      ],
+      "visualFormat": "weather"
     },
     {
       "id": "assessment-reading-n4-information-retrieval-14",
@@ -6704,7 +6729,8 @@
           "questionType": "task-based response",
           "explanation": "駅前のロッカーで受け取るか、土曜日に再配達を頼めます"
         }
-      ]
+      ],
+      "visualFormat": "delivery"
     },
     {
       "id": "assessment-reading-n4-information-retrieval-15",
@@ -6761,7 +6787,8 @@
           "questionType": "information retrieval",
           "explanation": "二つ目"
         }
-      ]
+      ],
+      "visualFormat": "transport"
     }
   ],
   "source": {

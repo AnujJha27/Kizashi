@@ -231,6 +231,14 @@ test("authored reading and listening banks expose diversity QA", () => {
   assert.ok(report.reading.answerQuality.questions > report.reading.total);
 });
 
+test("information-retrieval readings carry visual formats", async () => {
+  const panel = await readFile(new URL("../components/learning/reading-panel.tsx", import.meta.url), "utf8");
+  const retrieval = originalReading.readings.filter((item) => item.subcategory === "information-retrieval");
+  assert.equal(retrieval.length, 27);
+  assert.ok(retrieval.every((item) => ["notice", "menu", "timetable", "schedule", "sale", "event", "directions", "hotel", "work", "health", "school", "home", "restaurant", "museum", "weather", "delivery", "transport"].includes(item.visualFormat)));
+  assert.match(panel, /visualFormat/);
+});
+
 test("quality audit keeps reading and listening families visible by level", () => {
   const report = buildContentQualityReport({
     readings: [{ id: "reading-n5", jlptLevel: "N5", passage: "駅の案内です。", questions: [{ questionType: "information retrieval" }] }, { id: "reading-n4", jlptLevel: "N4", passage: "病院の案内です。", questions: [{ questionType: "mid-length passage" }] }],

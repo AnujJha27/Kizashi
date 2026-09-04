@@ -1767,6 +1767,10 @@ dominate.
 
 # C47. INFORMATION-RETRIEVAL MATERIAL SHOULD LOOK REAL
 
+## Current implementation status (2026-09-04)
+
+- [~] The 27 authored information-retrieval readings now carry explicit visual formats and render Kizashi-owned, accessible HTML reading aids for notices, menus, timetables, schedules, posters, directions, and other practical formats in `components/learning/reading-panel.tsx`. Japanese remains real text below the visual aid; source-backed realism, broader layout variety, and native review remain open.
+
 Create original visual assets for assessment reading.
 
 Examples:

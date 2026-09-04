@@ -44,7 +44,7 @@ def reading(level: str, family: str, number: int, title: str, passage: str, tran
     difficulty = 2 if level == "N5" else 4
     grammar = ["grammar-wa", "grammar-masu", "grammar-ni"] if level == "N5" else ["grammar-wa", "grammar-te-form", "grammar-ta-form", "grammar-toki"]
     kanji = ["kanji-hi", "kanji-ji", "kanji-gaku"] if level == "N5" else ["kanji-kyou", "kanji-go-noon", "kanji-shitsu"]
-    return {
+    result = {
         "id": f"assessment-reading-{prefix}-{family}-{number:02d}",
         "slug": f"assessment-reading-{prefix}-{family}-{number:02d}",
         "title": title,
@@ -63,6 +63,9 @@ def reading(level: str, family: str, number: int, title: str, passage: str, tran
         "estimatedDifficulty": difficulty,
         "questions": [q, *([SECONDARY_QUESTIONS[tags[0]]] if tags[0] in SECONDARY_QUESTIONS else [])],
     }
+    if family == "information-retrieval":
+        result["visualFormat"] = tags[-1]
+    return result
 
 
 def short_rows(level: str, rows: list[tuple[str, str, str, str, str, list[str], int, str]]) -> list[dict]:

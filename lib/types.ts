@@ -301,6 +301,7 @@ export interface ReadingItem extends LearningItem {
   grammarIds: string[];
   kanjiIds: string[];
   estimatedDifficulty: number;
+  visualFormat?: "notice" | "menu" | "timetable" | "schedule" | "sale" | "event" | "directions" | "hotel" | "work" | "health" | "school" | "home" | "restaurant" | "museum" | "weather" | "delivery" | "transport";
   audio?: AudioMetadata;
   questions?: ReadingQuestion[];
 }
