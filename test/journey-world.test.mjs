@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { access, readdir, readFile } from "node:fs/promises";
+import { access, readdir, readFile, stat } from "node:fs/promises";
 
 import { getJourneyWorldState, getNextJourneyArea, journeyVisualManifest } from "../lib/journey-world-core.js";
 
@@ -100,6 +100,20 @@ test("image scenery carries both responsive focal points", async () => {
   assert.match(portrait, /focalPoint\.mobile/);
   assert.match(css, /\.world-scene-image/);
   assert.match(css, /world-focal-mobile/);
+});
+
+test("world raster scenes stay within the image budget and decode lazily", async () => {
+  const [landscape, portrait, worldFiles] = await Promise.all([
+    readFile(new URL("../components/journey/landscape.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/profile/study-portrait.tsx", import.meta.url), "utf8"),
+    readdir(new URL("../public/world", import.meta.url)),
+  ]);
+  const sizes = await Promise.all(worldFiles.filter((file) => file.endsWith(".webp")).map(async (file) => (await stat(new URL(`../public/world/${file}`, import.meta.url))).size));
+  assert.ok(sizes.every((size) => size <= 350_000));
+  assert.match(landscape, /loading="lazy"/);
+  assert.match(landscape, /decoding="async"/);
+  assert.match(portrait, /loading="lazy"/);
+  assert.match(portrait, /decoding="async"/);
 });
 
 test("finishing an area points to the next mapped place", () => {

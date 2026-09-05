@@ -28,7 +28,7 @@ export function StudyPortrait({ level, rhythm }: Readonly<{ level: number; rhyth
 
   return (
     <div className="study-portrait relative overflow-hidden rounded-2xl border border-[#617486]/55 bg-[#102536] shadow-[0_22px_55px_rgba(3,10,18,.24)]" role="img" aria-label={"Journey portrait, level " + safeLevel + ", " + rhythm + " day rhythm, " + sceneLabel} style={{ "--world-focal": world.area.focalPoint.desktop, "--world-focal-mobile": world.area.focalPoint.mobile } as CSSProperties}>
-      <img src={world.area.visualAssets.portrait} alt="" width={2172} height={724} className="world-scene-image h-60 w-full object-cover" onError={(event) => { event.currentTarget.hidden = true; }} />
+      <img src={world.area.visualAssets.portrait} alt="" width={2172} height={724} loading="lazy" decoding="async" className="world-scene-image h-60 w-full object-cover" onError={(event) => { event.currentTarget.hidden = true; }} />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0d1725]/15 via-transparent to-[#0c1723]/90" />
       <div className={`pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0b0b0d]/70 to-transparent ${settled ? "opacity-90" : livedIn ? "opacity-70" : "opacity-45"}`} />
       <div className="pointer-events-none absolute inset-x-0 bottom-5 flex items-end justify-center gap-4" aria-hidden="true">
