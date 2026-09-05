@@ -566,6 +566,9 @@ test("external sources use native media and safe framing fallbacks", async () =>
   const styles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   assert.match(styles, /\.lesson-opening \+ div \{ align-items: start; \}/);
   assert.match(styles, /\.lesson-opening \+ div > aside \{ align-self: start; height: fit-content;/);
+  assert.match(styles, /\.japanese-text rt \{ line-height: 1\.1; font-size: \.68em;/);
+  assert.match(await readFile(new URL("../components/learning/japanese-text.tsx", import.meta.url), "utf8"), /text-\[\.68em\]/);
+  assert.match(await readFile(new URL("../components/learning/reading-panel.tsx", import.meta.url), "utf8"), /text-\[\.68em\]/);
   assert.match(styles, /\.app-sidebar,\n\.app-header/);
   assert.doesNotMatch(styles, /\.app-shell aside,\n  \.app-header/);
   assert.match(shell, /className="app-sidebar sticky/);

@@ -157,7 +157,7 @@ export function JapaneseText({ text, vocabulary, kanji = [], readingEntries = []
   const inspectedItem = inspected ? [...itemsByWord.entries()].find(([word]) => word === inspected)?.[1] : undefined;
   const inspectedSegment = inspected ? segments.find((segment: { text: string; status: string; reading?: string }) => segment.text === inspected) : undefined;
   const renderPart = (part: (typeof segments)[number], index: number) => {
-    const content = showReading(part) ? <ruby>{part.text}<rt className="text-[.42em] font-normal tracking-normal text-[#e5b85c]">{part.reading}</rt></ruby> : part.text;
+    const content = showReading(part) ? <ruby>{part.text}<rt className="text-[.68em] font-medium tracking-normal text-[#e5b85c]">{part.reading}</rt></ruby> : part.text;
     if (!inspect || part.status === "not-applicable") return <span key={`${part.text}-${index}`}>{content}</span>;
     return <button type="button" key={`${part.text}-${index}`} onClick={(event) => { event.stopPropagation(); if (mode === "tap") setTappedPart(tappedPart === part.text ? null : part.text); setInspected(inspected === part.text ? null : part.text); }} className="rounded px-0.5 hover:bg-[#302818]" aria-label={`Inspect ${part.text}`}>{content}</button>;
   };
