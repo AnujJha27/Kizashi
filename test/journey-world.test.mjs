@@ -44,6 +44,7 @@ test("world areas carry deliberate desktop and mobile focal points", () => {
 test("world areas use distinct owned visual variants with role metadata", async () => {
   const areas = Object.values(journeyVisualManifest);
   assert.equal(new Set(areas.map((area) => area.visualAssets.hero)).size, areas.length);
+  assert.equal(new Set(areas.map((area) => area.visualAssets.today)).size, areas.length);
   assert.ok(areas.every((area) => new Set([area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson]).size === 3));
   assert.ok(areas.every((area) => area.visualAssetMetadata.length === 7));
   assert.ok(areas.flatMap((area) => area.visualAssetMetadata).every((asset) => asset.sourceType === "generated-raster" && asset.path.endsWith(".webp") && asset.attribution && asset.focalPoint));
