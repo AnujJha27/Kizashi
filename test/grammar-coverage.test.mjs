@@ -51,11 +51,11 @@ test("grammar coverage reports source patterns with no canonical match", () => {
 
 test("checked-in grammar registry preserves the current evidence boundary", async () => {
   const registry = JSON.parse(await readFile(new URL("../data/grammar-coverage-union.json", import.meta.url), "utf8"));
-  assert.deepEqual(registry.summary.N5, { rawPatterns: 224, canonicalConcepts: 46, complete: 22, partial: 19, missing: 5, unresolved: 92, levelDisagreements: 6 });
-  assert.deepEqual(registry.summary.N4, { rawPatterns: 188, canonicalConcepts: 70, complete: 12, partial: 53, missing: 5, unresolved: 77, levelDisagreements: 10 });
+  assert.deepEqual(registry.summary.N5, { rawPatterns: 224, canonicalConcepts: 46, complete: 23, partial: 18, missing: 5, unresolved: 89, levelDisagreements: 7 });
+  assert.deepEqual(registry.summary.N4, { rawPatterns: 188, canonicalConcepts: 70, complete: 12, partial: 53, missing: 5, unresolved: 75, levelDisagreements: 11 });
   assert.equal(registry.sourcePolicy.includes("review"), true);
   assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").rawRecords, 348);
-  assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").references, 136);
+  assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").references, 142);
   assert.equal(registry.canonical.find((concept) => concept.id === "grammar-yotei").status, "missing");
 });
 
@@ -66,6 +66,17 @@ test("high-confidence N5 source aliases are mapped into the coverage registry", 
     assert.ok(item);
     assert.notEqual(item.status, "missing");
   }
+});
+
+test("clear Irodori variants are resolved without promoting source prose", async () => {
+  const registry = JSON.parse(await readFile(new URL("../data/grammar-coverage-union.json", import.meta.url), "utf8"));
+  const evidence = (id) => registry.canonical.find((concept) => concept.id === id)?.evidencePatterns ?? [];
+  assert.ok(evidence("grammar-kudasai").some((item) => item.recordId === "irodori-grammar-10e4b48e1ce7"));
+  assert.ok(evidence("grammar-ni").some((item) => item.recordId === "irodori-grammar-8f79f9ed0b5d"));
+  assert.ok(evidence("grammar-te-morau").some((item) => item.recordId === "irodori-grammar-23cb48684289"));
+  assert.ok(evidence("grammar-koto-nominalization").some((item) => item.recordId === "irodori-grammar-9c6d6f982636"));
+  assert.ok(evidence("grammar-tewaikenai").some((item) => item.recordId === "irodori-grammar-7e6a70d3561b"));
+  assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").references, 142);
 });
 
 test("grammar coverage UI exposes evidence and disagreement context", async () => {

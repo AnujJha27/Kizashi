@@ -545,8 +545,10 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.ok(frameExtension.host_permissions.length > 0);
   assert.ok(frameExtension.host_permissions.includes("https://marugotoweb.jp/*"));
   assert.ok(frameExtension.host_permissions.includes("https://*.marugotoweb.jp/*"));
+  assert.ok(frameExtension.host_permissions.includes("https://a1.marugotoweb.jp/*"));
   assert.equal(frameRules[0].action.type, "modifyHeaders");
   assert.ok(frameRules[0].condition.requestDomains.includes("marugotoweb.jp"));
+  assert.ok(frameRules[0].condition.requestDomains.includes("a1.marugotoweb.jp"));
   assert.match(serviceWorker, /journey-map\.webp/);
   assert.ok(frameRules[0].action.responseHeaders.some((header) => header.header === "x-frame-options" && header.operation === "remove"));
   assert.ok(frameRules[0].action.responseHeaders.some((header) => header.header === "content-security-policy" && header.operation === "remove"));
@@ -558,6 +560,9 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(player, /always/);
   assert.match(player, /JapaneseText text=\{question\.prompt\}/);
   assert.match(player, /JapaneseText text=\{answer\}/);
+  const styles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.match(styles, /\.lesson-opening \+ div \{ align-items: start; \}/);
+  assert.match(styles, /\.lesson-opening \+ div > aside \{ align-self: start; height: fit-content;/);
 });
 
 test("Studio exposes every pending question through a searchable paged review queue", async () => {

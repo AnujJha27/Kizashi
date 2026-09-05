@@ -4,11 +4,11 @@
     "N5": {
       "rawPatterns": 224,
       "canonicalConcepts": 46,
-      "complete": 22,
-      "partial": 19,
+      "complete": 23,
+      "partial": 18,
       "missing": 5,
-      "unresolved": 92,
-      "levelDisagreements": 6
+      "unresolved": 89,
+      "levelDisagreements": 7
     },
     "N4": {
       "rawPatterns": 188,
@@ -16,8 +16,8 @@
       "complete": 12,
       "partial": 53,
       "missing": 5,
-      "unresolved": 77,
-      "levelDisagreements": 10
+      "unresolved": 75,
+      "levelDisagreements": 11
     }
   },
   "canonical": [
@@ -123,7 +123,7 @@
         "irodori-sentence-patterns",
         "tae-kim"
       ],
-      "evidenceCount": 6,
+      "evidenceCount": 7,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
@@ -153,6 +153,12 @@
           "sourceId": "irodori-sentence-patterns",
           "recordId": "irodori-grammar-979609e17aa5",
           "pattern": "【場所】に住んでいますバsyス",
+          "level": "N5"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-8f79f9ed0b5d",
+          "pattern": "【時間】に／ごろV-ますジカン",
           "level": "N5"
         },
         {
@@ -299,12 +305,18 @@
       "sourceIds": [
         "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "irodori-sentence-patterns",
           "recordId": "irodori-grammar-e24d9875968f",
           "pattern": "N、お願いします\nN、くださいネガ",
+          "level": "N5"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-10e4b48e1ce7",
+          "pattern": "N、【数】お願いします\nN、【数】くださいスウネガ",
           "level": "N5"
         }
       ],
@@ -1021,19 +1033,28 @@
       "pattern": "Vてはいけません",
       "level": "N5",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n5-12",
           "pattern": "〜てはいけません",
           "level": "N5"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-7e6a70d3561b",
+          "pattern": "V-てはいけません／だめです\nVちゃいけません／だめです",
+          "level": "N4"
         }
       ],
-      "status": "partial",
-      "levelDisagreements": []
+      "status": "complete",
+      "levelDisagreements": [
+        "N4"
+      ]
     },
     {
       "id": "grammar-naidekudasai",
@@ -1179,7 +1200,7 @@
         "openjlpt",
         "irodori-sentence-patterns"
       ],
-      "evidenceCount": 2,
+      "evidenceCount": 3,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
@@ -1191,6 +1212,12 @@
           "sourceId": "irodori-sentence-patterns",
           "recordId": "irodori-grammar-d4f581beb4be",
           "pattern": "V-なくてもいいです",
+          "level": "N4"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-2f3ae3103124",
+          "pattern": "V-なくてもだいじょうぶです",
           "level": "N4"
         }
       ],
@@ -1562,7 +1589,7 @@
         "openjlpt",
         "irodori-sentence-patterns"
       ],
-      "evidenceCount": 2,
+      "evidenceCount": 3,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
@@ -1575,10 +1602,18 @@
           "recordId": "irodori-grammar-133c2a2adc1b",
           "pattern": "V-てもらいます",
           "level": "N4"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-23cb48684289",
+          "pattern": "V-てもらえませんか？",
+          "level": "N5"
         }
       ],
       "status": "complete",
-      "levelDisagreements": []
+      "levelDisagreements": [
+        "N5"
+      ]
     },
     {
       "id": "grammar-te-iku",
@@ -2231,13 +2266,19 @@
       "sourceIds": [
         "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "irodori-sentence-patterns",
           "recordId": "irodori-grammar-a15be968c4c4",
           "pattern": "V-ることです",
           "level": "N5"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-9c6d6f982636",
+          "pattern": "V-ること",
+          "level": null
         }
       ],
       "status": "partial",
@@ -2704,12 +2745,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-10e4b48e1ce7",
-      "pattern": "N、【数】お願いします\nN、【数】くださいスウネガ",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-f51b1098d170",
       "pattern": "（Nは）ありません／ないです",
       "level": "N5"
@@ -2718,12 +2753,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-7ea4f8523ad8",
       "pattern": "（【人】は)いません／いないですヒト",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-8f79f9ed0b5d",
-      "pattern": "【時間】に／ごろV-ますジカン",
       "level": "N5"
     },
     {
@@ -3085,12 +3114,6 @@
       "recordId": "irodori-grammar-92cc44c1455a",
       "pattern": "N1は、～。（でも、）N2は、～。　＜対比＞タイヒ",
       "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-23cb48684289",
-      "pattern": "V-てもらえませんか？",
-      "level": "N5"
     },
     {
       "sourceId": "irodori-sentence-patterns",
@@ -3460,12 +3483,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-7e6a70d3561b",
-      "pattern": "V-てはいけません／だめです\nVちゃいけません／だめです",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-2d80703ce1d5",
       "pattern": "V-なくちゃ",
       "level": "N4"
@@ -3772,12 +3789,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-2f3ae3103124",
-      "pattern": "V-なくてもだいじょうぶです",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-29a5c064b88a",
       "pattern": "丁寧体・普通体②",
       "level": "N4"
@@ -3982,12 +3993,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-9c6d6f982636",
-      "pattern": "V-ること",
-      "level": "Intermediate 1"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-a4e519bcf16a",
       "pattern": "V-ないこと",
       "level": "Intermediate 1"
@@ -4029,7 +4034,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 136
+      "references": 142
     },
     {
       "id": "tae-kim",

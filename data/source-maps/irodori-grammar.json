@@ -205,6 +205,20 @@
       "description": "Irodori situational pattern: 【場所】に住んでいますバsyス.",
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-8f79f9ed0b5d",
+      "sourceCourse": "入門",
+      "sourceLevel": "Starter",
+      "pattern": "【時間】に／ごろV-ますジカン",
+      "sectionTitle": "Sentence pattern · 入門",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: 【時間】に／ごろV-ます.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
     }
   ],
   "grammar-no": [
@@ -1523,6 +1537,20 @@
       "description": "Irodori situational pattern: V-ることです.",
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-9c6d6f982636",
+      "sourceCourse": "中級1",
+      "sourceLevel": "Intermediate 1",
+      "pattern": "V-ること",
+      "sectionTitle": "Sentence pattern · 中級1",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: V-ること.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
     }
   ],
   "grammar-no-nominalization": [
@@ -1900,6 +1928,19 @@
     "description": "Irodori situational pattern: V-てもらいます.",
     "license": "Japan Foundation Irodori terms; personal educational use",
     "attribution": "Japan Foundation Irodori"
+  }, {
+    "sourceId": "irodori-sentence-patterns",
+    "sourceRecordId": "irodori-grammar-23cb48684289",
+    "sourceCourse": "初級1",
+    "sourceLevel": "Elementary 1",
+    "pattern": "V-てもらえませんか？",
+    "sectionTitle": "Sentence pattern · 初級1",
+    "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+    "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+    "relationship": "communicative-pattern",
+    "description": "Irodori situational pattern: V-てもらえませんか？.",
+    "license": "Japan Foundation Irodori terms; personal educational use",
+    "attribution": "Japan Foundation Irodori"
   }],
   "grammar-te-kureru": [{
     "sourceId": "irodori-sentence-patterns",
@@ -1940,6 +1981,33 @@
     "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
     "relationship": "communicative-pattern",
     "description": "Irodori situational pattern: V-なくてもいいです.",
+    "license": "Japan Foundation Irodori terms; personal educational use",
+    "attribution": "Japan Foundation Irodori"
+  }, {
+    "sourceId": "irodori-sentence-patterns",
+    "sourceRecordId": "irodori-grammar-2f3ae3103124",
+    "sourceCourse": "初級2",
+    "sourceLevel": "Pre-Intermediate",
+    "pattern": "V-なくてもだいじょうぶです",
+    "sectionTitle": "Sentence pattern · 初中級",
+    "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+    "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+    "relationship": "communicative-pattern",
+    "description": "Irodori situational pattern: V-なくてもだいじょうぶです.",
+    "license": "Japan Foundation Irodori terms; personal educational use",
+    "attribution": "Japan Foundation Irodori"
+  }],
+  "grammar-tewaikenai": [{
+    "sourceId": "irodori-sentence-patterns",
+    "sourceRecordId": "irodori-grammar-7e6a70d3561b",
+    "sourceCourse": "初級2",
+    "sourceLevel": "Elementary 2",
+    "pattern": "V-てはいけません／だめです\nVちゃいけません／だめです",
+    "sectionTitle": "Sentence pattern · 初級2",
+    "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+    "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+    "relationship": "communicative-pattern",
+    "description": "Irodori situational pattern: V-てはいけません / だめです / Vちゃいけません / だめです.",
     "license": "Japan Foundation Irodori terms; personal educational use",
     "attribution": "Japan Foundation Irodori"
   }],
@@ -2010,6 +2078,19 @@
     "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
     "relationship": "communicative-pattern",
     "description": "Irodori situational pattern: N、お願いします / N、ください.",
+    "license": "Japan Foundation Irodori terms; personal educational use",
+    "attribution": "Japan Foundation Irodori"
+  }, {
+    "sourceId": "irodori-sentence-patterns",
+    "sourceRecordId": "irodori-grammar-10e4b48e1ce7",
+    "sourceCourse": "入門",
+    "sourceLevel": "Starter",
+    "pattern": "N、【数】お願いします\nN、【数】くださいスウネガ",
+    "sectionTitle": "Sentence pattern · 入門",
+    "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+    "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+    "relationship": "communicative-pattern",
+    "description": "Irodori situational pattern: N、【数】お願いします / N、【数】ください.",
     "license": "Japan Foundation Irodori terms; personal educational use",
     "attribution": "Japan Foundation Irodori"
   }],

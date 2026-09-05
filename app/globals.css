@@ -187,7 +187,9 @@ button, a, input { outline-color: var(--gold); outline-offset: 3px; }
 
 .world-scene-image { object-position: var(--world-focal, center); }
 
-.lesson-opening + div > aside { align-self: start; }
+.lesson-opening + div { align-items: start; }
+
+.lesson-opening + div > aside { align-self: start; height: fit-content; min-height: 0; width: 100%; max-width: 100%; overflow-x: hidden; }
 
 @media (max-width: 639px) {
   .world-scene-image { object-position: var(--world-focal-mobile, var(--world-focal, center)); }
