@@ -270,6 +270,7 @@ test("information-retrieval readings carry visual formats", async () => {
   assert.match(panel, /layout === "steps"/);
   assert.match(panel, /data-visual-format/);
   assert.match(panel, /readingVisualAssets/);
+  assert.match(panel, /StudyLaterButton/);
   assert.match(visualAssets, /neighborhood-post-office\.webp/);
   assert.match(visualAssets, /clinic-reception\.webp/);
   assert.match(visualAssets, /local-museum\.webp/);

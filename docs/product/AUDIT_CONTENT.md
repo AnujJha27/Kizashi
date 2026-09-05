@@ -1770,6 +1770,7 @@ dominate.
 ## Current implementation status (2026-09-04)
 
 - [~] The 27 authored information-retrieval readings now carry explicit visual formats and render generated WebP scene support plus Kizashi-owned accessible HTML reading aids for notices, menus, timetables, schedules, posters, numbered directions, and other practical formats in `components/learning/reading-panel.tsx`. Japanese remains real text below the image/layout; generated images contain no learner-facing text, intrinsic dimensions avoid layout shift, and source-backed realism, broader layout variety, and native review remain open.
+- [x] ReadingPanel inline vocabulary lookup now offers Study later from the active reading context; the activity remains open while the item is added to the lightweight queue.
 
 Create original visual assets for assessment reading.
 
