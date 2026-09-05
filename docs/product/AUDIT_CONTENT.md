@@ -1665,7 +1665,7 @@ The next task is QUALITY.
 
 ## Current implementation status (2026-09-04)
 
-- [x] 2026-09-05 checkpoint: the shared report now flags distractor choices whose normalized text occurs in the source passage, and Content Studio shows a bounded record/question-family/distractor review list plus N5/N4 source-length signals. The current bank has 37 affected question sets and 59 copied distractor choices; this is structural evidence, not an automatic plausibility, length-calibration, or native-language verdict.
+- [x] 2026-09-05 checkpoint: the shared report now flags distractor choices whose normalized text occurs in the source passage, and Content Studio shows a bounded record/question-family/distractor review list plus N5/N4 source-length signals. The current bank has 34 affected question sets and 56 copied distractor choices; this is structural evidence, not an automatic plausibility, length-calibration, or native-language verdict.
 
 - [x] 2026-09-05 checkpoint: the reading quality report now resolves linked vocabulary, grammar, and kanji IDs against the active package catalogs and breaks each link down by reading level. After the full review package is merged with the authored module, the current N5 readings have 342 N5 and 2 N4 vocabulary links, 215 N5 grammar links, and 224 N5 kanji links; N4 readings have 255 N5 and 1 N4 vocabulary links, 116 N5 and 116 N4 grammar links, and 189 N5 kanji links, with 0 unresolved links. Cross-level links remain review-visible rather than being treated as automatic errors.
 
@@ -1739,13 +1739,13 @@ Do not weaken the threshold simply to retain target counts.
 
 ## Current implementation status (2026-09-04)
 
-- [x] 2026-09-05 checkpoint: reading distractor source-overlap review and N5/N4 source-length signals are now visible in the shared quality report and Content Studio, with 37 affected question sets, 59 copied distractor choices, and 39/51 average source characters in the current bank. These are structural signals and keep human plausibility review open.
+- [x] 2026-09-05 checkpoint: reading distractor source-overlap review and N5/N4 source-length signals are now visible in the shared quality report and Content Studio, with 34 affected question sets, 56 copied distractor choices, and 39/51 average source characters in the current bank. These are structural signals and keep human plausibility review open.
 
 - [x] 2026-09-05 checkpoint: the quality report now applies a three-question floor to supplemental reading families and Content Studio renders underrepresented families for review. The current bank has no under-minimum family globally or within N5/N4 after adding passage-grounded prompts; this is an actionable coverage signal, not a mandate to generate filler questions.
 
 - [x] 2026-09-05 checkpoint: the same floor is now reported by level. The current bank has no under-minimum supplemental family at either N5 or N4; every listed family reaches at least `3/3`, while source realism and native review remain separate gates.
 
-- [~] The authored reading bank now has 166 questions across 115 passages, adding main-idea, sequence, reason, reference, simple-inference, condition-detail, task-based-response, and appropriate-action prompts to the existing short-detail, mid-length, and information-retrieval families. Every supplemental family now reaches at least three questions globally and per level, structural answer-choice checks pass, and 113 exact passage-answer echoes plus 59 copied distractor choices are surfaced in the quality audit for distractor/question-design review; distractor plausibility, level calibration, and native review remain open.
+- [~] The authored reading bank now has 166 questions across 115 passages, adding main-idea, sequence, reason, reference, simple-inference, condition-detail, task-based-response, and appropriate-action prompts to the existing short-detail, mid-length, and information-retrieval families. Every supplemental family now reaches at least three questions globally and per level, structural answer-choice checks pass, and 113 exact passage-answer echoes plus 56 copied distractor choices are surfaced in the quality audit for distractor/question-design review; distractor plausibility, level calibration, and native review remain open.
 
 Ensure substantial coverage of:
 

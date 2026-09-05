@@ -254,8 +254,8 @@ test("authored reading and listening banks expose diversity QA", () => {
   assert.deepEqual(report.reading.questionFamilyCoverage.underMinimum, []);
   assert.deepEqual(report.reading.questionFamilyCoverage.byLevel.N5.underMinimum, []);
   assert.deepEqual(report.reading.questionFamilyCoverage.byLevel.N4.underMinimum, []);
-  assert.equal(report.reading.distractorSignals.setsWithSourceEchoDistractors, 37);
-  assert.equal(report.reading.distractorSignals.sourceEchoDetails.reduce((total, detail) => total + detail.distractors.length, 0), 59);
+  assert.equal(report.reading.distractorSignals.setsWithSourceEchoDistractors, 34);
+  assert.equal(report.reading.distractorSignals.sourceEchoDetails.reduce((total, detail) => total + detail.distractors.length, 0), 56);
   assert.ok(report.reading.distractorSignals.sourceEchoDetails.every((detail) => detail.itemId && detail.questionType && detail.distractors.length > 0));
   assert.deepEqual(report.listening.byLevel, { N5: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } }, N4: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } } });
   assert.equal(report.listening.uniqueTemplates, 160);
