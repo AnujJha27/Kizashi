@@ -1741,6 +1741,8 @@ Do not weaken the threshold simply to retain target counts.
 
 - [x] 2026-09-05 checkpoint: the quality report now applies a three-question floor to supplemental reading families and Content Studio renders underrepresented families for review. The current bank flags sequence `2/3`, condition detail `1/3`, and task-based response `1/3`; this is an actionable coverage signal, not a mandate to generate filler questions.
 
+- [x] 2026-09-05 checkpoint: the same floor is now reported by level. N5 flags sequence `2/3`, reference `0/3`, simple inference `0/3`, condition detail `0/3`, and task-based response `0/3`; N4 flags main idea `1/3`, sequence `0/3`, reason `2/3`, condition detail `1/3`, and task-based response `1/3`.
+
 - [~] The authored reading bank now has 143 questions across 115 passages, adding main-idea, sequence, reason, reference, simple-inference, condition-detail, task-based-response, and appropriate-action prompts to the existing short-detail, mid-length, and information-retrieval families. Structural answer-choice checks pass, and 104 exact passage-answer echoes are surfaced in the quality audit for distractor/question-design review; broader family coverage, distractor plausibility, level calibration, and native review remain open.
 
 Ensure substantial coverage of:
