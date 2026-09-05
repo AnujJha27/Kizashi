@@ -428,6 +428,13 @@ test("practice empty states offer a useful next path", async () => {
   assert.match(player, /href="\/journey"/);
 });
 
+test("Today exposes interrupted-session progress", async () => {
+  const today = await readFile(new URL("../components/journey/daily-session.tsx", import.meta.url), "utf8");
+  assert.match(today, /Resume at/);
+  assert.match(today, /complete/);
+  assert.match(today, /flowStages\.length/);
+});
+
 test("external sources use native media and safe framing fallbacks", async () => {
   const viewer = await readFile(new URL("../components/learning/external-source-viewer.tsx", import.meta.url), "utf8");
   const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");

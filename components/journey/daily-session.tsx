@@ -81,9 +81,10 @@ export function DailySession({ lessonId, items, allItems = items, module, target
   const resumeFlow = () => setFlowVisible(true);
   const advance = () => setStage(flowStages[stageIndex + 1] ?? "done");
   const resetFlow = () => { setStage(null); setFlowVisible(false); if (typeof window !== "undefined") window.localStorage.removeItem(TODAY_FLOW_KEY); };
+  const resumeDetail = stage && stage !== "done" && !flowVisible ? `Resume at ${stage} · ${Math.max(stageIndex, 0)} of ${flowStages.length} complete.` : null;
   const plan = [
     { step: "01", label: "Review", title: due === null ? "Checking…" : due ? `${due} due item${due === 1 ? "" : "s"}` : "You're clear", detail: due ? "Keep yesterday's work warm." : "Try a short immersion instead.", href: due ? "/review" : "/immersion" },
-    { step: "02", label: "Learn", title: "Continue the lesson", detail: items.length ? `${items.length} items · ${lessonId.replace(/^lesson-/, "").replaceAll("-", " ")}` : "Your next lesson", href: `/learn?lesson=${lessonId}${targetLevel === "N4" ? "&level=N4" : ""}` },
+    { step: "02", label: "Learn", title: "Continue the lesson", detail: resumeDetail ?? (items.length ? `${items.length} items · ${lessonId.replace(/^lesson-/, "").replaceAll("-", " ")}` : "Your next lesson"), href: `/learn?lesson=${lessonId}${targetLevel === "N4" ? "&level=N4" : ""}` },
     { step: "03", label: "Practice", title: priority ? `Strengthen ${priorityLabels[priority]}` : "Mix the path", detail: "A focused pass based on recent signals.", href: priorityHref },
     { step: "04", label: "Immerse", title: "Hear Japanese in context", detail: "Short listening and reading detours.", href: "/immersion" },
   ];
