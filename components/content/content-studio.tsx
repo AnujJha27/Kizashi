@@ -82,6 +82,11 @@ function CoverageHealth({ coverage }: Readonly<{ coverage: ReturnType<typeof get
   return <div className="rounded-xl border border-white/10 bg-[#101b2b]/70 p-4"><div className="flex items-center justify-between gap-3"><p className="text-sm text-[#f5f5f2]">N5 practice coverage</p><span className={coverage.complete ? "text-[#6fb98f]" : "text-[#e34a3f]"}>{coverage.complete ? "Complete" : "Needs work"}</span></div><p className="mt-2 text-xs text-[#9297a1]">{coverage.coveredItemCount} / {coverage.itemCount} items · {coverage.questionCount} active questions</p>{coverage.missingFamilies.length ? <p className="mt-1 text-[10px] text-[#ef675d]">Missing families: {coverage.missingFamilies.join(", ")}</p> : null}{coverage.uncoveredItemIds.length ? <p className="mt-1 truncate text-[10px] text-[#ef675d]" title={coverage.uncoveredItemIds.join(", ")}>Uncovered items: {coverage.uncoveredItemIds.join(", ")}</p> : null}</div>;
 }
 
+function DifficultyAudit({ module }: Readonly<{ module: N5Module }>) {
+  const report = useMemo(() => buildContentQualityReport({ readings: module.readings, listening: module.listening }), [module.readings, module.listening]);
+  return <section className="rounded-xl border border-[#3f3427] bg-[#211d18]/55 p-4 sm:p-5"><div className="flex flex-wrap items-end justify-between gap-2"><div><p className="eyebrow">Level calibration signal</p><h2 className="mt-1 text-lg font-medium text-[#f5f5f2]">Check the authored difficulty metadata.</h2><p className="mt-1 text-xs leading-5 text-[#c3a96d]">N5/N4 difficulty fields are visible by bank and level; this is structural evidence for review, not a native-language calibration verdict.</p></div><span className="text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">automated signal</span></div><div className="mt-4 grid gap-3 text-xs sm:grid-cols-2">{(["reading", "listening"] as const).map((category) => <div key={category} className="rounded-lg border border-white/10 bg-[#17181d]/55 p-3"><p className="text-[10px] uppercase tracking-[.12em] text-[#676c75]">{category}</p><p className="mt-2 text-[#c3c7ce]">N5 {report[category].difficultyByLevel.N5.average ?? "—"} average · N4 {report[category].difficultyByLevel.N4.average ?? "—"} average</p><p className="mt-1 text-[10px] text-[#676c75]">N5 {report[category].difficultyByLevel.N5.count} records · N4 {report[category].difficultyByLevel.N4.count} records</p></div>)}</div></section>;
+}
+
 function EchoReviewList({ details }: Readonly<{ details: EchoDetail[] }>) {
   if (!details.length) return null;
   const visible = details.slice(0, 12);
@@ -760,6 +765,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   return <div className="space-y-7">
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><Health label="Last curriculum validation" result={result} /><Health label="Practice question bank" result={questionResult} /><CoverageHealth coverage={practiceCoverage} /></div>
     <CompletenessDashboard module={coverageModule} />
+    <DifficultyAudit module={coverageModule} />
     <ListeningStructureAudit module={coverageModule} />
     <ReadingAnswerAudit module={coverageModule} />
     <ReadingDiagnostics module={coverageModule} />
