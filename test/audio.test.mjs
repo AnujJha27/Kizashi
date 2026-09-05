@@ -19,6 +19,7 @@ test("audio UI and providers keep pronunciation ephemeral by default", async () 
   assert.match(provider, /pause\(\)/);
   assert.match(provider, /resume\(\)/);
   assert.match(provider, /resolveHumanAudio/);
+  assert.match(provider, /sentenceLike\(request\.text\) \? \["\/api\/audio\/tatoeba", "\/api\/audio\/commons"\]/);
   assert.match(provider, /enabled = false/);
   assert.match(provider, /playAudioWithBrowserFallback/);
   assert.match(await readFile(new URL("../lib/audio-core.js", import.meta.url), "utf8"), /startsWith\("ja"\)/);

@@ -24,7 +24,7 @@ function sentenceLike(text: string) {
 
 export async function resolveHumanAudio(request: AudioRequest, reading?: string, enabled = false): Promise<AudioRequest> {
   if (!enabled || !request.text?.trim() || request.externalUrl || request.metadata?.externalUrl) return request;
-  const endpoints = ["/api/audio/commons", ...(sentenceLike(request.text) ? ["/api/audio/tatoeba"] : [])];
+  const endpoints = sentenceLike(request.text) ? ["/api/audio/tatoeba", "/api/audio/commons"] : ["/api/audio/commons"];
   for (const endpoint of endpoints) {
     try {
       const params = new URLSearchParams({ text: request.text });

@@ -506,6 +506,7 @@ test("external sources use native media and safe framing fallbacks", async () =>
   const viewer = await readFile(new URL("../components/learning/external-source-viewer.tsx", import.meta.url), "utf8");
   const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
   const player = await readFile(new URL("../components/learning/immersion-player.tsx", import.meta.url), "utf8");
+  const lessonPlayer = await readFile(new URL("../components/learning/lesson-player.tsx", import.meta.url), "utf8");
   const launcher = await readFile(new URL("../components/learning/external-source-launcher.tsx", import.meta.url), "utf8");
   const sourceProgress = await readFile(new URL("../lib/external-source-progress.js", import.meta.url), "utf8");
   const serviceWorker = await readFile(new URL("../public/sw.js", import.meta.url), "utf8");
@@ -560,6 +561,8 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(library, /relative z-10/);
   assert.match(player, /JapaneseText/);
   assert.match(player, /always/);
+  assert.match(lessonPlayer, /AudioControls text=\{item\.exampleSentences\[0\]\.japanese\} metadata=\{item\.exampleSentences\[0\]\.audio\} humanFirst/);
+  assert.match(lessonPlayer, /AudioControls text=\{example\.japanese\} metadata=\{example\.audio\} humanFirst/);
   assert.match(player, /JapaneseText text=\{question\.prompt\}/);
   assert.match(player, /JapaneseText text=\{answer\}/);
   const lesson = await readFile(new URL("../components/learning/local-lesson.tsx", import.meta.url), "utf8");
