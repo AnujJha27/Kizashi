@@ -104,6 +104,8 @@ verification, `[ ]` not implemented.
 
 - [x] 2026-09-05 quality checkpoint — the shared authored-bank report now flags reading distractors whose normalized text occurs in the passage, and Content Studio renders a bounded record/question-family/distractor review list plus N5/N4 source-length signals. The current bank has 34 affected question sets and 56 copied distractor choices, with 39/51 average source characters by level; this is structural evidence and keeps linguistic plausibility/native review open.
 
+- [x] 2026-09-05 lexical review checkpoint — Content Studio now renders bounded N5/N4 vocabulary and kanji queues for partial/missing records with coverage status, teaching status, and source IDs, alongside the existing aggregate and level-disagreement summaries; it remains a review surface rather than a release claim.
+
 This is the short implementation index for the requirements below. A checked
 item means the learner-facing path exists in the current repository; partial
 items intentionally remain visible until the remaining surfaces are finished.

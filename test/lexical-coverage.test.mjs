@@ -35,4 +35,7 @@ test("checked-in lexical union reports current N5/N4 evidence", async () => {
   assert.ok(disagreement.levelClaims.every((claim) => claim.sourceId && claim.level));
   const panel = await readFile(new URL("../components/content/lexical-coverage.tsx", import.meta.url), "utf8");
   assert.match(panel, /levelClaims/);
+  assert.match(panel, /coverageStatus/);
+  assert.match(panel, /teachingStatus/);
+  assert.match(panel, /sourceIds/);
 });

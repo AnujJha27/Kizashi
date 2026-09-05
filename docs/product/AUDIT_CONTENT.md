@@ -1359,6 +1359,7 @@ as a new context.
 ## Current implementation status (2026-09-04)
 
 - [x] `scripts/build_lexical_coverage_registry.mjs` builds `data/lexical-coverage-union.json` from cached OpenJLPT, Irodori, Marugoto, released Kizashi modules, and the staged package; Content Studio exposes the resulting review surface.
+- [x] 2026-09-05 lexical review checkpoint — Content Studio now shows bounded N5/N4 vocabulary and kanji queues for partial/missing records, including `coverageStatus`, `teachingStatus`, and source IDs, so the registry's per-record evidence can be triaged without rendering the full union.
 - [~] The current registry reports N5 1,704 union records (153 covered, 534 partial, 1,017 missing) and N4 1,850 union records (8 covered, 625 partial, 1,217 missing). Status is level-specific; level disagreements and ambiguous forms remain visible. These counts are evidence, not a completeness claim.
 
 Vocabulary quantity is already large.
