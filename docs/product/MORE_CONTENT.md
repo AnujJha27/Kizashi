@@ -33,7 +33,7 @@ intent. Counts come from `data/staging/kizashi-n5-source-review.json.gz`.
 Legend: `[x]` implemented, `[~]` partially implemented or needs broader
 coverage/verification, `[ ]` not implemented.
 
-- [x] 2026-09-05 learner-surface patch — the Journey map has its own tall generated WebP scene and offline cache entry; completed Learn lessons unlock the next Journey node from persisted lesson state or complete review records and refresh on lesson/review events; Learn uses the available content width, enlarges shared furigana, keeps its dedicated lesson summary below the lesson column until `2xl`, prevents it from stretching, and keeps progress labels inside the card; Marugoto Plus now frames its official `a1.marugotoweb.jp` host through the private extension allowlist.
+- [x] 2026-09-06 provider-enrichment patch — Learn’s Marugoto Plus follow-up now shows its mapped provider-hosted Can-do activity catalog with source level, JLPT relevance, modality, and local opened tracking before the optional `a1.marugotoweb.jp` frame; the direct-source fallback remains available when framing is blocked.
 
 ### Current evidence
 

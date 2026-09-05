@@ -13,6 +13,7 @@ import {
   canPlayExternalSourceMedia,
 } from "../lib/external-resources-runtime.js";
 import { parseShunVideoFeed, rotateCatalog } from "../lib/shun-catalog-core.js";
+import { markExternalSourceOpened } from "../lib/external-source-progress.js";
 
 test("registry filters resources and returns an empty result for missing matches", () => {
   assert.deepEqual(getExternalResources({ type: "grammar-reference" }).map((resource) => resource.sourceId), ["tae-kim"]);
@@ -88,13 +89,29 @@ test("provider entries expose bounded activity metadata without collapsing sourc
   const link = externalResourceToSourceLink(getExternalResourceById("jfs-reading-activities"));
   assert.equal(link.catalog.length, getExternalResourceById("jfs-reading-activities").metadata.catalog.length);
   const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
+  const marugotoCard = await readFile(new URL("../components/learning/marugoto-practice-card.tsx", import.meta.url), "utf8");
   assert.match(surface, /Activity map/);
   assert.match(surface, /source\.catalog\.map/);
+  assert.match(marugotoCard, /source\.catalog\?\.length/);
+  assert.match(marugotoCard, /markExternalSourceOpened\(`\$\{source\.id\}:\$\{entry\.id\}`\)/);
   assert.match(surface, /navigator\.onLine/);
   assert.match(surface, /addEventListener\("offline"/);
   assert.match(surface, /Online connection required/);
   assert.match(surface, /Provider catalog unavailable/);
   assert.match(surface, /role="status"/);
+});
+
+test("source progress failures do not block source-viewer interactions", () => {
+  const previousWindow = globalThis.window;
+  globalThis.window = {
+    localStorage: { getItem() { throw new Error("storage disabled"); }, setItem() { throw new Error("storage disabled"); } },
+    dispatchEvent() {},
+  };
+  try {
+    assert.equal(markExternalSourceOpened("marugoto-plus"), false);
+  } finally {
+    globalThis.window = previousWindow;
+  }
 });
 
 test("existing listening sources keep original URLs and can try the private frame helper", () => {
