@@ -4,10 +4,10 @@
     "N5": {
       "rawPatterns": 224,
       "canonicalConcepts": 46,
-      "complete": 19,
-      "partial": 21,
-      "missing": 6,
-      "unresolved": 99,
+      "complete": 22,
+      "partial": 19,
+      "missing": 5,
+      "unresolved": 92,
       "levelDisagreements": 6
     },
     "N4": {
@@ -296,10 +296,19 @@
       "id": "grammar-kudasai",
       "pattern": "N を ください",
       "level": "N5",
-      "sourceIds": [],
-      "evidenceCount": 0,
-      "evidencePatterns": [],
-      "status": "missing",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "evidencePatterns": [
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-e24d9875968f",
+          "pattern": "N、お願いします\nN、くださいネガ",
+          "level": "N5"
+        }
+      ],
+      "status": "partial",
       "levelDisagreements": []
     },
     {
@@ -310,7 +319,7 @@
         "openjlpt",
         "irodori-sentence-patterns"
       ],
-      "evidenceCount": 6,
+      "evidenceCount": 9,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
@@ -346,6 +355,24 @@
           "sourceId": "irodori-sentence-patterns",
           "recordId": "irodori-grammar-3673e2f4d19e",
           "pattern": "N、ありますか？",
+          "level": "N5"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-5c2554b52a26",
+          "pattern": "【もの】は【ここ／そこ／あそこ】にあります",
+          "level": "N5"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-4d74ad9a3267",
+          "pattern": "Nの【位置】にありますイチ",
+          "level": "N5"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-20c1f839c000",
+          "pattern": "【日時】に【場所】で【イベント】がありますニチジ",
           "level": "N5"
         }
       ],
@@ -519,18 +546,25 @@
       "pattern": "Place に person が います",
       "level": "N5",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n5-2",
           "pattern": "〜がいます / 〜があります",
           "level": "N5"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-0d4b9649da37",
+          "pattern": "【人】は【場所】にいますヒトバショ",
+          "level": "N5"
         }
       ],
-      "status": "partial",
+      "status": "complete",
       "levelDisagreements": []
     },
     {
@@ -693,18 +727,25 @@
       "pattern": "Reason から, result",
       "level": "N5",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n5-3",
           "pattern": "〜から（reason）",
           "level": "N5"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-229e3ea870dc",
+          "pattern": "ナA-です／イA-いです から",
+          "level": "N5"
         }
       ],
-      "status": "partial",
+      "status": "complete",
       "levelDisagreements": []
     },
     {
@@ -1045,18 +1086,25 @@
       "pattern": "Clause A が、Clause B",
       "level": "N5",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n5-1",
           "pattern": "〜が（but）",
           "level": "N5"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-f4086f12db6c",
+          "pattern": "S1が、S2",
+          "level": "N5"
         }
       ],
-      "status": "partial",
+      "status": "complete",
       "levelDisagreements": []
     },
     {
@@ -2650,12 +2698,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-e24d9875968f",
-      "pattern": "N、お願いします\nN、くださいネガ",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-a9e012a50040",
       "pattern": "Nにします",
       "level": "N5"
@@ -2674,26 +2716,8 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-0d4b9649da37",
-      "pattern": "【人】は【場所】にいますヒトバショ",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-7ea4f8523ad8",
       "pattern": "（【人】は)いません／いないですヒト",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-5c2554b52a26",
-      "pattern": "【もの】は【ここ／そこ／あそこ】にあります",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-4d74ad9a3267",
-      "pattern": "Nの【位置】にありますイチ",
       "level": "N5"
     },
     {
@@ -2772,12 +2796,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-eb2aa1e53a2b",
       "pattern": "【人】と／【場所】でV-ますヒト",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-20c1f839c000",
-      "pattern": "【日時】に【場所】で【イベント】がありますニチジ",
       "level": "N5"
     },
     {
@@ -2946,12 +2964,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-2d0cdbb3757d",
       "pattern": "イA-い のが 苦手ですニガテ",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-229e3ea870dc",
-      "pattern": "ナA-です／イA-いです から",
       "level": "N5"
     },
     {
@@ -3331,12 +3343,6 @@
       "recordId": "irodori-grammar-dd3821d44b9f",
       "pattern": "V-てから、 ～",
       "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-f4086f12db6c",
-      "pattern": "S1が、S2",
-      "level": "N5"
     },
     {
       "sourceId": "irodori-sentence-patterns",
@@ -4023,7 +4029,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 129
+      "references": 136
     },
     {
       "id": "tae-kim",
