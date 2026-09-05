@@ -464,6 +464,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   const coverageModule = useMemo(() => parsedDraft.value ?? parseModuleForReview(raw) ?? seed, [parsedDraft.value, raw, seed]);
   const currentOrSavedDraft = useMemo(() => parsedDraft.value ?? parseModuleForReview(raw) ?? coverageModule, [coverageModule, parsedDraft.value, raw]);
   const coverageItems = useMemo(() => getModuleItems(coverageModule), [coverageModule]);
+  const coverageSources = useMemo(() => [...new Map([...sources, ...(coverageModule.sourceManifest ?? [])].map((source) => [source.id, source])).values()], [coverageModule.sourceManifest, sources]);
   const ensureRaw = () => {
     if (raw) return raw;
     const next = JSON.stringify(seed, null, 2);
@@ -795,7 +796,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
     <ReadingFormatAudit module={coverageModule} />
     <ReadingQuestionCoverageAudit module={coverageModule} />
     <ReadingDiagnostics module={coverageModule} />
-    <SourceCoverage items={coverageItems} sources={sources} />
+    <SourceCoverage items={coverageItems} sources={coverageSources} />
     <TopicCoverage module={coverageModule} practiceQuestions={questionBank.length ? questionBank : null} />
     <GrammarContractQueue module={coverageModule} onEdit={(kind, id) => openRecordEditor(kind, id)} />
     <AIGenerator items={coverageItems.filter((item) => getContentReviewStatus(item) === "approved")} onAdd={addGeneratedQuestion} />

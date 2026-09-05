@@ -51,3 +51,9 @@ test("source coverage distinguishes selective links from package provenance", as
   assert.match(component, /Everything is connected/);
   assert.match(component, /sources = contentSources/);
 });
+
+test("Studio coverage follows the active package source manifest", async () => {
+  const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
+  assert.match(studio, /const coverageSources = useMemo\(\(\) =>/);
+  assert.match(studio, /SourceCoverage items=\{coverageItems\} sources=\{coverageSources\}/);
+});
