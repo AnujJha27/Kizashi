@@ -89,6 +89,7 @@ test("Journey landscape blends into the map instead of cutting across route labe
   const landscape = await readFile(new URL("../components/journey/landscape.tsx", import.meta.url), "utf8");
   assert.match(landscape, /from-\[#111216\]\/95/);
   assert.match(landscape, /via-\[#111216\]\/70/);
+  assert.match(landscape, /to-\[#111216\]\/45/);
 });
 
 test("the profile portrait consumes the resolved area visual", async () => {
