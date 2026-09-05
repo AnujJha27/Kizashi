@@ -49,7 +49,12 @@ export function OutputPractice({ module }: Readonly<{ module: N5Module }>) {
   }), [activeLevel, banks, kind, reviewRecords]);
   const activity = activities[activityIndex];
 
-  useEffect(() => setReviewRecords(readReviewRecords()), []);
+  useEffect(() => {
+    const refresh = () => setReviewRecords(readReviewRecords());
+    refresh();
+    window.addEventListener("michi-review-updated", refresh);
+    return () => window.removeEventListener("michi-review-updated", refresh);
+  }, []);
 
   useEffect(() => {
     setActivityIndex(0);

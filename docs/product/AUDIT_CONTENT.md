@@ -2278,7 +2278,7 @@ Do not create fake variety with number substitution.
 ## Current implementation status (2026-09-04)
 
 - [x] The guided output lane now derives 80 speaking situations (40 N5 / 40 N4), 60 writing prompts (25 N5 / 35 N4), 119 pragmatic contexts, 296 vocabulary collocations, and a 20-item N5 casual-vs-polite recognition starter lane (10 casual / 10 polite) from released listening, reading, and vocabulary records.
-- [~] This first expansion preserves source IDs, target levels, frequency fields, model reveal/audio, and non-JLPT scoring. Self-ratings now reuse the shared review scheduler under namespaced output IDs without polluting canonical mistake queues. Register recognition starts with a deliberately small N5 lane derived from existing listening lines; N4 register coverage, canonical grammar mapping for chunks, and human-source pragmatics review remain follow-up quality work.
+- [~] This first expansion preserves source IDs, target levels, frequency fields, model reveal/audio, and non-JLPT scoring. Self-ratings now reuse the shared review scheduler under namespaced output IDs without polluting canonical mistake queues, and the output lane refreshes its due ordering immediately on the shared review event. Register recognition starts with a deliberately small N5 lane derived from existing listening lines; N4 register coverage, canonical grammar mapping for chunks, and human-source pragmatics review remain follow-up quality work.
 
 ---
 
