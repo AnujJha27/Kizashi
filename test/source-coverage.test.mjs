@@ -3,6 +3,32 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
 import { getExternalSourceCoverage } from "../lib/source-coverage.js";
+import { repairModuleProvenance } from "../lib/content-provenance-core.js";
+
+test("repairs stale provenance from matching fallback records without inventing sources", () => {
+  const fallback = {
+    sourceManifest: [{ id: "michi-authored-n4-grammar" }],
+    vocabulary: [],
+    kanji: [],
+    grammar: [{ id: "grammar-to-conditional", sourceIds: ["michi-authored-n4-grammar"] }],
+    readings: [],
+    listening: [],
+  };
+  const draft = {
+    sourceManifest: [],
+    vocabulary: [],
+    kanji: [],
+    grammar: [{ id: "grammar-to-conditional", sourceIds: ["grammar-to-conditional"] }, { id: "unknown", sourceIds: ["unknown"] }],
+    readings: [],
+    listening: [],
+  };
+
+  const result = repairModuleProvenance(draft, fallback);
+  assert.equal(result.repaired, 1);
+  assert.deepEqual(result.module.grammar[0].sourceIds, ["michi-authored-n4-grammar"]);
+  assert.deepEqual(result.module.grammar[1].sourceIds, ["unknown"]);
+  assert.equal(result.module.sourceManifest[0].id, "michi-authored-n4-grammar");
+});
 
 test("source coverage counts real mappings and keeps runtime audio honest", () => {
   const coverage = getExternalSourceCoverage({
@@ -56,4 +82,5 @@ test("Studio coverage follows the active package source manifest", async () => {
   const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
   assert.match(studio, /const coverageSources = useMemo\(\(\) =>/);
   assert.match(studio, /SourceCoverage items=\{coverageItems\} sources=\{coverageSources\}/);
+  assert.match(studio, /setRaw\(JSON\.stringify\(merged, null, 2\)\)/);
 });

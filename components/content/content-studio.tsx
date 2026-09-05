@@ -29,6 +29,7 @@ import { readMistakes, readReviewRecords } from "@/lib/session";
 import { rankContentCandidates } from "@/lib/content-priority.js";
 import { buildContentQualityReport } from "@/lib/content-quality-core.js";
 import { mergeContentModules } from "@/lib/module-merge-core.js";
+import { repairModuleProvenance } from "@/lib/content-provenance-core.js";
 import { getN5PracticeCoverage, getPracticeQuestions, migrateLegacyQuestionPrompts } from "@/lib/questions";
 import { getUnresolvedJapaneseSegments } from "@/lib/japanese-text-core.js";
 import { getJapaneseReadingEntries } from "@/components/learning/japanese-text";
@@ -514,7 +515,9 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
       if (!next) throw new Error("Review package is invalid.");
       const merged = mergeContentModules(next, seed);
       setSeed(merged);
+      setRaw(JSON.stringify(merged, null, 2));
       setResult(validateModule(merged));
+      setShowContentIssues(false);
       setFullPackageLoaded(true);
       setMessage("Loaded the full staged review package.");
     } catch {
@@ -540,7 +543,9 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
       const saved = await readContentDraft();
       if (cancelled) return;
       const savedResult = saved ? parseAndValidateModule(saved) : null;
-      const savedDraft = savedResult?.value ?? (saved ? parseModuleForReview(saved) : null);
+      const parsedSavedDraft = savedResult?.value ?? (saved ? parseModuleForReview(saved) : null);
+      const repairedSaved = parsedSavedDraft ? repairModuleProvenance(parsedSavedDraft, seed) : null;
+      const savedDraft = repairedSaved?.module ?? null;
       const savedIsSmaller = Boolean(savedDraft && getModuleItems(savedDraft).length < getModuleItems(seed).length);
       const activeDraft = savedIsSmaller ? seed : savedDraft ?? seed;
       if (savedResult?.value && !savedIsSmaller) {
@@ -551,10 +556,11 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
       } else if (saved && !savedIsSmaller) {
         const reviewDraft = parseModuleForReview(saved);
         if (reviewDraft) {
-          setRaw(saved);
-          setResult(parseAndValidateModule(saved).result);
+          const nextRaw = repairedSaved?.repaired ? JSON.stringify(savedDraft, null, 2) : saved;
+          setRaw(nextRaw);
+          setResult(parseAndValidateModule(nextRaw).result);
           setShowContentIssues(false);
-          setMessage("Loaded the in-progress review draft. Fix its issues before publishing.");
+          setMessage(repairedSaved?.repaired ? `Loaded the in-progress review draft and repaired ${repairedSaved.repaired} stale provenance records for this session.` : "Loaded the in-progress review draft. Fix its issues before publishing.");
         } else {
           setResult(seedHealth);
           setShowContentIssues(false);
