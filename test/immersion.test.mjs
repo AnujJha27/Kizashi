@@ -87,6 +87,7 @@ test("output self-ratings reuse the shared review schedule", async () => {
   assert.match(component, /recordReview\(outputReviewId\(activity\.id\)/);
   assert.match(component, /`output-\$\{activity\.kind\}`/);
   assert.match(component, /\["register", "Casual \/ polite"\]/);
+  assert.match(component, /activity\.kind === "register"/);
   assert.match(component, /addEventListener\("michi-review-updated", refresh\)/);
   assert.match(component, /, false\);/);
 });
