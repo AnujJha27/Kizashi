@@ -581,6 +581,7 @@ test("Studio exposes every pending question through a searchable paged review qu
   assert.match(studio, /Listening structure signals/);
   assert.match(studio, /Reading answer signals/);
   assert.match(studio, /source-mentioned distractors/);
+  assert.doesNotMatch(await readFile(new URL("../docs/product/UX_OVERHAUL.md", import.meta.url), "utf8"), /copied distractor choices/);
   assert.match(studio, /Reading format audit/);
   assert.match(studio, /visualFormatCounts/);
   assert.match(studio, /Reading question coverage/);
