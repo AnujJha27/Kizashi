@@ -121,6 +121,13 @@ function ReadingFormatAudit({ module }: Readonly<{ module: N5Module }>) {
   return <section className="rounded-xl border border-[#3f3427] bg-[#211d18]/55 p-4 sm:p-5"><div className="flex flex-wrap items-end justify-between gap-2"><div><p className="eyebrow">Reading format audit</p><h2 className="mt-1 text-lg font-medium text-[#f5f5f2]">Keep practical reading formats visible.</h2><p className="mt-1 text-xs leading-5 text-[#c3a96d]">Format counts come from declared metadata; the HTML aid keeps Japanese accurate while native realism remains a review task.</p></div><span className="text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">automated signal</span></div><p className="mt-4 text-xs leading-6 text-[#c3c7ce]">{entries.map(([format, count]) => `${format}: ${count}`).join(" · ")}</p></section>;
 }
 
+function ReadingQuestionCoverageAudit({ module }: Readonly<{ module: N5Module }>) {
+  const coverage = useMemo(() => buildContentQualityReport({ readings: module.readings }).reading.questionFamilyCoverage, [module.readings]);
+  if (!coverage) return null;
+  const gaps = coverage.underMinimum;
+  return <section className="rounded-xl border border-[#3f3427] bg-[#211d18]/55 p-4 sm:p-5"><div className="flex flex-wrap items-end justify-between gap-2"><div><p className="eyebrow">Reading question coverage</p><h2 className="mt-1 text-lg font-medium text-[#f5f5f2]">Spot thin question families.</h2><p className="mt-1 text-xs leading-5 text-[#c3a96d]">The supplemental family floor is a review signal, not a claim that every family should be equally common.</p></div><span className="text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">automated signal</span></div><p className={`mt-4 text-xs ${gaps.length ? "text-[#e5b85c]" : "text-[#8bcca6]"}`}>{gaps.length ? gaps.map((gap) => `${gap.family}: ${gap.count}/${gap.minimum}`).join(" · ") : "All supplemental families meet the floor."}</p></section>;
+}
+
 function missingGrammarContract(item: N5Module["grammar"][number]) {
   return [
     !item.aliases?.length ? "aliases" : null,
@@ -785,6 +792,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
     <ListeningStructureAudit module={coverageModule} />
     <ReadingAnswerAudit module={coverageModule} />
     <ReadingFormatAudit module={coverageModule} />
+    <ReadingQuestionCoverageAudit module={coverageModule} />
     <ReadingDiagnostics module={coverageModule} />
     <SourceCoverage items={coverageItems} sources={sources} />
     <TopicCoverage module={coverageModule} practiceQuestions={questionBank.length ? questionBank : null} />

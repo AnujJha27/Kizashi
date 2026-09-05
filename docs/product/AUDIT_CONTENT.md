@@ -1739,6 +1739,8 @@ Do not weaken the threshold simply to retain target counts.
 
 - [x] 2026-09-05 checkpoint: reading distractor source-overlap review and N5/N4 source-length signals are now visible in the shared quality report and Content Studio, with 34 affected question sets, 56 copied distractor choices, and 39/51 average source characters in the current bank. These are structural signals and keep human plausibility review open.
 
+- [x] 2026-09-05 checkpoint: the quality report now applies a three-question floor to supplemental reading families and Content Studio renders underrepresented families for review. The current bank flags sequence `2/3`, condition detail `1/3`, and task-based response `1/3`; this is an actionable coverage signal, not a mandate to generate filler questions.
+
 - [~] The authored reading bank now has 143 questions across 115 passages, adding main-idea, sequence, reason, reference, simple-inference, condition-detail, task-based-response, and appropriate-action prompts to the existing short-detail, mid-length, and information-retrieval families. Structural answer-choice checks pass, and 104 exact passage-answer echoes are surfaced in the quality audit for distractor/question-design review; broader family coverage, distractor plausibility, level calibration, and native review remain open.
 
 Ensure substantial coverage of:
