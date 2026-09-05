@@ -47,4 +47,6 @@ test("source coverage distinguishes selective links from package provenance", as
   assert.match(component, /const unknownIds = \[\.\.\.new Set/);
   assert.match(component, /Unknown source IDs: \{unknownIds/);
   assert.match(component, /Alternative source links are selective/);
+  assert.match(component, /Package provenance/);
+  assert.match(component, /Everything is connected/);
 });
