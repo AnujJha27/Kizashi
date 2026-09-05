@@ -82,6 +82,8 @@ test("provider entries expose bounded activity metadata without collapsing sourc
   assert.match(marugoto.jlptRelevance, /N5/);
   assert.ok(marugoto.targetItemIds.length > 0);
   assert.notEqual(marugoto.sourceLevel, marugoto.jlptRelevance);
+  assert.equal(getExternalResourceById("marugoto-plus").url, "https://a1.marugotoweb.jp/en/");
+  assert.equal(getExternalResourceById("marugoto-plus").metadata.frameUrl, "https://a1.marugotoweb.jp/en/");
   assert.equal(externalResourceToSourceLink(getExternalResourceById("marugoto-plus")).frameUrl, "https://a1.marugotoweb.jp/en/");
   const link = externalResourceToSourceLink(getExternalResourceById("jfs-reading-activities"));
   assert.equal(link.catalog.length, getExternalResourceById("jfs-reading-activities").metadata.catalog.length);
