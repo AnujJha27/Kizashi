@@ -563,6 +563,7 @@ test("external sources use native media and safe framing fallbacks", async () =>
   const styles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   assert.match(styles, /\.lesson-opening \+ div \{ align-items: start; \}/);
   assert.match(styles, /\.lesson-opening \+ div > aside \{ align-self: start; height: fit-content;/);
+  assert.match(styles, /@media \(max-width: 1279px\)[\s\S]*\.lesson-opening \+ div \{ grid-template-columns: minmax\(0, 1fr\); \}/);
 });
 
 test("Studio exposes every pending question through a searchable paged review queue", async () => {
