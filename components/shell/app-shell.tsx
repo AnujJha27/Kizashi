@@ -79,7 +79,7 @@ export function AppShell({ children, isAdmin }: Readonly<{ children: React.React
   return (
     <div className={`app-shell world-area-${worldState.area.id} world-stage-${worldState.stage.id} min-h-screen lg:flex`} data-world-area={worldState.area.id} data-world-stage={worldState.stage.id} onClickCapture={showNavigationFeedback} style={{ "--world-focal": worldState.area.focalPoint.desktop, "--world-focal-mobile": worldState.area.focalPoint.mobile, "--world-shell": `url(${worldState.area.visualAssets.shell})` } as CSSProperties}>
       <a href="#main-content" className="sr-only fixed left-3 top-3 z-[300] rounded-lg bg-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#0b0b0d] focus:not-sr-only">Skip to content</a>
-      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 self-start overflow-y-auto flex-col border-r border-[#617486]/45 px-5 py-6 lg:flex">
+      <aside className="app-sidebar sticky top-0 hidden h-screen w-64 shrink-0 self-start overflow-y-auto flex-col border-r border-[#617486]/45 px-5 py-6 lg:flex">
         <div className="mb-8 flex items-center gap-3 rounded-2xl border border-white/10 bg-[#172b3a]/45 px-3 py-3 shadow-[0_14px_35px_rgba(5,12,20,.16)]">
           <div className="relative grid size-10 place-items-center rounded-xl bg-[#e34a3f] text-sm font-bold text-[#0b0b0d] shadow-[0_8px_24px_rgba(227,74,63,.22)]"><span>道</span><span className="absolute -right-1 -top-2 text-[10px] text-[#e5b85c]">✦</span></div>
           <div>

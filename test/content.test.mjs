@@ -564,6 +564,9 @@ test("external sources use native media and safe framing fallbacks", async () =>
   const styles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   assert.match(styles, /\.lesson-opening \+ div \{ align-items: start; \}/);
   assert.match(styles, /\.lesson-opening \+ div > aside \{ align-self: start; height: fit-content;/);
+  assert.match(styles, /\.app-sidebar,\n\.app-header/);
+  assert.doesNotMatch(styles, /\.app-shell aside,\n  \.app-header/);
+  assert.match(shell, /className="app-sidebar sticky/);
   assert.match(lesson, /xl:grid-cols-\[minmax\(0,1fr\)_minmax\(0,\.7fr\)\]/);
   assert.doesNotMatch(lesson, /lg:grid-cols-\[minmax\(0,1fr\)_minmax\(0,\.7fr\)\]/);
 });

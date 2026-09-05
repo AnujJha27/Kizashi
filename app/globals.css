@@ -56,7 +56,7 @@ body {
 
 @media (max-width: 1023px) {
   .app-shell,
-  .app-shell aside,
+  .app-sidebar,
   .app-header {
     background-attachment: scroll;
   }
@@ -66,7 +66,7 @@ body {
   .app-shell { background-position: var(--world-focal-mobile, var(--world-focal, center 42%)); }
 }
 
-.app-shell aside,
+.app-sidebar,
 .app-header {
   background:
     linear-gradient(180deg, rgba(20, 39, 57, .72), rgba(18, 24, 34, .68)),
@@ -74,7 +74,7 @@ body {
   backdrop-filter: blur(20px) saturate(120%);
 }
 
-.app-shell aside { box-shadow: 18px 0 50px rgba(0, 0, 0, .12); }
+.app-sidebar { box-shadow: 18px 0 50px rgba(0, 0, 0, .12); }
 
 .app-mobile-nav {
   background: rgba(14, 15, 21, .7);
