@@ -33,7 +33,7 @@ intent. Counts come from `data/staging/kizashi-n5-source-review.json.gz`.
 Legend: `[x]` implemented, `[~]` partially implemented or needs broader
 coverage/verification, `[ ]` not implemented.
 
-- [x] 2026-09-05 learner-surface patch — the Journey map has its own tall generated WebP scene and offline cache entry; completed Learn lessons unlock the next Journey node from persisted lesson state or complete review records and refresh on lesson/review events; Learn enlarges shared furigana, keeps its dedicated lesson summary below the lesson column until `xl`, and prevents it from stretching; Marugoto Plus now frames its official `a1.marugotoweb.jp` host through the private extension allowlist.
+- [x] 2026-09-05 learner-surface patch — the Journey map has its own tall generated WebP scene and offline cache entry; completed Learn lessons unlock the next Journey node from persisted lesson state or complete review records and refresh on lesson/review events; Learn enlarges shared furigana, keeps its dedicated lesson summary below the lesson column until `2xl`, and prevents it from stretching; Marugoto Plus now frames its official `a1.marugotoweb.jp` host through the private extension allowlist.
 
 ### Current evidence
 

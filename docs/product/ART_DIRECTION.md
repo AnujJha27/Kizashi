@@ -24,7 +24,7 @@ The target is a coherent visual world.
 
 ## Code-backed implementation status (2026-09-05)
 
-- [x] 2026-09-05 map refinement — the route map uses a separate tall generated WebP composition rather than reusing the horizontal area hero, with the map asset cached and documented as its own visual role; Learn’s lesson summary is isolated from shell-sidebar styling and sized to its content.
+- [x] 2026-09-05 map refinement — the route map uses a separate tall generated WebP composition rather than reusing the horizontal area hero, with the map asset cached and documented as its own visual role; Learn’s lesson summary is isolated from shell-sidebar styling, stays full-width until `2xl`, and is sized to its content.
 - [x] The existing shell, Today, and Journey image URLs are now centralized in the Journey visual manifest instead of being repeated in Journey components.
 - [x] Retired root PNG atmosphere fallbacks are removed; generated WebP manifest assets are now the learner-facing Journey/Today/Learn scenery paths.
 - [x] Area identity and progression are expressed through restrained environment labels, color washes, route styling, and arrival/lived-in/settled stages; the learner remains the protagonist and focused drills remain image-light.
