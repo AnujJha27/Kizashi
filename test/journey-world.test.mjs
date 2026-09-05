@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { access, readdir, readFile, stat } from "node:fs/promises";
 
 import { getJourneyWorldState, getNextJourneyArea, journeyVisualManifest } from "../lib/journey-world-core.js";
@@ -49,6 +50,12 @@ test("world areas use distinct owned visual variants with role metadata", async 
   assert.ok(areas.every((area) => area.visualAssetMetadata.length === 7));
   assert.ok(areas.flatMap((area) => area.visualAssetMetadata).every((asset) => asset.sourceType === "generated-raster" && asset.path.endsWith(".webp") && asset.attribution && asset.focalPoint));
   await Promise.all(areas.flatMap((area) => [area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson].map((path) => access(new URL(`../public${path}`, import.meta.url)))));
+});
+
+test("world role paths resolve to distinct raster files", async () => {
+  const paths = [...new Set(Object.values(journeyVisualManifest).flatMap((area) => [area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson]))];
+  const hashes = await Promise.all(paths.map(async (path) => createHash("sha256").update(await readFile(new URL(`../public${path}`, import.meta.url))).digest("hex")));
+  assert.equal(new Set(hashes).size, paths.length);
 });
 
 test("Journey, Today, and Learn consume their own visual roles", async () => {
