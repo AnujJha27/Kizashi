@@ -73,6 +73,9 @@ test("output banks reuse released content at the documented depth", async () => 
   assert.equal(banks.writing.filter((item) => item.level === "N4").length, 35);
   assert.ok(banks.pragmatics.length >= 100);
   assert.ok(banks.chunks.length >= 200);
+  assert.equal(banks.register.length, 20);
+  assert.equal(new Set(banks.register.map((item) => item.answer)).size, 2);
+  assert.ok(banks.register.every((item) => item.choices?.length === 2 && item.sourceEvidence?.length));
   assert.ok(banks.chunks.every((item) => item.targetLevel && item.headVocabularyIds.length && item.sourceEvidence.length));
   assert.ok(banks.pragmatics.every((item) => item.function && item.choices?.length >= 2 && item.answer !== undefined));
 });
@@ -83,6 +86,7 @@ test("output self-ratings reuse the shared review schedule", async () => {
   assert.deepEqual(["again", "close", "got-it"].map(outputReviewRating), ["again", "hard", "good"]);
   assert.match(component, /recordReview\(outputReviewId\(activity\.id\)/);
   assert.match(component, /`output-\$\{activity\.kind\}`/);
+  assert.match(component, /\["register", "Casual \/ polite"\]/);
   assert.match(component, /, false\);/);
 });
 
