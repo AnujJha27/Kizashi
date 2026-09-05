@@ -51,11 +51,11 @@ test("grammar coverage reports source patterns with no canonical match", () => {
 
 test("checked-in grammar registry preserves the current evidence boundary", async () => {
   const registry = JSON.parse(await readFile(new URL("../data/grammar-coverage-union.json", import.meta.url), "utf8"));
-  assert.deepEqual(registry.summary.N5, { rawPatterns: 224, canonicalConcepts: 46, complete: 17, partial: 23, missing: 6, unresolved: 102, levelDisagreements: 4 });
-  assert.deepEqual(registry.summary.N4, { rawPatterns: 188, canonicalConcepts: 70, complete: 3, partial: 58, missing: 9, unresolved: 86, levelDisagreements: 7 });
+  assert.deepEqual(registry.summary.N5, { rawPatterns: 224, canonicalConcepts: 46, complete: 17, partial: 23, missing: 6, unresolved: 100, levelDisagreements: 4 });
+  assert.deepEqual(registry.summary.N4, { rawPatterns: 188, canonicalConcepts: 70, complete: 9, partial: 55, missing: 6, unresolved: 79, levelDisagreements: 9 });
   assert.equal(registry.sourcePolicy.includes("review"), true);
   assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").rawRecords, 348);
-  assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").references, 114);
+  assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").references, 123);
   assert.equal(registry.canonical.find((concept) => concept.id === "grammar-yotei").status, "missing");
 });
 

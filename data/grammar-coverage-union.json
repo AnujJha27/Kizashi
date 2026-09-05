@@ -7,17 +7,17 @@
       "complete": 17,
       "partial": 23,
       "missing": 6,
-      "unresolved": 102,
+      "unresolved": 100,
       "levelDisagreements": 4
     },
     "N4": {
       "rawPatterns": 188,
       "canonicalConcepts": 70,
-      "complete": 3,
-      "partial": 58,
-      "missing": 9,
-      "unresolved": 86,
-      "levelDisagreements": 7
+      "complete": 9,
+      "partial": 55,
+      "missing": 6,
+      "unresolved": 79,
+      "levelDisagreements": 9
     }
   },
   "canonical": [
@@ -1202,30 +1202,57 @@
       "id": "grammar-ato-de",
       "pattern": "Vたあとで",
       "level": "N4",
-      "sourceIds": [],
-      "evidenceCount": 0,
-      "evidencePatterns": [],
-      "status": "missing",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "evidencePatterns": [
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-34e58b8aca95",
+          "pattern": "V-たあと、～",
+          "level": "N4"
+        }
+      ],
+      "status": "partial",
       "levelDisagreements": []
     },
     {
       "id": "grammar-toki",
       "pattern": "Vとき / Aとき",
       "level": "N4",
-      "sourceIds": [],
-      "evidenceCount": 0,
-      "evidencePatterns": [],
-      "status": "missing",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "evidencePatterns": [
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-06efacfa8da4",
+          "pattern": "V-る／V-ている／V-た とき、～",
+          "level": "N4"
+        }
+      ],
+      "status": "partial",
       "levelDisagreements": []
     },
     {
       "id": "grammar-nagara",
       "pattern": "Vながら",
       "level": "N4",
-      "sourceIds": [],
-      "evidenceCount": 0,
-      "evidencePatterns": [],
-      "status": "missing",
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "evidencePatterns": [
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-d4eff7ccee1a",
+          "pattern": "V-ながら、～",
+          "level": "N4"
+        }
+      ],
+      "status": "partial",
       "levelDisagreements": []
     },
     {
@@ -1316,18 +1343,25 @@
       "pattern": "〜てあげる",
       "level": "N4",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n4-5",
           "pattern": "〜てあげる",
           "level": "N4"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-0178e49f0683",
+          "pattern": "V-てあげます",
+          "level": "N4"
         }
       ],
-      "status": "partial",
+      "status": "complete",
       "levelDisagreements": []
     },
     {
@@ -1354,18 +1388,25 @@
       "pattern": "〜てくれる",
       "level": "N4",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n4-9",
           "pattern": "〜てくれる",
           "level": "N4"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-5a5482b0bd8e",
+          "pattern": "V-てくれます",
+          "level": "N4"
         }
       ],
-      "status": "partial",
+      "status": "complete",
       "levelDisagreements": []
     },
     {
@@ -1373,18 +1414,25 @@
       "pattern": "〜てしまう",
       "level": "N4",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n4-10",
           "pattern": "〜てしまう",
           "level": "N4"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-a857b2330bf1",
+          "pattern": "V-てしまいました",
+          "level": "N4"
         }
       ],
-      "status": "partial",
+      "status": "complete",
       "levelDisagreements": []
     },
     {
@@ -1392,37 +1440,53 @@
       "pattern": "〜てみる",
       "level": "N4",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n4-11",
           "pattern": "〜てみる",
           "level": "N4"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-0b06a4a8f5a4",
+          "pattern": "V-てみます",
+          "level": "N5"
         }
       ],
-      "status": "partial",
-      "levelDisagreements": []
+      "status": "complete",
+      "levelDisagreements": [
+        "N5"
+      ]
     },
     {
       "id": "grammar-te-morau",
       "pattern": "〜てもらう",
       "level": "N4",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n4-12",
           "pattern": "〜てもらう",
           "level": "N4"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-133c2a2adc1b",
+          "pattern": "V-てもらいます",
+          "level": "N4"
         }
       ],
-      "status": "partial",
+      "status": "complete",
       "levelDisagreements": []
     },
     {
@@ -1577,19 +1641,28 @@
       "pattern": "〜過ぎる",
       "level": "N4",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n4-18",
           "pattern": "〜過ぎる",
           "level": "N4"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-4eed2d34b5b3",
+          "pattern": "V-すぎます",
+          "level": "N5"
         }
       ],
-      "status": "partial",
-      "levelDisagreements": []
+      "status": "complete",
+      "levelDisagreements": [
+        "N5"
+      ]
     },
     {
       "id": "grammar-chu",
@@ -3049,12 +3122,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-0b06a4a8f5a4",
-      "pattern": "V-てみます",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-12450e2fc292",
       "pattern": "自動詞\n他動詞ジドウシタドウシ",
       "level": "N4"
@@ -3127,12 +3194,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-34e58b8aca95",
-      "pattern": "V-たあと、～",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-ec4b654ad140",
       "pattern": "～とき（に）、～",
       "level": "N4"
@@ -3141,12 +3202,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-6a011c1f3eeb",
       "pattern": "V-るといいです（よ）",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-4eed2d34b5b3",
-      "pattern": "V-すぎます",
       "level": "N5"
     },
     {
@@ -3283,12 +3338,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-06efacfa8da4",
-      "pattern": "V-る／V-ている／V-た とき、～",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-63bd7ac48ab9",
       "pattern": "【人】と【人数】で",
       "level": "N4"
@@ -3351,12 +3400,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-ef3ebfe4437d",
       "pattern": "S（普通形）+人が～\nS（普通形）+人も～フツウケイヒト",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-d4eff7ccee1a",
-      "pattern": "V-ながら、～",
       "level": "N4"
     },
     {
@@ -3429,12 +3472,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-1951b267d2ce",
       "pattern": "NをV-(ら)れます　＜受身③＞ウケミ",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-a857b2330bf1",
-      "pattern": "V-てしまいました",
       "level": "N4"
     },
     {
@@ -3531,24 +3568,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-eebbc73bca11",
       "pattern": "V-るために、～",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-0178e49f0683",
-      "pattern": "V-てあげます",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-133c2a2adc1b",
-      "pattern": "V-てもらいます",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-5a5482b0bd8e",
-      "pattern": "V-てくれます",
       "level": "N4"
     },
     {
@@ -3990,7 +4009,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 114
+      "references": 123
     },
     {
       "id": "tae-kim",
