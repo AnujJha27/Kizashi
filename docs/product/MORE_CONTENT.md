@@ -33,6 +33,8 @@ intent. Counts come from `data/staging/kizashi-n5-source-review.json.gz`.
 Legend: `[x]` implemented, `[~]` partially implemented or needs broader
 coverage/verification, `[ ]` not implemented.
 
+- [x] 2026-09-05 learner-surface patch — the Journey map has its own tall generated WebP scene and offline cache entry; Learn enlarges shared furigana and prevents the lesson sidebar from stretching; Marugoto Plus is included in the private frame extension allowlist.
+
 ### Current evidence
 
 - [x] 2026-09-05 question-coverage checkpoint: Content Studio now exposes the three-question floor for supplemental reading families; the authored bank now reaches `3/3` or better for every supplemental family globally and within N5/N4 after adding passage-grounded prompts. This keeps family coverage measurable without hiding the separate plausibility/native-review gate.

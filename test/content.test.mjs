@@ -506,6 +506,7 @@ test("external sources use native media and safe framing fallbacks", async () =>
   const player = await readFile(new URL("../components/learning/immersion-player.tsx", import.meta.url), "utf8");
   const launcher = await readFile(new URL("../components/learning/external-source-launcher.tsx", import.meta.url), "utf8");
   const sourceProgress = await readFile(new URL("../lib/external-source-progress.js", import.meta.url), "utf8");
+  const serviceWorker = await readFile(new URL("../public/sw.js", import.meta.url), "utf8");
   const frameExtension = JSON.parse(await readFile(new URL("../browser/kizashi-private-frame-unlocker/manifest.json", import.meta.url), "utf8"));
   const frameRules = JSON.parse(await readFile(new URL("../browser/kizashi-private-frame-unlocker/rules.json", import.meta.url), "utf8"));
   const shell = await readFile(new URL("../components/shell/app-shell.tsx", import.meta.url), "utf8");
@@ -542,7 +543,11 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(sourceProgress, /michi-source-progress-updated/);
   assert.equal(frameExtension.manifest_version, 3);
   assert.ok(frameExtension.host_permissions.length > 0);
+  assert.ok(frameExtension.host_permissions.includes("https://marugotoweb.jp/*"));
+  assert.ok(frameExtension.host_permissions.includes("https://*.marugotoweb.jp/*"));
   assert.equal(frameRules[0].action.type, "modifyHeaders");
+  assert.ok(frameRules[0].condition.requestDomains.includes("marugotoweb.jp"));
+  assert.match(serviceWorker, /journey-map\.webp/);
   assert.ok(frameRules[0].action.responseHeaders.some((header) => header.header === "x-frame-options" && header.operation === "remove"));
   assert.ok(frameRules[0].action.responseHeaders.some((header) => header.header === "content-security-policy" && header.operation === "remove"));
   assert.match(shell, /const primaryNavItems = \[/);
@@ -590,11 +595,20 @@ test("content review cards open a readable modal before approval", async () => {
   assert.match(studio, /<ContentReviewCard key=\{item\.id\}/);
   assert.match(studio, /role="dialog"/);
   assert.match(studio, /aria-modal="true"/);
+  assert.match(studio, /previousFocus\.current = document\.activeElement/);
+  assert.match(studio, /previousFocus\.current\?\.focus\(\)/);
   assert.match(studio, /backdrop-blur/);
   assert.match(studio, /ReadableRecord/);
   assert.doesNotMatch(studio, /<details className=/);
   assert.doesNotMatch(studio, /JSON\.stringify\(item, null, 2\)/);
   assert.match(studio, /Edit record/);
+});
+
+test("keyboard dialogs restore focus to their opener", async () => {
+  const palette = await readFile(new URL("../components/shell/command-palette.tsx", import.meta.url), "utf8");
+  assert.match(palette, /previousFocus\.current = document\.activeElement/);
+  assert.match(palette, /previousFocus\.current\?\.focus\(\)/);
+  assert.match(palette, /openPalette\("add"\)/);
 });
 
 test("lesson completion uses the area transition language", async () => {

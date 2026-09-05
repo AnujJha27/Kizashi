@@ -46,30 +46,38 @@ test("world areas use distinct owned visual variants with role metadata", async 
   const areas = Object.values(journeyVisualManifest);
   assert.equal(new Set(areas.map((area) => area.visualAssets.hero)).size, areas.length);
   assert.equal(new Set(areas.map((area) => area.visualAssets.today)).size, areas.length);
-  assert.ok(areas.every((area) => new Set([area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson]).size === 3));
-  assert.ok(areas.every((area) => area.visualAssetMetadata.length === 7));
+  assert.ok(areas.every((area) => new Set([area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson, area.visualAssets.map]).size === 4));
+  assert.ok(areas.every((area) => area.visualAssetMetadata.length === 8));
   assert.ok(areas.flatMap((area) => area.visualAssetMetadata).every((asset) => asset.sourceType === "generated-raster" && asset.path.endsWith(".webp") && asset.attribution && asset.focalPoint));
-  await Promise.all(areas.flatMap((area) => [area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson].map((path) => access(new URL(`../public${path}`, import.meta.url)))));
+  await Promise.all(areas.flatMap((area) => [area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson, area.visualAssets.map].map((path) => access(new URL(`../public${path}`, import.meta.url)))));
 });
 
 test("world role paths resolve to distinct raster files", async () => {
-  const paths = [...new Set(Object.values(journeyVisualManifest).flatMap((area) => [area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson]))];
+  const paths = [...new Set(Object.values(journeyVisualManifest).flatMap((area) => [area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson, area.visualAssets.map]))];
   const hashes = await Promise.all(paths.map(async (path) => createHash("sha256").update(await readFile(new URL(`../public${path}`, import.meta.url))).digest("hex")));
   assert.equal(new Set(hashes).size, paths.length);
 });
 
 test("Journey, Today, and Learn consume their own visual roles", async () => {
-  const [journey, today, learn] = await Promise.all([
+  const [journey, today, learn, landscape] = await Promise.all([
     readFile(new URL("../components/journey/journey-overview.tsx", import.meta.url), "utf8"),
     readFile(new URL("../components/journey/daily-session.tsx", import.meta.url), "utf8"),
     readFile(new URL("../components/learning/local-lesson.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/journey/landscape.tsx", import.meta.url), "utf8"),
   ]);
   assert.match(journey, /visualAssets\.hero/);
   assert.match(journey, /visualAssets\.lesson/);
+  assert.match(landscape, /visualAssets\.map/);
   assert.match(today, /visualAssets\.today/);
   assert.match(today, /\/world\/today\.webp/);
   assert.doesNotMatch(today, /daily-journey\.png/);
   assert.match(learn, /visualAssets\.lesson/);
+});
+
+test("completed lessons unlock the first lesson in the next chapter", async () => {
+  const journeyMap = await readFile(new URL("../components/journey/journey-map.tsx", import.meta.url), "utf8");
+  assert.match(journeyMap, /previousComplete = Boolean/);
+  assert.match(journeyMap, /node\.status === "locked"\) return "available"/);
 });
 
 test("Journey and profile scenery use raster images instead of SVG art", async () => {
@@ -89,6 +97,7 @@ test("world imagery hides a failed asset without removing the surrounding UI", a
     readFile(new URL("../components/profile/study-portrait.tsx", import.meta.url), "utf8"),
   ]);
   assert.match(landscape, /onError=\{\(event\) => \{ event\.currentTarget\.hidden = true; \}\}/);
+  assert.match(landscape, /width=\{972\} height=\{1619\}/);
   assert.match(portrait, /onError=\{\(event\) => \{ event\.currentTarget\.hidden = true; \}\}/);
 });
 
@@ -116,6 +125,7 @@ test("image scenery carries both responsive focal points", async () => {
   assert.match(portrait, /focalPoint\.mobile/);
   assert.match(css, /\.world-scene-image/);
   assert.match(css, /world-focal-mobile/);
+  assert.match(css, /\.japanese-text rt/);
 });
 
 test("world raster scenes stay within the image budget and decode lazily", async () => {

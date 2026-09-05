@@ -56,6 +56,7 @@ Inspect the repository, preserve working behavior, implement the world system en
 
 ## Code-backed implementation status (2026-09-05)
 
+- [x] 2026-09-05 map refinement — the Journey route now uses a dedicated tall `/world/journey-map.webp` raster scene with its own manifest role and intrinsic dimensions, separate from the hero, Today, and lesson-opening assets.
 - [x] `lib/journey-world-core.js` centralizes the current area manifest, lesson/region mapping, N5/N4 area identity, and arrival/lived-in/settled progression stages.
 - [x] Retired root PNG atmosphere fallbacks are removed; generated WebP manifest assets are now the learner-facing Journey/Today/Learn scenery paths.
 - [x] `components/shell/app-shell.tsx`, `components/journey/journey-overview.tsx`, `components/journey/daily-session.tsx`, and `components/journey/journey-map.tsx` consume the resolved world state for shell atmosphere, Today, the Journey hero, and the route map.

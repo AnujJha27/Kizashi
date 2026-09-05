@@ -13,7 +13,9 @@
     "https://tatoeba.org/*",
     "https://www.tatoeba.org/*",
     "https://sites.google.com/*",
-    "https://www.japanesepod101.com/*"
+    "https://www.japanesepod101.com/*",
+    "https://marugotoweb.jp/*",
+    "https://*.marugotoweb.jp/*"
   ],
   "declarative_net_request": {
     "rule_resources": [

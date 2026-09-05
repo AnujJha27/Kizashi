@@ -2,8 +2,8 @@
 
 This is a local Chrome/Edge extension for your own devices. It removes only
 `X-Frame-Options` and `Content-Security-Policy` from responses loaded as
-subframes from Kizashi's allowlisted source domains. It does not affect source
-pages opened directly in a tab.
+subframes from Kizashi's allowlisted source domains, including Marugoto Plus.
+It does not affect source pages opened directly in a tab.
 
 Install it locally:
 
