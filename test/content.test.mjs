@@ -237,6 +237,8 @@ test("authored reading and listening banks expose diversity QA", () => {
   assert.deepEqual(report.reading.byLevel, { N5: { total: 60, uniqueTemplates: 60, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 12, "mid-length passage": 18, "short passage detail": 30, "main idea": 5, sequence: 2, reason: 4, "appropriate action": 3 } }, N4: { total: 55, uniqueTemplates: 55, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 15, "mid-length passage": 14, "short passage detail": 26, "appropriate action": 3, reference: 3, reason: 2, "simple inference": 3, "condition detail": 1, "main idea": 1, "task-based response": 1 } } });
   assert.equal(report.reading.nearDuplicateClusters.length, 0);
   assert.equal(report.reading.questionSignals.answerEchoes, 104);
+  assert.equal(report.reading.questionSignals.answerEchoDetails.length, 104);
+  assert.ok(report.reading.questionSignals.answerEchoDetails.every((detail) => detail.itemId && detail.questionType && detail.answer));
   assert.deepEqual(report.listening.byLevel, { N5: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } }, N4: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } } });
   assert.equal(report.listening.uniqueTemplates, 160);
   assert.equal(report.listening.sourceTypes.tts, 160);
@@ -249,6 +251,8 @@ test("authored reading and listening banks expose diversity QA", () => {
   assert.deepEqual(report.listening.dialogueStructure.turnProfiles, { "3 turns / 2 speakers": 80, "4 turns / 2 speakers": 80 });
   assert.deepEqual(report.listening.dialogueStructure.speakerPatterns, { "A-B-A": 80, "A-B-A-B": 80 });
   assert.equal(report.listening.dialogueStructure.answerEchoes, 92);
+  assert.equal(report.listening.dialogueStructure.answerEchoDetails.length, 92);
+  assert.ok(report.listening.dialogueStructure.answerEchoDetails.every((detail) => detail.itemId && detail.questionType && detail.answer));
   assert.ok((report.reading.questionFamilies["main idea"] ?? 0) >= 4);
   assert.ok((report.reading.questionFamilies.sequence ?? 0) >= 2);
   assert.ok((report.reading.questionFamilies.reason ?? 0) >= 5);
@@ -500,6 +504,7 @@ test("Studio exposes every pending question through a searchable paged review qu
   assert.match(studio, /questionPageCount/);
   assert.match(studio, /Listening structure signals/);
   assert.match(studio, /Reading answer signals/);
+  assert.match(studio, /Review flagged answers/);
   assert.doesNotMatch(studio, /questions\.slice\(0, 20\)/);
 });
 
