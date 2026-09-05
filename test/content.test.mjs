@@ -247,6 +247,7 @@ test("authored reading and listening banks expose diversity QA", () => {
   assert.equal(report.reading.sentencePatternDiversity.unique, 2);
   assert.deepEqual(report.reading.difficultyByLevel, { N5: { count: 60, average: 2, min: 2, max: 2 }, N4: { count: 55, average: 4, min: 4, max: 4 } });
   assert.deepEqual(report.reading.answerUniqueness, { unique: 143, total: 143, duplicate: 0 });
+  assert.deepEqual(report.reading.visualFormatCounts, { notice: 7, menu: 2, timetable: 1, schedule: 2, sale: 1, event: 2, directions: 2, hotel: 1, work: 1, health: 1, school: 1, home: 1, restaurant: 1, museum: 1, weather: 1, delivery: 1, transport: 1 });
   assert.equal(report.reading.distractorSignals.setsWithSourceEchoDistractors, 34);
   assert.equal(report.reading.distractorSignals.sourceEchoDetails.reduce((total, detail) => total + detail.distractors.length, 0), 56);
   assert.ok(report.reading.distractorSignals.sourceEchoDetails.every((detail) => detail.itemId && detail.questionType && detail.distractors.length > 0));
@@ -519,6 +520,8 @@ test("Studio exposes every pending question through a searchable paged review qu
   assert.match(studio, /questionPageCount/);
   assert.match(studio, /Listening structure signals/);
   assert.match(studio, /Reading answer signals/);
+  assert.match(studio, /Reading format audit/);
+  assert.match(studio, /visualFormatCounts/);
   assert.match(studio, /Review flagged answers/);
   assert.match(studio, /Level calibration signal/);
   assert.match(studio, /difficultyByLevel/);

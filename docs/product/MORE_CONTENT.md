@@ -35,6 +35,8 @@ coverage/verification, `[ ]` not implemented.
 
 ### Current evidence
 
+- [x] 2026-09-05 format-audit checkpoint: Content Studio now reports the declared practical-reading format distribution; the 27 information-retrieval readings cover 17 formats. This is a structural coverage check and does not replace source-realism or native review.
+
 - [x] 2026-09-05 quality checkpoint: the shared authored-bank audit now identifies distractor choices copied from reading passages and Content Studio exposes a bounded review list plus N5/N4 source-length signals. The current 115-passage bank has 34 affected question sets and 56 copied choices, with 39/51 average source characters by level; these structural signals do not replace plausibility, length calibration, or native review.
 
 - [x] The tracked staged package currently contains 7,328 vocabulary, 630 kanji, 413 grammar, 121 reading, and 166 listening records: 8,658 records across 74 lessons; 946 records carry N4 classification and every item is assigned to a Journey lesson. The authored 115-reading and 160-listening banks are now in the same released package as the source reservoir.

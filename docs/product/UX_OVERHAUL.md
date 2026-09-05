@@ -95,6 +95,8 @@ verification, `[ ]` not implemented.
 
 ### Feature-to-code evidence
 
+- [x] 2026-09-05 format-audit checkpoint — the shared authored-bank report counts declared practical-reading formats and Content Studio renders them; the current 27 information-retrieval readings cover 17 formats. This confirms metadata/layout coverage while source realism and native review remain open.
+
 - [x] 2026-09-05 quality checkpoint — the shared authored-bank report now flags reading distractors whose normalized text occurs in the passage, and Content Studio renders a bounded record/question-family/distractor review list plus N5/N4 source-length signals. The current bank has 34 affected question sets and 56 copied distractor choices, with 39/51 average source characters by level; this is structural evidence and keeps linguistic plausibility/native review open.
 
 This is the short implementation index for the requirements below. A checked

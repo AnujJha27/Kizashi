@@ -114,6 +114,13 @@ function ReadingAnswerAudit({ module }: Readonly<{ module: N5Module }>) {
   return <section className="rounded-xl border border-[#5d4c2c] bg-[#2b2418]/55 p-4 sm:p-5"><div className="flex flex-wrap items-end justify-between gap-2"><div><p className="eyebrow">Reading answer signals</p><h2 className="mt-1 text-lg font-medium text-[#f5f5f2]">Flag literal answer leakage.</h2><p className="mt-1 text-xs leading-5 text-[#c3a96d]">Exact source wording is surfaced for distractor and question-design review; it is not automatically wrong or a plausibility verdict.</p></div><span className="text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">automated signal</span></div><div className="mt-4 grid gap-3 text-xs sm:grid-cols-2"><div className="rounded-lg border border-white/10 bg-[#17181d]/55 p-3 text-[#e5b85c]">{signals.answerEchoes} reading answers repeat passage wording<EchoReviewList details={signals.answerEchoDetails} /></div><div className="rounded-lg border border-white/10 bg-[#17181d]/55 p-3 text-[#e5b85c]">{distractors.setsWithSourceEchoDistractors} question sets contain distractors copied from the passage<DistractorReviewList details={distractors.sourceEchoDetails} /></div></div></section>;
 }
 
+function ReadingFormatAudit({ module }: Readonly<{ module: N5Module }>) {
+  const formats = useMemo(() => buildContentQualityReport({ readings: module.readings }).reading.visualFormatCounts, [module.readings]);
+  const entries = Object.entries(formats);
+  if (!entries.length) return null;
+  return <section className="rounded-xl border border-[#3f3427] bg-[#211d18]/55 p-4 sm:p-5"><div className="flex flex-wrap items-end justify-between gap-2"><div><p className="eyebrow">Reading format audit</p><h2 className="mt-1 text-lg font-medium text-[#f5f5f2]">Keep practical reading formats visible.</h2><p className="mt-1 text-xs leading-5 text-[#c3a96d]">Format counts come from declared metadata; the HTML aid keeps Japanese accurate while native realism remains a review task.</p></div><span className="text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">automated signal</span></div><p className="mt-4 text-xs leading-6 text-[#c3c7ce]">{entries.map(([format, count]) => `${format}: ${count}`).join(" · ")}</p></section>;
+}
+
 function missingGrammarContract(item: N5Module["grammar"][number]) {
   return [
     !item.aliases?.length ? "aliases" : null,
@@ -777,6 +784,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
     <DifficultyAudit module={coverageModule} />
     <ListeningStructureAudit module={coverageModule} />
     <ReadingAnswerAudit module={coverageModule} />
+    <ReadingFormatAudit module={coverageModule} />
     <ReadingDiagnostics module={coverageModule} />
     <SourceCoverage items={coverageItems} sources={sources} />
     <TopicCoverage module={coverageModule} practiceQuestions={questionBank.length ? questionBank : null} />
