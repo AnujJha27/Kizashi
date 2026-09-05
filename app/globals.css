@@ -188,7 +188,7 @@ button, a, input { outline-color: var(--gold); outline-offset: 3px; }
 
 .world-scene-image { object-position: var(--world-focal, center); }
 
-.lesson-opening + div { align-items: start; grid-auto-rows: max-content; }
+.lesson-opening + div { align-items: start; grid-auto-rows: max-content; grid-template-columns: minmax(0, 1fr); }
 
 .lesson-summary { align-self: start; height: max-content; min-height: 0; width: 100%; max-width: 100%; overflow-x: hidden; }
 
