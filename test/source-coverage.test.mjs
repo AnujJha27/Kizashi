@@ -76,6 +76,9 @@ test("source coverage distinguishes selective links from package provenance", as
   assert.match(component, /Package provenance/);
   assert.match(component, /Everything is connected/);
   assert.match(component, /sources = contentSources/);
+  assert.match(component, /Audio provenance/);
+  assert.match(component, /humanAudio/);
+  assert.match(component, /syntheticAudio/);
 });
 
 test("Studio coverage follows the active package source manifest", async () => {

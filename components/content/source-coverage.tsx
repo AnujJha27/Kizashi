@@ -23,9 +23,16 @@ function CoverageValue({ label, value }: Readonly<{ label: string; value: string
 function modalityCoverage(items: LessonContentItem[]) {
   const exampleItems = items.filter((item) => (item.category === "vocabulary" && item.exampleSentences.length > 0) || (item.category === "grammar" && item.examples.length > 0));
   const audioItems = items.filter((item) => (item.category === "vocabulary" && Boolean(item.audio?.sourceType || item.audioUrl)) || (item.category === "reading" && Boolean(item.audio?.sourceType)) || (item.category === "listening" && Boolean(item.audio?.sourceType || item.audioUrl)));
+  const audioKind = (item: LessonContentItem) => {
+    const sourceType = item.category === "listening" ? item.sourceType : undefined;
+    const voice = item.category === "listening" ? item.voice : undefined;
+    return item.audio?.isSynthetic === false || sourceType === "recorded" || sourceType === "imported" ? "human" : item.audio?.isSynthetic === true || sourceType === "tts" || /tts/iu.test(voice ?? "") ? "synthetic" : null;
+  };
+  const humanAudio = items.filter((item) => audioKind(item) === "human").length;
+  const syntheticAudio = items.filter((item) => audioKind(item) === "synthetic").length;
   const contextQuestions = items.filter((item) => (item.category === "reading" && Boolean(item.questions?.length)) || (item.category === "listening" && item.questions.length > 0));
   const conjugationCandidates = items.filter((item) => item.category === "vocabulary" && (item.jlptLevel === "N5" || item.jlptLevel === "N4") && (item.commonness ?? 0) >= 4 && /verb|adjective/u.test(item.partOfSpeech));
-  return [`Examples · ${exampleItems.length} / ${items.filter((item) => item.category === "vocabulary" || item.category === "grammar").length}`, `Audio attached · ${audioItems.length} / ${items.length}`, `Reading/listening checks · ${contextQuestions.length} / ${items.filter((item) => item.category === "reading" || item.category === "listening").length}`, `Conjugation candidates · ${conjugationCandidates.length}`];
+  return [`Examples · ${exampleItems.length} / ${items.filter((item) => item.category === "vocabulary" || item.category === "grammar").length}`, `Audio attached · ${audioItems.length} / ${items.length}`, `Audio provenance · ${humanAudio} human-backed · ${syntheticAudio} synthetic/fallback`, `Reading/listening checks · ${contextQuestions.length} / ${items.filter((item) => item.category === "reading" || item.category === "listening").length}`, `Conjugation candidates · ${conjugationCandidates.length}`];
 }
 
 function packageProvenance(items: LessonContentItem[], sources: readonly ContentSource[]) {
