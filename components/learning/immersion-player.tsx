@@ -61,8 +61,8 @@ export function ImmersionPlayer({ clipId, readingId, focus = "listen", startMode
   const transcriptVisible = mode === "guided" || showTranscript || shadowing;
 
   useEffect(() => {
-    if (focus === "read" && reading) writeContinueState({ kind: "reading", href: "/immersion", label: reading.title, detail: "Reading activity", referenceId: reading.id });
-    if (focus === "listen" && clip) writeContinueState({ kind: "immersion", href: "/immersion", label: clip.title, detail: "Listening activity", referenceId: clip.id });
+    if (focus === "read" && reading) writeContinueState({ kind: "reading", href: `/immersion?reading=${encodeURIComponent(reading.id)}`, label: reading.title, detail: `Reading activity · passage ${readingPosition + 1}`, referenceId: reading.id });
+    if (focus === "listen" && clip) writeContinueState({ kind: "immersion", href: `/immersion?listen=${encodeURIComponent(clip.id)}`, label: clip.title, detail: "Listening activity", referenceId: clip.id });
   }, [clip?.id, clip?.title, focus, reading?.id, reading?.title]);
 
   useEffect(() => {

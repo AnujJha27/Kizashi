@@ -65,6 +65,14 @@ export function ImmersionSurface() {
   }, []);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const readingId = params.get("reading");
+    const clipId = params.get("listen");
+    if (readingId && module.readings.some((reading) => reading.id === readingId)) setSelectedReadingId(readingId);
+    if (clipId && module.listening.some((clip) => clip.id === clipId)) setSelectedClipId(clipId);
+  }, [module.listening, module.readings]);
+
+  useEffect(() => {
     const update = () => setOnline(navigator.onLine);
     update();
     window.addEventListener("online", update);

@@ -85,3 +85,13 @@ test("output self-ratings reuse the shared review schedule", async () => {
   assert.match(component, /`output-\$\{activity\.kind\}`/);
   assert.match(component, /, false\);/);
 });
+
+test("Immersion continue state can reopen the selected local activity", async () => {
+  const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
+  const player = await readFile(new URL("../components/learning/immersion-player.tsx", import.meta.url), "utf8");
+  assert.match(surface, /URLSearchParams\(window\.location\.search\)/);
+  assert.match(surface, /setSelectedReadingId/);
+  assert.match(surface, /setSelectedClipId/);
+  assert.match(player, /\/immersion\?reading=/);
+  assert.match(player, /\/immersion\?listen=/);
+});
