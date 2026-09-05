@@ -35,6 +35,8 @@ coverage/verification, `[ ]` not implemented.
 
 ### Current evidence
 
+- [x] 2026-09-05 quality checkpoint: the shared authored-bank audit now identifies distractor choices copied from reading passages and Content Studio exposes a bounded review list. The current 115-passage bank has 34 affected question sets and 56 copied choices; this structural source-overlap signal does not replace plausibility or native review.
+
 - [x] The tracked staged package currently contains 7,328 vocabulary, 630 kanji, 413 grammar, 121 reading, and 166 listening records: 8,658 records across 74 lessons; 946 records carry N4 classification and every item is assigned to a Journey lesson. The authored 115-reading and 160-listening banks are now in the same released package as the source reservoir.
 - [x] The learner release path exposes every non-rejected staged record immediately with automatic provenance, while merging bundled authored expansions so remote package loading does not hide original reading/listening lessons; pending remains a Studio status, not a learner gate.
 - [x] The existing three Irodori item ingestors remain in place and preserve source IDs, field-level provenance, course, and source-level metadata.

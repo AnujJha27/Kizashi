@@ -247,6 +247,9 @@ test("authored reading and listening banks expose diversity QA", () => {
   assert.equal(report.reading.sentencePatternDiversity.unique, 2);
   assert.deepEqual(report.reading.difficultyByLevel, { N5: { count: 60, average: 2, min: 2, max: 2 }, N4: { count: 55, average: 4, min: 4, max: 4 } });
   assert.deepEqual(report.reading.answerUniqueness, { unique: 143, total: 143, duplicate: 0 });
+  assert.equal(report.reading.distractorSignals.setsWithSourceEchoDistractors, 34);
+  assert.equal(report.reading.distractorSignals.sourceEchoDetails.reduce((total, detail) => total + detail.distractors.length, 0), 56);
+  assert.ok(report.reading.distractorSignals.sourceEchoDetails.every((detail) => detail.itemId && detail.questionType && detail.distractors.length > 0));
   assert.deepEqual(report.listening.byLevel, { N5: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } }, N4: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } } });
   assert.equal(report.listening.uniqueTemplates, 160);
   assert.equal(report.listening.sourceTypes.tts, 160);
@@ -353,9 +356,11 @@ test("quality audit exposes lexical load and distractor structure", () => {
     listening: [],
   });
   assert.deepEqual(report.reading.lexicalLoad, { vocabulary: { linked: 1, missing: 0, average: 2, min: 2, max: 2 }, grammar: { linked: 1, missing: 0, average: 1, min: 1, max: 1 }, kanji: { linked: 1, missing: 0, average: 3, min: 3, max: 3 } });
-  assert.deepEqual(report.reading.distractorSignals, { questions: 1, setsWithBlankDistractors: 0, setsWithDuplicateDistractors: 0, setsWithFewerThan3Distractors: 0 });
+  assert.deepEqual(report.reading.distractorSignals, { questions: 1, setsWithBlankDistractors: 0, setsWithDuplicateDistractors: 0, setsWithFewerThan3Distractors: 0, setsWithSourceEchoDistractors: 0, sourceEchoDetails: [] });
   const weak = buildContentQualityReport({ readings: [{ id: "weak-reading", jlptLevel: "N5", passage: "駅です。", questions: [{ options: ["駅", "", "店", "店"], correctAnswer: 0 }] }], listening: [] });
-  assert.deepEqual(weak.reading.distractorSignals, { questions: 1, setsWithBlankDistractors: 1, setsWithDuplicateDistractors: 1, setsWithFewerThan3Distractors: 0 });
+  assert.deepEqual(weak.reading.distractorSignals, { questions: 1, setsWithBlankDistractors: 1, setsWithDuplicateDistractors: 1, setsWithFewerThan3Distractors: 0, setsWithSourceEchoDistractors: 0, sourceEchoDetails: [] });
+  const copied = buildContentQualityReport({ readings: [{ id: "copied-reading", passage: "駅の前です。", questions: [{ options: ["店", "駅の前", "家", "本"], correctAnswer: 0 }] }], listening: [] });
+  assert.deepEqual(copied.reading.distractorSignals.sourceEchoDetails, [{ itemId: "copied-reading", questionType: "untyped", distractors: ["駅の前"] }]);
 });
 
 test("answer quality audit catches duplicate and invalid choices", () => {

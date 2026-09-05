@@ -36,6 +36,7 @@ import type { ContentReviewStatus, ContentSource, ExampleSentence, ExerciseValid
 type DraftKind = LearningCategory | "grammarContrast" | "lesson";
 type ReviewMetadata = { reviewedBy: string; reviewNotes: string };
 type EchoDetail = { itemId: string; questionType: string; answer: string };
+type DistractorDetail = { itemId: string; questionType: string; distractors: string[] };
 
 const draftKinds: DraftKind[] = ["vocabulary", "kanji", "grammar", "reading", "listening", "grammarContrast", "lesson"];
 
@@ -93,6 +94,12 @@ function EchoReviewList({ details }: Readonly<{ details: EchoDetail[] }>) {
   return <div className="mt-3 text-[11px] text-[#9297a1]"><p className="text-[#e5b85c]">Review flagged answers · showing {visible.length} of {details.length}</p><div className="mt-2 max-h-64 overflow-y-auto rounded-lg border border-white/10 bg-[#17181d]/55"><div className="divide-y divide-white/10">{visible.map((detail, index) => <div key={`${detail.itemId}-${detail.questionType}-${index}`} className="grid gap-1 px-3 py-2 sm:grid-cols-[minmax(0,1fr)_auto]"><span className="truncate text-[#c3c7ce]" title={detail.itemId}>{detail.itemId} · {detail.questionType}</span><span className="jp-serif text-[#f1cf7c]">{detail.answer}</span></div>)}</div></div>{details.length > visible.length ? <p className="mt-2 text-[10px] text-[#676c75]">The list is intentionally bounded; use the record ID in the existing editor for the remaining flags.</p> : null}</div>;
 }
 
+function DistractorReviewList({ details }: Readonly<{ details: DistractorDetail[] }>) {
+  if (!details.length) return null;
+  const visible = details.slice(0, 12);
+  return <div className="mt-3 text-[11px] text-[#9297a1]"><p className="text-[#e5b85c]">Review copied distractors · showing {visible.length} of {details.length}</p><div className="mt-2 max-h-64 overflow-y-auto rounded-lg border border-white/10 bg-[#17181d]/55"><div className="divide-y divide-white/10">{visible.map((detail, index) => <div key={`${detail.itemId}-${detail.questionType}-${index}`} className="grid gap-1 px-3 py-2 sm:grid-cols-[minmax(0,1fr)_auto]"><span className="truncate text-[#c3c7ce]" title={detail.itemId}>{detail.itemId} · {detail.questionType}</span><span className="jp-serif text-[#f1cf7c]">{detail.distractors.join(" · ")}</span></div>)}</div></div>{details.length > visible.length ? <p className="mt-2 text-[10px] text-[#676c75]">The list is intentionally bounded; use the record ID in the existing editor for the remaining flags.</p> : null}</div>;
+}
+
 function ListeningStructureAudit({ module }: Readonly<{ module: N5Module }>) {
   const structure = useMemo(() => buildContentQualityReport({ listening: module.listening }).listening.dialogueStructure, [module.listening]);
   const turnProfiles = Object.entries(structure.turnProfiles).map(([label, count]) => `${label}: ${count}`).join(" · ");
@@ -101,8 +108,10 @@ function ListeningStructureAudit({ module }: Readonly<{ module: N5Module }>) {
 }
 
 function ReadingAnswerAudit({ module }: Readonly<{ module: N5Module }>) {
-  const signals = useMemo(() => buildContentQualityReport({ readings: module.readings }).reading.questionSignals, [module.readings]);
-  return <section className="rounded-xl border border-[#5d4c2c] bg-[#2b2418]/55 p-4 sm:p-5"><div className="flex flex-wrap items-end justify-between gap-2"><div><p className="eyebrow">Reading answer signals</p><h2 className="mt-1 text-lg font-medium text-[#f5f5f2]">Flag literal answer leakage.</h2><p className="mt-1 text-xs leading-5 text-[#c3a96d]">Exact answer text found in a passage is surfaced for distractor and question-design review; it is not automatically wrong.</p></div><span className="text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">automated signal</span></div><div className="mt-4 rounded-lg border border-white/10 bg-[#17181d]/55 p-3 text-xs text-[#e5b85c]">{signals.answerEchoes} reading answers repeat passage wording<EchoReviewList details={signals.answerEchoDetails} /></div></section>;
+  const quality = useMemo(() => buildContentQualityReport({ readings: module.readings }).reading, [module.readings]);
+  const signals = quality.questionSignals;
+  const distractors = quality.distractorSignals;
+  return <section className="rounded-xl border border-[#5d4c2c] bg-[#2b2418]/55 p-4 sm:p-5"><div className="flex flex-wrap items-end justify-between gap-2"><div><p className="eyebrow">Reading answer signals</p><h2 className="mt-1 text-lg font-medium text-[#f5f5f2]">Flag literal answer leakage.</h2><p className="mt-1 text-xs leading-5 text-[#c3a96d]">Exact source wording is surfaced for distractor and question-design review; it is not automatically wrong or a plausibility verdict.</p></div><span className="text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">automated signal</span></div><div className="mt-4 grid gap-3 text-xs sm:grid-cols-2"><div className="rounded-lg border border-white/10 bg-[#17181d]/55 p-3 text-[#e5b85c]">{signals.answerEchoes} reading answers repeat passage wording<EchoReviewList details={signals.answerEchoDetails} /></div><div className="rounded-lg border border-white/10 bg-[#17181d]/55 p-3 text-[#e5b85c]">{distractors.setsWithSourceEchoDistractors} question sets contain distractors copied from the passage<DistractorReviewList details={distractors.sourceEchoDetails} /></div></div></section>;
 }
 
 function missingGrammarContract(item: N5Module["grammar"][number]) {

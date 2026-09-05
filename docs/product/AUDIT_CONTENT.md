@@ -1665,6 +1665,8 @@ The next task is QUALITY.
 
 ## Current implementation status (2026-09-04)
 
+- [x] 2026-09-05 checkpoint: the shared report now flags distractor choices whose normalized text occurs in the source passage, and Content Studio shows a bounded record/question-family/distractor review list. The current bank has 34 affected question sets and 56 copied distractor choices; this is a source-overlap signal, not an automatic plausibility or native-language verdict.
+
 - [~] `lib/content-quality-core.js` now audits authored reading passages for normalized template uniqueness, near-duplicate clusters, topic counts, linked grammar-pattern signature diversity, question-family distribution, answer-choice presence/uniqueness/index validity, correct-answer uniqueness, estimated difficulty by level, linked vocabulary/grammar/kanji load ranges, structural distractor signals, exact passage-answer echoes, source type, and N5/N4 breakdown. The current 115-passage bank provides 143 questions across 11 families, including at least three each of reason, reference, simple inference, and appropriate action, is 115/115 unique with 0 near-duplicate clusters, 0 structural answer-choice failures, 143/143 unique correct choices, N5 difficulty metadata averaging 2 and N4 averaging 4, and 104 passage-answer echoes surfaced with bounded record/question-family/answer review evidence; Content Studio renders the per-level difficulty signal, while topic, grammar/vocabulary calibration, distractor plausibility, and native review remain open.
 
 Audit all original reading assets for:
@@ -1734,6 +1736,8 @@ Do not weaken the threshold simply to retain target counts.
 # C46. READING QUESTION DIVERSITY
 
 ## Current implementation status (2026-09-04)
+
+- [x] 2026-09-05 checkpoint: reading distractor source-overlap review is now visible in the shared quality report and Content Studio, with 34 affected question sets and 56 copied distractor choices in the current bank. The signal is intentionally structural and keeps human plausibility review open.
 
 - [~] The authored reading bank now has 143 questions across 115 passages, adding main-idea, sequence, reason, reference, simple-inference, condition-detail, task-based-response, and appropriate-action prompts to the existing short-detail, mid-length, and information-retrieval families. Structural answer-choice checks pass, and 104 exact passage-answer echoes are surfaced in the quality audit for distractor/question-design review; broader family coverage, distractor plausibility, level calibration, and native review remain open.
 

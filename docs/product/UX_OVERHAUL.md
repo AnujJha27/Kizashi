@@ -95,6 +95,8 @@ verification, `[ ]` not implemented.
 
 ### Feature-to-code evidence
 
+- [x] 2026-09-05 quality checkpoint — the shared authored-bank report now flags reading distractors whose normalized text occurs in the passage, and Content Studio renders a bounded record/question-family/distractor review list. The current bank has 34 affected question sets and 56 copied distractor choices; this is structural evidence and keeps linguistic plausibility/native review open.
+
 This is the short implementation index for the requirements below. A checked
 item means the learner-facing path exists in the current repository; partial
 items intentionally remain visible until the remaining surfaces are finished.
