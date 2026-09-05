@@ -87,6 +87,9 @@ test("provider entries expose bounded activity metadata without collapsing sourc
   const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
   assert.match(surface, /Activity map/);
   assert.match(surface, /source\.catalog\.map/);
+  assert.match(surface, /navigator\.onLine/);
+  assert.match(surface, /addEventListener\("offline"/);
+  assert.match(surface, /Online connection required/);
 });
 
 test("existing listening sources keep original URLs and can try the private frame helper", () => {

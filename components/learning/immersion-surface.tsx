@@ -43,6 +43,7 @@ export function ImmersionSurface() {
   const [visibleIrodoriCount, setVisibleIrodoriCount] = useState(8);
   const [rotation, setRotation] = useState(0);
   const [interests, setInterests] = useState<string[]>([]);
+  const [online, setOnline] = useState(true);
   const [selectedClipId, setSelectedClipId] = useState<string | null>(null);
   const [selectedReadingId, setSelectedReadingId] = useState<string | null>(null);
 
@@ -61,6 +62,14 @@ export function ImmersionSurface() {
     const next = Number(window.sessionStorage.getItem(key) ?? 0) + 1;
     window.sessionStorage.setItem(key, String(next));
     setRotation(next * 8);
+  }, []);
+
+  useEffect(() => {
+    const update = () => setOnline(navigator.onLine);
+    update();
+    window.addEventListener("online", update);
+    window.addEventListener("offline", update);
+    return () => { window.removeEventListener("online", update); window.removeEventListener("offline", update); };
   }, []);
 
   const known = useMemo(() => knownIds(records), [records]);
@@ -83,7 +92,7 @@ export function ImmersionSurface() {
   if (selectedClipId) return <ImmersionPlayer clipId={selectedClipId} focus="listen" startShadowing={mode === "shadow"} onClose={() => setSelectedClipId(null)} />;
   if (selectedReadingId) return <ImmersionPlayer readingId={selectedReadingId} focus="read" onClose={() => setSelectedReadingId(null)} />;
 
-  return <div className="space-y-7"><section className="surface-panel overflow-hidden p-6 sm:p-9"><div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Immersion · 浸る</p><h1 className="mt-1 text-3xl font-medium text-[#f5f5f2] sm:text-4xl">Explore Japanese in context.</h1><p className="mt-3 max-w-2xl text-sm leading-6 text-[#9297a1]">A quieter place for natural listening, short reading, pronunciation, dictation, shadowing, and useful detours. Pick an experience; Kizashi keeps the study machinery out of the way.</p></div><span className="text-xs text-[#9297a1]">{openedSourceCount} / {sources.length} sources opened</span></div><div className="mt-7 flex gap-1 overflow-x-auto border-b border-white/10 pb-px" role="tablist" aria-label="Immersion activities">{(["listen", "read", "pronunciation", "dictation", "shadow", "real-life", "explore"] as ImmersionMode[]).map((value) => <button key={value} type="button" role="tab" aria-selected={mode === value} onClick={() => setMode(value)} className={`min-w-fit border-b-2 px-3 py-2 text-left text-sm transition ${mode === value ? "border-[#e5b85c] text-[#f1cf7c]" : "border-transparent text-[#9297a1] hover:border-[#e5b85c]/60 hover:text-[#f1cf7c]"}`}><span className="block font-semibold capitalize">{value === "real-life" ? "Real life" : value}</span><span className="jp-serif text-xs text-[#e5b85c]">{value === "listen" ? "聞く" : value === "read" ? "読む" : value === "pronunciation" ? "発音" : value === "dictation" ? "書き取り" : value === "shadow" ? "まねる" : value === "real-life" ? "実際に使う" : "寄り道"}</span></button>)}</div></section>
+  return <div className="space-y-7">{!online ? <p role="status" className="border-l-2 border-[#e5b85c] bg-[#211d18]/75 px-4 py-3 text-sm text-[#f1cf7c]">You&apos;re offline. Local activities remain available; Online connection required for provider material.</p> : null}<section className="surface-panel overflow-hidden p-6 sm:p-9"><div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Immersion · 浸る</p><h1 className="mt-1 text-3xl font-medium text-[#f5f5f2] sm:text-4xl">Explore Japanese in context.</h1><p className="mt-3 max-w-2xl text-sm leading-6 text-[#9297a1]">A quieter place for natural listening, short reading, pronunciation, dictation, shadowing, and useful detours. Pick an experience; Kizashi keeps the study machinery out of the way.</p></div><span className="text-xs text-[#9297a1]">{openedSourceCount} / {sources.length} sources opened</span></div><div className="mt-7 flex gap-1 overflow-x-auto border-b border-white/10 pb-px" role="tablist" aria-label="Immersion activities">{(["listen", "read", "pronunciation", "dictation", "shadow", "real-life", "explore"] as ImmersionMode[]).map((value) => <button key={value} type="button" role="tab" aria-selected={mode === value} onClick={() => setMode(value)} className={`min-w-fit border-b-2 px-3 py-2 text-left text-sm transition ${mode === value ? "border-[#e5b85c] text-[#f1cf7c]" : "border-transparent text-[#9297a1] hover:border-[#e5b85c]/60 hover:text-[#f1cf7c]"}`}><span className="block font-semibold capitalize">{value === "real-life" ? "Real life" : value}</span><span className="jp-serif text-xs text-[#e5b85c]">{value === "listen" ? "聞く" : value === "read" ? "読む" : value === "pronunciation" ? "発音" : value === "dictation" ? "書き取り" : value === "shadow" ? "まねる" : value === "real-life" ? "実際に使う" : "寄り道"}</span></button>)}</div></section>
     {mode === "pronunciation" ? <PronunciationActivity /> : null}
     {mode === "dictation" ? <DictationActivity clips={module.listening} vocabulary={module.vocabulary} kanji={module.kanji} /> : null}
     {mode === "explore" ? <section className="border-t border-white/10 pt-7"><div className="flex items-end justify-between gap-3"><div><p className="eyebrow">寄り道 · Detours</p><h2 className="mt-1 text-2xl font-medium">Explore the source worlds.</h2><p className="mt-2 text-sm text-[#9297a1]">Open provider-hosted material when you want to wander further.</p></div><span className="text-xs text-[#9297a1]">{openedSourceCount} opened</span></div><div className="mt-6 divide-y divide-white/10">{sources.map((source) => <SourceCard key={source.id} source={source} opened={Boolean(sourceProgress[source.id])} rotation={rotation} interests={interests} />)}</div></section> : null}
