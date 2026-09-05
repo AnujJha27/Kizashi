@@ -525,6 +525,8 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(viewer, /allow="autoplay; fullscreen; picture-in-picture; encrypted-media"/);
   assert.match(viewer, /allowFullScreen/);
   assert.match(viewer, /ExternalSourceFrame/);
+  assert.match(viewer, /Provider-hosted frame\. If this panel is blank/);
+  assert.match(viewer, /min-h-\[20rem\] max-h-\[40rem\]/);
   assert.match(viewer, /w-full/);
   assert.match(viewer, /Open original source/);
   assert.match(viewer, /const canFrame = canEmbedExternalSource\(source\.mediaDelivery\)/);
