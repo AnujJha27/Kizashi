@@ -522,6 +522,7 @@ test("Studio exposes every pending question through a searchable paged review qu
   assert.match(studio, /Review flagged answers/);
   assert.match(studio, /Level calibration signal/);
   assert.match(studio, /difficultyByLevel/);
+  assert.match(studio, /averageCharacters/);
   assert.doesNotMatch(studio, /questions\.slice\(0, 20\)/);
 });
 
