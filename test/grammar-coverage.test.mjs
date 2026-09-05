@@ -51,11 +51,11 @@ test("grammar coverage reports source patterns with no canonical match", () => {
 
 test("checked-in grammar registry preserves the current evidence boundary", async () => {
   const registry = JSON.parse(await readFile(new URL("../data/grammar-coverage-union.json", import.meta.url), "utf8"));
-  assert.deepEqual(registry.summary.N5, { rawPatterns: 224, canonicalConcepts: 46, complete: 23, partial: 18, missing: 5, unresolved: 89, levelDisagreements: 7 });
-  assert.deepEqual(registry.summary.N4, { rawPatterns: 188, canonicalConcepts: 70, complete: 12, partial: 53, missing: 5, unresolved: 75, levelDisagreements: 11 });
+  assert.deepEqual(registry.summary.N5, { rawPatterns: 224, canonicalConcepts: 46, complete: 23, partial: 18, missing: 5, unresolved: 80, levelDisagreements: 7 });
+  assert.deepEqual(registry.summary.N4, { rawPatterns: 188, canonicalConcepts: 70, complete: 14, partial: 51, missing: 5, unresolved: 73, levelDisagreements: 16 });
   assert.equal(registry.sourcePolicy.includes("review"), true);
   assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").rawRecords, 348);
-  assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").references, 142);
+  assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").references, 153);
   assert.equal(registry.canonical.find((concept) => concept.id === "grammar-yotei").status, "missing");
 });
 
@@ -76,7 +76,19 @@ test("clear Irodori variants are resolved without promoting source prose", async
   assert.ok(evidence("grammar-te-morau").some((item) => item.recordId === "irodori-grammar-23cb48684289"));
   assert.ok(evidence("grammar-koto-nominalization").some((item) => item.recordId === "irodori-grammar-9c6d6f982636"));
   assert.ok(evidence("grammar-tewaikenai").some((item) => item.recordId === "irodori-grammar-7e6a70d3561b"));
-  assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").references, 142);
+  assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").references, 153);
+  assert.ok(evidence("grammar-te-kureru").some((item) => item.recordId === "irodori-grammar-6e1369865cf7"));
+  assert.ok(evidence("grammar-te-kuru").some((item) => item.recordId === "irodori-grammar-e8d9da2b8db7"));
+  assert.ok(evidence("grammar-sou-appearance").some((item) => item.recordId === "irodori-grammar-c460ebcd38bb"));
+  assert.ok(evidence("grammar-temo").some((item) => item.recordId === "irodori-grammar-077e368e8b05"));
+  assert.ok(evidence("grammar-ba").some((item) => item.recordId === "irodori-grammar-fc68d757bd2b"));
+  assert.ok(evidence("grammar-tai").some((item) => item.recordId === "irodori-grammar-e5d6919b7218"));
+  assert.ok(evidence("grammar-de").some((item) => item.recordId === "irodori-grammar-c0391eba346e"));
+  assert.ok(evidence("grammar-te-iku").some((item) => item.recordId === "irodori-grammar-e43e0e7b5b3f"));
+  assert.ok(evidence("grammar-kata").some((item) => item.recordId === "irodori-grammar-734603eaef1a"));
+  assert.ok(evidence("grammar-masu").some((item) => item.recordId === "irodori-grammar-95dcc68abf03"));
+  assert.ok(evidence("grammar-masen").some((item) => item.recordId === "irodori-grammar-ca611b615178"));
+  assert.equal(registry.sources.find((source) => source.id === "irodori-sentence-patterns").references, 153);
 });
 
 test("grammar coverage UI exposes evidence and disagreement context", async () => {

@@ -339,6 +339,20 @@
       "description": "Irodori situational pattern: V-ますか？（マス形）カタチ.",
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-95dcc68abf03",
+      "sourceCourse": "入門",
+      "sourceLevel": "Starter",
+      "pattern": "【いつも／たいてい／よく／ときどき】V-ます ＜頻度＞",
+      "sectionTitle": "Sentence pattern · 入門",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: 【いつも／たいてい／よく／ときどき】V-ます ＜頻度＞.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
     }
   ],
   "grammar-dictionary-form": [
@@ -399,6 +413,20 @@
       "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
       "relationship": "communicative-pattern",
       "description": "Irodori situational pattern: （Nは）V-ません.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-ca611b615178",
+      "sourceCourse": "入門",
+      "sourceLevel": "Starter",
+      "pattern": "【あまり／ぜんぜん】V-ません ＜頻度＞",
+      "sectionTitle": "Sentence pattern · 入門",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: 【あまり／ぜんぜん】V-ません ＜頻度＞.",
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
     }
@@ -605,6 +633,20 @@
       "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
       "relationship": "communicative-pattern",
       "description": "Irodori situational pattern: 【人】と【場所】でV-ます.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-c0391eba346e",
+      "sourceCourse": "入門",
+      "sourceLevel": "Starter",
+      "pattern": "【乗り物】で来ますノモノキ",
+      "sectionTitle": "Sentence pattern · 入門",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: 【乗り物】で来ます.",
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
     }
@@ -879,6 +921,20 @@
       "description": "Irodori situational pattern: V-たいです.",
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-e5d6919b7218",
+      "sourceCourse": "初級1",
+      "sourceLevel": "Elementary 1",
+      "pattern": "V-たいんですが…",
+      "sectionTitle": "Sentence pattern · 初級1",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: V-たいんですが….",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
     }
   ],
   "grammar-teiru": [
@@ -1047,6 +1103,20 @@
       "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
       "relationship": "communicative-pattern",
       "description": "Irodori situational pattern: V-ば、～.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-fc68d757bd2b",
+      "sourceCourse": "初中級",
+      "sourceLevel": "Pre-Intermediate",
+      "pattern": "もしSば、～",
+      "sectionTitle": "Sentence pattern · 初中級",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: もしSば、～.",
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
     }
@@ -1361,6 +1431,20 @@
       "description": "Irodori situational pattern: V-そうです.",
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-c460ebcd38bb",
+      "sourceCourse": "初級1",
+      "sourceLevel": "Elementary 1",
+      "pattern": "ナA-／イA- そうです",
+      "sectionTitle": "Sentence pattern · 初級1",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: ナA- / イA- そうです.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
     }
   ],
   "grammar-sou-hearsay": [
@@ -1553,6 +1637,20 @@
       "attribution": "Japan Foundation Irodori"
     }
   ],
+  "grammar-kata": [{
+    "sourceId": "irodori-sentence-patterns",
+    "sourceRecordId": "irodori-grammar-734603eaef1a",
+    "sourceCourse": "初級1",
+    "sourceLevel": "Elementary 1",
+    "pattern": "V-方カタ",
+    "sectionTitle": "Sentence pattern · 初級1",
+    "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+    "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+    "relationship": "communicative-pattern",
+    "description": "Irodori situational pattern: V-方.",
+    "license": "Japan Foundation Irodori terms; personal educational use",
+    "attribution": "Japan Foundation Irodori"
+  }],
   "grammar-no-nominalization": [
     {
       "sourceId": "irodori-sentence-patterns",
@@ -1627,6 +1725,20 @@
       "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
       "relationship": "communicative-pattern",
       "description": "Irodori situational pattern: Sても、～.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-077e368e8b05",
+      "sourceCourse": "初級2",
+      "sourceLevel": "Elementary 2",
+      "pattern": "【疑問詞】V-ても、～",
+      "sectionTitle": "Sentence pattern · 初級2",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: 【疑問詞】V-ても、～.",
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
     }
@@ -1955,6 +2067,19 @@
     "description": "Irodori situational pattern: V-てくれます.",
     "license": "Japan Foundation Irodori terms; personal educational use",
     "attribution": "Japan Foundation Irodori"
+  }, {
+    "sourceId": "irodori-sentence-patterns",
+    "sourceRecordId": "irodori-grammar-6e1369865cf7",
+    "sourceCourse": "初級1",
+    "sourceLevel": "Elementary 1",
+    "pattern": "V-てくれる？",
+    "sectionTitle": "Sentence pattern · 初級1",
+    "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+    "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+    "relationship": "communicative-pattern",
+    "description": "Irodori situational pattern: V-てくれる？.",
+    "license": "Japan Foundation Irodori terms; personal educational use",
+    "attribution": "Japan Foundation Irodori"
   }],
   "grammar-mae-ni": [{
     "sourceId": "irodori-sentence-patterns",
@@ -2050,6 +2175,33 @@
     "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
     "relationship": "communicative-pattern",
     "description": "Irodori situational pattern: V-てくる.",
+    "license": "Japan Foundation Irodori terms; personal educational use",
+    "attribution": "Japan Foundation Irodori"
+  }, {
+    "sourceId": "irodori-sentence-patterns",
+    "sourceRecordId": "irodori-grammar-e8d9da2b8db7",
+    "sourceCourse": "初級1",
+    "sourceLevel": "Elementary 1",
+    "pattern": "V-て来ますキ",
+    "sectionTitle": "Sentence pattern · 初級1",
+    "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+    "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+    "relationship": "communicative-pattern",
+    "description": "Irodori situational pattern: V-て来ます.",
+    "license": "Japan Foundation Irodori terms; personal educational use",
+    "attribution": "Japan Foundation Irodori"
+  }],
+  "grammar-te-iku": [{
+    "sourceId": "irodori-sentence-patterns",
+    "sourceRecordId": "irodori-grammar-e43e0e7b5b3f",
+    "sourceCourse": "初級1",
+    "sourceLevel": "Elementary 1",
+    "pattern": "V-て行きますイ",
+    "sectionTitle": "Sentence pattern · 初級1",
+    "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+    "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+    "relationship": "communicative-pattern",
+    "description": "Irodori situational pattern: V-て行きます.",
     "license": "Japan Foundation Irodori terms; personal educational use",
     "attribution": "Japan Foundation Irodori"
   }],
