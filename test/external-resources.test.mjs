@@ -90,6 +90,8 @@ test("provider entries expose bounded activity metadata without collapsing sourc
   assert.match(surface, /navigator\.onLine/);
   assert.match(surface, /addEventListener\("offline"/);
   assert.match(surface, /Online connection required/);
+  assert.match(surface, /Provider catalog unavailable/);
+  assert.match(surface, /role="status"/);
 });
 
 test("existing listening sources keep original URLs and can try the private frame helper", () => {

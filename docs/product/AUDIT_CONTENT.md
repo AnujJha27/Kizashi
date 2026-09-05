@@ -2461,6 +2461,7 @@ Do not label every common phrase N5 merely because the words are simple.
 - [x] Japanese with Shun has a validated official YouTube channel-feed catalog with selectable provider-hosted video URLs and an official channel fallback; Kizashi stores no media.
 - [x] Nihongo con Teppei has a validated official-site RSS catalog with selectable provider-hosted audio URLs and an official-site episode fallback; Kizashi stores no audio.
 - [x] Immersion now reports a calm offline status without blocking local reading, listening, pronunciation, dictation, output, or saved progress; provider-hosted material is explicitly marked as requiring an online connection.
+- [x] Shun/Teppei provider-feed failures now report a calm actionable status while preserving the official channel/site fallback.
 - [x] The service-worker shell pre-caches the eight local reading scene assets alongside Journey/Today/lesson and listening scenes; the reading aid still degrades to accessible Japanese text if an image fails.
 - [~] The shared provider manifest now exposes bounded activity maps for Marugoto Plus (Can-do conversation/listening/pronunciation), JFS Reading Activities (menus/notices/prices), KC Yom Yom (graded-reader topics, audio/length/progress fields), Hirogaru (interest topics), and OJAD (optional prosody references), with source-level, JLPT-relevance, target, and provenance fields kept separate. Broader provider catalogs, validated per-activity source audits, and deeper provider-specific activities remain partial.
 
