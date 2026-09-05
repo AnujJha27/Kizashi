@@ -86,6 +86,7 @@ test("provider entries expose bounded activity metadata without collapsing sourc
   assert.equal(getExternalResourceById("marugoto-plus").url, "https://a1.marugotoweb.jp/en/");
   assert.equal(getExternalResourceById("marugoto-plus").metadata.frameUrl, "https://a1.marugotoweb.jp/en/");
   assert.equal(externalResourceToSourceLink(getExternalResourceById("marugoto-plus")).frameUrl, "https://a1.marugotoweb.jp/en/");
+  assert.equal(externalResourceToSourceLink(getExternalResourceById("marugoto-plus")).mediaDelivery, "link-only");
   const link = externalResourceToSourceLink(getExternalResourceById("jfs-reading-activities"));
   assert.equal(link.catalog.length, getExternalResourceById("jfs-reading-activities").metadata.catalog.length);
   const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");

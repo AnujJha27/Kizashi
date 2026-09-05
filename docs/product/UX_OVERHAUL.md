@@ -90,9 +90,9 @@ verification, `[ ]` not implemented.
 - [x] Phase 12 — Journey visual hierarchy
 - [x] Phase 13 — Contextual actions
 - [~] Phase 14 — Visual refinement (area-aware atmosphere, progression stages, distinct generated-raster imagery for the Journey hero, Today, Journey map, Journey current-lesson tracker, and Learn lesson opening, plus restrained area-completion transitions now feed the shell, Today, Journey, Learn, and profile; screenshot review and the final visual audit remain)
-- [~] Phase 15 — Mobile/accessibility/performance (global keyboard focus ring, skip-to-content target, focus restoration for the command palette/source modal, Marugoto Plus frame allowlisting, and responsive min-width-safe lesson/Journey grids are wired; final device/browser audit remains)
+- [~] Phase 15 — Mobile/accessibility/performance (global keyboard focus ring, skip-to-content target, focus restoration for the command palette/source modal, provider-safe direct-source fallback for Marugoto Plus, and responsive min-width-safe lesson/Journey grids are wired; final device/browser audit remains)
 - [x] Phase 16 — Tests/build verification (24/24 direct Node test files pass; strict package QA, typecheck, and production build are green)
-- [x] 2026-09-06 provider-enrichment patch — Learn’s Marugoto Plus follow-up now renders its mapped provider-hosted Can-do activity catalog with per-activity source level, JLPT relevance, modality, target/provenance metadata, and local opened tracking before the optional frame; the direct-source fallback remains available when the provider blocks framing.
+- [x] 2026-09-06 provider-enrichment patch — Learn’s Marugoto Plus follow-up now renders its mapped provider-hosted Can-do activity catalog with per-activity source level, JLPT relevance, modality, target/provenance metadata, and local opened tracking; because the provider sends frame-blocking headers, the app uses a direct-source link instead of presenting a blank iframe.
 
 ### Feature-to-code evidence
 
