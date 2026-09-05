@@ -116,7 +116,8 @@ button, a, input { outline-color: var(--gold); outline-offset: 3px; }
 .jp-serif { font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif; }
 
 .japanese-text ruby { ruby-align: center; ruby-position: over; }
-.japanese-text rt { line-height: 1.1; font-size: .68em; font-weight: 500; }
+.japanese-text rt { line-height: 1.15; font-size: max(.85em, .8rem); font-weight: 600; }
+.reading-panel rt { line-height: 1.15; font-size: max(.85em, .8rem); font-weight: 600; }
 .japanese-text { overflow-wrap: anywhere; }
 .japanese-text ruby { white-space: nowrap; }
 
