@@ -1872,5 +1872,19 @@
     "description": "Irodori situational pattern: V-てくれます.",
     "license": "Japan Foundation Irodori terms; personal educational use",
     "attribution": "Japan Foundation Irodori"
+  }],
+  "grammar-mae-ni": [{
+    "sourceId": "irodori-sentence-patterns",
+    "sourceRecordId": "irodori-grammar-7f74160bce61",
+    "sourceCourse": "初級1",
+    "sourceLevel": "Elementary 1",
+    "pattern": "V-る前に、～",
+    "sectionTitle": "Sentence pattern · 初級1",
+    "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+    "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+    "relationship": "communicative-pattern",
+    "description": "Irodori situational pattern: V-る前に、～.",
+    "license": "Japan Foundation Irodori terms; personal educational use",
+    "attribution": "Japan Foundation Irodori"
   }]
 }

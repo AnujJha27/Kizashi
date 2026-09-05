@@ -7,17 +7,17 @@
       "complete": 17,
       "partial": 23,
       "missing": 6,
-      "unresolved": 100,
+      "unresolved": 99,
       "levelDisagreements": 4
     },
     "N4": {
       "rawPatterns": 188,
       "canonicalConcepts": 70,
       "complete": 9,
-      "partial": 55,
-      "missing": 6,
+      "partial": 56,
+      "missing": 5,
       "unresolved": 79,
-      "levelDisagreements": 9
+      "levelDisagreements": 10
     }
   },
   "canonical": [
@@ -1192,11 +1192,22 @@
       "id": "grammar-mae-ni",
       "pattern": "Vる前に",
       "level": "N4",
-      "sourceIds": [],
-      "evidenceCount": 0,
-      "evidencePatterns": [],
-      "status": "missing",
-      "levelDisagreements": []
+      "sourceIds": [
+        "irodori-sentence-patterns"
+      ],
+      "evidenceCount": 1,
+      "evidencePatterns": [
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-7f74160bce61",
+          "pattern": "V-る前に、～",
+          "level": "N5"
+        }
+      ],
+      "status": "partial",
+      "levelDisagreements": [
+        "N5"
+      ]
     },
     {
       "id": "grammar-ato-de",
@@ -3188,12 +3199,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-7f74160bce61",
-      "pattern": "V-る前に、～マエ",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-ec4b654ad140",
       "pattern": "～とき（に）、～",
       "level": "N4"
@@ -4009,7 +4014,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 123
+      "references": 124
     },
     {
       "id": "tae-kim",
