@@ -44,9 +44,21 @@ test("world areas carry deliberate desktop and mobile focal points", () => {
 test("world areas use distinct owned visual variants with role metadata", async () => {
   const areas = Object.values(journeyVisualManifest);
   assert.equal(new Set(areas.map((area) => area.visualAssets.hero)).size, areas.length);
-  assert.ok(areas.every((area) => area.visualAssetMetadata.length === 6));
+  assert.ok(areas.every((area) => new Set([area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson]).size === 3));
+  assert.ok(areas.every((area) => area.visualAssetMetadata.length === 7));
   assert.ok(areas.flatMap((area) => area.visualAssetMetadata).every((asset) => asset.sourceType === "generated-raster" && asset.path.endsWith(".webp") && asset.attribution && asset.focalPoint));
-  await Promise.all(areas.map((area) => access(new URL(`../public${area.visualAssets.hero}`, import.meta.url))));
+  await Promise.all(areas.flatMap((area) => [area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson].map((path) => access(new URL(`../public${path}`, import.meta.url)))));
+});
+
+test("Journey, Today, and Learn consume their own visual roles", async () => {
+  const [journey, today, learn] = await Promise.all([
+    readFile(new URL("../components/journey/journey-overview.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/journey/daily-session.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/learning/local-lesson.tsx", import.meta.url), "utf8"),
+  ]);
+  assert.match(journey, /visualAssets\.hero/);
+  assert.match(today, /visualAssets\.today/);
+  assert.match(learn, /visualAssets\.lesson/);
 });
 
 test("Journey and profile scenery use raster images instead of SVG art", async () => {
