@@ -281,6 +281,18 @@
           "correctAnswer": 1,
           "questionType": "sequence",
           "explanation": "駅へ行きます"
+        },
+        {
+          "prompt": "「あとで」は、いつを指しますか。",
+          "options": [
+            "朝ご飯を食べたあと",
+            "昼ご飯を食べたあと",
+            "学校へ行ったあと",
+            "寝る前"
+          ],
+          "correctAnswer": 0,
+          "questionType": "reference",
+          "explanation": "朝ご飯を食べたあと"
         }
       ]
     },
@@ -1381,6 +1393,18 @@
           "correctAnswer": 0,
           "questionType": "short passage detail",
           "explanation": "箱の中"
+        },
+        {
+          "prompt": "出かける人は、まずどうしますか。",
+          "options": [
+            "鍵を取ります",
+            "本を読みます",
+            "電車に乗ります",
+            "花を買います"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "鍵を取ります"
         }
       ]
     },
@@ -1885,6 +1909,18 @@
           "correctAnswer": 2,
           "questionType": "short passage detail",
           "explanation": "映画を見ます"
+        },
+        {
+          "prompt": "日曜日に友達と会う予定がありそうですか。",
+          "options": [
+            "はい、映画を見に行く予定です",
+            "いいえ、病院で働く予定です",
+            "はい、駅で切符を買う予定です",
+            "いいえ、家を引っ越す予定です"
+          ],
+          "correctAnswer": 0,
+          "questionType": "simple inference",
+          "explanation": "はい、映画を見に行く予定です"
         }
       ]
     },
@@ -1941,6 +1977,18 @@
           "correctAnswer": 1,
           "questionType": "mid-length passage",
           "explanation": "図書館"
+        },
+        {
+          "prompt": "朝ご飯を食べたあとで、何をしますか。",
+          "options": [
+            "学校へ行きます",
+            "図書館で本を読みます",
+            "家で宿題をします",
+            "寝ます"
+          ],
+          "correctAnswer": 0,
+          "questionType": "sequence",
+          "explanation": "学校へ行きます"
         }
       ]
     },
@@ -1997,6 +2045,18 @@
           "correctAnswer": 0,
           "questionType": "mid-length passage",
           "explanation": "駅"
+        },
+        {
+          "prompt": "「一緒に」は、どういう意味ですか。",
+          "options": [
+            "友達と二人で",
+            "一人で",
+            "先生と三人で",
+            "家族と別々に"
+          ],
+          "correctAnswer": 0,
+          "questionType": "reference",
+          "explanation": "友達と二人で"
         }
       ]
     },
@@ -2053,6 +2113,30 @@
           "correctAnswer": 1,
           "questionType": "mid-length passage",
           "explanation": "教室"
+        },
+        {
+          "prompt": "雨のとき、どこで映画を見ますか。",
+          "options": [
+            "教室",
+            "体育館",
+            "駅",
+            "家"
+          ],
+          "correctAnswer": 0,
+          "questionType": "condition detail",
+          "explanation": "教室"
+        },
+        {
+          "prompt": "雨の日でも、お祭りに参加できそうですか。",
+          "options": [
+            "はい、教室で映画を見られます",
+            "いいえ、学校が閉まります",
+            "はい、海へ行けます",
+            "いいえ、駅へ行きます"
+          ],
+          "correctAnswer": 0,
+          "questionType": "simple inference",
+          "explanation": "はい、教室で映画を見られます"
         }
       ]
     },
@@ -2505,6 +2589,18 @@
           "correctAnswer": 2,
           "questionType": "mid-length passage",
           "explanation": "もう買いました"
+        },
+        {
+          "prompt": "「あとで」は、何のあとですか。",
+          "options": [
+            "コンサートのあと",
+            "朝ご飯のあと",
+            "授業のあと",
+            "仕事のあと"
+          ],
+          "correctAnswer": 0,
+          "questionType": "reference",
+          "explanation": "コンサートのあと"
         }
       ]
     },
@@ -2685,6 +2781,18 @@
           "correctAnswer": 0,
           "questionType": "appropriate action",
           "explanation": "授業は午後二時から、教室はいつもの部屋です。"
+        },
+        {
+          "prompt": "明日の授業は午前に始まりますか。",
+          "options": [
+            "はい、午前九時からです",
+            "いいえ、午後二時からです",
+            "はい、いつもの時間です",
+            "いいえ、授業はありません"
+          ],
+          "correctAnswer": 1,
+          "questionType": "simple inference",
+          "explanation": "いいえ、午後二時からです"
         }
       ]
     },
@@ -3033,6 +3141,18 @@
           "correctAnswer": 0,
           "questionType": "information retrieval",
           "explanation": "月曜日"
+        },
+        {
+          "prompt": "土曜日の朝にプールへ行く場合、何時から開いていますか。",
+          "options": [
+            "午前九時から",
+            "午前十時から",
+            "午後一時から",
+            "午後六時から"
+          ],
+          "correctAnswer": 0,
+          "questionType": "condition detail",
+          "explanation": "午前九時から"
         }
       ],
       "visualFormat": "notice"
@@ -3318,6 +3438,18 @@
           "correctAnswer": 1,
           "questionType": "information retrieval",
           "explanation": "靴"
+        },
+        {
+          "prompt": "半額の商品を買いたい人は、何を選びますか。",
+          "options": [
+            "靴",
+            "シャツ",
+            "かばん",
+            "帽子"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "靴"
         }
       ],
       "visualFormat": "sale"
@@ -3375,6 +3507,18 @@
           "correctAnswer": 1,
           "questionType": "information retrieval",
           "explanation": "いいえ、休みです"
+        },
+        {
+          "prompt": "水曜日の午後に受付へ行きたい人は、どうしますか。",
+          "options": [
+            "別の時間に行きます",
+            "日曜日に行きます",
+            "午後三時に行きます",
+            "受付で名前を書きます"
+          ],
+          "correctAnswer": 0,
+          "questionType": "appropriate action",
+          "explanation": "別の時間に行きます"
         }
       ],
       "visualFormat": "notice"
@@ -3674,7 +3818,19 @@
           "explanation": "土曜日と日曜日"
         },
         {
-          "prompt": "昼休みの時間に郵便局へ行く人は、どうしますか。",
+          "prompt": "昼休みに郵便局へ行く場合、いつを避けますか。",
+          "options": [
+            "十二時から一時",
+            "午前九時から十時",
+            "午後一時から二時",
+            "午後四時から五時"
+          ],
+          "correctAnswer": 0,
+          "questionType": "condition detail",
+          "explanation": "十二時から一時"
+        },
+        {
+          "prompt": "昼休みに郵便局へ行きたい人は、どうしますか。",
           "options": [
             "十二時から一時を避けます",
             "土曜日に必ず行きます",
@@ -3682,7 +3838,7 @@
             "日曜日に電話します"
           ],
           "correctAnswer": 0,
-          "questionType": "appropriate action",
+          "questionType": "task-based response",
           "explanation": "十二時から一時を避けます"
         }
       ],
@@ -3799,6 +3955,18 @@
           "correctAnswer": 2,
           "questionType": "short passage detail",
           "explanation": "お菓子"
+        },
+        {
+          "prompt": "この話は何についてですか。",
+          "options": [
+            "新しい家族への挨拶",
+            "病院の予約",
+            "学校の試験",
+            "旅行の計画"
+          ],
+          "correctAnswer": 0,
+          "questionType": "main idea",
+          "explanation": "新しい家族への挨拶"
         }
       ]
     },
@@ -4084,6 +4252,18 @@
           "correctAnswer": 2,
           "questionType": "short passage detail",
           "explanation": "手袋"
+        },
+        {
+          "prompt": "なぜ暖かい手袋を買いましたか。",
+          "options": [
+            "今年の冬は寒くなりそうだからです",
+            "写真を撮りたいからです",
+            "電車に乗るからです",
+            "友達が来るからです"
+          ],
+          "correctAnswer": 0,
+          "questionType": "reason",
+          "explanation": "今年の冬は寒くなりそうだからです"
         }
       ]
     },
@@ -4210,6 +4390,18 @@
           "correctAnswer": 2,
           "questionType": "short passage detail",
           "explanation": "自転車で"
+        },
+        {
+          "prompt": "どんなとき、自転車で行くつもりですか。",
+          "options": [
+            "天気がよいとき",
+            "雨が降るとき",
+            "仕事があるとき",
+            "夜遅くなるとき"
+          ],
+          "correctAnswer": 0,
+          "questionType": "condition detail",
+          "explanation": "天気がよいとき"
         }
       ]
     },
@@ -4267,6 +4459,18 @@
           "correctAnswer": 1,
           "questionType": "short passage detail",
           "explanation": "先生が説明します"
+        },
+        {
+          "prompt": "先生が説明したあとで、学生は何をしますか。",
+          "options": [
+            "野菜を切ります",
+            "家へ帰ります",
+            "映画を見ます",
+            "電車に乗ります"
+          ],
+          "correctAnswer": 0,
+          "questionType": "sequence",
+          "explanation": "野菜を切ります"
         }
       ]
     },
@@ -4495,6 +4699,18 @@
           "correctAnswer": 1,
           "questionType": "short passage detail",
           "explanation": "花に水をやりました"
+        },
+        {
+          "prompt": "父が仕事を終えたあと、二人は何をしましたか。",
+          "options": [
+            "昼ご飯を食べました",
+            "買い物をしました",
+            "映画を見ました",
+            "駅へ行きました"
+          ],
+          "correctAnswer": 0,
+          "questionType": "sequence",
+          "explanation": "昼ご飯を食べました"
         }
       ]
     },
@@ -5077,6 +5293,30 @@
           "correctAnswer": 2,
           "questionType": "short passage detail",
           "explanation": "明日の午後"
+        },
+        {
+          "prompt": "荷物が届いたあと、私はまず何をしましたか。",
+          "options": [
+            "配達員に電話しました",
+            "店へ買い物に行きました",
+            "駅で電車を待ちました",
+            "友達に会いました"
+          ],
+          "correctAnswer": 0,
+          "questionType": "sequence",
+          "explanation": "配達員に電話しました"
+        },
+        {
+          "prompt": "荷物が届いたとき家にいなかった人は、どうしますか。",
+          "options": [
+            "配達員に電話します",
+            "荷物を捨てます",
+            "学校へ行きます",
+            "来月まで待ちます"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "配達員に電話します"
         }
       ]
     },
@@ -5695,6 +5935,18 @@
           "correctAnswer": 1,
           "questionType": "mid-length passage",
           "explanation": "劇をする"
+        },
+        {
+          "prompt": "今年の文化祭について、正しいものはどれですか。",
+          "options": [
+            "みんなで劇をします",
+            "映画を見ます",
+            "写真を撮ります",
+            "料理をします"
+          ],
+          "correctAnswer": 0,
+          "questionType": "main idea",
+          "explanation": "みんなで劇をします"
         }
       ]
     },
@@ -6606,6 +6858,18 @@
           "correctAnswer": 0,
           "questionType": "condition detail",
           "explanation": "中止します"
+        },
+        {
+          "prompt": "校外学習に行く人は、何を用意しますか。",
+          "options": [
+            "昼食と水を持ってきます",
+            "映画の切符を買います",
+            "駅で本を借ります",
+            "夜にホテルを予約します"
+          ],
+          "correctAnswer": 0,
+          "questionType": "task-based response",
+          "explanation": "昼食と水を持ってきます"
         }
       ],
       "visualFormat": "school"
@@ -6874,6 +7138,18 @@
           "correctAnswer": 0,
           "questionType": "simple inference",
           "explanation": "いいえ、雨になるでしょう"
+        },
+        {
+          "prompt": "日曜日の午後に外で活動すると、どうなりそうですか。",
+          "options": [
+            "雨になりそうです",
+            "晴れになりそうです",
+            "店が閉まりそうです",
+            "電車が速くなりそうです"
+          ],
+          "correctAnswer": 0,
+          "questionType": "condition detail",
+          "explanation": "雨になりそうです"
         }
       ],
       "visualFormat": "weather"

@@ -241,21 +241,21 @@ test("authored listening items persist grammar links", () => {
 
 test("authored reading and listening banks expose diversity QA", () => {
   const report = buildContentQualityReport({ readings: originalReading.readings, listening: originalListening.listening });
-  assert.deepEqual(report.reading.byLevel, { N5: { total: 60, uniqueTemplates: 60, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 12, "mid-length passage": 18, "short passage detail": 30, "main idea": 5, sequence: 2, reason: 4, "appropriate action": 3 } }, N4: { total: 55, uniqueTemplates: 55, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 15, "mid-length passage": 14, "short passage detail": 26, "appropriate action": 3, reference: 3, reason: 2, "simple inference": 3, "condition detail": 1, "main idea": 1, "task-based response": 1 } } });
+  assert.deepEqual(report.reading.byLevel, { N5: { total: 60, uniqueTemplates: 60, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 12, "mid-length passage": 18, "short passage detail": 30, "main idea": 5, sequence: 3, reason: 4, "task-based response": 3, "simple inference": 3, "condition detail": 3, "appropriate action": 3, reference: 3 } }, N4: { total: 55, uniqueTemplates: 55, nearDuplicateClusters: [], questionFamilies: { "information retrieval": 15, "mid-length passage": 14, "short passage detail": 26, "appropriate action": 3, reference: 3, reason: 3, "simple inference": 3, "condition detail": 3, "main idea": 3, "task-based response": 3, sequence: 3 } } });
   assert.equal(report.reading.nearDuplicateClusters.length, 0);
-  assert.equal(report.reading.questionSignals.answerEchoes, 104);
-  assert.equal(report.reading.questionSignals.answerEchoDetails.length, 104);
+  assert.equal(report.reading.questionSignals.answerEchoes, 113);
+  assert.equal(report.reading.questionSignals.answerEchoDetails.length, 113);
   assert.ok(report.reading.questionSignals.answerEchoDetails.every((detail) => detail.itemId && detail.questionType && detail.answer));
   assert.equal(Object.keys(report.reading.topicCounts).length, 31);
   assert.equal(report.reading.sentencePatternDiversity.unique, 2);
   assert.deepEqual(report.reading.difficultyByLevel, { N5: { count: 60, average: 2, min: 2, max: 2 }, N4: { count: 55, average: 4, min: 4, max: 4 } });
-  assert.deepEqual(report.reading.answerUniqueness, { unique: 143, total: 143, duplicate: 0 });
+  assert.deepEqual(report.reading.answerUniqueness, { unique: 166, total: 166, duplicate: 0 });
   assert.deepEqual(report.reading.visualFormatCounts, { notice: 7, menu: 2, timetable: 1, schedule: 2, sale: 1, event: 2, directions: 2, hotel: 1, work: 1, health: 1, school: 1, home: 1, restaurant: 1, museum: 1, weather: 1, delivery: 1, transport: 1 });
-  assert.deepEqual(report.reading.questionFamilyCoverage.underMinimum, [{ family: "sequence", count: 2, minimum: 3 }, { family: "condition detail", count: 1, minimum: 3 }, { family: "task-based response", count: 1, minimum: 3 }]);
-  assert.deepEqual(report.reading.questionFamilyCoverage.byLevel.N5.underMinimum, [{ family: "sequence", count: 2, minimum: 3 }, { family: "reference", count: 0, minimum: 3 }, { family: "simple inference", count: 0, minimum: 3 }, { family: "condition detail", count: 0, minimum: 3 }, { family: "task-based response", count: 0, minimum: 3 }]);
-  assert.deepEqual(report.reading.questionFamilyCoverage.byLevel.N4.underMinimum, [{ family: "main idea", count: 1, minimum: 3 }, { family: "sequence", count: 0, minimum: 3 }, { family: "reason", count: 2, minimum: 3 }, { family: "condition detail", count: 1, minimum: 3 }, { family: "task-based response", count: 1, minimum: 3 }]);
-  assert.equal(report.reading.distractorSignals.setsWithSourceEchoDistractors, 34);
-  assert.equal(report.reading.distractorSignals.sourceEchoDetails.reduce((total, detail) => total + detail.distractors.length, 0), 56);
+  assert.deepEqual(report.reading.questionFamilyCoverage.underMinimum, []);
+  assert.deepEqual(report.reading.questionFamilyCoverage.byLevel.N5.underMinimum, []);
+  assert.deepEqual(report.reading.questionFamilyCoverage.byLevel.N4.underMinimum, []);
+  assert.equal(report.reading.distractorSignals.setsWithSourceEchoDistractors, 37);
+  assert.equal(report.reading.distractorSignals.sourceEchoDetails.reduce((total, detail) => total + detail.distractors.length, 0), 59);
   assert.ok(report.reading.distractorSignals.sourceEchoDetails.every((detail) => detail.itemId && detail.questionType && detail.distractors.length > 0));
   assert.deepEqual(report.listening.byLevel, { N5: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } }, N4: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } } });
   assert.equal(report.listening.uniqueTemplates, 160);
@@ -280,6 +280,13 @@ test("authored reading and listening banks expose diversity QA", () => {
   assert.ok((report.reading.questionFamilies.reference ?? 0) >= 3);
   assert.ok((report.reading.questionFamilies["simple inference"] ?? 0) >= 3);
   assert.ok(report.reading.answerQuality.questions > report.reading.total);
+});
+
+test("authored reading bank meets the supplemental family floor by level", () => {
+  const report = buildContentQualityReport({ readings: originalReading.readings });
+  assert.deepEqual(report.reading.questionFamilyCoverage.underMinimum, []);
+  assert.deepEqual(report.reading.questionFamilyCoverage.byLevel.N5.underMinimum, []);
+  assert.deepEqual(report.reading.questionFamilyCoverage.byLevel.N4.underMinimum, []);
 });
 
 test("information-retrieval readings carry visual formats", async () => {
