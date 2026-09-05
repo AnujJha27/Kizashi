@@ -4,19 +4,19 @@
     "N5": {
       "rawPatterns": 224,
       "canonicalConcepts": 46,
-      "complete": 17,
-      "partial": 23,
+      "complete": 19,
+      "partial": 21,
       "missing": 6,
       "unresolved": 99,
-      "levelDisagreements": 4
+      "levelDisagreements": 6
     },
     "N4": {
       "rawPatterns": 188,
       "canonicalConcepts": 70,
-      "complete": 9,
-      "partial": 56,
+      "complete": 12,
+      "partial": 53,
       "missing": 5,
-      "unresolved": 79,
+      "unresolved": 77,
       "levelDisagreements": 10
     }
   },
@@ -1128,38 +1128,56 @@
       "pattern": "Vなくてもいいです",
       "level": "N5",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n5-15",
           "pattern": "〜なくてもいいです",
           "level": "N5"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-d4f581beb4be",
+          "pattern": "V-なくてもいいです",
+          "level": "N4"
         }
       ],
-      "status": "partial",
-      "levelDisagreements": []
+      "status": "complete",
+      "levelDisagreements": [
+        "N4"
+      ]
     },
     {
       "id": "grammar-nakereba-naranai",
       "pattern": "Vなければなりません",
       "level": "N5",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n5-16",
           "pattern": "〜なければなりません / 〜なくてはいけません",
           "level": "N5"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-29d937ad003e",
+          "pattern": "V-なければなりません",
+          "level": "N4"
         }
       ],
-      "status": "partial",
-      "levelDisagreements": []
+      "status": "complete",
+      "levelDisagreements": [
+        "N4"
+      ]
     },
     {
       "id": "grammar-ta-form",
@@ -1271,18 +1289,25 @@
       "pattern": "〜ことにする",
       "level": "N4",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n4-1",
           "pattern": "〜ことにする",
           "level": "N4"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-23157cb5ca53",
+          "pattern": "V-ることにする",
+          "level": null
         }
       ],
-      "status": "partial",
+      "status": "complete",
       "levelDisagreements": []
     },
     {
@@ -1380,18 +1405,25 @@
       "pattern": "〜ておく",
       "level": "N4",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n4-7",
           "pattern": "〜ておく",
           "level": "N4"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-31503745548e",
+          "pattern": "V-ておく",
+          "level": null
         }
       ],
-      "status": "partial",
+      "status": "complete",
       "levelDisagreements": []
     },
     {
@@ -1524,18 +1556,25 @@
       "pattern": "〜てくる",
       "level": "N4",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n4-8",
           "pattern": "〜てくる",
           "level": "N4"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-618b2cd11a93",
+          "pattern": "V-てくる",
+          "level": null
         }
       ],
-      "status": "partial",
+      "status": "complete",
       "levelDisagreements": []
     },
     {
@@ -3175,12 +3214,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-29d937ad003e",
-      "pattern": "V-なければなりません",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-309c071cbfd2",
       "pattern": "～んです ①",
       "level": "N5"
@@ -3685,12 +3718,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-31503745548e",
-      "pattern": "V-ておく",
-      "level": "Intermediate 1"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-bfff1f54692e",
       "pattern": "Vがち",
       "level": "Intermediate 1"
@@ -3739,12 +3766,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-d4f581beb4be",
-      "pattern": "V-なくてもいいです",
-      "level": "N4"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-2f3ae3103124",
       "pattern": "V-なくてもだいじょうぶです",
       "level": "N4"
@@ -3777,12 +3798,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-98685e9a6896",
       "pattern": "名詞で終わる言い方",
-      "level": "Intermediate 1"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-618b2cd11a93",
-      "pattern": "V-てくる",
       "level": "Intermediate 1"
     },
     {
@@ -3825,12 +3840,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-b782925e4105",
       "pattern": "イA-がる",
-      "level": "Intermediate 1"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-23157cb5ca53",
-      "pattern": "V-ることにする",
       "level": "Intermediate 1"
     },
     {
@@ -4014,7 +4023,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 124
+      "references": 129
     },
     {
       "id": "tae-kim",
