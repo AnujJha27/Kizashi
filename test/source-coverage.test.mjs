@@ -84,3 +84,9 @@ test("Studio coverage follows the active package source manifest", async () => {
   assert.match(studio, /SourceCoverage items=\{coverageItems\} sources=\{coverageSources\}/);
   assert.match(studio, /setRaw\(JSON\.stringify\(merged, null, 2\)\)/);
 });
+
+test("Studio renders repaired provenance instead of the stale saved JSON", async () => {
+  const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
+  assert.match(studio, /const repairedRaw = repairedSaved\?\.repaired \? JSON\.stringify\(savedDraft, null, 2\) : saved/);
+  assert.match(studio, /setRaw\(repairedRaw\)/);
+});

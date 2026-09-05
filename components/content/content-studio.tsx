@@ -547,12 +547,13 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
       const repairedSaved = parsedSavedDraft ? repairModuleProvenance(parsedSavedDraft, seed) : null;
       const savedDraft = repairedSaved?.module ?? null;
       const savedIsSmaller = Boolean(savedDraft && getModuleItems(savedDraft).length < getModuleItems(seed).length);
+      const repairedRaw = repairedSaved?.repaired ? JSON.stringify(savedDraft, null, 2) : saved;
       const activeDraft = savedIsSmaller ? seed : savedDraft ?? seed;
       if (savedResult?.value && !savedIsSmaller) {
-        setRaw(saved);
-        setResult(savedResult.result);
+        setRaw(repairedRaw);
+        setResult(parseAndValidateModule(repairedRaw).result);
         setShowContentIssues(false);
-        setMessage("Loaded the last saved content draft.");
+        setMessage(repairedSaved?.repaired ? `Loaded the last saved content draft and repaired ${repairedSaved.repaired} stale provenance records for this session.` : "Loaded the last saved content draft.");
       } else if (saved && !savedIsSmaller) {
         const reviewDraft = parseModuleForReview(saved);
         if (reviewDraft) {
