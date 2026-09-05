@@ -29,7 +29,8 @@ export function JourneyMap({ nodes, focusLessonId, targetLevel = "N5", world }: 
     const refresh = () => setRecords(readReviewRecords());
     refresh();
     window.addEventListener("michi-review-updated", refresh);
-    return () => window.removeEventListener("michi-review-updated", refresh);
+    window.addEventListener("michi-lesson-updated", refresh);
+    return () => { window.removeEventListener("michi-review-updated", refresh); window.removeEventListener("michi-lesson-updated", refresh); };
   }, []);
   const lessonStatus = (node: JourneyNode, index: number) => {
     if (!records || node.kind !== "lesson" || !node.itemIds?.length) return node.status;

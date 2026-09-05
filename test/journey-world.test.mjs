@@ -79,6 +79,7 @@ test("completed lessons unlock the first lesson in the next chapter", async () =
   assert.match(journeyMap, /previousComplete = Boolean/);
   assert.match(journeyMap, /readLessonState\(previousLesson\.id\)\.status === "complete"/);
   assert.match(journeyMap, /readLessonState\(node\.id\)\.status === "complete"/);
+  assert.match(journeyMap, /addEventListener\("michi-lesson-updated", refresh\)/);
   assert.match(journeyMap, /node\.status === "locked"\) return "available"/);
 });
 
