@@ -20,12 +20,12 @@ This addendum addresses a very specific product failure:
 
 The repository still reflects the original intention that the learner experience should feel like a **slowly evolving Japanese landscape** and a **journey through Japan**.
 
-However, the current implementation still appears to rely largely on static atmosphere assets such as:
+The initial implementation relied largely on static atmosphere assets such as:
 
 ```text
-/site-atmosphere.png
-/journey-hero.png
-/daily-journey.png
+site-atmosphere.png
+journey-hero.png
+daily-journey.png
 ```
 
 plus a more generic Journey landscape treatment.
@@ -54,9 +54,10 @@ Inspect the repository, preserve working behavior, implement the world system en
 
 # W1. CORE GOAL
 
-## Code-backed implementation status (2026-09-04)
+## Code-backed implementation status (2026-09-05)
 
 - [x] `lib/journey-world-core.js` centralizes the current area manifest, lesson/region mapping, N5/N4 area identity, and arrival/lived-in/settled progression stages.
+- [x] Retired root PNG atmosphere fallbacks are removed; generated WebP manifest assets are now the learner-facing Journey/Today/Learn scenery paths.
 - [x] `components/shell/app-shell.tsx`, `components/journey/journey-overview.tsx`, `components/journey/daily-session.tsx`, and `components/journey/journey-map.tsx` consume the resolved world state for shell atmosphere, Today, the Journey hero, and the route map.
 - [x] Shun provider immersion now uses a validated rotating catalog from `/api/immersion/shun`; this remains provider-hosted and stores no media.
 - [~] Practical reading material pairs eight generated no-text raster scene assets with Kizashi-owned format-aware HTML visual aids for authored notices, menus, schedules, posters, and numbered directions while preserving Japanese as accessible text; generated learning images hide on load failure so the HTML aid remains usable, `lib/learning-visual-assets.ts` centralizes generated-asset provenance, and richer format variety and screenshot review remain open.
@@ -1298,12 +1299,11 @@ Do not blindly create duplicate visual systems.
 
 # W41. REUSE EXISTING VISUAL WORK WHERE POSSIBLE
 
-Audit what can be preserved or adapted from:
+Audit what can be preserved or adapted from the current visual system:
 
 ```text
-/site-atmosphere.png
-/journey-hero.png
-/daily-journey.png
+generated `/world/*.webp` area and Today scenes
+generated `/world/lesson-wide.webp` lesson scene
 existing Journey landscape
 existing portrait / decorative motifs
 existing app shell

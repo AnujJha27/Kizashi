@@ -27,7 +27,7 @@ Do not ask the user to make routine implementation decisions. Inspect the existi
 
 ## Code-backed implementation status
 
-Updated 2026-09-04. This checklist records verified repository state, not
+Updated 2026-09-05. This checklist records verified repository state, not
 intent. Counts come from `data/staging/kizashi-n5-source-review.json.gz`.
 
 Legend: `[x]` implemented, `[~]` partially implemented or needs broader

@@ -60,6 +60,8 @@ test("Journey, Today, and Learn consume their own visual roles", async () => {
   assert.match(journey, /visualAssets\.hero/);
   assert.match(journey, /visualAssets\.lesson/);
   assert.match(today, /visualAssets\.today/);
+  assert.match(today, /\/world\/today\.webp/);
+  assert.doesNotMatch(today, /daily-journey\.png/);
   assert.match(learn, /visualAssets\.lesson/);
 });
 

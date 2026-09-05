@@ -39,7 +39,7 @@ Do not stop at:
 
 ## Code-backed implementation status
 
-Updated 2026-09-04. These checkboxes describe what is currently present in the
+Updated 2026-09-05. These checkboxes describe what is currently present in the
 repository; they are not a replacement for the requirements below.
 
 Legend: `[x]` implemented in code, `[~]` partially implemented or still needs
