@@ -78,9 +78,13 @@ test("completeness dashboard exposes grammar assessment families by level", asyn
   assert.match(dashboard, /quality\.reading\.byLevel\.N5\.questionFamilies/);
   assert.match(dashboard, /quality\.reading\.lexicalLoad/);
   assert.match(dashboard, /quality\.reading\.distractorSignals/);
+  assert.match(dashboard, /quality\.reading\.topicCounts/);
+  assert.match(dashboard, /quality\.reading\.sentencePatternDiversity/);
+  assert.match(dashboard, /quality\.reading\.answerUniqueness/);
   assert.match(dashboard, /quality\.listening\.contextTypes/);
   assert.match(dashboard, /quality\.listening\.complexity/);
   assert.match(dashboard, /quality\.listening\.visualSceneTypes/);
+  assert.match(dashboard, /quality\.listening\.answerUniqueness/);
   assert.match(dashboard, /quality\.listening\.byLevel\.N4\.nearDuplicateClusters/);
   assert.doesNotMatch(dashboard, /N5 \$\{report\.quality/);
 });
@@ -239,6 +243,9 @@ test("authored reading and listening banks expose diversity QA", () => {
   assert.equal(report.reading.questionSignals.answerEchoes, 104);
   assert.equal(report.reading.questionSignals.answerEchoDetails.length, 104);
   assert.ok(report.reading.questionSignals.answerEchoDetails.every((detail) => detail.itemId && detail.questionType && detail.answer));
+  assert.equal(Object.keys(report.reading.topicCounts).length, 31);
+  assert.equal(report.reading.sentencePatternDiversity.unique, 2);
+  assert.deepEqual(report.reading.answerUniqueness, { unique: 143, total: 143, duplicate: 0 });
   assert.deepEqual(report.listening.byLevel, { N5: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } }, N4: { total: 80, uniqueTemplates: 80, nearDuplicateClusters: [], questionFamilies: { "task-based response": 20, "key point": 20, "verbal expression": 15, "quick response": 25 } } });
   assert.equal(report.listening.uniqueTemplates, 160);
   assert.equal(report.listening.sourceTypes.tts, 160);
@@ -253,6 +260,7 @@ test("authored reading and listening banks expose diversity QA", () => {
   assert.equal(report.listening.dialogueStructure.answerEchoes, 92);
   assert.equal(report.listening.dialogueStructure.answerEchoDetails.length, 92);
   assert.ok(report.listening.dialogueStructure.answerEchoDetails.every((detail) => detail.itemId && detail.questionType && detail.answer));
+  assert.deepEqual(report.listening.answerUniqueness, { unique: 160, total: 160, duplicate: 0 });
   assert.ok((report.reading.questionFamilies["main idea"] ?? 0) >= 4);
   assert.ok((report.reading.questionFamilies.sequence ?? 0) >= 2);
   assert.ok((report.reading.questionFamilies.reason ?? 0) >= 5);
