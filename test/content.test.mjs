@@ -1133,5 +1133,7 @@ test("offline worker caches recorded audio without caching arbitrary cross-origi
   assert.match(worker, /\/world\/neighborhood\.webp/);
   assert.match(worker, /\/world\/today\.webp/);
   assert.match(worker, /\/world\/lesson-wide\.webp/);
+  assert.match(worker, /\/learning-assets\/reading\/clinic-reception\.webp/);
+  assert.match(worker, /\/learning-assets\/reading\/station-schedule\.webp/);
   assert.doesNotMatch(worker, /journey-hero\.png|site-atmosphere\.png|daily-journey\.png/);
 });
