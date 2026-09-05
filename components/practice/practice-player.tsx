@@ -192,7 +192,7 @@ export function PracticePlayer({ questions, vocabulary = [], kanji = [], reading
   }, [complete, position, questionKey, questions, ready]);
 
   if (!ready) return <div className="min-h-80 animate-pulse rounded-xl bg-[#17181d]" aria-label="Loading practice session" />;
-  if (!questions.length) return <div className="rounded-xl border border-[#713b37] bg-[#21191a] p-5 text-sm text-[#f5f5f2]">No questions are ready for this practice mode yet.</div>;
+  if (!questions.length) return <div className="rounded-xl border border-[#3f3427] bg-[#211d18] p-6 text-center"><p className="eyebrow text-[#e5b85c]">{examMode ? "Test not ready" : "No reviews due"}</p><h2 className="mt-2 text-xl font-medium text-[#f5f5f2]">{examMode ? "This test has no questions yet." : "You&apos;re clear for now."}</h2><p className="mx-auto mt-2 max-w-md text-sm leading-6 text-[#9297a1]">{examMode ? "Return to Practice and choose another test when a set is available." : "Try a short listening session, or continue the lesson path."}</p><div className="mt-5 flex flex-wrap justify-center gap-3"><Link href="/immersion" className="rounded-xl bg-[#e34a3f] px-4 py-3 text-sm font-semibold text-[#0b0b0d] hover:bg-[#ef675d]">Ear warm-up <span aria-hidden="true">→</span></Link><Link href="/journey" className="rounded-xl border border-[#3f4652] px-4 py-3 text-sm font-semibold text-[#c3c7ce] hover:border-[#e5b85c]">Open current lesson <span aria-hidden="true">→</span></Link></div></div>;
 
   if (complete) {
     const result = completionResult(questions, answerResults);

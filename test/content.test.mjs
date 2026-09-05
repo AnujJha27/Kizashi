@@ -421,6 +421,13 @@ test("learners can flag source-review content while studying", async () => {
   assert.match(entry, /ContentFlagButton/);
 });
 
+test("practice empty states offer a useful next path", async () => {
+  const player = await readFile(new URL("../components/practice/practice-player.tsx", import.meta.url), "utf8");
+  assert.match(player, /You&apos;re clear for now/);
+  assert.match(player, /href="\/immersion"/);
+  assert.match(player, /href="\/journey"/);
+});
+
 test("external sources use native media and safe framing fallbacks", async () => {
   const viewer = await readFile(new URL("../components/learning/external-source-viewer.tsx", import.meta.url), "utf8");
   const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
