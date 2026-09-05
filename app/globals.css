@@ -191,15 +191,6 @@ button, a, input { outline-color: var(--gold); outline-offset: 3px; }
 
 .lesson-opening + div > aside { align-self: start; height: fit-content; min-height: 0; width: 100%; max-width: 100%; overflow-x: hidden; }
 
-@media (max-width: 1279px) {
-  .lesson-opening + div { grid-template-columns: minmax(0, 1fr); }
-  .lesson-opening + div > aside { margin-top: 0; border-left: 0; padding-left: 0; }
-}
-
-@media (min-width: 1280px) {
-  .lesson-opening + div { grid-template-columns: minmax(0, 1fr) minmax(0, .7fr); }
-}
-
 @media (max-width: 639px) {
   .world-scene-image { object-position: var(--world-focal-mobile, var(--world-focal, center)); }
 }

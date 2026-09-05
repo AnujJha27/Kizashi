@@ -92,7 +92,7 @@ verification, `[ ]` not implemented.
 - [~] Phase 14 — Visual refinement (area-aware atmosphere, progression stages, distinct generated-raster imagery for the Journey hero, Today, Journey map, Journey current-lesson tracker, and Learn lesson opening, plus restrained area-completion transitions now feed the shell, Today, Journey, Learn, and profile; screenshot review and the final visual audit remain)
 - [~] Phase 15 — Mobile/accessibility/performance (global keyboard focus ring, skip-to-content target, focus restoration for the command palette/source modal, Marugoto Plus frame allowlisting, and responsive min-width-safe lesson/Journey grids are wired; final device/browser audit remains)
 - [x] Phase 16 — Tests/build verification (24/24 direct Node test files pass; strict package QA, typecheck, and production build are green)
-- [x] 2026-09-05 visual/accessibility patch — Journey uses a dedicated tall `/world/journey-map.webp` map scene, completed prior lessons unlock the next chapter’s first lesson, Learn’s lesson sidebar self-sizes instead of stretching empty, shared furigana is readable at `.58em`, and the private frame extension explicitly handles Marugoto Plus’s official `a1.marugotoweb.jp` frame host.
+- [x] 2026-09-05 visual/accessibility patch — Journey uses a dedicated tall `/world/journey-map.webp` map scene, completed prior lessons unlock the next chapter’s first lesson, Learn’s lesson sidebar self-sizes instead of stretching empty and stays below the lesson column until the `xl` breakpoint, shared furigana is readable at `.58em`, and the private frame extension explicitly handles Marugoto Plus’s official `a1.marugotoweb.jp` frame host.
 
 ### Feature-to-code evidence
 
