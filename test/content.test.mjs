@@ -14,6 +14,7 @@ import { fetchWithTimeout } from "../lib/request-timeout.js";
 import { preservePracticePosition } from "../lib/practice-session-core.js";
 import { getContentCompleteness } from "../lib/content-completeness-core.js";
 import { buildContentQualityReport } from "../lib/content-quality-core.js";
+import { mergeContentModules } from "../lib/module-merge-core.js";
 
 const execFileAsync = promisify(execFile);
 
@@ -33,6 +34,7 @@ test("shared request timeout aborts a stalled upstream request", async () => {
 
 test("tab content loading is bounded and shared", async () => {
   const hook = await readFile(new URL("../components/content/use-content-module.ts", import.meta.url), "utf8");
+  const merge = await readFile(new URL("../lib/module-merge-core.js", import.meta.url), "utf8");
   const worker = await readFile(new URL("../public/sw.js", import.meta.url), "utf8");
   const supabaseFiles = await Promise.all([
     readFile(new URL("../lib/supabase/browser.ts", import.meta.url), "utf8"),
@@ -41,8 +43,9 @@ test("tab content loading is bounded and shared", async () => {
   ]);
   assert.match(hook, /fetchWithTimeout/);
   assert.match(hook, /modulePromise/);
-  assert.match(hook, /mergeGrammar/);
-  assert.match(hook, /aliases: item\.aliases\?\.length \? item\.aliases : fallbackItem\.aliases/);
+  assert.match(hook, /mergeContentModules/);
+  assert.match(merge, /function mergeGrammar/);
+  assert.match(merge, /aliases: item\.aliases\?\.length \? item\.aliases : fallbackItem\.aliases/);
   assert.match(worker, /_next\//);
   assert.match(worker, /\/api\//);
   assert.ok(supabaseFiles.every((source) => /fetchWithTimeout/u.test(source)));
@@ -367,6 +370,37 @@ test("quality audit exposes lexical load and distractor structure", () => {
   assert.deepEqual(copied.reading.distractorSignals.sourceEchoDetails, [{ itemId: "copied-reading", questionType: "untyped", distractors: ["駅の前"] }]);
 });
 
+test("quality audit reports linked target levels and unresolved references", () => {
+  const report = buildContentQualityReport({
+    readings: [{ id: "reading-n5", jlptLevel: "N5", passage: "駅です。", vocabularyIds: ["vocab-n5", "vocab-missing"], grammarIds: ["grammar-n4"], kanjiIds: ["kanji-n5"] }],
+    vocabulary: [{ id: "vocab-n5", jlptLevel: "N5" }],
+    grammar: [{ id: "grammar-n4", jlptLevel: "N4" }],
+    kanji: [{ id: "kanji-n5", jlptLevel: "N5" }],
+  });
+  assert.deepEqual(report.reading.linkedTargetLevels.byReadingLevel.N5, {
+    vocabulary: { N5: 1, N4: 0, other: 0, unresolved: 1 },
+    grammar: { N5: 0, N4: 1, other: 0, unresolved: 0 },
+    kanji: { N5: 1, N4: 0, other: 0, unresolved: 0 },
+  });
+  assert.deepEqual(report.reading.linkedTargetLevels.unresolved.vocabulary, [{ readingId: "reading-n5", targetId: "vocab-missing" }]);
+});
+
+test("full package merging keeps authored records, lessons, and source evidence", () => {
+  const merged = mergeContentModules({
+    course: { chapters: [{ id: "chapter", lessons: [{ id: "lesson", itemIds: ["staged-item"] }] }] },
+    vocabulary: [{ id: "staged-item" }], kanji: [], grammar: [{ id: "grammar-ta-form", aliases: [] }], readings: [], listening: [], grammarContrasts: [], practiceQuestions: [], sourceManifest: [{ id: "staged-source" }],
+  }, {
+    course: { chapters: [{ id: "chapter", lessons: [{ id: "lesson", itemIds: ["authored-item"] }] }, { id: "authored-chapter", lessons: [] }] },
+    vocabulary: [{ id: "authored-item" }], kanji: [{ id: "kanji-kyou" }], grammar: [{ id: "grammar-ta-form", aliases: ["た form"], context: { japanese: "読んだ。", translation: "I read." } }], readings: [], listening: [], grammarContrasts: [], practiceQuestions: [], sourceManifest: [{ id: "authored-source" }],
+  });
+  assert.deepEqual(merged.vocabulary.map((item) => item.id), ["authored-item", "staged-item"]);
+  assert.deepEqual(merged.kanji.map((item) => item.id), ["kanji-kyou"]);
+  assert.deepEqual(merged.grammar[0].aliases, ["た form"]);
+  assert.deepEqual(merged.course.chapters[0].lessons[0].itemIds, ["authored-item", "staged-item"]);
+  assert.deepEqual(merged.course.chapters.map((chapter) => chapter.id), ["chapter", "authored-chapter"]);
+  assert.deepEqual(merged.sourceManifest.map((source) => source.id), ["authored-source", "staged-source"]);
+});
+
 test("answer quality audit catches duplicate and invalid choices", () => {
   const report = buildContentQualityReport({ readings: [{ id: "reading", jlptLevel: "N5", passage: "駅です。", questions: [{ options: ["駅", "駅", "店"], correctAnswer: 3 }] }], listening: [] });
   assert.deepEqual(report.reading.answerQuality, { questions: 1, missingChoices: 0, duplicateChoiceSets: 1, invalidCorrectIndexes: 1 });
@@ -528,6 +562,8 @@ test("Studio exposes every pending question through a searchable paged review qu
   assert.match(studio, /Reading question coverage/);
   assert.match(studio, /questionFamilyCoverage/);
   assert.match(studio, /coverage\.byLevel/);
+  assert.match(studio, /Reading target-level audit/);
+  assert.match(studio, /linkedTargetLevels/);
   assert.match(studio, /Review flagged answers/);
   assert.match(studio, /Level calibration signal/);
   assert.match(studio, /difficultyByLevel/);
@@ -1168,6 +1204,12 @@ test("Studio exposes review metadata and validates staged curriculum items", asy
   assert.match(studio, /Review notes/);
   assert.match(studio, /reviewedBy/);
   assert.match(studio, /question\.review\?\.status !== "approved"/);
+});
+
+test("Studio merges the full review package with bundled authored content", async () => {
+  const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
+  assert.match(studio, /const merged = mergeContentModules\(next, seed\)/);
+  assert.match(studio, /setSeed\(merged\)/);
 });
 
 test("offline worker caches recorded audio without caching arbitrary cross-origin requests", async () => {

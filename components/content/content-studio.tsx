@@ -28,6 +28,7 @@ import { contentSources, getCurriculumBand } from "@/lib/jlpt";
 import { readMistakes, readReviewRecords } from "@/lib/session";
 import { rankContentCandidates } from "@/lib/content-priority.js";
 import { buildContentQualityReport } from "@/lib/content-quality-core.js";
+import { mergeContentModules } from "@/lib/module-merge-core.js";
 import { getN5PracticeCoverage, getPracticeQuestions, migrateLegacyQuestionPrompts } from "@/lib/questions";
 import { getUnresolvedJapaneseSegments } from "@/lib/japanese-text-core.js";
 import { getJapaneseReadingEntries } from "@/components/learning/japanese-text";
@@ -127,6 +128,15 @@ function ReadingQuestionCoverageAudit({ module }: Readonly<{ module: N5Module }>
   const gaps = coverage.underMinimum;
   const byLevel = Object.entries(coverage.byLevel).map(([level, summary]) => `${level}: ${summary.underMinimum.length ? summary.underMinimum.map((gap) => `${gap.family} ${gap.count}/${gap.minimum}`).join(" · ") : "floor met"}`).join("  |  ");
   return <section className="rounded-xl border border-[#3f3427] bg-[#211d18]/55 p-4 sm:p-5"><div className="flex flex-wrap items-end justify-between gap-2"><div><p className="eyebrow">Reading question coverage</p><h2 className="mt-1 text-lg font-medium text-[#f5f5f2]">Spot thin question families.</h2><p className="mt-1 text-xs leading-5 text-[#c3a96d]">The supplemental family floor is a review signal, not a claim that every family should be equally common.</p></div><span className="text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">automated signal</span></div><p className={`mt-4 text-xs ${gaps.length ? "text-[#e5b85c]" : "text-[#8bcca6]"}`}>{gaps.length ? gaps.map((gap) => `${gap.family}: ${gap.count}/${gap.minimum}`).join(" · ") : "All supplemental families meet the floor."}</p><p className="mt-2 text-[10px] leading-5 text-[#9297a1]">By level · {byLevel}</p></section>;
+}
+
+function ReadingTargetLevelAudit({ module }: Readonly<{ module: N5Module }>) {
+  const linked = useMemo(() => buildContentQualityReport({ readings: module.readings, vocabulary: module.vocabulary, grammar: module.grammar, kanji: module.kanji }).reading.linkedTargetLevels, [module.readings, module.vocabulary, module.grammar, module.kanji]);
+  if (!linked?.available) return null;
+  const byReadingLevel = linked.byReadingLevel as Record<string, Record<string, { N5: number; N4: number; other: number; unresolved: number }>>;
+  const levels = Object.entries(byReadingLevel).map(([level, summary]) => `${level}: ${["vocabulary", "grammar", "kanji"].map((category) => `${category.slice(0, 3)} N5 ${summary[category].N5} · N4 ${summary[category].N4}${summary[category].other ? ` · other ${summary[category].other}` : ""}${summary[category].unresolved ? ` · unresolved ${summary[category].unresolved}` : ""}`).join("  |  ")}`).join("  ||  ");
+  const unresolved = Object.entries(linked.unresolved as Record<string, Array<{ readingId: string; targetId: string }>>).flatMap(([category, entries]) => entries.map((entry) => `${category}: ${entry.readingId} → ${entry.targetId}`));
+  return <section className="rounded-xl border border-[#3f3427] bg-[#211d18]/55 p-4 sm:p-5"><div className="flex flex-wrap items-end justify-between gap-2"><div><p className="eyebrow">Reading target-level audit</p><h2 className="mt-1 text-lg font-medium text-[#f5f5f2]">See what each passage actually links.</h2><p className="mt-1 text-xs leading-5 text-[#c3a96d]">Linked N5/N4 levels and unresolved IDs are structural review signals; prerequisite and cross-level links are not automatic errors.</p></div><span className="text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">automated signal</span></div><p className="mt-4 text-xs leading-6 text-[#c3c7ce]">{levels || "No linked reading references yet."}</p>{unresolved.length ? <p className="mt-2 truncate text-[10px] text-[#ef675d]" title={unresolved.join(" · ")}>Unresolved links · {unresolved.length} · {unresolved.slice(0, 6).join(" · ")}{unresolved.length > 6 ? " …" : ""}</p> : <p className="mt-2 text-[10px] text-[#8bcca6]">All linked reading references resolve to the active package catalogs.</p>}</section>;
 }
 
 function missingGrammarContract(item: N5Module["grammar"][number]) {
@@ -502,8 +512,9 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
       if (!response.ok) throw new Error("Review package request failed.");
       const next = parseModuleForReview(await response.text());
       if (!next) throw new Error("Review package is invalid.");
-      setSeed(next);
-      setResult(validateModule(next));
+      const merged = mergeContentModules(next, seed);
+      setSeed(merged);
+      setResult(validateModule(merged));
       setFullPackageLoaded(true);
       setMessage("Loaded the full staged review package.");
     } catch {
@@ -795,6 +806,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
     <ReadingAnswerAudit module={coverageModule} />
     <ReadingFormatAudit module={coverageModule} />
     <ReadingQuestionCoverageAudit module={coverageModule} />
+    <ReadingTargetLevelAudit module={coverageModule} />
     <ReadingDiagnostics module={coverageModule} />
     <SourceCoverage items={coverageItems} sources={coverageSources} />
     <TopicCoverage module={coverageModule} practiceQuestions={questionBank.length ? questionBank : null} />

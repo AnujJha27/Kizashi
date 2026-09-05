@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 import { isLearnerReleased, parseAndValidateModule, parseModuleForReview } from "@/lib/content-validation";
 import { n5Module } from "@/lib/curriculum";
 import { fetchWithTimeout } from "@/lib/request-timeout.js";
+import { mergeContentModules } from "@/lib/module-merge-core.js";
 import { readCustomEntries } from "@/lib/session";
 import { fetchSupabaseN5Module } from "@/lib/supabase/content";
-import type { GrammarItem, N5Module, VocabularyItem } from "@/lib/types";
+import type { N5Module, VocabularyItem } from "@/lib/types";
 
 function customVocabulary(): VocabularyItem[] {
   return readCustomEntries().map((entry) => ({ id: entry.id, slug: entry.id, title: entry.writtenForm, jlptLevel: null, category: "vocabulary", subcategory: "personal shelf", difficulty: 2, prerequisiteIds: [], tags: ["personal", "custom"], sourceIds: ["user-draft"], writtenForm: entry.writtenForm, reading: entry.reading || entry.writtenForm, meanings: [entry.meaning], partOfSpeech: "personal entry", exampleSentences: entry.sentence ? [{ japanese: entry.sentence, translation: "Personal example" }] : [{ japanese: entry.writtenForm, translation: entry.meaning }], collocations: [], relatedWords: [], antonyms: [] }));
@@ -16,48 +17,6 @@ function customVocabulary(): VocabularyItem[] {
 function withPersonalVocabulary(module: N5Module) {
   const existing = new Set(module.vocabulary.map((item) => item.id));
   return { ...module, vocabulary: [...module.vocabulary, ...customVocabulary().filter((item) => !existing.has(item.id))] };
-}
-
-function mergeById<T extends { id: string }>(preferred: T[], fallback: T[]) {
-  const merged = new Map(fallback.map((item) => [item.id, item]));
-  preferred.forEach((item) => merged.set(item.id, item));
-  return [...merged.values()];
-}
-
-function mergeGrammar(preferred: GrammarItem[], fallback: GrammarItem[]) {
-  const fallbackById = new Map(fallback.map((item) => [item.id, item]));
-  return mergeById(preferred.map((item) => {
-    const fallbackItem = fallbackById.get(item.id);
-    return fallbackItem ? { ...fallbackItem, ...item, aliases: item.aliases?.length ? item.aliases : fallbackItem.aliases, context: item.context?.japanese && item.context.translation ? item.context : fallbackItem.context } : item;
-  }), fallback);
-}
-
-function mergeModules(preferred: N5Module, fallback: N5Module): N5Module {
-  const fallbackChapters = new Map(fallback.course.chapters.map((chapter) => [chapter.id, chapter]));
-  const chapters = preferred.course.chapters.map((chapter) => {
-    const fallbackChapter = fallbackChapters.get(chapter.id);
-    if (!fallbackChapter) return chapter;
-    const lessons = mergeById(chapter.lessons, fallbackChapter.lessons).map((lesson) => {
-      const fallbackLesson = fallbackChapter.lessons.find((entry) => entry.id === lesson.id);
-      return fallbackLesson ? { ...fallbackLesson, ...lesson, itemIds: [...new Set([...fallbackLesson.itemIds, ...lesson.itemIds])] } : lesson;
-    });
-    return { ...fallbackChapter, ...chapter, lessons };
-  });
-  const preferredChapterIds = new Set(chapters.map((chapter) => chapter.id));
-  chapters.push(...fallback.course.chapters.filter((chapter) => !preferredChapterIds.has(chapter.id)));
-  return {
-    ...fallback,
-    ...preferred,
-    course: { ...fallback.course, ...preferred.course, chapters },
-    vocabulary: mergeById(preferred.vocabulary, fallback.vocabulary),
-    kanji: mergeById(preferred.kanji, fallback.kanji),
-    grammar: mergeGrammar(preferred.grammar, fallback.grammar),
-    readings: mergeById(preferred.readings, fallback.readings),
-    listening: mergeById(preferred.listening, fallback.listening),
-    grammarContrasts: mergeById(preferred.grammarContrasts, fallback.grammarContrasts),
-    practiceQuestions: mergeById(preferred.practiceQuestions ?? [], fallback.practiceQuestions ?? []),
-    sourceManifest: mergeById(preferred.sourceManifest ?? [], fallback.sourceManifest ?? []),
-  };
 }
 
 function learnerModule(module: N5Module) {
@@ -100,10 +59,10 @@ function loadSharedModule(seed: N5Module) {
     const learnerResponse = await fetchWithTimeout("/api/content/review-package?audience=learner", { cache: "no-store" }).catch(() => null);
     if (learnerResponse?.ok) {
       const learner = parseModuleForReview(await learnerResponse.text());
-      if (learner) return learnerModule(mergeModules(learner, seed));
+      if (learner) return learnerModule(mergeContentModules(learner, seed));
     }
     const remote = await fetchSupabaseN5Module(seed).catch(() => null);
-    const parsed = parseAndValidateModule(JSON.stringify(remote ? mergeModules(remote, seed) : seed));
+    const parsed = parseAndValidateModule(JSON.stringify(remote ? mergeContentModules(remote, seed) : seed));
     return learnerModule(parsed.value ?? seed);
   })();
   modulePromise = pending.then((value) => {
