@@ -49,4 +49,5 @@ test("source coverage distinguishes selective links from package provenance", as
   assert.match(component, /Alternative source links are selective/);
   assert.match(component, /Package provenance/);
   assert.match(component, /Everything is connected/);
+  assert.match(component, /sources = contentSources/);
 });

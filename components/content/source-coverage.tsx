@@ -7,6 +7,7 @@ import wikibooksMappings from "@/data/source-maps/wikibooks.json";
 import irodoriGrammarMappings from "@/data/source-maps/irodori-grammar.json";
 import tadokuEntries from "@/data/source-maps/tadoku.json";
 import { getExternalResourceById } from "@/lib/external-resources";
+import { contentSources } from "@/lib/jlpt";
 import { getExternalSourceCoverage } from "@/lib/source-coverage.js";
 import type { LessonContentItem } from "@/lib/curriculum";
 import type { ContentSource } from "@/lib/types";
@@ -47,7 +48,7 @@ function ProvenanceGaps({ items, sources }: Readonly<{ items: LessonContentItem[
   return <section className="mt-4 rounded-lg border border-white/10 bg-[#101b2b]/45 p-3"><div className="flex flex-wrap items-center justify-between gap-2"><p className="text-[10px] font-semibold uppercase tracking-[.12em] text-[#e5b85c]">Provenance gaps</p><p className={missing.length || unknown.length ? "text-xs text-[#e5b85c]" : "text-xs text-[#6fb98f]"}>{missing.length || unknown.length ? `${missing.length + unknown.length} records to inspect` : "No gaps found"}</p></div><p className="mt-1 text-xs text-[#9297a1]">A record counts as sourced when it has a source ID registered in the current source manifest.</p><div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">{counts.map((count) => <span key={count} className="rounded-md bg-[#17181d]/75 px-2 py-1 text-[11px] text-[#c3c7ce]">{count}</span>)}</div>{unknownIds.length ? <p className="mt-3 text-xs text-[#ef675d]">Unknown source IDs: {unknownIds.slice(0, 8).join(", ")}{unknownIds.length > 8 ? "…" : ""}</p> : null}{missing.length ? <p className="mt-1 text-xs text-[#ef675d]">Missing source records: {missing.slice(0, 8).map((item) => item.id).join(", ")}{missing.length > 8 ? "…" : ""}</p> : null}</section>;
 }
 
-export function SourceCoverage({ items, sources = [] }: Readonly<{ items: LessonContentItem[]; sources?: readonly ContentSource[] }>) {
+export function SourceCoverage({ items, sources = contentSources }: Readonly<{ items: LessonContentItem[]; sources?: readonly ContentSource[] }>) {
   const coverage = useMemo(() => getExternalSourceCoverage({
     items,
     taeKimMappings,
