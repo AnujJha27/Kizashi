@@ -513,7 +513,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
       if (!response.ok) throw new Error("Review package request failed.");
       const next = parseModuleForReview(await response.text());
       if (!next) throw new Error("Review package is invalid.");
-      const merged = mergeContentModules(next, seed);
+      const merged = repairModuleProvenance(mergeContentModules(next, seed), seed).module;
       setSeed(merged);
       setRaw(JSON.stringify(merged, null, 2));
       setResult(validateModule(merged));

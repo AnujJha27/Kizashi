@@ -82,6 +82,7 @@ test("Studio coverage follows the active package source manifest", async () => {
   const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
   assert.match(studio, /const coverageSources = useMemo\(\(\) =>/);
   assert.match(studio, /SourceCoverage items=\{coverageItems\} sources=\{coverageSources\}/);
+  assert.match(studio, /const merged = repairModuleProvenance\(mergeContentModules\(next, seed\), seed\)\.module/);
   assert.match(studio, /setRaw\(JSON\.stringify\(merged, null, 2\)\)/);
 });
 

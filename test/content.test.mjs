@@ -1215,7 +1215,7 @@ test("Studio exposes review metadata and validates staged curriculum items", asy
 
 test("Studio merges the full review package with bundled authored content", async () => {
   const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
-  assert.match(studio, /const merged = mergeContentModules\(next, seed\)/);
+  assert.match(studio, /const merged = repairModuleProvenance\(mergeContentModules\(next, seed\), seed\)\.module/);
   assert.match(studio, /setSeed\(merged\)/);
 });
 
