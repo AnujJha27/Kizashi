@@ -191,6 +191,12 @@ button, a, input { outline-color: var(--gold); outline-offset: 3px; }
 
 .lesson-summary { align-self: start; height: fit-content; min-height: 0; width: 100%; max-width: 100%; overflow-x: hidden; }
 
+.app-shell:has(.lesson-opening) main > .mx-auto.max-w-5xl:has(.lesson-opening) { width: 100%; max-width: none; }
+.lesson-summary > .mt-6,
+.lesson-summary > .mt-6 > div > div { min-width: 0; }
+.lesson-summary > .mt-6 > div > div { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.lesson-summary > .mt-6 > div > div > span:last-child { flex-shrink: 0; text-align: right; }
+
 @media (max-width: 639px) {
   .world-scene-image { object-position: var(--world-focal-mobile, var(--world-focal, center)); }
 }
