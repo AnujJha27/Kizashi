@@ -1,5 +1,5 @@
-const CACHE = "kizashi-shell-v9";
-const SHELL = ["/offline", "/journey", "/learn", "/practice", "/practice/kana", "/practice/diagnostic", "/immersion", "/review", "/mistakes", "/library", "/progress", "/profile", "/studio", "/icon.svg", "/journey-hero.png", "/site-atmosphere.png"];
+const CACHE = "kizashi-shell-v10";
+const SHELL = ["/offline", "/journey", "/learn", "/practice", "/practice/kana", "/practice/diagnostic", "/immersion", "/review", "/mistakes", "/library", "/progress", "/profile", "/studio", "/icon.svg", "/world/neighborhood.webp", "/world/station.webp", "/world/shopping-street.webp", "/world/riverside.webp", "/world/garden.webp", "/world/market.webp", "/world/assessment.webp", "/world/wide-station.webp", "/world/today.webp", "/world/today-station.webp", "/world/today-shopping-street.webp", "/world/today-riverside.webp", "/world/today-garden.webp", "/world/today-market.webp", "/world/today-assessment.webp", "/world/today-wide-station.webp", "/world/lesson-wide.webp", "/learning-assets/listening/cafe-service.webp", "/learning-assets/listening/classroom.webp", "/learning-assets/listening/home-arrival.webp", "/learning-assets/listening/station-help.webp"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => Promise.all(SHELL.map((url) => cache.add(url).catch(() => undefined)))));

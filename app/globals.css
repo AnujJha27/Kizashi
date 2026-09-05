@@ -41,7 +41,7 @@ body {
   background:
     linear-gradient(90deg, rgba(8, 10, 16, .54) 0%, rgba(8, 10, 16, .34) 48%, rgba(8, 10, 16, .14) 100%),
     linear-gradient(180deg, var(--world-wash, rgba(10, 12, 20, .08)), rgba(7, 8, 12, .56)),
-    var(--world-shell, url("/site-atmosphere.png")) var(--world-focal, center 42%) / cover fixed no-repeat;
+    var(--world-shell, url("/world/neighborhood.webp")) var(--world-focal, center 42%) / cover fixed no-repeat;
   background-attachment: fixed;
 }
 
@@ -70,7 +70,7 @@ body {
 .app-header {
   background:
     linear-gradient(180deg, rgba(20, 39, 57, .72), rgba(18, 24, 34, .68)),
-    var(--world-shell, url("/site-atmosphere.png")) left 42% / cover fixed no-repeat;
+    var(--world-shell, url("/world/neighborhood.webp")) left 42% / cover fixed no-repeat;
   backdrop-filter: blur(20px) saturate(120%);
 }
 
@@ -166,7 +166,7 @@ button, a, input { outline-color: var(--gold); outline-offset: 3px; }
   background:
     linear-gradient(90deg, rgba(11, 11, 13, .62) 0%, rgba(11, 11, 13, .38) 53%, rgba(11, 11, 13, .1) 100%),
     linear-gradient(180deg, rgba(12, 14, 23, .08), rgba(6, 8, 12, .38)),
-    url("/journey-hero.png") var(--world-focal, center 44%) / cover no-repeat;
+    url("/world/neighborhood.webp") var(--world-focal, center 44%) / cover no-repeat;
   box-shadow: 0 24px 80px rgba(0, 0, 0, .25);
 }
 

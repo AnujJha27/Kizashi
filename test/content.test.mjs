@@ -139,7 +139,7 @@ test("shell background follows the resolved Journey visual asset", async () => {
   const shell = await readFile(new URL("../components/shell/app-shell.tsx", import.meta.url), "utf8");
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   assert.match(shell, /--world-shell.*visualAssets\.shell/);
-  assert.match(css, /var\(--world-shell, url\("\/site-atmosphere\.png"\)\)/);
+  assert.match(css, /var\(--world-shell, url\("\/world\/neighborhood\.webp"\)\)/);
 });
 
 const moduleData = JSON.parse(await readFile(new URL("../data/n5-foundations.json", import.meta.url), "utf8"));
@@ -1130,4 +1130,8 @@ test("offline worker caches recorded audio without caching arbitrary cross-origi
   assert.match(worker, /url\.origin !== self\.location\.origin/);
   assert.match(worker, /url\.pathname\.startsWith\("\/_next\/"\)/);
   assert.match(worker, /url\.pathname\.startsWith\("\/api\/"\)/);
+  assert.match(worker, /\/world\/neighborhood\.webp/);
+  assert.match(worker, /\/world\/today\.webp/);
+  assert.match(worker, /\/world\/lesson-wide\.webp/);
+  assert.doesNotMatch(worker, /journey-hero\.png|site-atmosphere\.png|daily-journey\.png/);
 });
