@@ -124,9 +124,9 @@ export function JourneyOverview() {
       </section>
 
       <aside className="min-w-0 space-y-6">
-        <section className="surface-panel p-6">
-          <p className="eyebrow mb-4">Current lesson</p>
-          {lesson ? <><div className="flex items-start justify-between gap-4"><div><h2 className="text-xl font-medium">{lesson.title}</h2><p className="jp-serif mt-1 text-lg text-[#e5b85c]">{lesson.subtitle}</p></div><span className="rounded-full bg-[#211d18] px-2.5 py-1 text-[10px] text-[#e5b85c]">{lesson.estimatedMinutes} min</span></div><LessonProgress itemIds={lesson.itemIds} /><p className="mt-5 text-sm leading-6 text-[#9297a1]">{lesson.description}</p><Link href={`/learn?lesson=${lesson.id}`} className="mt-6 inline-flex text-sm font-medium text-[#e5b85c] hover:text-[#f5f5f2]">Open lesson <span className="ml-2" aria-hidden="true">→</span></Link></> : <p className="text-sm text-[#9297a1]">Your next lesson will appear here.</p>}
+        <section className="lesson-tracker surface-panel relative overflow-hidden p-6" style={{ backgroundImage: `linear-gradient(90deg, rgba(17, 18, 22, .9), rgba(17, 18, 22, .64)), url(${world.area.visualAssets.lesson})`, backgroundSize: "cover", "--world-focal": world.area.focalPoint.desktop, "--world-focal-mobile": world.area.focalPoint.mobile } as CSSProperties}>
+          <div className="relative z-10"><p className="eyebrow mb-4">Current lesson</p>
+          {lesson ? <><div className="flex items-start justify-between gap-4"><div><h2 className="text-xl font-medium">{lesson.title}</h2><p className="jp-serif mt-1 text-lg text-[#e5b85c]">{lesson.subtitle}</p></div><span className="rounded-full bg-[#211d18] px-2.5 py-1 text-[10px] text-[#e5b85c]">{lesson.estimatedMinutes} min</span></div><LessonProgress itemIds={lesson.itemIds} /><p className="mt-5 text-sm leading-6 text-[#9297a1]">{lesson.description}</p><Link href={`/learn?lesson=${lesson.id}`} className="mt-6 inline-flex text-sm font-medium text-[#e5b85c] hover:text-[#f5f5f2]">Open lesson <span className="ml-2" aria-hidden="true">→</span></Link></> : <p className="text-sm text-[#9297a1]">Your next lesson will appear here.</p>}</div>
         </section>
 
         <section className="surface-panel-raised p-6">

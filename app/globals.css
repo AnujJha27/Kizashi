@@ -172,13 +172,15 @@ button, a, input { outline-color: var(--gold); outline-offset: 3px; }
 
 .world-transition,
 .today-hero,
-.lesson-opening { background-position: var(--world-focal, center); }
+.lesson-opening,
+.lesson-tracker { background-position: var(--world-focal, center); }
 
 @media (max-width: 639px) {
   .journey-hero,
   .world-transition,
   .today-hero,
-  .lesson-opening { background-position: var(--world-focal-mobile, var(--world-focal, center)); }
+  .lesson-opening,
+  .lesson-tracker { background-position: var(--world-focal-mobile, var(--world-focal, center)); }
 }
 
 .journey-hero-ink { opacity: .2; }

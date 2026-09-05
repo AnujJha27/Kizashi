@@ -57,6 +57,7 @@ test("Journey, Today, and Learn consume their own visual roles", async () => {
     readFile(new URL("../components/learning/local-lesson.tsx", import.meta.url), "utf8"),
   ]);
   assert.match(journey, /visualAssets\.hero/);
+  assert.match(journey, /visualAssets\.lesson/);
   assert.match(today, /visualAssets\.today/);
   assert.match(learn, /visualAssets\.lesson/);
 });
