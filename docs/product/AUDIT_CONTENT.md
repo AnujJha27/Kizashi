@@ -1905,7 +1905,7 @@ N4 that merely feels like longer N5
 
 ## Current implementation status (2026-09-04)
 
-- [~] The quality report and Content Studio now count listening context tags separately from question families and expose deterministic dialogue-structure signals; the current 160-item authored bank covers 20 contexts, with all 160 records assigned a context tag, split into 80 three-turn `A-B-A` and 80 four-turn `A-B-A-B` profiles, with 92/160 correct answers repeating transcript wording. These are review signals for repeated structure and answer leakage, not automatic quality verdicts; situation balance, speaker relationships, distractor plausibility, and native naturalness review remain open.
+- [~] The quality report and Content Studio now count listening context tags separately from question families and expose deterministic dialogue-structure signals; the current 160-item authored bank covers 20 contexts, with all 160 records assigned a context tag, split into 80 three-turn `A-B-A` and 80 four-turn `A-B-A-B` profiles, with 94/160 correct answers repeating transcript wording. These are review signals for repeated structure and answer leakage, not automatic quality verdicts; situation balance, speaker relationships, distractor plausibility, and native naturalness review remain open.
 
 Ensure substantial variety:
 
@@ -1959,7 +1959,7 @@ Use more as appropriate.
 
 ## Current implementation status (2026-09-04)
 
-- [~] The authored listening generator now gives N4 a distinct four-turn dialogue path with schedule/condition/sequence dependency cues, while N5 retains the shorter three-turn path. The current audit measures N5 at 3.0 lines / 44 characters on average and N4 at 4.0 lines / 94 characters, with cue markers in 80/80 N4 items; this is a structural difficulty signal, not a substitute for level calibration or native review.
+- [~] The authored listening generator now gives N4 a distinct four-turn dialogue path with schedule/condition/sequence dependency cues, while N5 retains the shorter three-turn path. The current audit measures N5 at 3.0 lines / 44 characters on average and N4 at 4.0 lines / 91 characters, with cue markers in 80/80 N4 items; the new N4 casual register examples retain that four-turn/cue shape. This is a structural difficulty signal, not a substitute for level calibration or native review.
 
 N4 difficulty should include more:
 
@@ -2277,8 +2277,8 @@ Do not create fake variety with number substitution.
 
 ## Current implementation status (2026-09-04)
 
-- [x] The guided output lane now derives 80 speaking situations (40 N5 / 40 N4), 60 writing prompts (25 N5 / 35 N4), 119 pragmatic contexts, 296 vocabulary collocations, and a 20-item N5 casual-vs-polite recognition starter lane (10 casual / 10 polite) from released listening, reading, and vocabulary records.
-- [~] This first expansion preserves source IDs, target levels, frequency fields, model reveal/audio, and non-JLPT scoring. Self-ratings now reuse the shared review scheduler under namespaced output IDs without polluting canonical mistake queues, and the output lane refreshes its due ordering immediately on the shared review event. Register recognition starts with a deliberately small N5 lane derived from existing listening lines; N4 register coverage, canonical grammar mapping for chunks, and human-source pragmatics review remain follow-up quality work.
+- [x] The guided output lane now derives 80 speaking situations (40 N5 / 40 N4), 60 writing prompts (25 N5 / 35 N4), 119 pragmatic contexts, 296 vocabulary collocations, and 40 casual-vs-polite recognition activities (20 per level; 10 casual / 10 polite) from released listening, reading, and vocabulary records.
+- [~] This expansion preserves source IDs, target levels, frequency fields, model reveal/audio, and non-JLPT scoring. Self-ratings now reuse the shared review scheduler under namespaced output IDs without polluting canonical mistake queues, and the output lane refreshes its due ordering immediately on the shared review event. Register recognition now covers balanced N5/N4 starter lanes derived from authored listening lines; canonical grammar mapping for chunks and human-source pragmatics review remain follow-up quality work.
 
 ---
 

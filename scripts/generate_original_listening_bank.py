@@ -149,7 +149,10 @@ def make_question(family: str, place: str, object_: str, detail: str, actor: str
     )
 
 
-def transcript(family: str, place: str, object_: str, detail: str, actor: str, action: str, level: str, variation: int = 0) -> str:
+def transcript(family: str, place: str, object_: str, detail: str, actor: str, action: str, level: str, variation: int = 0, register_variant: str | None = None) -> str:
+    if register_variant == "casual":
+        casual_action = action.removesuffix("お願いします") + "頼んで" if action.endswith("お願いします") else action
+        return f"A：{place}の{object_}、どうする？\nB：予定では{detail}だけど、まず{casual_action}。\nA：わかった。そのあと{object_}を確認する。\nB：じゃ、そうして。"
     if level == "N4":
         action_phrase = action if action.endswith("お願いします") else f"{action}ください"
         if family == "verbal expression":
@@ -186,7 +189,7 @@ def visual_context(tag: str, place: str) -> tuple[str, str]:
     return VISUAL_SCENES.get(tag, ("meeting", f"Two people are speaking in a {place} setting."))
 
 
-def listening(level: str, family: str, number: int, values: tuple[str, str, str, str, str, str], constraints: dict[str, object] | None = None, variation: int = 0) -> dict:
+def listening(level: str, family: str, number: int, values: tuple[str, str, str, str, str, str], constraints: dict[str, object] | None = None, variation: int = 0, register_variant: str | None = None) -> dict:
     place, object_, detail, actor, tag, action = values
     prompt, answers, correct, explanation = make_question(family, place, object_, detail, actor, action, level, variation)
     scene, description = visual_context(tag, place)
@@ -209,7 +212,7 @@ def listening(level: str, family: str, number: int, values: tuple[str, str, str,
         "voice": "ja-JP BrowserSpeechProvider",
         "speed": 0.86 if level == "N5" else 0.82,
         "sourceType": "tts",
-        "transcript": transcript(family, place, object_, detail, actor, action, level, variation),
+        "transcript": transcript(family, place, object_, detail, actor, action, level, variation, register_variant),
         "questions": [{"prompt": prompt, "answers": answers, "correctAnswer": correct, "questionType": family, "explanation": explanation, **({"visualScene": scene, "visualContext": description} if family == "verbal expression" else {})}],
         "generationConstraints": constraints or {"numberOfSpeakers": 2},
     }
@@ -240,7 +243,8 @@ def build(levels: list[str] | None = None, families: list[str] | None = None, si
                 if forbidden and any(value in searchable for value in forbidden):
                     continue
                 number = (family_index * len(scenarios)) + scenario_index + 1
-                item = listening(level, family, number, values, constraints, (family_index + scenario_index + (1 if level == "N4" else 0)) % 3)
+                register_variant = "casual" if level == "N4" and family_index == 0 and scenario_index % 2 == 0 and scenario_index < 20 else None
+                item = listening(level, family, number, values, constraints, (family_index + scenario_index + (1 if level == "N4" else 0)) % 3, register_variant)
                 items.append(item)
                 ids.append(item["id"])
             if not ids:

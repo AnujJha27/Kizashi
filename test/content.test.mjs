@@ -270,8 +270,8 @@ test("authored reading and listening banks expose diversity QA", () => {
   assert.equal(report.listening.complexity.byLevel.N4.cueItems, report.listening.complexity.byLevel.N4.total);
   assert.deepEqual(report.listening.dialogueStructure.turnProfiles, { "3 turns / 2 speakers": 80, "4 turns / 2 speakers": 80 });
   assert.deepEqual(report.listening.dialogueStructure.speakerPatterns, { "A-B-A": 80, "A-B-A-B": 80 });
-  assert.equal(report.listening.dialogueStructure.answerEchoes, 92);
-  assert.equal(report.listening.dialogueStructure.answerEchoDetails.length, 92);
+  assert.equal(report.listening.dialogueStructure.answerEchoes, 94);
+  assert.equal(report.listening.dialogueStructure.answerEchoDetails.length, 94);
   assert.ok(report.listening.dialogueStructure.answerEchoDetails.every((detail) => detail.itemId && detail.questionType && detail.answer));
   assert.deepEqual(report.listening.answerUniqueness, { unique: 160, total: 160, duplicate: 0 });
   assert.deepEqual(report.listening.difficultyByLevel, { N5: { count: 80, average: 2, min: 2, max: 2 }, N4: { count: 80, average: 4, min: 4, max: 4 } });
@@ -570,7 +570,8 @@ test("external sources use native media and safe framing fallbacks", async () =>
   const lesson = await readFile(new URL("../components/learning/local-lesson.tsx", import.meta.url), "utf8");
   const styles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   assert.match(styles, /\.lesson-opening \+ div \{ align-items: start; grid-auto-rows: max-content; \}/);
-  assert.match(styles, /\.lesson-summary \{ align-self: start; height: fit-content; min-height: 0; width: 100%; max-width: 100%; overflow-x: hidden;/);
+  assert.match(styles, /\.lesson-summary \{ align-self: start; height: max-content; min-height: 0; width: 100%; max-width: 100%; overflow-x: hidden;/);
+  assert.match(await readFile(new URL("../components/journey/lesson-progress.tsx", import.meta.url), "utf8"), /flex min-w-0 flex-wrap justify-between/);
   assert.match(styles, /\.japanese-text rt \{ line-height: 1\.1; font-size: \.68em;/);
   assert.match(await readFile(new URL("../components/learning/japanese-text.tsx", import.meta.url), "utf8"), /text-\[\.68em\]/);
   assert.match(await readFile(new URL("../components/learning/reading-panel.tsx", import.meta.url), "utf8"), /text-\[\.68em\]/);

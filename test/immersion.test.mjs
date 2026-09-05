@@ -73,7 +73,8 @@ test("output banks reuse released content at the documented depth", async () => 
   assert.equal(banks.writing.filter((item) => item.level === "N4").length, 35);
   assert.ok(banks.pragmatics.length >= 100);
   assert.ok(banks.chunks.length >= 200);
-  assert.equal(banks.register.length, 20);
+  assert.equal(banks.register.length, 40);
+  assert.deepEqual(Object.fromEntries(["N5", "N4"].map((level) => [level, banks.register.filter((item) => item.level === level).length])), { N5: 20, N4: 20 });
   assert.equal(new Set(banks.register.map((item) => item.answer)).size, 2);
   assert.ok(banks.register.every((item) => item.choices?.length === 2 && item.sourceEvidence?.length));
   assert.ok(banks.chunks.every((item) => item.targetLevel && item.headVocabularyIds.length && item.sourceEvidence.length));
