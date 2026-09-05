@@ -266,6 +266,8 @@ test("information-retrieval readings carry visual formats", async () => {
   assert.ok(retrieval.every((item) => ["notice", "menu", "timetable", "schedule", "sale", "event", "directions", "hotel", "work", "health", "school", "home", "restaurant", "museum", "weather", "delivery", "transport"].includes(item.visualFormat)));
   assert.match(panel, /visualFormat/);
   assert.match(panel, /visualFormatLayouts/);
+  assert.match(panel, /directions: "steps"/);
+  assert.match(panel, /layout === "steps"/);
   assert.match(panel, /data-visual-format/);
   assert.match(panel, /readingVisualAssets/);
   assert.match(visualAssets, /neighborhood-post-office\.webp/);
