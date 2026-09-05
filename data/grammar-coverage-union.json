@@ -4,10 +4,10 @@
     "N5": {
       "rawPatterns": 224,
       "canonicalConcepts": 46,
-      "complete": 16,
-      "partial": 24,
+      "complete": 17,
+      "partial": 23,
       "missing": 6,
-      "unresolved": 105,
+      "unresolved": 102,
       "levelDisagreements": 4
     },
     "N4": {
@@ -28,7 +28,7 @@
       "sourceIds": [
         "irodori-sentence-patterns"
       ],
-      "evidenceCount": 2,
+      "evidenceCount": 3,
       "evidencePatterns": [
         {
           "sourceId": "irodori-sentence-patterns",
@@ -40,6 +40,12 @@
           "sourceId": "irodori-sentence-patterns",
           "recordId": "irodori-grammar-9de6f981b0b7",
           "pattern": "Nです\nN1はN2です",
+          "level": "N5"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-004b7ccce258",
+          "pattern": "ここは【場所】です",
           "level": "N5"
         }
       ],
@@ -304,7 +310,7 @@
         "openjlpt",
         "irodori-sentence-patterns"
       ],
-      "evidenceCount": 5,
+      "evidenceCount": 6,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
@@ -334,6 +340,12 @@
           "sourceId": "irodori-sentence-patterns",
           "recordId": "irodori-grammar-f4c9d1cbeb24",
           "pattern": "【場所】にNが【数】あります",
+          "level": "N5"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-3673e2f4d19e",
+          "pattern": "N、ありますか？",
           "level": "N5"
         }
       ],
@@ -1090,18 +1102,25 @@
       "pattern": "Noun / な-adjective + ではありません",
       "level": "N5",
       "sourceIds": [
-        "openjlpt"
+        "openjlpt",
+        "irodori-sentence-patterns"
       ],
-      "evidenceCount": 1,
+      "evidenceCount": 2,
       "evidencePatterns": [
         {
           "sourceId": "openjlpt",
           "recordId": "openjlpt-n5-11",
           "pattern": "〜ではありません",
           "level": "N5"
+        },
+        {
+          "sourceId": "irodori-sentence-patterns",
+          "recordId": "irodori-grammar-d59394c9a338",
+          "pattern": "Nじゃないです",
+          "level": "N5"
         }
       ],
-      "status": "partial",
+      "status": "complete",
       "levelDisagreements": []
     },
     {
@@ -2490,12 +2509,6 @@
     },
     {
       "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-d59394c9a338",
-      "pattern": "Nじゃないです",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-4c216d05d98b",
       "pattern": "N1とN2",
       "level": "N5"
@@ -2528,12 +2541,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-10e4b48e1ce7",
       "pattern": "N、【数】お願いします\nN、【数】くださいスウネガ",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-004b7ccce258",
-      "pattern": "ここは【場所】です",
       "level": "N5"
     },
     {
@@ -2606,12 +2613,6 @@
       "sourceId": "irodori-sentence-patterns",
       "recordId": "irodori-grammar-14335fccee81",
       "pattern": "N、いいですか？",
-      "level": "N5"
-    },
-    {
-      "sourceId": "irodori-sentence-patterns",
-      "recordId": "irodori-grammar-3673e2f4d19e",
-      "pattern": "N、ありますか？",
       "level": "N5"
     },
     {
@@ -3989,7 +3990,7 @@
     {
       "id": "irodori-sentence-patterns",
       "rawRecords": 348,
-      "references": 111
+      "references": 114
     },
     {
       "id": "tae-kim",

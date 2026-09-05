@@ -27,6 +27,36 @@
       "description": "Irodori situational pattern: Nです / N1はN2です.",
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-004b7ccce258",
+      "sourceCourse": "入門",
+      "sourceLevel": "Starter",
+      "pattern": "ここは【場所】です",
+      "sectionTitle": "Sentence pattern · 入門",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: ここは【場所】です.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    }
+  ],
+  "grammar-dewa-arimasen": [
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-d59394c9a338",
+      "sourceCourse": "入門",
+      "sourceLevel": "Starter",
+      "pattern": "Nじゃないです",
+      "sectionTitle": "Sentence pattern · 入門",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: Nじゃないです.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
     }
   ],
   "grammar-wa": [
@@ -443,6 +473,20 @@
       "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
       "relationship": "communicative-pattern",
       "description": "Irodori situational pattern: 【場所】にNが【数】あります.",
+      "license": "Japan Foundation Irodori terms; personal educational use",
+      "attribution": "Japan Foundation Irodori"
+    },
+    {
+      "sourceId": "irodori-sentence-patterns",
+      "sourceRecordId": "irodori-grammar-3673e2f4d19e",
+      "sourceCourse": "入門",
+      "sourceLevel": "Starter",
+      "pattern": "N、ありますか？",
+      "sectionTitle": "Sentence pattern · 入門",
+      "url": "https://www.irodori.jpf.go.jp/en/resources.html",
+      "sourceUrl": "https://www.irodori.jpf.go.jp/assets/data/sentence_patterns_list.xlsx",
+      "relationship": "communicative-pattern",
+      "description": "Irodori situational pattern: N、ありますか？.",
       "license": "Japan Foundation Irodori terms; personal educational use",
       "attribution": "Japan Foundation Irodori"
     }
