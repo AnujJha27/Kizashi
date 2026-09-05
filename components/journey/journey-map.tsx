@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import type { JourneyNode, TargetLevel } from "@/lib/types";
 import { InkField } from "@/components/journey/ink-field";
 import { Landscape } from "@/components/journey/landscape";
-import { readReviewRecords, type ReviewRecord } from "@/lib/session";
+import { readLessonState, readReviewRecords, type ReviewRecord } from "@/lib/session";
 
 const statusLabel: Record<JourneyNode["status"], string> = {
   locked: "Locked",
@@ -37,9 +37,11 @@ export function JourneyMap({ nodes, focusLessonId, targetLevel = "N5", world }: 
     if (!prerequisitesMet && node.status === "available") return "locked";
     const learned = node.itemIds.filter((itemId) => records[itemId]).length;
     const mastered = node.itemIds.filter((itemId) => records[itemId]?.masteryState === "strong" || (records[itemId]?.streak ?? 0) >= 4).length;
+    const lessonComplete = readLessonState(node.id).status === "complete";
     const previousLesson = [...nodes.slice(0, index)].reverse().find((entry) => entry.kind === "lesson");
-    const previousComplete = Boolean(previousLesson?.itemIds?.length && previousLesson.itemIds.every((itemId) => records[itemId]));
-    if (node.status === "locked" && !previousComplete) return node.status;
+    const previousComplete = Boolean(previousLesson?.itemIds?.length && (readLessonState(previousLesson.id).status === "complete" || previousLesson.itemIds.every((itemId) => records[itemId])));
+    if (node.status === "locked" && !lessonComplete && !previousComplete) return node.status;
+    if (lessonComplete && node.status === "locked") return mastered === node.itemIds.length ? "mastered" as const : "learned" as const;
     if (node.status === "locked") return "available";
     if (node.status === "learned") return mastered === node.itemIds.length ? "mastered" as const : node.status;
     if (mastered === node.itemIds.length) return "mastered" as const;

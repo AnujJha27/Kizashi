@@ -77,6 +77,8 @@ test("Journey, Today, and Learn consume their own visual roles", async () => {
 test("completed lessons unlock the first lesson in the next chapter", async () => {
   const journeyMap = await readFile(new URL("../components/journey/journey-map.tsx", import.meta.url), "utf8");
   assert.match(journeyMap, /previousComplete = Boolean/);
+  assert.match(journeyMap, /readLessonState\(previousLesson\.id\)\.status === "complete"/);
+  assert.match(journeyMap, /readLessonState\(node\.id\)\.status === "complete"/);
   assert.match(journeyMap, /node\.status === "locked"\) return "available"/);
 });
 
