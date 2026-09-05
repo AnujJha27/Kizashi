@@ -92,6 +92,8 @@ test("Immersion continue state can reopen the selected local activity", async ()
   assert.match(surface, /URLSearchParams\(window\.location\.search\)/);
   assert.match(surface, /setSelectedReadingId/);
   assert.match(surface, /setSelectedClipId/);
+  assert.match(surface, /listeningVisualAsset/);
+  assert.match(surface, /loading="lazy" decoding="async"/);
   assert.match(player, /\/immersion\?reading=/);
   assert.match(player, /\/immersion\?listen=/);
 });

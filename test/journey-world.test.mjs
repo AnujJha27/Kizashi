@@ -85,6 +85,12 @@ test("world imagery hides a failed asset without removing the surrounding UI", a
   assert.match(portrait, /onError=\{\(event\) => \{ event\.currentTarget\.hidden = true; \}\}/);
 });
 
+test("Journey landscape blends into the map instead of cutting across route labels", async () => {
+  const landscape = await readFile(new URL("../components/journey/landscape.tsx", import.meta.url), "utf8");
+  assert.match(landscape, /from-\[#111216\]\/95/);
+  assert.match(landscape, /via-\[#111216\]\/70/);
+});
+
 test("the profile portrait consumes the resolved area visual", async () => {
   const portrait = await readFile(new URL("../components/profile/study-portrait.tsx", import.meta.url), "utf8");
   assert.match(portrait, /world\.area\.visualAssets\.portrait/);

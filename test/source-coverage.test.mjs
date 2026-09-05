@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 
 import { getExternalSourceCoverage } from "../lib/source-coverage.js";
 
@@ -33,4 +34,17 @@ test("source coverage does not report enabled sources when their inputs are abse
   assert.deepEqual(coverage.irodori, { covered: 0, total: 0 });
   assert.equal(coverage.reading.tadoku, 0);
   assert.equal(coverage.reading.aozora, false);
+});
+
+test("the source manifest registers authored grammar provenance IDs", async () => {
+  const manifest = await readFile(new URL("../lib/jlpt.ts", import.meta.url), "utf8");
+  assert.match(manifest, /id: "irodori-sentence-patterns"/);
+  assert.match(manifest, /id: "michi-authored-n4-grammar"/);
+});
+
+test("source coverage distinguishes selective links from package provenance", async () => {
+  const component = await readFile(new URL("../components/content/source-coverage.tsx", import.meta.url), "utf8");
+  assert.match(component, /const unknownIds = \[\.\.\.new Set/);
+  assert.match(component, /Unknown source IDs: \{unknownIds/);
+  assert.match(component, /Alternative source links are selective/);
 });

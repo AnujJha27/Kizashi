@@ -103,6 +103,8 @@ Do NOT spend this milestone adding another massive generic vocabulary or kanji d
 - [x] `scripts/build_grammar_coverage_registry.mjs` builds `data/grammar-coverage-union.json` from cached OpenJLPT grammar lists, staged Irodori sentence patterns, existing canonical grammar, and mapped Tae Kim/Wikibooks references; `components/content/grammar-coverage.tsx` exposes the report in Content Studio.
 - [~] The current registry reports N5 224 raw patterns / 46 canonical concepts (16 complete, 24 partial, 6 missing, 105 unresolved) and N4 188 raw patterns / 70 canonical concepts (3 complete, 58 partial, 9 missing, 86 unresolved). Sixty-five N4 concepts are authored in the dedicated expansion lessons, five additional N4 bridge concepts remain in the life module, and six N5 concepts are authored from exact OpenJLPT evidence; fourteen explicit contrast clusters now connect direction, benefit perspective, inference/appearance, conditionals, potential ability, passive/potential, causative forms, change/habit/decision forms, modality/inference forms, quotation/thought forms, nominalization/capability forms, contrast/conjunction forms, time/aspect forms, and ease/difficulty forms. The registry still keeps source-level disagreements and unresolved rows visible. It now includes 111 reviewed Irodori mapping references plus 21 curated OpenJLPT alias references and marks mapped source records resolved; level disagreements remain visible (N5 4, N4 7, including the Starter-level basic giving/receiving evidence, Elementary 1 quotation/thought and nominalization mappings, and related Elementary 1 けど patterns). This is an honest coverage baseline, not a claim of grammar completeness.
 
+- [x] The package source manifest registers both `irodori-sentence-patterns` and `michi-authored-n4-grammar`; the Content Studio provenance audit distinguishes selective external explanation links from package-wide source registration and no longer reports those 45 valid grammar records as unknown.
+
 This is the highest-priority content issue.
 
 At the initial audit, bundled canonical grammar was approximately:
@@ -2002,9 +2004,9 @@ Do not copy their scripts into original Kizashi assessment material unless the s
 
 # C54. ADD VISUAL VERBAL-EXPRESSION QUESTIONS
 
-## Current implementation status (2026-09-04)
+## Current implementation status (2026-09-05)
 
-- [x] The authored listening generator adds scene metadata to all verbal-expression items; Lesson and Practice render four generated raster situation assets with accessible descriptions, while the audio/transcript remains the primary listening task.
+- [x] The authored listening generator adds scene metadata to all verbal-expression items; Lesson and Practice render four generated raster situation assets with accessible descriptions, and Immersion reuses the same scenes as lazy discovery thumbnails while the audio/transcript remains the primary listening task.
 - [x] Pronunciation now has a learner-visible Immersion activity with 20 authored lessons (15 N5 foundation, 5 N4 reinforcement) and 60 discrimination exercises covering mora timing, long vowels, small っ, ん, contracted sounds, devoicing awareness, rhythm, segmentation, intonation, and pitch awareness; browser audio fallback and optional OJAD exploration are used without making pitch a JLPT gate.
 - [x] Dictation now derives 155 explicit activities from the authored listening bank: N5 has 15 word, 15 phrase, 30 sentence, 8 dialogue-gap, and 7 key-information tasks; N4 has 25 phrase, 35 sentence, 10 dialogue-gap, and 10 key-information tasks. It reuses audio, kana/formatting-tolerant normalization, mistake recording, and answer-difference feedback.
 - [x] Output now derives 80 speaking situations (40 N5 / 40 N4), 60 writing prompts (25 N5 / 35 N4), 119 pragmatic contexts, and 296 vocabulary collocations from the released package through `lib/output-core.js` and the Real life lane. It preserves source evidence, target levels, frequency fields, and self-check/model behavior; automatic open-response grading and inferred canonical grammar mappings remain out of scope.
