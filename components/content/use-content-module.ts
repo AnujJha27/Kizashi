@@ -6,6 +6,7 @@ import { isLearnerReleased, parseAndValidateModule, parseModuleForReview } from 
 import { n5Module } from "@/lib/curriculum";
 import { fetchWithTimeout } from "@/lib/request-timeout.js";
 import { mergeContentModules } from "@/lib/module-merge-core.js";
+import { repairModuleProvenance } from "@/lib/content-provenance-core.js";
 import { readCustomEntries } from "@/lib/session";
 import { fetchSupabaseN5Module } from "@/lib/supabase/content";
 import type { N5Module, VocabularyItem } from "@/lib/types";
@@ -59,10 +60,11 @@ function loadSharedModule(seed: N5Module) {
     const learnerResponse = await fetchWithTimeout("/api/content/review-package?audience=learner", { cache: "no-store" }).catch(() => null);
     if (learnerResponse?.ok) {
       const learner = parseModuleForReview(await learnerResponse.text());
-      if (learner) return learnerModule(mergeContentModules(learner, seed));
+      if (learner) return learnerModule(repairModuleProvenance(mergeContentModules(learner, seed), seed).module);
     }
     const remote = await fetchSupabaseN5Module(seed).catch(() => null);
-    const parsed = parseAndValidateModule(JSON.stringify(remote ? mergeContentModules(remote, seed) : seed));
+    const merged = repairModuleProvenance(remote ? mergeContentModules(remote, seed) : seed, seed).module;
+    const parsed = parseAndValidateModule(JSON.stringify(merged));
     return learnerModule(parsed.value ?? seed);
   })();
   modulePromise = pending.then((value) => {

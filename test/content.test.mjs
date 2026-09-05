@@ -44,6 +44,8 @@ test("tab content loading is bounded and shared", async () => {
   assert.match(hook, /fetchWithTimeout/);
   assert.match(hook, /modulePromise/);
   assert.match(hook, /mergeContentModules/);
+  assert.match(hook, /repairModuleProvenance/);
+  assert.match(hook, /repairModuleProvenance\(mergeContentModules\(learner, seed\), seed\)/);
   assert.match(merge, /function mergeGrammar/);
   assert.match(merge, /aliases: item\.aliases\?\.length \? item\.aliases : fallbackItem\.aliases/);
   assert.match(worker, /_next\//);

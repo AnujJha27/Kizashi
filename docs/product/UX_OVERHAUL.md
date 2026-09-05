@@ -52,7 +52,7 @@ verification, `[ ]` not implemented.
 - [x] Today/Journey has a time-aware greeting, current-path CTA, duration choices, and a resumable in-place session that advances through the existing review, lesson, quick-practice, listening, and reading components; short durations select a smaller coherent subset and longer durations add context blocks.
 - [x] Practice is organized around Quick, Focus, Weaknesses, and Test while retaining compatible deep links for existing modes.
 - [x] Practice defers its question bank and bounds the live working catalog instead of retaining the full imported lesson corpus on every drill.
-- [x] Learner content loading merges the released remote package with bundled authored expansions, so deployment does not drop bundled reading/listening lessons while waiting on review data.
+- [x] Learner content loading merges the released remote package with bundled authored expansions, repairs stale per-record provenance against the bundled source manifest, and keeps deployment from dropping bundled reading/listening lessons while waiting on review data.
 - [x] Learn opens the active lesson directly with a compact lesson selector and step progression.
 - [x] Immersion is split into a recommendation feed and a focused activity player.
 - [x] Immersion includes a compact pronunciation lane with authored N5/N4 lessons, discrimination exercises, separate progress states, browser audio fallback, and optional OJAD exploration; it remains outside JLPT readiness.
