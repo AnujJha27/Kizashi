@@ -27,6 +27,7 @@ import { readContentDraft, removeContentDraft, writeContentDraft } from "@/lib/c
 import type { LessonContentItem } from "@/lib/curriculum";
 import { contentSources, getCurriculumBand } from "@/lib/jlpt";
 import { readMistakes, readReviewRecords } from "@/lib/session";
+import { readContentFlags } from "@/lib/content-flags.js";
 import { rankContentCandidates } from "@/lib/content-priority.js";
 import { buildContentQualityReport } from "@/lib/content-quality-core.js";
 import { mergeContentModules } from "@/lib/module-merge-core.js";
@@ -84,6 +85,20 @@ function Health({ label, result }: Readonly<{ label: string; result: ContentVali
 function CoverageHealth({ coverage }: Readonly<{ coverage: ReturnType<typeof getN5PracticeCoverage> | null }>) {
   if (!coverage) return <div className="rounded-xl border border-white/10 bg-[#101b2b]/70 p-4"><div className="flex items-center justify-between gap-3"><p className="text-sm text-[#f5f5f2]">N5 practice coverage</p><span className="text-[#9297a1]">Deferred</span></div><p className="mt-2 text-xs text-[#9297a1]">Load the question bank when you need coverage; Studio stays responsive on first open.</p></div>;
   return <div className="rounded-xl border border-white/10 bg-[#101b2b]/70 p-4"><div className="flex items-center justify-between gap-3"><p className="text-sm text-[#f5f5f2]">N5 practice coverage</p><span className={coverage.complete ? "text-[#6fb98f]" : "text-[#e34a3f]"}>{coverage.complete ? "Complete" : "Needs work"}</span></div><p className="mt-2 text-xs text-[#9297a1]">{coverage.coveredItemCount} / {coverage.itemCount} items · {coverage.questionCount} active questions</p>{coverage.missingFamilies.length ? <p className="mt-1 text-[10px] text-[#ef675d]">Missing families: {coverage.missingFamilies.join(", ")}</p> : null}{coverage.uncoveredItemIds.length ? <p className="mt-1 truncate text-[10px] text-[#ef675d]" title={coverage.uncoveredItemIds.join(", ")}>Uncovered items: {coverage.uncoveredItemIds.join(", ")}</p> : null}</div>;
+}
+
+function LearnerReviewSummary() {
+  const [records, setRecords] = useState<Record<string, { status?: string; origin?: string; flagReason?: string }>>({});
+  useEffect(() => {
+    const refresh = () => setRecords(readContentFlags());
+    refresh();
+    window.addEventListener("michi-content-flagged-updated", refresh);
+    return () => window.removeEventListener("michi-content-flagged-updated", refresh);
+  }, []);
+  const values = Object.values(records);
+  const reviewed = values.filter((record) => record.status === "reviewed").length;
+  const flagged = values.filter((record) => record.status !== "reviewed").length;
+  return <section className="rounded-xl border border-[#3f4652] bg-[#101b2b]/70 p-4"><div className="flex flex-wrap items-center justify-between gap-3"><div><p className="eyebrow">Learner review loop</p><p className="mt-1 text-sm text-[#f5f5f2]">Personal review actions stay separate from source approval.</p></div><span className="text-xs text-[#e5b85c]">{reviewed} reviewed · {flagged} flagged</span></div>{flagged ? <p className="mt-2 text-xs text-[#ef675d]">Latest flags: {values.filter((record) => record.status !== "reviewed").slice(-5).map((record) => `${record.flagReason ?? "other"} · ${record.origin ?? "learner"}`).join(" · ")}</p> : <p className="mt-2 text-xs text-[#9297a1]">No learner flags yet. Provisional cards can be reviewed in place.</p>}</section>;
 }
 
 function DifficultyAudit({ module }: Readonly<{ module: N5Module }>) {
@@ -813,6 +828,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   return <div className="space-y-7">
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><Health label="Last curriculum validation" result={result} /><Health label="Practice question bank" result={questionResult} /><CoverageHealth coverage={practiceCoverage} /></div>
     <CompletenessDashboard module={coverageModule} />
+    <LearnerReviewSummary />
     <KanjiWritingAudit module={coverageModule} />
     <DifficultyAudit module={coverageModule} />
     <ListeningStructureAudit module={coverageModule} />

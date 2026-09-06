@@ -488,6 +488,18 @@ test("learners can flag source-review content while studying", async () => {
   assert.match(entry, /ContentFlagButton/);
 });
 
+test("provisional encounters support in-place review across learner surfaces", async () => {
+  const flags = await readFile(new URL("../lib/content-flags.js", import.meta.url), "utf8");
+  const controls = await readFile(new URL("../components/library/content-flag-button.tsx", import.meta.url), "utf8");
+  const surfaces = await Promise.all(["../components/learning/lesson-player.tsx", "../components/learning/reading-panel.tsx", "../components/learning/kanji-writing-trainer.tsx", "../components/library/entry-detail.tsx", "../components/practice/practice-player.tsx"].map((path) => readFile(new URL(path, import.meta.url), "utf8")));
+  assert.match(flags, /setContentReview/);
+  assert.match(flags, /origin/);
+  assert.match(controls, /Looks good/);
+  assert.match(controls, /Ambiguous/);
+  assert.match(controls, /Edit in Studio/);
+  surfaces.forEach((surface) => assert.match(surface, /ContentReviewControls/));
+});
+
 test("practice empty states offer a useful next path", async () => {
   const player = await readFile(new URL("../components/practice/practice-player.tsx", import.meta.url), "utf8");
   assert.match(player, /You&apos;re clear for now/);

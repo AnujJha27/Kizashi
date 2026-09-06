@@ -6395,3 +6395,6 @@ would the product still visibly communicate:
 ```
 
 If the answer to the last question is no, the visual identity is still too generic.
+## Implementation checkpoint · 2026-09-06
+
+The learner-facing review loop is now attached to the existing study surfaces: provisional cards can be marked `Looks good` or flagged with a reason without leaving the activity, while practice questions expose post-answer review choices. The action state is local-first and synced through the existing account snapshot path. Full inline field editing remains a Studio follow-up.
