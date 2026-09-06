@@ -7,6 +7,7 @@ import { ContentRecordEditor, type EditableKind } from "@/components/content/con
 import { TopicCoverage } from "@/components/content/topic-coverage";
 import { SourceCoverage } from "@/components/content/source-coverage";
 import { CompletenessDashboard } from "@/components/content/completeness-dashboard";
+import { KanjiWritingAudit } from "@/components/content/kanji-writing-audit";
 import { JapaneseText } from "@/components/learning/japanese-text";
 import taeKimMappings from "@/data/source-maps/tae-kim.json";
 import wikibooksMappings from "@/data/source-maps/wikibooks.json";
@@ -812,6 +813,7 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
   return <div className="space-y-7">
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><Health label="Last curriculum validation" result={result} /><Health label="Practice question bank" result={questionResult} /><CoverageHealth coverage={practiceCoverage} /></div>
     <CompletenessDashboard module={coverageModule} />
+    <KanjiWritingAudit module={coverageModule} />
     <DifficultyAudit module={coverageModule} />
     <ListeningStructureAudit module={coverageModule} />
     <ReadingAnswerAudit module={coverageModule} />
