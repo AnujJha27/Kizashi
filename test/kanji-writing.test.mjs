@@ -22,6 +22,7 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   const localPractice = await readFile(new URL("../components/practice/local-practice.tsx", import.meta.url), "utf8");
   const accountSync = await readFile(new URL("../components/profile/account-sync.tsx", import.meta.url), "utf8");
   const dashboard = await readFile(new URL("../components/content/kanji-writing-audit.tsx", import.meta.url), "utf8");
+  const mistakes = await readFile(new URL("../components/mistakes/mistake-notebook.tsx", import.meta.url), "utf8");
   const entry = await readFile(new URL("../components/library/entry-detail.tsx", import.meta.url), "utf8");
   const importer = await readFile(new URL("../scripts/import_kanjivg.py", import.meta.url), "utf8");
   const manifest = JSON.parse(await readFile(new URL("../browser/kizashi-private-frame-unlocker/manifest.json", import.meta.url), "utf8"));
@@ -30,6 +31,7 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(trainer, /ExternalSourceViewer source=\{jishoSource\}/);
   assert.match(practice, /KanjiWritingTrainer/);
   assert.match(practice, /KanjiWritingTrainer key=\{current\.id\}/);
+  assert.match(practice, /initialItemId/);
   assert.match(practicePage, /kanji-writing/);
   assert.match(localPractice, /KanjiWritingPractice/);
   assert.match(accountSync, /michi-kanji-writing-updated/);
@@ -38,6 +40,8 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(dashboard, /kanjiStrokeData/);
   assert.match(contentStudio, /KanjiWritingAudit/);
   assert.match(entry, /KanjiWritingTrainer item=\{item\}/);
+  assert.match(mistakes, /Writing repair/);
+  assert.match(mistakes, /mode=kanji-writing&item=/);
   assert.match(importer, /canonical_characters/);
   assert.match(importer, /KanjiVG/);
   assert.ok(manifest.host_permissions.includes("https://jisho.org/*"));

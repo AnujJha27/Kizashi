@@ -22,7 +22,7 @@ function repairAction(record: MistakeRecord) {
   const type = record.lastQuestionType ?? "";
   if (/listening|audio/iu.test(type)) return { label: "Listening repair", href: "/immersion" };
   if (/reading/iu.test(type)) return { label: "Reading repair", href: "/immersion" };
-  if (/kanji|orthography/iu.test(type)) return { label: "Kanji repair", href: "/practice?mode=kanji" };
+  if (/kanji|orthography/iu.test(type)) return { label: "Writing repair", href: `/practice?mode=kanji-writing&item=${encodeURIComponent(record.itemId)}` };
   if (/grammar|particle|conjug/iu.test(type)) return { label: "Grammar repair", href: "/practice?mode=grammar" };
   return { label: "Focused repair", href: "/practice?mode=weak" };
 }

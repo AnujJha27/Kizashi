@@ -5,11 +5,13 @@ import { useMemo, useState } from "react";
 import { KanjiWritingTrainer } from "@/components/learning/kanji-writing-trainer";
 import type { KanjiItem, TargetLevel } from "@/lib/types";
 
-export function KanjiWritingPractice({ kanji, duration, targetLevel }: Readonly<{ kanji: KanjiItem[]; duration: number; targetLevel: TargetLevel }>) {
+export function KanjiWritingPractice({ kanji, duration, targetLevel, initialItemId }: Readonly<{ kanji: KanjiItem[]; duration: number; targetLevel: TargetLevel; initialItemId?: string }>) {
   const cards = useMemo(() => {
     const levelCards = kanji.filter((item) => item.jlptLevel === targetLevel);
-    return (levelCards.length ? levelCards : kanji).slice(0, duration <= 2 ? 2 : duration <= 5 ? 4 : 8);
-  }, [duration, kanji, targetLevel]);
+    const pool = levelCards.length ? levelCards : kanji;
+    const target = initialItemId ? pool.find((item) => item.id === initialItemId) : undefined;
+    return (target ? [target, ...pool.filter((item) => item.id !== target.id)] : pool).slice(0, duration <= 2 ? 2 : duration <= 5 ? 4 : 8);
+  }, [duration, initialItemId, kanji, targetLevel]);
   const [position, setPosition] = useState(0);
   const current = cards[position];
   if (!current) return <div className="rounded-xl border border-[#5d4c2c] bg-[#211d18] p-5 text-sm text-[#c3c7ce]">No kanji are ready for writing practice yet.</div>;

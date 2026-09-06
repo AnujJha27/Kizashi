@@ -92,6 +92,7 @@ export function LocalPractice({ allQuestions, mode, duration, focus, section, to
   const fallbackQuestions = useMemo(() => allQuestions ?? [], [allQuestions]);
   const { questions: activeQuestions, module, readingEntries, loaded } = useActiveQuestions(fallbackQuestions, targetLevel);
   const [repair, setRepair] = useState("");
+  const [writingItemId] = useState(() => new URLSearchParams(window.location.search).get("item") ?? undefined);
   useEffect(() => setRepair(new URLSearchParams(window.location.search).get("repair") ?? ""), []);
   const topicIds = useMemo(() => topic ? getTopicItemIds([...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening], topic) : null, [module, topic]);
   const scopedQuestions = useMemo(() => topicIds ? activeQuestions.filter((question) => topicIds.has(question.itemId)) : activeQuestions, [activeQuestions, topicIds]);
@@ -115,7 +116,7 @@ export function LocalPractice({ allQuestions, mode, duration, focus, section, to
   const items = useMemo(() => [...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening], [module]);
   useEffect(() => { if (loaded) onReady?.(); }, [loaded, onReady]);
   if (!loaded) return <div className="min-h-80 animate-pulse rounded-xl bg-[#17181d]" aria-label="Loading practice questions" />;
-  if (mode === "kanji-writing") return <KanjiWritingPractice kanji={module.kanji} duration={duration} targetLevel={targetLevel} />;
+  if (mode === "kanji-writing") return <KanjiWritingPractice kanji={module.kanji} duration={duration} targetLevel={targetLevel} initialItemId={writingItemId} />;
   if (mode === "weak") return <WeakPractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} items={items} learnerErrorAggregates={module.learnerErrorAggregates} repairId={repair ? `repair-${repair}` : undefined} sessionId={sessionId} onComplete={onComplete} />;
   if (mode === "pass") return <AdaptivePractice questions={filterExamLevelQuestions(focusQuestions, targetLevel)} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} items={items} learnerErrorAggregates={module.learnerErrorAggregates} limit={13} passMode sessionId={sessionId} onComplete={onComplete} />;
   if (mode === "quick") return <AdaptivePractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} items={items} learnerErrorAggregates={module.learnerErrorAggregates} limit={quickCount} sessionId={sessionId} onComplete={onComplete} />;
