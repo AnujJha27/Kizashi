@@ -55,7 +55,48 @@ def parse_svg(character: str, svg: str) -> dict:
     expected = list(range(1, len(strokes) + 1))
     if not strokes or [stroke["order"] for stroke in strokes] != expected:
         raise ValueError(f"{character}: missing or unordered KanjiVG strokes")
-    return {"character": character, "strokes": strokes}
+
+    def attr(element: ET.Element, name: str) -> str | None:
+        for key, value in element.attrib.items():
+            if key == f"kvg:{name}" or key.endswith(f"}}{name}"):
+                return value
+        return None
+
+    def tag_name(element: ET.Element) -> str:
+        return element.tag.rsplit("}", 1)[-1]
+
+    def path_orders(group: ET.Element) -> list[int]:
+        orders = []
+        for descendant in group.iter():
+            match = re.search(r"-s(\d+)$", descendant.attrib.get("id", ""))
+            if match:
+                orders.append(int(match.group(1)))
+        return sorted(orders)
+
+    root_group = next(
+        (
+            element
+            for element in root.iter()
+            if tag_name(element) == "g" and attr(element, "element") == character
+        ),
+        None,
+    )
+    component_groups = []
+    if root_group is not None:
+        for child in list(root_group):
+            if tag_name(child) != "g" or not attr(child, "element"):
+                continue
+            orders = path_orders(child)
+            if not orders:
+                continue
+            component = {"element": attr(child, "element"), "strokeOrders": orders}
+            for key in ("position", "radical", "original"):
+                value = attr(child, key)
+                if value:
+                    component[key] = value
+            component_groups.append(component)
+
+    return {"character": character, "strokes": strokes, "componentGroups": component_groups}
 
 
 def load_svg(character: str, source_dir: Path | None) -> str:

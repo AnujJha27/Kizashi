@@ -12,7 +12,8 @@
           "order": 1,
           "path": "M11,54.25c3.19,0.62,6.25,0.75,9.73,0.5c20.64-1.5,50.39-5.12,68.58-5.24c3.6-0.02,5.77,0.24,7.57,0.49"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "七": {
       "character": "七",
@@ -24,6 +25,22 @@
         {
           "order": 2,
           "path": "M43,20c1.38,1.38,2.15,3.25,2.15,5.26C45.15,29.5,45,71.84,45,76c0,10.5,2.25,12.25,20.25,12.25c18.75,0,20-3.75,20-2.75"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "一",
+          "strokeOrders": [
+            1
+          ],
+          "radical": "tradit"
+        },
+        {
+          "element": "乙",
+          "strokeOrders": [
+            2
+          ],
+          "radical": "nelson"
         }
       ]
     },
@@ -42,6 +59,15 @@
           "order": 3,
           "path": "M51.75,25.5c0.5,2,0.22,3.78-0.21,5.89C48.95,43.8,34.75,73.38,13.56,87.97"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "一",
+          "strokeOrders": [
+            1
+          ],
+          "radical": "general"
+        }
       ]
     },
     "三": {
@@ -58,6 +84,16 @@
         {
           "order": 3,
           "path": "M13,87.83c3.94,1.01,7.72,0.96,11.75,0.72c18.41-1.07,41.27-3.39,61.12-4.07c3.63-0.13,7.2-0.1,10.75,0.78"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "一",
+          "strokeOrders": [
+            1
+          ],
+          "position": "top",
+          "radical": "general"
         }
       ]
     },
@@ -76,6 +112,23 @@
           "order": 3,
           "path": "M13.38,88.28c3.6,1.15,7.45,0.62,11.13,0.34c16.23-1.23,41.16-2.66,60.24-2.92c3.65-0.05,7.47-0.32,11,0.82"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "卜",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "radical": "nelson"
+        },
+        {
+          "element": "一",
+          "strokeOrders": [
+            3
+          ],
+          "radical": "tradit"
+        }
       ]
     },
     "下": {
@@ -92,6 +145,22 @@
         {
           "order": 3,
           "path": "M67.83,37.17C72.75,39.5,79.88,47.62,82,52.12"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "一",
+          "strokeOrders": [
+            1
+          ],
+          "radical": "general"
+        },
+        {
+          "element": "卜",
+          "strokeOrders": [
+            2,
+            3
+          ]
         }
       ]
     },
@@ -113,6 +182,27 @@
         {
           "order": 4,
           "path": "M72.52,49.08c8.4,3.64,20.86,14.29,23.79,20.63"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "一",
+          "strokeOrders": [
+            1
+          ],
+          "radical": "general"
+        },
+        {
+          "element": "丿",
+          "strokeOrders": [
+            2
+          ]
+        },
+        {
+          "element": "丨",
+          "strokeOrders": [
+            3
+          ]
         }
       ]
     },
@@ -139,6 +229,17 @@
           "order": 5,
           "path": "M29.87,23.75c0.94,0.94,1.46,2.48,1.46,3.5c0.05,18.88-0.95,41.12-1.83,56.5c-0.21,3.75,0.38,6.66,3.75,6.25c20.75-2.5,34-3.88,51-3.25c3.26,0.12,6,0.75,7.25,1"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "廿",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
       ]
     },
     "中": {
@@ -159,6 +260,23 @@
         {
           "order": 4,
           "path": "M52.5,11.5c1.44,1.44,2.25,3.5,2.25,5.06c0,0.9,0.06,56.6-0.15,76.69c-0.03,3.3-0.07,5.6-0.1,6.5"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "口",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "element": "丨",
+          "strokeOrders": [
+            4
+          ],
+          "radical": "general"
         }
       ]
     },
@@ -184,6 +302,27 @@
         {
           "order": 5,
           "path": "M15.5,92.76c2.69,0.62,6.06,0.7,8.22,0.5c17.03-1.51,42.29-5.39,60.96-5.3c3.48,0.02,6.58,0.24,8.33,0.69"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "亠",
+          "strokeOrders": [
+            1
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "王",
+          "strokeOrders": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "bottom",
+          "original": "玉"
         }
       ]
     },
@@ -226,6 +365,24 @@
           "order": 9,
           "path": "M56.5,61.5c4.2,3.45,19.42,17.95,27.52,23.46c2.64,1.8,5.19,3.54,7.85,4.41"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "千",
+          "strokeOrders": [
+            1,
+            2
+          ]
+        },
+        {
+          "element": "木",
+          "strokeOrders": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
       ]
     },
     "九": {
@@ -238,6 +395,22 @@
         {
           "order": 2,
           "path": "M13.5,45.75c2.88,0.85,5.78,0.05,8.58-0.66c8.47-2.14,39.88-9.79,40.92-9.84c2.5-0.12,4.75,0.5,4.25,4.75c-0.5,4.25-5.5,20.75-7,32.5c-2.23,17.46,2,19.37,18.21,19.37c13.79,0,19.01-1.07,19.27-10.12"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "丿",
+          "strokeOrders": [
+            1
+          ],
+          "radical": "nelson"
+        },
+        {
+          "element": "乙",
+          "strokeOrders": [
+            2
+          ],
+          "radical": "tradit"
         }
       ]
     },
@@ -276,6 +449,32 @@
           "order": 8,
           "path": "M52.77,10.08c1.45,1.45,2.01,2.67,2.01,5.02c0,14.56-0.01,72.41-0.01,77.37c0,9.66-4.91,3.42-8.71,0.25"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "口",
+          "strokeOrders": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "element": "⺕",
+          "strokeOrders": [
+            5,
+            6,
+            7
+          ],
+          "original": "彑"
+        },
+        {
+          "element": "亅",
+          "strokeOrders": [
+            8
+          ],
+          "radical": "general"
+        }
       ]
     },
     "二": {
@@ -289,7 +488,8 @@
           "order": 2,
           "path": "M12,80.75c2.37,0.5,6.73,0.67,9.09,0.5c23.79-1.75,45.04-4.12,67.49-4.74c3.95-0.11,6.32,0.24,8.3,0.49"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "五": {
       "character": "五",
@@ -309,6 +509,22 @@
         {
           "order": 4,
           "path": "M11.25,90.5c3.04,0.81,6.52,0.63,9.63,0.41c15.71-1.1,43.9-2.8,67.75-3.8c3.41-0.14,6.9-0.4,10.25,0.39"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "二",
+          "strokeOrders": [
+            1
+          ],
+          "radical": "tradit"
+        },
+        {
+          "element": "二",
+          "strokeOrders": [
+            4
+          ],
+          "radical": "tradit"
         }
       ]
     },
@@ -347,6 +563,17 @@
           "order": 8,
           "path": "M76.12,73.5c5.14,4.19,11.06,10.83,13.38,16.25"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "亠",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top",
+          "radical": "general"
+        }
       ]
     },
     "人": {
@@ -360,7 +587,8 @@
           "order": 2,
           "path": "M46,54.25c6.12,6,25.51,22.24,35.52,29.72c3.66,2.73,6.94,4.64,11.48,5.53"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "今": {
       "character": "今",
@@ -380,6 +608,17 @@
         {
           "order": 4,
           "path": "M33.25,67.75c2.12,0.38,3.57,0.61,6,0.25c6.31-0.93,18.5-3.25,25.24-4.44C68.48,62.85,70,65,68,68.75C63.33,77.5,58.75,85,53,94.5"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "人",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top",
+          "radical": "general"
         }
       ]
     },
@@ -406,6 +645,27 @@
           "order": 5,
           "path": "M37,86.17c3.05,0.71,5.58,0.68,7.56,0.56c13.82-0.86,31.07-1.98,44.74-2.32c3.29-0.08,5.56,0.13,7.21,0.54"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "亻",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "人"
+        },
+        {
+          "element": "士",
+          "strokeOrders": [
+            3,
+            4,
+            5
+          ],
+          "position": "right"
+        }
       ]
     },
     "代": {
@@ -431,6 +691,27 @@
           "order": 5,
           "path": "M71.75,15.38c3.44,1.47,8.94,4.82,10.55,7.33"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "亻",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "人"
+        },
+        {
+          "element": "弋",
+          "strokeOrders": [
+            3,
+            4,
+            5
+          ],
+          "position": "right"
+        }
       ]
     },
     "以": {
@@ -455,6 +736,17 @@
         {
           "order": 5,
           "path": "M71.52,61.33c8.04,4.26,20.78,17.51,22.79,24.13"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "人",
+          "strokeOrders": [
+            4,
+            5
+          ],
+          "position": "right",
+          "radical": "general"
         }
       ]
     },
@@ -485,6 +777,28 @@
           "order": 6,
           "path": "M64.12,38.08c4.45,8.37,16.21,25.33,24.99,33.19c1.96,1.76,4.35,4.18,6.9,5"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "亻",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "人"
+        },
+        {
+          "element": "木",
+          "strokeOrders": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "position": "right"
+        }
       ]
     },
     "会": {
@@ -513,6 +827,27 @@
         {
           "order": 6,
           "path": "M66.62,77.39c4.52,3.23,11,12.73,13.06,18.82"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "人",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "云",
+          "strokeOrders": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -547,6 +882,29 @@
           "order": 7,
           "path": "M35.5,90.36c2.36,0.52,5.24,0.51,7.94,0.25c13.02-1.23,35.55-2.61,47.17-2.65c2.83-0.01,6.23,0.45,7.64,0.88"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "亻",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "人"
+        },
+        {
+          "element": "主",
+          "strokeOrders": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "right"
+        }
       ]
     },
     "体": {
@@ -579,6 +937,29 @@
         {
           "order": 7,
           "path": "M46.54,74.65c1.23,0.29,3.48,0.39,4.71,0.29c10.8-0.93,17.26-2.18,24.7-2.46c2.05-0.08,3.28,0.14,4.3,0.28"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "亻",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "人"
+        },
+        {
+          "element": "本",
+          "strokeOrders": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "right"
         }
       ]
     },
@@ -613,6 +994,29 @@
           "order": 7,
           "path": "M83.25,24.75c1,1,1.74,2.18,1.81,4.99c0.33,13.52-0.21,56.44-0.21,61.04c0,10.71-6.35,2.71-9.18-0.77"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "亻",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "人"
+        },
+        {
+          "element": "可",
+          "strokeOrders": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "right"
+        }
       ]
     },
     "作": {
@@ -645,6 +1049,29 @@
         {
           "order": 7,
           "path": "M73.04,72.51c6.55-0.75,11.75-1.42,18.9-2.27c1.87-0.22,3.07-0.12,4.03,0.02"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "亻",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "人"
+        },
+        {
+          "element": "乍",
+          "strokeOrders": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "right"
         }
       ]
     },
@@ -682,6 +1109,30 @@
         {
           "order": 8,
           "path": "M44,67.88c7.25,0.38,28.04,16.2,40.84,22.59c2.52,1.25,4.41,2.29,7.54,3.04"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "亻",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "人"
+        },
+        {
+          "element": "吏",
+          "strokeOrders": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "right"
         }
       ]
     },
@@ -728,6 +1179,32 @@
           "order": 10,
           "path": "M53.79,92.78c6.05-0.57,19.04-1.89,26.58-2.37"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "亻",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "人"
+        },
+        {
+          "element": "昔",
+          "strokeOrders": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "right"
+        }
       ]
     },
     "元": {
@@ -748,6 +1225,27 @@
         {
           "order": 4,
           "path": "M56.7,44.12c1.53,1.53,2,3.11,2,5.66c0,9.59,0.01,19.49,0.01,27.97c0,14.38,1.03,15.62,18.28,15.62c14.88,0,16.14-1.12,16.14-12.69"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "二",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "儿",
+          "strokeOrders": [
+            3,
+            4
+          ],
+          "position": "bottom",
+          "radical": "tradit",
+          "original": "八"
         }
       ]
     },
@@ -773,6 +1271,28 @@
         {
           "order": 5,
           "path": "M55.99,48.12c0.88,0.88,1.74,2.63,1.74,4.64c0,6.72-0.12,16.9-0.12,25.23c0,14.25,0.63,15.23,16.89,15.23c16.87,0,17.63-1.72,17.63-11.85"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "口",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "儿",
+          "strokeOrders": [
+            4,
+            5
+          ],
+          "position": "bottom",
+          "radical": "tradit",
+          "original": "八"
         }
       ]
     },
@@ -803,6 +1323,18 @@
           "order": 6,
           "path": "M60.49,53.62c1.07,1.07,1.38,2.71,1.38,4.98c0,7.78-0.22,14.88-0.22,21.89c0,15.14,1.1,16.04,15.85,16.04c14.62,0,15.64-1.78,15.64-11.29"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "儿",
+          "strokeOrders": [
+            5,
+            6
+          ],
+          "position": "bottom",
+          "radical": "general",
+          "original": "八"
+        }
       ]
     },
     "入": {
@@ -816,7 +1348,8 @@
           "order": 2,
           "path": "M36.5,20c8.25,1.38,15.12,34,48.81,62.08c2.71,2.26,5.56,4.8,9.44,6.42"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "八": {
       "character": "八",
@@ -829,7 +1362,8 @@
           "order": 2,
           "path": "M48,27.25c9.38,0.25,21.12,30,37.27,45.72c3.79,3.69,6.73,5.66,9.98,7.03"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "公": {
       "character": "公",
@@ -849,6 +1383,25 @@
         {
           "order": 4,
           "path": "M65.88,67.5c5.43,4.46,14.02,18.32,15.38,25.25"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "八",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "厶",
+          "strokeOrders": [
+            3,
+            4
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -871,6 +1424,26 @@
           "order": 4,
           "path": "M70.16,59.92c9.96,8.61,18.18,18.54,23.16,28.99"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "亠",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "八",
+          "strokeOrders": [
+            3,
+            4
+          ],
+          "position": "bottom",
+          "radical": "tradit"
+        }
       ]
     },
     "円": {
@@ -891,6 +1464,16 @@
         {
           "order": 4,
           "path": "M24.75,59.75c14.62-1.75,43-4.25,60.5-5.25"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "冂",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "radical": "general"
         }
       ]
     },
@@ -917,6 +1500,26 @@
           "order": 5,
           "path": "M13.25,68.45c4.88,1.05,8.87,0.83,13,0.31c16.25-2.01,38.75-5.44,55.49-5.7c4.38-0.07,8.28,0.18,12.01,0.98"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "冖",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "与",
+          "strokeOrders": [
+            3,
+            4,
+            5
+          ],
+          "position": "bottom"
+        }
       ]
     },
     "冬": {
@@ -941,6 +1544,28 @@
         {
           "order": 5,
           "path": "M40.5,81.75c8.91,2.65,22.25,9.62,25.5,14"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "夂",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "冫",
+          "strokeOrders": [
+            4,
+            5
+          ],
+          "position": "bottom",
+          "radical": "tradit",
+          "original": "氷"
         }
       ]
     },
@@ -967,6 +1592,24 @@
           "order": 5,
           "path": "M85.06,66.88c1.06,1.49,1.56,3.12,1.44,5.37c-0.27,4.8-0.23,9.14-0.45,13.51c-0.08,1.54-0.17,3.17-0.3,4.99"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "山",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "element": "凵",
+          "strokeOrders": [
+            4,
+            5
+          ],
+          "radical": "tradit"
+        }
       ]
     },
     "切": {
@@ -987,6 +1630,25 @@
         {
           "order": 4,
           "path": "M68.25,36.62c0.45,1.33,0.35,3.15,0.11,4.91c-2.15,15.67-10,32.82-25.11,45.97"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "七",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "left"
+        },
+        {
+          "element": "刀",
+          "strokeOrders": [
+            3,
+            4
+          ],
+          "position": "right",
+          "radical": "general"
         }
       ]
     },
@@ -1020,6 +1682,18 @@
         {
           "order": 7,
           "path": "M90.77,13.83c0.98,0.92,1.76,2.67,1.76,5.02c0,15.02-0.01,63.77-0.01,69.62c0,10.53-7.21,1.5-8.71,0.25"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "刂",
+          "strokeOrders": [
+            6,
+            7
+          ],
+          "position": "right",
+          "radical": "general",
+          "original": "刀"
         }
       ]
     },
@@ -1062,7 +1736,8 @@
           "order": 9,
           "path": "M78.85,39.25c1.26,1.26,2.01,2.88,2.01,5.02c0,14.56-0.01,42.91-0.01,47.87c0,8.62-5.96,1-7.46-0.25"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "力": {
       "character": "力",
@@ -1075,7 +1750,8 @@
           "order": 2,
           "path": "M56.88,13.68c0.62,2.57,0.56,4.63,0,7.19c-4.11,18.97-16.53,49.27-43.49,68.79"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "勉": {
       "character": "勉",
@@ -1119,6 +1795,31 @@
         {
           "order": 10,
           "path": "M77.26,22.75c0.74,1.38,0.78,2.97,0.52,5c-1.9,15.4-8.49,38.66-23.43,53.45"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "免",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "nyo"
+        },
+        {
+          "element": "力",
+          "strokeOrders": [
+            9,
+            10
+          ],
+          "position": "nyoc",
+          "radical": "tradit"
         }
       ]
     },
@@ -1169,6 +1870,32 @@
           "order": 11,
           "path": "M76.39,18.43c1.22,1.22,1.48,2.58,1.37,5C76.88,42.5,70.38,75.5,54.14,90.27"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "重",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "left"
+        },
+        {
+          "element": "力",
+          "strokeOrders": [
+            10,
+            11
+          ],
+          "position": "right",
+          "radical": "general"
+        }
       ]
     },
     "北": {
@@ -1193,6 +1920,17 @@
         {
           "order": 5,
           "path": "M60.37,19.5c1.38,1.5,1.91,3.25,1.91,5.3c0,1.12-0.28,33.71-0.28,47.7c0,14,2,15.75,17.25,15.75c15.5,0,16.5-1.5,16.5-12.49"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "匕",
+          "strokeOrders": [
+            4,
+            5
+          ],
+          "position": "right",
+          "radical": "general"
         }
       ]
     },
@@ -1227,6 +1965,34 @@
           "order": 7,
           "path": "M 21.83,21.46 c 0.67,1.54 1,3.26 1,5.79 0,14.77 -0.33,47 -1.5,60.48 -0.26,3 1.01,3.97 2.81,3.8 16.11,-1.53 44.49,-2.91 60.2,-2.56 3.32,0.07 6.12,0.24 8.17,0.71"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "匸",
+          "strokeOrders": [
+            1
+          ],
+          "position": "kamae",
+          "radical": "general"
+        },
+        {
+          "element": "矢",
+          "strokeOrders": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "element": "匸",
+          "strokeOrders": [
+            7
+          ],
+          "position": "kamae",
+          "radical": "general"
+        }
       ]
     },
     "十": {
@@ -1240,7 +2006,8 @@
           "order": 2,
           "path": "M52.22,11.63c1.4,1.4,2.2,3.96,2.2,6.26c0,1.13-0.03,51.22-0.19,73.41c-0.03,3.96-0.06,6.83-0.08,8.08"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "千": {
       "character": "千",
@@ -1256,6 +2023,25 @@
         {
           "order": 3,
           "path": "M54.56,25.25c1.03,1.03,2.01,3,2.01,5.18c0,0.9-0.07,46.38-0.19,63.58c-0.02,2.93-0.04,5.04-0.06,5.99"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "丿",
+          "strokeOrders": [
+            1
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "十",
+          "strokeOrders": [
+            2,
+            3
+          ],
+          "position": "bottom",
+          "radical": "tradit"
         }
       ]
     },
@@ -1277,6 +2063,16 @@
         {
           "order": 4,
           "path": "M53.06,28.13c1.03,1.03,1.79,2.37,1.79,4.33c0,0.88-0.02,44.17-0.13,61.04c-0.02,2.88-0.03,4.96-0.05,5.88"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "干",
+          "strokeOrders": [
+            3,
+            4
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -1302,6 +2098,29 @@
         {
           "order": 5,
           "path": "M52.67,11.5c1.23,1.23,1.85,3.17,1.85,4.4c0,7.6,0.1,54.35,0.1,75.1c0,3.18-0.07,5.46-0.11,6.5"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "丶",
+          "strokeOrders": [
+            1
+          ],
+          "radical": "nelson"
+        },
+        {
+          "element": "二",
+          "strokeOrders": [
+            3
+          ]
+        },
+        {
+          "element": "十",
+          "strokeOrders": [
+            4,
+            5
+          ],
+          "radical": "tradit"
         }
       ]
     },
@@ -1344,6 +2163,17 @@
           "order": 9,
           "path": "M53.5,62.5c0.75,0.75,1,2.14,0.99,3.5c-0.04,6.22-0.15,18.46-0.21,25.26c-0.02,2.19-0.03,3.81-0.03,4.49"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "十",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top",
+          "radical": "general"
+        }
       ]
     },
     "去": {
@@ -1369,6 +2199,27 @@
           "order": 5,
           "path": "M66.75,70.88c6.99,4.43,17,17.5,19.81,25.09"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "土",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "厶",
+          "strokeOrders": [
+            4,
+            5
+          ],
+          "position": "bottom",
+          "radical": "tradit"
+        }
       ]
     },
     "友": {
@@ -1390,6 +2241,25 @@
           "order": 4,
           "path": "M41.25,63.5c5.15,0.45,27.5,18.62,40.93,26.36c3.2,1.84,6.65,3.76,10.32,4.39"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "𠂇",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "kamae"
+        },
+        {
+          "element": "又",
+          "strokeOrders": [
+            3,
+            4
+          ],
+          "position": "kamaec",
+          "radical": "general"
+        }
       ]
     },
     "口": {
@@ -1407,7 +2277,8 @@
           "order": 3,
           "path": "M30.25,77.75c10.5-0.5,30.53-2.3,44.99-3.04c2.05-0.11,3.99-0.18,5.76-0.21"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "古": {
       "character": "古",
@@ -1431,6 +2302,27 @@
         {
           "order": 5,
           "path": "M37.88,94.42c7.81-0.36,23.99-1.88,35.14-2.65c1.87-0.13,3.61-0.24,5.18-0.32"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "十",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "口",
+          "strokeOrders": [
+            3,
+            4,
+            5
+          ],
+          "position": "bottom",
+          "radical": "tradit"
         }
       ]
     },
@@ -1457,6 +2349,27 @@
           "order": 5,
           "path": "M36.37,92.75c11.39-0.66,24.26-1.37,35.4-1.98c1.74-0.09,3.55-0.05,5.42-0.06"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "厶",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "口",
+          "strokeOrders": [
+            3,
+            4,
+            5
+          ],
+          "position": "bottom",
+          "radical": "tradit"
+        }
       ]
     },
     "右": {
@@ -1481,6 +2394,24 @@
         {
           "order": 5,
           "path": "M47,93.25c5.79-0.2,19.51-1.58,28.25-2.23c2.21-0.17,4.18-0.27,5.75-0.27"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "丆",
+          "strokeOrders": [
+            1,
+            2
+          ]
+        },
+        {
+          "element": "口",
+          "strokeOrders": [
+            3,
+            4,
+            5
+          ],
+          "radical": "general"
         }
       ]
     },
@@ -1511,6 +2442,32 @@
           "order": 6,
           "path": "M45.09,69.33c5.52-0.48,12.6-1.51,20.15-2.26c1.19-0.12,2.51-0.07,3.84-0.1"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "冂",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "kamae",
+          "radical": "nelson"
+        },
+        {
+          "element": "一",
+          "strokeOrders": [
+            3
+          ]
+        },
+        {
+          "element": "口",
+          "strokeOrders": [
+            4,
+            5,
+            6
+          ],
+          "radical": "tradit"
+        }
       ]
     },
     "名": {
@@ -1539,6 +2496,28 @@
         {
           "order": 6,
           "path": "M47.99,93.99c7.26-0.61,19.65-1.61,29.54-2.37c2.19-0.17,4.24-0.28,6.04-0.31"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "夕",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "口",
+          "strokeOrders": [
+            4,
+            5,
+            6
+          ],
+          "position": "bottom",
+          "radical": "tradit"
         }
       ]
     },
@@ -1576,6 +2555,29 @@
         {
           "order": 8,
           "path": "M64.65,50.62c3.78,5.82,16.49,19.94,23.74,26.88c2.02,1.93,3.61,3.5,6.36,4.75"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "口",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "未",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "right"
         }
       ]
     },
@@ -1617,6 +2619,18 @@
         {
           "order": 9,
           "path": "M64.4,89.42c7.96-0.58,12.59-0.85,23.11-1.5c1.51-0.09,3.15-0.2,4.93-0.31"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "口",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "general"
         }
       ]
     },
@@ -1662,6 +2676,31 @@
         {
           "order": 10,
           "path": "M67.5,84.75c7.62,3.98,17.17,11.76,19.25,15.25"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "口",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "貝",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -1712,6 +2751,32 @@
           "order": 11,
           "path": "M42.01,78.52c4.47-0.52,15.74-1.45,23.11-2.08c1.29-0.11,2.46-0.22,3.46-0.31"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "門",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "kamae",
+          "radical": "nelson"
+        },
+        {
+          "element": "口",
+          "strokeOrders": [
+            9,
+            10,
+            11
+          ],
+          "radical": "tradit"
+        }
       ]
     },
     "四": {
@@ -1736,6 +2801,33 @@
         {
           "order": 5,
           "path": "M22.73,79.32c13.77-0.57,43.64-1.8,61.18-2.08"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "囗",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "kamae",
+          "radical": "general"
+        },
+        {
+          "element": "儿",
+          "strokeOrders": [
+            3,
+            4
+          ],
+          "original": "八"
+        },
+        {
+          "element": "囗",
+          "strokeOrders": [
+            5
+          ],
+          "position": "kamae",
+          "radical": "general"
         }
       ]
     },
@@ -1769,6 +2861,40 @@
         {
           "order": 7,
           "path": "M22.19,92.08c15.31-0.58,47.64-2.3,65.29-2.71"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "囗",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "kamae",
+          "radical": "general"
+        },
+        {
+          "element": "⺍",
+          "strokeOrders": [
+            3,
+            4
+          ],
+          "original": "つ"
+        },
+        {
+          "element": "乂",
+          "strokeOrders": [
+            5,
+            6
+          ]
+        },
+        {
+          "element": "囗",
+          "strokeOrders": [
+            7
+          ],
+          "position": "kamae",
+          "radical": "general"
         }
       ]
     },
@@ -1807,6 +2933,35 @@
           "order": 8,
           "path": "M21.5,93.01c14.25-0.51,48.38-1.89,67-2.51"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "囗",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "kamae",
+          "radical": "general"
+        },
+        {
+          "element": "玉",
+          "strokeOrders": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "element": "囗",
+          "strokeOrders": [
+            8
+          ],
+          "position": "kamae",
+          "radical": "general"
+        }
       ]
     },
     "土": {
@@ -1824,7 +2979,8 @@
           "order": 3,
           "path": "M15.38,87.73c2.12,0.54,6.01,0.73,8.12,0.54C46,86.25,69,84.62,90.34,83.79c3.53-0.14,5.65,0.26,7.41,0.53"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "地": {
       "character": "地",
@@ -1852,6 +3008,27 @@
         {
           "order": 6,
           "path": "M49.49,37.62c1.26,1.26,2.02,3.13,2.02,4.85c0,8.57-0.38,20.78-0.38,28.03c0,16.5,0.87,19,22.37,19c20,0,20.64-1.75,20.64-13.07"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "土",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "也",
+          "strokeOrders": [
+            4,
+            5,
+            6
+          ],
+          "position": "right"
         }
       ]
     },
@@ -1901,6 +3078,32 @@
         {
           "order": 11,
           "path": "M21.09,94.58c1.88,0.45,5.33,0.58,7.21,0.45c19.95-1.4,38.2-2.78,52.66-2.85c3.13-0.02,5.01,0.21,6.58,0.44"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "尚",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "top"
+        },
+        {
+          "element": "土",
+          "strokeOrders": [
+            9,
+            10,
+            11
+          ],
+          "position": "bottom",
+          "radical": "tradit"
         }
       ]
     },
@@ -1955,6 +3158,33 @@
           "order": 12,
           "path": "M75.88,59.39c0.1,0.92-0.04,2.36-0.45,3.67C73.04,70.8,63.03,85.12,50,93.5"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "土",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "昜",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "position": "right"
+        }
       ]
     },
     "売": {
@@ -1987,6 +3217,19 @@
         {
           "order": 7,
           "path": "M59.49,58.87c1.07,1.07,1.38,2.59,1.38,4.43c0,6.08-0.2,12.57-0.2,19.45c0,14,2.09,14.77,13.59,14.77c13,0,13.63-1.39,13.63-9.62"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "士",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "general",
+          "original": "土"
         }
       ]
     },
@@ -2033,6 +3276,18 @@
           "order": 10,
           "path": "M40.75,73.72c5.25-0.22,31,16.91,41.72,20.99c2.58,0.98,4.57,1.66,7.03,1.99"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "夂",
+          "strokeOrders": [
+            8,
+            9,
+            10
+          ],
+          "position": "bottom",
+          "radical": "tradit"
+        }
       ]
     },
     "夕": {
@@ -2050,7 +3305,8 @@
           "order": 3,
           "path": "M45.25,42.62c4.84,2.36,12.04,9.2,13.25,12.88"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "外": {
       "character": "外",
@@ -2074,6 +3330,26 @@
         {
           "order": 5,
           "path": "M71.5,42.5c7.85,3.75,20.29,15.42,22.25,21.25"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "夕",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "卜",
+          "strokeOrders": [
+            4,
+            5
+          ],
+          "position": "right"
         }
       ]
     },
@@ -2103,6 +3379,27 @@
         {
           "order": 6,
           "path": "M48.25,63c2.93,1.73,7.67,7.22,8.5,10"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "夕",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "夕",
+          "strokeOrders": [
+            4,
+            5,
+            6
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -2141,6 +3438,17 @@
           "order": 8,
           "path": "M45,62.75c7.38,0.75,28.23,18.89,38.64,25.59c3.13,2.01,6.66,4,10.36,4.66"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "亠",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top",
+          "radical": "nelson"
+        }
       ]
     },
     "大": {
@@ -2158,7 +3466,8 @@
           "order": 3,
           "path": "M49.5,46c9,10.5,28.5,36.25,37.49,43.28c3.06,2.39,5.62,3.75,7.01,3.97"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "天": {
       "character": "天",
@@ -2179,6 +3488,26 @@
           "order": 4,
           "path": "M50.1,51.39C58.71,60,75.07,78.48,86.59,87.05c2.33,1.73,4.41,3.08,7.91,4.2"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "一",
+          "strokeOrders": [
+            1
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "大",
+          "strokeOrders": [
+            2,
+            3,
+            4
+          ],
+          "position": "bottom",
+          "radical": "tradit"
+        }
       ]
     },
     "女": {
@@ -2196,7 +3525,8 @@
           "order": 3,
           "path": "M13.88,50.43c3.48,1.39,7.26,0.85,10.88,0.53c19.52-1.7,42.04-4.08,60.61-4.63c3.66-0.11,7.21-0.1,10.62,1.42"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "妹": {
       "character": "妹",
@@ -2232,6 +3562,29 @@
         {
           "order": 8,
           "path": "M68,51c4.56,8.8,13.2,20.09,20.34,27.47c2.02,2.09,4.91,4.41,7.54,6.03"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "女",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "未",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "right"
         }
       ]
     },
@@ -2270,6 +3623,29 @@
           "order": 8,
           "path": "M70.57,34.12c1.21,1.21,1.41,2.93,1.41,4.58c0,0.63-0.06,37.87-0.09,53.16c0,3.21-0.02,3.95-0.03,4.77"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "女",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "市",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "right"
+        }
       ]
     },
     "始": {
@@ -2307,6 +3683,29 @@
           "order": 8,
           "path": "M61.49,88.74c9.87-0.91,13.42-1.41,24.01-2.1c0.96-0.06,1.97-0.13,3.05-0.19"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "女",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "台",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "right"
+        }
       ]
     },
     "子": {
@@ -2324,7 +3723,8 @@
           "order": 3,
           "path": "M12.25,51.48c3.75,1.14,8.79,1.03,12.48,0.49c16.77-2.47,42.86-5.84,58.53-6.75c4.26-0.25,9.11-0.34,13.11,0.57"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "字": {
       "character": "字",
@@ -2352,6 +3752,28 @@
         {
           "order": 6,
           "path": "M14.38,63.51c3.88,1.24,8.65,0.84,12.38,0.47c15.18-1.5,43-4.92,59.75-5.41c3.45-0.1,7.13-0.23,10.37,1.15"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "宀",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "子",
+          "strokeOrders": [
+            4,
+            5,
+            6
+          ],
+          "position": "bottom",
+          "radical": "tradit"
         }
       ]
     },
@@ -2390,6 +3812,18 @@
           "order": 8,
           "path": "M15.75,67.75c1.75,1,4.64,1.36,7.5,1c15.88-2,44.43-6.25,61.37-5.5c2.5,0.11,4.72,0.25,6.39,1"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "子",
+          "strokeOrders": [
+            6,
+            7,
+            8
+          ],
+          "position": "bottom",
+          "radical": "general"
+        }
       ]
     },
     "安": {
@@ -2418,6 +3852,27 @@
         {
           "order": 6,
           "path": "M15.13,60.22c2.85,0.74,6.22,0.42,9.12,0.2c11.33-0.85,40.73-4.55,64.72-4.64c2.27-0.01,6.19,0.33,8.03,0.96"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "宀",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "女",
+          "strokeOrders": [
+            4,
+            5,
+            6
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -2459,6 +3914,30 @@
         {
           "order": 9,
           "path": "M19.64,96.76c2.05,0.5,4.57,0.65,6.6,0.5c20.14-1.51,41.23-3.3,56.97-3.3c3.41,0,5.46,0.24,7.16,0.49"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "宀",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "至",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -2504,6 +3983,31 @@
         {
           "order": 10,
           "path": "M58.79,62.82c3.72,2.92,18.27,15.42,25.25,20.69c2.49,1.88,4.18,3.12,7.08,3.87"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "宀",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "豕",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -2554,6 +4058,32 @@
           "order": 11,
           "path": "M50.97,93.8c10.54-0.64,19.9-1.68,29.68-2.21"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "宀",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "佰",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "position": "bottom"
+        }
       ]
     },
     "小": {
@@ -2571,7 +4101,8 @@
           "order": 3,
           "path": "M80.96,47.12C86.62,52,95.25,64.62,97,72"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "少": {
       "character": "少",
@@ -2591,6 +4122,24 @@
         {
           "order": 4,
           "path": "M76.75,41c0.14,1.34,0.06,3.54-0.79,5.39C68.67,62.17,49.7,86.63,24,98"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "小",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "radical": "tradit"
+        },
+        {
+          "element": "丿",
+          "strokeOrders": [
+            4
+          ],
+          "radical": "nelson"
         }
       ]
     },
@@ -2633,6 +4182,30 @@
           "order": 9,
           "path": "M28.97,93.1c2.56,0.65,5.48,0.73,7.45,0.65c19.63-0.87,31.17-2.62,51.31-2.77c3.24-0.02,5.18,0.31,6.81,0.63"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "尸",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "tare",
+          "radical": "general"
+        },
+        {
+          "element": "至",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "tarec"
+        }
       ]
     },
     "山": {
@@ -2650,7 +4223,8 @@
           "order": 3,
           "path": "M89.24,49c0.94,0.94,1.64,2.38,1.51,4.25c-0.25,3.68-1.83,20.3-2.55,28.77c-0.22,2.64-0.39,4.51-0.45,4.98"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "川": {
       "character": "川",
@@ -2667,7 +4241,8 @@
           "order": 3,
           "path": "M85.56,15.63c1.09,1.09,1.76,2.62,1.76,4.25c0,0.74,0.23,46.86,0.09,66.12c-0.03,4.31-0.06,7.61-0.09,8.63"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "工": {
       "character": "工",
@@ -2684,7 +4259,8 @@
           "order": 3,
           "path": "M15.5,83.05c2.26,0.33,5.6,0.75,8.84,0.51c17.03-1.3,43.16-4.3,60.65-5.03c3.84-0.16,8.46,0.53,10.38,1.03"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "左": {
       "character": "左",
@@ -2708,6 +4284,17 @@
         {
           "order": 5,
           "path": "M28.5,92.25c2.76,0.84,5.92,0.51,8.75,0.34c14.54-0.9,32.08-2.65,48.13-3.26c3.25-0.12,6.38-0.17,9.49,0.93"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "工",
+          "strokeOrders": [
+            3,
+            4,
+            5
+          ],
+          "radical": "general"
         }
       ]
     },
@@ -2754,6 +4341,31 @@
           "order": 10,
           "path": "M61.84,50.88c0.91,1.12,1.15,2.12,1.15,3.47c0,0.44-0.01,27.54-0.08,38.66c-0.01,2.19-0.03,3.72-0.04,4.25"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "刂",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "left",
+          "original": "刀"
+        },
+        {
+          "element": "帚",
+          "strokeOrders": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "right"
+        }
       ]
     },
     "年": {
@@ -2783,6 +4395,30 @@
           "order": 6,
           "path": "M56.56,25.46c1.12,1.12,1.79,3.54,1.79,4.94c0,0.89-0.05,44.26-0.13,61.6c-0.01,3.12-0.03,5.39-0.05,6.38"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "丿",
+          "strokeOrders": [
+            1
+          ],
+          "radical": "nelson"
+        },
+        {
+          "element": "干",
+          "strokeOrders": [
+            2,
+            3
+          ],
+          "radical": "tradit"
+        },
+        {
+          "element": "干",
+          "strokeOrders": [
+            6
+          ],
+          "radical": "tradit"
+        }
       ]
     },
     "広": {
@@ -2807,6 +4443,26 @@
         {
           "order": 5,
           "path": "M72.56,69.34C77.75,74,85.25,85.5,88,93.75"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "广",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "tare",
+          "radical": "general"
+        },
+        {
+          "element": "厶",
+          "strokeOrders": [
+            4,
+            5
+          ],
+          "position": "tarec"
         }
       ]
     },
@@ -2844,6 +4500,29 @@
         {
           "order": 8,
           "path": "M45.8,95.62C51.66,95,67.7,93.74,78,92.83c1.96-0.17,3.7-0.32,5.11-0.44"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "广",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "tare",
+          "radical": "general"
+        },
+        {
+          "element": "占",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "tarec"
         }
       ]
     },
@@ -2886,6 +4565,18 @@
           "order": 9,
           "path": "M40.91,69.78c6.56,0.2,24.27,16.4,39.39,24.35c2.89,1.52,5.95,3.07,9.2,3.61"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "广",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "tare",
+          "radical": "general"
+        }
       ]
     },
     "建": {
@@ -2927,6 +4618,30 @@
           "order": 9,
           "path": "M13.05,64.69c5.42-0.17,34.87,21.46,63.9,29.23c4.93,1.32,9.86,2.24,14.65,2.58"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "聿",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "position": "nyoc"
+        },
+        {
+          "element": "廴",
+          "strokeOrders": [
+            7,
+            8,
+            9
+          ],
+          "position": "nyo",
+          "radical": "general"
+        }
       ]
     },
     "弟": {
@@ -2959,6 +4674,17 @@
         {
           "order": 7,
           "path": "M52.69,60.75c0.09,0.64,0.19,1.64-0.19,2.56c-2.22,5.39-16.5,20.21-34,27.44"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "八",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top",
+          "radical": "nelson"
         }
       ]
     },
@@ -3009,6 +4735,18 @@
           "order": 11,
           "path": "M87,75.5c3.53,3.18,9.12,13.06,10,18"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "弓",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general"
+        }
       ]
     },
     "待": {
@@ -3049,6 +4787,30 @@
         {
           "order": 9,
           "path": "M54.03,70.38c2.91,1.83,7.51,7.53,8.24,10.38"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "彳",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "寺",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "right"
         }
       ]
     },
@@ -3091,6 +4853,18 @@
           "order": 9,
           "path": "M54.75,67.5c2.52,0,19.5,15.75,31.17,24.23c2.31,1.68,4.74,3.38,7.58,4.01"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "彳",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general"
+        }
       ]
     },
     "心": {
@@ -3112,7 +4886,8 @@
           "order": 4,
           "path": "M85.5,30c4,2.75,7.62,7,10.5,14"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "思": {
       "character": "思",
@@ -3152,6 +4927,31 @@
         {
           "order": 9,
           "path": "M83,60.75c3.62,2.5,7.75,6.62,10.25,11.72"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "田",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "心",
+          "strokeOrders": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "bottom",
+          "radical": "tradit"
         }
       ]
     },
@@ -3193,6 +4993,19 @@
         {
           "order": 9,
           "path": "M80.76,68.02c3.56,2.2,7.11,6.35,9.63,11.5"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "心",
+          "strokeOrders": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "bottom",
+          "radical": "general"
         }
       ]
     },
@@ -3242,6 +5055,32 @@
         {
           "order": 11,
           "path": "M82.5,68.5c4,2.2,8.88,6.5,12,12"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "亜",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "top"
+        },
+        {
+          "element": "心",
+          "strokeOrders": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "position": "bottom",
+          "radical": "tradit"
         }
       ]
     },
@@ -3300,6 +5139,35 @@
           "order": 13,
           "path": "M82.75,77.25c2.88,1.62,6.88,5.5,9.75,10.23"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "音",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "心",
+          "strokeOrders": [
+            10,
+            11,
+            12,
+            13
+          ],
+          "position": "bottom",
+          "radical": "tradit"
+        }
       ]
     },
     "所": {
@@ -3337,6 +5205,29 @@
           "order": 8,
           "path": "M77.1,43.3c0.93,0.93,1.65,2.94,1.65,4.26c0,2.43,0.05,31.26,0.06,45.94c0,2.33,0,4.3,0,5.75"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "戸",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "斤",
+          "strokeOrders": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "right"
+        }
       ]
     },
     "手": {
@@ -3358,7 +5249,8 @@
           "order": 4,
           "path": "M48.88,23.55C60.38,31,62.73,63.66,57.83,89.87c-2.08,11.13-8.64,2.34-9.89,1.17"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "持": {
       "character": "持",
@@ -3398,6 +5290,31 @@
         {
           "order": 9,
           "path": "M56.25,70.5c2.58,1.59,6.66,6.53,7.3,9"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "扌",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "手"
+        },
+        {
+          "element": "寺",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "right"
         }
       ]
     },
@@ -3448,6 +5365,33 @@
           "order": 11,
           "path": "M57.5,54.25c5.12,3.5,21.57,26.06,31.68,35.08c2.15,1.92,4.57,3.67,6.69,4.17"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "孝",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "left"
+        },
+        {
+          "element": "攵",
+          "strokeOrders": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "position": "right",
+          "radical": "general",
+          "original": "攴"
+        }
       ]
     },
     "文": {
@@ -3468,6 +5412,24 @@
         {
           "order": 4,
           "path": "M31,43.75c6,0,27.27,26.79,49.26,42.1c4.13,2.87,7.49,4.77,11.49,6.04"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "亠",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top"
+        },
+        {
+          "element": "乂",
+          "strokeOrders": [
+            3,
+            4
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -3513,6 +5475,32 @@
         {
           "order": 10,
           "path": "M79.62,12.25c0.94,0.94,1.46,2.5,1.46,3.75c0,0.87,0.02,54.18,0.03,74.25c0,3.48,0,5.96,0,7"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "米",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "position": "left",
+          "radical": "nelson"
+        },
+        {
+          "element": "斗",
+          "strokeOrders": [
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "right",
+          "radical": "tradit"
         }
       ]
     },
@@ -3571,6 +5559,19 @@
           "order": 13,
           "path": "M80.32,48.54c0.95,0.95,1.59,2.21,1.59,3.8c0,0.93,0.24,27.72,0.16,40.16c-0.02,2.33-0.04,4.17-0.06,5.25"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "斤",
+          "strokeOrders": [
+            10,
+            11,
+            12,
+            13
+          ],
+          "position": "right",
+          "radical": "general"
+        }
       ]
     },
     "方": {
@@ -3591,6 +5592,16 @@
         {
           "order": 4,
           "path": "M54.51,32.75c0.49,1.5,0.39,3.19-0.19,4.88C50.3,49.29,38.68,72.85,20.62,83.88"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "亠",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top"
         }
       ]
     },
@@ -3636,6 +5647,19 @@
         {
           "order": 10,
           "path": "M69.25,56.25c3,0.38,16.22,18.61,21.3,24.55c1.39,1.62,2.84,3.21,4.45,3.95"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "方",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "left",
+          "radical": "general"
         }
       ]
     },
@@ -3686,6 +5710,19 @@
           "order": 11,
           "path": "M67.62,68.93c4.82,3.08,15.34,15.17,21.81,20.91c1.64,1.46,3.58,2.78,5.83,3.68"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "方",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "left",
+          "radical": "general"
+        }
       ]
     },
     "日": {
@@ -3707,7 +5744,8 @@
           "order": 4,
           "path": "M34.23,86.5c10.52-0.75,34.15-2.12,43.81-2.25"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "早": {
       "character": "早",
@@ -3735,6 +5773,27 @@
         {
           "order": 6,
           "path": "M53.23,47.75c1.13,1.13,1.47,2.88,1.47,4.49c0,0.91-0.01,26.62-0.09,39.51c-0.02,2.81-0.04,5.02-0.05,6.25"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "日",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "十",
+          "strokeOrders": [
+            5,
+            6
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -3772,6 +5831,29 @@
         {
           "order": 8,
           "path": "M59.25,57.75c6.62-0.62,20-1.5,27.36-2"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "日",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "月",
+          "strokeOrders": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "right"
         }
       ]
     },
@@ -3814,6 +5896,30 @@
           "order": 9,
           "path": "M63.85,57.69C70.5,68.62,77.96,77.4,85.18,84.82c3.12,3.2,5.45,5.18,7.73,6.7"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "日",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "央",
+          "strokeOrders": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "right"
+        }
       ]
     },
     "春": {
@@ -3855,6 +5961,30 @@
           "order": 9,
           "path": "M40.08,96.98c4.29-0.23,22.79-1.73,27.47-1.81"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "𡗗",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "top"
+        },
+        {
+          "element": "日",
+          "strokeOrders": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "bottom",
+          "radical": "general"
+        }
       ]
     },
     "昼": {
@@ -3895,6 +6025,27 @@
         {
           "order": 9,
           "path": "M19.88,92.17c2.37,0.83,5.12,1.08,7.81,0.86c16.94-1.41,35.18-3.53,54.01-3.6c3.18-0.01,5.8,0.32,7.68,1.09"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "尺",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "element": "旦",
+          "strokeOrders": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
         }
       ]
     },
@@ -3940,6 +6091,31 @@
         {
           "order": 10,
           "path": "M56.75,70.38c2.87,1.76,6.55,6.38,7.27,9.12"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "日",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "寺",
+          "strokeOrders": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "right"
         }
       ]
     },
@@ -3993,6 +6169,33 @@
         {
           "order": 12,
           "path": "M57.88,79.02c6.12-0.4,19.37-1.77,27.61-2.08"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "日",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "青",
+          "strokeOrders": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "position": "right"
         }
       ]
     },
@@ -4062,6 +6265,37 @@
         {
           "order": 16,
           "path": "M65.46,85.44c4.36,2.44,11.26,10.02,12.35,13.81"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "日",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "雲",
+          "strokeOrders": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -4140,6 +6374,39 @@
           "order": 18,
           "path": "M52.11,93.02c5.61-0.65,26.25-2.06,36.63-2.86c2.93-0.23,4.26-0.16,5.7,0"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "日",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "翟",
+          "strokeOrders": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "position": "right"
+        }
       ]
     },
     "書": {
@@ -4185,6 +6452,33 @@
           "order": 10,
           "path": "M37.25,95.25c10.7-0.68,26.5-1.38,40.5-2"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "聿",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "日",
+          "strokeOrders": [
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "bottom",
+          "radical": "tradit",
+          "original": "曰"
+        }
       ]
     },
     "月": {
@@ -4206,7 +6500,8 @@
           "order": 4,
           "path": "M37,58.25c8.75-1.12,27-3.5,36.25-4"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "有": {
       "character": "有",
@@ -4234,6 +6529,19 @@
         {
           "order": 6,
           "path": "M45.21,74.09c6.35-0.58,20.99-2.32,28.33-2.71"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "月",
+          "strokeOrders": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "radical": "general",
+          "original": "肉"
         }
       ]
     },
@@ -4271,6 +6579,20 @@
         {
           "order": 8,
           "path": "M59.4,58.98c2.91,0.74,15.91,17.85,26.71,27.92c2.41,2.25,4.39,4.23,7.64,6.04"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "月",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "肉"
         }
       ]
     },
@@ -4325,6 +6647,34 @@
           "order": 12,
           "path": "M67.66,60.85c6.53-0.76,16.72-1.72,24.27-2.23"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "𠦝",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "left"
+        },
+        {
+          "element": "月",
+          "strokeOrders": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "position": "right",
+          "radical": "general",
+          "original": "肉"
+        }
       ]
     },
     "木": {
@@ -4346,7 +6696,8 @@
           "order": 4,
           "path": "M54.5,39c4.62,6,23,25.75,31.76,34.61c2.27,2.29,4.61,4.39,7.49,5.64"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "本": {
       "character": "本",
@@ -4370,6 +6721,18 @@
         {
           "order": 5,
           "path": "M33.88,73.92c1.5,0.46,2.74,0.75,5.3,0.59c9.95-0.63,21.2-2.13,27.96-2.95c1.93-0.23,3.62-0.31,6-0.02"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "木",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "radical": "tradit"
         }
       ]
     },
@@ -4403,6 +6766,19 @@
         {
           "order": 7,
           "path": "M55,56.25c4.38,3.88,19.75,19,29.73,26.28c2.82,2.06,6.52,4.5,10.02,5.22"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "米",
+          "strokeOrders": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
         }
       ]
     },
@@ -4440,6 +6816,33 @@
         {
           "order": 8,
           "path": "M55,64.44c7.5,7.2,21.77,17.49,29.78,22.16c2.81,1.64,6.1,3.51,9.34,4.09"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "木",
+          "strokeOrders": [
+            1
+          ],
+          "radical": "tradit"
+        },
+        {
+          "element": "日",
+          "strokeOrders": [
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "element": "木",
+          "strokeOrders": [
+            6,
+            7,
+            8
+          ],
+          "radical": "tradit"
         }
       ]
     },
@@ -4485,6 +6888,31 @@
         {
           "order": 10,
           "path": "M55.95,55.88c6.3,3.37,21.64,22.12,31.45,30.33c2.64,2.21,5.07,4.15,8.6,4.44"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "木",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "交",
+          "strokeOrders": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "right"
         }
       ]
     },
@@ -4543,6 +6971,19 @@
           "order": 13,
           "path": "M55.48,69.07c4.65,3.8,20.08,15.71,27.51,20.95c2.35,1.65,5.14,3.1,7.98,4.08"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "业",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "top"
+        }
       ]
     },
     "楽": {
@@ -4599,6 +7040,19 @@
         {
           "order": 13,
           "path": "M56.76,67.11C62.25,72,82.25,86,88.79,89.82c1.85,1.08,3.38,1.61,5.21,1.93"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "木",
+          "strokeOrders": [
+            10,
+            11,
+            12,
+            13
+          ],
+          "position": "bottom",
+          "radical": "general"
         }
       ]
     },
@@ -4661,6 +7115,19 @@
           "order": 14,
           "path": "M68.5,61c3.45,4.84,14.8,18.55,21.86,25.13c1.64,1.53,3.42,3.24,5.64,3.87"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "欠",
+          "strokeOrders": [
+            11,
+            12,
+            13,
+            14
+          ],
+          "position": "right",
+          "radical": "general"
+        }
       ]
     },
     "止": {
@@ -4681,6 +7148,15 @@
         {
           "order": 4,
           "path": "M14,90c1.75,0.62,3.87,0.95,6.66,0.75c17.21-1.25,47.96-4,63.81-4.25c2.81-0.04,6.65,0.12,8.78,0.75"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "卜",
+          "strokeOrders": [
+            1,
+            2
+          ]
         }
       ]
     },
@@ -4706,6 +7182,25 @@
         {
           "order": 5,
           "path": "M14.25,90.04C18,91,21.38,91.23,25,91c14-0.88,39.23-2.07,58.63-2.39c3.36-0.06,6.77,0.32,10,1.37"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "一",
+          "strokeOrders": [
+            1
+          ],
+          "radical": "nelson"
+        },
+        {
+          "element": "止",
+          "strokeOrders": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "radical": "tradit"
         }
       ]
     },
@@ -4744,6 +7239,29 @@
           "order": 8,
           "path": "M76.65,55.64c0.14,0.97-0.09,2.53-0.78,3.91C70.15,70.94,48.14,89.35,25.81,97"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "止",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "少",
+          "strokeOrders": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "bottom"
+        }
       ]
     },
     "死": {
@@ -4773,6 +7291,25 @@
           "order": 6,
           "path": "M61.65,28.75c1.36,1.36,1.68,3.25,1.68,4.93c0,1.32-0.03,44.39-0.03,48.48c0,8.46,0.95,10.86,15.75,10.86c13.57,0,14.68-1.65,14.68-12.52"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "歹",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "radical": "general"
+        },
+        {
+          "element": "匕",
+          "strokeOrders": [
+            5,
+            6
+          ]
+        }
       ]
     },
     "母": {
@@ -4797,6 +7334,23 @@
         {
           "order": 5,
           "path": "M9.88,51.45c2.21,0.63,6.26,0.87,8.46,0.63C46.77,49,67.12,47,90.65,46.07c3.68-0.15,5.89,0.3,7.72,0.61"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "毋",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "radical": "general"
+        },
+        {
+          "element": "毋",
+          "strokeOrders": [
+            5
+          ],
+          "radical": "general"
         }
       ]
     },
@@ -4827,6 +7381,27 @@
           "order": 6,
           "path": "M10.88,58.99c2.46,0.56,6.98,0.49,9.45,0.31c21.05-1.54,44.8-3.42,69.3-3.88c4.11-0.08,6.57,0.26,8.62,0.54"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "𠂉",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top"
+        },
+        {
+          "element": "毋",
+          "strokeOrders": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "position": "bottom",
+          "radical": "general"
+        }
       ]
     },
     "気": {
@@ -4856,6 +7431,26 @@
           "order": 6,
           "path": "M30,63.75C41.5,68,54.5,78,62.25,90.5"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "气",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "kamae",
+          "radical": "general"
+        },
+        {
+          "element": "乂",
+          "strokeOrders": [
+            5,
+            6
+          ]
+        }
       ]
     },
     "水": {
@@ -4877,7 +7472,8 @@
           "order": 4,
           "path": "M57,46c8.82,10.73,19.23,21.46,28.42,27.42c2.16,1.4,4.52,3,7.08,3.58"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "注": {
       "character": "注",
@@ -4913,6 +7509,30 @@
         {
           "order": 8,
           "path": "M32.75,88.52c3,0.6,6.27,0.65,9.38,0.36c14.62-1.38,31.06-2.74,47.13-3.38c3.16-0.12,6.87,0,9.49,0.78"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "氵",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "水"
+        },
+        {
+          "element": "主",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "right"
         }
       ]
     },
@@ -4955,6 +7575,31 @@
           "order": 9,
           "path": "M65.26,34.25c0.93,0.93,1.46,2.23,1.46,3.25c0,2.83-0.12,37.06-0.17,53.5c-0.01,3.86-0.02,6.74-0.02,8"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "氵",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "水"
+        },
+        {
+          "element": "羊",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "right"
+        }
       ]
     },
     "海": {
@@ -4995,6 +7640,31 @@
         {
           "order": 9,
           "path": "M30.63,58.98c1.85,0.45,5.24,0.61,7.09,0.45c16.91-1.43,37.36-3.68,55.69-4.15c3.08-0.08,4.93,0.21,6.47,0.44"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "氵",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "水"
+        },
+        {
+          "element": "毎",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "right"
         }
       ]
     },
@@ -5053,6 +7723,19 @@
           "order": 13,
           "path": "M61,72c8,5.75,18.25,15.12,25.74,19.39c2.42,1.38,4.26,2.24,5.89,2.74"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "氵",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "水"
+        }
       ]
     },
     "火": {
@@ -5074,7 +7757,8 @@
           "order": 4,
           "path": "M52.75,50c12.49,14.06,25.01,28.42,33.62,36.13c2.7,2.42,4.9,4.02,8.38,4.87"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "父": {
       "character": "父",
@@ -5095,7 +7779,8 @@
           "order": 4,
           "path": "M34.25,47c4.83,0,29,25.38,45.99,37.02c3.54,2.43,7.39,4.55,11.51,5.77"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "牛": {
       "character": "牛",
@@ -5116,7 +7801,8 @@
           "order": 4,
           "path": "M53.31,11.88c1.19,1.12,2.01,2.87,2.01,4.75c0,0.78-0.07,56.95-0.19,76.12c-0.02,3.09-0.04,5.22-0.06,6"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "物": {
       "character": "物",
@@ -5152,6 +7838,29 @@
         {
           "order": 8,
           "path": "M79.62,39.6c0.51,1.27,0.41,2.72-0.16,4.11c-4.52,11.13-11.71,24.8-27.21,39.28"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "牛",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "勿",
+          "strokeOrders": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "right"
         }
       ]
     },
@@ -5198,6 +7907,31 @@
           "order": 10,
           "path": "M60.75,70.25c2.03,1.46,5.24,5.99,5.75,8.25"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "牛",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "寺",
+          "strokeOrders": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "right"
+        }
       ]
     },
     "犬": {
@@ -5218,6 +7952,22 @@
         {
           "order": 4,
           "path": "M67.33,20.25c6.9,3.89,8.78,6.85,10.92,10.5"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "大",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "element": "丶",
+          "strokeOrders": [
+            4
+          ]
         }
       ]
     },
@@ -5268,6 +8018,33 @@
           "order": 11,
           "path": "M40.13,91c1.57,0.54,4.47,0.73,6.04,0.54c16.83-2.05,35.08-4.3,47.45-4.27c2.62,0.01,4.2,0.26,5.51,0.53"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "王",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "玉"
+        },
+        {
+          "element": "里",
+          "strokeOrders": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "position": "right"
+        }
       ]
     },
     "生": {
@@ -5293,7 +8070,8 @@
           "order": 5,
           "path": "M15.75,90.25c3.04,0.75,6.21,0.94,8.4,0.8C40.62,90,68.12,86.5,83.3,85.75c3.63-0.18,7.68,0,10.07,0.73"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "用": {
       "character": "用",
@@ -5318,7 +8096,8 @@
           "order": 5,
           "path": "M53.62,19.5c1.13,1,1.96,2.5,1.96,4.25c0,3.66,0,42.87-0.12,60.75c-0.03,4.11-0.06,7.09-0.1,8.25"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "田": {
       "character": "田",
@@ -5343,7 +8122,8 @@
           "order": 5,
           "path": "M25.98,83.07c14.77-0.82,39.39-2.07,58.18-2.83"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "男": {
       "character": "男",
@@ -5375,6 +8155,28 @@
         {
           "order": 7,
           "path": "M53.22,46.43c0.28,1.32,0.29,3.04-0.2,4.57C49.12,63.12,38,81.25,17.14,92.06"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "田",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "力",
+          "strokeOrders": [
+            6,
+            7
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -5408,6 +8210,28 @@
         {
           "order": 7,
           "path": "M71.77,29.08c1.2,1.2,2,2.75,2,5.81c0,17.98,0,51.3,0,56.3c0,11.06-6.02,2.81-9.21-0.25"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "田",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "丁",
+          "strokeOrders": [
+            6,
+            7
+          ],
+          "position": "right"
         }
       ]
     },
@@ -5445,6 +8269,32 @@
         {
           "order": 8,
           "path": "M91.86,36.88c1,1,1.5,2.33,1.4,4.38c-0.53,11.45-1.3,25.21-2.48,41.7c-0.15,2.06-0.3,4.16-0.45,6.3"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "一",
+          "strokeOrders": [
+            1
+          ],
+          "radical": "nelson"
+        },
+        {
+          "element": "由",
+          "strokeOrders": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "element": "凵",
+          "strokeOrders": [
+            7,
+            8
+          ]
         }
       ]
     },
@@ -5486,6 +8336,30 @@
         {
           "order": 9,
           "path": "M65.39,58.85c1,1,1.29,2.15,1.29,3.56c0,3.59,0.05,21.23-0.08,31.47c-0.03,2.18-0.06,3.86-0.09,4.72"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "田",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "介",
+          "strokeOrders": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -5532,6 +8406,31 @@
           "order": 10,
           "path": "M65.62,69.12c4.73,2.4,12.22,9.88,13.4,13.61"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "疒",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "tare",
+          "radical": "general"
+        },
+        {
+          "element": "丙",
+          "strokeOrders": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "tarec"
+        }
       ]
     },
     "発": {
@@ -5573,6 +8472,20 @@
           "order": 9,
           "path": "M58.24,50.87c1.2,1.2,1.52,2.59,1.52,4.43c0,11.58-0.14,22.14-0.14,27.7c0,10.12,2.01,12.03,13.06,12.03c12.7,0,13.96-1.28,13.96-9.62"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "癶",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "top",
+          "radical": "general"
+        }
       ]
     },
     "白": {
@@ -5597,6 +8510,18 @@
         {
           "order": 5,
           "path": "M29.69,94.49C43,93.75,66.62,92,80.19,91.41"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "日",
+          "strokeOrders": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -5627,6 +8552,28 @@
           "order": 6,
           "path": "M34.97,92.87c8.78-0.87,30.53-2.12,40.06-2.39"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "一",
+          "strokeOrders": [
+            1
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "白",
+          "strokeOrders": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "position": "bottom",
+          "radical": "tradit"
+        }
       ]
     },
     "目": {
@@ -5652,7 +8599,8 @@
           "order": 5,
           "path": "M33,90.5c9.75-0.5,33.25-2.5,44.79-2.53"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "真": {
       "character": "真",
@@ -5696,6 +8644,31 @@
         {
           "order": 10,
           "path": "M67.88,83.75C74.12,86.43,84,94.79,85.56,98.97"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "十",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top",
+          "radical": "nelson"
+        },
+        {
+          "element": "具",
+          "strokeOrders": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -5750,6 +8723,20 @@
           "order": 12,
           "path": "M44.29,97.47c6.96-0.34,21.89-1.56,29.45-1.56"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "目",
+          "strokeOrders": [
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "position": "tarec",
+          "radical": "tradit"
+        }
       ]
     },
     "知": {
@@ -5786,6 +8773,29 @@
         {
           "order": 8,
           "path": "M65,73.56c6.55-0.93,14.12-1.62,22.04-2.45c1.14-0.12,2.29-0.24,3.46-0.37"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "矢",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "口",
+          "strokeOrders": [
+            6,
+            7,
+            8
+          ],
+          "position": "right"
         }
       ]
     },
@@ -5828,6 +8838,31 @@
           "order": 9,
           "path": "M80.65,21.25c0.9,0.9,1.2,2.4,1.2,3.59c0,0.97,0,49.78,0,64.63c0,2.16,0,5.1,0,5.78"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "石",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "开",
+          "strokeOrders": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "right",
+          "original": "幵"
+        }
       ]
     },
     "社": {
@@ -5861,6 +8896,29 @@
           "order": 7,
           "path": "M42.25,88.97c1.92,0.55,5.44,0.76,7.36,0.55c12.39-1.39,28.51-3.64,41.04-4.03c3.2-0.1,6.09,0.14,7.72,0.79"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "礻",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "示"
+        },
+        {
+          "element": "土",
+          "strokeOrders": [
+            5,
+            6,
+            7
+          ],
+          "position": "right"
+        }
       ]
     },
     "私": {
@@ -5893,6 +8951,28 @@
         {
           "order": 7,
           "path": "M82.81,60.54c4.45,4.37,11.49,17.97,12.61,24.77"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "禾",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "厶",
+          "strokeOrders": [
+            6,
+            7
+          ],
+          "position": "right"
         }
       ]
     },
@@ -5935,6 +9015,30 @@
           "order": 9,
           "path": "M67.32,55.54c6.72,12.87,16.04,24.3,22.59,30.72c1.95,1.91,3.71,3.68,6.34,4.48"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "禾",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "火",
+          "strokeOrders": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "right"
+        }
       ]
     },
     "究": {
@@ -5967,6 +9071,28 @@
         {
           "order": 7,
           "path": "M26.67,65.42c1.95,0.46,4.08,0.58,6.6,0.03c6.86-1.49,27.34-7.61,29.72-8.38c2.89-0.94,4.76,0.18,4.11,3.8c-1.45,8.01-3.22,14.73-3.22,22.88c0,9.75,1.88,12.64,14.88,12.64c14.12,0,14.54-1.13,14.78-9.17"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "穴",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "九",
+          "strokeOrders": [
+            6,
+            7
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -6005,6 +9131,29 @@
           "order": 8,
           "path": "M19.5,92.55c3.17,1.27,6.19,1,9.52,0.7c13.57-1.2,37.71-3.53,54.11-4.35c3.19-0.16,6.33-0.28,9.37,0.9"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "穴",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "工",
+          "strokeOrders": [
+            6,
+            7,
+            8
+          ],
+          "position": "bottom"
+        }
       ]
     },
     "立": {
@@ -6029,6 +9178,16 @@
         {
           "order": 5,
           "path": "M15.25,88.8c2.33,0.45,5.89,0.53,7.82,0.39c18.3-1.32,40.31-1.94,64.83-2.75c3.24-0.11,6.14,0.05,8.47,0.88"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "亠",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top"
         }
       ]
     },
@@ -6083,6 +9242,33 @@
           "order": 12,
           "path": "M40.37,96.12c8.38-0.49,17.89-1.17,28.65-1.75c1.32-0.07,2.65-0.14,3.98-0.21"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "竹",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "合",
+          "strokeOrders": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "position": "bottom"
+        }
       ]
     },
     "紙": {
@@ -6127,6 +9313,31 @@
         {
           "order": 10,
           "path": "M67.91,27.75c1.34,1.69,1.86,3.7,2.02,5.74C71.75,56.25,79.31,80.13,93.25,91c6.2,4.83,4.53-4.81,4.53-7.84"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "糸",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "氏",
+          "strokeOrders": [
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "right"
         }
       ]
     },
@@ -6177,6 +9388,32 @@
           "order": 11,
           "path": "M57.12,78.75C65.88,82.38,74.88,88.5,78.75,93"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "糸",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "冬",
+          "strokeOrders": [
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "position": "right"
+        }
       ]
     },
     "習": {
@@ -6226,6 +9463,32 @@
           "order": 11,
           "path": "M38.08,93.39c10.79-0.64,26.79-2.26,38.35-2.57"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "羽",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "白",
+          "strokeOrders": [
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "position": "bottom"
+        }
       ]
     },
     "考": {
@@ -6254,6 +9517,28 @@
         {
           "order": 6,
           "path": "M53.25,50.25c0.5,1.25-0.22,3.1-1.73,5.58c-1.77,2.92-4.76,6.83-5.26,7.45c-2.01,2.47-1.51,4.36,1.14,4.25c3.47-0.15,23.72-2.52,29.51-3.24c3.35-0.42,4.84,1.97,3.93,4.6c-2.3,6.72-7.79,21.33-12.08,26.38c-2.52,2.98-5.27,0.73-7.54-2.57"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "耂",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "tare",
+          "radical": "general",
+          "original": "老"
+        },
+        {
+          "element": "丂",
+          "strokeOrders": [
+            5,
+            6
+          ],
+          "position": "tarec"
         }
       ]
     },
@@ -6291,6 +9576,30 @@
         {
           "order": 8,
           "path": "M43.97,95.41c8.91-0.78,22.81-2.1,31.59-2.65"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "耂",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "tare",
+          "radical": "general",
+          "original": "老"
+        },
+        {
+          "element": "日",
+          "strokeOrders": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "tarec"
         }
       ]
     },
@@ -6353,6 +9662,35 @@
           "order": 14,
           "path": "M64.84,49.66c0.62,0.63,1.05,1.71,1.05,2.99c0,0.66,0.12,27.55,0.15,39.1c0.01,1.88,0.01,3.36,0.01,4.25"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "門",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "kamae",
+          "radical": "nelson"
+        },
+        {
+          "element": "耳",
+          "strokeOrders": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "radical": "tradit"
+        }
       ]
     },
     "肉": {
@@ -6382,7 +9720,8 @@
           "order": 6,
           "path": "M52,62.25C60.47,65.03,73.88,73.68,76,78"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "自": {
       "character": "自",
@@ -6410,6 +9749,18 @@
         {
           "order": 6,
           "path": "M29.79,91.57c12.59-0.69,34.84-2.32,47.46-3.13"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "目",
+          "strokeOrders": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
         }
       ]
     },
@@ -6439,6 +9790,27 @@
         {
           "order": 6,
           "path": "M28.11,43.28c0.64,0.72,0.97,1.42,0.97,2.95c0,9.03-0.08,27.91-0.08,33.28c0,14.5,3.25,15.87,29.84,15.87c29.16,0,30.18-2.62,30.18-13.12"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "𠂊",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top",
+          "original": "勹"
+        },
+        {
+          "element": "巴",
+          "strokeOrders": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -6472,6 +9844,29 @@
         {
           "order": 7,
           "path": "M58.25,43.75c1.06,1.06,1.5,2.5,1.5,4.75c0,2.96-0.22,20.59-0.22,31.25C59.53,93,63,94.15,77,94.15c16.25,0,18-2.65,18-11.15"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "艹",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "general",
+          "original": "艸"
+        },
+        {
+          "element": "化",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -6509,6 +9904,30 @@
         {
           "order": 8,
           "path": "M54.12,64.88c7.38,7.75,18.62,17.55,26.7,23.84c2.36,1.84,5.49,3.89,8.3,5.03"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "艹",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "general",
+          "original": "艸"
+        },
+        {
+          "element": "央",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -6550,6 +9969,19 @@
         {
           "order": 9,
           "path": "M68.5,78.75c4.79,2.51,12.36,10.32,13.56,14.22"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "艹",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "general",
+          "original": "艸"
         }
       ]
     },
@@ -6599,6 +10031,33 @@
         {
           "order": 11,
           "path": "M55.5,65c4.13,3.01,20.22,15.6,28.09,21.35c2.58,1.89,4.91,3.27,8.29,4.27"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "艹",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "general",
+          "original": "艸"
+        },
+        {
+          "element": "采",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -6669,6 +10128,38 @@
           "order": 16,
           "path": "M56.01,74.23c4.15,2.44,20.41,12.71,28.22,17.31c2.61,1.54,5.1,2.9,8.14,3.36"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "艹",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top",
+          "radical": "general",
+          "original": "艸"
+        },
+        {
+          "element": "楽",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "position": "bottom"
+        }
       ]
     },
     "行": {
@@ -6697,6 +10188,17 @@
         {
           "order": 6,
           "path": "M71.52,41.33c1.26,1.26,1.76,2.79,1.76,5.27c0,14.56-0.26,38.66-0.26,43.62c0,8.03-7.21-0.5-8.71-1.75"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "彳",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left"
         }
       ]
     },
@@ -6727,7 +10229,8 @@
           "order": 6,
           "path": "M27.34,88.55C40.75,88,66.69,86.2,83,85.97"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "見": {
       "character": "見",
@@ -6759,6 +10262,27 @@
         {
           "order": 7,
           "path": "M54.49,61.37c1.07,1.07,1.33,2.59,1.38,4.43c0.2,8.19,0.04,6.2,0.04,18.2c0,10.12,1.23,11.53,18.54,11.53c18.81,0,19.81-1.53,19.81-10.12"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "目",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "top"
+        },
+        {
+          "element": "儿",
+          "strokeOrders": [
+            6,
+            7
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -6829,6 +10353,22 @@
           "order": 16,
           "path": "M73.36,62.72c0.71,0.71,1.27,1.9,1.3,3.61c0.07,4.77-0.06,12.48-0.06,17.94c0,9.49,1.65,10.87,10.65,10.87c9.75,0,11-0.87,11-8.47"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "見",
+          "strokeOrders": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "position": "right",
+          "radical": "general"
+        }
       ]
     },
     "言": {
@@ -6861,6 +10401,16 @@
         {
           "order": 7,
           "path": "M42.2,95.16c6.19-0.53,16.55-1.39,25.32-2.22c1.33-0.13,2.73-0.12,3.95-0.12"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "口",
+          "strokeOrders": [
+            5,
+            6,
+            7
+          ]
         }
       ]
     },
@@ -6902,6 +10452,30 @@
         {
           "order": 9,
           "path": "M74.16,12.5c1.09,1,1.95,2.5,1.95,4.15c0,4.35,0.07,55.64-0.16,75.6c-0.04,3.23-0.07,5.52-0.11,6.5"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "言",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "十",
+          "strokeOrders": [
+            8,
+            9
+          ],
+          "position": "right"
         }
       ]
     },
@@ -6960,6 +10534,34 @@
           "order": 13,
           "path": "M79.25,13c2.74,1.73,6.74,5.69,8.02,8.66"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "言",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "式",
+          "strokeOrders": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "position": "right"
+        }
       ]
     },
     "話": {
@@ -7016,6 +10618,34 @@
         {
           "order": 13,
           "path": "M56.64,91.74c7.5-0.57,16.99-1.13,27.14-1.93c1.37-0.11,2.75-0.22,4.13-0.34"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "言",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "舌",
+          "strokeOrders": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "position": "right"
         }
       ]
     },
@@ -7078,6 +10708,35 @@
           "order": 14,
           "path": "M57.2,91.49c5.94-0.55,14.67-1.24,23.54-1.76c1.3-0.08,2.63-0.13,3.97-0.2"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "言",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "吾",
+          "strokeOrders": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "position": "right"
+        }
       ]
     },
     "読": {
@@ -7139,6 +10798,35 @@
           "order": 14,
           "path": "M71.64,56.26c1.11,1.24,1.65,2.67,1.69,4.37c0.11,4.62-0.13,16.99-0.13,24.62c0,9.5,0.8,10.52,11.3,10.52c11,0,11.38-1.02,11.38-7.31"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "言",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "売",
+          "strokeOrders": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "position": "right"
+        }
       ]
     },
     "買": {
@@ -7192,6 +10880,35 @@
           "order": 12,
           "path": "M69.84,83.97C75,87.91,80.38,94.38,82.5,98.5"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "罒",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "top",
+          "radical": "nelson",
+          "original": "网"
+        },
+        {
+          "element": "貝",
+          "strokeOrders": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "position": "bottom",
+          "radical": "tradit"
+        }
       ]
     },
     "貸": {
@@ -7244,6 +10961,33 @@
         {
           "order": 12,
           "path": "M63.7,87.96c6.46,3.43,14.1,9.64,15.87,12.63"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "代",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "top"
+        },
+        {
+          "element": "貝",
+          "strokeOrders": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "position": "bottom",
+          "radical": "general"
         }
       ]
     },
@@ -7310,6 +11054,22 @@
           "order": 15,
           "path": "M66.5,87.5c7.74,2.98,16.89,8.39,19,11"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "貝",
+          "strokeOrders": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "position": "bottom",
+          "radical": "general"
+        }
       ]
     },
     "赤": {
@@ -7343,6 +11103,17 @@
           "order": 7,
           "path": "M78.77,63.83c3.86,3.92,9.11,12.92,10.98,19.17"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "土",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top"
+        }
       ]
     },
     "走": {
@@ -7375,6 +11146,27 @@
         {
           "order": 7,
           "path": "M33.75,73.5c10.2,2.44,40.07,16.59,49.72,18.89C86.44,93.1,90.1,93.73,93,94"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "土",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top"
+        },
+        {
+          "element": "龰",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -7421,6 +11213,31 @@
           "order": 10,
           "path": "M61.49,45.21c0.9,0.9,1.56,2.03,1.55,4c-0.02,5.18-0.36,8.78-0.36,12.04c0,11.25,0.7,12.04,16.25,12.04c13.2,0,13.57-1.54,13.57-9.28"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "走",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "nyo",
+          "radical": "general"
+        },
+        {
+          "element": "己",
+          "strokeOrders": [
+            8,
+            9,
+            10
+          ],
+          "position": "nyoc"
+        }
       ]
     },
     "足": {
@@ -7453,6 +11270,27 @@
         {
           "order": 7,
           "path": "M33.25,70.75C41.75,72.12,67,87.38,82,92.5c2.94,1,6.85,1.68,9.75,2"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "口",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "top"
+        },
+        {
+          "element": "龰",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -7487,7 +11325,8 @@
           "order": 7,
           "path": "M52.5,11.51c1.36,1.36,2.06,2.78,2.14,6.02c0.03,1.07-0.07,48.79-0.19,70.7c-0.02,4.27-0.05,7.36-0.07,8.65"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "転": {
       "character": "転",
@@ -7536,6 +11375,32 @@
           "order": 11,
           "path": "M82.63,70.83c4.69,3.52,11.49,14.4,12.66,19.89"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "車",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "云",
+          "strokeOrders": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "position": "right"
+        }
       ]
     },
     "近": {
@@ -7568,6 +11433,29 @@
         {
           "order": 7,
           "path": "M15.25,83c3-0.5,9-1.75,13.5-0.75s30.07,7.71,34.5,9c12,3.5,21.25,4.5,30.25,2.75"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "斤",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "nyoc"
+        },
+        {
+          "element": "⻌",
+          "strokeOrders": [
+            5,
+            6,
+            7
+          ],
+          "position": "nyo",
+          "radical": "general",
+          "original": "辶"
         }
       ]
     },
@@ -7609,6 +11497,31 @@
         {
           "order": 9,
           "path": "M15.75,83.5c3-0.5,9-1.75,13.5-0.75s30.02,7.4,34.5,8.5c11.75,2.88,18.5,4.25,25.5,4"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "关",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "position": "nyoc"
+        },
+        {
+          "element": "⻌",
+          "strokeOrders": [
+            7,
+            8,
+            9
+          ],
+          "position": "nyo",
+          "radical": "general",
+          "original": "辶"
         }
       ]
     },
@@ -7654,6 +11567,32 @@
         {
           "order": 10,
           "path": "M10.75,83.91c4.5-1.66,9.53-1.34,14.17-1.19c8.83,0.28,30.46,6.62,34.94,7.81c12.15,3.23,21.52,4.15,30.64,2.54"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "甬",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "nyoc"
+        },
+        {
+          "element": "⻌",
+          "strokeOrders": [
+            8,
+            9,
+            10
+          ],
+          "position": "nyo",
+          "radical": "general",
+          "original": "辶"
         }
       ]
     },
@@ -7703,6 +11642,33 @@
         {
           "order": 11,
           "path": "M13.75,85.75c4.12-0.88,10.41-0.97,15-0.5c7.25,0.75,29.97,5.13,34.5,6c13,2.5,21.25,4.5,30.25,2.75"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "周",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "nyoc"
+        },
+        {
+          "element": "⻌",
+          "strokeOrders": [
+            9,
+            10,
+            11
+          ],
+          "position": "nyo",
+          "radical": "general",
+          "original": "辶"
         }
       ]
     },
@@ -7757,6 +11723,34 @@
           "order": 12,
           "path": "M16.25,83c3-0.5,9-1.75,13.5-0.75s29.32,7.71,33.75,9c12,3.5,21.25,4.5,30.25,2.75"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "軍",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "nyoc"
+        },
+        {
+          "element": "⻌",
+          "strokeOrders": [
+            10,
+            11,
+            12
+          ],
+          "position": "nyo",
+          "radical": "general",
+          "original": "辶"
+        }
       ]
     },
     "道": {
@@ -7810,6 +11804,34 @@
           "order": 12,
           "path": "M12.5,81.71c3.11-0.47,9.22-0.87,13.97-0.71c7.15,0.25,31.13,8.25,35.71,9.46C74.61,93.76,81.62,95.5,91,96.05"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "首",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "nyoc"
+        },
+        {
+          "element": "⻌",
+          "strokeOrders": [
+            10,
+            11,
+            12
+          ],
+          "position": "nyo",
+          "radical": "general",
+          "original": "辶"
+        }
       ]
     },
     "重": {
@@ -7850,6 +11872,28 @@
         {
           "order": 9,
           "path": "M17.14,96.06c3.49,0.56,6.96,0.41,10.24,0.19c14.34-0.96,35.76-3.23,51.12-3.97c3.48-0.17,6.93-0.13,10.37,0.51"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "千",
+          "strokeOrders": [
+            1,
+            2
+          ]
+        },
+        {
+          "element": "里",
+          "strokeOrders": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "radical": "tradit"
         }
       ]
     },
@@ -7900,6 +11944,32 @@
           "order": 11,
           "path": "M73.51,48c1.12,1.12,1.57,2.38,1.57,4.41c0,2.04-0.31,35.1-0.31,38.84c0,10.75-7.08,1.18-9.5-0.52"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "里",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "予",
+          "strokeOrders": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "position": "right"
+        }
       ]
     },
     "金": {
@@ -7937,7 +12007,8 @@
           "order": 8,
           "path": "M18.5,94.86c2.88,1.01,6.41,0.4,9.37,0.15c16.55-1.42,32.95-2.12,51.51-3c3.13-0.15,6.32-0.27,9.38,0.59"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "銀": {
       "character": "銀",
@@ -7998,6 +12069,35 @@
           "order": 14,
           "path": "M57.19,57.81c4.45,0,22.55,21.18,30.17,26.32c3.74,2.52,5.69,3.46,8.14,4.03"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "金",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "艮",
+          "strokeOrders": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "position": "right"
+        }
       ]
     },
     "長": {
@@ -8035,7 +12135,8 @@
           "order": 8,
           "path": "M46.5,62.25c8.21,0,34.52,25.9,44.28,29.5C93.12,92.61,94.51,93,97,93.5"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "開": {
       "character": "開",
@@ -8087,6 +12188,33 @@
         {
           "order": 12,
           "path": "M60.37,52c0.88,0.88,1.46,2.38,1.46,3.75c0,3,0.06,19.2-0.1,29.38c-0.04,2.21-0.08,4.01-0.11,5.12"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "門",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "kamae",
+          "radical": "general"
+        },
+        {
+          "element": "开",
+          "strokeOrders": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "original": "幵"
         }
       ]
     },
@@ -8141,6 +12269,32 @@
           "order": 12,
           "path": "M42.25,82.8c5.13-0.3,17-1.55,22.26-2.05"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "門",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "kamae",
+          "radical": "general"
+        },
+        {
+          "element": "日",
+          "strokeOrders": [
+            9,
+            10,
+            11,
+            12
+          ]
+        }
       ]
     },
     "院": {
@@ -8185,6 +12339,32 @@
         {
           "order": 10,
           "path": "M67.44,57.87c1.03,1.03,1.51,2.38,1.54,4.06c0.15,7.52-0.15,15.82-0.15,20.93c0,7.88,1.17,10.58,13.44,10.58c11.48,0,13.37-1.7,13.37-8.38"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "⻖",
+          "strokeOrders": [
+            1,
+            2,
+            3
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "阜"
+        },
+        {
+          "element": "完",
+          "strokeOrders": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "right"
         }
       ]
     },
@@ -8239,6 +12419,33 @@
           "order": 12,
           "path": "M56.5,71.25c5.56,4.78,18.32,13.7,27.32,18.82c2.79,1.58,5.43,3.27,8.43,4.05"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "隹",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "木",
+          "strokeOrders": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "position": "bottom"
+        }
       ]
     },
     "雨": {
@@ -8276,7 +12483,8 @@
           "order": 8,
           "path": "M67.25,66.5c2.75,1,9,5.5,11,7.75"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "雪": {
       "character": "雪",
@@ -8324,6 +12532,33 @@
         {
           "order": 11,
           "path": "M27.88,93.44c2.12,0.68,4.38,0.94,6.91,0.72C47,93.11,62.36,91.46,74.25,90.4c2.4-0.21,5.06-0.46,7.46,0.02"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "雨",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "top",
+          "radical": "general"
+        },
+        {
+          "element": "⺕",
+          "strokeOrders": [
+            9,
+            10,
+            11
+          ],
+          "position": "bottom",
+          "original": "彑"
         }
       ]
     },
@@ -8382,6 +12617,23 @@
           "order": 13,
           "path": "M48.42,57.62c1.08,1.13,1.45,2.8,1.45,4.78c0,4.85-0.1,12.75-0.1,18.85c0,12.75,1.48,14.5,20.5,14.5c19.23,0,20.18-2.75,20.18-10.82"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "雨",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "top",
+          "radical": "general"
+        }
       ]
     },
     "青": {
@@ -8418,6 +12670,28 @@
         {
           "order": 8,
           "path": "M39.12,79.23c5.88-0.35,24.26-1.98,32.13-2.31"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "龶",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "position": "top"
+        },
+        {
+          "element": "月",
+          "strokeOrders": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -8459,6 +12733,29 @@
         {
           "order": 9,
           "path": "M37.11,90.41c6.58-0.27,25.43-2.25,33.94-2.6"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "立",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "position": "top"
+        },
+        {
+          "element": "日",
+          "strokeOrders": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -8528,6 +12825,38 @@
         {
           "order": 16,
           "path": "M83.5,80.75c5.09,3.8,11.11,10.68,12.5,14"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "豆",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "left",
+          "radical": "nelson"
+        },
+        {
+          "element": "頁",
+          "strokeOrders": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "position": "right",
+          "radical": "tradit"
         }
       ]
     },
@@ -8606,6 +12935,39 @@
           "order": 18,
           "path": "M79,72.5c4.89,3.29,10.67,9.25,12,12.12"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "是",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "position": "nyo"
+        },
+        {
+          "element": "頁",
+          "strokeOrders": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "position": "nyoc",
+          "radical": "tradit"
+        }
       ]
     },
     "風": {
@@ -8646,6 +13008,16 @@
         {
           "order": 9,
           "path": "M63.75,67.85c3.5,3.52,7.62,10.15,9.36,15.31"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "几",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "kamae"
         }
       ]
     },
@@ -8688,7 +13060,8 @@
           "order": 9,
           "path": "M51.5,71C55.75,71,77,90,81,92.75c2.49,1.71,4.62,2.62,7.5,3.5"
         }
-      ]
+      ],
+      "componentGroups": []
     },
     "飯": {
       "character": "飯",
@@ -8740,6 +13113,34 @@
         {
           "order": 12,
           "path": "M61.12,55.19c3.24,0.91,18.43,24.26,29.71,34.21c1.76,1.55,3.04,2.58,4.67,3.1"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "飠",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "食"
+        },
+        {
+          "element": "反",
+          "strokeOrders": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "position": "right"
         }
       ]
     },
@@ -8793,6 +13194,34 @@
         {
           "order": 12,
           "path": "M65.42,60.5c3.56,6.77,15.26,21.56,22.62,29.46c1.89,2.03,3.98,4.66,6.71,5.54"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "飠",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "食"
+        },
+        {
+          "element": "欠",
+          "strokeOrders": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "position": "right"
         }
       ]
     },
@@ -8863,6 +13292,38 @@
           "order": 16,
           "path": "M61.81,91.71c4.64-0.51,15.31-1.94,23.07-2.65c1.12-0.1,2.25-0.18,3.16-0.03"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "飠",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "position": "left",
+          "radical": "general",
+          "original": "食"
+        },
+        {
+          "element": "官",
+          "strokeOrders": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "position": "right"
+        }
       ]
     },
     "駅": {
@@ -8923,6 +13384,35 @@
         {
           "order": 14,
           "path": "M64.28,44.75c5.1,9.38,16.09,30.23,25.17,40.55c2.13,2.42,4.99,5.29,8.05,6.45"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "馬",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "尺",
+          "strokeOrders": [
+            11,
+            12,
+            13,
+            14
+          ],
+          "position": "right"
         }
       ]
     },
@@ -9001,6 +13491,40 @@
           "order": 18,
           "path": "M68.15,69.87c2.67,4.03,15.45,15.9,21.14,21.32c1.88,1.79,3.43,3.34,5.96,4.06"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "馬",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "left",
+          "radical": "general"
+        },
+        {
+          "element": "㑒",
+          "strokeOrders": [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "position": "right",
+          "original": "僉"
+        }
       ]
     },
     "高": {
@@ -9045,6 +13569,19 @@
         {
           "order": 10,
           "path": "M46.44,87.05c4.61-0.4,11.01-1.31,17.32-1.94c0.88-0.09,1.77-0.17,2.65-0.26"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "冋",
+          "strokeOrders": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "position": "bottom"
         }
       ]
     },
@@ -9095,6 +13632,17 @@
           "order": 11,
           "path": "M84.27,78.58c4.16,2.63,10.75,10.8,11.79,14.88"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "𠂊",
+          "strokeOrders": [
+            1,
+            2
+          ],
+          "position": "top",
+          "original": "勹"
+        }
       ]
     },
     "鳥": {
@@ -9144,6 +13692,18 @@
           "order": 11,
           "path": "M62.88,72c2.69,1.68,6.95,6.89,7.62,9.5"
         }
+      ],
+      "componentGroups": [
+        {
+          "element": "灬",
+          "strokeOrders": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "original": "火"
+        }
       ]
     },
     "黒": {
@@ -9192,6 +13752,32 @@
         {
           "order": 11,
           "path": "M83.71,79.08c4.27,2.63,11.03,10.8,12.1,14.88"
+        }
+      ],
+      "componentGroups": [
+        {
+          "element": "里",
+          "strokeOrders": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "position": "top"
+        },
+        {
+          "element": "灬",
+          "strokeOrders": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "position": "bottom",
+          "original": "火"
         }
       ]
     }

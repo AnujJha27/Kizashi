@@ -9,7 +9,7 @@ test("kanji writing helpers keep source URLs and stroke order deterministic", ()
   assert.equal(getKanjiVgUrl("駅"), "https://raw.githubusercontent.com/KanjiVG/kanjivg/r20260714/kanji/099c5.svg");
   assert.deepEqual(getStrokeStartPoint("M11,54.25c3.19,0.62"), { x: 11, y: 54.25 });
   assert.equal(getStrokeStartPoint("not-a-path"), null);
-  assert.deepEqual(normalizeStrokeData({ character: "駅", strokes: [{ order: 1, path: "M1 1" }, { order: 2, path: "M2 2" }] }), { character: "駅", strokes: [{ order: 1, path: "M1 1" }, { order: 2, path: "M2 2" }] });
+  assert.deepEqual(normalizeStrokeData({ character: "駅", strokes: [{ order: 1, path: "M1 1" }, { order: 2, path: "M2 2" }], componentGroups: [{ element: "馬", strokeOrders: [1] }] }), { character: "駅", strokes: [{ order: 1, path: "M1 1" }, { order: 2, path: "M2 2" }], componentGroups: [{ element: "馬", strokeOrders: [1] }] });
   assert.equal(normalizeStrokeData({ character: "学", strokes: [{ order: 1, path: "M1 1" }] }, "駅"), null);
   assert.equal(normalizeStrokeData({ character: "駅", strokes: [{ order: 2, path: "M1 1" }] }), null);
   assert.deepEqual(evaluateStrokeOrder(2, 1), { ok: false, message: "This should be stroke 2" });
@@ -33,6 +33,7 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(trainer, /cancelDrawing/);
   assert.match(trainer, /onPointerCancel=\{cancelDrawing\}/);
   assert.match(trainer, /Write from memory/);
+  assert.match(trainer, /componentGroups/);
   assert.match(trainer, /ExternalSourceViewer source=\{jishoSource\}/);
   assert.match(practice, /KanjiWritingTrainer/);
   assert.match(practice, /KanjiWritingTrainer key=\{current\.id\}/);
@@ -49,6 +50,7 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(dashboard, /kanjiStrokeData/);
   assert.match(dashboard, /stroke-count mismatch/);
   assert.match(dashboard, /writing practice enabled/);
+  assert.match(dashboard, /componentGroups/);
   assert.match(dashboard, /normalizeStrokeData/);
   assert.match(contentStudio, /KanjiWritingAudit/);
   assert.match(entry, /KanjiWritingTrainer item=\{item\}/);
@@ -64,5 +66,10 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.equal(strokes.sourceUrl, "https://github.com/KanjiVG/kanjivg");
   assert.equal(strokes.attribution, "KanjiVG contributors");
   assert.equal(Object.keys(strokes.characters).length, 254);
+  assert.ok(Object.values(strokes.characters).every((record) => Array.isArray(record.componentGroups)));
+  assert.deepEqual(strokes.characters["駅"].componentGroups.slice(0, 2), [
+    { element: "馬", strokeOrders: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], position: "left", radical: "general" },
+    { element: "尺", strokeOrders: [11, 12, 13, 14], position: "right" },
+  ]);
   assert.ok(Object.values(strokes.characters).every((record) => record.strokes.every((stroke, index) => stroke.order === index + 1 && stroke.path)));
 });
