@@ -46,14 +46,14 @@ test("world areas use distinct owned visual variants with role metadata", async 
   const areas = Object.values(journeyVisualManifest);
   assert.equal(new Set(areas.map((area) => area.visualAssets.hero)).size, areas.length);
   assert.equal(new Set(areas.map((area) => area.visualAssets.today)).size, areas.length);
-  assert.ok(areas.every((area) => new Set([area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson, area.visualAssets.map]).size === 4));
-  assert.ok(areas.every((area) => area.visualAssetMetadata.length === 8));
+  assert.ok(areas.every((area) => new Set([area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson, area.visualAssets.lessonTracker, area.visualAssets.map]).size === 5));
+  assert.ok(areas.every((area) => area.visualAssetMetadata.length === 9));
   assert.ok(areas.flatMap((area) => area.visualAssetMetadata).every((asset) => asset.sourceType === "generated-raster" && asset.path.endsWith(".webp") && asset.attribution && asset.focalPoint));
-  await Promise.all(areas.flatMap((area) => [area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson, area.visualAssets.map].map((path) => access(new URL(`../public${path}`, import.meta.url)))));
+  await Promise.all(areas.flatMap((area) => [area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson, area.visualAssets.lessonTracker, area.visualAssets.map].map((path) => access(new URL(`../public${path}`, import.meta.url)))));
 });
 
 test("world role paths resolve to distinct raster files", async () => {
-  const paths = [...new Set(Object.values(journeyVisualManifest).flatMap((area) => [area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson, area.visualAssets.map]))];
+  const paths = [...new Set(Object.values(journeyVisualManifest).flatMap((area) => [area.visualAssets.hero, area.visualAssets.today, area.visualAssets.lesson, area.visualAssets.lessonTracker, area.visualAssets.map]))];
   const hashes = await Promise.all(paths.map(async (path) => createHash("sha256").update(await readFile(new URL(`../public${path}`, import.meta.url))).digest("hex")));
   assert.equal(new Set(hashes).size, paths.length);
 });
@@ -67,6 +67,7 @@ test("Journey, Today, and Learn consume their own visual roles", async () => {
   ]);
   assert.match(journey, /visualAssets\.hero/);
   assert.match(journey, /visualAssets\.lesson/);
+  assert.match(journey, /visualAssets\.lessonTracker/);
   assert.match(landscape, /visualAssets\.map/);
   assert.match(today, /visualAssets\.today/);
   assert.match(today, /\/world\/today\.webp/);
