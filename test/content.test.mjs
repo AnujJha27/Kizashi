@@ -494,15 +494,18 @@ test("provisional encounters support in-place review across learner surfaces", a
   const surfaces = await Promise.all(["../components/learning/lesson-player.tsx", "../components/learning/reading-panel.tsx", "../components/learning/kanji-writing-trainer.tsx", "../components/library/entry-detail.tsx", "../components/practice/practice-player.tsx"].map((path) => readFile(new URL(path, import.meta.url), "utf8")));
   assert.match(flags, /setContentReview/);
   assert.match(flags, /setContentCorrection/);
+  assert.match(flags, /setQuestionCorrection/);
   assert.match(flags, /applyContentCorrections/);
   assert.match(flags, /origin/);
   assert.match(controls, /Looks good/);
   assert.match(controls, /Edit meaning/);
+  assert.match(controls, /Edit choices/);
   assert.match(controls, /Ambiguous/);
   assert.match(controls, /Edit in Studio/);
   assert.match(controls, /studio\?item=/);
   surfaces.forEach((surface) => assert.match(surface, /ContentReviewControls/));
   assert.match(await readFile(new URL("../components/content/use-content-module.ts", import.meta.url), "utf8"), /michi-content-flagged-updated/);
+  assert.match(await readFile(new URL("../components/practice/practice-player.tsx", import.meta.url), "utf8"), /questionOptions/);
 });
 
 test("owner can hide provisional review controls without hiding content", async () => {
