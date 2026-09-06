@@ -511,6 +511,15 @@ test("owner can hide provisional review controls without hiding content", async 
   assert.match(controls, /!provisional \|\| !showControls/);
 });
 
+test("Library exposes the shared content review states", async () => {
+  const library = await readFile(new URL("../components/library/library-browser.tsx", import.meta.url), "utf8");
+  assert.match(library, /"provisional"/);
+  assert.match(library, /"reviewed"/);
+  assert.match(library, /"flagged"/);
+  assert.match(library, /michi-content-flagged-updated/);
+  assert.match(library, /◌ provisional/);
+});
+
 test("flagged question reviews stay out of newly built practice queues", async () => {
   const practice = await readFile(new URL("../components/practice/local-practice.tsx", import.meta.url), "utf8");
   const mistakes = await readFile(new URL("../components/mistakes/mistake-notebook.tsx", import.meta.url), "utf8");
