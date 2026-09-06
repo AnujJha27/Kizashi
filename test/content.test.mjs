@@ -907,8 +907,10 @@ test("grammar context and reading practice data survive the Supabase boundary", 
   const parity = seed.slice(parityStart, seed.indexOf("end $michi_practical$;"));
   assert.match(parity, /insert into public\.grammar_points \(item_id, pattern, meaning, formation, intuition, usage_conditions, examples, common_mistakes, contrast_ids, practice_question_ids, aliases, context\)/);
   assert.match(parity, /as item\(id text, pattern text, meaning text, formation text, intuition text, "usageConditions" text\[\], examples jsonb, "commonMistakes" text\[\], "contrastIds" text\[\], "practiceQuestionIds" text\[\], aliases text\[\], context jsonb\)/);
+  assert.match(parity, /on conflict \(item_id\) do update set aliases = excluded\.aliases, context = excluded\.context/);
   assert.match(parity, /insert into public\.readings \(item_id, title, passage, translation, vocabulary_ids, grammar_ids, kanji_ids, estimated_difficulty, visual_format, questions\)/);
   assert.match(parity, /as item\(id text, title text, passage text, translation text, "vocabularyIds" text\[\], "grammarIds" text\[\], "kanjiIds" text\[\], "estimatedDifficulty" integer, "visualFormat" text, questions jsonb\)/);
+  assert.match(parity, /on conflict \(item_id\) do update set visual_format = excluded\.visual_format, questions = excluded\.questions/);
 });
 
 test("audio metadata is persisted without an audio blob", async () => {
