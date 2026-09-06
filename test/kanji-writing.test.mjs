@@ -30,6 +30,8 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   const importer = await readFile(new URL("../scripts/import_kanjivg.py", import.meta.url), "utf8");
   const manifest = JSON.parse(await readFile(new URL("../browser/kizashi-private-frame-unlocker/manifest.json", import.meta.url), "utf8"));
   assert.match(trainer, /onPointerDown/);
+  assert.match(trainer, /cancelDrawing/);
+  assert.match(trainer, /onPointerCancel=\{cancelDrawing\}/);
   assert.match(trainer, /Write from memory/);
   assert.match(trainer, /ExternalSourceViewer source=\{jishoSource\}/);
   assert.match(practice, /KanjiWritingTrainer/);
