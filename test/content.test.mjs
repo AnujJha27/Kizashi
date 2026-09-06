@@ -622,6 +622,8 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(player, /always/);
   assert.match(lessonPlayer, /AudioControls text=\{item\.exampleSentences\[0\]\.japanese\} metadata=\{item\.exampleSentences\[0\]\.audio\} humanFirst/);
   assert.match(lessonPlayer, /AudioControls text=\{example\.japanese\} metadata=\{example\.audio\} humanFirst/);
+  assert.match(lessonPlayer, /text-3xl font-medium text-\[#f5f5f2\]/);
+  assert.match(lessonPlayer, /text-lg text-\[#9297a1\]/);
   assert.match(player, /JapaneseText text=\{question\.prompt\}/);
   assert.match(player, /JapaneseText text=\{answer\}/);
   const lesson = await readFile(new URL("../components/learning/local-lesson.tsx", import.meta.url), "utf8");
