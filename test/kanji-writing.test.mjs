@@ -2,11 +2,13 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-import { advanceWritingState, getJishoKanjiUrl, getKanjiVgUrl, normalizeStrokeData, evaluateStrokeOrder } from "../lib/kanji-writing-core.js";
+import { advanceWritingState, getJishoKanjiUrl, getKanjiVgUrl, getStrokeStartPoint, normalizeStrokeData, evaluateStrokeOrder } from "../lib/kanji-writing-core.js";
 
 test("kanji writing helpers keep source URLs and stroke order deterministic", () => {
   assert.equal(getJishoKanjiUrl("駅"), "https://jisho.org/search/%E9%A7%85%20%23kanji");
   assert.equal(getKanjiVgUrl("駅"), "https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/099c5.svg");
+  assert.deepEqual(getStrokeStartPoint("M11,54.25c3.19,0.62"), { x: 11, y: 54.25 });
+  assert.equal(getStrokeStartPoint("not-a-path"), null);
   assert.deepEqual(normalizeStrokeData({ character: "駅", strokes: [{ order: 1, path: "M1 1" }, { order: 2, path: "M2 2" }] }), { character: "駅", strokes: [{ order: 1, path: "M1 1" }, { order: 2, path: "M2 2" }] });
   assert.equal(normalizeStrokeData({ character: "駅", strokes: [{ order: 2, path: "M1 1" }] }), null);
   assert.deepEqual(evaluateStrokeOrder(2, 1), { ok: false, message: "This should be stroke 2" });
