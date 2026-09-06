@@ -29,6 +29,7 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(trainer, /Write from memory/);
   assert.match(trainer, /ExternalSourceViewer source=\{jishoSource\}/);
   assert.match(practice, /KanjiWritingTrainer/);
+  assert.match(practice, /KanjiWritingTrainer key=\{current\.id\}/);
   assert.match(practicePage, /kanji-writing/);
   assert.match(localPractice, /KanjiWritingPractice/);
   assert.match(accountSync, /michi-kanji-writing-updated/);
