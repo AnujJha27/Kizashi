@@ -58,6 +58,7 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   const editor = await readFile(new URL("../components/content/content-record-editor.tsx", import.meta.url), "utf8");
   const migration = await readFile(new URL("../supabase/migrations/0021_kanji_confusables.sql", import.meta.url), "utf8");
   const renderer = await readFile(new URL("../scripts/render_supabase_content_sql.py", import.meta.url), "utf8");
+  const seed = await readFile(new URL("../supabase/seed.sql", import.meta.url), "utf8");
   assert.match(dashboard, /kanjiStrokeData/);
   assert.match(dashboard, /stroke-count mismatch/);
   assert.match(dashboard, /writing practice enabled/);
@@ -68,6 +69,9 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(contentStudio, /Visual comparisons/);
   assert.match(migration, /confusable_kanji/);
   assert.match(renderer, /confusable_kanji/);
+  assert.match(seed, /confusable_kanji/);
+  assert.match(seed, /"id":"kanji-hito".*?"confusableKanji":\["入"\]/);
+  assert.match(seed, /"id":"kanji-migi".*?"confusableKanji":\["左"\]/);
   assert.match(entry, /KanjiWritingTrainer item=\{item\}/);
   assert.match(mistakes, /Writing repair/);
   assert.match(mistakes, /mode=kanji-writing&item=/);
