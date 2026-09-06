@@ -23,6 +23,7 @@ function grammarLiveStats(level: (typeof levels)[number], module: N5Module, flag
   const usable = canonical.filter((item) => getContentReviewStatus(item) !== "rejected");
   return {
     available: usable.length,
+    rejected: canonical.length - usable.length,
     reviewed: usable.filter((item) => getContentReviewStatus(item) === "approved" || flags[item.id]?.status === "reviewed").length,
     provisional: usable.filter((item) => getContentReviewStatus(item) === "pending").length,
     flagged: usable.filter((item) => flags[item.id]?.status === "flagged").length,
@@ -45,5 +46,5 @@ export function GrammarCoverage({ module }: Readonly<{ module: N5Module }>) {
     void reviewVersion;
     return readContentFlags();
   }, [reviewVersion]);
-  return <><section className="mb-7 rounded-xl border border-[#3f3427] bg-[#211d18]/55 p-4 sm:p-5"><p className="eyebrow">Live review status</p><p className="mt-1 text-xs leading-5 text-[#9297a1]">Canonical gaps stay separate from what the current learner package actually makes available.</p><div className="mt-3 grid gap-2 sm:grid-cols-2">{levels.map((level) => { const stats = grammarLiveStats(level, module, flags); return <div key={level} className="rounded-lg border border-white/10 bg-[#101b2b]/70 p-3"><p className="text-sm text-[#f5f5f2]">{level}</p><p className="mt-2 text-xs text-[#c3c7ce]">{stats.available} available · {stats.reviewed} reviewed · {stats.provisional} provisional · {stats.flagged} flagged</p><p className="mt-1 text-[10px] text-[#9297a1]">{coverage.summary[level].missing} canonical missing · {stats.textGrammar} text-grammar questions available</p></div>; })}</div></section><StaticGrammarCoverage /></>;
+  return <><section className="mb-7 rounded-xl border border-[#3f3427] bg-[#211d18]/55 p-4 sm:p-5"><p className="eyebrow">Live review status</p><p className="mt-1 text-xs leading-5 text-[#9297a1]">Canonical gaps stay separate from what the current learner package actually makes available.</p><div className="mt-3 grid gap-2 sm:grid-cols-2">{levels.map((level) => { const stats = grammarLiveStats(level, module, flags); return <div key={level} className="rounded-lg border border-white/10 bg-[#101b2b]/70 p-3"><p className="text-sm text-[#f5f5f2]">{level}</p><p className="mt-2 text-xs text-[#c3c7ce]">{stats.available} available · {stats.reviewed} reviewed · {stats.provisional} provisional · {stats.flagged} flagged · {stats.rejected} rejected</p><p className="mt-1 text-[10px] text-[#9297a1]">{coverage.summary[level].missing} canonical missing · {stats.textGrammar} text-grammar questions available</p></div>; })}</div></section><StaticGrammarCoverage /></>;
 }

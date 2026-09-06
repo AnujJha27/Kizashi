@@ -548,6 +548,15 @@ test("Studio reports availability separately from learner review coverage", asyn
   assert.match(dashboard, /label="Rejected"/);
 });
 
+test("union coverage panels report rejected live records", async () => {
+  const lexical = await readFile(new URL("../components/content/lexical-coverage.tsx", import.meta.url), "utf8");
+  const grammar = await readFile(new URL("../components/content/grammar-coverage.tsx", import.meta.url), "utf8");
+  assert.match(lexical, /rejected: matched\.length - usable\.length/);
+  assert.match(lexical, /stats\.rejected.*rejected/);
+  assert.match(grammar, /rejected: canonical\.length - usable\.length/);
+  assert.match(grammar, /stats\.rejected.*rejected/);
+});
+
 test("practice empty states offer a useful next path", async () => {
   const player = await readFile(new URL("../components/practice/practice-player.tsx", import.meta.url), "utf8");
   assert.match(player, /You&apos;re clear for now/);

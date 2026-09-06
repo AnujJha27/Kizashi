@@ -43,6 +43,7 @@ function liveStats(kind: (typeof kinds)[number], level: (typeof levels)[number],
   const usable = matched.filter((item) => getContentReviewStatus(item) !== "rejected");
   return {
     available: usable.length,
+    rejected: matched.length - usable.length,
     reviewed: usable.filter((item) => getContentReviewStatus(item) === "approved" || flags[item.id]?.status === "reviewed").length,
     provisional: usable.filter((item) => getContentReviewStatus(item) === "pending").length,
     flagged: usable.filter((item) => flags[item.id]?.status === "flagged").length,
@@ -84,7 +85,7 @@ function Panel({
                   {summary.multiSource} multi-source
                 </span>
               </div>
-              {(() => { const stats = liveStats(kind, level, report.records, module, flags); return <><div className="mt-2 grid grid-cols-3 gap-2 text-center sm:grid-cols-5">
+              {(() => { const stats = liveStats(kind, level, report.records, module, flags); return <><div className="mt-2 grid grid-cols-3 gap-2 text-center sm:grid-cols-6">
                 <div>
                   <p className="text-lg text-[#8bcca6]">{summary.covered}</p>
                   <p className="text-[10px] text-[#676c75]">covered</p>
@@ -99,6 +100,7 @@ function Panel({
                 </div>
                 <div><p className="text-lg text-[#f5f5f2]">{stats.available}</p><p className="text-[10px] text-[#676c75]">available</p></div>
                 <div><p className="text-lg text-[#f5f5f2]">{stats.reviewed}</p><p className="text-[10px] text-[#676c75]">reviewed</p></div>
+                <div><p className="text-lg text-[#ef675d]">{stats.rejected}</p><p className="text-[10px] text-[#676c75]">rejected</p></div>
               </div>
               <p className="mt-2 text-[10px] leading-4 text-[#9297a1]">
                 {summary.ambiguous} ambiguous · {summary.levelDisagreements}{" "}
