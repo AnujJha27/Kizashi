@@ -3424,4 +3424,4 @@ rather than merely store Japanese data?
 If any answer is no, the content milestone is not complete.
 ## Implementation checkpoint · 2026-09-06
 
-Learner release continues to separate availability from source review: rejected records are filtered, provisional records remain available, and the UI labels provisional encounters honestly. Learner review actions now persist separately from source approval in the existing content-flag sync collection and are surfaced in Studio. Reservoir expansion and separate available-versus-personally-reviewed coverage reporting remain open work.
+Learner release continues to separate availability from source review: rejected records are filtered, provisional records remain available, and the UI labels provisional encounters honestly. Learner review actions now persist separately from source approval in the existing content-flag sync collection and are surfaced in Studio. The live dashboard now reports available, provisional, flagged, rejected, and personally reviewed counts separately; canonical-union missing counts and final reservoir review remain open.

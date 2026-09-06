@@ -508,6 +508,15 @@ test("flagged question reviews stay out of newly built practice queues", async (
   assert.match(mistakes, /origin="mistake-repair"/);
 });
 
+test("Studio reports availability separately from learner review coverage", async () => {
+  const dashboard = await readFile(new URL("../components/content/completeness-dashboard.tsx", import.meta.url), "utf8");
+  assert.match(dashboard, /label="Available"/);
+  assert.match(dashboard, /label="Personally reviewed"/);
+  assert.match(dashboard, /label="Provisional"/);
+  assert.match(dashboard, /label="Flagged"/);
+  assert.match(dashboard, /label="Rejected"/);
+});
+
 test("practice empty states offer a useful next path", async () => {
   const player = await readFile(new URL("../components/practice/practice-player.tsx", import.meta.url), "utf8");
   assert.match(player, /You&apos;re clear for now/);
