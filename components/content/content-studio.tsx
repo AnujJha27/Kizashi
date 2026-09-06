@@ -806,6 +806,16 @@ export function ContentStudio({ seed: initialSeed, seedHealth, questionHealth, p
     setContentView("form");
   };
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("item");
+    const kind = params.get("kind");
+    if (!id) return;
+    if (["vocabulary", "kanji", "grammar", "reading", "listening"].includes(kind ?? "")) setEditorKind(kind as EditableKind);
+    setEditorRecordId(id);
+    setContentView("form");
+  }, []);
+
   const updateFormRaw = (nextRaw: string, recordId: string) => {
     setRaw(nextRaw);
     setEditorRecordId(recordId);
