@@ -27,13 +27,13 @@ Do not ask the user to make routine implementation decisions. Inspect the existi
 
 ## Code-backed implementation status
 
-Updated 2026-09-05. This checklist records verified repository state, not
+Updated 2026-09-06. This checklist records verified repository state, not
 intent. Counts come from `data/staging/kizashi-n5-source-review.json.gz`.
 
 Legend: `[x]` implemented, `[~]` partially implemented or needs broader
 coverage/verification, `[ ]` not implemented.
 
-- [x] 2026-09-06 provider-enrichment patch — Learn’s Marugoto Plus follow-up now shows its mapped provider-hosted Can-do activity catalog with source level, JLPT relevance, modality, local opened tracking, and an iframe; the frame panel names the private `browser/kizashi-private-frame-unlocker` reload path for `a1.marugotoweb.jp`’s frame-blocking headers, with the direct provider source retained as fallback.
+- [x] 2026-09-06 provider-enrichment patch — Learn’s Marugoto Plus follow-up now shows its seven-entry provider-hosted Can-do activity catalog with source level, JLPT relevance, modality, local opened tracking, and an iframe; the frame panel names the private `browser/kizashi-private-frame-unlocker` reload path for `a1.marugotoweb.jp`’s frame-blocking headers, with the direct provider source retained as fallback.
 
 ### Current evidence
 
@@ -110,7 +110,7 @@ coverage/verification, `[ ]` not implemented.
 - [x] Priority 6 — dynamic Tatoeba audio is wired for exact sentence matches with reusable API-reported licenses; misses fall through to Browser Speech.
 - [x] Priority 7 — Japanese with Shun and Nihongo con Teppei are registered as provider-hosted video/podcast immersion.
 - [x] Priority 8 — the Conjugation Lab now derives bounded N5/N4 verb and adjective transformation prompts through the existing PracticePlayer and answer normalization.
-- [~] Addendum source providers — Marugoto Plus, JFS Reading Activities, KC Yom Yom, Hirogaru, and OJAD now have learner-visible provider-hosted entries plus bounded activity maps in the shared registry and Immersion `寄り道` shelf. Marugoto Plus also appears as a Learn follow-up when the lesson contains one of its mapped conversation targets; its three bounded entries now open confirmed provider-hosted Can-do pages in the selected-activity iframe, with a direct original-page fallback. Broader provider catalogs, validated per-activity source audits, and deeper provider-specific pronunciation/reading activities remain follow-up work; the authored pronunciation curriculum is now implemented, and source levels are not converted into JLPT classifications.
+- [~] Addendum source providers — Marugoto Plus, JFS Reading Activities, KC Yom Yom, Hirogaru, and OJAD now have learner-visible provider-hosted entries plus bounded activity maps in the shared registry and Immersion `寄り道` shelf. Marugoto Plus also appears as a Learn follow-up when the lesson contains one of its mapped conversation targets; its seven bounded entries now open confirmed provider-hosted Can-do pages for greetings, ordering, directions, scripts, menus, homes, and events in the selected-activity iframe, with a direct original-page fallback. Broader provider catalogs, validated per-activity source audits, and deeper provider-specific pronunciation/reading activities remain follow-up work; the authored pronunciation curriculum is now implemented, and source levels are not converted into JLPT classifications.
 - [x] Japanese with Shun now uses the official channel feed (`/api/immersion/shun`) to load a bounded catalog, rotates the first visible choice per browser session, and lets the learner select any returned video; feed failure falls back to the official channel.
 - [x] Nihongo con Teppei now uses the official site feed (`/api/immersion/teppei`) to load a bounded episode catalog, rotates the first visible choice per browser session, plays provider-hosted audio when the feed supplies it, and falls back to the original site when it does not; feed failures show a calm status with that fallback still available.
 - [x] Optional profile interests now bias those free reading/listening and provider catalogs without changing the learner's JLPT path or readiness calculations.
