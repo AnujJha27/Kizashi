@@ -40,6 +40,8 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(trainer, /onPointerCancel=\{cancelDrawing\}/);
   assert.match(trainer, /Write from memory/);
   assert.match(trainer, /componentGroups/);
+  assert.match(trainer, /Show components/);
+  assert.match(trainer, /componentColor/);
   assert.match(trainer, /ExternalSourceViewer source=\{jishoSource\}/);
   assert.match(practice, /KanjiWritingTrainer/);
   assert.match(practice, /KanjiWritingTrainer key=\{current\.id\}/);
