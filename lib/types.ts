@@ -219,6 +219,7 @@ export interface KanjiItem extends LearningItem {
   radical?: string;
   nanori?: string[];
   components?: string[];
+  confusableKanji?: string[];
   mnemonic?: string;
   strokeOrder?: string;
   audio?: AudioMetadata;
@@ -416,7 +417,7 @@ export interface Database {
         Relationships: [];
       };
       kanji: {
-        Row: { item_id: string; character: string; meanings: string[]; onyomi: string[]; kunyomi: string[]; stroke_count: number | null; grade: number | null; radical: string | null; nanori: string[]; components: string[]; mnemonic: string | null; stroke_order: string | null; useful_words: unknown };
+        Row: { item_id: string; character: string; meanings: string[]; onyomi: string[]; kunyomi: string[]; stroke_count: number | null; grade: number | null; radical: string | null; nanori: string[]; components: string[]; confusable_kanji: string[]; mnemonic: string | null; stroke_order: string | null; useful_words: unknown };
         Insert: Omit<Database["public"]["Tables"]["kanji"]["Row"], "item_id"> & { item_id: string };
         Update: Partial<Database["public"]["Tables"]["kanji"]["Row"]>;
         Relationships: [];

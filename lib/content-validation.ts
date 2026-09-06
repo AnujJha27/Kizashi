@@ -172,6 +172,8 @@ function validateItem(item: unknown, path: string, category: (typeof categories)
     stringArray(item.meanings, `${path}.meanings`, issues);
     stringArray(item.onyomi, `${path}.onyomi`, issues, 0);
     stringArray(item.kunyomi, `${path}.kunyomi`, issues, 0);
+    const confusableKanji = stringArray(item.confusableKanji, `${path}.confusableKanji`, issues, 0);
+    uniqueStrings(confusableKanji, `${path}.confusableKanji`, issues);
     if (!Array.isArray(item.usefulWords) || !item.usefulWords.length) issues.push({ path: `${path}.usefulWords`, message: "Add vocabulary-driven useful words.", severity: "error" });
     else item.usefulWords.forEach((word, index) => {
       const wordPath = `${path}.usefulWords[${index}]`;

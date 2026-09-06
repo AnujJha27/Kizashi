@@ -18,6 +18,12 @@ test("kanji writing helpers keep source URLs and stroke order deterministic", ()
   assert.equal(advanceWritingState("written-from-memory", "watched"), "written-from-memory");
 });
 
+test("current canonical kanji expose owner-editable provisional comparisons", async () => {
+  const modules = await Promise.all(["n5-conversation-expansion.json", "n5-practical-expansion.json"].map((name) => readFile(new URL(`../data/${name}`, import.meta.url), "utf8").then(JSON.parse)));
+  const kanji = modules.flatMap((module) => module.kanji);
+  assert.deepEqual(Object.fromEntries(kanji.filter((item) => item.confusableKanji).map((item) => [item.character, item.confusableKanji])), { 人: ["入"], 右: ["左"], 左: ["右"], 入: ["人"] });
+});
+
 test("kanji writing surfaces keep the trainer native and references lazy", async () => {
   const trainer = await readFile(new URL("../components/learning/kanji-writing-trainer.tsx", import.meta.url), "utf8");
   const practice = await readFile(new URL("../components/practice/kanji-writing-practice.tsx", import.meta.url), "utf8").catch(() => "");
@@ -47,12 +53,19 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(dashboard, /manifest\.sourceUrl/);
   assert.match(dashboard, /manifest\.attribution/);
   const contentStudio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
+  const editor = await readFile(new URL("../components/content/content-record-editor.tsx", import.meta.url), "utf8");
+  const migration = await readFile(new URL("../supabase/migrations/0021_kanji_confusables.sql", import.meta.url), "utf8");
+  const renderer = await readFile(new URL("../scripts/render_supabase_content_sql.py", import.meta.url), "utf8");
   assert.match(dashboard, /kanjiStrokeData/);
   assert.match(dashboard, /stroke-count mismatch/);
   assert.match(dashboard, /writing practice enabled/);
   assert.match(dashboard, /componentGroups/);
   assert.match(dashboard, /normalizeStrokeData/);
   assert.match(contentStudio, /KanjiWritingAudit/);
+  assert.match(editor, /confusableKanji/);
+  assert.match(contentStudio, /Visual comparisons/);
+  assert.match(migration, /confusable_kanji/);
+  assert.match(renderer, /confusable_kanji/);
   assert.match(entry, /KanjiWritingTrainer item=\{item\}/);
   assert.match(mistakes, /Writing repair/);
   assert.match(mistakes, /mode=kanji-writing&item=/);

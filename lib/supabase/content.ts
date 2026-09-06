@@ -102,7 +102,7 @@ export async function fetchSupabaseN5Module(seed: N5Module): Promise<N5Module | 
   }).filter((item): item is VocabularyItem => Boolean(item));
   const kanji = (kanjiResult.data ?? []).map((row): KanjiItem | null => {
     const base = items.get(row.item_id);
-    return base ? { ...baseItem(base, row.character, sourceIdsByItem, classificationsByItem), category: "kanji", character: row.character, meanings: row.meanings, onyomi: row.onyomi, kunyomi: row.kunyomi, strokeCount: row.stroke_count ?? undefined, grade: row.grade ?? undefined, radical: row.radical ?? undefined, nanori: row.nanori, components: row.components, mnemonic: row.mnemonic ?? undefined, strokeOrder: row.stroke_order ?? undefined, usefulWords: Array.isArray(row.useful_words) ? row.useful_words as KanjiItem["usefulWords"] : [] } : null;
+    return base ? { ...baseItem(base, row.character, sourceIdsByItem, classificationsByItem), category: "kanji", character: row.character, meanings: row.meanings, onyomi: row.onyomi, kunyomi: row.kunyomi, strokeCount: row.stroke_count ?? undefined, grade: row.grade ?? undefined, radical: row.radical ?? undefined, nanori: row.nanori, components: row.components, confusableKanji: row.confusable_kanji, mnemonic: row.mnemonic ?? undefined, strokeOrder: row.stroke_order ?? undefined, usefulWords: Array.isArray(row.useful_words) ? row.useful_words as KanjiItem["usefulWords"] : [] } : null;
   }).filter((item): item is KanjiItem => Boolean(item));
   const grammar = normalizeGrammarPracticeIds((grammarResult.data ?? []).map((row): GrammarItem | null => {
     const base = items.get(row.item_id);

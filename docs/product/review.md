@@ -588,6 +588,8 @@ Examples:
 
 Allow the owner to approve/remove these naturally.
 
+Current implementation: the canonical `人`/`入` and `右`/`左` pairs are stored as optional `confusableKanji` lists, rendered as provisional comparisons, and editable/removable in Content Studio. `未`/`末`, `土`/`士`, and `日`/`目` remain unseeded until both characters are in the active curriculum.
+
 ---
 
 # R21. GRAMMAR — CLOSE UNRESOLVED COVERAGE GAPS
