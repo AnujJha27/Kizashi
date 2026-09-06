@@ -8,6 +8,7 @@ import { fetchWithTimeout } from "@/lib/request-timeout.js";
 import { mergeContentModules } from "@/lib/module-merge-core.js";
 import { repairModuleProvenance } from "@/lib/content-provenance-core.js";
 import { readCustomEntries } from "@/lib/session";
+import { applyContentCorrections } from "@/lib/content-flags.js";
 import { fetchSupabaseN5Module } from "@/lib/supabase/content";
 import type { N5Module, VocabularyItem } from "@/lib/types";
 
@@ -49,7 +50,7 @@ let personalizedModule: N5Module | null = null;
 function stablePersonalizedModule(module: N5Module) {
   if (personalizedSource === module && personalizedModule) return personalizedModule;
   personalizedSource = module;
-  personalizedModule = withPersonalVocabulary(module);
+  personalizedModule = withPersonalVocabulary(applyContentCorrections(module));
   return personalizedModule;
 }
 
@@ -97,17 +98,24 @@ export function useContentModule(seed: N5Module = n5Module, options: Readonly<{ 
       personalizedModule = null;
       void refresh();
     };
+    const onReviewUpdated = () => {
+      personalizedSource = null;
+      personalizedModule = null;
+      setModule(stablePersonalizedModule(loadRemote ? cachedModule ?? seed : seed));
+    };
     const cancelScheduledRefresh = !loadRemote ? () => {}
       : typeof window.requestIdleCallback === "function"
       ? (() => { const id = window.requestIdleCallback(() => { if (!cancelled) void refresh(); }, { timeout: 3000 }); return () => window.cancelIdleCallback(id); })()
       : (() => { const id = window.setTimeout(() => { if (!cancelled) void refresh(); }, 250); return () => window.clearTimeout(id); })();
     window.addEventListener("michi-content-draft-updated", onDraftUpdated);
     window.addEventListener("michi-custom-entries-updated", onDraftUpdated);
+    window.addEventListener("michi-content-flagged-updated", onReviewUpdated);
     return () => {
       cancelled = true;
       cancelScheduledRefresh();
       window.removeEventListener("michi-content-draft-updated", onDraftUpdated);
       window.removeEventListener("michi-custom-entries-updated", onDraftUpdated);
+      window.removeEventListener("michi-content-flagged-updated", onReviewUpdated);
     };
   }, [loadRemote, seed]);
 
