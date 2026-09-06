@@ -500,6 +500,7 @@ test("provisional encounters support in-place review across learner surfaces", a
   assert.match(controls, /Looks good/);
   assert.match(controls, /Edit meaning/);
   assert.match(controls, /Edit choices/);
+  assert.match(controls, /Correct answer/);
   assert.match(controls, /Ambiguous/);
   assert.match(controls, /Edit in Studio/);
   assert.match(controls, /studio\?item=/);
