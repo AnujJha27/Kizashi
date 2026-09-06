@@ -13,10 +13,16 @@ import { getTopicItemIds, n5Module } from "@/lib/curriculum";
 import { filterExamLevelQuestions } from "@/lib/jlpt-core.js";
 import { getValidatedPracticeQuestions, migrateLegacyQuestionPrompts, selectPracticeQuestions } from "@/lib/questions";
 import { readMistakes, writeDiagnosticResult } from "@/lib/session";
+import { readContentFlags } from "@/lib/content-flags.js";
 import { quickPracticeCount } from "@/lib/study-core.js";
 import type { N5Module, PracticeMode, PracticeQuestion, TargetLevel } from "@/lib/types";
 
 const practiceModuleCache = new WeakMap<N5Module, Map<TargetLevel, N5Module>>();
+
+function withoutFlaggedQuestions(questions: PracticeQuestion[]) {
+  const flags = readContentFlags();
+  return questions.filter((question) => flags[question.id]?.status !== "flagged");
+}
 
 function practiceModule(module: N5Module, targetLevel: TargetLevel) {
   const cachedByLevel = practiceModuleCache.get(module) ?? new Map<TargetLevel, N5Module>();
@@ -45,7 +51,7 @@ function practiceModule(module: N5Module, targetLevel: TargetLevel) {
 }
 
 function useActiveQuestions(fallback: PracticeQuestion[], targetLevel: TargetLevel) {
-  const [questions, setQuestions] = useState(fallback);
+  const [questions, setQuestions] = useState(() => withoutFlaggedQuestions(fallback));
   const [loaded, setLoaded] = useState(Boolean(fallback.length));
   const loadedModule = useContentModule(n5Module, { loadRemote: false });
   const module = useMemo(() => practiceModule(loadedModule, targetLevel), [loadedModule, targetLevel]);
@@ -60,7 +66,7 @@ function useActiveQuestions(fallback: PracticeQuestion[], targetLevel: TargetLev
       const saved = readValidatedQuestionDraft(knownItemIds, knownItemCategories);
       const merged = new Map(active.map((question) => [question.id, question]));
       migrateLegacyQuestionPrompts(saved ?? [], module).forEach((question) => merged.set(question.id, question));
-      setQuestions([...merged.values()]);
+      setQuestions(withoutFlaggedQuestions([...merged.values()]));
       setLoaded(true);
     };
     const cancel = typeof window.requestIdleCallback === "function"

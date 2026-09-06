@@ -500,6 +500,14 @@ test("provisional encounters support in-place review across learner surfaces", a
   surfaces.forEach((surface) => assert.match(surface, /ContentReviewControls/));
 });
 
+test("flagged question reviews stay out of newly built practice queues", async () => {
+  const practice = await readFile(new URL("../components/practice/local-practice.tsx", import.meta.url), "utf8");
+  const mistakes = await readFile(new URL("../components/mistakes/mistake-notebook.tsx", import.meta.url), "utf8");
+  assert.match(practice, /withoutFlaggedQuestions/);
+  assert.match(practice, /status !== "flagged"/);
+  assert.match(mistakes, /origin="mistake-repair"/);
+});
+
 test("practice empty states offer a useful next path", async () => {
   const player = await readFile(new URL("../components/practice/practice-player.tsx", import.meta.url), "utf8");
   assert.match(player, /You&apos;re clear for now/);

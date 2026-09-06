@@ -34,13 +34,13 @@ export function JourneyMap({ nodes, focusLessonId, targetLevel = "N5", world }: 
   }, []);
   const lessonStatus = (node: JourneyNode, index: number) => {
     if (!records || node.kind !== "lesson" || !node.itemIds?.length) return node.status;
+    const previousLesson = [...nodes.slice(0, index)].reverse().find((entry) => entry.kind === "lesson");
+    const previousComplete = Boolean(previousLesson?.itemIds?.length && (readLessonState(previousLesson.id).status === "complete" || previousLesson.itemIds.every((itemId) => records[itemId])));
     const prerequisitesMet = (node.prerequisiteIds ?? []).every((itemId) => Boolean(records[itemId]));
-    if (!prerequisitesMet && node.status === "available") return "locked";
+    if (!prerequisitesMet && node.status === "available" && !previousComplete) return "locked";
     const learned = node.itemIds.filter((itemId) => records[itemId]).length;
     const mastered = node.itemIds.filter((itemId) => records[itemId]?.masteryState === "strong" || (records[itemId]?.streak ?? 0) >= 4).length;
     const lessonComplete = readLessonState(node.id).status === "complete";
-    const previousLesson = [...nodes.slice(0, index)].reverse().find((entry) => entry.kind === "lesson");
-    const previousComplete = Boolean(previousLesson?.itemIds?.length && (readLessonState(previousLesson.id).status === "complete" || previousLesson.itemIds.every((itemId) => records[itemId])));
     if (node.status === "locked" && !lessonComplete && !previousComplete) return node.status;
     if (lessonComplete && node.status === "locked") return mastered === node.itemIds.length ? "mastered" as const : "learned" as const;
     if (node.status === "locked") return "available";
