@@ -12,7 +12,7 @@ import { getModuleItems, readValidatedQuestionDraft } from "@/lib/content-valida
 import { getTopicItemIds, n5Module } from "@/lib/curriculum";
 import { filterExamLevelQuestions } from "@/lib/jlpt-core.js";
 import { getValidatedPracticeQuestions, migrateLegacyQuestionPrompts, selectPracticeQuestions } from "@/lib/questions";
-import { readMistakes, writeDiagnosticResult } from "@/lib/session";
+import { readLessonState, readMistakes, writeDiagnosticResult } from "@/lib/session";
 import { readContentFlags } from "@/lib/content-flags.js";
 import { quickPracticeCount } from "@/lib/study-core.js";
 import type { N5Module, PracticeMode, PracticeQuestion, TargetLevel } from "@/lib/types";
@@ -120,9 +120,14 @@ export function LocalPractice({ allQuestions, mode, duration, focus, section, to
   const sessionId = `practice-${mode}-${targetLevel}-${duration}-${focus ?? "all"}-${section ?? "all"}-${topic ?? "all"}-${repair || "none"}`;
 
   const items = useMemo(() => [...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening], [module]);
+  const currentLessonItemIds = useMemo(() => {
+    const lessons = module.course.chapters.flatMap((chapter) => chapter.lessons);
+    const lesson = lessons.find((entry) => readLessonState(entry.id).status !== "complete") ?? lessons[0];
+    return lesson?.itemIds ?? [];
+  }, [module]);
   useEffect(() => { if (loaded) onReady?.(); }, [loaded, onReady]);
   if (!loaded) return <div className="min-h-80 animate-pulse rounded-xl bg-[#17181d]" aria-label="Loading practice questions" />;
-  if (mode === "kanji-writing") return <KanjiWritingPractice kanji={module.kanji} duration={duration} targetLevel={targetLevel} initialItemId={writingItemId} />;
+  if (mode === "kanji-writing") return <KanjiWritingPractice kanji={module.kanji} duration={duration} targetLevel={targetLevel} initialItemId={writingItemId} lessonItemIds={currentLessonItemIds} />;
   if (mode === "weak") return <WeakPractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} items={items} learnerErrorAggregates={module.learnerErrorAggregates} repairId={repair ? `repair-${repair}` : undefined} sessionId={sessionId} onComplete={onComplete} />;
   if (mode === "pass") return <AdaptivePractice questions={filterExamLevelQuestions(focusQuestions, targetLevel)} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} items={items} learnerErrorAggregates={module.learnerErrorAggregates} limit={13} passMode sessionId={sessionId} onComplete={onComplete} />;
   if (mode === "quick") return <AdaptivePractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} items={items} learnerErrorAggregates={module.learnerErrorAggregates} limit={quickCount} sessionId={sessionId} onComplete={onComplete} />;

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-import { advanceWritingState, getComponentQuizOptions, getJishoKanjiUrl, getKanjiVgUrl, getStrokeStartPoint, getStrokeQuizOptions, getWordWritingCharacters, normalizeStrokeData, evaluateStrokeOrder } from "../lib/kanji-writing-core.js";
+import { advanceWritingState, getComponentQuizOptions, getJishoKanjiUrl, getKanjiVgUrl, getStrokeStartPoint, getStrokeQuizOptions, getWordWritingCharacters, normalizeStrokeData, prioritizeKanjiWritingItems, evaluateStrokeOrder } from "../lib/kanji-writing-core.js";
 
 test("kanji writing helpers keep source URLs and stroke order deterministic", () => {
   assert.equal(getJishoKanjiUrl("駅"), "https://jisho.org/search/%E9%A7%85%20%23kanji");
@@ -27,6 +27,15 @@ test("kanji writing helpers keep source URLs and stroke order deterministic", ()
   assert.deepEqual(getComponentQuizOptions([{ element: "木", strokeOrders: [1] }]), []);
   assert.deepEqual(getWordWritingCharacters("学校", ["学", "校", "人"]), ["学", "校"]);
   assert.deepEqual(getWordWritingCharacters("学生", ["学"]), []);
+  const writingItems = [{ id: "kanji-lesson" }, { id: "kanji-mistake" }, { id: "kanji-due" }, { id: "kanji-unwritten" }];
+  assert.deepEqual(prioritizeKanjiWritingItems(writingItems, {
+    initialItemId: "kanji-lesson",
+    lessonItemIds: ["kanji-lesson"],
+    reviewRecords: { "kanji-due": { dueAt: 1 }, "kanji-mistake": { dueAt: 9999999999999 } },
+    mistakes: { "kanji-mistake": { count: 2 } },
+    writingProgress: { "kanji-lesson": { state: "written-from-memory" } },
+    now: 100,
+  }).map((item) => item.id), ["kanji-lesson", "kanji-mistake", "kanji-due", "kanji-unwritten"]);
   assert.equal(advanceWritingState("watched", "traced"), "traced");
   assert.equal(advanceWritingState("written-from-memory", "watched"), "written-from-memory");
 });
@@ -66,8 +75,10 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(practice, /KanjiWritingTrainer/);
   assert.match(practice, /KanjiWritingTrainer key=\{current\.id\}/);
   assert.match(practice, /initialItemId/);
+  assert.match(practice, /prioritized from your lesson/);
   assert.match(practicePage, /kanji-writing/);
   assert.match(localPractice, /KanjiWritingPractice/);
+  assert.match(localPractice, /lessonItemIds=\{currentLessonItemIds\}/);
   assert.match(accountSync, /michi-kanji-writing-updated/);
   assert.match(dashboard, /Kanji writing data/);
   assert.match(dashboard, /manifest\.version/);
