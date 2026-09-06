@@ -33,7 +33,7 @@ intent. Counts come from `data/staging/kizashi-n5-source-review.json.gz`.
 Legend: `[x]` implemented, `[~]` partially implemented or needs broader
 coverage/verification, `[ ]` not implemented.
 
-- [x] 2026-09-06 provider-enrichment patch — Learn’s Marugoto Plus follow-up now shows its mapped provider-hosted Can-do activity catalog with source level, JLPT relevance, modality, local opened tracking, and an iframe; the private frame-unlocker handles `a1.marugotoweb.jp`’s frame-blocking headers, with the direct provider source retained as fallback.
+- [x] 2026-09-06 provider-enrichment patch — Learn’s Marugoto Plus follow-up now shows its mapped provider-hosted Can-do activity catalog with source level, JLPT relevance, modality, local opened tracking, and an iframe; the frame panel names the private `browser/kizashi-private-frame-unlocker` reload path for `a1.marugotoweb.jp`’s frame-blocking headers, with the direct provider source retained as fallback.
 
 ### Current evidence
 

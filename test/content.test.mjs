@@ -531,6 +531,7 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(viewer, /Open original source/);
   assert.match(viewer, /const canFrame = canEmbedExternalSource\(source\.mediaDelivery\)/);
   assert.match(viewer, /const canRender = canEmbedExternalSource\(source\.mediaDelivery\) \|\| \(canPlayExternalSourceMedia\(source\.mediaDelivery\) && Boolean\(source\.mediaUrl\)\)/);
+  assert.match(viewer, /kizashi-private-frame-unlocker/);
   assert.doesNotMatch(viewer, /\{source\.mediaDelivery === "link-only" \? <p[^>]*>This provider does not allow in-app framing/);
   assert.match(viewer, /View here/);
   assert.match(viewer, /role="dialog"/);
