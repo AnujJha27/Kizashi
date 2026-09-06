@@ -6,7 +6,7 @@ import { advanceWritingState, getJishoKanjiUrl, getKanjiVgUrl, getStrokeStartPoi
 
 test("kanji writing helpers keep source URLs and stroke order deterministic", () => {
   assert.equal(getJishoKanjiUrl("駅"), "https://jisho.org/search/%E9%A7%85%20%23kanji");
-  assert.equal(getKanjiVgUrl("駅"), "https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/099c5.svg");
+  assert.equal(getKanjiVgUrl("駅"), "https://raw.githubusercontent.com/KanjiVG/kanjivg/r20260714/kanji/099c5.svg");
   assert.deepEqual(getStrokeStartPoint("M11,54.25c3.19,0.62"), { x: 11, y: 54.25 });
   assert.equal(getStrokeStartPoint("not-a-path"), null);
   assert.deepEqual(normalizeStrokeData({ character: "駅", strokes: [{ order: 1, path: "M1 1" }, { order: 2, path: "M2 2" }] }), { character: "駅", strokes: [{ order: 1, path: "M1 1" }, { order: 2, path: "M2 2" }] });
@@ -48,10 +48,12 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(mistakes, /Writing repair/);
   assert.match(mistakes, /mode=kanji-writing&item=/);
   assert.match(importer, /canonical_characters/);
+  assert.match(importer, /r20260714/);
   assert.match(importer, /kizashi-n5-source-review\.json/);
   assert.match(importer, /KanjiVG/);
   assert.ok(manifest.host_permissions.includes("https://jisho.org/*"));
   const strokes = JSON.parse(await readFile(new URL("../data/kanjivg-strokes.json", import.meta.url), "utf8"));
+  assert.equal(strokes.version, "r20260714");
   assert.equal(Object.keys(strokes.characters).length, 254);
   assert.ok(Object.values(strokes.characters).every((record) => record.strokes.every((stroke, index) => stroke.order === index + 1 && stroke.path)));
 });
