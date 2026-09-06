@@ -507,6 +507,7 @@ test("provisional encounters support in-place review across learner surfaces", a
   surfaces.forEach((surface) => assert.match(surface, /ContentReviewControls/));
   assert.match(surfaces[1], /editValue=\{activeWord\.meanings\.join\(" · "\)\}/);
   assert.match(surfaces[2], /editValue=\{item\.meanings\.join\(" · "\)\}/);
+  assert.match(await readFile(new URL("../components/mistakes/mistake-notebook.tsx", import.meta.url), "utf8"), /editValue=\{item\.category === "grammar"/);
   assert.match(await readFile(new URL("../components/content/use-content-module.ts", import.meta.url), "utf8"), /michi-content-flagged-updated/);
   assert.match(await readFile(new URL("../components/practice/practice-player.tsx", import.meta.url), "utf8"), /questionOptions/);
 });
