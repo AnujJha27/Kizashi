@@ -41,6 +41,8 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(dashboard, /Kanji writing data/);
   assert.match(dashboard, /manifest\.version/);
   assert.match(dashboard, /manifest\.license/);
+  assert.match(dashboard, /manifest\.sourceUrl/);
+  assert.match(dashboard, /manifest\.attribution/);
   const contentStudio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
   assert.match(dashboard, /kanjiStrokeData/);
   assert.match(dashboard, /stroke-count mismatch/);
@@ -57,6 +59,8 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.ok(manifest.host_permissions.includes("https://jisho.org/*"));
   const strokes = JSON.parse(await readFile(new URL("../data/kanjivg-strokes.json", import.meta.url), "utf8"));
   assert.equal(strokes.version, "r20260714");
+  assert.equal(strokes.sourceUrl, "https://github.com/KanjiVG/kanjivg");
+  assert.equal(strokes.attribution, "KanjiVG contributors");
   assert.equal(Object.keys(strokes.characters).length, 254);
   assert.ok(Object.values(strokes.characters).every((record) => record.strokes.every((stroke, index) => stroke.order === index + 1 && stroke.path)));
 });

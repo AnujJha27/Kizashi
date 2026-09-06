@@ -10,6 +10,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 KANJIVG_VERSION = "r20260714"
+KANJIVG_SOURCE_URL = "https://github.com/KanjiVG/kanjivg"
 KANJIVG_URL = f"https://raw.githubusercontent.com/KanjiVG/kanjivg/{KANJIVG_VERSION}/kanji/{{code}}.svg"
 SOURCE_FILES = (
     "n5-foundations.json",
@@ -85,6 +86,7 @@ def main() -> None:
 
     payload = {
         "source": "KanjiVG",
+        "sourceUrl": KANJIVG_SOURCE_URL,
         "license": "CC BY-SA 3.0",
         "attribution": "KanjiVG contributors",
         "version": KANJIVG_VERSION,
