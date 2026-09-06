@@ -16,7 +16,8 @@
     "https://www.japanesepod101.com/*",
     "https://marugotoweb.jp/*",
     "https://*.marugotoweb.jp/*",
-    "https://a1.marugotoweb.jp/*"
+    "https://a1.marugotoweb.jp/*",
+    "https://jisho.org/*"
   ],
   "declarative_net_request": {
     "rule_resources": [

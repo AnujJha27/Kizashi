@@ -219,6 +219,15 @@ button, a, input { outline-color: var(--gold); outline-offset: 3px; }
   mix-blend-mode: screen;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .kanji-stroke-current { animation: kanji-stroke-pulse 850ms ease-in-out infinite alternate; }
+}
+
+@keyframes kanji-stroke-pulse {
+  from { opacity: .7; }
+  to { opacity: 1; }
+}
+
 .seal {
   display: grid;
   width: 3.25rem;

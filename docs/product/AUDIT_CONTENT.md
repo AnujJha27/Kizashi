@@ -1554,6 +1554,7 @@ Do not teach words as isolated translation pairs only.
 
 - [x] The same lexical union reports N5 125 kanji records (80 covered, 45 partial, 0 missing) and N4 166 records (2 covered, 159 partial, 5 missing), with multi-source, ambiguity, level-disagreement, and useful-word depth fields.
 - [~] The authored package now gives all 81 N5 kanji a 3-word useful-word teaching set; the two N4 bridge kanji in the N5 package also meet that depth. The registry's 3+ metric is review-visible, while native-speaker review of those examples and the full N4 path remain open.
+- [~] Kanji Entry pages now expose the native Watch/Trace/Write trainer shell, pointer input, step/reset/undo/clear controls, KanjiVG source validation helpers, and lazy Jisho/Tanoshii references through the shared source viewer. `scripts/import_kanjivg.py` is ready to build the canonical local dataset, but the checked-in manifest has no stroke paths until the public KanjiVG download is permitted; coverage and stroke-count audits therefore remain open.
 
 Do not acquire another giant kanji source.
 
