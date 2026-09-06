@@ -6,6 +6,7 @@ import { useContentModule } from "@/components/content/use-content-module";
 import { AdaptivePractice } from "@/components/practice/adaptive-practice";
 import { PracticePlayer } from "@/components/practice/practice-player";
 import { WeakPractice } from "@/components/practice/weak-practice";
+import { KanjiWritingPractice } from "@/components/practice/kanji-writing-practice";
 import { getReadingEntriesForTexts } from "@/components/learning/japanese-text";
 import { getModuleItems, readValidatedQuestionDraft } from "@/lib/content-validation";
 import { getTopicItemIds, n5Module } from "@/lib/curriculum";
@@ -114,6 +115,7 @@ export function LocalPractice({ allQuestions, mode, duration, focus, section, to
   const items = useMemo(() => [...module.vocabulary, ...module.kanji, ...module.grammar, ...module.readings, ...module.listening], [module]);
   useEffect(() => { if (loaded) onReady?.(); }, [loaded, onReady]);
   if (!loaded) return <div className="min-h-80 animate-pulse rounded-xl bg-[#17181d]" aria-label="Loading practice questions" />;
+  if (mode === "kanji-writing") return <KanjiWritingPractice kanji={module.kanji} duration={duration} targetLevel={targetLevel} />;
   if (mode === "weak") return <WeakPractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} items={items} learnerErrorAggregates={module.learnerErrorAggregates} repairId={repair ? `repair-${repair}` : undefined} sessionId={sessionId} onComplete={onComplete} />;
   if (mode === "pass") return <AdaptivePractice questions={filterExamLevelQuestions(focusQuestions, targetLevel)} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} items={items} learnerErrorAggregates={module.learnerErrorAggregates} limit={13} passMode sessionId={sessionId} onComplete={onComplete} />;
   if (mode === "quick") return <AdaptivePractice questions={questions} vocabulary={module.vocabulary} kanji={module.kanji} readingEntries={readingEntries} items={items} learnerErrorAggregates={module.learnerErrorAggregates} limit={quickCount} sessionId={sessionId} onComplete={onComplete} />;

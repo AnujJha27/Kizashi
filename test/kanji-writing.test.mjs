@@ -15,12 +15,18 @@ test("kanji writing helpers keep source URLs and stroke order deterministic", ()
 
 test("kanji writing surfaces keep the trainer native and references lazy", async () => {
   const trainer = await readFile(new URL("../components/learning/kanji-writing-trainer.tsx", import.meta.url), "utf8");
+  const practice = await readFile(new URL("../components/practice/kanji-writing-practice.tsx", import.meta.url), "utf8").catch(() => "");
+  const practicePage = await readFile(new URL("../app/(main)/practice/page.tsx", import.meta.url), "utf8");
+  const localPractice = await readFile(new URL("../components/practice/local-practice.tsx", import.meta.url), "utf8");
   const entry = await readFile(new URL("../components/library/entry-detail.tsx", import.meta.url), "utf8");
   const importer = await readFile(new URL("../scripts/import_kanjivg.py", import.meta.url), "utf8");
   const manifest = JSON.parse(await readFile(new URL("../browser/kizashi-private-frame-unlocker/manifest.json", import.meta.url), "utf8"));
   assert.match(trainer, /onPointerDown/);
   assert.match(trainer, /Write from memory/);
   assert.match(trainer, /ExternalSourceViewer source=\{jishoSource\}/);
+  assert.match(practice, /KanjiWritingTrainer/);
+  assert.match(practicePage, /kanji-writing/);
+  assert.match(localPractice, /KanjiWritingPractice/);
   assert.match(entry, /KanjiWritingTrainer item=\{item\}/);
   assert.match(importer, /canonical_characters/);
   assert.match(importer, /KanjiVG/);
