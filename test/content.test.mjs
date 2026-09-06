@@ -629,8 +629,8 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(styles, /\.lesson-layout \{ display: flex; width: 100%; min-width: 0; flex-direction: column; align-items: stretch; gap: 1\.5rem; \}/);
   assert.match(styles, /\.lesson-summary \{ align-self: start; height: max-content; min-height: 0; width: 100%; max-width: 100%; overflow-x: hidden;/);
   assert.match(await readFile(new URL("../components/journey/lesson-progress.tsx", import.meta.url), "utf8"), /flex min-w-0 flex-wrap justify-between/);
-  assert.match(styles, /\.japanese-text rt \{ line-height: 1\.15; font-size: max\(\.85em, \.8rem\);/);
-  assert.match(styles, /\.reading-panel rt \{ line-height: 1\.15; font-size: max\(\.85em, \.8rem\);/);
+  assert.match(styles, /\.japanese-text rt \{ line-height: 1\.15; font-size: max\(\.9em, 1rem\);/);
+  assert.match(styles, /\.reading-panel rt \{ line-height: 1\.15; font-size: max\(\.9em, 1rem\);/);
   assert.doesNotMatch(await readFile(new URL("../components/learning/japanese-text.tsx", import.meta.url), "utf8"), /text-\[\.68em\]/);
   assert.doesNotMatch(await readFile(new URL("../components/learning/reading-panel.tsx", import.meta.url), "utf8"), /text-\[\.68em\]/);
   assert.match(styles, /\.app-sidebar,\n\.app-header/);
