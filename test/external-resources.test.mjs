@@ -101,6 +101,9 @@ test("provider entries expose bounded activity metadata without collapsing sourc
   assert.match(surface, /source\.catalog\.map/);
   assert.match(marugotoCard, /source\.catalog\?\.length/);
   assert.match(marugotoCard, /markExternalSourceOpened\(`\$\{source\.id\}:\$\{entry\.id\}`\)/);
+  assert.match(marugotoCard, /selectedEntry/);
+  assert.match(marugotoCard, /frameUrl: selectedEntry\.url/);
+  assert.match(marugotoCard, /ExternalSourceViewer source=\{selectedSource\}/);
   assert.match(surface, /navigator\.onLine/);
   assert.match(surface, /addEventListener\("offline"/);
   assert.match(surface, /Online connection required/);
