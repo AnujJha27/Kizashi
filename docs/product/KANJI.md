@@ -2171,4 +2171,4 @@ secondary stroke reference
 Do not force the learner to leave Kizashi for normal kanji lookup when the configured browser is already capable of embedding Jisho.
 ## Implementation checkpoint · 2026-09-06
 
-Kanji writing now exposes the same provisional encounter review controls as Library and Learn, while the real KanjiVG trainer and Jisho iframe/fallback remain intact. Kanji misses route directly to the writing repair target and each practice card resets its trainer state. Promoting the larger staged kanji reservoir and attaching stroke data for every promoted character remain open.
+Kanji writing now exposes the same provisional encounter review controls as Library and Learn, with the encountered meaning prefilled for correction, while the real KanjiVG trainer and Jisho iframe/fallback remain intact. Kanji misses route directly to the writing repair target and each practice card resets its trainer state. Promoting the larger staged kanji reservoir and attaching stroke data for every promoted character remain open.
