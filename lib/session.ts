@@ -352,8 +352,10 @@ export function readLessonState(lessonId = defaultLessonState.lessonId): Current
   const initialState = { ...defaultLessonState, lessonId };
   if (typeof window === "undefined") return initialState;
   try {
-    const value = window.localStorage.getItem(lessonStorageKey(lessonId)) ?? (lessonId === defaultLessonState.lessonId ? window.localStorage.getItem(CURRENT_LESSON_STORAGE_KEY) : null);
-    return value ? { ...initialState, ...JSON.parse(value), lessonId } : initialState;
+    const lessonState = storedJson(lessonStorageKey(lessonId));
+    const legacy = storedJson(CURRENT_LESSON_STORAGE_KEY) as Partial<CurrentLessonState> | undefined;
+    const value = lessonState ?? (legacy?.lessonId === lessonId ? legacy : undefined);
+    return value && typeof value === "object" && !Array.isArray(value) ? { ...initialState, ...(value as Partial<CurrentLessonState>), lessonId } : initialState;
   } catch {
     return initialState;
   }

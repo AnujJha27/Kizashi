@@ -75,12 +75,16 @@ test("Journey, Today, and Learn consume their own visual roles", async () => {
 });
 
 test("completed lessons unlock the first lesson in the next chapter", async () => {
-  const journeyMap = await readFile(new URL("../components/journey/journey-map.tsx", import.meta.url), "utf8");
+  const [journeyMap, session] = await Promise.all([
+    readFile(new URL("../components/journey/journey-map.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../lib/session.ts", import.meta.url), "utf8"),
+  ]);
   assert.match(journeyMap, /previousComplete = Boolean/);
   assert.match(journeyMap, /readLessonState\(previousLesson\.id\)\.status === "complete"/);
   assert.match(journeyMap, /readLessonState\(node\.id\)\.status === "complete"/);
   assert.match(journeyMap, /addEventListener\("michi-lesson-updated", refresh\)/);
   assert.match(journeyMap, /node\.status === "locked"\) return "available"/);
+  assert.match(session, /legacy\?\.lessonId === lessonId/);
 });
 
 test("Journey and profile scenery use raster images instead of SVG art", async () => {
