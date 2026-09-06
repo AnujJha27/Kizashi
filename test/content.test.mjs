@@ -584,7 +584,7 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(styles, /\.lesson-summary > \.mt-6 > div > div > span:last-child { flex-shrink: 0; text-align: right; }/);
   assert.match(lesson, /className="lesson-summary surface-panel min-w-0 h-fit min-h-0/);
   assert.doesNotMatch(lesson, /<aside className="lesson-summary/);
-  assert.doesNotMatch(lesson, /lg:grid-cols-\[minmax\(0,1fr\)_minmax\(0,\.7fr\)\]/);
+  assert.doesNotMatch(lesson, /xl:grid-cols-1 2xl:grid-cols-\[minmax\(0,1fr\)_minmax\(0,\.7fr\)\]/);
 });
 
 test("Studio exposes every pending question through a searchable paged review queue", async () => {
