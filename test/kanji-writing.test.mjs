@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-import { advanceWritingState, getComponentQuizOptions, getJishoKanjiUrl, getKanjiVgUrl, getStrokeStartPoint, getStrokeQuizOptions, normalizeStrokeData, evaluateStrokeOrder } from "../lib/kanji-writing-core.js";
+import { advanceWritingState, getComponentQuizOptions, getJishoKanjiUrl, getKanjiVgUrl, getStrokeStartPoint, getStrokeQuizOptions, getWordWritingCharacters, normalizeStrokeData, evaluateStrokeOrder } from "../lib/kanji-writing-core.js";
 
 test("kanji writing helpers keep source URLs and stroke order deterministic", () => {
   assert.equal(getJishoKanjiUrl("駅"), "https://jisho.org/search/%E9%A7%85%20%23kanji");
@@ -25,6 +25,8 @@ test("kanji writing helpers keep source URLs and stroke order deterministic", ()
     { element: "尺", position: "right", correct: false },
   ]);
   assert.deepEqual(getComponentQuizOptions([{ element: "木", strokeOrders: [1] }]), []);
+  assert.deepEqual(getWordWritingCharacters("学校", ["学", "校", "人"]), ["学", "校"]);
+  assert.deepEqual(getWordWritingCharacters("学生", ["学"]), []);
   assert.equal(advanceWritingState("watched", "traced"), "traced");
   assert.equal(advanceWritingState("written-from-memory", "watched"), "written-from-memory");
 });
@@ -44,6 +46,7 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   const dashboard = await readFile(new URL("../components/content/kanji-writing-audit.tsx", import.meta.url), "utf8");
   const mistakes = await readFile(new URL("../components/mistakes/mistake-notebook.tsx", import.meta.url), "utf8");
   const entry = await readFile(new URL("../components/library/entry-detail.tsx", import.meta.url), "utf8");
+  const wordWriting = await readFile(new URL("../components/learning/kanji-word-writing.tsx", import.meta.url), "utf8");
   const importer = await readFile(new URL("../scripts/import_kanjivg.py", import.meta.url), "utf8");
   const manifest = JSON.parse(await readFile(new URL("../browser/kizashi-private-frame-unlocker/manifest.json", import.meta.url), "utf8"));
   assert.match(trainer, /onPointerDown/);
@@ -90,6 +93,9 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(seed, /"id":"kanji-hito".*?"confusableKanji":\["入"\]/);
   assert.match(seed, /"id":"kanji-migi".*?"confusableKanji":\["左"\]/);
   assert.match(entry, /KanjiWritingTrainer item=\{item\}/);
+  assert.match(entry, /KanjiWordWriting words=\{item\.usefulWords\}/);
+  assert.match(wordWriting, /Write a useful word/);
+  assert.match(wordWriting, /Next character/);
   assert.match(mistakes, /Writing repair/);
   assert.match(mistakes, /mode=kanji-writing&item=/);
   assert.match(importer, /canonical_characters/);
