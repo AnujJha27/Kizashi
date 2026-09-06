@@ -70,6 +70,8 @@ test("the source manifest registers authored grammar provenance IDs", async () =
 
 test("source coverage distinguishes selective links from package provenance", async () => {
   const component = await readFile(new URL("../components/content/source-coverage.tsx", import.meta.url), "utf8");
+  assert.match(component, /const unresolved = items\.filter/);
+  assert.match(component, /provenance\.unresolved === 0/);
   assert.match(component, /const unknownIds = \[\.\.\.new Set/);
   assert.match(component, /Unknown source IDs: \{unknownIds/);
   assert.match(component, /Alternative source links are selective/);

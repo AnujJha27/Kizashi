@@ -38,7 +38,8 @@ function modalityCoverage(items: LessonContentItem[]) {
 function packageProvenance(items: LessonContentItem[], sources: readonly ContentSource[]) {
   const knownSources = new Set(sources.map((source) => source.id));
   const connected = items.filter((item) => item.sourceIds?.some((sourceId) => knownSources.has(sourceId))).length;
-  return { connected, total: items.length };
+  const unresolved = items.filter((item) => !item.sourceIds?.length || item.sourceIds.some((sourceId) => !knownSources.has(sourceId))).length;
+  return { connected, total: items.length, unresolved };
 }
 
 function ProvenanceGaps({ items, sources }: Readonly<{ items: LessonContentItem[]; sources: readonly ContentSource[] }>) {
@@ -67,7 +68,7 @@ export function SourceCoverage({ items, sources = contentSources }: Readonly<{ i
   }), [items]);
   const modality = useMemo(() => modalityCoverage(items), [items]);
   const provenance = useMemo(() => packageProvenance(items, sources), [items, sources]);
-  const provenanceComplete = provenance.connected === provenance.total;
+  const provenanceComplete = provenance.unresolved === 0;
 
   return <section className="rounded-xl border border-white/10 bg-[#0d1522]/65 p-4"><div className="flex flex-wrap items-end justify-between gap-2"><div><p className="eyebrow">Source coverage</p><h2 className="mt-1 text-lg font-medium text-[#f5f5f2]">{provenanceComplete ? "Everything is connected" : "What is connected to this package"}</h2></div><p className="text-[11px] text-[#676c75]">Computed from current mappings and registry data</p></div><p className="mt-2 text-xs text-[#9297a1]">{provenance.connected} / {provenance.total} package records have registered provenance. Alternative source links are selective references, not package-source requirements.</p><div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4"><CoverageValue label="Package provenance" value={`${provenance.connected} / ${provenance.total}`} /><CoverageValue label="Tae Kim · optional links" value={ratio(coverage.grammar.taeKim)} /><CoverageValue label="Wikibooks · optional links" value={ratio(coverage.grammar.wikibooks)} /><CoverageValue label="Irodori · optional links" value={ratio(coverage.grammar.irodori)} /><CoverageValue label="Lingua Libre · vocabulary" value={`On demand · ${coverage.vocabulary.commons.total} targets`} /><CoverageValue label="Irodori · practical overlap" value={ratio(coverage.irodori)} /><CoverageValue label="Tadoku · shelf" value={`${coverage.reading.tadoku} resources`} /><CoverageValue label="Aozora · native reading" value={coverage.reading.aozora ? "Enabled" : "Unavailable"} /></div><div className="mt-4 border-t border-white/10 pt-4"><p className="text-[10px] font-semibold uppercase tracking-[.12em] text-[#e5b85c]">Learning modality coverage</p><div className="mt-2 grid gap-1 text-xs text-[#c3c7ce] sm:grid-cols-2">{modality.map((value) => <p key={value}>{value}</p>)}</div></div><ProvenanceGaps items={items} sources={sources} /></section>;
 }
