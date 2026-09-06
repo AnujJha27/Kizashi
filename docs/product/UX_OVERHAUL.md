@@ -6398,3 +6398,5 @@ If the answer to the last question is no, the visual identity is still too gener
 ## Implementation checkpoint · 2026-09-06
 
 The learner-facing review loop is now attached to the existing study surfaces: provisional cards can be marked `Looks good` or flagged with a reason without leaving the activity, while practice questions expose post-answer review choices. Vocabulary/kanji meanings, grammar explanations, and answered question choices can also be corrected in place; Reading word inspection and Kanji writing prefill the encountered meaning, and those edits are local-first, synced through the existing account snapshot path, and reapplied without restarting the active learner module. Vocabulary answer cards use the larger meaning/example/translation type tier and the shared furigana renderer now keeps readings at a 1rem minimum. Complex metadata still routes to Studio.
+
+Kanji now has a Library-resident `漢字帳` view with current-journey, level, writing-due, weak, recent, and not-written filters. Its compact cards keep one primary reading visible with stroke count, meaning, writing state, and a direct Write action; the full trainer remains on the entry page.

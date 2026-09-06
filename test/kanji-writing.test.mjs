@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-import { advanceWritingState, getComponentQuizOptions, getJishoKanjiUrl, getKanjiVgUrl, getStrokeStartPoint, getStrokeQuizOptions, getWordWritingCharacters, normalizeStrokeData, prioritizeKanjiWritingItems, evaluateStrokeOrder } from "../lib/kanji-writing-core.js";
+import { advanceWritingState, getComponentQuizOptions, getJishoKanjiUrl, getKanjiVgUrl, getStrokeStartPoint, getStrokeQuizOptions, getWordWritingCharacters, matchesKanjiNotebookFilter, normalizeStrokeData, prioritizeKanjiWritingItems, evaluateStrokeOrder } from "../lib/kanji-writing-core.js";
 
 test("kanji writing helpers keep source URLs and stroke order deterministic", () => {
   assert.equal(getJishoKanjiUrl("駅"), "https://jisho.org/search/%E9%A7%85%20%23kanji");
@@ -38,6 +38,19 @@ test("kanji writing helpers keep source URLs and stroke order deterministic", ()
   }).map((item) => item.id), ["kanji-lesson", "kanji-mistake", "kanji-due", "kanji-unwritten"]);
   assert.equal(advanceWritingState("watched", "traced"), "traced");
   assert.equal(advanceWritingState("written-from-memory", "watched"), "written-from-memory");
+  const notebookItems = [{ id: "kanji-current", category: "kanji" }, { id: "kanji-weak", category: "kanji" }, { id: "kanji-new", category: "kanji" }];
+  const notebookSignals = {
+    lessonItemIds: ["kanji-current"],
+    reviewRecords: { "kanji-weak": { masteryState: "learning" }, "kanji-new": { lastReviewedAt: 9_999 } },
+    mistakes: { "kanji-weak": { count: 2 } },
+    writingProgress: { "kanji-current": { state: "traced" } },
+    now: 10_000,
+  };
+  assert.equal(matchesKanjiNotebookFilter(notebookItems[0], "current", notebookSignals), true);
+  assert.equal(matchesKanjiNotebookFilter(notebookItems[0], "writing-due", notebookSignals), true);
+  assert.equal(matchesKanjiNotebookFilter(notebookItems[1], "weak", notebookSignals), true);
+  assert.equal(matchesKanjiNotebookFilter(notebookItems[2], "recently-learned", notebookSignals), true);
+  assert.equal(matchesKanjiNotebookFilter(notebookItems[2], "not-written", notebookSignals), true);
 });
 
 test("current canonical kanji expose owner-editable provisional comparisons", async () => {
@@ -56,6 +69,7 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   const mistakes = await readFile(new URL("../components/mistakes/mistake-notebook.tsx", import.meta.url), "utf8");
   const entry = await readFile(new URL("../components/library/entry-detail.tsx", import.meta.url), "utf8");
   const wordWriting = await readFile(new URL("../components/learning/kanji-word-writing.tsx", import.meta.url), "utf8");
+  const library = await readFile(new URL("../components/library/library-browser.tsx", import.meta.url), "utf8");
   const importer = await readFile(new URL("../scripts/import_kanjivg.py", import.meta.url), "utf8");
   const manifest = JSON.parse(await readFile(new URL("../browser/kizashi-private-frame-unlocker/manifest.json", import.meta.url), "utf8"));
   assert.match(trainer, /onPointerDown/);
@@ -107,6 +121,12 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(entry, /KanjiWordWriting words=\{item\.usefulWords\}/);
   assert.match(wordWriting, /Write a useful word/);
   assert.match(wordWriting, /Next character/);
+  assert.match(library, /Kanji notebook/);
+  assert.match(library, /Current journey/);
+  assert.match(library, /Writing due/);
+  assert.match(library, /Not written yet/);
+  assert.match(library, /Writing: /);
+  assert.match(library, /mode=kanji-writing&item=/);
   assert.match(mistakes, /Writing repair/);
   assert.match(mistakes, /mode=kanji-writing&item=/);
   assert.match(importer, /canonical_characters/);

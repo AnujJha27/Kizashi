@@ -935,6 +935,8 @@ Recently learned
 Not written yet
 ```
 
+Current implementation: Library exposes a `漢字帳 · Kanji notebook` filter plus current-journey, N5/N4, writing-due, weak, recently-learned, and not-written views. The filters read the existing lesson, review, mistake, and writing-familiarity state; this remains inside Library rather than adding primary navigation.
+
 ---
 
 # K35. KANJI CARD
@@ -957,6 +959,8 @@ Traced
 ```
 
 Do not clutter the normal card with every reading.
+
+Current implementation: Kanji Library cards show one primary reading, meaning, stroke count, writing state, and a direct `Write` action. Full readings and the complete trainer remain on the entry page.
 
 ---
 
