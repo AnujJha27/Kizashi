@@ -20,7 +20,7 @@ function pointFor(event: PointerEvent<SVGSVGElement>): Point {
 }
 
 export function KanjiWritingTrainer({ item }: Readonly<{ item: KanjiItem }>) {
-  const strokeData = useMemo<StrokeData | null>(() => normalizeStrokeData((kanjiStrokeData.characters as Record<string, unknown>)[item.character]) as StrokeData | null, [item.character]);
+  const strokeData = useMemo<StrokeData | null>(() => normalizeStrokeData((kanjiStrokeData.characters as Record<string, unknown>)[item.character], item.character) as StrokeData | null, [item.character]);
   const [mode, setMode] = useState<Mode>("watch");
   const [activeStroke, setActiveStroke] = useState(0);
   const [playing, setPlaying] = useState(false);

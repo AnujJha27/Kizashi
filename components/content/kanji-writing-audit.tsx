@@ -9,10 +9,10 @@ export function KanjiWritingAudit({ module }: Readonly<{ module: N5Module }>) {
   const records = manifest.characters;
   const levels = (["N5", "N4"] as const).map((level) => {
     const items = module.kanji.filter((item) => item.jlptLevel === level);
-    const withStrokeData = items.filter((item) => normalizeStrokeData(records[item.character]));
+    const withStrokeData = items.filter((item) => normalizeStrokeData(records[item.character], item.character));
     const missing = items.filter((item) => !withStrokeData.includes(item)).map((item) => item.character);
     const mismatches = items.filter((item) => {
-      const record = normalizeStrokeData(records[item.character]);
+      const record = normalizeStrokeData(records[item.character], item.character);
       return record && Number.isInteger(item.strokeCount) && record.strokes.length !== item.strokeCount;
     }).map((item) => item.character);
     return { level, total: items.length, covered: withStrokeData.length, enabled: withStrokeData.length, missing, mismatches };

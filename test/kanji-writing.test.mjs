@@ -10,6 +10,7 @@ test("kanji writing helpers keep source URLs and stroke order deterministic", ()
   assert.deepEqual(getStrokeStartPoint("M11,54.25c3.19,0.62"), { x: 11, y: 54.25 });
   assert.equal(getStrokeStartPoint("not-a-path"), null);
   assert.deepEqual(normalizeStrokeData({ character: "駅", strokes: [{ order: 1, path: "M1 1" }, { order: 2, path: "M2 2" }] }), { character: "駅", strokes: [{ order: 1, path: "M1 1" }, { order: 2, path: "M2 2" }] });
+  assert.equal(normalizeStrokeData({ character: "学", strokes: [{ order: 1, path: "M1 1" }] }, "駅"), null);
   assert.equal(normalizeStrokeData({ character: "駅", strokes: [{ order: 2, path: "M1 1" }] }), null);
   assert.deepEqual(evaluateStrokeOrder(2, 1), { ok: false, message: "This should be stroke 2" });
   assert.deepEqual(evaluateStrokeOrder(2, 2), { ok: true, message: "Good" });
