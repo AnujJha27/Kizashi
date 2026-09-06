@@ -671,6 +671,15 @@ export function readAutoPlayAudio() {
   }
 }
 
+export function readShowProvisionalReviewControls() {
+  if (typeof window === "undefined") return true;
+  try {
+    return JSON.parse(window.localStorage.getItem(PROFILE_PREFERENCES_STORAGE_KEY) ?? "{}").showProvisionalReviewControls !== false;
+  } catch {
+    return true;
+  }
+}
+
 export function readAnswerLeniency(): AnswerLeniency {
   if (typeof window === "undefined") return "kana";
   try {

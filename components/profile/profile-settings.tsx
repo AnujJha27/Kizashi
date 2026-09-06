@@ -16,12 +16,13 @@ interface Preferences {
   furiganaMode: FuriganaMode;
   answerLeniency: AnswerLeniency;
   autoPlayAudio: boolean;
+  showProvisionalReviewControls: boolean;
   availableStudyDays: number[];
   restDays: number[];
   interestTopics: string[];
 }
 
-const defaultPreferences: Preferences = { displayName: "", targetLevel: "N5", dailyMinutes: "10", examDate: "", paused: false, furiganaMode: "always", answerLeniency: "kana", autoPlayAudio: false, availableStudyDays: [1, 2, 3, 4, 5], restDays: [], interestTopics: [] };
+const defaultPreferences: Preferences = { displayName: "", targetLevel: "N5", dailyMinutes: "10", examDate: "", paused: false, furiganaMode: "always", answerLeniency: "kana", autoPlayAudio: false, showProvisionalReviewControls: true, availableStudyDays: [1, 2, 3, 4, 5], restDays: [], interestTopics: [] };
 const days = [[1, "Mon"], [2, "Tue"], [3, "Wed"], [4, "Thu"], [5, "Fri"], [6, "Sat"], [0, "Sun"]] as const;
 
 export function ProfileSettings() {
@@ -105,6 +106,10 @@ export function ProfileSettings() {
               <span className="block text-[#f5f5f2]">Auto-play practice audio</span>
               <span className="mt-1 block text-xs leading-5 text-[#9297a1]">Play Japanese audio when an audio question appears. Off by default.</span>
             </span>
+          </label>
+          <label className="flex items-start gap-3 rounded-xl border border-[#3f4652] bg-[#101b2b]/55 p-4 text-sm text-[#c3c7ce]">
+            <input type="checkbox" checked={preferences.showProvisionalReviewControls} onChange={(event) => { setSaved(false); setPreferences((current) => ({ ...current, showProvisionalReviewControls: event.target.checked })); }} className="mt-0.5 size-4 accent-[#e34a3f]" />
+            <span><span className="block text-[#f5f5f2]">Show provisional review controls</span><span className="mt-1 block text-xs leading-5 text-[#9297a1]">Keep the small Looks good / Flag controls visible while learning. On by default.</span></span>
           </label>
           <label className="flex items-start gap-3 rounded-xl border border-[#3f4652] bg-[#101b2b]/55 p-4 text-sm text-[#c3c7ce]">
             <input type="checkbox" checked={preferences.paused} onChange={(event) => { setSaved(false); setPreferences((current) => ({ ...current, paused: event.target.checked })); }} className="mt-0.5 size-4 accent-[#e34a3f]" />

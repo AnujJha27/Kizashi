@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import { CONTENT_FLAG_REASONS, readContentFlags, readContentReview, setContentReview, toggleContentFlag } from "@/lib/content-flags.js";
 import { getContentReviewStatus } from "@/lib/content-validation";
+import { readShowProvisionalReviewControls } from "@/lib/session";
 
 export function ContentFlagButton({ itemId, compact = false }: Readonly<{ itemId: string; compact?: boolean }>) {
   const [flagged, setFlagged] = useState(false);
@@ -33,6 +34,7 @@ const categoryReason: Record<ReviewCategory, string> = {
 export function ContentReviewControls({ itemId, category, reviewStatus, tags, origin, question = false }: Readonly<{ itemId: string; category: ReviewCategory; reviewStatus?: unknown; tags?: unknown; origin: ReviewOrigin; question?: boolean }>) {
   const provisional = question || getContentReviewStatus({ reviewStatus, tags }) === "pending";
   const [review, setReview] = useState(() => readContentReview(itemId));
+  const [showControls, setShowControls] = useState(true);
   const [reason, setReason] = useState("other");
 
   useEffect(() => {
@@ -42,7 +44,14 @@ export function ContentReviewControls({ itemId, category, reviewStatus, tags, or
     return () => window.removeEventListener("michi-content-flagged-updated", refresh);
   }, [itemId]);
 
-  if (!provisional) return null;
+  useEffect(() => {
+    const refresh = () => setShowControls(readShowProvisionalReviewControls());
+    refresh();
+    window.addEventListener("michi-profile-updated", refresh);
+    return () => window.removeEventListener("michi-profile-updated", refresh);
+  }, []);
+
+  if (!provisional || !showControls) return null;
   const questionLabels: Record<string, string> = { correct: "Correct", ambiguous: "Ambiguous", "wrong answer": "Wrong answer", "bad distractor": "Bad distractor" };
   const reviewReason = typeof review?.flagReason === "string" ? review.flagReason : "";
   const reviewedLabel = question ? questionLabels[reviewReason] : review?.status === "reviewed" ? "Reviewed" : review?.status === "flagged" ? `Flagged · ${reviewReason || "other"}` : null;

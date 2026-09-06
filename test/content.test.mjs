@@ -501,6 +501,16 @@ test("provisional encounters support in-place review across learner surfaces", a
   surfaces.forEach((surface) => assert.match(surface, /ContentReviewControls/));
 });
 
+test("owner can hide provisional review controls without hiding content", async () => {
+  const profile = await readFile(new URL("../components/profile/profile-settings.tsx", import.meta.url), "utf8");
+  const session = await readFile(new URL("../lib/session.ts", import.meta.url), "utf8");
+  const controls = await readFile(new URL("../components/library/content-flag-button.tsx", import.meta.url), "utf8");
+  assert.match(profile, /showProvisionalReviewControls: true/);
+  assert.match(profile, /Show provisional review controls/);
+  assert.match(session, /readShowProvisionalReviewControls/);
+  assert.match(controls, /!provisional \|\| !showControls/);
+});
+
 test("flagged question reviews stay out of newly built practice queues", async () => {
   const practice = await readFile(new URL("../components/practice/local-practice.tsx", import.meta.url), "utf8");
   const mistakes = await readFile(new URL("../components/mistakes/mistake-notebook.tsx", import.meta.url), "utf8");
