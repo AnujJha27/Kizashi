@@ -1,4 +1,14 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+
 import coverage from "@/data/lexical-coverage-union.json";
+import kanjiStrokeData from "@/data/kanjivg-strokes.json";
+import { getContentReviewStatus } from "@/lib/content-validation";
+import { kanjiKey, vocabularyKey } from "@/lib/lexical-coverage-core.js";
+import { readContentFlags } from "@/lib/content-flags.js";
+import type { LessonContentItem } from "@/lib/curriculum";
+import type { KanjiItem, N5Module } from "@/lib/types";
 
 const levels = ["N5", "N4"] as const;
 const kinds = ["vocabulary", "kanji"] as const;
@@ -17,10 +27,36 @@ function Status({ value }: Readonly<{ value: string }>) {
   );
 }
 
+function keyFor(kind: (typeof kinds)[number], item: LessonContentItem) {
+  if (kind === "vocabulary" && item.category === "vocabulary") return vocabularyKey(item.writtenForm, item.reading);
+  if (kind === "kanji" && item.category === "kanji") return kanjiKey(item.character);
+  return "";
+}
+
+function liveStats(kind: (typeof kinds)[number], level: (typeof levels)[number], records: typeof coverage.vocabulary.records, module: N5Module, flags: ReturnType<typeof readContentFlags>) {
+  const items = (kind === "vocabulary" ? module.vocabulary : module.kanji).filter((item) => item.jlptLevel === level);
+  const itemByKey = new Map(items.map((item) => [keyFor(kind, item), item]));
+  const matched = records.filter((record) => record.level === level).flatMap((record) => {
+    const item = itemByKey.get(record.key);
+    return item ? [item] : [];
+  });
+  const usable = matched.filter((item) => getContentReviewStatus(item) !== "rejected");
+  return {
+    available: usable.length,
+    reviewed: usable.filter((item) => getContentReviewStatus(item) === "approved" || flags[item.id]?.status === "reviewed").length,
+    provisional: usable.filter((item) => getContentReviewStatus(item) === "pending").length,
+    flagged: usable.filter((item) => flags[item.id]?.status === "flagged").length,
+    usefulWords: kind === "kanji" ? usable.filter((item): item is KanjiItem => item.category === "kanji" && item.usefulWords.length > 0).length : 0,
+    strokeData: kind === "kanji" ? usable.filter((item): item is KanjiItem => item.category === "kanji" && Boolean((kanjiStrokeData.characters as Record<string, unknown>)[item.character])).length : 0,
+  };
+}
+
 function Panel({
   kind,
   label,
-}: Readonly<{ kind: (typeof kinds)[number]; label: string }>) {
+  module,
+  flags,
+}: Readonly<{ kind: (typeof kinds)[number]; label: string; module: N5Module; flags: ReturnType<typeof readContentFlags> }>) {
   const report = coverage[kind];
   return (
     <div className="rounded-lg border border-white/10 bg-[#101b2b]/70 p-3">
@@ -48,7 +84,7 @@ function Panel({
                   {summary.multiSource} multi-source
                 </span>
               </div>
-              <div className="mt-2 grid grid-cols-3 gap-2 text-center">
+              {(() => { const stats = liveStats(kind, level, report.records, module, flags); return <><div className="mt-2 grid grid-cols-3 gap-2 text-center sm:grid-cols-5">
                 <div>
                   <p className="text-lg text-[#8bcca6]">{summary.covered}</p>
                   <p className="text-[10px] text-[#676c75]">covered</p>
@@ -61,14 +97,16 @@ function Panel({
                   <p className="text-lg text-[#ef675d]">{summary.missing}</p>
                   <p className="text-[10px] text-[#676c75]">missing</p>
                 </div>
+                <div><p className="text-lg text-[#f5f5f2]">{stats.available}</p><p className="text-[10px] text-[#676c75]">available</p></div>
+                <div><p className="text-lg text-[#f5f5f2]">{stats.reviewed}</p><p className="text-[10px] text-[#676c75]">reviewed</p></div>
               </div>
               <p className="mt-2 text-[10px] leading-4 text-[#9297a1]">
                 {summary.ambiguous} ambiguous · {summary.levelDisagreements}{" "}
                 level disagreements
                 {kind === "kanji"
-                  ? ` · ${summary.usefulWords3Plus} with 3+ useful words`
-                  : ""}
-              </p>
+                  ? ` · ${stats.provisional} provisional · ${stats.flagged} flagged · ${stats.usefulWords} with useful words · ${stats.strokeData} with stroke data`
+                  : ` · ${stats.provisional} provisional · ${stats.flagged} flagged`}
+              </p></>; })()}
             </div>
           );
         })}
@@ -125,7 +163,17 @@ function ReviewQueue({
   );
 }
 
-export function LexicalCoverage() {
+export function LexicalCoverage({ module }: Readonly<{ module: N5Module }>) {
+  const [reviewVersion, setReviewVersion] = useState(0);
+  useEffect(() => {
+    const refresh = () => setReviewVersion((value) => value + 1);
+    window.addEventListener("michi-content-flagged-updated", refresh);
+    return () => window.removeEventListener("michi-content-flagged-updated", refresh);
+  }, []);
+  const flags = useMemo(() => {
+    void reviewVersion;
+    return readContentFlags();
+  }, [reviewVersion]);
   const disagreements = kinds
     .flatMap((kind) =>
       coverage[kind].records
@@ -159,6 +207,8 @@ export function LexicalCoverage() {
             key={kind}
             kind={kind}
             label={kind === "vocabulary" ? "Vocabulary" : "Kanji"}
+            module={module}
+            flags={flags}
           />
         ))}
       </div>
