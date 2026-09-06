@@ -570,7 +570,7 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(player, /JapaneseText text=\{answer\}/);
   const lesson = await readFile(new URL("../components/learning/local-lesson.tsx", import.meta.url), "utf8");
   const styles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
-  assert.match(styles, /\.lesson-opening \+ div \{ align-items: start; grid-auto-rows: max-content; grid-template-columns: minmax\(0, 1fr\); \}/);
+  assert.match(styles, /\.lesson-opening \+ div \{ align-items: start; grid-auto-rows: max-content; grid-template-columns: minmax\(0, 1fr\); width: 100%; \}/);
   assert.match(styles, /\.lesson-summary \{ align-self: start; height: max-content; min-height: 0; width: 100%; max-width: 100%; overflow-x: hidden;/);
   assert.match(await readFile(new URL("../components/journey/lesson-progress.tsx", import.meta.url), "utf8"), /flex min-w-0 flex-wrap justify-between/);
   assert.match(styles, /\.japanese-text rt \{ line-height: 1\.15; font-size: max\(\.85em, \.8rem\);/);
@@ -582,7 +582,9 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(shell, /className="app-sidebar sticky/);
   assert.match(styles, /\.app-shell:has\(\.lesson-opening\) main > \.mx-auto\.max-w-5xl:has\(\.lesson-opening\) \{ width: 100%; max-width: none; \}/);
   assert.match(styles, /\.lesson-summary > \.mt-6 > div > div > span:last-child { flex-shrink: 0; text-align: right; }/);
-  assert.match(lesson, /className="lesson-summary surface-panel min-w-0 h-fit min-h-0/);
+  assert.match(lesson, /className="mx-auto w-full max-w-5xl min-w-0/);
+  assert.match(lesson, /className="grid w-full min-w-0 grid-cols-1 items-start gap-6"/);
+  assert.match(lesson, /className="lesson-summary surface-panel min-w-0 h-fit min-h-0 w-full/);
   assert.doesNotMatch(lesson, /<aside className="lesson-summary/);
   assert.doesNotMatch(lesson, /xl:grid-cols-1 2xl:grid-cols-\[minmax\(0,1fr\)_minmax\(0,\.7fr\)\]/);
 });
