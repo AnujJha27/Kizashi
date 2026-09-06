@@ -43,6 +43,10 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(mistakes, /Writing repair/);
   assert.match(mistakes, /mode=kanji-writing&item=/);
   assert.match(importer, /canonical_characters/);
+  assert.match(importer, /kizashi-n5-source-review\.json/);
   assert.match(importer, /KanjiVG/);
   assert.ok(manifest.host_permissions.includes("https://jisho.org/*"));
+  const strokes = JSON.parse(await readFile(new URL("../data/kanjivg-strokes.json", import.meta.url), "utf8"));
+  assert.equal(Object.keys(strokes.characters).length, 254);
+  assert.ok(Object.values(strokes.characters).every((record) => record.strokes.every((stroke, index) => stroke.order === index + 1 && stroke.path)));
 });

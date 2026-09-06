@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the small local KanjiVG stroke dataset used by Kizashi's trainer."""
+"""Build the local N5/N4 KanjiVG stroke dataset used by Kizashi's trainer."""
 
 import argparse
 import json
@@ -17,6 +17,7 @@ SOURCE_FILES = (
     "n5-life-expansion.json",
     "n4-grammar-expansion.json",
 )
+STAGING_FILE = "kizashi-n5-source-review.json"
 
 
 def canonical_characters(data_dir: Path) -> list[str]:
@@ -24,6 +25,16 @@ def canonical_characters(data_dir: Path) -> list[str]:
     for filename in SOURCE_FILES:
         payload = json.loads((data_dir / filename).read_text(encoding="utf-8"))
         characters.update(item["character"] for item in payload.get("kanji", []))
+    staging_path = data_dir / "staging" / STAGING_FILE
+    if staging_path.exists():
+        payload = json.loads(staging_path.read_text(encoding="utf-8"))
+        for item in payload.get("kanji", []):
+            classification = item.get("classification") if isinstance(item, dict) else {}
+            level = classification.get("level") if isinstance(classification, dict) else None
+            if level in {"N5", "N4"} or item.get("jlptLevel") in {"N5", "N4"}:
+                character = item.get("character")
+                if isinstance(character, str) and len(character) == 1:
+                    characters.add(character)
     return sorted(characters)
 
 
