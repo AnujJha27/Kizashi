@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-import { advanceWritingState, getJishoKanjiUrl, getKanjiVgUrl, getStrokeStartPoint, getStrokeQuizOptions, normalizeStrokeData, evaluateStrokeOrder } from "../lib/kanji-writing-core.js";
+import { advanceWritingState, getComponentQuizOptions, getJishoKanjiUrl, getKanjiVgUrl, getStrokeStartPoint, getStrokeQuizOptions, normalizeStrokeData, evaluateStrokeOrder } from "../lib/kanji-writing-core.js";
 
 test("kanji writing helpers keep source URLs and stroke order deterministic", () => {
   assert.equal(getJishoKanjiUrl("駅"), "https://jisho.org/search/%E9%A7%85%20%23kanji");
@@ -20,6 +20,11 @@ test("kanji writing helpers keep source URLs and stroke order deterministic", ()
     { order: 3, path: "c", correct: true },
   ]);
   assert.deepEqual(getStrokeQuizOptions([{ order: 1, path: "a" }], 0), [{ order: 1, path: "a", correct: true }]);
+  assert.deepEqual(getComponentQuizOptions([{ element: "馬", strokeOrders: [1], position: "left" }, { element: "尺", strokeOrders: [2], position: "right" }]), [
+    { element: "馬", position: "left", correct: true },
+    { element: "尺", position: "right", correct: false },
+  ]);
+  assert.deepEqual(getComponentQuizOptions([{ element: "木", strokeOrders: [1] }]), []);
   assert.equal(advanceWritingState("watched", "traced"), "traced");
   assert.equal(advanceWritingState("written-from-memory", "watched"), "written-from-memory");
 });
@@ -51,6 +56,9 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(trainer, /Next-stroke quiz/);
   assert.match(trainer, /What comes next\?/);
   assert.match(trainer, /getStrokeQuizOptions/);
+  assert.match(trainer, /Component check/);
+  assert.match(trainer, /Which component is on the left\?/);
+  assert.match(trainer, /getComponentQuizOptions/);
   assert.match(trainer, /ExternalSourceViewer source=\{jishoSource\}/);
   assert.match(practice, /KanjiWritingTrainer/);
   assert.match(practice, /KanjiWritingTrainer key=\{current\.id\}/);
