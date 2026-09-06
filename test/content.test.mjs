@@ -587,6 +587,14 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.doesNotMatch(lesson, /xl:grid-cols-1 2xl:grid-cols-\[minmax\(0,1fr\)_minmax\(0,\.7fr\)\]/);
 });
 
+test("reading passages expose adjustable text size", async () => {
+  const reading = await readFile(new URL("../components/learning/reading-panel.tsx", import.meta.url), "utf8");
+  assert.match(reading, /fontSize/);
+  assert.match(reading, /Increase reading text size/);
+  assert.match(reading, /Decrease reading text size/);
+  assert.match(reading, /fontSize: `\$\{fontSize\}px`/);
+});
+
 test("Studio exposes every pending question through a searchable paged review queue", async () => {
   const studio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
   assert.match(studio, /Search pending questions/);
