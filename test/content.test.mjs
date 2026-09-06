@@ -6,7 +6,7 @@ import { promisify } from "node:util";
 import { draftStorageMode, LARGE_DRAFT_THRESHOLD } from "../lib/content-draft-storage.js";
 import { gunzipSync } from "node:zlib";
 
-import { getItemPriority, rankContentCandidates } from "../lib/content-priority.js";
+import { deprioritizeFlaggedItems, getItemPriority, rankContentCandidates } from "../lib/content-priority.js";
 import { generatedReview, validateGenerationRequest } from "../lib/content-generation-core.js";
 import { selectWeakPracticeQuestions } from "../lib/weak-practice.js";
 import { releaseForLearners } from "../lib/content-release.js";
@@ -1097,6 +1097,15 @@ test("content priority includes frequency and prerequisite value", () => {
   const common = { id: "common", category: "vocabulary", jlptLevel: "N5", difficulty: 2, tags: [], prerequisiteIds: [], frequency: 1000, commonness: 1, exampleSentences: [{ japanese: "駅です。", translation: "It is a station." }], collocations: ["駅に行く"] };
   const rare = { id: "rare", category: "vocabulary", jlptLevel: "N5", difficulty: 2, tags: [], prerequisiteIds: [], frequency: 10, commonness: 5, exampleSentences: [{ japanese: "駅です。", translation: "It is a station." }], collocations: ["駅に行く"] };
   assert.ok(getItemPriority(common).score > getItemPriority(rare).score);
+});
+
+test("flagged factual items move behind new lesson items", () => {
+  const items = [
+    { id: "flagged", category: "vocabulary" },
+    { id: "context", category: "reading" },
+    { id: "grammar", category: "grammar" },
+  ];
+  assert.deepEqual(deprioritizeFlaggedItems(items, { flagged: { status: "flagged" } }).map((item) => item.id), ["context", "grammar", "flagged"]);
 });
 
 test("weak practice prioritizes recurring question-type mistakes", () => {

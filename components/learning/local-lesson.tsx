@@ -10,6 +10,8 @@ import { LessonProgress } from "@/components/journey/lesson-progress";
 import { PageIntro } from "@/components/ui/page-intro";
 import { StatusPanel } from "@/components/ui/status-panel";
 import { getCurriculumForTarget, getLessonItemsFromModule, type LessonContentItem } from "@/lib/curriculum";
+import { deprioritizeFlaggedItems } from "@/lib/content-priority.js";
+import { readContentFlags } from "@/lib/content-flags.js";
 import { readExamPlanPreferences, readLessonState, readReviewRecords } from "@/lib/session";
 import { getJourneyWorldState, getNextJourneyArea } from "@/lib/journey-world-core.js";
 import type { GrammarContrast, Lesson, TargetLevel, VocabularyItem } from "@/lib/types";
@@ -45,7 +47,7 @@ export function LocalLesson({ initialTargetLevel = "N5", requestedLessonId, fall
     return () => window.removeEventListener("michi-review-updated", refresh);
   }, []);
   const lesson = lessons.find((entry) => entry.id === activeLessonId) ?? (fallbackLesson ? lessons.find((entry) => entry.id === fallbackLesson.id) : undefined) ?? fallbackLesson;
-  const view: LessonView | null = lesson ? { lesson, items: lessons.some((entry) => entry.id === lesson.id) ? getLessonItemsFromModule(targetModule, lesson) : fallbackItems, contrasts: targetModule.grammarContrasts.length ? targetModule.grammarContrasts : fallbackContrasts, vocabulary: targetModule.vocabulary } : null;
+  const view: LessonView | null = lesson ? { lesson, items: deprioritizeFlaggedItems(lessons.some((entry) => entry.id === lesson.id) ? getLessonItemsFromModule(targetModule, lesson) : fallbackItems, readContentFlags()), contrasts: targetModule.grammarContrasts.length ? targetModule.grammarContrasts : fallbackContrasts, vocabulary: targetModule.vocabulary } : null;
   const worldLessons = useMemo(() => targetModule.course.chapters.flatMap((chapter) => chapter.lessons.map((entry) => ({ ...entry, region: chapter.region }))), [targetModule]);
   const world = useMemo(() => getJourneyWorldState({ lessonId: view?.lesson.id, lessons: worldLessons, records, targetLevel }), [records, targetLevel, view?.lesson.id, worldLessons]);
   const currentLessonIndex = view ? worldLessons.findIndex((entry) => entry.id === view.lesson.id) : -1;
