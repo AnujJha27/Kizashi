@@ -903,8 +903,12 @@ test("grammar context and reading practice data survive the Supabase boundary", 
     assert.match(content, new RegExp(field));
     assert.match(renderer, new RegExp(field));
   }
-  assert.match(seed, /item\.aliases[\s\S]*item\.context/);
-  assert.match(seed, /item\."visualFormat"[\s\S]*item\.questions/);
+  const parityStart = seed.indexOf("\nbegin\n", seed.indexOf("-- Supabase parity for the authored practical errands expansion."));
+  const parity = seed.slice(parityStart, seed.indexOf("end $michi_practical$;"));
+  assert.match(parity, /insert into public\.grammar_points \(item_id, pattern, meaning, formation, intuition, usage_conditions, examples, common_mistakes, contrast_ids, practice_question_ids, aliases, context\)/);
+  assert.match(parity, /as item\(id text, pattern text, meaning text, formation text, intuition text, "usageConditions" text\[\], examples jsonb, "commonMistakes" text\[\], "contrastIds" text\[\], "practiceQuestionIds" text\[\], aliases text\[\], context jsonb\)/);
+  assert.match(parity, /insert into public\.readings \(item_id, title, passage, translation, vocabulary_ids, grammar_ids, kanji_ids, estimated_difficulty, visual_format, questions\)/);
+  assert.match(parity, /as item\(id text, title text, passage text, translation text, "vocabularyIds" text\[\], "grammarIds" text\[\], "kanjiIds" text\[\], "estimatedDifficulty" integer, "visualFormat" text, questions jsonb\)/);
 });
 
 test("audio metadata is persisted without an audio blob", async () => {
