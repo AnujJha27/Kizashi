@@ -68,6 +68,19 @@ test("the source manifest registers authored grammar provenance IDs", async () =
   assert.match(manifest, /id: "michi-authored-n4-grammar"/);
 });
 
+test("the static source manifest covers staged imports and KanjiVG", async () => {
+  const [manifest, seed, stagedRaw] = await Promise.all([
+    readFile(new URL("../lib/jlpt.ts", import.meta.url), "utf8"),
+    readFile(new URL("../supabase/seed.sql", import.meta.url), "utf8"),
+    readFile(new URL("../data/staging/kizashi-n5-source-review.json", import.meta.url), "utf8"),
+  ]);
+  const staged = JSON.parse(stagedRaw);
+  for (const source of [...staged.sourceManifest, { id: "kanjivg" }, { id: "michi-authored-n4-grammar" }]) {
+    assert.match(manifest, new RegExp(`id: "${source.id}"`), source.id);
+    assert.match(seed, new RegExp(`\\('${source.id}'`), source.id);
+  }
+});
+
 test("source coverage distinguishes selective links from package provenance", async () => {
   const component = await readFile(new URL("../components/content/source-coverage.tsx", import.meta.url), "utf8");
   assert.match(component, /const unresolved = items\.filter/);
