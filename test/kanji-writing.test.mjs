@@ -38,6 +38,9 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(dashboard, /Kanji writing data/);
   const contentStudio = await readFile(new URL("../components/content/content-studio.tsx", import.meta.url), "utf8");
   assert.match(dashboard, /kanjiStrokeData/);
+  assert.match(dashboard, /stroke-count mismatch/);
+  assert.match(dashboard, /writing practice enabled/);
+  assert.match(dashboard, /normalizeStrokeData/);
   assert.match(contentStudio, /KanjiWritingAudit/);
   assert.match(entry, /KanjiWritingTrainer item=\{item\}/);
   assert.match(mistakes, /Writing repair/);
