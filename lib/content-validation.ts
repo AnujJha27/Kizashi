@@ -28,10 +28,13 @@ const practiceQuestionTypes: Record<Category, readonly string[]> = {
 
 export const QUESTION_DRAFT_STORAGE_KEY = "michi.question-draft";
 
+export function isProvisionalPracticeQuestion(question: Pick<PracticeQuestion, "validationStatus" | "generatedBy" | "review">) {
+  const generated = question.validationStatus === "generated" || question.generatedBy?.startsWith("openrouter:") || question.generatedBy?.includes("draft");
+  return Boolean(generated && question.review?.status !== "approved");
+}
+
 export function isActivePracticeQuestion(question: Pick<PracticeQuestion, "validationStatus" | "generatedBy" | "review">) {
-  if (question.validationStatus === "rejected" || question.validationStatus === "generated") return false;
-  if (question.generatedBy?.startsWith("openrouter:") || question.generatedBy?.includes("draft")) return question.review?.status === "approved" && Boolean(question.review.reviewedBy?.trim()) && Boolean(question.review.reviewedAt?.trim());
-  return true;
+  return question.validationStatus !== "rejected" && question.review?.status !== "rejected";
 }
 
 export function getContentReviewStatus(item: { reviewStatus?: unknown; tags?: unknown }): ContentReviewStatus {

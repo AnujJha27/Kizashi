@@ -71,7 +71,6 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   const wordWriting = await readFile(new URL("../components/learning/kanji-word-writing.tsx", import.meta.url), "utf8");
   const library = await readFile(new URL("../components/library/library-browser.tsx", import.meta.url), "utf8");
   const importer = await readFile(new URL("../scripts/import_kanjivg.py", import.meta.url), "utf8");
-  const manifest = JSON.parse(await readFile(new URL("../browser/kizashi-private-frame-unlocker/manifest.json", import.meta.url), "utf8"));
   assert.match(trainer, /onPointerDown/);
   assert.match(trainer, /cancelDrawing/);
   assert.match(trainer, /onPointerCancel=\{cancelDrawing\}/);
@@ -133,7 +132,6 @@ test("kanji writing surfaces keep the trainer native and references lazy", async
   assert.match(importer, /r20260714/);
   assert.match(importer, /kizashi-n5-source-review\.json/);
   assert.match(importer, /KanjiVG/);
-  assert.ok(manifest.host_permissions.includes("https://jisho.org/*"));
   const strokes = JSON.parse(await readFile(new URL("../data/kanjivg-strokes.json", import.meta.url), "utf8"));
   assert.equal(strokes.version, "r20260714");
   assert.equal(strokes.sourceUrl, "https://github.com/KanjiVG/kanjivg");

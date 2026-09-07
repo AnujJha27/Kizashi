@@ -128,7 +128,7 @@ test("source progress failures do not block source-viewer interactions", () => {
   }
 });
 
-test("existing listening sources keep original URLs and can try the private frame helper", () => {
+test("existing listening sources keep original URLs and framing fallbacks", () => {
   const expected = {
     cejc: "https://chunagon.ninjal.ac.jp/shc/",
     csj: "https://chunagon.ninjal.ac.jp/auth/login",

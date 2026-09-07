@@ -64,11 +64,8 @@ the deferred ServerTTS/audio-archive work.
 - The six Erin N5 launchers stream provider-hosted MP4s in a native player and
   keep the full lesson page below it. CEJC, CSJ, Common Voice, Tatoeba, JSUT,
   and JapanesePod101 now expose a frame attempt, with the original-source
-  launcher as fallback when framing or provider behavior blocks them. A
-  device-local Chromium helper at
-  `browser/kizashi-private-frame-unlocker/` can remove frame-blocking response
-  headers for this allowlist only. Kizashi does not download, proxy, cache,
-  mirror, re-host, or upload those sources.
+  launcher as fallback when framing or provider behavior blocks them. Kizashi
+  does not download, proxy, cache, mirror, re-host, or upload those sources.
 - The hosted Supabase project was last verified on 2026-08-31 with 313 approved
   items. The current local SQL export contains all 8,392 non-rejected staged
   records and preserves pending status; apply `supabase/generated/kizashi-content.sql`

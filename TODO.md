@@ -681,9 +681,7 @@ Review tooling is implemented: Content Studio ranks candidates, edits classifica
   Common Voice, Tatoeba, JSUT, and JapanesePod101 link-only after current
   frame attempts failed. Erin uses one source card with a lesson selector and
   a native player pointed at six provider-hosted MP4 URLs; its full lesson page
-  stays below. The device-local Chromium helper in
-  `browser/kizashi-private-frame-unlocker/` can retry those frames by removing
-  only the allowlisted response headers. The selected viewer expands below the
+  stays below. The selected viewer expands below the
   full source-card grid; immersion transcripts and shadowing always show mapped
   furigana. No source material is copied, proxied, cached, mirrored, or
   uploaded.

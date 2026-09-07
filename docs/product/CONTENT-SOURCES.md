@@ -89,10 +89,8 @@ preference. `ServerTTSProvider` exists as an unavailable future path; it does
 not generate or persist audio today. Erin's six selected videos use a native
 browser player pointed at the provider-hosted MP4; the six other listening
 sources expose a frame attempt and fall back to a new-tab link when framing
-fails. A device-local Chromium helper in
-`browser/kizashi-private-frame-unlocker/` can retry the allowlisted frames by
-removing only their frame-blocking response headers. Kizashi does not
-download, proxy, cache, mirror, re-host, or upload these sources.
+fails. Kizashi does not download, proxy, cache, mirror, re-host, or upload
+these sources.
 
 ## Learner-facing source integrations
 

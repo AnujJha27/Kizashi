@@ -11,6 +11,7 @@ import { clearPracticeSession, readAnswerLeniency, readAutoPlayAudio, readPracti
 import { conceptBreakdown } from "@/lib/integrated-exam-core.js";
 import { normalizeAnswer, reviewRatingForConfidence } from "@/lib/mastery";
 import { preservePracticePosition } from "@/lib/practice-session-core.js";
+import { isProvisionalPracticeQuestion } from "@/lib/content-validation";
 import type { AnswerConfidence, GrammarContrast, KanjiItem, LearningItem, PracticeQuestion, TargetLevel, VocabularyItem } from "@/lib/types";
 
 type CompletionResult = { correct: number; total: number; categoryBreakdown: Record<string, { correct: number; total: number }> };
@@ -277,7 +278,7 @@ export function PracticePlayer({ questions, vocabulary = [], kanji = [], reading
     <div className="mb-5 flex items-center justify-between text-xs text-[#9297a1]"><span>{examMode ? `${examLabel} · exam mode` : <>{`${question.category} · ${question.questionType}`}<span className="ml-2 text-[#e5b85c]">{stageLabel(question)}</span></>}</span><span className="flex items-center gap-3">{remainingSeconds !== null ? <span className={remainingSeconds <= 60 ? "font-semibold text-[#ef675d]" : "text-[#e5b85c]"}>Time {formatTime(remainingSeconds)}</span> : null}<span>{position + 1} / {questions.length}</span></span></div>
     <div className="mb-7 h-1 overflow-hidden rounded-full bg-[#292b31]"><div className="h-full rounded-full bg-[#e34a3f] transition-[width] duration-300" style={{ width: `${((position + (submitted ? 1 : 0)) / questions.length) * 100}%` }} /></div>
     <div className="rounded-xl border border-[#3f3427] bg-[#151720]/80 p-7 sm:p-10" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-      <p className="eyebrow mb-5">{examMode ? isTextAnswer ? "Type the answer" : "Select one answer" : isOrdering ? "Build the sentence" : isTextAnswer ? "Recall the answer" : "Choose the best answer"}</p>
+      <div className="mb-5 flex flex-wrap items-center gap-3"><p className="eyebrow">{examMode ? isTextAnswer ? "Type the answer" : "Select one answer" : isOrdering ? "Build the sentence" : isTextAnswer ? "Recall the answer" : "Choose the best answer"}</p>{!examMode && isProvisionalPracticeQuestion(question) ? <span className="rounded-md border border-[#5d4c2c] bg-[#302818]/70 px-2 py-1 text-[10px] uppercase tracking-[.12em] text-[#e5b85c]">Provisional · review while studying</span> : null}</div>
       <h2 className="jp-serif whitespace-pre-line text-2xl leading-relaxed text-[#f5f5f2] sm:text-3xl"><LearningText text={question.prompt} vocabulary={vocabulary} kanji={kanji} readingEntries={readingEntries} examMode={examMode || !showPromptFurigana} /></h2>
       {question.visualScene ? <ListeningScene scene={question.visualScene} description={question.visualContext} /> : null}
       {question.audioUrl || question.audioText ? <AudioControls text={question.audioText} externalUrl={question.audioUrl} metadata={question.audio} autoPlay={autoPlayAudio} className="mt-6" /> : null}

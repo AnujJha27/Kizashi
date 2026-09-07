@@ -94,11 +94,13 @@ test("completeness dashboard exposes grammar assessment families by level", asyn
   assert.doesNotMatch(dashboard, /N5 \$\{report\.quality/);
 });
 
-test("question drafts stay out of learner queues until approved", async () => {
+test("provisional question drafts stay visible but remain clearly distinguishable", async () => {
   const validation = await readFile(new URL("../lib/content-validation.ts", import.meta.url), "utf8");
-  assert.match(validation, /validationStatus === "generated"/);
-  assert.match(validation, /generatedBy\?\.startsWith\("openrouter:"\)/);
-  assert.match(validation, /review\?\.status === "approved"/);
+  const player = await readFile(new URL("../components/practice/practice-player.tsx", import.meta.url), "utf8");
+  assert.match(validation, /isProvisionalPracticeQuestion/);
+  assert.match(validation, /question\.review\?\.status !== "rejected"/);
+  assert.match(player, /Provisional · review while studying/);
+  assert.match(player, /isProvisionalPracticeQuestion\(question\)/);
 });
 
 test("vocabulary validation surfaces high-frequency example depth", async () => {
@@ -586,8 +588,6 @@ test("external sources use native media and safe framing fallbacks", async () =>
   const launcher = await readFile(new URL("../components/learning/external-source-launcher.tsx", import.meta.url), "utf8");
   const sourceProgress = await readFile(new URL("../lib/external-source-progress.js", import.meta.url), "utf8");
   const serviceWorker = await readFile(new URL("../public/sw.js", import.meta.url), "utf8");
-  const frameExtension = JSON.parse(await readFile(new URL("../browser/kizashi-private-frame-unlocker/manifest.json", import.meta.url), "utf8"));
-  const frameRules = JSON.parse(await readFile(new URL("../browser/kizashi-private-frame-unlocker/rules.json", import.meta.url), "utf8"));
   const shell = await readFile(new URL("../components/shell/app-shell.tsx", import.meta.url), "utf8");
   const library = await readFile(new URL("../components/library/library-browser.tsx", import.meta.url), "utf8");
   assert.match(viewer, /iframe/);
@@ -607,7 +607,6 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(viewer, /Open original source/);
   assert.match(viewer, /const canFrame = canEmbedExternalSource\(source\.mediaDelivery\)/);
   assert.match(viewer, /const canRender = canEmbedExternalSource\(source\.mediaDelivery\) \|\| \(canPlayExternalSourceMedia\(source\.mediaDelivery\) && Boolean\(source\.mediaUrl\)\)/);
-  assert.match(viewer, /kizashi-private-frame-unlocker/);
   assert.doesNotMatch(viewer, /\{source\.mediaDelivery === "link-only" \? <p[^>]*>This provider does not allow in-app framing/);
   assert.match(viewer, /View here/);
   assert.match(viewer, /role="dialog"/);
@@ -623,17 +622,7 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(launcher, /Opened/);
   assert.match(sourceProgress, /EXTERNAL_SOURCE_PROGRESS_STORAGE_KEY/);
   assert.match(sourceProgress, /michi-source-progress-updated/);
-  assert.equal(frameExtension.manifest_version, 3);
-  assert.ok(frameExtension.host_permissions.length > 0);
-  assert.ok(frameExtension.host_permissions.includes("https://marugotoweb.jp/*"));
-  assert.ok(frameExtension.host_permissions.includes("https://*.marugotoweb.jp/*"));
-  assert.ok(frameExtension.host_permissions.includes("https://a1.marugotoweb.jp/*"));
-  assert.equal(frameRules[0].action.type, "modifyHeaders");
-  assert.ok(frameRules[0].condition.requestDomains.includes("marugotoweb.jp"));
-  assert.ok(frameRules[0].condition.requestDomains.includes("a1.marugotoweb.jp"));
   assert.match(serviceWorker, /journey-map\.webp/);
-  assert.ok(frameRules[0].action.responseHeaders.some((header) => header.header === "x-frame-options" && header.operation === "remove"));
-  assert.ok(frameRules[0].action.responseHeaders.some((header) => header.header === "content-security-policy" && header.operation === "remove"));
   assert.match(shell, /const primaryNavItems = \[/);
   assert.match(shell, /href: "\/library"/);
   assert.match(shell, /grid-cols-5/);
@@ -815,7 +804,7 @@ test("authored sentence-ordering prompts identify their context", () => {
   assert.equal(new Set(ordering.map((question) => question.contextText)).size, ordering.length);
 });
 
-test("grammar assessment drafts are independent and review-only", async () => {
+test("grammar assessment drafts are independent and provisional", async () => {
   const curriculum = await readFile(new URL("../lib/curriculum.ts", import.meta.url), "utf8");
   assert.equal(grammarDrafts.length, 125);
   assert.equal(new Set(grammarDrafts.map((question) => question.prompt)).size, grammarDrafts.length);
@@ -832,7 +821,7 @@ test("grammar assessment drafts are independent and review-only", async () => {
   assert.match(curriculum, /n4GrammarExpansionData\.grammarContrasts/);
 });
 
-test("vocabulary context drafts are independent and review-only", async () => {
+test("vocabulary context drafts are independent and provisional", async () => {
   const curriculum = await readFile(new URL("../lib/curriculum.ts", import.meta.url), "utf8");
   assert.equal(vocabularyDrafts.length, 338);
   assert.equal(new Set(vocabularyDrafts.map((question) => question.id)).size, vocabularyDrafts.length);
@@ -859,7 +848,7 @@ test("content completeness keeps grammar drafts out of approved assessment count
   assert.deepEqual(report.grammarConsistency, { items: 0, duplicateExampleItems: 0, duplicateExampleCount: 0, conflictingTranslationExamples: 0, emptyExamples: 0 });
 });
 
-test("generated draft activation requires explicit review metadata", async () => {
+test("validated generated drafts require explicit review metadata", async () => {
   const validation = await readFile(new URL("../lib/content-validation.ts", import.meta.url), "utf8");
   assert.match(validation, /generatedBy\?\.includes\("draft"\)/);
   assert.match(validation, /reviewedBy/);
@@ -1078,7 +1067,7 @@ test("seed creates the curated source before provenance references it", async ()
   assert.match(seed.slice(sourceInsert, firstReference), /michi-curated-n5-seed/);
 });
 
-test("AI content generation stays allowlisted and rate-limited while drafts remain review-only", async () => {
+test("AI content generation stays allowlisted and rate-limited while generated questions remain provisional", async () => {
   const route = await readFile(new URL("../app/api/content/generate/route.ts", import.meta.url), "utf8");
   const validation = await readFile(new URL("../lib/content-validation.ts", import.meta.url), "utf8");
   assert.match(route, /const user = await getAllowedUser\(\);\s+if \(!user\).*status: 401/s);
@@ -1090,7 +1079,7 @@ test("AI content generation stays allowlisted and rate-limited while drafts rema
   assert.match(route, /generatedReview\(model, item\.id\)/);
   assert.match(validation, /generatedBy.*openrouter/);
   assert.match(validation, /validationStatus === "generated"/);
-  assert.match(validation, /review\?\.status === "approved"/);
+  assert.match(validation, /isProvisionalPracticeQuestion/);
 });
 
 test("practice coverage checks every item and normalizes JLPT family aliases", async () => {
