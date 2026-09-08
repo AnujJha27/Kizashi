@@ -12,11 +12,11 @@ import {
   canEmbedExternalSource,
   canPlayExternalSourceMedia,
 } from "../lib/external-resources-runtime.js";
-import { parseShunVideoFeed, rotateCatalog } from "../lib/shun-catalog-core.js";
+import { parseShunVideoFeed, parseYouTubeVideoFeed, rotateCatalog } from "../lib/shun-catalog-core.js";
 import { markExternalSourceOpened } from "../lib/external-source-progress.js";
 
 test("registry filters resources and returns an empty result for missing matches", () => {
-  assert.deepEqual(getExternalResources({ type: "grammar-reference" }).map((resource) => resource.sourceId), ["tae-kim"]);
+  assert.deepEqual(getExternalResources({ type: "grammar-reference" }).map((resource) => resource.sourceId), ["cure-dolly", "tae-kim"]);
   assert.deepEqual(getExternalResources({ type: "lesson" }).map((resource) => resource.id), ["erin", "irodori-practical-lessons", "marugoto-plus", "hirogaru"]);
   assert.deepEqual(getExternalResources({ itemId: "grammar-wa" }).map((resource) => resource.id), ["erin-01", "marugoto-plus"]);
   assert.deepEqual(getExternalResources({ skill: "location question" }).map((resource) => resource.id), ["erin-04"]);
@@ -58,6 +58,9 @@ test("all registered source families expose their role and delivery boundary", (
     "japanese-pod101": ["polished learner listening", "frame-or-link"],
     "japanese-with-shun": ["easy-Japanese video immersion", "frame-or-link"],
     "nihongo-con-teppei": ["beginner podcast immersion", "frame-or-link"],
+    "moshi-moshi-yusuke": ["real-life Japanese", "frame-or-link"],
+    "natural-japanese": ["comprehensible input", "frame-or-link"],
+    "cure-dolly": ["structural grammar explanation", "frame-or-link"],
     "tae-kim": ["alternative grammar intuition", "reference"],
     "wikibooks-japanese": ["supplementary grammar reference", "reference"],
     "wikimedia-commons": ["dynamic human pronunciation", "dynamic"],
@@ -113,6 +116,40 @@ test("provider entries expose bounded activity metadata without collapsing sourc
   assert.match(surface, /Online connection required/);
   assert.match(surface, /Provider catalog unavailable/);
   assert.match(surface, /role="status"/);
+});
+
+test("immersion expansion keeps provider roles and levels distinct", () => {
+  const expected = {
+    "moshi-moshi-yusuke": ["real-life", true, "N5–N4"],
+    "natural-japanese": ["comprehensible-input", false, "N5–N4"],
+    "cure-dolly": ["guided-understanding", false, "N5–N4"],
+  };
+  for (const [id, [role, nativeInput, recommendedLevel]] of Object.entries(expected)) {
+    const resource = getExternalResourceById(id);
+    assert.ok(resource);
+    assert.equal(resource.metadata.immersionRole, role);
+    assert.equal(resource.metadata.nativeInput, nativeInput);
+    assert.equal(resource.metadata.kizashiRecommendedLevel, recommendedLevel);
+    assert.ok(resource.metadata.providerLevel);
+    assert.ok(resource.metadata.videoCatalogFeed);
+  }
+  const natural = getExternalResourceById("natural-japanese");
+  assert.deepEqual(natural.metadata.aliases, ["Comprehensible Japanese", "CIJ", "NIJ"]);
+  assert.ok(getExternalResources({ tag: "guided-understanding" }).some((resource) => resource.id === "cure-dolly"));
+});
+
+test("shared YouTube catalog parser preserves provider metadata without storing media", () => {
+  const catalog = parseYouTubeVideoFeed(`<feed><entry><yt:videoId>abcDEF_1</yt:videoId><title>[File] 駅前を歩く</title><published>2026-01-02T00:00:00Z</published></entry></feed>`, { sourceId: "moshi-moshi-yusuke", defaultLevel: "Native" });
+  assert.deepEqual(catalog[0], {
+    id: "abcDEF_1",
+    title: "[File] 駅前を歩く",
+    level: "Native",
+    publishedAt: "2026-01-02T00:00:00Z",
+    url: "https://www.youtube.com/watch?v=abcDEF_1",
+    frameUrl: "https://www.youtube-nocookie.com/embed/abcDEF_1?rel=0",
+    posterUrl: "https://i.ytimg.com/vi/abcDEF_1/hqdefault.jpg",
+    contentType: "File",
+  });
 });
 
 test("source progress failures do not block source-viewer interactions", () => {

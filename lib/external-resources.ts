@@ -54,6 +54,13 @@ export interface ExternalResourceMetadata {
   readonly videoCatalogFeed?: string;
   readonly videoCatalogChannelId?: string;
   readonly podcastFeed?: string;
+  readonly immersionRole?: "real-life" | "comprehensible-input" | "guided-understanding";
+  readonly providerLevel?: string;
+  readonly kizashiRecommendedLevel?: string;
+  readonly aliases?: readonly string[];
+  readonly nativeInput?: boolean;
+  readonly journeyContexts?: readonly string[];
+  readonly contentTypes?: readonly string[];
   readonly catalog?: readonly ExternalResourceCatalogEntry[];
 }
 

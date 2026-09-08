@@ -16,9 +16,16 @@ type RuntimeSourceLink = {
   mediaUrl?: string;
   posterUrl?: string;
   frameUrl?: string;
-  videoCatalog?: ReadonlyArray<Readonly<{ id: string; title: string; level: string; publishedAt: string; url: string; frameUrl: string; posterUrl: string }>>;
+  videoCatalog?: ReadonlyArray<Readonly<{ id: string; title: string; level: string; publishedAt: string; url: string; frameUrl: string; posterUrl: string; contentType?: string }>>;
   videoCatalogFeed?: string;
   podcastFeed?: string;
+  immersionRole?: "real-life" | "comprehensible-input" | "guided-understanding";
+  providerLevel?: string;
+  kizashiRecommendedLevel?: string;
+  aliases?: readonly string[];
+  nativeInput?: boolean;
+  journeyContexts?: readonly string[];
+  contentTypes?: readonly string[];
   annotationStatus?: string;
   reviewedAt?: string;
   transcriptAvailable?: boolean;

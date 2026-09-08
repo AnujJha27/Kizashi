@@ -615,6 +615,9 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(surface, /ImmersionPlayer/);
   assert.match(surface, /role="tablist"/);
   assert.match(surface, /selectedClipId/);
+  assert.match(surface, /Understand Japanese/);
+  assert.match(surface, /guided-understanding/);
+  assert.match(surface, /YouTubeVideoCatalog/);
   assert.match(surface, /SourceCard/);
   assert.match(surface, /sources opened/);
   assert.match(surface, /readExternalSourceProgress/);

@@ -30,9 +30,16 @@ export interface ExternalSourceLink {
   mediaUrl?: string;
   posterUrl?: string;
   frameUrl?: string;
-  videoCatalog?: readonly { id: string; title: string; level: string; publishedAt: string; url: string; frameUrl: string; posterUrl: string }[];
+  videoCatalog?: readonly { id: string; title: string; level: string; publishedAt: string; url: string; frameUrl: string; posterUrl: string; contentType?: string }[];
   videoCatalogFeed?: string;
   podcastFeed?: string;
+  immersionRole?: "real-life" | "comprehensible-input" | "guided-understanding";
+  providerLevel?: string;
+  kizashiRecommendedLevel?: string;
+  aliases?: readonly string[];
+  nativeInput?: boolean;
+  journeyContexts?: readonly string[];
+  contentTypes?: readonly string[];
   catalog?: readonly ExternalResourceCatalogEntry[];
   description: string;
   url: string;
