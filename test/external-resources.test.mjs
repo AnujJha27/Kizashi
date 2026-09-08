@@ -245,6 +245,13 @@ test("external provider progress is monotonic and migrates legacy opened flags",
   }
 });
 
+test("external source launcher exposes provider progress state", async () => {
+  const launcher = await readFile(new URL("../components/learning/external-source-launcher.tsx", import.meta.url), "utf8");
+  assert.match(launcher, /completed/);
+  assert.match(launcher, /Started/);
+  assert.match(launcher, /Complete/);
+});
+
 test("shared YouTube catalog parser preserves provider metadata without storing media", () => {
   const catalog = parseYouTubeVideoFeed(`<feed><entry><yt:videoId>abcDEF_1</yt:videoId><title>[File] 駅前を歩く</title><published>2026-01-02T00:00:00Z</published></entry></feed>`, { sourceId: "moshi-moshi-yusuke", defaultLevel: "Native" });
   assert.deepEqual(catalog[0], {
