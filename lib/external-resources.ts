@@ -53,6 +53,18 @@ export interface ExternalResourceMetadata {
   readonly frameUrl?: string;
   readonly videoCatalogFeed?: string;
   readonly videoCatalogChannelId?: string;
+  readonly videoCatalog?: readonly {
+    readonly id: string;
+    readonly title: string;
+    readonly level: string;
+    readonly publishedAt: string;
+    readonly url: string;
+    readonly frameUrl: string;
+    readonly posterUrl: string;
+    readonly contentType?: string;
+    readonly targetItemIds?: readonly string[];
+    readonly mappedTopics?: readonly string[];
+  }[];
   readonly podcastFeed?: string;
   readonly immersionRole?: "real-life" | "comprehensible-input" | "guided-understanding";
   readonly providerLevel?: string;

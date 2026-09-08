@@ -30,7 +30,7 @@ export interface ExternalSourceLink {
   mediaUrl?: string;
   posterUrl?: string;
   frameUrl?: string;
-  videoCatalog?: readonly { id: string; title: string; level: string; publishedAt: string; url: string; frameUrl: string; posterUrl: string; contentType?: string }[];
+  videoCatalog?: readonly { id: string; title: string; level: string; publishedAt: string; url: string; frameUrl: string; posterUrl: string; contentType?: string; targetItemIds?: readonly string[]; mappedTopics?: readonly string[] }[];
   videoCatalogFeed?: string;
   podcastFeed?: string;
   immersionRole?: "real-life" | "comprehensible-input" | "guided-understanding";

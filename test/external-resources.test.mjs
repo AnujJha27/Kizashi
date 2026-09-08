@@ -137,6 +137,9 @@ test("immersion expansion keeps provider roles and levels distinct", () => {
   const natural = getExternalResourceById("natural-japanese");
   assert.deepEqual(natural.metadata.aliases, ["Comprehensible Japanese", "CIJ", "NIJ"]);
   assert.ok(getExternalResources({ tag: "guided-understanding" }).some((resource) => resource.id === "cure-dolly"));
+  const cure = getExternalResourceById("cure-dolly");
+  assert.deepEqual(cure.metadata.videoCatalog[0].targetItemIds, ["grammar-masu", "grammar-dictionary-form", "grammar-te-form", "grammar-ta-form"]);
+  assert.deepEqual(externalResourceToSourceLink(cure).videoCatalog[0].mappedTopics, ["verb forms", "stem system", "て-form / た-form"]);
 });
 
 test("immersion video reviews are local, bounded, and evented", () => {
@@ -192,6 +195,8 @@ test("provider video cards expose comprehension review controls", async () => {
   assert.match(surface, /Clear/);
   assert.match(surface, /Shaky/);
   assert.match(surface, /Missed/);
+  assert.match(surface, /mappedTopics/);
+  assert.match(surface, /Relevant to/);
 });
 
 test("shared YouTube catalog parser preserves provider metadata without storing media", () => {

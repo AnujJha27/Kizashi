@@ -1792,5 +1792,6 @@ shown in Immersion's `しくみ · Understand Japanese` lane and is not presente
 as native listening, pronunciation guidance, or canonical Kizashi grammar.
 Provider video cards now also keep a local-first `Clear` / `Shaky` / `Missed`
 comprehension signal by video and include it in opt-in account sync when
-enabled, while Studio reports cached provider-feed health. Neither signal is
-source approval or JLPT readiness.
+enabled, while Studio reports cached provider-feed health. One conservative
+Cure Dolly verb-forms mapping is available as provider metadata; neither the
+mapping nor the review signal is source approval or JLPT readiness.
