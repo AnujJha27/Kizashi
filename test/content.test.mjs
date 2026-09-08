@@ -723,6 +723,8 @@ test("keyboard dialogs restore focus to their opener", async () => {
   assert.match(palette, /openPalette\("add"\)/);
   assert.match(sourceViewer, /previousFocus\.current = document\.activeElement/);
   assert.match(sourceViewer, /previousFocus\.current\?\.focus\(\)/);
+  assert.match(sourceViewer, /event\.key !== "Tab"/);
+  assert.match(sourceViewer, /dialogRef/);
 });
 
 test("lesson completion uses the area transition language", async () => {

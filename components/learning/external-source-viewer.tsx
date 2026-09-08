@@ -15,6 +15,7 @@ export function ExternalSourceFrame({ source }: Readonly<{ source: ExternalSourc
 export function ExternalSourceViewer({ source, open, onToggle }: Readonly<{ source: ExternalSourceLink; open?: boolean; onToggle?: () => void }>) {
   const [internalOpen, setInternalOpen] = useState(false);
   const previousFocus = useRef<HTMLElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
   const controlled = open !== undefined;
   const isOpen = controlled ? open : internalOpen;
   const canRender = canEmbedExternalSource(source.mediaDelivery) || (canPlayExternalSourceMedia(source.mediaDelivery) && Boolean(source.mediaUrl));
@@ -30,9 +31,19 @@ export function ExternalSourceViewer({ source, open, onToggle }: Readonly<{ sour
       return;
     }
     previousFocus.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") toggle(); };
+    const focusable = () => Array.from(dialogRef.current?.querySelectorAll<HTMLElement>("button, a[href], input, select, textarea, [tabindex]:not([tabindex=\"-1\"])") ?? []).filter((element) => !element.hasAttribute("disabled") && element.getAttribute("aria-hidden") !== "true");
+    focusable()[0]?.focus();
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { toggle(); return; }
+      if (event.key !== "Tab") return;
+      const items = focusable();
+      if (!items.length) { event.preventDefault(); return; }
+      const index = items.indexOf(document.activeElement as HTMLElement);
+      if (event.shiftKey && (index <= 0)) { event.preventDefault(); items[items.length - 1]?.focus(); }
+      if (!event.shiftKey && (index === items.length - 1 || index === -1)) { event.preventDefault(); items[0]?.focus(); }
+    };
     document.addEventListener("keydown", closeOnEscape);
     return () => document.removeEventListener("keydown", closeOnEscape);
   }, [isOpen]);
-  return <div><div className="flex flex-wrap items-center gap-2">{canRender ? <button type="button" onClick={toggle} aria-expanded={isOpen} className="rounded-lg bg-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#0b0b0d] hover:bg-[#f1cf7c]">{isOpen ? "Close frame" : "View here"}</button> : null}<ExternalSourceLauncher source={source} /></div>{isOpen && canRender ? <div role="dialog" aria-modal="true" aria-label={`${source.name} source viewer`} className="fixed inset-0 z-50 flex items-center justify-center bg-[#05080d]/75 p-3 backdrop-blur-sm sm:p-6" onMouseDown={(event) => { if (event.target === event.currentTarget) toggle(); }}><div className="flex max-h-[calc(100vh-1.5rem)] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-[#3f4652] bg-[#101b2b] shadow-2xl sm:max-h-[calc(100vh-3rem)]"><div className="flex shrink-0 items-center justify-between gap-3 border-b border-white/10 px-4 py-3"><div><p className="eyebrow">Source viewer</p><p className="mt-1 text-sm font-medium text-[#f5f5f2]">{source.title ?? source.name}</p></div><button type="button" onClick={toggle} className="rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce] hover:border-[#e5b85c]" aria-label="Close source viewer">Close</button></div><div className="min-h-0 overflow-y-auto p-3 sm:p-4"><ExternalSourceFrame source={source} /></div></div></div> : null}</div>;
+  return <div><div className="flex flex-wrap items-center gap-2">{canRender ? <button type="button" onClick={toggle} aria-expanded={isOpen} className="rounded-lg bg-[#e5b85c] px-3 py-2 text-xs font-semibold text-[#0b0b0d] hover:bg-[#f1cf7c]">{isOpen ? "Close frame" : "View here"}</button> : null}<ExternalSourceLauncher source={source} /></div>{isOpen && canRender ? <div role="dialog" aria-modal="true" aria-label={`${source.name} source viewer`} className="fixed inset-0 z-50 flex items-center justify-center bg-[#05080d]/75 p-3 backdrop-blur-sm sm:p-6" onMouseDown={(event) => { if (event.target === event.currentTarget) toggle(); }}><div ref={dialogRef} className="flex max-h-[calc(100vh-1.5rem)] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-[#3f4652] bg-[#101b2b] shadow-2xl sm:max-h-[calc(100vh-3rem)]"><div className="flex shrink-0 items-center justify-between gap-3 border-b border-white/10 px-4 py-3"><div><p className="eyebrow">Source viewer</p><p className="mt-1 text-sm font-medium text-[#f5f5f2]">{source.title ?? source.name}</p></div><button type="button" onClick={toggle} className="rounded-lg border border-[#3f4652] px-3 py-2 text-xs text-[#c3c7ce] hover:border-[#e5b85c]" aria-label="Close source viewer">Close</button></div><div className="min-h-0 overflow-y-auto p-3 sm:p-4"><ExternalSourceFrame source={source} /></div></div></div> : null}</div>;
 }
