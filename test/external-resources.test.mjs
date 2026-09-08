@@ -203,6 +203,13 @@ test("provider video cards expose comprehension review controls", async () => {
   assert.match(references, /ExternalSourceViewer/);
 });
 
+test("provider video cards reuse study-later storage", async () => {
+  const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
+  assert.match(surface, /StudyLaterButton/);
+  assert.match(surface, /immersion-video:/);
+  assert.match(surface, /Save · あとで/);
+});
+
 test("shared YouTube catalog parser preserves provider metadata without storing media", () => {
   const catalog = parseYouTubeVideoFeed(`<feed><entry><yt:videoId>abcDEF_1</yt:videoId><title>[File] 駅前を歩く</title><published>2026-01-02T00:00:00Z</published></entry></feed>`, { sourceId: "moshi-moshi-yusuke", defaultLevel: "Native" });
   assert.deepEqual(catalog[0], {

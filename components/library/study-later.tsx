@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { readStudyLaterIds, toggleStudyLater } from "@/lib/session";
 
-export function StudyLaterButton({ itemId }: Readonly<{ itemId: string }>) {
+export function StudyLaterButton({ itemId, label = "Study later" }: Readonly<{ itemId: string; label?: string }>) {
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
@@ -18,5 +18,5 @@ export function StudyLaterButton({ itemId }: Readonly<{ itemId: string }>) {
     setSaved(toggleStudyLater(itemId));
   };
 
-  return <button type="button" onClick={toggle} aria-pressed={saved} className={`rounded-lg border px-3 py-2 text-xs font-semibold ${saved ? "border-[#e5b85c] bg-[#302818] text-[#f1cf7c]" : "border-[#3f4652] text-[#9297a1] hover:border-[#e5b85c] hover:text-[#f1cf7c]"}`}>{saved ? "Saved for later" : "Study later"}</button>;
+  return <button type="button" onClick={toggle} aria-pressed={saved} className={`rounded-lg border px-3 py-2 text-xs font-semibold ${saved ? "border-[#e5b85c] bg-[#302818] text-[#f1cf7c]" : "border-[#3f4652] text-[#9297a1] hover:border-[#e5b85c] hover:text-[#f1cf7c]"}`}>{saved ? "Saved for later" : label}</button>;
 }

@@ -905,7 +905,7 @@ Do NOT pretend YouTube playback completion is known if Kizashi does not actually
 
 ---
 
-# IM31. SAVE FOR LATER
+# IM31. SAVE FOR LATER [x]
 
 All three providers should support:
 
@@ -915,6 +915,8 @@ Save
 ```
 
 through existing saved-content infrastructure if available.
+
+Provider video cards now reuse the existing study-later button and synced `michi.study-later` collection with namespaced `immersion-video:<provider>:<video>` IDs. Saved state remains local-first and participates in account sync when the learner has enabled it.
 
 ---
 
@@ -1220,4 +1222,5 @@ The feed should feel like one intelligently curated Japanese environment, not a 
 - [x] One shared YouTube parser and `/api/immersion/youtube/[provider]` route provide bounded provider-hosted catalogs; the existing player, opened state, interest ranking, channel fallback, and original-source boundary are reused.
 - [x] Immersion includes the `しくみ · Understand Japanese` lane for Cure Dolly and Tae Kim. Yusuke titles receive conservative series labels only when an explicit series marker is present.
 - [x] Provider video cards now support self-reported `Clear` / `Shaky` / `Missed` comprehension reviews, stored locally by video ID with a timestamp and included in opt-in account sync when enabled; they remain separate from source approval and JLPT readiness. Content Studio reports cached health for the bounded YouTube feeds and preserves the official-channel fallback when a feed is unavailable.
+- [x] Provider video cards reuse the existing study-later control for `Save · あとで`, namespaced by provider and video ID so Yusuke, Natural Japanese, and Cure Dolly items share the current local-first/opt-in-sync saved-content path.
 - [~] One conservative, metadata-only Cure Dolly mapping is now reviewed and learner-visible for verb forms, the stem system, and て-form / た-form; it appears both in Immersion and on matching grammar entries through the shared provider-hosted viewer, while the live provider feed is merged with that official video entry without storing media. Broader grammar-to-video coverage remains open until additional provider metadata or reviewed mappings exist.
