@@ -708,6 +708,8 @@ test("content review cards open a readable modal before approval", async () => {
   assert.match(studio, /aria-modal="true"/);
   assert.match(studio, /previousFocus\.current = document\.activeElement/);
   assert.match(studio, /previousFocus\.current\?\.focus\(\)/);
+  assert.match(studio, /event\.key !== "Tab"/);
+  assert.match(studio, /dialogRef/);
   assert.match(studio, /backdrop-blur/);
   assert.match(studio, /ReadableRecord/);
   assert.doesNotMatch(studio, /<details className=/);
@@ -721,6 +723,8 @@ test("keyboard dialogs restore focus to their opener", async () => {
   assert.match(palette, /previousFocus\.current = document\.activeElement/);
   assert.match(palette, /previousFocus\.current\?\.focus\(\)/);
   assert.match(palette, /openPalette\("add"\)/);
+  assert.match(palette, /event\.key !== "Tab"/);
+  assert.match(palette, /dialogRef/);
   assert.match(sourceViewer, /previousFocus\.current = document\.activeElement/);
   assert.match(sourceViewer, /previousFocus\.current\?\.focus\(\)/);
   assert.match(sourceViewer, /event\.key !== "Tab"/);
