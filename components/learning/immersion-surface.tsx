@@ -19,6 +19,7 @@ import { getExternalResources } from "@/lib/external-resources";
 import { getAreaForLessonId } from "@/lib/journey-world-core.js";
 import { rotateCatalog } from "@/lib/shun-catalog-core.js";
 import { interestScore } from "@/lib/interest-core.js";
+import { readImmersionVideoReviews, recordImmersionVideoReview } from "@/lib/immersion-review.js";
 
 type ImmersionMode = "listen" | "read" | "pronunciation" | "dictation" | "shadow" | "real-life" | "understand" | "explore";
 
@@ -142,6 +143,7 @@ function YouTubeVideoCatalog({ source, rotation, interests, journeyAreaId }: Rea
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [loading, setLoading] = useState(videos.length === 0);
   const [error, setError] = useState(false);
+  const [reviews, setReviews] = useState(readImmersionVideoReviews);
 
   useEffect(() => {
     let active = true;
@@ -150,13 +152,20 @@ function YouTubeVideoCatalog({ source, rotation, interests, journeyAreaId }: Rea
     return () => { active = false; };
   }, []);
 
+  useEffect(() => {
+    const refresh = () => setReviews(readImmersionVideoReviews());
+    window.addEventListener("michi-immersion-review-updated", refresh);
+    return () => window.removeEventListener("michi-immersion-review-updated", refresh);
+  }, []);
+
   const rotated = rotateCatalog([...videos].sort((left, right) => interestScore(right, interests) - interestScore(left, interests) || String(right.publishedAt).localeCompare(String(left.publishedAt))), rotation);
   const selected = videos.find((video) => video.id === selectedId) ?? rotated[0];
   const selectedSource = selected ? { ...source, id: `${source.id}-${selected.id}`, title: selected.title, level: selected.level, url: selected.url, frameUrl: selected.frameUrl, posterUrl: selected.posterUrl } : source;
+  const selectedReview = selected ? reviews[selected.id] : undefined;
 
   const role = source.immersionRole === "real-life" ? "REAL LIFE" : source.immersionRole === "comprehensible-input" ? "COMPREHENSIBLE" : "LISTEN";
   const journeyMatch = journeyAreaId && source.journeyContexts?.includes(journeyAreaId);
-  return <><p className="text-lg font-medium text-[#f5f5f2]">{source.name} · choose a video</p><p className="mt-1 text-xs uppercase tracking-[.1em] text-[#e5b85c]">{role} · {source.providerLevel ?? source.level} · {source.kizashiRecommendedLevel ?? source.level}</p>{journeyMatch ? <p className="mt-2 text-xs text-[#8bcca6]">Matches your current Journey area</p> : null}<p className="mt-3 text-sm leading-6 text-[#9297a1]">{source.description}</p>{source.contentTypes?.length ? <p className="mt-2 text-[11px] text-[#676c75]">{source.contentTypes.join(" · ")}</p> : null}{loading ? <p className="mt-4 text-xs text-[#9297a1]">Loading the latest videos…</p> : null}{error ? <p role="status" className="mt-3 text-xs text-[#e5b85c]">Provider catalog unavailable. The official channel is still available below.</p> : null}{selected ? <div className="mt-4"><label className="eyebrow block" htmlFor={`${source.sourceId}-video`}>Video</label><select id={`${source.sourceId}-video`} value={selected.id} onChange={(event) => setSelectedId(event.target.value)} className="mt-2 w-full rounded-lg border border-[#3f4652] bg-[#111216] px-3 py-2 text-sm text-[#f5f5f2]">{rotated.map((video) => <option key={video.id} value={video.id}>{video.title} · {video.level}{video.contentType ? ` · ${video.contentType}` : ""}</option>)}</select><div className="mt-3 flex flex-wrap items-center gap-2"><ExternalSourceViewer source={selectedSource} /><span className="text-[11px] text-[#676c75]">Provider-hosted · no media stored</span></div></div> : <div className="mt-4 flex flex-wrap items-center gap-2"><ExternalSourceViewer source={source} /><span className="text-[11px] text-[#676c75]">Official channel fallback</span></div>}</>;
+  return <><p className="text-lg font-medium text-[#f5f5f2]">{source.name} · choose a video</p><p className="mt-1 text-xs uppercase tracking-[.1em] text-[#e5b85c]">{role} · {source.providerLevel ?? source.level} · {source.kizashiRecommendedLevel ?? source.level}</p>{journeyMatch ? <p className="mt-2 text-xs text-[#8bcca6]">Matches your current Journey area</p> : null}<p className="mt-3 text-sm leading-6 text-[#9297a1]">{source.description}</p>{source.contentTypes?.length ? <p className="mt-2 text-[11px] text-[#676c75]">{source.contentTypes.join(" · ")}</p> : null}{loading ? <p className="mt-4 text-xs text-[#9297a1]">Loading the latest videos…</p> : null}{error ? <p role="status" className="mt-3 text-xs text-[#e5b85c]">Provider catalog unavailable. The official channel is still available below.</p> : null}{selected ? <div className="mt-4"><label className="eyebrow block" htmlFor={`${source.sourceId}-video`}>Video</label><select id={`${source.sourceId}-video`} value={selected.id} onChange={(event) => setSelectedId(event.target.value)} className="mt-2 w-full rounded-lg border border-[#3f4652] bg-[#111216] px-3 py-2 text-sm text-[#f5f5f2]">{rotated.map((video) => <option key={video.id} value={video.id}>{video.title} · {video.level}{video.contentType ? ` · ${video.contentType}` : ""}</option>)}</select><div className="mt-3 flex flex-wrap items-center gap-2"><ExternalSourceViewer source={selectedSource} /><span className="text-[11px] text-[#676c75]">Provider-hosted · no media stored</span></div><div className="mt-4 rounded-lg border border-white/10 bg-[#17181d]/55 p-3"><div className="flex flex-wrap items-center gap-2" role="group" aria-label="Video comprehension review"><span className="text-[11px] text-[#9297a1]">How did it feel?</span>{([["clear", "Clear"], ["shaky", "Shaky"], ["missed", "Missed"]] as const).map(([status, label]) => <button key={status} type="button" onClick={() => recordImmersionVideoReview(selected.id, status)} className={`rounded-md border px-2 py-1 text-[11px] ${selectedReview?.status === status ? "border-[#e5b85c] bg-[#302818] text-[#f1cf7c]" : "border-[#3f4652] text-[#c3c7ce] hover:border-[#e5b85c]"}`}>{label}</button>)}</div>{selectedReview ? <p className="mt-2 text-[10px] text-[#8bcca6]">Saved locally · {new Date(selectedReview.updatedAt).toLocaleDateString()}</p> : <p className="mt-2 text-[10px] text-[#676c75]">Mark your comprehension after listening; this does not change source approval.</p>}</div></div> : <div className="mt-4 flex flex-wrap items-center gap-2"><ExternalSourceViewer source={source} /><span className="text-[11px] text-[#676c75]">Official channel fallback</span></div>}</>;
 }
 
 type TeppeiEpisode = { id: string; title: string; publishedAt: string; url: string; mediaUrl: string; duration: string };

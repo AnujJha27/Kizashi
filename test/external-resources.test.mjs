@@ -14,6 +14,7 @@ import {
 } from "../lib/external-resources-runtime.js";
 import { parseShunVideoFeed, parseYouTubeVideoFeed, rotateCatalog } from "../lib/shun-catalog-core.js";
 import { markExternalSourceOpened } from "../lib/external-source-progress.js";
+import { readImmersionVideoReviews, recordImmersionVideoReview } from "../lib/immersion-review.js";
 
 test("registry filters resources and returns an empty result for missing matches", () => {
   assert.deepEqual(getExternalResources({ type: "grammar-reference" }).map((resource) => resource.sourceId), ["cure-dolly", "tae-kim"]);
@@ -136,6 +137,50 @@ test("immersion expansion keeps provider roles and levels distinct", () => {
   const natural = getExternalResourceById("natural-japanese");
   assert.deepEqual(natural.metadata.aliases, ["Comprehensible Japanese", "CIJ", "NIJ"]);
   assert.ok(getExternalResources({ tag: "guided-understanding" }).some((resource) => resource.id === "cure-dolly"));
+});
+
+test("immersion video reviews are local, bounded, and evented", () => {
+  const previousWindow = globalThis.window;
+  const values = new Map();
+  const events = [];
+  globalThis.window = {
+    localStorage: {
+      getItem(key) { return values.get(key) ?? null; },
+      setItem(key, value) { values.set(key, value); },
+    },
+    dispatchEvent(event) { events.push(event.type); },
+  };
+  try {
+    assert.equal(recordImmersionVideoReview("video-1", "shaky"), true);
+    const reviews = readImmersionVideoReviews();
+    assert.equal(reviews["video-1"].status, "shaky");
+    assert.equal(typeof reviews["video-1"].updatedAt, "number");
+    assert.equal(recordImmersionVideoReview("video-1", "invalid"), false);
+    assert.deepEqual(events, ["michi-immersion-review-updated"]);
+  } finally {
+    globalThis.window = previousWindow;
+  }
+});
+
+test("immersion provider health is visible in Studio", async () => {
+  const route = await readFile(new URL("../app/api/immersion/provider-health/route.ts", import.meta.url), "utf8");
+  const studio = await readFile(new URL("../components/content/immersion-provider-health.tsx", import.meta.url), "utf8");
+  const page = await readFile(new URL("../app/(main)/studio/page.tsx", import.meta.url), "utf8");
+  assert.match(route, /Promise\.all/);
+  assert.match(route, /AbortSignal\.timeout/);
+  assert.match(route, /healthy/);
+  assert.match(studio, /Provider health/);
+  assert.match(studio, /provider-health/);
+  assert.match(page, /ImmersionProviderHealth/);
+});
+
+test("provider video cards expose comprehension review controls", async () => {
+  const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
+  assert.match(surface, /recordImmersionVideoReview/);
+  assert.match(surface, /How did it feel\?/);
+  assert.match(surface, /Clear/);
+  assert.match(surface, /Shaky/);
+  assert.match(surface, /Missed/);
 });
 
 test("shared YouTube catalog parser preserves provider metadata without storing media", () => {
