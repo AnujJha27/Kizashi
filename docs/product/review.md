@@ -1794,4 +1794,7 @@ Provider video cards now also keep a local-first `Clear` / `Shaky` / `Missed`
 comprehension signal by video and include it in opt-in account sync when
 enabled, while Studio reports cached provider-feed health. One conservative
 Cure Dolly verb-forms mapping is available as provider metadata; neither the
-mapping nor the review signal is source approval or JLPT readiness.
+mapping nor the review signal is source approval or JLPT readiness. Provider
+video cards also reuse the existing study-later collection for `Save · あとで`
+with namespaced provider/video IDs; this state remains local-first and opt-in
+syncable.
