@@ -6,6 +6,7 @@ const providers = Object.freeze([
 ]);
 
 export const revalidate = 900;
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   const health = await Promise.all(providers.map(async (provider) => {

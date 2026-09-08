@@ -168,6 +168,7 @@ test("immersion provider health is visible in Studio", async () => {
   const page = await readFile(new URL("../app/(main)/studio/page.tsx", import.meta.url), "utf8");
   assert.match(route, /Promise\.all/);
   assert.match(route, /AbortSignal\.timeout/);
+  assert.match(route, /dynamic = "force-dynamic"/);
   assert.match(route, /healthy/);
   assert.match(studio, /Provider health/);
   assert.match(studio, /provider-health/);
