@@ -57,7 +57,7 @@ verification, `[ ]` not implemented.
 - [x] Immersion is split into a recommendation feed and a focused activity player.
 - [x] Immersion includes a compact pronunciation lane with authored N5/N4 lessons, discrimination exercises, separate progress states, browser audio fallback, and optional OJAD exploration; it remains outside JLPT readiness.
 - [x] Immersion includes a dedicated `実際に使う` real-life lane for source-hosted Irodori activities, separate from the general source shelf.
-- [x] Immersion adds a `しくみ · Understand Japanese` lane for structural explanations, while the shared provider shelf distinguishes Yusuke real-life Japanese, Natural Japanese/NIJ comprehensible input, and Cure Dolly guided understanding.
+- [x] Immersion adds a `しくみ · Understand Japanese` lane for structural explanations, while the shared provider shelf distinguishes Yusuke real-life Japanese, Natural Japanese/NIJ comprehensible input, and Cure Dolly guided understanding; the reviewed Cure Dolly verb-forms mapping also appears on matching grammar entries.
 - [x] Grammar entries surface mapped Irodori communicative patterns beside the existing Tae Kim and Wikibooks references, with source course/lesson focus and attribution available on demand; unmapped source-only patterns remain clearly labeled rather than masquerading as Kizashi explanations.
 - [x] Continue/resume state is shared across lessons, practice, immersion, and reading using the existing local session layer.
 - [x] Mistakes acts as a Repair Center with modality-specific repair actions.

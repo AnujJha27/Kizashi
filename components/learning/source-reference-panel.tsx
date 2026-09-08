@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 
+import { ExternalSourceViewer } from "@/components/learning/external-source-viewer";
+import { externalResourceToSourceLink } from "@/components/learning/external-source-launcher";
 import taeKim from "@/data/source-maps/tae-kim.json";
 import wikibooks from "@/data/source-maps/wikibooks.json";
 import irodori from "@/data/source-maps/irodori-grammar.json";
+import { getExternalResourceById } from "@/lib/external-resources";
 
 type Reference = {
   sourceId: string;
@@ -31,6 +34,12 @@ function record(value: unknown): value is Record<string, unknown> {
 
 export function grammarReferencesFor(grammarId: string) {
   return [taeKimById[grammarId], wikibooksById[grammarId], ...(irodoriById[grammarId] ?? []).slice(0, 2)].filter((reference): reference is Reference => Boolean(reference));
+}
+
+function mappedVideosFor(grammarId: string) {
+  const resource = getExternalResourceById("cure-dolly");
+  const source = resource ? externalResourceToSourceLink(resource) : null;
+  return source ? (source.videoCatalog ?? []).filter((video) => video.targetItemIds?.includes(grammarId)).map((video) => ({ ...source, id: `${source.id}-${video.id}`, title: video.title, level: video.level, url: video.url, frameUrl: video.frameUrl, posterUrl: video.posterUrl, targetItemIds: video.targetItemIds, mappedTopics: video.mappedTopics })) : [];
 }
 
 function sourceLabel(reference: Reference) {
@@ -61,6 +70,11 @@ function Preview({ reference }: Readonly<{ reference: Reference }>) {
 }
 
 export function SourceReferencePanel({ grammarId }: Readonly<{ grammarId: string }>) {
+  const mappedVideos = mappedVideosFor(grammarId);
+  return <>{mappedVideos.length ? <section className="mb-8 border-b border-[#4b3a29] pb-5"><p className="eyebrow">Cure Dolly · Another explanation</p><div className="mt-3 divide-y divide-white/10">{mappedVideos.map((video) => <article key={video.id} className="py-4 first:pt-0 last:pb-0"><p className="text-sm font-medium text-[#f5f5f2]">{video.title}</p><p className="mt-1 text-xs text-[#e5b85c]">{video.mappedTopics?.join(" · ") ?? "Structural explanation"}</p><p className="mt-2 text-xs leading-5 text-[#9297a1]">Alternative structural explanation · provider-hosted video.</p><ExternalSourceViewer source={video} /></article>)}</div></section> : null}<SourceReferencePanelBase grammarId={grammarId} /></>;
+}
+
+function SourceReferencePanelBase({ grammarId }: Readonly<{ grammarId: string }>) {
   const references = grammarReferencesFor(grammarId);
   if (!references.length) return null;
   return <section className="mt-8 border-t border-[#4b3a29] pt-5"><p className="eyebrow">別の見方 · Alternative explanations</p><div className="mt-3 divide-y divide-white/10">{references.map((reference) => <article key={`${reference.sourceId}-${reference.sectionTitle}-${reference.sourceRecordId ?? ""}`} className="py-4 first:pt-0 last:pb-0"><div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between"><div className="min-w-0"><p className="text-sm font-medium text-[#f5f5f2]">{sourceLabel(reference)}</p><p className="mt-1 text-xs text-[#e5b85c]">{reference.sectionTitle}</p><p className="mt-2 text-xs leading-5 text-[#9297a1]">{reference.description}</p></div><div className="shrink-0"><a href={reference.url} target="_blank" rel="noreferrer" className="inline-flex rounded-lg border border-[#3f4652] px-3 py-2 text-xs font-semibold text-[#c3c7ce] hover:border-[#e5b85c]">{reference.sourceId === "tae-kim" ? "Read explanation ↗" : reference.sourceId === "wikibooks-japanese" ? "Open reference ↗" : "Open Irodori ↗"}</a>{reference.sourceId === "wikibooks-japanese" ? <Preview reference={reference} /> : null}</div></div><details className="mt-3 text-[11px] text-[#676c75]"><summary className="cursor-pointer hover:text-[#c3c7ce]">ⓘ Source</summary><p className="mt-2 leading-5">{reference.attribution} · {reference.license}{reference.sourceUrl ? <> · <a href={reference.sourceUrl} target="_blank" rel="noreferrer" className="text-[#e5b85c]">source data ↗</a></> : null}</p></details></article>)}</div><p className="mt-3 text-[11px] text-[#676c75]">Kizashi's explanation and practice remain the primary lesson.</p></section>;

@@ -190,6 +190,7 @@ test("immersion video reviews join the existing opt-in sync snapshot", async () 
 
 test("provider video cards expose comprehension review controls", async () => {
   const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
+  const references = await readFile(new URL("../components/learning/source-reference-panel.tsx", import.meta.url), "utf8");
   assert.match(surface, /recordImmersionVideoReview/);
   assert.match(surface, /How did it feel\?/);
   assert.match(surface, /Clear/);
@@ -197,6 +198,9 @@ test("provider video cards expose comprehension review controls", async () => {
   assert.match(surface, /Missed/);
   assert.match(surface, /mappedTopics/);
   assert.match(surface, /Relevant to/);
+  assert.match(references, /cure-dolly/);
+  assert.match(references, /mappedVideosFor/);
+  assert.match(references, /ExternalSourceViewer/);
 });
 
 test("shared YouTube catalog parser preserves provider metadata without storing media", () => {
