@@ -883,7 +883,7 @@ Do not make it required for progression.
 
 ---
 
-# IM30. TRACKING
+# IM30. TRACKING [x]
 
 For external/provider immersion retain lightweight local state:
 
@@ -902,6 +902,8 @@ saved
 Reuse current provider tracking.
 
 Do NOT pretend YouTube playback completion is known if Kizashi does not actually receive that signal.
+
+The shared source-progress helper now preserves monotonic `opened`, `started`, and `completed` states, migrates legacy boolean opened records, marks iframe load/native media play as started, and provides an explicit `Mark complete` action for self-completion. YouTube remains provider-hosted and never receives an automatic completion claim; `saved` continues through the existing study-later collection.
 
 ---
 
@@ -1223,4 +1225,5 @@ The feed should feel like one intelligently curated Japanese environment, not a 
 - [x] Immersion includes the `しくみ · Understand Japanese` lane for Cure Dolly and Tae Kim. Yusuke titles receive conservative series labels only when an explicit series marker is present.
 - [x] Provider video cards now support self-reported `Clear` / `Shaky` / `Missed` comprehension reviews, stored locally by video ID with a timestamp and included in opt-in account sync when enabled; they remain separate from source approval and JLPT readiness. Content Studio reports cached health for the bounded YouTube feeds and preserves the official-channel fallback when a feed is unavailable.
 - [x] Provider video cards reuse the existing study-later control for `Save · あとで`, namespaced by provider and video ID so Yusuke, Natural Japanese, and Cure Dolly items share the current local-first/opt-in-sync saved-content path.
+- [x] Shared external-source progress now migrates legacy opened flags and records monotonic opened/started/completed states from viewer entry, iframe load or native media play/end, plus explicit self-completion; YouTube playback remains completion-unknown.
 - [~] One conservative, metadata-only Cure Dolly mapping is now reviewed and learner-visible for verb forms, the stem system, and て-form / た-form; it appears both in Immersion and on matching grammar entries through the shared provider-hosted viewer, while the live provider feed is merged with that official video entry without storing media. Broader grammar-to-video coverage remains open until additional provider metadata or reviewed mappings exist.

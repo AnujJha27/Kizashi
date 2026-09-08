@@ -1797,4 +1797,5 @@ Cure Dolly verb-forms mapping is available as provider metadata; neither the
 mapping nor the review signal is source approval or JLPT readiness. Provider
 video cards also reuse the existing study-later collection for `Save · あとで`
 with namespaced provider/video IDs; this state remains local-first and opt-in
-syncable.
+syncable. Shared provider-source progress now also preserves monotonic opened,
+started, and self-completed states without claiming YouTube playback completion.

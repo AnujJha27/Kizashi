@@ -13,7 +13,7 @@ import {
   canPlayExternalSourceMedia,
 } from "../lib/external-resources-runtime.js";
 import { parseShunVideoFeed, parseYouTubeVideoFeed, rotateCatalog } from "../lib/shun-catalog-core.js";
-import { markExternalSourceOpened } from "../lib/external-source-progress.js";
+import { markExternalSourceCompleted, markExternalSourceOpened, markExternalSourceStarted, readExternalSourceProgress } from "../lib/external-source-progress.js";
 import { readImmersionVideoReviews, recordImmersionVideoReview } from "../lib/immersion-review.js";
 
 test("registry filters resources and returns an empty result for missing matches", () => {
@@ -208,6 +208,41 @@ test("provider video cards reuse study-later storage", async () => {
   assert.match(surface, /StudyLaterButton/);
   assert.match(surface, /immersion-video:/);
   assert.match(surface, /Save · あとで/);
+});
+
+test("external provider progress records started and self-completed states", async () => {
+  const progress = await readFile(new URL("../lib/external-source-progress.js", import.meta.url), "utf8");
+  const frame = await readFile(new URL("../components/learning/external-source-viewer.tsx", import.meta.url), "utf8");
+  assert.match(progress, /markExternalSourceStarted/);
+  assert.match(progress, /markExternalSourceCompleted/);
+  assert.match(progress, /started/);
+  assert.match(progress, /completed/);
+  assert.match(frame, /markExternalSourceStarted/);
+  assert.match(frame, /markExternalSourceCompleted/);
+  assert.match(frame, /Mark complete/);
+});
+
+test("external provider progress is monotonic and migrates legacy opened flags", () => {
+  const previousWindow = globalThis.window;
+  const values = new Map();
+  globalThis.window = {
+    localStorage: {
+      getItem(key) { return values.get(key) ?? null; },
+      setItem(key, value) { values.set(key, value); },
+    },
+    dispatchEvent() {},
+  };
+  try {
+    assert.equal(markExternalSourceOpened("provider-video"), true);
+    assert.equal(markExternalSourceStarted("provider-video"), true);
+    assert.equal(markExternalSourceCompleted("provider-video"), true);
+    assert.equal(markExternalSourceOpened("provider-video"), true);
+    assert.equal(readExternalSourceProgress()["provider-video"], "completed");
+    values.set("michi.external-source-progress", JSON.stringify({ legacy: true }));
+    assert.equal(readExternalSourceProgress().legacy, "opened");
+  } finally {
+    globalThis.window = previousWindow;
+  }
 });
 
 test("shared YouTube catalog parser preserves provider metadata without storing media", () => {
