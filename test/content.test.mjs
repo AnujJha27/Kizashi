@@ -717,9 +717,12 @@ test("content review cards open a readable modal before approval", async () => {
 
 test("keyboard dialogs restore focus to their opener", async () => {
   const palette = await readFile(new URL("../components/shell/command-palette.tsx", import.meta.url), "utf8");
+  const sourceViewer = await readFile(new URL("../components/learning/external-source-viewer.tsx", import.meta.url), "utf8");
   assert.match(palette, /previousFocus\.current = document\.activeElement/);
   assert.match(palette, /previousFocus\.current\?\.focus\(\)/);
   assert.match(palette, /openPalette\("add"\)/);
+  assert.match(sourceViewer, /previousFocus\.current = document\.activeElement/);
+  assert.match(sourceViewer, /previousFocus\.current\?\.focus\(\)/);
 });
 
 test("lesson completion uses the area transition language", async () => {

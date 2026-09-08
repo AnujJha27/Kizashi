@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { ExternalSourceLauncher, type ExternalSourceLink } from "@/components/learning/external-source-launcher";
 import { canEmbedExternalSource, canPlayExternalSourceMedia } from "@/lib/external-resources";
@@ -14,6 +14,7 @@ export function ExternalSourceFrame({ source }: Readonly<{ source: ExternalSourc
 
 export function ExternalSourceViewer({ source, open, onToggle }: Readonly<{ source: ExternalSourceLink; open?: boolean; onToggle?: () => void }>) {
   const [internalOpen, setInternalOpen] = useState(false);
+  const previousFocus = useRef<HTMLElement | null>(null);
   const controlled = open !== undefined;
   const isOpen = controlled ? open : internalOpen;
   const canRender = canEmbedExternalSource(source.mediaDelivery) || (canPlayExternalSourceMedia(source.mediaDelivery) && Boolean(source.mediaUrl));
@@ -23,7 +24,12 @@ export function ExternalSourceViewer({ source, open, onToggle }: Readonly<{ sour
     onToggle?.();
   };
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen) {
+      previousFocus.current?.focus();
+      previousFocus.current = null;
+      return;
+    }
+    previousFocus.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") toggle(); };
     document.addEventListener("keydown", closeOnEscape);
     return () => document.removeEventListener("keydown", closeOnEscape);
