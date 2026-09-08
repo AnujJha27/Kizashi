@@ -1,5 +1,6 @@
 import { mergeSyncSnapshots } from "@/lib/supabase/sync-core.js";
 import { CONTENT_FLAGS_STORAGE_KEY } from "@/lib/content-flags.js";
+import { IMMERSION_VIDEO_REVIEWS_STORAGE_KEY } from "@/lib/immersion-review.js";
 import { buildRepairPlan } from "@/lib/repair-core.js";
 import { normalizeExamPlan } from "@/lib/exam-plan-core.js";
 import type { AnswerConfidence, CurrentLessonState, QuestionStats, TargetLevel } from "@/lib/types";
@@ -28,7 +29,7 @@ export const CONTINUE_STORAGE_KEY = "michi.continue";
 export const PRONUNCIATION_PROGRESS_STORAGE_KEY = "michi.pronunciation-progress";
 export const KANJI_WRITING_PROGRESS_STORAGE_KEY = "michi.kanji-writing-progress";
 
-const BACKUP_KEYS = [CURRENT_LESSON_STORAGE_KEY, REVIEW_STORAGE_KEY, NOTES_STORAGE_KEY, MISTAKES_STORAGE_KEY, DIAGNOSTIC_STORAGE_KEY, QUESTION_STATS_STORAGE_KEY, STUDY_STATS_STORAGE_KEY, SAVED_SENTENCES_STORAGE_KEY, STUDY_LATER_STORAGE_KEY, PROFILE_PREFERENCES_STORAGE_KEY, PRONUNCIATION_PROGRESS_STORAGE_KEY, KANJI_WRITING_PROGRESS_STORAGE_KEY, EXAM_ATTEMPTS_STORAGE_KEY, REPAIR_STORAGE_KEY, CUSTOM_ENTRIES_STORAGE_KEY, BOOK_NOTES_STORAGE_KEY, BOOK_SCREENSHOTS_STORAGE_KEY, BOOK_SKETCHES_STORAGE_KEY, CONTENT_FLAGS_STORAGE_KEY, CONTINUE_STORAGE_KEY, "michi.content-draft", "michi.question-draft"] as const;
+const BACKUP_KEYS = [CURRENT_LESSON_STORAGE_KEY, REVIEW_STORAGE_KEY, NOTES_STORAGE_KEY, MISTAKES_STORAGE_KEY, DIAGNOSTIC_STORAGE_KEY, QUESTION_STATS_STORAGE_KEY, STUDY_STATS_STORAGE_KEY, SAVED_SENTENCES_STORAGE_KEY, STUDY_LATER_STORAGE_KEY, PROFILE_PREFERENCES_STORAGE_KEY, PRONUNCIATION_PROGRESS_STORAGE_KEY, KANJI_WRITING_PROGRESS_STORAGE_KEY, IMMERSION_VIDEO_REVIEWS_STORAGE_KEY, EXAM_ATTEMPTS_STORAGE_KEY, REPAIR_STORAGE_KEY, CUSTOM_ENTRIES_STORAGE_KEY, BOOK_NOTES_STORAGE_KEY, BOOK_SCREENSHOTS_STORAGE_KEY, BOOK_SKETCHES_STORAGE_KEY, CONTENT_FLAGS_STORAGE_KEY, CONTINUE_STORAGE_KEY, "michi.content-draft", "michi.question-draft"] as const;
 
 function isBackupKey(key: string) {
   return BACKUP_KEYS.includes(key as (typeof BACKUP_KEYS)[number]) || key.startsWith(`${PRACTICE_SESSION_STORAGE_KEY}.`) || key.startsWith("michi.book-review.");
@@ -69,6 +70,7 @@ export function createLocalSyncSnapshot() {
     [PROFILE_PREFERENCES_STORAGE_KEY]: "profilePreferences",
     [PRONUNCIATION_PROGRESS_STORAGE_KEY]: "pronunciationProgress",
     [KANJI_WRITING_PROGRESS_STORAGE_KEY]: "kanjiWritingProgress",
+    [IMMERSION_VIDEO_REVIEWS_STORAGE_KEY]: "immersionVideoReviews",
     [DIAGNOSTIC_STORAGE_KEY]: "diagnosticResult",
     [SAVED_SENTENCES_STORAGE_KEY]: "savedSentences",
     [STUDY_LATER_STORAGE_KEY]: "studyLaterIds",
@@ -113,6 +115,7 @@ export function applyLocalSyncSnapshot(snapshot: unknown) {
     profilePreferences: PROFILE_PREFERENCES_STORAGE_KEY,
     pronunciationProgress: PRONUNCIATION_PROGRESS_STORAGE_KEY,
     kanjiWritingProgress: KANJI_WRITING_PROGRESS_STORAGE_KEY,
+    immersionVideoReviews: IMMERSION_VIDEO_REVIEWS_STORAGE_KEY,
     diagnosticResult: DIAGNOSTIC_STORAGE_KEY,
     savedSentences: SAVED_SENTENCES_STORAGE_KEY,
     studyLaterIds: STUDY_LATER_STORAGE_KEY,
@@ -132,7 +135,7 @@ export function applyLocalSyncSnapshot(snapshot: unknown) {
   });
   if (typeof values.practiceSessions === "object" && values.practiceSessions !== null && !Array.isArray(values.practiceSessions)) Object.entries(values.practiceSessions as Record<string, unknown>).forEach(([id, value]) => { window.localStorage.setItem(`${PRACTICE_SESSION_STORAGE_KEY}.${id}`, JSON.stringify(value)); restored += 1; });
   if (typeof values.lessonStates === "object" && values.lessonStates !== null && !Array.isArray(values.lessonStates)) Object.entries(values.lessonStates as Record<string, unknown>).forEach(([id, value]) => { window.localStorage.setItem(`${CURRENT_LESSON_STORAGE_KEY}.${id}`, JSON.stringify(value)); restored += 1; });
-  ["michi-profile-updated", "michi-review-updated", "michi-study-stats-updated", "michi-question-stats-updated", "michi-pronunciation-updated", "michi-kanji-writing-updated", "michi-lesson-updated", "michi-custom-entries-updated", "michi-book-notes-updated", "michi-content-flagged-updated", "michi-repair-updated"].forEach((eventName) => window.dispatchEvent(new Event(eventName)));
+  ["michi-profile-updated", "michi-review-updated", "michi-study-stats-updated", "michi-question-stats-updated", "michi-pronunciation-updated", "michi-kanji-writing-updated", "michi-immersion-review-updated", "michi-lesson-updated", "michi-custom-entries-updated", "michi-book-notes-updated", "michi-content-flagged-updated", "michi-repair-updated"].forEach((eventName) => window.dispatchEvent(new Event(eventName)));
   return restored;
 }
 

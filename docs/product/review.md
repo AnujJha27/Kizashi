@@ -1790,6 +1790,7 @@ recommended N5/N4 level; catalogs are bounded and cached, playback stays
 provider-hosted, and official channel links remain the fallback. Cure Dolly is
 shown in Immersion's `しくみ · Understand Japanese` lane and is not presented
 as native listening, pronunciation guidance, or canonical Kizashi grammar.
-Provider video cards now also keep a local `Clear` / `Shaky` / `Missed`
-comprehension signal by video, while Studio reports cached provider-feed
-health. Neither signal is source approval or JLPT readiness.
+Provider video cards now also keep a local-first `Clear` / `Shaky` / `Missed`
+comprehension signal by video and include it in opt-in account sync when
+enabled, while Studio reports cached provider-feed health. Neither signal is
+source approval or JLPT readiness.

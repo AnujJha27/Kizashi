@@ -175,6 +175,16 @@ test("immersion provider health is visible in Studio", async () => {
   assert.match(page, /ImmersionProviderHealth/);
 });
 
+test("immersion video reviews join the existing opt-in sync snapshot", async () => {
+  const session = await readFile(new URL("../lib/session.ts", import.meta.url), "utf8");
+  const sync = await readFile(new URL("../lib/supabase/sync-core.js", import.meta.url), "utf8");
+  const accountSync = await readFile(new URL("../components/profile/account-sync.tsx", import.meta.url), "utf8");
+  assert.match(session, /IMMERSION_VIDEO_REVIEWS_STORAGE_KEY/);
+  assert.match(session, /immersionVideoReviews/);
+  assert.match(sync, /immersionVideoReviews/);
+  assert.match(accountSync, /michi-immersion-review-updated/);
+});
+
 test("provider video cards expose comprehension review controls", async () => {
   const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
   assert.match(surface, /recordImmersionVideoReview/);

@@ -67,6 +67,7 @@ test("sync payloads are bounded and never echo a client user id", () => {
       profilePreferences: { dailyMinutes: 10 },
       pronunciationProgress: { "pronunciation-n5-mora": "discriminates" },
       kanjiWritingProgress: { "kanji-駅": { state: "traced", lastPracticedAt: 1 } },
+      immersionVideoReviews: { "video-1": { status: "shaky", updatedAt: 1 } },
       customEntries: [{ id: "custom-1", writtenForm: "猫", meaning: "cat" }],
       bookNotes: { "genki-i:38": "Check this page." },
     },
@@ -80,6 +81,7 @@ test("sync payloads are bounded and never echo a client user id", () => {
       profilePreferences: { dailyMinutes: 10 },
       pronunciationProgress: { "pronunciation-n5-mora": "discriminates" },
       kanjiWritingProgress: { "kanji-駅": { state: "traced", lastPracticedAt: 1 } },
+      immersionVideoReviews: { "video-1": { status: "shaky", updatedAt: 1 } },
       customEntries: [{ id: "custom-1", writtenForm: "猫", meaning: "cat" }],
       bookNotes: { "genki-i:38": "Check this page." },
     },
@@ -97,10 +99,10 @@ test("sync payloads reject oversized collections", () => {
 
 test("sync snapshots merge state without trusting client identity", () => {
   const merged = mergeSyncSnapshots(
-    { version: 1, data: { reviewRecords: { "item-1": { attempts: 1 } }, savedSentences: ["old"], customEntries: [{ id: "custom-1" }], bookNotes: { "genki-i:38": "old" }, studyStats: { xp: 4 } } },
-    { version: 1, data: { userId: "attacker-id", reviewRecords: { "item-2": { attempts: 2 } }, savedSentences: ["old", "new"], customEntries: [{ id: "custom-2" }], bookNotes: { "genki-i:40": "new" }, studyStats: { xp: 8 } } },
+    { version: 1, data: { reviewRecords: { "item-1": { attempts: 1 } }, immersionVideoReviews: { "video-1": { status: "clear", updatedAt: 1 } }, savedSentences: ["old"], customEntries: [{ id: "custom-1" }], bookNotes: { "genki-i:38": "old" }, studyStats: { xp: 4 } } },
+    { version: 1, data: { userId: "attacker-id", reviewRecords: { "item-2": { attempts: 2 } }, immersionVideoReviews: { "video-2": { status: "missed", updatedAt: 2 } }, savedSentences: ["old", "new"], customEntries: [{ id: "custom-2" }], bookNotes: { "genki-i:40": "new" }, studyStats: { xp: 8 } } },
   );
 
-  assert.deepEqual(merged, { version: 1, data: { reviewRecords: { "item-1": { attempts: 1 }, "item-2": { attempts: 2 } }, savedSentences: ["old", "new"], customEntries: [{ id: "custom-1" }, { id: "custom-2" }], bookNotes: { "genki-i:38": "old", "genki-i:40": "new" }, studyStats: { xp: 8 } } });
+  assert.deepEqual(merged, { version: 1, data: { reviewRecords: { "item-1": { attempts: 1 }, "item-2": { attempts: 2 } }, immersionVideoReviews: { "video-1": { status: "clear", updatedAt: 1 }, "video-2": { status: "missed", updatedAt: 2 } }, savedSentences: ["old", "new"], customEntries: [{ id: "custom-1" }, { id: "custom-2" }], bookNotes: { "genki-i:38": "old", "genki-i:40": "new" }, studyStats: { xp: 8 } } });
   assert.equal("userId" in merged.data, false);
 });
