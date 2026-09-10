@@ -91,6 +91,8 @@ test("output self-ratings reuse the shared review schedule", async () => {
   assert.match(component, /activity\.kind === "register"/);
   assert.match(component, /addEventListener\("michi-review-updated", refresh\)/);
   assert.match(component, /, false\);/);
+  assert.match(component, /masteryState/);
+  assert.match(component, /Show support hint/);
 });
 
 test("Immersion continue state can reopen the selected local activity", async () => {

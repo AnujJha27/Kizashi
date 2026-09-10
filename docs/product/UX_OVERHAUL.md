@@ -69,7 +69,7 @@ verification, `[ ]` not implemented.
 
 ### Adaptive support and presentation
 
-- [x] Furigana preference support now honors `Always`, `Unknown`, `Tap`, and `Hide` in the shared `JapaneseText` and `ReadingPanel` renderers; Immersion list/player titles and passages, Aozora/Tadoku titles, Practice text, lesson prompts/answers, selected reading words, Library cards and entry headers, Progress recurring mistakes, Mistake Center entries, Knowledge Map, learner-assistant output, and Content Studio review fields now use the same Japanese-aware renderer, `Tap` reveals the clicked word, and challenge mode remains strict. Lesson and Library detail grammar formation plus listening transcripts fade to explicit support buttons after repeated/strong performance, while production models remain explicit reveals. Content Studio intentionally remains fully inspectable.
+- [x] Furigana preference support now honors `Always`, `Unknown`, `Tap`, and `Hide` in the shared `JapaneseText` and `ReadingPanel` renderers; Immersion list/player titles and passages, Aozora/Tadoku titles, Practice text, lesson prompts/answers, selected reading words, Library cards and entry headers, Progress recurring mistakes, Mistake Center entries, Knowledge Map, learner-assistant output, and Content Studio review fields now use the same Japanese-aware renderer, `Tap` reveals the clicked word, and challenge mode remains strict. Lesson and Library detail grammar formation plus listening transcripts fade to explicit support buttons after repeated/strong performance, while Immersion production hints now use the same mastery threshold with a manual reveal and production models remain explicit reveals. Content Studio intentionally remains fully inspectable.
 - [x] Quick practice favors unseen question variants across restarts while preserving stronger priority for mistakes, due reviews, and flagged ambiguity; its pool includes additional vocabulary, kanji, grammar, reading, and listening variants so a short session does not immediately recycle the same few questions.
 - [x] Contextual actions connect items to practice, immersion, study-later, and repair flows.
 - [x] Card density and source/player separation have been reduced; Immersion and Practice activity navigation are compact scrollable tab rows, while reading/listening, real-life activities, source detours, and grammar references use editorial separator rows and progressive loading.
@@ -86,7 +86,7 @@ verification, `[ ]` not implemented.
 - [x] Phase 7 — Universal continue/resume
 - [x] Phase 8 — Repair Center
 - [x] Phase 9 — Unified Japanese search
-- [x] Phase 10 — Adaptive scaffolding (core furigana, grammar formation, production model, and lesson/listening transcript reveals are wired; Content Studio remains fully inspectable by design)
+- [x] Phase 10 — Adaptive scaffolding (core furigana, grammar formation, production-hint/model, and lesson/listening transcript reveals are wired; Content Studio remains fully inspectable by design)
 - [x] Phase 11 — Progress narrative
 - [x] Phase 12 — Journey visual hierarchy
 - [x] Phase 13 — Contextual actions
