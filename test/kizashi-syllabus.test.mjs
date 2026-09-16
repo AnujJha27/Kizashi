@@ -7,6 +7,7 @@ const load = (path) => JSON.parse(readFileSync(new URL(`../${path}`, import.meta
 const syllabus = load("data/kizashi-syllabus.json");
 const aliases = load("data/syllabus-item-aliases.json");
 const additions = load("data/syllabus-lesson-additions.json");
+const canonicalAudit = load("data/audits/canonical-syllabus.json");
 const packages = [
   load("data/n5-foundations.json"),
   load("data/n5-conversation-expansion.json"),
@@ -43,6 +44,16 @@ test("every explicit Journey item resolves to a real learner item", () => {
 test("syllabus item aliases point only to real canonical learner items", () => {
   const bad = Object.entries(aliases).filter(([, target]) => !itemCategory.has(target));
   assert.deepEqual(bad, []);
+});
+
+test("every textbook-union grammar requirement resolves to an actual teaching item or explicit alias", () => {
+  const requirementIds = (canonicalAudit.requirements ?? []).map((entry) => typeof entry === "string" ? entry : entry.id);
+  const grammarRequirements = requirementIds.filter((id) => typeof id === "string" && id.startsWith("grammar-"));
+  const missing = grammarRequirements.filter((id) => {
+    const teachingId = canonicalId(id);
+    return itemCategory.get(teachingId) !== "grammar";
+  });
+  assert.deepEqual(missing, [], `Grammar requirements without teaching items:\n${missing.join("\n")}`);
 });
 
 test("Journey lesson IDs are unique and no dump/expansion titles survive", () => {
