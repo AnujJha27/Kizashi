@@ -97,7 +97,6 @@ test("the explicit Journey syllabus is bounded, integrated, and free of source-d
   assert.equal(existsSync(path), true, "data/kizashi-syllabus.json must exist");
   const syllabus = JSON.parse(readFileSync(path, "utf8"));
   const lessons = (syllabus.course?.chapters ?? []).flatMap((chapter) => chapter.lessons ?? []);
-
   assert.ok(lessons.length >= 20, "the explicit path should have enough small lessons to avoid mega-lessons");
   for (const lesson of lessons) {
     assert.doesNotMatch(lesson.title, /(?:vocabulary|kanji|grammar) expansion|expanded source curriculum|source review/i);
@@ -107,4 +106,11 @@ test("the explicit Journey syllabus is bounded, integrated, and free of source-d
     const categories = new Set(lesson.itemIds.map(categoryForItemId).filter((category) => category !== "other"));
     assert.ok(categories.size >= 2, `${lesson.id} should mix at least two learning categories`);
   }
+});
+
+test("the runtime curriculum uses the explicit Kizashi syllabus as its Journey spine", () => {
+  const curriculum = readFileSync(fileURLToPath(new URL("../lib/curriculum.ts", import.meta.url)), "utf8");
+  assert.match(curriculum, /import syllabusData from "@\/data\/kizashi-syllabus\.json"/);
+  assert.match(curriculum, /course:\s*syllabusData\.course/);
+  assert.doesNotMatch(curriculum, /course:\s*\{[^\n]*chapters:\s*\[\.\.\.moduleData\.course\.chapters/);
 });
