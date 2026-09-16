@@ -1,7 +1,16 @@
 import assert from "node:assert/strict";
+import { existsSync, readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 import { auditSyllabusPlacement, buildRequiredUnion, normalizeRequirementKey } from "../lib/syllabus-audit-core.js";
+
+function loadAudit(filename) {
+  const url = new URL(`../data/audits/${filename}`, import.meta.url);
+  const path = fileURLToPath(url);
+  assert.equal(existsSync(path), true, `${filename} must exist as persistent audit evidence`);
+  return JSON.parse(readFileSync(path, "utf8"));
+}
 
 test("the canonical syllabus is a union: any one inclusion source makes a requirement required", () => {
   const union = buildRequiredUnion([
@@ -76,4 +85,19 @@ test("normalization is stable for generated capability keys", () => {
     normalizeRequirementKey({ kind: "capability", label: "  Ask / give Permission  " }),
     "capability:ask-give-permission",
   );
+});
+
+test("persistent textbook and independent audits are complete at the lesson-evidence layer", () => {
+  const genki = loadAudit("genki-i-ii.json");
+  const minna = loadAudit("minna-i-ii.json");
+  const independent = loadAudit("independent-beginner.json");
+
+  assert.equal(genki.lessons.length, 23, "Genki I + II should contain all 23 lessons");
+  assert.equal(minna.lessons.length, 50, "Minna no Nihongo I + II should contain all 50 lessons");
+  assert.ok(genki.lessons.every((lesson) => Array.isArray(lesson.requirements) && lesson.requirements.length > 0));
+  assert.ok(minna.lessons.every((lesson) => Array.isArray(lesson.requirements) && lesson.requirements.length > 0));
+  assert.ok(Array.isArray(independent.requirements) && independent.requirements.length >= 70, "independent audit should cover the approved practical/N5/N4 capability set");
+
+  assert.deepEqual(genki.lessons.map((lesson) => lesson.lesson), Array.from({ length: 23 }, (_, index) => index + 1));
+  assert.deepEqual(minna.lessons.map((lesson) => lesson.lesson), Array.from({ length: 50 }, (_, index) => index + 1));
 });
