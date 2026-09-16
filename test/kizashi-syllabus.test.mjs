@@ -5,12 +5,15 @@ import test from "node:test";
 const load = (path) => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.url), "utf8"));
 
 const syllabus = load("data/kizashi-syllabus.json");
+const aliases = load("data/syllabus-item-aliases.json");
+const additions = load("data/syllabus-lesson-additions.json");
 const packages = [
   load("data/n5-foundations.json"),
   load("data/n5-conversation-expansion.json"),
   load("data/n5-practical-expansion.json"),
   load("data/n5-life-expansion.json"),
   load("data/n4-grammar-expansion.json"),
+  load("data/textbook-gap-grammar.json"),
   load("data/original-reading-bank.json"),
   load("data/original-listening-bank.json"),
 ];
@@ -25,11 +28,21 @@ for (const pkg of packages) {
   }
 }
 
-const lessons = (syllabus.course?.chapters ?? []).flatMap((chapter) => (chapter.lessons ?? []).map((lesson) => ({ ...lesson, region: chapter.region })));
+const canonicalId = (id) => aliases[id] ?? id;
+const lessons = (syllabus.course?.chapters ?? []).flatMap((chapter) => (chapter.lessons ?? []).map((lesson) => ({
+  ...lesson,
+  region: chapter.region,
+  itemIds: [...new Set([...(lesson.itemIds ?? []), ...(additions[lesson.id] ?? [])].map(canonicalId))],
+})));
 
 test("every explicit Journey item resolves to a real learner item", () => {
   const missing = lessons.flatMap((lesson) => (lesson.itemIds ?? []).filter((id) => !itemCategory.has(id)).map((id) => `${lesson.id}:${id}`));
   assert.deepEqual(missing, [], `Unresolved Journey items:\n${missing.join("\n")}`);
+});
+
+test("syllabus item aliases point only to real canonical learner items", () => {
+  const bad = Object.entries(aliases).filter(([, target]) => !itemCategory.has(target));
+  assert.deepEqual(bad, []);
 });
 
 test("Journey lesson IDs are unique and no dump/expansion titles survive", () => {
@@ -54,4 +67,11 @@ test("the Journey carries explicit audit metadata instead of hiding textbook cov
   assert.ok(lessons.every((lesson) => Array.isArray(lesson.requirementIds) && lesson.requirementIds.length > 0));
   assert.ok(lessons.some((lesson) => (lesson.auditRefs ?? []).some((ref) => ref.startsWith("genki-3:"))));
   assert.ok(lessons.some((lesson) => (lesson.auditRefs ?? []).some((ref) => ref.startsWith("minna-2:"))));
+});
+
+test("direct-command requirements have actual teaching items", () => {
+  const lesson = lessons.find((candidate) => candidate.id === "lesson-n4-instructions");
+  assert.ok(lesson);
+  assert.ok(lesson.itemIds.includes("grammar-imperative"));
+  assert.ok(lesson.itemIds.includes("grammar-prohibitive"));
 });
