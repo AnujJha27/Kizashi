@@ -106,3 +106,10 @@ test("Immersion continue state can reopen the selected local activity", async ()
   assert.match(player, /\/immersion\?reading=/);
   assert.match(player, /\/immersion\?listen=/);
 });
+
+test("reading shelves only render in the reading tab", async () => {
+  const page = await readFile(new URL("../app/(main)/immersion/page.tsx", import.meta.url), "utf8");
+  const surface = await readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8");
+  assert.doesNotMatch(page, /<TadokuShelf \/>|<AozoraShelf \/>/);
+  assert.match(surface, /\{mode === "read" \? <>[\s\S]*<TadokuShelf \/>[\s\S]*<AozoraShelf \/>[\s\S]*<\/> : null\}/);
+});

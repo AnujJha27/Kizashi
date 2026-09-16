@@ -642,7 +642,8 @@ test("external sources use native media and safe framing fallbacks", async () =>
   assert.match(player, /JapaneseText text=\{answer\}/);
   const lesson = await readFile(new URL("../components/learning/local-lesson.tsx", import.meta.url), "utf8");
   const styles = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
-  assert.match(styles, /\.lesson-layout \{ display: flex; width: 100%; min-width: 0; flex-direction: column; align-items: stretch; gap: 1\.5rem; \}/);
+  assert.match(styles, /\.lesson-layout \{ display: grid; width: 100%; min-width: 0; grid-template-columns: minmax\(0, 1fr\); align-items: start; gap: 1\.5rem; \}/);
+  assert.match(styles, /@media \(min-width: 1536px\) \{\n  \.lesson-layout \{ grid-template-columns: minmax\(0, 1fr\) minmax\(0, \.7fr\); \}\n\}/);
   assert.match(styles, /\.lesson-summary \{ align-self: start; height: max-content; min-height: 0; width: 100%; max-width: 100%; overflow-x: hidden;/);
   assert.match(await readFile(new URL("../components/journey/lesson-progress.tsx", import.meta.url), "utf8"), /flex min-w-0 flex-wrap justify-between/);
   assert.match(styles, /\.japanese-text rt \{ line-height: 1\.15; font-size: max\(\.9em, 1rem\);/);

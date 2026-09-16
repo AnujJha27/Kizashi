@@ -98,9 +98,9 @@ test("difficulty estimate reports actual coverage and clearly remains an estimat
 });
 
 test("Aozora shelf and reader preserve source fallback and local reading state", async () => {
-  const [shelf, page] = await Promise.all([
+  const [shelf, surface] = await Promise.all([
     readFile(new URL("../components/learning/aozora-shelf.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/(main)/immersion/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8"),
   ]);
   assert.match(shelf, /JapaneseText/);
   assert.match(shelf, /ExternalSourceViewer/);
@@ -108,5 +108,5 @@ test("Aozora shelf and reader preserve source fallback and local reading state",
   assert.match(shelf, /fontSize/);
   assert.match(shelf, /Resume/);
   assert.match(shelf, /overflow-x-hidden/);
-  assert.match(page, /AozoraShelf/);
+  assert.match(surface, /\{mode === "read" \? <>[\s\S]*<AozoraShelf \/>/);
 });

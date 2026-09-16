@@ -21,12 +21,13 @@ test("Tadoku shelf entries preserve hosted source metadata and forbid transforma
 });
 
 test("Tadoku remains a source-hosted reading shelf with local progress support", async () => {
-  const page = await readFile(new URL("../app/(main)/immersion/page.tsx", import.meta.url), "utf8");
-  const shelf = await readFile(new URL("../components/learning/tadoku-shelf.tsx", import.meta.url), "utf8");
-  assert.match(page, /TadokuShelf/);
+  const [surface, shelf] = await Promise.all([
+    readFile(new URL("../components/learning/immersion-surface.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/learning/tadoku-shelf.tsx", import.meta.url), "utf8"),
+  ]);
+  assert.match(surface, /\{mode === "read" \? <>[\s\S]*<TadokuShelf \/>/);
   assert.match(shelf, /markExternalSourceOpened/);
   assert.match(shelf, /ExternalSourceViewer/);
   assert.match(shelf, /AudioControls/);
   assert.doesNotMatch(shelf, /fetch\(|questions|translation/);
 });
-
