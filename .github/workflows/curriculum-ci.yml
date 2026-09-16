@@ -33,8 +33,14 @@ jobs:
                   dst.write(src.read())
           PY
       - run: node scripts/build_syllabus_audit.mjs --check
-      - name: Report unresolved grammar teaching mappings
-        run: node scripts/report_grammar_teaching_gaps.mjs
+      - name: Build unresolved grammar teaching report
+        run: node scripts/report_grammar_teaching_gaps.mjs > grammar-gap-report.json
+      - name: Upload unresolved grammar teaching report
+        uses: actions/upload-artifact@v4
+        with:
+          name: grammar-gap-report
+          path: grammar-gap-report.json
+          retention-days: 2
       - run: npm test
       - run: npm run typecheck
       - run: npm run build
