@@ -13,31 +13,29 @@ function loadAudit(filename) {
   return JSON.parse(readFileSync(path, "utf8"));
 }
 
+function categoryForItemId(id) {
+  if (id.startsWith("vocab-")) return "vocabulary";
+  if (id.startsWith("kanji-")) return "kanji";
+  if (id.startsWith("grammar-")) return "grammar";
+  if (id.startsWith("reading-") || id.startsWith("assessment-reading-")) return "reading";
+  if (id.startsWith("listening-") || id.startsWith("assessment-listening-")) return "listening";
+  return "other";
+}
+
 test("the canonical syllabus is a union: any one inclusion source makes a requirement required", () => {
   const union = buildRequiredUnion([
     { id: "genki", requirements: [{ id: "grammar-genki-only", kind: "grammar", label: "Genki only" }] },
     { id: "minna", requirements: [{ id: "grammar-minna-only", kind: "grammar", label: "Minna only" }] },
     { id: "independent", requirements: [{ id: "capability-audit-only", kind: "capability", label: "Audit only" }] },
   ]);
-
-  assert.deepEqual(
-    union.map((item) => item.id).sort(),
-    ["capability-audit-only", "grammar-genki-only", "grammar-minna-only"],
-  );
+  assert.deepEqual(union.map((item) => item.id).sort(), ["capability-audit-only", "grammar-genki-only", "grammar-minna-only"]);
 });
 
 test("aliases from different sources collapse into one canonical requirement without losing evidence", () => {
   const union = buildRequiredUnion([
-    {
-      id: "genki",
-      requirements: [{ id: "genki-permission", canonicalId: "grammar-temoii", kind: "grammar", label: "permission" }],
-    },
-    {
-      id: "minna",
-      requirements: [{ id: "minna-permission", canonicalId: "grammar-temoii", kind: "grammar", label: "permission" }],
-    },
+    { id: "genki", requirements: [{ id: "genki-permission", canonicalId: "grammar-temoii", kind: "grammar", label: "permission" }] },
+    { id: "minna", requirements: [{ id: "minna-permission", canonicalId: "grammar-temoii", kind: "grammar", label: "permission" }] },
   ]);
-
   assert.equal(union.length, 1);
   assert.equal(union[0].id, "grammar-temoii");
   assert.deepEqual(union[0].evidenceSources.sort(), ["genki", "minna"]);
@@ -45,35 +43,21 @@ test("aliases from different sources collapse into one canonical requirement wit
 });
 
 test("required plus unplaced fails the syllabus audit", () => {
-  const requirements = [
-    { id: "grammar-a", kind: "grammar", evidenceSources: ["genki"] },
-    { id: "grammar-b", kind: "grammar", evidenceSources: ["minna"] },
-  ];
-
-  const result = auditSyllabusPlacement({
-    requirements,
-    lessons: [{ id: "lesson-a", requirementIds: ["grammar-a"], placementStatus: "rich" }],
-  });
-
+  const requirements = [{ id: "grammar-a", kind: "grammar", evidenceSources: ["genki"] }, { id: "grammar-b", kind: "grammar", evidenceSources: ["minna"] }];
+  const result = auditSyllabusPlacement({ requirements, lessons: [{ id: "lesson-a", requirementIds: ["grammar-a"], placementStatus: "rich" }] });
   assert.equal(result.ok, false);
   assert.deepEqual(result.unplaced.map((item) => item.id), ["grammar-b"]);
   assert.equal(result.summary.requiredUnplaced, 1);
 });
 
 test("an explicit alias or rejection reason is a terminal audit state", () => {
-  const requirements = [
-    { id: "grammar-a", kind: "grammar", evidenceSources: ["genki"] },
-    { id: "grammar-alias", kind: "grammar", evidenceSources: ["minna"] },
-    { id: "advanced-x", kind: "grammar", evidenceSources: ["independent"] },
-  ];
-
+  const requirements = [{ id: "grammar-a", kind: "grammar", evidenceSources: ["genki"] }, { id: "grammar-alias", kind: "grammar", evidenceSources: ["minna"] }, { id: "advanced-x", kind: "grammar", evidenceSources: ["independent"] }];
   const result = auditSyllabusPlacement({
     requirements,
     lessons: [{ id: "lesson-a", requirementIds: ["grammar-a"], placementStatus: "provisional" }],
     aliases: { "grammar-alias": "grammar-a" },
     rejected: { "advanced-x": "Clearly beyond the N5/N4 plus beginner-intermediate scope." },
   });
-
   assert.equal(result.ok, true);
   assert.equal(result.summary.placedProvisional, 1);
   assert.equal(result.summary.duplicateAlias, 1);
@@ -82,36 +66,45 @@ test("an explicit alias or rejection reason is a terminal audit state", () => {
 });
 
 test("normalization is stable for generated capability keys", () => {
-  assert.equal(
-    normalizeRequirementKey({ kind: "capability", label: "  Ask / give Permission  " }),
-    "capability:ask-give-permission",
-  );
+  assert.equal(normalizeRequirementKey({ kind: "capability", label: "  Ask / give Permission  " }), "capability:ask-give-permission");
 });
 
 test("persistent textbook and independent audits are complete at the lesson-evidence layer", () => {
   const genki = loadAudit("genki-i-ii.json");
   const minna = loadAudit("minna-i-ii.json");
   const independent = loadAudit("independent-beginner.json");
-
   assert.equal(genki.lessons.length, 23, "Genki I + II should contain all 23 lessons");
   assert.equal(minna.lessons.length, 50, "Minna no Nihongo I + II should contain all 50 lessons");
   assert.ok(genki.lessons.every((lesson) => Array.isArray(lesson.requirements) && lesson.requirements.length > 0));
   assert.ok(minna.lessons.every((lesson) => Array.isArray(lesson.requirements) && lesson.requirements.length > 0));
   assert.ok(Array.isArray(independent.requirements) && independent.requirements.length >= 70, "independent audit should cover the approved practical/N5/N4 capability set");
-
   assert.deepEqual(genki.lessons.map((lesson) => lesson.lesson), Array.from({ length: 23 }, (_, index) => index + 1));
   assert.deepEqual(minna.lessons.map((lesson) => lesson.lesson), Array.from({ length: 50 }, (_, index) => index + 1));
 });
 
 test("the syllabus builder can reproduce the checked-in canonical union without dropping evidence", () => {
-  const result = spawnSync(process.execPath, ["scripts/build_syllabus_audit.mjs", "--check"], {
-    cwd: fileURLToPath(new URL("..", import.meta.url)),
-    encoding: "utf8",
-  });
-
+  const result = spawnSync(process.execPath, ["scripts/build_syllabus_audit.mjs", "--check"], { cwd: fileURLToPath(new URL("..", import.meta.url)), encoding: "utf8" });
   assert.equal(result.status, 0, result.stderr || result.stdout || "syllabus audit builder failed");
   const canonical = loadAudit("canonical-syllabus.json");
   assert.ok(canonical.summary.required >= 250, "the canonical union should be broad enough to represent both textbooks plus the independent audit");
   assert.equal(canonical.summary.sourceRows, 529, "all 529 source requirement references must survive into the union evidence");
   assert.equal(canonical.sources.length, 3);
+});
+
+test("the explicit Journey syllabus is bounded, integrated, and free of source-dump lesson names", () => {
+  const url = new URL("../data/kizashi-syllabus.json", import.meta.url);
+  const path = fileURLToPath(url);
+  assert.equal(existsSync(path), true, "data/kizashi-syllabus.json must exist");
+  const syllabus = JSON.parse(readFileSync(path, "utf8"));
+  const lessons = (syllabus.course?.chapters ?? []).flatMap((chapter) => chapter.lessons ?? []);
+
+  assert.ok(lessons.length >= 20, "the explicit path should have enough small lessons to avoid mega-lessons");
+  for (const lesson of lessons) {
+    assert.doesNotMatch(lesson.title, /(?:vocabulary|kanji|grammar) expansion|expanded source curriculum|source review/i);
+    assert.ok(Array.isArray(lesson.requirementIds) && lesson.requirementIds.length > 0, `${lesson.id} needs explicit syllabus requirements`);
+    assert.ok(Array.isArray(lesson.itemIds) && lesson.itemIds.length > 0, `${lesson.id} needs learner content`);
+    assert.ok(lesson.itemIds.length <= 30, `${lesson.id} is too large (${lesson.itemIds.length} items)`);
+    const categories = new Set(lesson.itemIds.map(categoryForItemId).filter((category) => category !== "other"));
+    assert.ok(categories.size >= 2, `${lesson.id} should mix at least two learning categories`);
+  }
 });
