@@ -1,5 +1,26 @@
 {
   "grammar-location": "grammar-arimasu",
   "grammar-suki-kirai": "grammar-suki",
-  "grammar-adjective-past": "grammar-i-adjective-past"
+  "grammar-adjective-past": "grammar-i-adjective-past",
+  "grammar-ageru": "grammar-giving-receiving",
+  "grammar-kureru": "grammar-giving-receiving",
+  "grammar-morau": "grammar-giving-receiving",
+  "grammar-yaru": "grammar-giving-receiving",
+  "grammar-de-instrument": "grammar-de",
+  "grammar-de-means": "grammar-de",
+  "grammar-intransitive-teiru": "grammar-teiru",
+  "grammar-teiru-habit": "grammar-teiru",
+  "grammar-teiru-progressive": "grammar-teiru",
+  "grammar-teiru-state": "grammar-teiru",
+  "grammar-made": "grammar-kara-made",
+  "grammar-nominalization": "grammar-koto-nominalization",
+  "grammar-o-kudasai": "grammar-kudasai",
+  "grammar-special-honorific": "grammar-honorific-verbs",
+  "grammar-special-humble": "grammar-humble-expressions",
+  "grammar-te-sequence": "grammar-te-form",
+  "grammar-to-companion": "grammar-to",
+  "grammar-to-list": "grammar-to",
+  "grammar-toiu-name": "grammar-to-iu-noun",
+  "grammar-volitional-to-omou": "grammar-volitional",
+  "grammar-wa-topic": "grammar-wa"
 }
