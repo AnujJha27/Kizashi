@@ -19,6 +19,17 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Materialize checked-in staged package for QA tests
+        run: |
+          python3 - <<'PY'
+          import gzip
+          from pathlib import Path
+          source = Path('data/staging/kizashi-n5-source-review.json.gz')
+          target = Path('data/staging/kizashi-n5-source-review.json')
+          if source.exists() and not target.exists():
+              with gzip.open(source, 'rb') as src, target.open('wb') as dst:
+                  dst.write(src.read())
+          PY
       - run: node scripts/build_syllabus_audit.mjs --check
       - run: npm test
       - run: npm run typecheck
