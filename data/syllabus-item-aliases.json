@@ -14,6 +14,7 @@
   "grammar-teiru-state": "grammar-teiru",
   "grammar-made": "grammar-kara-made",
   "grammar-nominalization": "grammar-koto-nominalization",
+  "grammar-noun-negative": "grammar-dewa-arimasen",
   "grammar-o-kudasai": "grammar-kudasai",
   "grammar-special-honorific": "grammar-honorific-verbs",
   "grammar-special-humble": "grammar-humble-expressions",
@@ -22,5 +23,15 @@
   "grammar-to-list": "grammar-to",
   "grammar-toiu-name": "grammar-to-iu-noun",
   "grammar-volitional-to-omou": "grammar-volitional",
-  "grammar-wa-topic": "grammar-wa"
+  "grammar-wa-topic": "grammar-wa",
+  "grammar-deshou-confirmation": "grammar-deshou",
+  "grammar-kadouka": "grammar-embedded-question",
+  "grammar-mada-teinai": "grammar-mou-mada",
+  "grammar-no-ga-suki": "grammar-no-ga",
+  "grammar-no-o": "grammar-no-ga",
+  "grammar-no-wa": "grammar-no-ga",
+  "grammar-respectful-request": "grammar-te-itadakemasenka",
+  "grammar-te-kudasaimasenka": "grammar-te-itadakemasenka",
+  "grammar-tara-dou": "grammar-tara-ii",
+  "grammar-causative-favor": "grammar-causative-permission"
 }
