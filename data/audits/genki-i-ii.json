@@ -6,5 +6,29 @@
     "url": "https://bookclub2.japantimes.co.jp/download/files/genki3/genki-3rd_syllabus_E.pdf",
     "scope": "Dialogue and Grammar syllabus; lesson capabilities and useful-expression domains from the official public syllabus."
   },
-  "lessons": []
+  "lessons": [
+    {"volume":"I","lesson":1,"title":"New Friends","requirements":["grammar-desu","grammar-ka","grammar-no","domain-numbers","domain-time","capability-self-introduction"]},
+    {"volume":"I","lesson":2,"title":"Shopping","requirements":["form-demonstratives-kosoado","grammar-location-kosoado","grammar-mo","grammar-noun-negative","grammar-ne-yo","domain-shopping-money","domain-restaurants","capability-shopping"]},
+    {"volume":"I","lesson":3,"title":"Making a Date","requirements":["form-masu-verbs","grammar-de","grammar-ni","grammar-masenka","grammar-frequency-adverbs","grammar-wa-topic","domain-daily-routine","capability-invitations"]},
+    {"volume":"I","lesson":4,"title":"The First Date","requirements":["grammar-arimasu","grammar-imasu","grammar-location","grammar-deshita","grammar-mashita","grammar-duration","grammar-takusan","grammar-to-list","capability-past-events","domain-places"]},
+    {"volume":"I","lesson":5,"title":"A Trip to Okinawa","requirements":["grammar-i-adjective","grammar-na-adjective","grammar-adjective-past","grammar-suki-kirai","grammar-mashou","grammar-counters","domain-travel","capability-describe-people-things"]},
+    {"volume":"I","lesson":6,"title":"A Day in Robert's Life","requirements":["form-te","grammar-te-kudasai","grammar-te-sequence","grammar-temoii","grammar-tewaikenai","grammar-kara","grammar-mashouka","capability-requests","capability-permission-rules","domain-directions"]},
+    {"volume":"I","lesson":7,"title":"Family Picture","requirements":["grammar-teiru-progressive","grammar-teiru-state","grammar-body-feature-description","grammar-adjective-te-join","grammar-stem-ni-iku","grammar-counter-people","domain-family","domain-body","capability-describe-appearance"]},
+    {"volume":"I","lesson":8,"title":"Barbecue","requirements":["form-plain-present","capability-casual-speech","grammar-to-omou","grammar-to-iu","grammar-naidekudasai","grammar-no-ga-suki","grammar-ga-subject","grammar-nanika-nanimo","domain-food"]},
+    {"volume":"I","lesson":9,"title":"Kabuki","requirements":["form-plain-past","capability-casual-past","grammar-relative-clause","grammar-mou-mada","grammar-kara","domain-restaurants","capability-report-speech"]},
+    {"volume":"I","lesson":10,"title":"Winter Vacation Plans","requirements":["grammar-yori","grammar-ichiban","grammar-no-substitute","grammar-tsumori","grammar-naru","grammar-dokoka-dokonimo","grammar-de-means","domain-transport","capability-reservations"]},
+    {"volume":"I","lesson":11,"title":"After the Vacation","requirements":["grammar-tai","grammar-tari-tari","grammar-koto-ga-aru","grammar-ya","domain-hometown","capability-talk-experience"]},
+    {"volume":"I","lesson":12,"title":"Feeling Ill","requirements":["grammar-ndesu","grammar-sugiru","grammar-houga-ii","grammar-node","grammar-nakereba-naranai","grammar-deshouka","domain-health","capability-advice","capability-explain-situation"]},
+    {"volume":"II","lesson":13,"title":"Looking for a Part-time Job","requirements":["form-potential","grammar-shi","grammar-sou-appearance","grammar-te-miru","grammar-nara","grammar-frequency-per","domain-work","capability-ability"]},
+    {"volume":"II","lesson":14,"title":"Valentine's Day","requirements":["grammar-hoshii","grammar-kamoshirenai","grammar-giving-receiving","grammar-tara-dou","grammar-number-mo-shika","domain-gifts","capability-give-receive"]},
+    {"volume":"II","lesson":15,"title":"A Trip to Nagano","requirements":["form-volitional","grammar-volitional-to-omou","grammar-te-oku","grammar-relative-clause","domain-travel","capability-plan-trip"]},
+    {"volume":"II","lesson":16,"title":"Lost and Found","requirements":["grammar-te-ageru","grammar-te-kureru","grammar-te-morau","grammar-te-itadakemasenka","grammar-to-ii","grammar-toki","grammar-te-sumimasen","domain-lost-found","capability-polite-request"]},
+    {"volume":"II","lesson":17,"title":"Grumble and Gossip","requirements":["grammar-sou-hearsay","grammar-tte","grammar-tara","grammar-nakutemo-ii","grammar-mitai","grammar-maeni-tekara","domain-gossip","capability-hypothetical"]},
+    {"volume":"II","lesson":18,"title":"John's Part-time Job","requirements":["grammar-transitivity-pairs","grammar-intransitive-teiru","grammar-te-shimau","grammar-to-conditional","grammar-nagara","grammar-ba-yokatta","domain-work"]},
+    {"volume":"II","lesson":19,"title":"Meeting the Boss","requirements":["grammar-honorific-verbs","grammar-respectful-request","grammar-te-kurete-arigatou","grammar-te-yokatta","grammar-hazu","domain-workplace-politeness","capability-show-respect"]},
+    {"volume":"II","lesson":20,"title":"Mary Goes Shopping","requirements":["grammar-humble-expressions","grammar-naide-without","grammar-embedded-question","grammar-toiu-name","grammar-yasui","grammar-nikui","domain-shopping-service","capability-humble-speech"]},
+    {"volume":"II","lesson":21,"title":"Burglar","requirements":["form-passive","grammar-te-aru","grammar-aida-ni","grammar-adjective-suru","grammar-te-hoshii","domain-incidents","capability-report-incident"]},
+    {"volume":"II","lesson":22,"title":"Education in Japan","requirements":["form-causative","grammar-causative-favor","grammar-nasai","grammar-ba","grammar-noni","grammar-no-youni","domain-education","capability-instruct"]},
+    {"volume":"II","lesson":23,"title":"Good-bye","requirements":["form-causative-passive","grammar-temo","grammar-koto-ni-suru","grammar-koto-ni-shiteiru","grammar-made","grammar-kata","capability-resolution","capability-farewell"]}
+  ]
 }
