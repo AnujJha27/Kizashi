@@ -1,45 +1,39 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import test from "node:test";
 
-import { legacyLessonIdsFor, migratedCompletionState } from "../lib/lesson-progress-migration-core.js";
+function lessonIds() {
+  const syllabus = JSON.parse(readFileSync(fileURLToPath(new URL("../data/kizashi-syllabus.json", import.meta.url)), "utf8"));
+  return (syllabus.course?.chapters ?? []).flatMap((chapter) => chapter.lessons ?? []).map((lesson) => lesson.id);
+}
 
-const aliases = {
-  "lesson-morning-route": "lesson-time-and-schedules",
-  "lesson-weather-and-shopping": "lesson-shopping-and-money",
-  "lesson-home-and-directions": "lesson-home-and-places",
-  "lesson-plans-and-descriptions": "lesson-invitations-and-plans",
-  "lesson-conversation-and-plans": "lesson-invitations-and-plans",
-  "lesson-practical-errands": "lesson-transport-and-directions",
-  "lesson-weather-and-hobbies": "lesson-weather-and-seasons",
-};
-
-test("legacy lesson aliases point to one explicit destination instead of completing every lesson created by a split", () => {
-  assert.deepEqual(legacyLessonIdsFor("lesson-shopping-and-money", aliases), ["lesson-weather-and-shopping"]);
-  assert.deepEqual(legacyLessonIdsFor("lesson-weather-and-seasons", aliases), ["lesson-weather-and-hobbies"]);
-  assert.deepEqual(legacyLessonIdsFor("lesson-transport-and-directions", aliases), ["lesson-practical-errands"]);
-  assert.deepEqual(legacyLessonIdsFor("lesson-food-and-restaurants", aliases), []);
+test("the integrated syllabus reuses semantically matching legacy lesson ids so completion survives without a runtime migration layer", () => {
+  const ids = new Set(lessonIds());
+  for (const id of [
+    "lesson-meeting-people",
+    "lesson-morning-route",
+    "lesson-food-and-routines",
+    "lesson-weather-and-shopping",
+    "lesson-home-and-directions",
+    "lesson-conversation-and-plans",
+    "lesson-practical-errands",
+    "lesson-health-and-school",
+    "lesson-weather-and-hobbies",
+  ]) {
+    assert.equal(ids.has(id), true, `${id} should be reused by the integrated path`);
+  }
 });
 
-test("only a completed predecessor migrates completion into the new lesson", () => {
-  const complete = migratedCompletionState("lesson-time-and-schedules", aliases, (id) =>
-    id === "lesson-morning-route" ? { lessonId: id, position: 9, status: "complete" } : undefined,
-  );
-  assert.deepEqual(complete, { lessonId: "lesson-time-and-schedules", position: 0, status: "complete" });
-
-  const partial = migratedCompletionState("lesson-time-and-schedules", aliases, (id) =>
-    id === "lesson-morning-route" ? { lessonId: id, position: 4, status: "in_progress" } : undefined,
-  );
-  assert.equal(partial, undefined);
+test("genuinely new or substantially restructured lessons keep new ids rather than inheriting unrelated completion", () => {
+  const ids = new Set(lessonIds());
+  assert.equal(ids.has("lesson-experience-and-comparison"), true);
+  assert.equal(ids.has("lesson-food-and-restaurants"), true);
+  assert.equal(ids.has("lesson-requests-permission-rules"), true);
+  assert.equal(ids.has("lesson-plans-and-descriptions"), false, "the old mixed lesson should not falsely complete a new split lesson");
 });
 
-test("several old lessons may converge on one replacement without leaking completion elsewhere", () => {
-  assert.deepEqual(
-    legacyLessonIdsFor("lesson-invitations-and-plans", aliases),
-    ["lesson-plans-and-descriptions", "lesson-conversation-and-plans"],
-  );
-  const migrated = migratedCompletionState("lesson-invitations-and-plans", aliases, (id) =>
-    id === "lesson-conversation-and-plans" ? { lessonId: id, position: 52, status: "complete" } : undefined,
-  );
-  assert.equal(migrated?.status, "complete");
-  assert.equal(migrated?.lessonId, "lesson-invitations-and-plans");
+test("lesson ids remain unique after the curriculum rewrite", () => {
+  const ids = lessonIds();
+  assert.equal(new Set(ids).size, ids.length);
 });
