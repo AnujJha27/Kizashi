@@ -1,0 +1,114 @@
+{
+  "course": {
+    "id": "course-kizashi-path",
+    "slug": "kizashi-path",
+    "title": "Kizashi Path · N5 → N4",
+    "description": "A practical path through beginner Japanese, organized as Kizashi journeys but backed by the union of Genki I/II, Minna no Nihongo I/II, and the independent Kizashi audit.",
+    "jlptLevel": "N5",
+    "chapters": [
+      {
+        "id": "chapter-kizashi-first-encounters",
+        "slug": "first-encounters",
+        "title": "First encounters",
+        "description": "Meet people, orient yourself in time, and handle your first small transactions.",
+        "region": "quiet-city",
+        "lessons": [
+          {"id":"lesson-meeting-people","slug":"meeting-people","title":"Meeting people","subtitle":"はじめまして","description":"Introduce yourself, ask simple identity questions, and recognize the language around names, study, work, and family.","estimatedMinutes":16,"placementStatus":"rich","auditRefs":["genki-3:1","minna-2:1"],"requirementIds":["capability-self-introduction","domain-school"],"itemIds":["vocab-watashi","vocab-gakusei","vocab-sensei","vocab-daigaku","vocab-tomodachi","vocab-kazoku","kanji-watashi","kanji-gaku","kanji-sen","grammar-desu","grammar-wa","grammar-ka","reading-self-introduction","listening-family-introduction"]},
+          {"id":"lesson-time-and-schedules","slug":"time-and-schedules","title":"Time and schedules","subtitle":"今、何時ですか","description":"Tell time, understand a simple schedule, and say when everyday actions happen.","estimatedMinutes":18,"placementStatus":"rich","auditRefs":["minna-2:4","genki-3:3"],"requirementIds":["domain-time","capability-schedule"],"itemIds":["vocab-mainichi","vocab-asa","vocab-ima","vocab-gozen","vocab-gogo","vocab-maishuu","vocab-nichiyoubi","kanji-hi","kanji-go-noon","kanji-mai","kanji-you","grammar-ni","grammar-masu","grammar-kara-made","reading-weekday-schedule","listening-class-plan"]},
+          {"id":"lesson-shopping-and-money","slug":"shopping-and-money","title":"Shopping and money","subtitle":"これ、お願いします","description":"Identify things, ask prices, use basic counters, and complete a small purchase.","estimatedMinutes":20,"placementStatus":"rich","auditRefs":["genki-3:2","minna-2:2","minna-2:3","minna-2:11"],"requirementIds":["capability-shopping","domain-shopping-money","domain-numbers"],"itemIds":["vocab-kore","vocab-ikura","vocab-en","vocab-yasui","vocab-kaimono","vocab-gohyaku-en","vocab-nisatsu","vocab-sansatsu","kanji-en","kanji-yasu","kanji-kai","grammar-kore","grammar-kudasai","grammar-counters","grammar-no","grammar-mo","reading-shopping-list","assessment-listening-n5-01"]}
+        ]
+      },
+      {
+        "id": "chapter-kizashi-daily-life",
+        "slug": "daily-life",
+        "title": "Living your day",
+        "description": "Build routines, eat, describe the world, and talk about people close to you.",
+        "region": "train-line",
+        "lessons": [
+          {"id":"lesson-food-and-routines","slug":"food-and-routines","title":"Food and routines","subtitle":"毎日のこと","description":"Talk about ordinary meals and the actions that make up a day.","estimatedMinutes":18,"placementStatus":"rich","auditRefs":["minna-2:6"],"requirementIds":["domain-daily-routine","domain-food"],"itemIds":["vocab-gohan","vocab-taberu","vocab-nomu","vocab-iku","vocab-kuru","vocab-miru","vocab-benkyou","vocab-kau","vocab-asagohan","vocab-bangohan","vocab-ryouri","kanji-shoku","kanji-asa","kanji-meshi","grammar-masu","grammar-mashita","reading-lunch-at-home","listening-cafe-order"]},
+          {"id":"lesson-home-and-places","slug":"home-and-places","title":"Home and places","subtitle":"部屋はどこですか","description":"Describe where people and things are and what belongs to whom.","estimatedMinutes":20,"placementStatus":"rich","auditRefs":["genki-3:4","minna-2:10"],"requirementIds":["domain-home","domain-places","capability-ask-location"],"itemIds":["vocab-ie","vocab-heya","vocab-isu","vocab-tsukue","vocab-mise","vocab-mae","vocab-ue","vocab-shita","vocab-naka","kanji-ue","kanji-shita","kanji-mae","kanji-naka","grammar-arimasu","grammar-imasu","grammar-location","grammar-no","reading-my-room","listening-home-location"]},
+          {"id":"lesson-family-and-description","slug":"family-and-description","title":"Family and describing people","subtitle":"家族のこと","description":"Talk about family, appearance, preferences, and simple qualities without treating description as a separate grammar list.","estimatedMinutes":22,"placementStatus":"rich","auditRefs":["genki-3:5","genki-3:7","minna-2:8","minna-2:9","minna-2:15"],"requirementIds":["domain-family","capability-describe-people-things","capability-describe-appearance"],"itemIds":["vocab-kazoku","vocab-ookii","vocab-atarashii","vocab-chiisai","vocab-furui","vocab-isogashii","vocab-suki","kanji-hito","grammar-i-adjective","grammar-na-adjective","grammar-i-adjective-negative","grammar-i-adjective-past","grammar-suki","grammar-suki-kirai","grammar-teiru","listening-family-introduction"]},
+          {"id":"lesson-weather-and-seasons","slug":"weather-and-seasons","title":"Weather and seasons","subtitle":"今日はどんな天気？","description":"Describe weather and seasons, then connect them to plans and impressions.","estimatedMinutes":20,"placementStatus":"rich","requirementIds":["domain-weather","capability-past-impressions"],"itemIds":["vocab-kyou","vocab-ashita","vocab-tenki","vocab-ame","vocab-hare","vocab-kumori","vocab-kaze","vocab-yuki","vocab-haru","vocab-natsu","vocab-aki","vocab-fuyu","kanji-ame","kanji-hare","kanji-kumori","kanji-kaze","kanji-yuki","grammar-adjective-past","reading-seasons-and-plans","listening-weekend-weather"]}
+        ]
+      },
+      {
+        "id": "chapter-kizashi-town",
+        "slug": "around-town",
+        "title": "Around town",
+        "description": "Move through town, ask for help, eat out, and make plans with other people.",
+        "region": "market-road",
+        "lessons": [
+          {"id":"lesson-transport-and-directions","slug":"transport-and-directions","title":"Transport and directions","subtitle":"駅までお願いします","description":"Buy a ticket, board and leave transport, and follow straightforward directions.","estimatedMinutes":22,"placementStatus":"rich","auditRefs":["minna-2:5","minna-2:23"],"requirementIds":["domain-transport","domain-directions","capability-travel-basic","capability-directions"],"itemIds":["vocab-eki","vocab-densha","vocab-kippu","vocab-noru","vocab-oriru","vocab-migi","vocab-hidari","vocab-massugu","vocab-chikaku","vocab-iriguchi","vocab-deguchi","kanji-migi","kanji-hidari","kanji-chika","kanji-iri","kanji-de","kanji-kuchi","grammar-de","grammar-ni","grammar-te-kudasai","reading-station-sign","listening-station-directions"]},
+          {"id":"lesson-food-and-restaurants","slug":"food-and-restaurants","title":"Food and restaurants","subtitle":"注文をお願いします","description":"Order food, understand a small menu-like exchange, and make polite requests in context.","estimatedMinutes":20,"placementStatus":"rich","auditRefs":["genki-3:8","minna-2:13"],"requirementIds":["domain-restaurants","capability-ordering-food","capability-express-wants"],"itemIds":["vocab-ryouri","vocab-tenin","vocab-chuumon","vocab-sakana","vocab-yasai","kanji-sakana","kanji-sai","grammar-hoshii","grammar-tai","grammar-kudasai","grammar-stem-ni-iku","listening-restaurant-order","assessment-reading-n5-short-02"]},
+          {"id":"lesson-invitations-and-plans","slug":"invitations-and-plans","title":"Invitations and plans","subtitle":"いっしょに行きませんか","description":"Invite someone, accept or soften a refusal, and say what you want to do next.","estimatedMinutes":20,"placementStatus":"rich","auditRefs":["genki-3:3","minna-2:6"],"requirementIds":["capability-invitations","domain-plans"],"itemIds":["vocab-issho","vocab-asobu","vocab-au","vocab-kaeru","vocab-yotei","vocab-ryokou","grammar-masenka","grammar-mashou","grammar-tai","grammar-kara","listening-invitation","listening-weekend-plan","assessment-reading-n5-short-03"]}
+        ]
+      },
+      {
+        "id": "chapter-kizashi-choices",
+        "slug": "choices-and-explanations",
+        "title": "Choices and explanations",
+        "description": "Ask for things, explain problems, compare options, and speak more naturally about experience.",
+        "region": "garden-road",
+        "lessons": [
+          {"id":"lesson-requests-permission-rules","slug":"requests-permission-rules","title":"Requests, permission, and rules","subtitle":"してもいいですか","description":"Make requests, give permission, prohibit actions, and express simple obligations.","estimatedMinutes":24,"placementStatus":"rich","auditRefs":["genki-3:6","minna-2:14","minna-2:17"],"requirementIds":["capability-requests","capability-permission-rules","capability-rules-obligations"],"itemIds":["vocab-onegai","vocab-sumimasen","vocab-hitsuyou","vocab-wakaru","vocab-oshieru","vocab-tsukau","vocab-motsu","grammar-te-form","grammar-te-kudasai","grammar-temoii","grammar-tewaikenai","grammar-naidekudasai","grammar-nai-form","grammar-nakutemo-ii","grammar-nakereba-naranai","assessment-reading-n5-short-04","assessment-listening-n5-26"]},
+          {"id":"lesson-health-and-school","slug":"health-and-school","title":"Health and school","subtitle":"学校と体","description":"Explain a simple problem, ask questions, and understand basic health advice.","estimatedMinutes":22,"placementStatus":"rich","auditRefs":["genki-3:12","minna-2:17"],"requirementIds":["domain-health","domain-school","capability-advice","capability-explain-situation"],"itemIds":["vocab-byouin","vocab-isha","vocab-kusuri","vocab-atama","vocab-karada","vocab-itai","vocab-kyoushitsu","vocab-shukudai","vocab-shitsumon","vocab-kotae","kanji-byou","kanji-kusuri","kanji-atama","grammar-mae-ni","grammar-ato-de","grammar-houga-ii","grammar-ndesu","reading-school-and-health","listening-health-appointment"]},
+          {"id":"lesson-experience-and-comparison","slug":"experience-and-comparison","title":"Experience and comparison","subtitle":"行ったことがあります","description":"Compare choices, talk about things you have done, and describe a sequence of representative activities.","estimatedMinutes":20,"placementStatus":"rich","auditRefs":["genki-3:10","genki-3:11","minna-2:12","minna-2:19"],"requirementIds":["capability-talk-experience","capability-compare"],"itemIds":["vocab-ryokou","vocab-shashin","vocab-toru","vocab-kotoshi","vocab-kyonen","vocab-raigetsu","grammar-yori","grammar-ta-koto","grammar-tari-tari","grammar-ya","grammar-naru","reading-busy-day","assessment-listening-n5-27"]},
+          {"id":"lesson-casual-speech-and-opinions","slug":"casual-speech-and-opinions","title":"Casual speech and opinions","subtitle":"どう思う？","description":"Move between polite and plain forms, quote thoughts, and handle ordinary opinion exchanges.","estimatedMinutes":22,"placementStatus":"rich","auditRefs":["genki-3:8","genki-3:9","minna-2:20","minna-2:21"],"requirementIds":["capability-casual-speech","capability-opinions","capability-report-speech","skill-register"],"itemIds":["grammar-dictionary-form","grammar-ta-form","grammar-to-omou","grammar-to-iu","grammar-relative-clause","vocab-hanasu","vocab-kiku","vocab-yomu","vocab-kaku","kanji-han","kanji-kiku","kanji-doku","kanji-sho","assessment-reading-n5-mid-01","assessment-listening-n5-51"]}
+        ]
+      },
+      {
+        "id": "chapter-kizashi-n4-agency",
+        "slug": "n4-agency",
+        "title": "Acting with more range",
+        "description": "Enter N4 through ability, plans, favors, conditions, and changing states.",
+        "region": "station-district",
+        "lessons": [
+          {"id":"lesson-n4-ability","slug":"n4-ability","title":"Ability and possibility","subtitle":"できること","description":"Say what you can do and distinguish potential meaning from neighboring forms.","estimatedMinutes":20,"placementStatus":"rich","auditRefs":["genki-3:13","minna-2:27"],"requirementIds":["form-potential","capability-ability"],"itemIds":["grammar-potential-godan","grammar-potential-ichidan","grammar-koto-ga-dekiru","assessment-reading-n4-short-01","assessment-listening-n4-01"]},
+          {"id":"lesson-n4-plans-preparation","slug":"n4-plans-preparation","title":"Plans, preparation, and trying","subtitle":"予定と準備","description":"Decide, prepare, try, and talk about what you intend to do.","estimatedMinutes":24,"placementStatus":"rich","auditRefs":["genki-3:15","minna-2:30","minna-2:31"],"requirementIds":["capability-preparation","capability-future-plans","form-volitional"],"itemIds":["grammar-koto-ni-suru","grammar-tsumori","grammar-te-oku","grammar-te-miru","grammar-volitional","grammar-yotei","assessment-reading-n4-short-02","assessment-listening-n4-02"]},
+          {"id":"lesson-n4-giving-receiving","slug":"n4-giving-receiving","title":"Giving, receiving, and favors","subtitle":"してくれたこと","description":"Track viewpoint when gifts and helpful actions move between people.","estimatedMinutes":22,"placementStatus":"rich","auditRefs":["genki-3:14","genki-3:16","minna-2:24","minna-2:41"],"requirementIds":["capability-give-receive","capability-polite-giving-receiving"],"itemIds":["grammar-giving-receiving","grammar-te-ageru","grammar-te-kureru","grammar-te-morau","assessment-reading-n4-short-03","assessment-listening-n4-03"]},
+          {"id":"lesson-n4-conditionals","slug":"n4-conditionals","title":"Conditions and consequences","subtitle":"もし〜なら","description":"Compare と、たら、ば、and なら by the kinds of conditions and advice they naturally carry.","estimatedMinutes":22,"placementStatus":"rich","auditRefs":["genki-3:17","minna-2:25","minna-2:35"],"requirementIds":["capability-hypothetical"],"itemIds":["grammar-to-conditional","grammar-tara","grammar-ba","grammar-nara","assessment-reading-n4-short-04","assessment-listening-n4-04"]}
+        ]
+      },
+      {
+        "id": "chapter-kizashi-n4-evidence",
+        "slug": "n4-evidence-and-connection",
+        "title": "Evidence and connection",
+        "description": "Connect clauses, report information, and distinguish what you saw, heard, inferred, or merely consider possible.",
+        "region": "station-district",
+        "lessons": [
+          {"id":"lesson-n4-state-change","slug":"n4-state-change","title":"Change, habits, and decisions","subtitle":"変わること、続けること","description":"Separate changes that happen from habits and decisions you deliberately maintain.","estimatedMinutes":22,"placementStatus":"rich","auditRefs":["minna-2:36"],"requirementIds":["capability-goals-habits","capability-change-ability"],"itemIds":["grammar-youni-naru","grammar-youni-suru","grammar-koto-ni-naru","grammar-koto-ni-suru","grammar-yotei","grammar-tsumori","assessment-reading-n4-short-05","assessment-listening-n4-05"]},
+          {"id":"lesson-n4-evidence-inference","slug":"n4-evidence-inference","title":"Appearance, reports, and inference","subtitle":"そう・よう・らしい","description":"Keep visible appearance, hearsay, resemblance, expectation, and possibility apart.","estimatedMinutes":24,"placementStatus":"rich","auditRefs":["genki-3:17","minna-2:32","minna-2:43","minna-2:47"],"requirementIds":["capability-inference","capability-report-hearsay"],"itemIds":["grammar-sou-appearance","grammar-sou-hearsay","grammar-youda","grammar-mitai","grammar-rashii","grammar-kamoshirenai","grammar-hazu","assessment-reading-n4-short-06","assessment-listening-n4-06"]},
+          {"id":"lesson-n4-quotation","slug":"n4-quotation","title":"Quoting thoughts and reports","subtitle":"思ったこと、聞いたこと","description":"Use quotation to report speech, thoughts, questions, and names without flattening them into one pattern.","estimatedMinutes":20,"placementStatus":"rich","auditRefs":["minna-2:21","minna-2:33","minna-2:40"],"requirementIds":["grammar-embedded-question","grammar-kadouka","capability-relay-message"],"itemIds":["grammar-to-omou","grammar-to-iu","grammar-to-kiku","grammar-to-iu-noun","assessment-reading-n4-short-07","assessment-listening-n4-07"]},
+          {"id":"lesson-n4-contrast-connection","slug":"n4-contrast-connection","title":"Contrast and connected thought","subtitle":"でも、それでも","description":"Link reasons, contrasts, concessions, and additional points across longer statements.","estimatedMinutes":22,"placementStatus":"rich","auditRefs":["genki-3:13","minna-2:28","minna-2:39"],"requirementIds":["capability-multiple-reasons","skill-reading-connected"],"itemIds":["grammar-noni","grammar-temo","grammar-shi","grammar-sore-ni","grammar-soredemo","grammar-keredomo","grammar-node","assessment-reading-n4-mid-01","assessment-listening-n4-26"]},
+          {"id":"lesson-n4-time-aspect","slug":"n4-time-aspect","title":"Time, phase, and continuity","subtitle":"しているところ","description":"Place actions inside a time window and distinguish what is beginning, ongoing, completed, or freshly finished.","estimatedMinutes":22,"placementStatus":"rich","auditRefs":["minna-2:46"],"requirementIds":["capability-action-phase"],"itemIds":["grammar-aida","grammar-aida-ni","grammar-tokoro","grammar-teiru-tokoro","grammar-ta-tokoro","grammar-bakari","grammar-te-aru","grammar-te-ita","assessment-reading-n4-mid-02","assessment-listening-n4-27"]}
+        ]
+      },
+      {
+        "id": "chapter-kizashi-n4-structure",
+        "slug": "n4-structure",
+        "title": "Who acts, what changes",
+        "description": "Work with transitivity, passive and causative viewpoints, purpose, and procedural language.",
+        "region": "station-district",
+        "lessons": [
+          {"id":"lesson-n4-transitivity","slug":"n4-transitivity","title":"States and actions","subtitle":"自動詞と他動詞","description":"Contrast what changes on its own with what someone deliberately changes.","estimatedMinutes":22,"placementStatus":"rich","auditRefs":["genki-3:18","minna-2:29"],"requirementIds":["grammar-transitivity-pairs","capability-describe-state"],"itemIds":["vocab-aku","vocab-akeru","vocab-shimaru","vocab-shimeru","vocab-hajimaru","vocab-hajimeru","vocab-tomaru","vocab-tomeru","assessment-reading-n4-short-08","assessment-listening-n4-08"]},
+          {"id":"lesson-n4-passive","slug":"n4-passive","title":"Passive situations","subtitle":"受身の場面","description":"Describe events from the viewpoint of the person or thing affected.","estimatedMinutes":18,"placementStatus":"rich","auditRefs":["genki-3:21","minna-2:37"],"requirementIds":["form-passive","capability-passive-experience"],"itemIds":["grammar-passive-godan","grammar-passive-ichidan","assessment-reading-n4-short-09","assessment-listening-n4-09"]},
+          {"id":"lesson-n4-causative","slug":"n4-causative","title":"Causing and allowing","subtitle":"させる場面","description":"Express making and allowing someone to act, with clear roles for the causer and the person acting.","estimatedMinutes":18,"placementStatus":"rich","auditRefs":["genki-3:22","minna-2:48"],"requirementIds":["form-causative","capability-cause-allow"],"itemIds":["grammar-causative-godan","grammar-causative-ichidan","assessment-reading-n4-short-10","assessment-listening-n4-10"]},
+          {"id":"lesson-n4-purpose-procedure","slug":"n4-purpose-procedure","title":"Purpose, method, and procedure","subtitle":"何のために、どうやって","description":"Explain why something is done, how to do it, and what order instructions should follow.","estimatedMinutes":22,"placementStatus":"provisional","auditRefs":["minna-2:34","minna-2:42","minna-2:45"],"requirementIds":["capability-explain-purpose","capability-follow-instructions","capability-contingency"],"itemIds":["grammar-ato-de","grammar-kata","grammar-tameni","grammar-baai","assessment-reading-n4-information-retrieval-01","assessment-listening-n4-28"]},
+          {"id":"lesson-n4-ease-service","slug":"n4-ease-service","title":"Ease, difficulty, and choosing a service","subtitle":"使いやすいですか","description":"Describe practical ease and difficulty while making choices in service situations.","estimatedMinutes":18,"placementStatus":"rich","auditRefs":["genki-3:20","minna-2:44"],"requirementIds":["capability-ease-difficulty","domain-service"],"itemIds":["grammar-yasui","grammar-nikui","grammar-zurai","assessment-reading-n4-information-retrieval-02","assessment-listening-n4-29"]}
+        ]
+      },
+      {
+        "id": "chapter-kizashi-n4-formal",
+        "slug": "n4-formal-interaction",
+        "title": "Formal interaction",
+        "description": "Finish the path with instructions, respectful and humble language, and causative-passive perspective.",
+        "region": "station-district",
+        "lessons": [
+          {"id":"lesson-n4-instructions","slug":"n4-instructions","title":"Instructions and relaying messages","subtitle":"伝えてください","description":"Understand direct instructions and pass a message on without losing who said what.","estimatedMinutes":20,"placementStatus":"provisional","auditRefs":["minna-2:33"],"requirementIds":["form-imperative","form-prohibitive","capability-understand-instructions","capability-relay-message"],"itemIds":["grammar-nasai","grammar-to-iu","grammar-to-kiku","assessment-reading-n4-information-retrieval-03","assessment-listening-n4-51"]},
+          {"id":"lesson-n4-respect-humility","slug":"n4-respect-humility","title":"Respectful and humble Japanese","subtitle":"丁寧に話す","description":"Choose respectful or humble language according to whose action is being elevated or lowered.","estimatedMinutes":24,"placementStatus":"provisional","auditRefs":["genki-3:19","genki-3:20","minna-2:49","minna-2:50"],"requirementIds":["capability-show-respect","capability-humble-speech","capability-formal-gratitude","domain-workplace-politeness"],"itemIds":["grammar-honorific-verbs","grammar-humble-expressions","grammar-o-ni-naru","grammar-mousu","assessment-reading-n4-information-retrieval-04","assessment-listening-n4-52"]},
+          {"id":"lesson-n4-causative-passive","slug":"n4-causative-passive","title":"Pressure, obligation, and resolution","subtitle":"させられた経験","description":"Recognize causative-passive situations and close the path by talking about imposed actions and deliberate resolutions.","estimatedMinutes":20,"placementStatus":"provisional","auditRefs":["genki-3:23"],"requirementIds":["form-causative-passive","capability-resolution"],"itemIds":["grammar-causative-passive","grammar-koto-ni-suru","assessment-reading-n4-mid-03","assessment-listening-n4-53"]}
+        ]
+      }
+    ]
+  }
+}
