@@ -111,6 +111,6 @@ test("the explicit Journey syllabus is bounded, integrated, and free of source-d
 test("the runtime curriculum uses the explicit Kizashi syllabus as its Journey spine", () => {
   const curriculum = readFileSync(fileURLToPath(new URL("../lib/curriculum.ts", import.meta.url)), "utf8");
   assert.match(curriculum, /import syllabusData from "@\/data\/kizashi-syllabus\.json"/);
-  assert.match(curriculum, /course:\s*syllabusData\.course/);
+  assert.match(curriculum, /course:\s*canonicalizeSyllabusCourse\(syllabusData\.course/);
   assert.doesNotMatch(curriculum, /course:\s*\{[^\n]*chapters:\s*\[\.\.\.moduleData\.course\.chapters/);
 });
