@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
@@ -100,4 +101,17 @@ test("persistent textbook and independent audits are complete at the lesson-evid
 
   assert.deepEqual(genki.lessons.map((lesson) => lesson.lesson), Array.from({ length: 23 }, (_, index) => index + 1));
   assert.deepEqual(minna.lessons.map((lesson) => lesson.lesson), Array.from({ length: 50 }, (_, index) => index + 1));
+});
+
+test("the syllabus builder can reproduce the checked-in canonical union without dropping evidence", () => {
+  const result = spawnSync(process.execPath, ["scripts/build_syllabus_audit.mjs", "--check"], {
+    cwd: fileURLToPath(new URL("..", import.meta.url)),
+    encoding: "utf8",
+  });
+
+  assert.equal(result.status, 0, result.stderr || result.stdout || "syllabus audit builder failed");
+  const canonical = loadAudit("canonical-syllabus.json");
+  assert.ok(canonical.summary.required >= 250, "the canonical union should be broad enough to represent both textbooks plus the independent audit");
+  assert.equal(canonical.summary.sourceRows, 529, "all 529 source requirement references must survive into the union evidence");
+  assert.equal(canonical.sources.length, 3);
 });
