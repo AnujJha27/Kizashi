@@ -23,22 +23,15 @@ function kindForId(id) {
 }
 
 function normalizedRequirement(id, context = {}) {
-  return {
-    id,
-    kind: kindForId(id),
-    label: id,
-    ...context,
-  };
+  return { id, kind: kindForId(id), label: id, ...context };
 }
 
 function sourceForAudit(audit) {
   const source = audit.source ?? {};
   const requirements = [];
-
   for (const id of Array.isArray(audit.requirements) ? audit.requirements : []) {
     if (typeof id === "string" && id.trim()) requirements.push(normalizedRequirement(id.trim()));
   }
-
   for (const lesson of Array.isArray(audit.lessons) ? audit.lessons : []) {
     for (const id of Array.isArray(lesson.requirements) ? lesson.requirements : []) {
       if (typeof id !== "string" || !id.trim()) continue;
@@ -48,20 +41,40 @@ function sourceForAudit(audit) {
       }));
     }
   }
-
-  return {
-    id: source.id,
-    name: source.name,
-    edition: source.edition,
-    requirements,
-  };
+  return { id: source.id, name: source.name, edition: source.edition, requirements };
 }
 
-function syllabusLessons() {
-  if (!existsSync(SYLLABUS)) return [];
+function auditLessonRequirements(audits) {
+  const result = new Map();
+  for (const audit of audits) {
+    const sourceId = audit.source?.id;
+    if (!sourceId) continue;
+    for (const lesson of Array.isArray(audit.lessons) ? audit.lessons : []) {
+      result.set(`${sourceId}:${lesson.lesson}`, Array.isArray(lesson.requirements) ? lesson.requirements : []);
+    }
+  }
+  return result;
+}
+
+function syllabusState(audits) {
+  if (!existsSync(SYLLABUS)) return { lessons: [], aliases: {}, rejected: {} };
   const syllabus = readJson(SYLLABUS);
-  if (Array.isArray(syllabus.lessons)) return syllabus.lessons;
-  return (syllabus.course?.chapters ?? []).flatMap((chapter) => chapter.lessons ?? []);
+  const rawLessons = Array.isArray(syllabus.lessons)
+    ? syllabus.lessons
+    : (syllabus.course?.chapters ?? []).flatMap((chapter) => chapter.lessons ?? []);
+  const byAuditRef = auditLessonRequirements(audits);
+  const lessons = rawLessons.map((lesson) => {
+    const requirementIds = new Set(Array.isArray(lesson.requirementIds) ? lesson.requirementIds : []);
+    for (const ref of Array.isArray(lesson.auditRefs) ? lesson.auditRefs : []) {
+      for (const id of byAuditRef.get(ref) ?? []) requirementIds.add(id);
+    }
+    return { ...lesson, requirementIds: [...requirementIds] };
+  });
+  return {
+    lessons,
+    aliases: syllabus.requirementAliases ?? {},
+    rejected: syllabus.rejectedRequirements ?? {},
+  };
 }
 
 function sourceRowCount(sources) {
@@ -72,14 +85,15 @@ function buildOutput() {
   const audits = SOURCE_FILES.map((filename) => readJson(resolve(AUDIT_DIR, filename)));
   const sources = audits.map(sourceForAudit);
   const requirements = buildRequiredUnion(sources).sort((left, right) => left.id.localeCompare(right.id));
-  const placement = auditSyllabusPlacement({ requirements, lessons: syllabusLessons() });
+  const syllabus = syllabusState(audits);
+  const placement = auditSyllabusPlacement({ requirements, lessons: syllabus.lessons, aliases: syllabus.aliases, rejected: syllabus.rejected });
   const sourceRows = sourceRowCount(sources);
-
   return {
     generatedAt: new Date().toISOString().slice(0, 10),
     sources: sources.map(({ id, name, edition }) => ({ id, name, edition })),
     summary: { ...placement.summary, sourceRows },
     requirements: requirements.map(({ id, kind, evidenceSources }) => ({ id, kind, evidenceSources })),
+    unplaced: placement.unplaced.map((item) => item.id),
   };
 }
 
@@ -96,12 +110,12 @@ function canonicalComparable(value) {
       requiredUnplaced: value.summary?.requiredUnplaced,
     },
     requirements: (value.requirements ?? []).map((requirement) => typeof requirement === "string" ? requirement : requirement.id).sort(),
+    unplaced: [...(value.unplaced ?? [])].sort(),
   };
 }
 
 const output = buildOutput();
 const check = process.argv.includes("--check");
-
 if (check) {
   if (!existsSync(OUTPUT)) {
     console.error("canonical-syllabus.json is missing; run node scripts/build_syllabus_audit.mjs");
@@ -118,6 +132,5 @@ if (check) {
   console.log(JSON.stringify({ ok: true, ...output.summary }));
   process.exit(0);
 }
-
 writeFileSync(OUTPUT, `${JSON.stringify(output, null, 2)}\n`, "utf8");
 console.log(JSON.stringify({ output: "data/audits/canonical-syllabus.json", ...output.summary }));
