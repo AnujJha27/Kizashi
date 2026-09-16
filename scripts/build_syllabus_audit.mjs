@@ -9,6 +9,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const AUDIT_DIR = resolve(ROOT, "data", "audits");
 const OUTPUT = resolve(AUDIT_DIR, "canonical-syllabus.json");
 const SYLLABUS = resolve(ROOT, "data", "kizashi-syllabus.json");
+const PLACEMENT_OVERRIDES = resolve(AUDIT_DIR, "syllabus-placement-overrides.json");
 const SOURCE_FILES = ["genki-i-ii.json", "minna-i-ii.json", "independent-beginner.json"];
 
 function readJson(path) {
@@ -59,21 +60,29 @@ function auditLessonRequirements(audits) {
 function syllabusState(audits) {
   if (!existsSync(SYLLABUS)) return { lessons: [], aliases: {}, rejected: {} };
   const syllabus = readJson(SYLLABUS);
+  const overrides = existsSync(PLACEMENT_OVERRIDES) ? readJson(PLACEMENT_OVERRIDES) : {};
   const rawLessons = Array.isArray(syllabus.lessons)
     ? syllabus.lessons
     : (syllabus.course?.chapters ?? []).flatMap((chapter) => chapter.lessons ?? []);
   const byAuditRef = auditLessonRequirements(audits);
   const lessons = rawLessons.map((lesson) => {
-    const requirementIds = new Set(Array.isArray(lesson.requirementIds) ? lesson.requirementIds : []);
-    for (const ref of Array.isArray(lesson.auditRefs) ? lesson.auditRefs : []) {
+    const requirementIds = new Set([
+      ...(Array.isArray(lesson.requirementIds) ? lesson.requirementIds : []),
+      ...(overrides.lessonRequirementAdditions?.[lesson.id] ?? []),
+    ]);
+    const auditRefs = [
+      ...(Array.isArray(lesson.auditRefs) ? lesson.auditRefs : []),
+      ...(overrides.lessonAuditRefAdditions?.[lesson.id] ?? []),
+    ];
+    for (const ref of auditRefs) {
       for (const id of byAuditRef.get(ref) ?? []) requirementIds.add(id);
     }
     return { ...lesson, requirementIds: [...requirementIds] };
   });
   return {
     lessons,
-    aliases: syllabus.requirementAliases ?? {},
-    rejected: syllabus.rejectedRequirements ?? {},
+    aliases: { ...(syllabus.requirementAliases ?? {}), ...(overrides.requirementAliases ?? {}) },
+    rejected: { ...(syllabus.rejectedRequirements ?? {}), ...(overrides.rejectedRequirements ?? {}) },
   };
 }
 
