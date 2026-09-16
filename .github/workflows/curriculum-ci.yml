@@ -33,6 +33,8 @@ jobs:
                   dst.write(src.read())
           PY
       - run: node scripts/build_syllabus_audit.mjs --check
+      - name: Report unresolved grammar teaching mappings
+        run: node scripts/report_grammar_teaching_gaps.mjs
       - run: npm test
       - run: npm run typecheck
       - run: npm run build
