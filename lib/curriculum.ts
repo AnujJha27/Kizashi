@@ -5,6 +5,7 @@ import lifeExpansionData from "@/data/n5-life-expansion.json";
 import n4GrammarExpansionData from "@/data/n4-grammar-expansion.json";
 import syllabusData from "@/data/kizashi-syllabus.json";
 import syllabusItemAliases from "@/data/syllabus-item-aliases.json";
+import syllabusLessonAdditions from "@/data/syllabus-lesson-additions.json";
 import textbookGapGrammarData from "@/data/textbook-gap-grammar.json";
 import grammarContractFields from "@/data/grammar-contract-fields.json";
 import vocabularyExampleExpansions from "@/data/vocabulary-example-expansions.json";
@@ -27,6 +28,7 @@ const addGrammarContractFields = (items: GrammarItem[]) => items.map((item) => (
 const addVocabularyExamples = (items: VocabularyItem[]) => items.map((item) => ({ ...item, exampleSentences: [...item.exampleSentences, ...((vocabularyExampleExpansions as Record<string, ExampleSentence[]>)[item.id] ?? [])] }));
 
 const canonicalSyllabusItemId = (itemId: string) => (syllabusItemAliases as Record<string, string>)[itemId] ?? itemId;
+const lessonAdditions = syllabusLessonAdditions as Record<string, string[]>;
 
 function canonicalizeSyllabusCourse(course: Course): Course {
   return {
@@ -35,7 +37,7 @@ function canonicalizeSyllabusCourse(course: Course): Course {
       ...chapter,
       lessons: chapter.lessons.map((lesson) => ({
         ...lesson,
-        itemIds: [...new Set(lesson.itemIds.map(canonicalSyllabusItemId))],
+        itemIds: [...new Set([...lesson.itemIds, ...(lessonAdditions[lesson.id] ?? [])].map(canonicalSyllabusItemId))],
       })),
     })),
   };
