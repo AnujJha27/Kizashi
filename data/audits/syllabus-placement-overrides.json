@@ -1,0 +1,22 @@
+{
+  "requirementAliases": {
+    "grammar-nominalization": "grammar-koto-nominalization"
+  },
+  "lessonAuditRefAdditions": {
+    "lesson-n4-giving-receiving": ["minna-2:7"],
+    "lesson-family-and-description": ["minna-2:16"],
+    "lesson-n4-ability": ["minna-2:18"],
+    "lesson-home-and-places": ["minna-2:22"],
+    "lesson-health-and-school": ["minna-2:26"],
+    "lesson-n4-quotation": ["minna-2:38"]
+  },
+  "lessonRequirementAdditions": {
+    "lesson-meeting-people": ["skill-production-speaking"],
+    "lesson-time-and-schedules": ["skill-listening-key-point"],
+    "lesson-shopping-and-money": ["skill-reading-practical", "skill-listening-task"],
+    "lesson-food-and-routines": ["skill-listening-verbal-expression"],
+    "lesson-home-and-places": ["skill-reading-short"],
+    "lesson-requests-permission-rules": ["skill-listening-quick-response"],
+    "lesson-casual-speech-and-opinions": ["skill-production-writing"]
+  }
+}
