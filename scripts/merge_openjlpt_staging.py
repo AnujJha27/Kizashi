@@ -165,6 +165,7 @@ def merge_category(module: dict[str, Any], category: str, incoming: list[dict[st
     by_id = {text(item.get("id")): item for item in existing if text(item.get("id"))}
     reviewed: list[dict[str, Any]] = []
     added: list[dict[str, Any]] = []
+
     def queue(item: dict[str, Any]) -> None:
         if not any(candidate is item for candidate in reviewed):
             reviewed.append(item)
@@ -255,36 +256,6 @@ def merge_curriculum_chapters(course: dict[str, Any], packages: list[tuple[str, 
                     existing_lesson["itemIds"] = unique([*strings(existing_lesson.get("itemIds")), *strings(lesson.get("itemIds"))])
             current["lessons"] = list(lessons.values())
     course["chapters"] = chapters
-
-
-def source_curriculum_chapter(items: list[dict[str, Any]], assigned: set[str], chunk_size: int = 150) -> dict[str, Any]:
-    labels = {
-        "vocabulary": ("Vocabulary expansion", "語彙を広げる"),
-        "kanji": ("Kanji expansion", "漢字を広げる"),
-        "grammar": ("Grammar expansion", "文法を広げる"),
-    }
-    lessons: list[dict[str, Any]] = []
-    for category, (title, subtitle) in labels.items():
-        item_ids = [text(item.get("id")) for item in items if item.get("category") == category and item.get("reviewStatus") != "rejected" and text(item.get("id")) not in assigned]
-        for offset in range(0, len(item_ids), chunk_size):
-            number = offset // chunk_size + 1
-            lessons.append({
-                "id": f"lesson-source-{category}-{number}",
-                "slug": f"source-{category}-{number}",
-                "title": f"{title} {number}",
-                "subtitle": subtitle,
-                "description": "Automatically released source records. Use them now and flag any bad record while studying.",
-                "estimatedMinutes": 20,
-                "itemIds": item_ids[offset:offset + chunk_size],
-            })
-    return {
-        "id": "chapter-source-curriculum",
-        "slug": "source-curriculum",
-        "title": "Expanded source curriculum",
-        "description": "Non-rejected imported material, grouped into bounded learner lessons.",
-        "region": "quiet-city",
-        "lessons": lessons,
-    }
 
 
 def base_fields(item: dict[str, Any], category: str, source_id: str) -> dict[str, Any]:
@@ -441,32 +412,12 @@ def main() -> int:
         raise ValueError("Base package has no course object.")
     merge_curriculum_items(module, curriculum_packages)
     merge_curriculum_chapters(course, curriculum_packages)
-    chapters = [chapter for chapter in list_value(course.get("chapters")) if isinstance(chapter, dict) and chapter.get("id") not in {"chapter-openjlpt-review", "chapter-source-curriculum"}]
-    assigned = {
-        item_id
-        for chapter in chapters
-        for lesson in list_value(chapter.get("lessons"))
-        if isinstance(lesson, dict)
-        for item_id in strings(lesson.get("itemIds"))
-    }
-    chapters.append(source_curriculum_chapter(imported, assigned))
-    chapters.append({
-        "id": "chapter-openjlpt-review",
-        "slug": "openjlpt-review",
-        "title": "Source review",
-        "description": "Imported level classifications and dictionary-linked records awaiting human review.",
-        "region": "quiet-city",
-        "lessons": [{
-            "id": "lesson-openjlpt-review",
-            "slug": "openjlpt-review",
-            "title": "Review imported records",
-            "subtitle": "出典を確認する",
-            "description": "Check meanings, examples, level fit, and lesson placement before publishing.",
-            "estimatedMinutes": 20,
-            "itemIds": [item["id"] for item in imported if item.get("id")],
-        }],
-    })
-    course["chapters"] = chapters
+    course["chapters"] = [
+        chapter
+        for chapter in list_value(course.get("chapters"))
+        if isinstance(chapter, dict)
+        and chapter.get("id") not in {"chapter-openjlpt-review", "chapter-source-curriculum"}
+    ]
     source_manifest_by_id: dict[str, dict[str, Any]] = {}
     for entry in source_manifest:
         source_id = text(entry.get("id"))
@@ -479,7 +430,7 @@ def main() -> int:
     module["sourceManifest"] = list(source_manifest_by_id.values())
     module["status"] = "staged"
     module["level"] = module.get("level") or course.get("jlptLevel")
-    module["sourcePolicy"] = "External records are imported for review only. Approve, enrich, and assign each record before publishing."
+    module["sourcePolicy"] = "External records are learner-visible reservoir content unless rejected; explicit syllabus placement controls Journey membership."
     module["stagingStats"] = {
         category: len(list_value(module.get(category)))
         for category in ("vocabulary", "kanji", "grammar", "readings", "listening")
@@ -488,7 +439,7 @@ def main() -> int:
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(module, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"output": str(args.output), "stats": module["stagingStats"]}, ensure_ascii=False))
+    print(json.dumps({"output": str(args.output), "stats": module["stagingStats"], "imported": len(imported)}, ensure_ascii=False))
     return 0
 
 
